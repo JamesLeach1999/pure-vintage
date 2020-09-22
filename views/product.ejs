@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html> -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="site-nav grid">
+        <h1><a href="/">Pure vintage</a></h1>
+        <ul>
+            <li><a href="#store">Store</a></li>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#create">Create account</a></li>
+        </ul>
+    </nav>
+<h1><%- pageTitle%></h1>
+<h1>WORRRRRRRRRRRRRRRRRRRK</h1>
+    <section id="welcome" class="grid">
+        <div class="welcome-text">
+            <h2>Vintage clothes <br> and shoes</h2>
+            <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, veniam.</p>
+            <a href="#store" class="button">View products</a>
+        </div>
+        <div class="welcome-image">
+        </div>
+    </section>
+    <section id="store" class="store">
+        <h3>Categories</h3>
+        <div class="grid category">
+            
+           
+            <!-- <a href="">
+                <img src="assets/shoes1.jpg" alt="category 2">
+                <h4>shoes</h4>
+            </a>
+            <a href="">
+                <img src="assets/shirt1.jpg" alt="category 3">
+                <h4>shirt 1</h4>
+            </a> -->
+            
+        </div>
+    </section>
+    <section id="products" class="products">
+        <h3>Some of our products</h3>
+        <ul class="grid">
+            <li>
+                <img src="assets/shoes1.jpg" alt="she">
+                <h4>js</h4>
+            </li>
+            <li>
+                <img src="assets/trousers1.jpg" alt="trou">
+                <h4>js</h4>
+            </li>
+            <li>
+                <img src="assets/cap1.jpg" alt="cap">
+                <h4>js</h4>
+            </li>
+            <li>
+                <img src="assets/tshirt1.jpg" alt="shirt" >
+                <h4>js</h4>
+            </li>
+        </ul>
+    </section>
+    <section id="login" class="login">
+        <h3>Login</h3>
+        <p class="leading">Lorem ipsum dolor sit amet consectetur</p>
+        <form method="POST" action="/login">
+            <input type="email" placeholder="email">
+            <input type="password" placeholder="password">
+            <button class="button">Submit</button>
+        </form>
+    </section>
+    <section id="create" class="create">
+        <h3>Get an account</h3>
+        <p class="leading">Lorem ipsum dolor sit amet consectetur</p>
+        <form method="POST" action="/register">
+            <input type="text" placeholder="name" name="name">
+            <input type="email" placeholder="email" name="email">
+            <input type="password" placeholder="password" name="password">
+            <button class="button">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="grid">
+            <p class="copyright">copyright 2020</p>
+            <ul class="social">
+                <li><a href=""><img src="assets/cap1.jpg" alt="facebook"></a></li>
+                <li><a href=""><img src="assets/coat1.jpg" alt="twitter"></a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>

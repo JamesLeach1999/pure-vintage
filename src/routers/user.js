@@ -10,7 +10,6 @@ const {
     loginValidation
 } = require("../validation/validation")
 
-// using joy to validate user data
 
 
 // so this means /api/user/register
@@ -21,7 +20,7 @@ router.post("/register", async (req, res) => {
     const {
         error
     } = registerValidation(req.body)
-    // cos its the first value in the array, returns error if there is no error
+    // cos its the first value in the array, returns error if there is no result
     if (error) {
         // kill the function with return
         return res.status(400).send(error.details[0].message)
@@ -63,22 +62,6 @@ router.post("/register", async (req, res) => {
     }
 })
 
-// router.get("/register", async (req, res) => {
-//   try {
-//     console.log(req.body)
-//     const products = await Product.find({})
-    
-//     res.render("signup.ejs", {
-//         pageTitle: "welcome",
-//         names: products,
-//         welcome: "welcome" + user.name
-//     })
-
-// } catch (error) {
-//     res.status(400).send(error + "numberwang")
-// }
-// })
-
 // login function
 router.post("/login", async (req, res) => {
 
@@ -113,8 +96,8 @@ router.post("/login", async (req, res) => {
 
     await user.generateAuthToken()
     const products = await Product.find({})
-
-    res.header("authToken", token).render("login.ejs", {
+console.log(token)
+    res.header("authToken", token).send(token).render("login.ejs", {
       user: user._id,
       token: token,
       name: "welcome back " + user.name,

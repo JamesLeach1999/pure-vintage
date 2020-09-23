@@ -5,9 +5,6 @@
   const validator = require("validator");
   const bcrypt = require('bcryptjs');
 
-  const jwtSecret = "123455667";
-
-
 
   const UserSchema = new mongoose.Schema({
       name: {

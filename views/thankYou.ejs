@@ -10,50 +10,31 @@
 
 <body>
     <nav class="site-nav grid">
-        <h1><a href="/home">Pure vintage</a></h1>
+        <h1><a href="/products">Pure vintage</a></h1>
         <ul>
-            <li><a href="/store">Store</a></li>
+            <li><a href="#store">Store</a></li>
             <li><a href="#login">Login</a></li>
             <li><a href="#create">Create account</a></li>
-            <li><a href="/me">my prof</a></li>
-            <li><a href="/add"></a></li>
-
         </ul>
     </nav>
-
-    <section id="welcome" class="grid">
-        <div class="welcome-text">
-            <h2>Vintage clothes <br> and shoes</h2>
-            <p class="leading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, veniam.</p>
-            <a href="#store" class="button">View products</a>
-        </div>
-        <div class="welcome-image">
-        </div>
-    </section>
+    
     <section id="store" class="store">
         <h3>Categories</h3>
         <div class="grid category">
-
-            <% names.forEach(function(name){ %>
-            <a href="/product?id=<%-name._id%>">
-                <img src="assets/<%-name.image%>" alt="category 2">
-                <h4><%-name.name%></h4>
-                <h3><%-name.brand%></h3>
-            </a>
-            <% }); %>
-            <!-- <a href="">
-                <img src="assets/shoes1.jpg" alt="category 2">
-                <h4>shoes</h4>
-            </a>
-            <a href="">
-                <img src="assets/shirt1.jpg" alt="category 3">
-                <h4>shirt 1</h4>
-            </a> -->
-
+            <img src="assets/<%-name.image%>" alt="category 2">
+            <h3><%-name.brand%></h3>
+            <h4><%-name.name%></h4>
+            <h5><%-name.description%></h5>
+            
+            <form method="POST" action="/product">
+            <input type="hidden" name="id" value="<%-name.id%>">
+            <input type="checkbox" name="cart" value="add to cart">
+            <button class="button">Submit</button>
+        </form>
         </div>
     </section>
     <section id="products" class="products">
-        <h3>Some of our products</h3>
+        <h3>Some of our other products</h3>
         <ul class="grid">
             <li>
                 <img src="assets/shoes1.jpg" alt="she">
@@ -77,8 +58,8 @@
         <h3>Login</h3>
         <p class="leading">Lorem ipsum dolor sit amet consectetur</p>
         <form method="POST" action="/login">
-            <input type="email" placeholder="email" name="email">
-            <input type="password" placeholder="password" name="password">
+            <input type="email" placeholder="email">
+            <input type="password" placeholder="password">
             <button class="button">Submit</button>
         </form>
     </section>

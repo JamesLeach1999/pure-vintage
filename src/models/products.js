@@ -16,6 +16,7 @@ var reviewSchema = new mongoose.Schema({
   }, {
     timestamps: true
   });
+  
   var productSchema = new mongoose.Schema({
     name: {
       type: String,
@@ -44,13 +45,13 @@ var reviewSchema = new mongoose.Schema({
     },
     rating: {
       type: Number,
-      "default": 0,
-      required: true
+      "default": 0
+      // required: true
     },
     numReviews: {
       type: Number,
-      "default": 0,
-      required: true
+      "default": 0
+      // required: true
     },
     reviews: [reviewSchema]
   });

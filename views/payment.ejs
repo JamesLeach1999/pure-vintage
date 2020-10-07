@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -16,7 +15,6 @@
             <li><a href="#login">Login</a></li>
             <li><a href="#create">Create account</a></li>
             <li><a href="/me">my prof</a></li>
-            <li><a href="/cart">my cart</a></li>
             <li><a href="/add"></a></li>
 
         </ul>
@@ -34,22 +32,33 @@
     <section id="store" class="store">
         <h3>Categories</h3>
         <div class="grid category">
+            <a href="/checkout">Proceed to checkout</a>
 
-            <% names.forEach(function(name){ %>
-            <a href="/product?id=<%-name._id%>">
-                <img src="assets/<%-name.image%>" alt="category 2">
-                <h4><%-name.name%></h4>
-                <h3><%-name.brand%></h3>
-            </a>
-            <% }); %>
+            <form action="/payment" method="post">
+                <input type="text" name="name" id="">
+                <input type="text" name="sort" id="">
+                <input type="text" name="acc" id="">
+                <input type="text" name="cardNumber" id="">
+                <input type="text" name="CVC" id="">
+                <input type="text" name="house" id="" value="<%-dest.house%>" hidden>
+                <input type="text" name="town" id="" value="<%-dest.town%>" hidden>
+                <input type="text" name="city" id="" value="<%-dest.city%>" hidden>
+                <input type="text" name="postcode" id="" value="<%-dest.postcode%>" hidden>
+                <input type="text" name="total" id="" value="<%-total%>" hidden>
+
+
+                <input type="submit">subit
+            </form>
+
+            
             <!-- <a href="">
-                <img src="assets/shoes1.jpg" alt="category 2">
-                <h4>shoes</h4>
-            </a>
-            <a href="">
-                <img src="assets/shirt1.jpg" alt="category 3">
-                <h4>shirt 1</h4>
-            </a> -->
+                    <img src="assets/shoes1.jpg" alt="category 2">
+                    <h4>shoes</h4>
+                </a>
+                <a href="">
+                    <img src="assets/shirt1.jpg" alt="category 3">
+                    <h4>shirt 1</h4>
+                </a> -->
 
         </div>
     </section>

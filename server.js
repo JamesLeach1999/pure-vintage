@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require("dotenv")
 const authRoute = require("./src/routers/user");
 const postRoute = require("./src/routers/product")
+const orderRoute = require("./src/routers/order")
 const expressLayouts = require("express-ejs-layouts")
 
 const path = require("path")
@@ -43,7 +44,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: null}
+    cookie: {maxAge: 20000000000}
 }))
 
 // passport middleware
@@ -62,6 +63,8 @@ app.use(passport.session())
 
 app.use("/", authRoute)
 app.use("/", postRoute)
+app.use("/", orderRoute)
+
 app.use(express.static("views"));
 
 app.listen(3000, () => {

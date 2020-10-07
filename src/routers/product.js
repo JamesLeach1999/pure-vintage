@@ -27,7 +27,7 @@ var storage = multer.diskStorage({
 
 const upload = multer({
     limits: {
-        fileSize: 1000000
+        fileSize: 100000000
     },
     storage: storage,
 
@@ -46,9 +46,11 @@ const upload = multer({
 
 })
 // only admins can upload and uses multer middleware to handle images
-router.post("/products", ensureAdmin, upload.single("image"), async (req, res) => {
+router.post("/products", ensureAuthenticated, upload.single("image"), async (req, res) => {
     // const user = await User.find({_id: req.user._id})
+    // console.log(req)
     var errors = []
+    console.log(req.headers)
 
     // retreiving input data. using multer middleware for the image
 
@@ -73,7 +75,11 @@ router.post("/products", ensureAdmin, upload.single("image"), async (req, res) =
         })
     }
 
-    if (req.session.isAdmin) {
+    const user = await User.findOne({
+        _id: req.session.passport.user
+    })
+
+    if (user.isAdmin) {
         const products = new Product({
             price,
             name,
@@ -103,7 +109,7 @@ router.post("/products", ensureAdmin, upload.single("image"), async (req, res) =
 
 })
 
-router.get('/add', ensureAdmin, async (req, res) => {
+router.get('/add', ensureAuthenticated, async (req, res) => {
     try {
         // getting the add page
         res.render("add.ejs")
@@ -114,6 +120,7 @@ router.get('/add', ensureAdmin, async (req, res) => {
 })
 
 router.get('/home', async (req, res) => {
+    // console.log(req.headers)
     try {
 
         // retrieving only the first 5 results
@@ -150,6 +157,7 @@ router.get('/store', async (req, res) => {
     }
 })
 
+
 router.get('/product', async (req, res) => {
     try {
 
@@ -168,43 +176,128 @@ router.get('/product', async (req, res) => {
             pageTitle: "welcome",
             name: product,
             query: req.query.id,
-            inCart: req.query.inCart
+            inCart: req.query.inCart,
+            reviews: product.reviews
         })
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
 })
 
+router.post("/reviews", ensureAuthenticated, async (req, res) => {
+
+    const star = req.body.star
+    const name = req.body.name
+    const brand = req.body.desc
+    const id = req.body.id
+
+    const review = {
+        name: name,
+        rating: star,
+        comment: brand
+    }
+
+    const product = await Product.findOne({
+        _id: id
+    })
+
+    product.reviews.push(review)
+
+    await product.save()
+
+    res.render("product.ejs", {
+        pageTitle: "welcome",
+        name: product,
+        reviews: product.reviews
+
+        // inCart: req.query.inCart
+    })
+    // Prints "Space Ghost is a talk show host".
+
+})
+
+// await products.save()
+
+
+
 router.get('/added', ensureAuthenticated, async (req, res) => {
     try {
-        const newP = await Product.findOne({_id: req.query.inCart})
-        const user = await User.findByIdAndUpdate({_id: req.session.passport.user}, {$push :{cart: newP._id}})
+        const newP = await Product.findOne({
+            _id: req.query.inCart
+        })
+        const user = await User.findByIdAndUpdate({
+            _id: req.session.passport.user
+        }, {
+            $push: {
+                cart: newP._id
+            }
+        })
         await user.save()
-        const test = await Product.findOne({_id: user.cart})
+        const test = await Product.findOne({
+            _id: user.cart
+        })
         console.log(test)
         // console.log(req.query.cart)
-        const products = await Product.find({
-        })
+
         res.redirect("/home")
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
 })
 
+router.get("/cart", ensureAuthenticated, async (req, res) => {
 
-router.delete("/product/:id", ensureAuthenticated, async (req, res) => {
-    try {
-        const ID = req.params.id
-        const products = await Product.findOneAndDelete({
-            _id: ID
-            // owner: req.user._id
+    // console.log(req.headers)
+
+    var fullCart = []
+
+    const user = await User.findById({
+        _id: req.session.passport.user
+    })
+    // console.log(user['cart'])
+    const cart = user['cart']
+    for (var i = 0; i < cart.length; i++) {
+        var product = await Product.findById({
+            _id: cart[i]
         })
-        if (!products) {
-            return res.status(404).send({
-                error: "Products not found for given ID " + ID
-            })
-        }
-        res.send(products)
+
+        fullCart.push(product)
+    }
+    // console.log(fullCart)
+
+    res.render('cart.ejs', {
+        cart: fullCart
+    })
+})
+
+
+router.post("/cartProduct", ensureAuthenticated, async (req, res) => {
+    try {
+        // const ID = req.params.id
+
+        const newP = await Product.findOne({
+            _id: req.body.id
+        })
+        const user = await User.findById({
+            _id: req.session.passport.user
+        
+        })
+
+        const cart = user.cart
+        
+        cart.remove({_id: req.body.id})
+
+        console.log(cart)
+
+        
+        await user.save()
+
+        // const products = await User.findByIdAndDelete({cart: req.body.id})
+
+        // console.log(user)
+        res.render('cart.ejs', {
+            cart: cart
+        })
     } catch (error) {
         res.status(500).send(error)
     }

@@ -107,7 +107,13 @@ router.get("/me", ensureAuthenticated, async (req, res) => {
 router.post('/login', (req, res, next) => {
 
     // req.session.id = req.user._id
+    // console.log(req.body)
 
+    // const email = req.body.email
+    // const password = req.body.password
+    // const cookie = req.headers
+    // console.log(cookie)
+    // res.render("user.ejs", {accessToken: cookie})
     passport.authenticate('local', {
       successRedirect: '/store',
       failureRedirect: '/home'
@@ -123,19 +129,23 @@ router.get("/logout", (req, res) => {
 })
 
 router.get('/createadmin', async (req, res) => {
-    try {
-      const user = new User({
-        name: 'jim',
-        email: 'a@a.com',
-        password: 'jimmyb0B',
-        isAdmin: true,
-      });
-      const newUser = await user.save();
-      res.send(newUser);
-    } catch (error) {
-      res.send(error);
-    }
+        bcrypt.genSalt(10, async (err, salt) => {
+            bcrypt.hash("jimmyb0B", salt, async (err, hash) => {
+                const user = new User({
+                    name: 'jim',
+                    email: 'aaa@a.com',
+                    password: hash,
+                    isAdmin: true,
+                  });
+                  const newUser = await user.save();
+                  res.send(newUser);
+                
+            })
+        
+      
+      
   });
+})
 
 
 module.exports = router

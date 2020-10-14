@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <!-- stripe checkout script -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="./js/script.js" defer>
+        
+    </script>
+
 </head>
 
 <body>
-    <nav class="site-nav grid">
-        <h1><a href="/home">Pure vintage</a></h1>
-        <ul>
-            <li><a href="/store">Store</a></li>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#create">Create account</a></li>
-            <li><a href="/me">my prof</a></li>
-            <li><a href="/add"></a></li>
 
-        </ul>
-    </nav>
+    <%- include('./partials/nav.ejs'); %>
+
 
     <section id="welcome" class="grid">
         <div class="welcome-text">
@@ -31,26 +30,24 @@
     </section>
     <section id="store" class="store">
         <h3>Categories</h3>
-        <div class="grid category">
-            <a href="/checkout">Proceed to checkout</a>
+        <!-- <div class="grid category"> -->
+            <form id="payment-form">
+                <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+                <button id="submit">
+                  <div class="spinner hidden" id="spinner"></div>
+                  <span id="button-text">Pay</span>
+                </button>
+                <p id="card-error" role="alert"></p>
+                <p class="result-message hidden">
+                  Payment succeeded, see the result in your
+                  <a href="" target="_blank">Stripe dashboard.</a> Refresh the page to pay again.
+                </p>
+              </form>
 
-            <form action="/payment" method="post">
-                <input type="text" name="name" id="">
-                <input type="text" name="sort" id="">
-                <input type="text" name="acc" id="">
-                <input type="text" name="cardNumber" id="">
-                <input type="text" name="CVC" id="">
-                <input type="text" name="house" id="" value="<%-dest.house%>" hidden>
-                <input type="text" name="town" id="" value="<%-dest.town%>" hidden>
-                <input type="text" name="city" id="" value="<%-dest.city%>" hidden>
-                <input type="text" name="postcode" id="" value="<%-dest.postcode%>" hidden>
-                <input type="text" name="total" id="" value="<%-total%>" hidden>
 
 
-                <input type="submit">subit
-            </form>
 
-            
+
             <!-- <a href="">
                     <img src="assets/shoes1.jpg" alt="category 2">
                     <h4>shoes</h4>
@@ -114,5 +111,6 @@
     </footer>
 
 </body>
+
 
 </html>

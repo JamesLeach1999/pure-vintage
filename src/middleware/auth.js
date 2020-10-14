@@ -6,50 +6,21 @@ const User = require("../models/User")
 // ensure authentication
 // this is your middleware
 module.exports = {
+    // using passport functions make this process alot easier
     ensureAuthenticated: function  (req, res, next)  {
-
         if(req.isAuthenticated()){
             console.log("auth")
             return next()
         } 
             console.log("error")
-            res.redirect("/home")
+            res.redirect("back")
         
     },
+
+    loadPage: function (req, res, next){
+        if(!req.isAuthenticated()){
+            return next()
+        }
+    }
     
-    // // passport gives us the ensure authenticated method
-    // // console.log(req.session)
-    // if(req.isAuthenticated()){
-    //     const id = req.session.passport.user
-    //     User.findById({_id: id}).exec().then(user => {
-    //         console.log(user)
-    //         return next(user)
-    //     })
-
-    //     // if(userExist){
-    //     //     console.log(userExist)
-    //     //     req.session.isAdmin = false
-    //     //     req.session.isAuth = true
-    //     // }
-    // }
-
-    // res.redirect("/home")
-    // ensureAdmin: function (req, res, next) {
-    //     // passport gives us the ensure authenticated method
-    //     console.log(req.session)
-    //     if(req.isAuthenticated()){
-    //         const id = req.session.passport.user
-    //         const userExist = await User.findById({_id: id}, async (err, res) => {
-    //             console.log(res)
-    //         })
-
-    //         if(userExist){
-    //             req.session.isAdmin = false
-    //             req.session.isAuth = true
-    //             return next()
-    //         }
-    //     }
-
-    //     res.send("log in as admin")
-    // }
 }

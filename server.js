@@ -12,7 +12,10 @@ const session = require("express-session")
 const passport = require("passport")
 const bodyParser = require("body-parser")
 
+// using dotenv to get environment variables
 dotenv.config()
+
+
 require("./src/middleware/passport")(passport)
 
 
@@ -41,7 +44,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 // express session, nthese are just for messages, saved in the session i guess
 
 app.use(session({
-    secret: 'keyboard cat',
+    secret: process.env.EXPRESS_SESSION,
     resave: false,
     saveUninitialized: true,
     cookie: {maxAge: 20000000000}
@@ -50,12 +53,6 @@ app.use(session({
 // passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
-
-//   connect flash
-
-
-// // global vars
 
 // route middlewares
 // so everything in the auth route will have this prefix

@@ -9,19 +9,8 @@
     </head>
     
     <body>
-        <nav class="site-nav grid">
-            <h1><a href="/home">Pure vintage</a></h1>
-            <ul>
-                <li><a href="/store">Store</a></li>
-                <li><a href="/products#login">Login</a></li>
-                <li><a href="/products#create">Create account</a></li>
-                <li><a href="/me">my prof</a></li>
-                <li><a href="/cart">my cart</a></li>
+        <%- include('./partials/nav.ejs'); %>
 
-                <li><a href="/add">add product</a></li>
-
-            </ul>
-        </nav>
     
         <section id="welcome" class="grid">
             <div class="welcome-text">
@@ -48,7 +37,7 @@
     
                 <% names.forEach(function(name){ %>
                 <a href="/product?id=<%-name._id%>">
-                    <img src="assets/<%-name.image%>" alt="category 2">
+                    <img src="assets/<%-name.image[0]%>" alt="category 2">
                     <h4><%-name.name%></h4>
                     <h3><%-name.brand%></h3>
                 </a>

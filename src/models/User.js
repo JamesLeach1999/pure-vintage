@@ -82,6 +82,9 @@ var productSchema = new mongoose.Schema({
 
     cart: [{type: String}],
 
+    pastOrders: [{type: String}],
+
+
       isAdmin: {
           type: Boolean,
           default: false

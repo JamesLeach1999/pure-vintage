@@ -56,12 +56,16 @@ var reviewSchema = new mongoose.Schema({
       "default": 0
       // required: true
     },
+    
+
     numReviews: {
       type: Number,
       "default": 0
       // required: true
     },
     reviews: [reviewSchema]
+  }, {
+    timestamps: true
   });
 
 

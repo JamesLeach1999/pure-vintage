@@ -6,22 +6,31 @@ const authRoute = require("./src/routers/user");
 const postRoute = require("./src/routers/product")
 const orderRoute = require("./src/routers/order")
 const expressLayouts = require("express-ejs-layouts")
-
+const cookieParser = require("cookie-parser")
 const path = require("path")
 const session = require("express-session")
 const passport = require("passport")
 const bodyParser = require("body-parser")
+const cors = require("cors")
 
 // using dotenv to get environment variables
 dotenv.config()
-
+// app.use(cors())
 
 require("./src/middleware/passport")(passport)
 
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+    // allowedHeaders: "Access-Control-Allow-Origin", // <-- location of the react app were connecting to
+    credentials: true
+  })
+);
 
 mongoose.connect(process.env.DB_CONNECT, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useFindAndModify: true
 }, () => {
   console.log("connected to db")
 })
@@ -33,9 +42,9 @@ mongoose.connect(process.env.DB_CONNECT, {
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
-// ejs
-app.use(expressLayouts)
-app.set("view engine", "ejs")
+// // ejs
+// app.use(expressLayouts)
+// app.set("view engine", "ejs")
 
 // body parser, to get form data
 
@@ -50,9 +59,12 @@ app.use(session({
     cookie: {maxAge: 20000000000}
 }))
 
+
 // passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(cookieParser(process.env.EXPRESS_SESSION));
 
 // route middlewares
 // so everything in the auth route will have this prefix
@@ -62,8 +74,8 @@ app.use("/", authRoute)
 app.use("/", postRoute)
 app.use("/", orderRoute)
 
-app.use(express.static("views"));
+app.use(express.static("work/src"));
 
-app.listen(3000, () => {
+app.listen(9000, () => {
   console.log("server run successfully");
 });

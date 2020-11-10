@@ -106,6 +106,7 @@ router.get("/signup", async (req, res) => {
 router.get("/me", ensureAuthenticated, async (req, res) => {
     // retrieving id data set in passport line 32
     const id = req.session.passport.user
+    console.log(req)
 
     const userProfile = await User.findById({
         _id: id
@@ -129,20 +130,26 @@ router.get("/about", async (req, res) => {
 })
 
 // rendering login page
-router.get("/login", async (req, res) => {
-    // retrieving id data set in passport line 32
-    res.render("login.ejs")
-})
+// router.get("/login", async (req, res) => {
+//     // retrieving id data set in passport line 32
+//     res.render("login.ejs")
+// })
 
 // login function, using passport built in methods for better security
 router.post('/login', (req, res, next) => {
-
-    console.log(req.body)
-
-    passport.authenticate('local', {
-        successRedirect: '/store',
-        failureRedirect: '/home'
-    })(req, res, next);
+    console.log(req.session)
+  passport.authenticate('local', (err, user, info) => {
+      console.log(user)
+    if (err) throw err;
+    if (!user) res.send('no user');
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send(req.session);
+        console.log(req.session);
+      });
+    }
+  })(req, res, next);
 });
 
 // ?logout session

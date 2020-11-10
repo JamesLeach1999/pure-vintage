@@ -2,11 +2,12 @@ const router = require("express").Router()
 const User = require("../models/User")
 const {
     loadPage,
-    ensureAuthenticated
+    ensureAuthenticated,
+    
 } = require("../middleware/auth")
+const {filter} = require("../emails/account")
 const Product = require("../models/Products")
 const multer = require("multer");
-const { agent } = require("supertest");
 
 // AUTHENTICATION EXPLAINED
 // i have used ensureAuthenticated on most of the routes here. This is so we can get the session and user ID and therefore the user profile
@@ -27,7 +28,7 @@ router.get("/", (req, res) => {
 // multer is the most simple and popular library for image uploads in node
 
 var storage = multer.diskStorage({
-    destination: './uploads/',
+    destination: './views/assets',
     filename: function (req, file, cb) {
         //req.body is empty...
         //How could I get the new_file_name property sent from client here?
@@ -161,7 +162,9 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
         // getting the add page
         const user = await User.findById({_id: req.session.passport.user})
 
-        res.render("add.ejs",{
+        const products = await Product.find({})
+        res.render("edit.ejs",{
+            names: products,
             isAuth: true,
             isAdmin: user.isAdmin
         })
@@ -171,13 +174,112 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
     }
 })
 
+router.post('/edit', ensureAuthenticated, async (req, res) => {
+    console.log(req.body)
+    var category
+    if(req.body.category){
+        var category = req.body.category.toString()
+        var catStr = category.replace(/,/g, " ")
+
+        req.body.category = catStr
+    } 
+    if(req.body.brand){
+        var brand = req.body.brand.toString()
+        var brandStr = brand.replace(/,/g, " ")
+
+        req.body.brand = brandStr
+    }
+    if(req.body.size){
+        var size = req.body.size.toString()
+        var sizeStr = size.replace(/,/g, " ")
+
+        req.body.size = sizeStr
+    }
+    
+    var clothes = []
+    if(req.body.category === undefined && req.body.brand === undefined && req.body.size === undefined){
+        const pro = await Product.find({})
+        
+        pro.forEach(n => {
+            clothes.push(n)
+        })
+    } else {
+        var pro1 = await filter(req.body)
+        pro1.forEach(ite => {
+            clothes.push(ite)
+        })
+    }
+
+    console.log(req.body.yes)
+    
+    // if(req.body.delete){
+    //     Product.findByIdAndDelete({_id: req.body.delete}, (err, res) => {
+    //         console.log(res)
+    //     })
+    // }
+    res.render("edit.ejs", {
+        pageTitle: "welcome",
+        names: clothes,
+        isAuth: true,
+        isAdmin: true
+    })
+})
+
+router.post("/editPost", async (req, res) => {
+    console.log(req.body)
+
+    var edits = req.body.edit
+
+        const id = req.body.id
+        var f = []
+        var updates = ["name", "brand", "category", "description", "size", "price"]
+        updates.forEach(pro => {
+            f.push(pro)
+        })
+    for(var i = 0; i < edits.length; i++){
+        if(edits[i] !== ""){
+            switch(updates[i]){
+                case "name": Product.findByIdAndUpdate({_id: id}, {name: edits[i]}, (err, res) => {
+                    console.log(err)
+                }); break;
+                case "brand": Product.findByIdAndUpdate({_id: id}, {brand: edits[i]}, (err, res) => {
+                    console.log(err)
+                }); break;
+                case "category": Product.findByIdAndUpdate({_id: id}, {category: edits[i]}, (err, res) => {
+                    console.log(err)
+                }); break;
+                case "description": Product.findByIdAndUpdate({_id: id}, {description: edits[i]}, (err, res) => {
+                    console.log(err)
+                }); break;
+                case "size": Product.findByIdAndUpdate({_id: id}, {size: edits[i]}, (err, res) => {
+                    console.log(err)
+                }); break;
+                case "price": var num = edits[i]
+                console.log()
+                    var num1 = parseInt(num)
+                    console.log
+                    Product.findByIdAndUpdate({_id: id}, {price: num1}, (err, res) => {
+                    console.log(err)
+                }); break;
+            }
+        }
+    }
+    const products = await Product.find({})
+        res.render("edit.ejs",{
+            names: products,
+            isAuth: true,
+            isAdmin: true
+        })
+})
+
 // getting the delete agent,again will add pagnintation
 router.get('/delete', ensureAuthenticated, async (req, res) => {
     try {
         // getting the add page
         const user = await User.findById({_id: req.session.passport.user})
-
-        res.render("add.ejs",{
+        const products = await Product.find({})
+        res.render("delete.ejs",{
+            names: products,
             isAuth: true,
             isAdmin: user.isAdmin
         })
@@ -185,6 +287,56 @@ router.get('/delete', ensureAuthenticated, async (req, res) => {
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
+})
+
+router.post('/delete', ensureAuthenticated, async (req, res) => {
+    var category
+    if(req.body.category){
+        var category = req.body.category.toString()
+        var catStr = category.replace(/,/g, " ")
+
+        req.body.category = catStr
+    } 
+    if(req.body.brand){
+        var brand = req.body.brand.toString()
+        var brandStr = brand.replace(/,/g, " ")
+
+        req.body.brand = brandStr
+    }
+    if(req.body.size){
+        var size = req.body.size.toString()
+        var sizeStr = size.replace(/,/g, " ")
+
+        req.body.size = sizeStr
+    }
+    console.log(req.body.delete)
+
+    
+    var clothes = []
+    if(req.body.category === undefined && req.body.brand === undefined && req.body.size === undefined){
+        const pro = await Product.find({})
+        
+        pro.forEach(n => {
+            clothes.push(n)
+        })
+    } else {
+        var pro1 = await filter(req.body)
+        pro1.forEach(ite => {
+            clothes.push(ite)
+        })
+    }
+    
+    if(req.body.delete){
+        Product.findByIdAndDelete({_id: req.body.delete}, (err, res) => {
+            console.log(res)
+        })
+    }
+    res.render("delete.ejs", {
+        pageTitle: "welcome",
+        names: clothes,
+        isAuth: true,
+        isAdmin: true
+    })
 })
 
 // again, checking if the user is logged in then sending back different results depending
@@ -199,7 +351,7 @@ router.get('/home', async (req, res) => {
     
             const categories = await Product.find({}).limit(2)
     
-            res.render("index.ejs", {
+            res.send( {
                 pageTitle: "welcome",
                 names: products,
                 query: req.query.id,
@@ -236,64 +388,134 @@ router.get('/home', async (req, res) => {
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store',  async (req, res) => {
 
-    console.log(req.session)
     if(req.session.passport && req.session.passport.user){
         const user = await User.findById({_id: req.session.passport.user})
         const isAdmin = user.isAdmin
-        console.log(isAdmin)
     try {
-        if (req.query.category) {
-            var product = await Product.find({
-                category: req.query.category
+        var query = req.query
+
+        
+        
+
+        var clothes = []
+        if(query.category || query.size || query.brand){
+            // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
+            var pro1 = await filter(query)
+            pro1.forEach(ite => {
+                clothes.push(ite)
             })
-        }
-        else if (req.query.category) {
-            var product = await Product.find({
-                category: req.query.category
-            })
-        }
-        else if (req.query.category) {
-            var product = await Product.find({
-                category: req.query.category
+            // console.log(cloth[0])
+            res.send( {
+                pageTitle: "welcome",
+                names: clothes,
+                query: req.query.id,
+                isAuth: true,
+                isAdmin: isAdmin
             })
         } else {
-            var product = await Product.find({})
+            var pro1 = await Product.find({})
+            // console.log(pro1)
+            res.send( {
+                pageTitle: "welcome",
+                names: pro1,
+                query: req.query.id,
+                isAuth: true,
+                isAdmin: isAdmin
+            })
         }
-        res.render("store.ejs", {
-            pageTitle: "welcome",
-            names: product,
-            query: req.query.id,
-            isAuth: true,
-            isAdmin: isAdmin
-        })
+
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
 } else {
     try {
-        if (req.query.category) {
-            var product = await Product.find({
-                category: req.query.category
+        var query = req.query
+        
+        // console.log(query)
+
+        var clothes = []
+        if(query.category || query.size || query.brand){
+            // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
+            var pro1 = await filter(query)
+            pro1.forEach(ite => {
+                clothes.push(ite)
+            })
+            // console.log(cloth[0])
+            res.send( {
+                pageTitle: "welcome",
+                names: clothes,
+                query: req.query.id,
+                isAuth: false,
+                isAdmin: false
             })
         } else {
-            var product = await Product.find({})
+            var pro1 = await Product.find({})
+            // console.log(pro1)
+            res.send({
+              pageTitle: 'welcome',
+              names: pro1,
+              query: req.query.id,
+              isAuth: false,
+              isAdmin: false,
+            });
         }
-        res.render("store.ejs", {
-            pageTitle: "welcome",
-            names: product,
-            query: req.query.id,
-            isAuth: false,
-            isAdmin: false
-        })
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
 }
 })
 
+router.post("/store", async (req, res) => {
+
+    // console.log(req.body.category)
+    var category
+    if(req.body.category){
+        var category = req.body.category.toString()
+        var catStr = category.replace(/,/g, " ")
+
+        req.body.category = catStr
+    } 
+    if(req.body.brand){
+        var brand = req.body.brand.toString()
+        var brandStr = brand.replace(/,/g, " ")
+
+        req.body.brand = brandStr
+    }
+    if(req.body.size){
+        var size = req.body.size.toString()
+        var sizeStr = size.replace(/,/g, " ")
+
+        req.body.size = sizeStr
+    }
+
+    var clothes = []
+    if(req.body.category === undefined && req.body.brand === undefined && req.body.size === undefined){
+        const pro = await Product.find({})
+
+        pro.forEach(n => {
+            clothes.push(n)
+        })
+    } else {
+        var pro1 = await filter(req.body)
+        pro1.forEach(ite => {
+            clothes.push(ite)
+        })
+
+    }
+
+    res.render("store.ejs", {
+        pageTitle: "welcome",
+        names: clothes,
+        
+        isAuth: true,
+        isAdmin: false
+    })
+})
+
 // getting individual products based on their passed in ids from the store page
 router.get('/product', async (req, res) => {
 
+    
     if(req.session.passport && req.session.passport.user){
     try {
 
@@ -305,7 +527,7 @@ router.get('/product', async (req, res) => {
         const isAdmin = user.isAdmin
         
         // also returning all images which will be shown on the individual product page
-        res.render("product.ejs", {
+        res.send({
             pageTitle: "welcome",
             name: product,
             query: req.query.id,
@@ -325,7 +547,7 @@ router.get('/product', async (req, res) => {
             _id: req.query.id
         })
         
-        res.render("product.ejs", {
+        res.send( {
             pageTitle: "welcome",
             name: product,
             query: req.query.id,
@@ -374,11 +596,12 @@ router.post("/reviews", ensureAuthenticated, async (req, res) => {
 })
 
 // adding products to your cart, fairly straight forward just pushing the selected product onto your cart array
-router.get('/added', ensureAuthenticated, async (req, res) => {
+router.post('/added', ensureAuthenticated, async (req, res) => {
     try {
         const newP = await Product.findOne({
-            _id: req.query.inCart
-        })
+          _id: req.body.id,
+        });
+        
         const user = await User.findByIdAndUpdate({
             _id: req.session.passport.user
         }, {
@@ -393,7 +616,7 @@ router.get('/added', ensureAuthenticated, async (req, res) => {
         console.log(test)
         // console.log(req.query.cart)
 
-        res.redirect("/home")
+        res.redirect("http://localhost:3000/cart")
     } catch (error) {
         res.status(400).send(error + "numberwang")
     }
@@ -403,6 +626,7 @@ router.get('/added', ensureAuthenticated, async (req, res) => {
 router.get("/cart", ensureAuthenticated, async (req, res) => {
 
     var fullCart = []
+    console.log(req.session)
 
     const user = await User.findById({
         _id: req.session.passport.user
@@ -419,7 +643,7 @@ router.get("/cart", ensureAuthenticated, async (req, res) => {
         fullCart.push(product)
     }
     // console.log(fullCart)
-    res.render('cart.ejs', {
+    res.send( {
         cart: fullCart,
         isAuth: true,
         isAdmin: isAdmin
@@ -458,7 +682,7 @@ router.post("/cartProduct", ensureAuthenticated, async (req, res) => {
     }
 })
 
-router.patch('/product/:id', ensureAuthenticated, async (req, res) => {
+router.get('/edit', ensureAuthenticated, async (req, res) => {
 
     const validUpdates = ['description', 'completed']
     const updates = Object.keys(req.body)

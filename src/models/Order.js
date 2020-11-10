@@ -9,7 +9,7 @@ const shippingSchema = {
   };
   
   const paymentSchema = {
-    paymentMethod: { type: String, required: true }
+    paymentMethod: { type: String, default: "card" }
   };
   
   const orderItemSchema = new mongoose.Schema({
@@ -36,6 +36,7 @@ const shippingSchema = {
     paidAt: { type: Date },
     // isDelivered: { type: Boolean, default: false },
     deliveredAt: { type: Date },
+    
   }, {
     timestamps: true
   });

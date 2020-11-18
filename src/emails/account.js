@@ -1,8 +1,7 @@
 // this is all the code, using the sendgrid api, used to set the variables and send mail
 // much nicer to do it here instead of in routers
 const sgMail = require('@sendgrid/mail');
-const Product = require('../models/Products');
-const User = require("../models/User")
+const Product = require("../models/products");
 // still need the process.env to access environment variables
 sgMail.setApiKey(process.env.SG_API_KEY);
 // surprisingly easy this. can pass in html to make it styled

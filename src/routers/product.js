@@ -2,7 +2,7 @@ const router = require('express').Router();
 const User = require('../models/User');
 const { loadPage, ensureAuthenticated } = require('../middleware/auth');
 const { filter } = require('../emails/account');
-const Product = require('../models/Products');
+const Product = require('../models/products');
 const multer = require('multer');
 
 // AUTHENTICATION EXPLAINED

@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const { ensureAdmin, ensureAuthenticated } = require('../middleware/auth');
-const Product = require('../models/Products');
+const Product = require('../models/products');
 const multer = require('multer');
 const Order = require('../models/Order');
 const stripeSecret = process.env.SECRET_KEY;

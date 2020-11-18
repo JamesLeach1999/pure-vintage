@@ -21,11 +21,13 @@ require("./middleware/passport")(passport)
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:5000',
     // allowedHeaders: "Access-Control-Allow-Origin", // <-- location of the react app were connecting to
     credentials: true
   })
 );
+
+console.log(process.env.PORT)
 
 mongoose.connect(process.env.DB_CONNECT, {
   useNewUrlParser: true,
@@ -68,17 +70,16 @@ app.use(cookieParser(process.env.EXPRESS_SESSION));
 
 // route middlewares
 // so everything in the auth route will have this prefix
-const PORT = process.env.PORT || 5000
 app.use("/", authRoute)
 app.use("/", postRoute)
 app.use("/", orderRoute)
 
-app.use(express.static("../work/build"));
+app.use(express.static("./work/build"));
 
 // if(process.env.NODE_ENV === "production"){
 //   app.use(express.static("work/build"))
 // }
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log("server run successfully");
 });

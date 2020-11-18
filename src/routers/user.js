@@ -1,6 +1,6 @@
 const express = require('express')
 const User = require('../models/User')
-const Product = require("../models/Products")
+// const Product = require("../models/Products")
 const {
     ensureAuthenticated
 } = require("../middleware/auth")

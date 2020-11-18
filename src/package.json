@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "env-cmd node server.js",
     "dev": "node server.js",
     "heroku-postbuild": "cd work && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },

@@ -60,7 +60,7 @@ router.post("/register", (req, res) => {
         }
 
         if (errors.length > 0) {
-            res.render("signup.ejs", {
+            res.send( {
                 errors
             })
         }
@@ -83,9 +83,9 @@ router.post("/register", (req, res) => {
                 console.log(hash)
                 newUser.save().then(user => {
                     console.log(user)
-                    res.redirect("/home")
+                    res.redirect("/")
                 }).catch((err) => {
-                    res.redirect("login")
+                    res.redirect("/login")
                 })
             })
         })
@@ -102,18 +102,26 @@ router.get("/signup", async (req, res) => {
     })
 })
 
+router.post("/getAuth", async (req, res) => {
+    const auth = await User.findById({_id: req.body.id})
+
+    res.send({
+        isAuth: true,
+        isAdmin: auth.isAdmin
+    })
+})
+
 // get own profile
 router.get("/me", ensureAuthenticated, async (req, res) => {
     // retrieving id data set in passport line 32
     const id = req.session.passport.user
-    console.log(req)
 
     const userProfile = await User.findById({
         _id: id
     })
 
-
-    res.render("user.ejs", {
+// console.log(userProfile)
+    res.send( {
         userProfile: userProfile,
         isAuth: true,
         isAdmin: userProfile.isAdmin

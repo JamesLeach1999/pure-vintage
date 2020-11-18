@@ -56,6 +56,10 @@ var reviewSchema = new mongoose.Schema({
       "default": 0
       // required: true
     },
+    featured:{
+      type: Boolean,
+      default: false
+    },
     
 
     numReviews: {

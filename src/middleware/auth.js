@@ -13,8 +13,7 @@ module.exports = {
       return next();
     }
 
-    console.log('error');
-    res.redirect('back');
+    throw new Error()
   },
 
   loadPage: function (req, res, next) {

@@ -14,6 +14,8 @@
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "@sendgrid/mail": "^7.2.6",
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.11.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -32,8 +34,15 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "query-string": "^6.13.7",
     "sharp": "^0.25.4",
-    "validator": "^13.1.1"
+    "validator": "^13.1.1",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
+    "react-confetti": "^5.0.1",
+    "react-dom": "^16.7.0",
+    "stripe": "^8.15.0"
   },
   "devDependencies": {
     "body-parser": "^1.19.0",

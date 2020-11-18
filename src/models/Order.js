@@ -1,8 +1,7 @@
 const mongoose = require("mongoose")
 
 const shippingSchema = {
-    house: { type: String, required: true },
-    town: { type: String, required: true },
+    address: { type: String, required: true },
     city: { type: String, required: true },
     postcode: { type: String, required: true }
 
@@ -32,6 +31,7 @@ const shippingSchema = {
     // itemsPrice: { type: Number },
     // shippingPrice: { type: Number },
     totalPrice: { type: Number },
+    intent: {type: String},
     isPaid: { type: Boolean, default: false },
     paidAt: { type: Date },
     // isDelivered: { type: Boolean, default: false },

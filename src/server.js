@@ -19,13 +19,20 @@ dotenv.config()
 
 require("./middleware/passport")(passport)
 
-app.use(
-  cors({
-    origin: 'http://localhost:5000',
-    // allowedHeaders: "Access-Control-Allow-Origin", // <-- location of the react app were connecting to
-    credentials: true
-  })
-);
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://shrouded-journey-38552.heroku']
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions));
 
 console.log(process.env.PORT)
 
@@ -80,10 +87,11 @@ if(process.env.NODE_ENV === "production"){
   app.use(express.static("work/build"))
 
   app.get("*", (req, res) => {
+    // serving react files here to the browser
     res.sendFile(path.join(__dirname, "work/build", "index.html"))
   })
 }
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log("server run successfully");
 });

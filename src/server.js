@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const dotenv = require("dotenv")
-const authRoute = require("./src/routers/user");
-const postRoute = require("./src/routers/product")
-const orderRoute = require("./src/routers/order")
+const authRoute = require("./routers/user");
+const postRoute = require("./routers/product")
+const orderRoute = require("./routers/order")
 const expressLayouts = require("express-ejs-layouts")
 const cookieParser = require("cookie-parser")
 const path = require("path")
@@ -17,7 +17,7 @@ const cors = require("cors")
 dotenv.config()
 // app.use(cors())
 
-require("./src/middleware/passport")(passport)
+require("./middleware/passport")(passport)
 
 app.use(
   cors({
@@ -73,11 +73,11 @@ app.use("/", authRoute)
 app.use("/", postRoute)
 app.use("/", orderRoute)
 
-app.use(express.static("work/src"));
+app.use(express.static("../work/build"));
 
-if(process.env.NODE_ENV === "production"){
-  app.use(express.static("work/build"))
-}
+// if(process.env.NODE_ENV === "production"){
+//   app.use(express.static("work/build"))
+// }
 
 app.listen(PORT, () => {
   console.log("server run successfully");

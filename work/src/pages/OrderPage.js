@@ -74,9 +74,9 @@ const OrderPage = () => {
                 <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden/>
                   <input type="text" name="name" value={name} hidden />
-                  <input type="number" name="star" />
+                  <input type="number" name="star" max="5" />
                   <input type="text" name="desc" />
-                  <button type="submit" onClick={() => window.location.href("/store")}>submit review</button>
+                  <button type="submit" onClick={() => window.location.replace("/store")}>submit review</button>
                 </form>
               </div>
             );

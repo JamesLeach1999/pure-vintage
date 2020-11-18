@@ -1,5 +1,5 @@
 import React from 'react'
-import defaultImage from "../assets/shoes1.jpg";
+import defaultImage from "../assets/Logo_blue_text.jpg";
 
 
 const Welcome = () => {

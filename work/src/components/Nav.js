@@ -2,7 +2,7 @@ import React, { useState, useEffect, Component } from 'react';
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Axios from 'axios';
-import defaultImage from '../assets/shoes1.jpg';
+import defaultImage from "../assets/Logo_blue_text.jpg";
 import Welcome from './Welcome';
 import Home from '../pages/Home';
 import Store from '../pages/Store';

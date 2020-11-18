@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "env-cmd -f ./.env nodemon server.js",
-    "dev": "env-cmd -f ./.env nodemon server.js"
+  "start": {
+    "start": "cd src && node server.js",
+    "dev": "cd src && node server.js",
+    "build": "",
+    "install-client": "cd work && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run dev && npm start"
   },
-  "proxy": "http://localhost:9000",
+  "proxy": "http://localhost:5000",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -55,5 +58,8 @@
     "prettier": "^2.1.1",
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
-  }
+  },
+  "engines": {
+        "node": "10.16.0"
+    }
 }

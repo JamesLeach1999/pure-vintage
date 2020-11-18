@@ -76,9 +76,13 @@ app.use("/", orderRoute)
 
 app.use(express.static("./work/build"));
 
-// if(process.env.NODE_ENV === "production"){
-//   app.use(express.static("work/build"))
-// }
+if(process.env.NODE_ENV === "production"){
+  app.use(express.static("work/build"))
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "work/build", "index.html"))
+  })
+}
 
 app.listen(process.env.PORT || 5000, () => {
   console.log("server run successfully");

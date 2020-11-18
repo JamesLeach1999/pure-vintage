@@ -15,10 +15,7 @@ const multer = require('multer');
 // but rather just removes the value for passport leaving it blank. so had to account for this as well
 
 // rendering general layouts for all pages
-router.get('/', (req, res) => {
-  console.log(req.session);
-  res.render('layout');
-});
+
 
 // IMAGES, defining the destination
 // multer is the most simple and popular library for image uploads in node

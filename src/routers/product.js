@@ -16,7 +16,6 @@ const multer = require('multer');
 
 // rendering general layouts for all pages
 
-
 // IMAGES, defining the destination
 // multer is the most simple and popular library for image uploads in node
 
@@ -108,8 +107,8 @@ router.post('/products', ensureAuthenticated, upload.array('image', 10), async (
     await products.save();
 
     res.send({
-      names: products
-    })
+      names: products,
+    });
   } catch (error) {
     res.status(401).send(error);
   }
@@ -468,7 +467,7 @@ router.get('/store', async (req, res) => {
 });
 
 router.get('/featuredRows', async (req, res) => {
-  var pro1 = await Product.find({ featured: true});
+  var pro1 = await Product.find({ featured: true });
   // console.log(pro1)
   res.send({
     pageTitle: 'welcome',
@@ -626,7 +625,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     console.log(test);
     // console.log(req.query.cart)
 
-    res.redirect('http://localhost:3000/cart');
+    res.redirect('/cart');
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engine":{
+  "engine": {
     "npm": "6.14.8",
     "node": "12.18.2"
   },
@@ -62,5 +62,4 @@
     "supertest": "^4.0.2"
   },
   "proxy": "http://localhost:8080"
-  
 }

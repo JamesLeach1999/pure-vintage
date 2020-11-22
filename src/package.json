@@ -57,5 +57,5 @@
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:3000"
 }

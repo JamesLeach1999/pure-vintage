@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd node server.js",
-    "dev": "env-cmd node src/server.js",
-    "heroku-postbuild": "cd src/work && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "start": "env-cmd node server.js && npm install",
+    "dev": "env-cmd node src/server.js && npm install",
+    "heroku-postbuild": "cd work && npm install && npm install --only=dev --no-shrinkwrap && npm start"
   },
   "keywords": [],
   "author": "",

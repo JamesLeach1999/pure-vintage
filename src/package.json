@@ -57,5 +57,9 @@
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "engine":{
+    "npm": "6.14.8",
+    "node": "12.18.2"
+  }
 }

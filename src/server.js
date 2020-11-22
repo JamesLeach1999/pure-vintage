@@ -88,14 +88,14 @@ app.use('/', authRoute);
 app.use('/', postRoute);
 app.use('/', orderRoute);
 
-app.use(express.static('./work/build'));
+app.use(express.static('work/build'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('work/build'));
 
   app.get('*', (req, res) => {
     // serving react files here to the browser
-    res.sendFile(path.join(__dirname, 'work/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, "../work", "build", "index.html"));
   });
 }
 

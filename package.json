@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd node src/server.js",
-    "dev": "env-cmd node src/server.js",
-    "heroku-postbuild": "cd src/work && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "start": "env-cmd node src/server.js && npm install",
+    "dev": "env-cmd node src/server.js && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
   "keywords": [],
   "author": "",
@@ -57,5 +57,9 @@
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://localhost:8080",
+  "engine":{
+    "npm": "6.14.8",
+    "node": "12.18.2"
+  }
 }

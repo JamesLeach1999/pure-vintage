@@ -60,6 +60,5 @@
     "prettier": "^2.1.1",
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
-  },
-  "proxy": "http://localhost:8080"
+  }
 }

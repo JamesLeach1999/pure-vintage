@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engine":{
+    "npm": "6.14.8",
+    "node": "12.18.2"
+  },
   "scripts": {
-    "start": "env-cmd node src/server.js && npm install",
-    "dev": "env-cmd node src/server.js && npm install",
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
   "keywords": [],
@@ -57,9 +61,6 @@
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
   },
-  "proxy": "http://localhost:8080",
-  "engine":{
-    "npm": "6.14.8",
-    "node": "12.18.2"
-  }
+  "proxy": "http://localhost:8080"
+  
 }

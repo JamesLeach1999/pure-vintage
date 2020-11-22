@@ -88,7 +88,7 @@ app.use('/', authRoute);
 app.use('/', postRoute);
 app.use('/', orderRoute);
 
-app.use(express.static('../work'));
+app.use(express.static('work/build'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('work/build'));

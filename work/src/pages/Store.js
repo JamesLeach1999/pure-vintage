@@ -15,7 +15,7 @@ const People = props => {
  
   return (
     <div className="filter-container">
-        <form className="col-4 filter filter-container">
+        <form className="col-4 filter filter-container" method="POST" action="/store">
           <h4 className="filter-title">Categories:</h4>
           <label className="checkbox filter">
             <input

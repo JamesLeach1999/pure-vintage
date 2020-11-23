@@ -8,7 +8,7 @@ const Filter = () => {
   console.log(categories)
   return (
     <form
-      action="/store"
+      action="https://cryptic-temple-54361.herokuapp.com/store"
       method="post"
       name="category"
       className="col-4 filter filter-container"
@@ -17,7 +17,12 @@ const Filter = () => {
       <ul>
         <li>
           <label className="checkbox filter">
-            <input type="checkbox" value="shirts" id="filter1" name="category" />
+            <input
+              type="checkbox"
+              value="shirts"
+              id="filter1"
+              name="category"
+            />
             shirts
           </label>
         </li>
@@ -77,7 +82,9 @@ const Filter = () => {
         pathname: "/store",
         data: 
       }} */}
-      <button type="submit" style={{padding: "50px"}}>Submit</button>
+      <button type="submit" style={{ padding: "50px" }}>
+        Submit
+      </button>
     </form>
   );
 };

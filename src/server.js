@@ -99,6 +99,6 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('server run successfully');
-});
+// app.listen(process.env.PORT || 3000, () => {
+//   console.log('server run successfully');
+// });

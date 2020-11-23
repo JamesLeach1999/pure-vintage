@@ -8,7 +8,7 @@
     "node": "12.18.2"
   },
   "scripts": {
-    "start": "env-cmd npm install && node src/server.js",
+    "start": "npm install && node src/server.js",
     "dev": "node src/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },

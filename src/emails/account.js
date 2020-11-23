@@ -321,6 +321,7 @@ var filter = async function (query) {
       size: size,
     };
   }
+  console.log(products)
 
   console.log(query.skip + "thats numberwang");
   if (query.skip !== null || query.skip !== undefined) {

@@ -481,6 +481,8 @@ router.post('https://cryptic-temple-54361.herokuapp.com/store', async (req, res)
   // console.log(req.body.category)
   var category;
 
+  console.log(req.body)
+
   // console.log(req.body)
   if (req.body.category) {
     var category = req.body.category.toString();

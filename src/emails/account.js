@@ -1,7 +1,7 @@
 // this is all the code, using the sendgrid api, used to set the variables and send mail
 // much nicer to do it here instead of in routers
 const sgMail = require('@sendgrid/mail');
-const Product = require("../models/products");
+const Product = require('../models/products');
 // still need the process.env to access environment variables
 sgMail.setApiKey(process.env.SG_API_KEY);
 // surprisingly easy this. can pass in html to make it styled
@@ -45,15 +45,15 @@ const orderConf = async (email, name, item) => {
   }
   var json = JSON.parse(product);
 
-  console.log(email)
-  
-  // const user = await User.findById({_id: json.user})
-  console.log("wang")
-  
-  var products = []
+  console.log(email);
 
-  for(var i = 1; i< json.length; i++){
-    products.push(json[i].product)
+  // const user = await User.findById({_id: json.user})
+  console.log('wang');
+
+  var products = [];
+
+  for (var i = 1; i < json.length; i++) {
+    products.push(json[i].product);
   }
 
   sgMail.send({
@@ -204,10 +204,18 @@ const orderConf = async (email, name, item) => {
 <div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit">Hello ${name},</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">Thank you for ordering: ${json[0].product.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${json[0].product.price}</div>
-${products.length>0 ? products.map((p) => {
-  return `<div style="font-family: inherit; text-align: inherit"><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${p.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${p.price}</span>&nbsp;</div>`
-}) : ""}
+<div style="font-family: inherit; text-align: inherit">Thank you for ordering: ${
+      json[0].product.name
+    }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${
+      json[0].product.price
+    }</div>
+${
+  products.length > 0
+    ? products.map((p) => {
+        return `<div style="font-family: inherit; text-align: inherit"><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${p.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${p.price}</span>&nbsp;</div>`;
+      })
+    : ''
+}
 <div style="font-family: inherit; text-align: inherit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div style="font-family: inherit; text-align: inherit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
@@ -252,7 +260,7 @@ var filter = async function (query) {
   // match.category = category
   // match.brand = brand
   // match.size = size
-  console.log(query);
+  console.log(query + "thats wangernumb");
   var items = [];
   var category = [];
   var brand = [];
@@ -314,14 +322,13 @@ var filter = async function (query) {
     };
   }
 
-  console.log(query.skip);
-  if (query.skip !== null) {
+  console.log(query.skip + "thats numberwang");
+  if (query.skip !== null || query.skip !== undefined) {
     var skip = query.skip;
-    console.log(skip);
-    var t = await Product.find(products, { limit: 16, skip: skip });
   } else {
-    var t = await Product.find(products, { limit: 16 });
+    var skip = 0;
   }
+  var t = await Product.find(products, { limit: 16, skip: skip });
 
   return t;
 

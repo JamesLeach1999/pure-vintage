@@ -40,11 +40,17 @@ app.use(cors(corsOptions));
 
 console.log(process.env.PORT);
 
-mongoose.connect(process.env.DB_CONNECT, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: true,
-});
+mongoose.connect(
+  process.env.DB_CONNECT,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: true,
+  },
+  () => {
+    console.log('connected to db');
+  }
+);
 
 // makes post requests from http available to req.body
 
@@ -89,10 +95,10 @@ if (process.env.NODE_ENV === 'production') {
 
   app.get('*', (req, res) => {
     // serving react files here to the browser
-    res.sendFile(path.resolve(__dirname, '../work', 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, "../work", "build", "index.html"));
   });
 }
 
-// app.listen(process.env.PORT || 3000, () => {
-//   console.log('server run successfully');
-// });
+app.listen(process.env.PORT || 3000, () => {
+  console.log('server run successfully');
+});

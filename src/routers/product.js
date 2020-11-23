@@ -489,7 +489,7 @@ router.get('/featuredRows', async (req, res) => {
   });
 });
 
-router.post('https://cryptic-temple-54361.herokuapp.com/store', async (req, res) => {
+router.post('/store', async (req, res) => {
   // console.log(req.body.category)
   var category;
 

@@ -260,12 +260,12 @@ var filter = async function (query) {
   // match.category = category
   // match.brand = brand
   // match.size = size
-  console.log(query + "thats wangernumb");
+  console.log(query);
   var items = [];
   var category = [];
   var brand = [];
   var size = [];
-  if (query.category) {
+  if (query.category !== undefined) {
     // console.log(query.category[0])
     var g = query.category.split(' ');
     // console.log(g)
@@ -276,12 +276,12 @@ var filter = async function (query) {
     // }
     // console.log(category)
   }
-  if (query.brand) {
+  if (query.brand !== undefined) {
     var k = query.brand.split(' ');
     // console.log(k)
     brand = k;
   }
-  if (query.size) {
+  if (query.size !== undefined) {
     var j = query.size.split(' ');
     // console.log(j)
     size = j;

@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const { loadPage, ensureAuthenticated } = require('../middleware/auth');
+  console.log('i work8');
+
 const { filter } = require('../emails/account');
 const Product = require('../models/products');
 const multer = require('multer');
@@ -194,6 +196,8 @@ router.post('/edit', ensureAuthenticated, async (req, res) => {
       clothes.push(n);
     });
   } else {
+      console.log('i work7');
+
     var pro1 = await filter(req.body);
     pro1.forEach((ite) => {
       clothes.push(ite);
@@ -324,6 +328,8 @@ router.post('/delete', async (req, res) => {
       clothes.push(n);
     });
   } else {
+      console.log('i work6');
+
     var pro1 = await filter(req.body);
     pro1.forEach((ite) => {
       clothes.push(ite);
@@ -401,6 +407,8 @@ router.get('/store', async (req, res) => {
 
       var clothes = [];
       if (query.category || query.size || query.brand) {
+          console.log('i work1');
+
         // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
         var pro1 = await filter(query);
         pro1.forEach((ite) => {
@@ -435,7 +443,11 @@ router.get('/store', async (req, res) => {
       // console.log(query)
 
       var clothes = [];
+        console.log('i work2');
+
       if (query.category || query.size || query.brand) {
+          console.log('i work4');
+
         // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
         var pro1 = await filter(query);
         pro1.forEach((ite) => {
@@ -481,7 +493,7 @@ router.post('https://cryptic-temple-54361.herokuapp.com/store', async (req, res)
   // console.log(req.body.category)
   var category;
 
-  console.log(req.body)
+  console.log("i work3")
 
   // console.log(req.body)
   if (req.body.category) {
@@ -517,6 +529,8 @@ router.post('https://cryptic-temple-54361.herokuapp.com/store', async (req, res)
     });
   } else {
     // console.log(req.body)
+      console.log('i work5');
+
     var pro1 = await filter(req.body);
     console.log(pro1);
     pro1.forEach((ite) => {

@@ -42,21 +42,26 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2">
-            {images.length > 0 ? 
-               <img src={`/assets/${images[0]}`} alt="shit"></img>
-             : <img src={`/assets/${images}`} alt="shit"></img>}
+            {images.length > 0 ? (
+              <img src={`/assets/${images[0]}`} alt="shit"></img>
+            ) : (
+              <img src={`/assets/${images}`} alt="shit"></img>
+            )}
           </div>
           <div class="col-2">
             <p>Home / t shirt</p>
             <h1>{product.name}</h1>
             <h4>{product.price}</h4>
 
-            <form action="/added" method="POST">
+            <form
+              action="https://cryptic-temple-54361.herokuapp.com/added"
+              method="POST"
+            >
               <input type="text" value={product._id} name="id" hidden />
-              <h3 style={{justifyContent: "center"}}>
+              <h3 style={{ justifyContent: "center" }}>
                 Add to cart: <input type="checkbox" />
               </h3>
-              <input type="submit" style={{ width: '150px', margin: '20px' }} />
+              <input type="submit" style={{ width: "150px", margin: "20px" }} />
             </form>
             {/* <a href="" class="btn">Add to cart</a> */}
             <h3>

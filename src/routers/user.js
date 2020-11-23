@@ -144,7 +144,7 @@ router.get("/about", async (req, res) => {
 // })
 
 // login function, using passport built in methods for better security
-router.post('https://cryptic-temple-54361.herokuapp.com/login', (req, res, next) => {
+router.post('/login', (req, res, next) => {
     console.log(req.session)
   passport.authenticate('local', (err, user, info) => {
       console.log(user)

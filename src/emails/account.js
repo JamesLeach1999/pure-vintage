@@ -330,6 +330,7 @@ var filter = async function (query) {
     var skip = 0;
   }
   var t = await Product.find(products, { limit: 16, skip: skip });
+  console.log(t)
 
   return t;
 

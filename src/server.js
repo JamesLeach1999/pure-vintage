@@ -22,7 +22,7 @@ require('./middleware/passport')(passport);
 const whitelist = [
   'http://localhost:3000',
   'http://localhost:8080',
-  'https://purevintage-attempt.herokuapp.com/',
+  'https://cryptic-temple-54361.herokuapp.com/',
 ];
 const corsOptions = {
   origin: function (origin, callback) {

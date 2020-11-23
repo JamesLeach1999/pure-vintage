@@ -8,7 +8,7 @@
     "node": "12.18.2"
   },
   "scripts": {
-    "start": "npm install --prefix work && npm run build --prefix work",
+    "start": "npm install --prefix work && npm start --prefix work && npm install --prefix src && npm start --prefix src",
     "dev": "node src/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },

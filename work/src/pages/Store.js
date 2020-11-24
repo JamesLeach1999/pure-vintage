@@ -77,7 +77,7 @@ const People = props => {
         <br />
         <br />
 
-        <button type="submit" onClick={() => window.location.reload()}>
+        <button type="submit">
           btn
         </button>
       </form>

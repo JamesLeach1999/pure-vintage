@@ -13,7 +13,7 @@ const Test = () => {
 
     const getData = async () => {
         try {
-      if (!window.location.search) {
+      if (window.location.search === "") {
         const response = await fetch(`/store`);
         console.log(window.location);
         const json = await response.json();
@@ -48,8 +48,8 @@ const Test = () => {
 
           url: "/store",
         }).then((res) => {
+            console.log(res.data.names);
           setData(res.data.names)
-          console.log(data);
         });
       }
     } catch (error) {

@@ -51,7 +51,8 @@ const Test = () => {
           },
         });
         console.log(res)
-        setData(res.data.names);
+        setData([res.data.names]);
+        console.log(data)
       }
     } catch (error) {
       console.log(error);

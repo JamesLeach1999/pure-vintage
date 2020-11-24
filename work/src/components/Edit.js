@@ -28,7 +28,6 @@ console.log(profile)
         console.log(json)
         this.setState({ data: json.name, images: json.name.image[0] });
         console.log(this.state.data);
-  
         
       } catch (error) {
         console.log(this.props.id);

@@ -36,8 +36,8 @@ class Rows extends Component {
           
         console.log(parsed['category'])
         Axios({
-          method: 'POST',
-          data: {
+          method: 'GET',
+          query: {
             category: parsed['category'],
             brand: parsed['brand'],
             size: parsed['size'],

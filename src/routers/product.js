@@ -396,85 +396,63 @@ router.get('/home', async (req, res) => {
 
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store', async (req, res) => {
-  if (req.session.passport && req.session.passport.user) {
-    const user = await User.findById({ _id: req.session.passport.user });
-    const isAdmin = user.isAdmin;
-    try {
-      var query = req.query;
+  var category;
 
-      var clothes = [];
-      if (query.category || query.size || query.brand) {
-          console.log('i work1');
+  console.log('i work3');
+    console.log(req.query);
 
-        // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
-        var pro1 = await filter(query);
-        pro1.forEach((ite) => {
-          clothes.push(ite);
-        });
-        // console.log(cloth[0])
-        res.send({
-          pageTitle: 'welcome',
-          names: clothes,
-          query: req.query.id,
-          isAuth: true,
-          isAdmin: isAdmin,
-        });
-      } else {
-        var pro1 = await Product.find({});
-        // console.log(pro1)
-        res.send({
-          pageTitle: 'welcome',
-          names: pro1,
-          query: req.query.id,
-          isAuth: true,
-          isAdmin: isAdmin,
-        });
-      }
-    } catch (error) {
-      res.status(400).send(error + 'numberwang');
-    }
-  } else {
-    try {
-      var query = req.query;
 
-      // console.log(query)
+  // console.log(req.body)
+  if (req.query.category) {
+    var category = req.query.category.toString();
+    var catStr = category.replace(/,/g, ' ');
 
-      var clothes = [];
-        console.log('i work2');
-console.log(await Product.find({category: ["shoes"]}));
-
-      if (query.category || query.size || query.brand) {
-          console.log('i work4');
-
-        // right so this filter function in accounts is a mess, cant lie. but its a way to get filtered content on the server side, as doing it vanilla js is confusing at best
-        var pro1 = await filter(query);
-        pro1.forEach((ite) => {
-          clothes.push(ite);
-        });
-        // console.log(clothes)
-        res.send({
-          pageTitle: 'welcome',
-          names: clothes,
-          query: req.query.id,
-          isAuth: false,
-          isAdmin: false,
-        });
-      } else {
-        var pro1 = await Product.find({});
-        // console.log(pro1)
-        res.send({
-          pageTitle: 'welcome',
-          names: pro1,
-          query: req.query.id,
-          isAuth: false,
-          isAdmin: false,
-        });
-      }
-    } catch (error) {
-      res.status(400).send(error + 'numberwang');
-    }
+    req.query.category = catStr;
   }
+  if (req.query.brand) {
+    var brand = req.query.brand.toString();
+    var brandStr = brand.replace(/,/g, ' ');
+
+    req.query.brand = brandStr;
+  }
+  if (req.query.size) {
+    var size = req.query.size.toString();
+    var sizeStr = size.replace(/,/g, ' ');
+
+    req.query.size = sizeStr;
+  }
+
+  var clothes = [];
+  if (
+    req.query.category === undefined &&
+    req.query.brand === undefined &&
+    req.query.size === undefined &&
+    req.query.skip === undefined
+  ) {
+    const pro = await Product.find({}).limit(16);
+    console.log(await Product.find({ category: ['jim'] }));
+    pro.forEach((n) => {
+      clothes.push(n);
+    });
+  } else {
+    // console.log(req.body)
+    console.log('i work5');
+
+    var pro1 = await filter(req.query);
+    console.log(pro1);
+    pro1.forEach((ite) => {
+      clothes.push(ite);
+    });
+  }
+  res.send({
+    pageTitle: 'welcome',
+    names: pro1,
+    query: req.query.id,
+    isAuth: false,
+    isAdmin: false,
+  });
 });
+                    
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
@@ -535,13 +513,7 @@ console.log(await Product.find({ category: ['jim'] }));
       clothes.push(ite);
     });
   }
-  res.send({
-    pageTitle: 'welcome',
-    names: clothes,
-
-    isAuth: true,
-    isAdmin: false,
-  });
+  res.redirect("/store")
 });
 
 // getting individual products based on their passed in ids from the store page

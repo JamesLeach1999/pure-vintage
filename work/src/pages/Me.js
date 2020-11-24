@@ -4,7 +4,6 @@ import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
 import OrderProducts from "../components/OrderProducts";
-import { all } from "../../../src/routers/product";
 
 const Me = () => {
 

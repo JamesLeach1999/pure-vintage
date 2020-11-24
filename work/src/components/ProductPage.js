@@ -56,11 +56,7 @@ const ProductPage = () => {
             <form
               action="/added"
               method="POST"
-              onSubmit={() =>
-                window.location.replace(
-                  "/store"
-                )
-              }
+              
             >
               <input type="text" value={product._id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>

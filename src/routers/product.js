@@ -685,7 +685,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     console.log(test);
     // console.log(req.query.cart)
 
-    res.redirect('/cart');
+    res.redirect('back');
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }
@@ -741,11 +741,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.send({
-      cart: fullCart,
-      isAuth: true,
-      isAdmin: user.isAdmin,
-    });
+    res.redirect("back")
   } catch (error) {
     res.status(500).send(error);
   }

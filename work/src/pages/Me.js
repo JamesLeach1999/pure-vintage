@@ -1,18 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Product from "../components/Product";
 import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
 import OrderProducts from "../components/OrderProducts";
+import { all } from "../../../src/routers/product";
 
-class Me extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], orders: [], sum: [] };
-  }
+const Me = () => {
 
-  async componentDidMount() {
-    const profile = await fetch(`/me`);
+  const [data, setData] = useState([])
+  const [orders, setOrders] = useState([])
+  const [sum, setSum] = useState([])
+  
+
+    const getMe = async () => {
+      const profile = await fetch(`/me`);
     console.log(profile);
     if (!profile) {
       window.location.replace("/store");
@@ -28,12 +30,12 @@ class Me extends Component {
             allOrders.push(order);
           }
         });
-        this.setState({ data: allOrders });
+        setData(allOrders)
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
         var sum;
-        this.state.data.map((items) => {
+        data.map((items) => {
           it.push(JSON.parse(items.orderItems));
           // console.log(it)
           it.map((price) => {
@@ -52,17 +54,20 @@ class Me extends Component {
           sumPrice.push(sum);
         });
         // console.log(sumPrice)
-        this.setState({ sum: sumPrice });
-        this.setState({ orders: it });
+        setSum(sumPrice)
+        setOrders(it)
         // console.log(this.state.orders);
       } catch (error) {
-        console.log(this.state.data);
+        console.log(data);
         console.log(error);
       }
-    }
-  }
+    }}
 
-  render() {
+    useEffect(() => {
+      getMe()
+    })
+  
+
     return (
       <>
         <div className="testimonial">
@@ -75,11 +80,11 @@ class Me extends Component {
                   <th>Date ordered:</th>
                   <th>Price:</th>
                 </tr>
-                {this.state.orders.map((product, i) => {
+                {orders.map((product, i) => {
                   return (
                     // <Link to={`/orderProducts/${this.state.data[i]}`}>
                     <tr>
-                      <OrderProducts id={this.state.data[i]._id} />
+                      <OrderProducts id={data[i]._id} />
                     </tr>
                     // </Link>
                   );
@@ -91,6 +96,6 @@ class Me extends Component {
       </>
     );
   }
-}
+
 
 export default Me;

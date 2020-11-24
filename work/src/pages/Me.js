@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Product from '../components/Product';
-import { useAxios } from '../hooks/useAxios';
-import Rows from '../components/Rows';
-import { Link, useParams } from 'react-router-dom';
-import OrderProducts from '../components/OrderProducts';
+import React, { Component } from "react";
+import Product from "../components/Product";
+import { useAxios } from "../hooks/useAxios";
+import Rows from "../components/Rows";
+import { Link, useParams } from "react-router-dom";
+import OrderProducts from "../components/OrderProducts";
 
 class Me extends Component {
   constructor() {
@@ -13,12 +13,12 @@ class Me extends Component {
 
   async componentDidMount() {
     const profile = await fetch(`/me`);
-console.log(profile)
+    console.log(profile);
     if (!profile) {
-      window.location.replace('/store');
+      window.location.replace("/store");
     } else {
       try {
-        const order = await fetch('/pastOrders');
+        const order = await fetch("/pastOrders");
         const orderJson = await order.json();
         var allOrders = [];
         // console.log(orderJson);

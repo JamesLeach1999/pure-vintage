@@ -16,6 +16,7 @@ export default class Home extends Component {
   }
 
   handleSuccess(data){
+
     // update parent component
     // re direct user
     // pass data back up to app
@@ -26,6 +27,7 @@ export default class Home extends Component {
   render(){
     return (
       <div>
+        <h1>fucking work i swear to god</h1>
         <Rows/>
         <CatRows/>
         <FeaturedRow/>

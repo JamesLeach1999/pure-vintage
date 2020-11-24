@@ -13,8 +13,6 @@ import Store from './pages/Store';
 import Product from './components/ProductPage';
 import Cart from './components/Cart';
 import Login from './components/Login';
-import Test from "./components/Test";
-
 import Filter from './components/Filter';
 import Me from './pages/Me';
 import Order from './pageStripe/index';
@@ -61,7 +59,7 @@ export default class App extends Component {
               <Welcome />
               <Home />
             </Route>
-
+            <Route path="/store"><Store/></Route>
             <Route path="/cart">
               <Cart />
             </Route>
@@ -99,7 +97,6 @@ export default class App extends Component {
               path="/refundProducts/:id"
               children={<RefundProducts />}
             ></Route>
-            <Route path="/store" component={<Test/>}></Route>
             <Route path="/product/:id" children={<Product />}></Route>
           </Switch>
         </div>

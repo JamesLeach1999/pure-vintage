@@ -125,7 +125,7 @@ router.get('/manage', ensureAuthenticated, async (req, res) => {
   if (!user.isAdmin) {
     res.redirect('/home');
   } else {
-    res.render('manage.ejs', {
+    res.send( {
       isAdmin: true,
       isAuth: true,
     });
@@ -136,7 +136,7 @@ router.get('/add', ensureAuthenticated, async (req, res) => {
   try {
     const user = await User.findById({ _id: req.session.passport.user });
 
-    res.render('add.ejs', {
+    res.send( {
       isAuth: true,
       isAdmin: user.isAdmin,
     });
@@ -152,7 +152,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
     const user = await User.findById({ _id: req.session.passport.user });
 
     const products = await Product.find({});
-    res.render('edit.ejs', {
+    res.send( {
       names: products,
       isAuth: true,
       isAdmin: user.isAdmin,
@@ -211,7 +211,7 @@ router.post('/edit', ensureAuthenticated, async (req, res) => {
   //         console.log(res)
   //     })
   // }
-  res.render('edit.ejs', {
+  res.send( {
     pageTitle: 'welcome',
     names: clothes,
     isAuth: true,
@@ -284,7 +284,7 @@ router.get('/delete', ensureAuthenticated, async (req, res) => {
     // getting the add page
     const user = await User.findById({ _id: req.session.passport.user });
     const products = await Product.find({});
-    res.render('delete.ejs', {
+    res.send({
       names: products,
       isAuth: true,
       isAdmin: user.isAdmin,

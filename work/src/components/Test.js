@@ -41,7 +41,7 @@ const Test = () => {
         setData([json.names])
         await Axios({
           method: "GET",
-          data: {
+          query: {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],

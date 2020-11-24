@@ -434,13 +434,7 @@ router.get('/store', async (req, res) => {
     pro.forEach((n) => {
       clothes.push(n);
     });
-    res.send({
-      pageTitle: 'welcome',
-      names: clothes,
-      query: req.query.id,
-      isAuth: false,
-      isAdmin: false,
-    });
+    
   } else {
     // console.log(req.body)
     console.log('i work5');

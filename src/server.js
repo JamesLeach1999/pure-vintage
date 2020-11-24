@@ -21,8 +21,7 @@ require('./middleware/passport')(passport);
 
 const whitelist = [
   'http://localhost:3000',
-  'http://localhost:9000/',
-  'http://localhost:5000',
+  'http://localhost:8080',
   'https://cryptic-temple-54361.herokuapp.com',
   'https://cryptic-temple-54361.herokuapp.com/',
 ];
@@ -90,17 +89,17 @@ app.use('/', authRoute);
 app.use('/', postRoute);
 app.use('/', orderRoute);
 
-app.use(express.static('work/public'));
+app.use(express.static('work/build'));
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('work/build'));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('work/build'));
 
-//   app.get('*', (req, res) => {
-//     // serving react files here to the browser
-//     res.sendFile(path.resolve(__dirname, "../work", "build", "index.html"));
-//   });
-// }
+  app.get('*', (req, res) => {
+    // serving react files here to the browser
+    res.sendFile(path.resolve(__dirname, "../work", "build", "index.html"));
+  });
+}
 
-app.listen(process.env.PORT || 9000, () => {
-  console.log('server up successfully');
+app.listen(process.env.PORT || 3000, () => {
+  console.log('server run successfully');
 });

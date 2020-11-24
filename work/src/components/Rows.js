@@ -13,7 +13,7 @@ class Rows extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`/store`);
+      const response = await fetch(`/store1`);
       console.log(response)
       const json = await response.json();
       this.setState({ data: [json.names] });

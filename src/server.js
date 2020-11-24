@@ -22,6 +22,7 @@ require('./middleware/passport')(passport);
 const whitelist = [
   'http://localhost:3000',
   'http://localhost:8080',
+  'http://localhost:5000',
   'https://cryptic-temple-54361.herokuapp.com',
   'https://cryptic-temple-54361.herokuapp.com/',
 ];

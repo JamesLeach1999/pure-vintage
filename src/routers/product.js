@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
 const { loadPage, ensureAuthenticated } = require('../middleware/auth');
-  console.log('i work8');
+console.log('i work8');
 
 const { filter } = require('../emails/account');
 const Product = require('../models/products');
@@ -193,7 +193,7 @@ router.post('/edit', ensureAuthenticated, async (req, res) => {
       clothes.push(n);
     });
   } else {
-      console.log('i work7');
+    console.log('i work7');
 
     var pro1 = await filter(req.body);
     pro1.forEach((ite) => {
@@ -325,7 +325,7 @@ router.post('/delete', async (req, res) => {
       clothes.push(n);
     });
   } else {
-      console.log('i work6');
+    console.log('i work6');
 
     var pro1 = await filter(req.body);
     pro1.forEach((ite) => {
@@ -395,12 +395,11 @@ router.get('/home', async (req, res) => {
 });
 
 // similarly to the home page with the logged in. will add pagnintation
-router.get('/store', async (req, res) => {
+router.get('/store1', async (req, res) => {
   var category;
 
   console.log('i work3');
-    console.log(req.query);
-
+  console.log(req.query);
 
   // console.log(req.body)
   if (req.query.category) {
@@ -434,7 +433,6 @@ router.get('/store', async (req, res) => {
     pro.forEach((n) => {
       clothes.push(n);
     });
-    
   } else {
     // console.log(req.body)
     console.log('i work5');
@@ -453,11 +451,10 @@ router.get('/store', async (req, res) => {
     isAdmin: false,
   });
 });
-                    
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
-  console.log(pro1)
+  console.log(pro1);
   res.send({
     pageTitle: 'welcome',
     cat1: pro1,
@@ -470,7 +467,8 @@ router.post('/store', async (req, res) => {
   // console.log(req.body.category)
   var category;
 
-  console.log("i work3")
+  console.log('i work2');
+  console.log(req.method);
 
   // console.log(req.body)
   if (req.body.category) {
@@ -500,13 +498,13 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-console.log(await Product.find({ category: ['jim'] }));
+    console.log(await Product.find({ category: ['jim'] }));
     pro.forEach((n) => {
       clothes.push(n);
     });
   } else {
     // console.log(req.body)
-      console.log('i work5');
+    console.log('i work5');
 
     var pro1 = await filter(req.body);
     console.log(pro1);
@@ -514,7 +512,7 @@ console.log(await Product.find({ category: ['jim'] }));
       clothes.push(ite);
     });
   }
-  res.redirect("/store")
+  res.redirect('http://localhost:5000/store');
 });
 
 // getting individual products based on their passed in ids from the store page
@@ -668,7 +666,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect("/home")
+    res.redirect('/home');
   } catch (error) {
     res.status(500).send(error);
   }

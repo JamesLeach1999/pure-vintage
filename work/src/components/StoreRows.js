@@ -1,133 +1,147 @@
-import React, { useState, useEffect, Component } from 'react';
-import Product from './Product';
-import Filter from './Filter';
-import { Link } from 'react-router-dom';
-import queryString from 'query-string';
-import Axios from "axios"
-// import { useFetch } from "../hooks/useFetch";
+import React, { useState, useEffect } from "react";
+import Product from "./Product";
+import Filter from "./Filter";
+import { Link, useParams } from "react-router-dom";
+import queryString from "query-string";
+import Axios from "axios";
 
-class Rows extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], images: require('../assets/cap1.jpg'), page: 0 };
-  }
+const Test = () => {
+  const cat = useParams("category");
+  const brand = useParams("brand");
+  const size = useParams("size");
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [image, setImage] = useState(require("../assets/cap1.jpg"));
 
-  async componentDidMount() {
+  const getData = async () => {
     try {
-      if(!window.location.search){
-        const response = await fetch(`/store`);
+      if (window.location.search === "") {
+        const response = await fetch(`/store1`);
+        console.log(response)
         console.log(window.location);
         const json = await response.json();
+        setData([json.names]);
         this.setState({ data: [json.names] });
         console.log(this.state.data);
-                console.log(this.state.page);
+        console.log(this.state.page);
 
         console.log(this.state.images);
       } else {
-        console.log(this.state.page)
-        console.log(window.location.search)
-        const parsed = queryString.parse(window.location.search)
-        if(parsed['skip']){
-          this.setState({page: parsed['skip']})
-        } else if (!parsed['skip']){
-          this.setState({ page: 0 });
+        console.log(this.state.page);
+        console.log(window.location.search);
+        const parsed = queryString.parse(window.location.search);
+        if (parsed["skip"]) {
+          this.setState({ page: parsed["skip"] });
+          setPage(parsed["skip"]);
+        } else if (!parsed["skip"]) {
+          setPage(0);
         }
-        console.log(parsed['skip'])
-          
-        console.log(parsed['category'])
-        Axios({
-          method: 'GET',
-          query: {
-            category: parsed['category'],
-            brand: parsed['brand'],
-            size: parsed['size'],
-            skip: parseInt(parsed['skip'])
-          },
-          withCredentials: true,
+        console.log(parsed["skip"]);
 
-          url: '/store',
-        }).then((res) => {
-          this.setState({data: [res.data.names]})
-          console.log(this.state.data)
-        });
+        console.log(parsed["category"]);
+
+        const response = await fetch(`/store1`);
+        console.log(response);
+        const json = await response.json();
+        setData([json.names]);
+        // await Axios({
+        //   method: "GET",
+        //   data: {
+        //     category: parsed["category"],
+        //     brand: parsed["brand"],
+        //     size: parsed["size"],
+        //     skip: parseInt(parsed["skip"]),
+        //   },
+        //   withCredentials: true,
+
+        //   url: "/store",
+        // }).then((res) => {
+        //     console.log(res.data.names);
+        //   setData(res.data.names)
+        // });
       }
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  render() {
-    return (
-      <div className="small-container row filter-container">
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page, this.state.page + 4).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <Link to={`/product/${product._id}`}>
-                  <Product id={product._id} />
-                  {/* <Product/> */}
-                </Link>
-              );
-            });
-          })}
-        </div>
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 4, this.state.page + 8).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <Link to={`/product/${product._id}`}>
-                  <Product id={product._id} />
-                  {/* <Product/> */}
-                </Link>
-              );
-            });
-          })}
-        </div>
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 8, this.state.page + 12).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <Link to={`/product/${product._id}`}>
-                  <Product id={product._id} />
-                  {/* <Product/> */}
-                </Link>
-              );
-            });
-          })}
-        </div>
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 12, this.state.page + 16).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <Link to={`/product/${product._id}`}>
-                  <Product id={product._id} />
-                  {/* <Product/> */}
-                </Link>
-              );
-            });
-          })}
-        </div>
-
-        <div className="pagination-div">
-          <form action="/store" method="get">
-            <button name="skip" value={16}>
-              Page 1
-            </button>
-            <button name="skip" value={32}>
-              Page 2
-            </button>
-            <button name="skip" value={48}>
-              Page 3
-            </button>
-          </form>
-        </div>
+  useEffect(() => {
+    console.log("cungt");
+    if(!data){
+      getData();
+    }
+    // window.location.replace("http://localhost:5000");
+  });
+  return (
+    <div className="small-container row filter-container">
+      <div className="row product">
+        {data.map((products) => {
+          return products.slice(page, page + 4).map((product) => {
+            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+            return (
+              <Link to={`/product/${product._id}`}>
+                <Product id={product._id} />
+                {/* <Product/> */}
+              </Link>
+            );
+          });
+        })}
       </div>
-    );
-  }
-}
+      <div className="row product">
+        {data.map((products) => {
+          return products.slice(page, page + 4).map((product) => {
+            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+            return (
+              <Link to={`/product/${product._id}`}>
+                <Product id={product._id} />
+                {/* <Product/> */}
+              </Link>
+            );
+          });
+        })}
+      </div>
+      <div className="row product">
+        {data.map((products) => {
+          return products.slice(page, page + 4).map((product) => {
+            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+            return (
+              <Link to={`/product/${product._id}`}>
+                <Product id={product._id} />
+                {/* <Product/> */}
+              </Link>
+            );
+          });
+        })}
+      </div>
+      <div className="row product">
+        {data.map((products) => {
+          return products.slice(page, page + 4).map((product) => {
+            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+            return (
+              <Link to={`/product/${product._id}`}>
+                <Product id={product._id} />
+                {/* <Product/> */}
+              </Link>
+            );
+          });
+        })}
+      </div>
 
-export default Rows;
+      <div className="pagination-div">
+        <form action="/store" method="get">
+          <button name="skip" value={16}>
+            Page 1
+          </button>
+          <button name="skip" value={32}>
+            Page 2
+          </button>
+          <button name="skip" value={48}>
+            Page 3
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Test;

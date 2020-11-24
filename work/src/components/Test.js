@@ -17,7 +17,7 @@ const Test = () => {
     const getData = async () => {
         try {
       if (window.location.search === "") {
-        const response = await fetch(`/store`);
+        const response = await fetch(`/store1`);
         console.log(window.location);
         const json = await response.json();
         setData([json.names])
@@ -39,21 +39,26 @@ const Test = () => {
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
-        await Axios({
-          method: "GET",
-          data: {
-            category: parsed["category"],
-            brand: parsed["brand"],
-            size: parsed["size"],
-            skip: parseInt(parsed["skip"]),
-          },
-          withCredentials: true,
 
-          url: "/store",
-        }).then((res) => {
-            console.log(res.data.names);
-          setData(res.data.names)
-        });
+        const response = await fetch(`/store1`);
+        console.log(response);
+        const json = await response.json();
+        setData([json.names])
+        // await Axios({
+        //   method: "GET",
+        //   data: {
+        //     category: parsed["category"],
+        //     brand: parsed["brand"],
+        //     size: parsed["size"],
+        //     skip: parseInt(parsed["skip"]),
+        //   },
+        //   withCredentials: true,
+
+        //   url: "/store",
+        // }).then((res) => {
+        //     console.log(res.data.names);
+        //   setData(res.data.names)
+        // });
       }
     } catch (error) {
       console.log(error);
@@ -62,8 +67,10 @@ const Test = () => {
     
 
     useEffect(() => {
+        console.log("cungt")
         getData()
-    },[])
+        // window.location.replace("http://localhost:5000/store")
+    })
     return (
       <div className="small-container row filter-container">
         <div className="row product">

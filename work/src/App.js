@@ -13,6 +13,8 @@ import Store from './pages/Store';
 import Product from './components/ProductPage';
 import Cart from './components/Cart';
 import Login from './components/Login';
+import Test from "./components/Test";
+
 import Filter from './components/Filter';
 import Me from './pages/Me';
 import Order from './pageStripe/index';
@@ -50,8 +52,57 @@ export default class App extends Component {
       <Router>
         {/* render you can pass in and call it directly, can add additional props */}
         <div className="App">
-          <Nav/>
-            </div>
+          <Switch>
+            {/* <Route path={"/"} render={(props) => (
+            <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />
+            )}>
+            </Route> */}
+            <Route exact path={"/"}>
+              <Welcome />
+              <Home />
+            </Route>
+
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route
+              path={"/login"}
+              render={(props) => (
+                <Login
+                  {...props}
+                  handleLogin={this.handleLogin}
+                  loggedIn={this.state.loggedIn}
+                />
+              )}
+            ></Route>
+            <Route path="/me">
+              <Me />
+            </Route>
+
+            <Route path="/manage">
+              <Manage />
+            </Route>
+            <Route path="/allOrders">
+              <PastOrders />
+            </Route>
+            <Route path="/add">
+              <Add />
+            </Route>
+
+            <Route path="/edit/:id" children={<Edit />}></Route>
+            <Route path="/order" children={<Order />}></Route>
+            <Route
+              path="/orderProducts/:id"
+              children={<OrderProducts />}
+            ></Route>
+            <Route
+              path="/refundProducts/:id"
+              children={<RefundProducts />}
+            ></Route>
+            <Route path="/store" component={<Test/>}></Route>
+            <Route path="/product/:id" children={<Product />}></Route>
+          </Switch>
+        </div>
       </Router>
     );
   }

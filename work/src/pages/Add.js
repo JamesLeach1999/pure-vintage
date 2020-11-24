@@ -72,9 +72,23 @@ render(){
           <input type="text" placeholder="description" name="description" />
           <input type="text" placeholder="size" name="size" />
 
-          <input type="file" placeholder="image" multiple="multiple" name="image" />
+          <input
+            type="file"
+            placeholder="image"
+            multiple="multiple"
+            name="image"
+          />
           <input type="number" placeholder="price" name="price" />
-          <input type="submit" name="submit" value="submit" onClick={() => window.location.replace("/manage")} />
+          <input
+            type="submit"
+            name="submit"
+            value="submit"
+            onClick={() =>
+              window.location.replace(
+                "https://cryptic-temple-54361.herokuapp.com/manage"
+              )
+            }
+          />
         </form>
       </div>
     </div>

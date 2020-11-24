@@ -697,7 +697,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect("/cart")
+    res.redirect('https://cryptic-temple-54361.herokuapp.com/cart');
   } catch (error) {
     res.status(500).send(error);
   }

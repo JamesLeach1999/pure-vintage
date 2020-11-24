@@ -94,13 +94,32 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       Featured
                     </button>
                   </form>
                   <form action="/delete" method="post">
-                    <input type="text" name="delete" value={product._id} hidden />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       deletr
                     </button>
                   </form>
@@ -127,13 +146,32 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       Featured
                     </button>
                   </form>
                   <form action="/delete" method="post">
-                    <input type="text" name="delete" value={product._id} hidden />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       deletr
                     </button>
                   </form>
@@ -160,13 +198,32 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       Featured
                     </button>
                   </form>
                   <form action="/delete" method="post">
-                    <input type="text" name="delete" value={product._id} hidden />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       deletr
                     </button>
                   </form>
@@ -193,13 +250,32 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       Featured
                     </button>
                   </form>
                   <form action="/delete" method="post">
-                    <input type="text" name="delete" value={product._id} hidden />
-                    <button type="submit" onClick={() => window.location.replace('/manage')}>
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      onClick={() =>
+                        window.location.replace(
+                          "https://cryptic-temple-54361.herokuapp.com/manage"
+                        )
+                      }
+                    >
                       deletr
                     </button>
                   </form>

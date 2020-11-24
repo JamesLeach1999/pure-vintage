@@ -22,7 +22,7 @@ console.log(profile)
         // console.log(test);
         const user = await fetch("/me")
         const meResp = user.json()
-        this.setState({user: meResp})
+        setUser(meResp)
         const response = await fetch(`/cart`);
         const json = await response.json();
         console.log(json);
@@ -35,19 +35,17 @@ console.log(profile)
         })
         console.log(notNull)
         
-        this.setState({ data: [notNull] });
+        setData([notNull])
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
-        console.log(this.state.data[0]);
         var total = [];
-        var p = this.state.data[0].map((pr) => {
+        var p = data[0].map((pr) => {
           console.log(pr.price);
           return total.push(pr.price);
         });
         var sum = total.reduce((a, b) => a + b, 0);
   
-        this.setState({ total: sum });
-        console.log(this.state.data)
+        setTotal(sum)
       } catch (error) {
         console.log(error);
       }
@@ -71,7 +69,7 @@ console.log(profile)
           </tr>
           {/* <div className="row"> */}
           {/* <tr> */}
-          {this.state.data.map((products) => {
+          {data.map((products) => {
             return products.map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (

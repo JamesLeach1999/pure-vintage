@@ -117,16 +117,73 @@ router.post('/products', ensureAuthenticated, upload.array('image', 10), async (
 });
 
 // getting the manage products page for the create, edit and delete page links
-router.get('/manage', ensureAuthenticated, async (req, res) => {
-  const id = req.session.passport.user;
+router.post('/manage', async (req, res) => {
+  // console.log(req.body.category)
+  var category;
 
-  const user = await User.findById({ _id: id });
+  console.log('i work2');
+  console.log(req.method);
 
-  if (!user.isAdmin) {
-    res.redirect('/home');
-  } else {
-    res.redirect('https://cryptic-temple-54361.herokuapp.com/manage');
+  // console.log(req.body)
+  if (req.body.category) {
+    var category = req.body.category.toString();
+    var catStr = category.replace(/,/g, ' ');
+
+    req.body.category = catStr;
   }
+  if (req.body.brand) {
+    var brand = req.body.brand.toString();
+    var brandStr = brand.replace(/,/g, ' ');
+
+    req.body.brand = brandStr;
+  }
+  if (req.body.size) {
+    var size = req.body.size.toString();
+    var sizeStr = size.replace(/,/g, ' ');
+
+    req.body.size = sizeStr;
+  }
+
+  var clothes = [];
+  if (
+    req.body.category === undefined &&
+    req.body.brand === undefined &&
+    req.body.size === undefined &&
+    req.body.skip === undefined
+  ) {
+    const pro = await Product.find({}).limit(16);
+    console.log(await Product.find({ category: ['jim'] }));
+    pro.forEach((n) => {
+      clothes.push(n);
+    });
+  } else {
+    const user = await User.findById({ _id: req.session.passport.user });
+    if (!user) {
+      var auth = false;
+      var admin = false;
+    } else if (!user.isAdmin) {
+      var auth = true;
+      var admin = false;
+    } else {
+      var auth = true;
+      var admin = true;
+    }
+    // console.log(req.body)
+    console.log('i work5');
+
+    var pro1 = await filter(req.body);
+    console.log(pro1);
+    pro1.forEach((ite) => {
+      clothes.push(ite);
+    });
+  }
+  res.send({
+    pageTitle: 'welcome',
+    names: clothes,
+    query: req.query.id,
+    isAuth: auth,
+    isAdmin: admin,
+  });
 });
 // getting the add page
 router.get('/add', ensureAuthenticated, async (req, res) => {
@@ -503,6 +560,18 @@ router.post('/store', async (req, res) => {
       clothes.push(n);
     });
   } else {
+
+    const user = await User.findById({_id: req.session.passport.user})
+    if(!user){
+      var auth = false
+      var admin = false
+    } else if (!user.isAdmin){
+      var auth = true
+      var admin = false
+    } else {
+      var auth = true
+      var admin = true
+    }
     // console.log(req.body)
     console.log('i work5');
 
@@ -516,8 +585,8 @@ router.post('/store', async (req, res) => {
     pageTitle: 'welcome',
     names: clothes,
     query: req.query.id,
-    isAuth: false,
-    isAdmin: false,
+    isAuth: auth,
+    isAdmin: admin,
   });
 });
 

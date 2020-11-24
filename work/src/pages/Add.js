@@ -5,14 +5,17 @@ import { useFetch } from '../hooks/useFetch';
 import { Link, useParams } from 'react-router-dom';
 import Axios from 'axios';
 
-class AddPage extends Component {
-  async componentDidMount() {
+const Addpage = () => {
+
+
+  const add = async () => {
+
     const profile = await Axios.get(`/me`);
-console.log(profile)
+  console.log(profile)
     if (!profile || !profile.data.isAdmin) {
       window.location.replace('/store');
     } else {
-
+  
       try {
         const profile = await fetch(`/me`);
         const json = await profile.json();
@@ -60,41 +63,45 @@ console.log(profile)
       }
     }
   }
-render(){
 
-  return (
-    <div>
-      <div class="grid category">
-        <form action="/products" method="post" enctype="multipart/form-data">
-          <input type="text" placeholder="name" name="name" />
-          <input type="text" placeholder="brand" name="brand" />
-          <input type="text" placeholder="category" name="category" />
-          <input type="text" placeholder="description" name="description" />
-          <input type="text" placeholder="size" name="size" />
 
-          <input
-            type="file"
-            placeholder="image"
-            multiple="multiple"
-            name="image"
-          />
-          <input type="number" placeholder="price" name="price" />
-          <input
-            type="submit"
-            name="submit"
-            value="submit"
-            onClick={() =>
-              window.location.replace(
-                "https://cryptic-temple-54361.herokuapp.com/manage"
-              )
-            }
-          />
-        </form>
-      </div>
+  useEffect(() => {
+    add()
+  })
+return (
+  <div>
+    <div class="grid category">
+      <form action="/products" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="name" name="name" />
+        <input type="text" placeholder="brand" name="brand" />
+        <input type="text" placeholder="category" name="category" />
+        <input type="text" placeholder="description" name="description" />
+        <input type="text" placeholder="size" name="size" />
+
+        <input
+          type="file"
+          placeholder="image"
+          multiple="multiple"
+          name="image"
+        />
+        <input type="number" placeholder="price" name="price" />
+        <input
+          type="submit"
+          name="submit"
+          value="submit"
+          onClick={() =>
+            window.location.replace(
+              "https://cryptic-temple-54361.herokuapp.com/manage"
+            )
+          }
+        />
+      </form>
     </div>
-  );
+  </div>
+);
 }
-    
-};
+  
 
-export default AddPage;
+
+
+export default Addpage;

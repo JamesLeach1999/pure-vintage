@@ -7,13 +7,14 @@ import Axios from 'axios';
 import Edit from "./Edit"
 // import { useFetch } from "../hooks/useFetch";
 
-class Manage extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], images: require('../assets/cap1.jpg'), page: 0 };
-  }
+const Manage = () => {
 
-  async componentDidMount() {
+  const [data, setData] = useState([])
+  const [images, setImages] = useState(require('../assets/cap1.jpg'))
+  const [page, setPage] = useState(0)
+  
+  const getManage = async () => {
+
     const admin = await Axios.get("/me")
     console.log(admin)
     if(!admin || !admin.data.isAdmin ){
@@ -21,51 +22,52 @@ class Manage extends Component {
     } else {
         try {
         if (!window.location.search) {
-          const response = await fetch(`/store`);
+          const response = await fetch(`/store1`);
           console.log(window.location);
           const json = await response.json();
-          this.setState({ data: [json.names] });
-          console.log(this.state.data);
-          console.log(this.state.page);
+          setData([json.names])
+          
   
-          console.log(this.state.images);
         } else {
-          console.log(this.state.page);
           console.log(window.location.search);
           const parsed = queryString.parse(window.location.search);
           if (parsed['skip']) {
-            this.setState({ page: parsed['skip'] });
+            var skip = parseInt(parsed['skip']);
+            setPage(skip)
           } else if (!parsed['skip']) {
-            this.setState({ page: 0 });
+            var skip = 0
           }
           console.log(parsed['skip']);
   
           console.log(parsed['category']);
-          Axios({
-            method: 'POST',
-            data: {
-              category: parsed['category'],
-              brand: parsed['brand'],
-              size: parsed['size'],
-              skip: parseInt(parsed['skip']),
+          if (!parsed["skip"]) {
+            var skip = 0;
+          } else {
+            var skip = parseInt(parsed["skip"]);
+          }
+          const res = await Axios.get("/store1", {
+            params: {
+              category: parsed["category"],
+              brand: parsed["brand"],
+              size: parsed["size"],
+              skip: skip,
             },
-            withCredentials: true,
-  
-            url: '/store',
-          }).then((res) => {
-            this.setState({ data: [res.data.names] });
-            console.log(this.state.data);
           });
+          setData(res.data.names)
         }
       } catch (error) {
         console.log(error);
       }
 
       }
-
   }
 
-  render() {
+  useEffect(() => {
+    getManage()
+  })
+
+  
+
     return (
       <div className="store-container">
         <Link to="/allOrders">
@@ -77,8 +79,8 @@ class Manage extends Component {
           Add product
         </Link>
         <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page, this.state.page + 4).map((product) => {
+          {data.map((products) => {
+            return products.slice(page, page + 4).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <>
@@ -121,86 +123,8 @@ class Manage extends Component {
           })}
         </div>
         <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 4, this.state.page + 8).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <>
-                  <Link to={`/edit/${product._id}`}>
-                    <Edit id={product._id} />
-                    {/* <Product/> */}
-                  </Link>
-                  <form action="/featured" method="post">
-                    <input
-                      type="text"
-                      name="featured"
-                      value={product._id}
-                      onClick={(e) => e.preventDefault()}
-                      hidden
-                    />
-                    <button type="submit">Featured</button>
-                  </form>
-                  <form action="/delete" method="post">
-                    <input
-                      type="text"
-                      name="delete"
-                      value={product._id}
-                      hidden
-                    />
-                    <button
-                      type="submit"
-                      onClick={() => window.location.reload()}
-                    >
-                      deletr
-                    </button>
-                  </form>
-                </>
-              );
-            });
-          })}
-        </div>
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 8, this.state.page + 12).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <>
-                  <Link to={`/edit/${product._id}`}>
-                    <Edit id={product._id} />
-                    {/* <Product/> */}
-                  </Link>
-                  <form action="/featured" method="post">
-                    <input
-                      type="text"
-                      name="featured"
-                      value={product._id}
-                      onClick={(e) => e.preventDefault()}
-                      hidden
-                    />
-                    <button type="submit">Featured</button>
-                  </form>
-                  <form action="/delete" method="post">
-                    <input
-                      type="text"
-                      name="delete"
-                      value={product._id}
-                      hidden
-                    />
-                    <button
-                      type="submit"
-                      onClick={() => window.location.reload()}
-                    >
-                      deletr
-                    </button>
-                  </form>
-                </>
-              );
-            });
-          })}
-        </div>
-        <div className="row product">
-          {this.state.data.map((products) => {
-            return products.slice(this.state.page + 12, this.state.page + 16).map((product) => {
+          {data.map((products) => {
+            return products.slice(page + 4, page + 8).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <>
@@ -218,6 +142,7 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
+                      // onClick={() => window.location.reload()}
                     >
                       Featured
                     </button>
@@ -231,6 +156,95 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      deletr
+                    </button>
+                  </form>
+                </>
+              );
+            });
+          })}
+        </div>
+        <div className="row product">
+          {data.map((products) => {
+            return products.slice(page + 8, page + 12).map((product) => {
+              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+              return (
+                <>
+                  <Link to={`/edit/${product._id}`}>
+                    <Edit id={product._id} />
+                    {/* <Product/> */}
+                  </Link>
+                  <form action="/featured" method="post">
+                    <input
+                      type="text"
+                      name="featured"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      Featured
+                    </button>
+                  </form>
+                  <form action="/delete" method="post">
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      deletr
+                    </button>
+                  </form>
+                </>
+              );
+            });
+          })}
+        </div>
+        <div className="row product">
+          {data.map((products) => {
+            return products.slice(page + 12, page + 16).map((product) => {
+              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+              return (
+                <>
+                  <Link to={`/edit/${product._id}`}>
+                    <Edit id={product._id} />
+                    {/* <Product/> */}
+                  </Link>
+                  <form action="/featured" method="post">
+                    <input
+                      type="text"
+                      name="featured"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      Featured
+                    </button>
+                  </form>
+                  <form action="/delete" method="post">
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
                     >
                       deletr
                     </button>
@@ -257,6 +271,6 @@ class Manage extends Component {
       </div>
     );
   }
-}
+
 
 export default Manage;

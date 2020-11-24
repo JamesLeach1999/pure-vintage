@@ -21,13 +21,8 @@ const Test = () => {
         console.log(window.location);
         const json = await response.json();
         setData([json.names])
-        this.setState({ data: [json.names] });
-        console.log(this.state.data);
-        console.log(this.state.page);
-
-        console.log(this.state.images);
+        
       } else {
-        console.log(this.state.page);
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
         if (parsed["skip"]) {
@@ -44,21 +39,21 @@ const Test = () => {
         console.log(response);
         const json = await response.json();
         setData([json.names])
-        // await Axios({
-        //   method: "GET",
-        //   data: {
-        //     category: parsed["category"],
-        //     brand: parsed["brand"],
-        //     size: parsed["size"],
-        //     skip: parseInt(parsed["skip"]),
-        //   },
-        //   withCredentials: true,
+        await Axios({
+          method: "GET",
+          data: {
+            category: parsed["category"],
+            brand: parsed["brand"],
+            size: parsed["size"],
+            skip: parseInt(parsed["skip"]),
+          },
+          withCredentials: true,
 
-        //   url: "/store",
-        // }).then((res) => {
-        //     console.log(res.data.names);
-        //   setData(res.data.names)
-        // });
+          url: "/store1",
+        }).then((res) => {
+            console.log(res.data.names);
+          setData(res.data.names)
+        });
       }
     } catch (error) {
       console.log(error);

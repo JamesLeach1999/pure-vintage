@@ -12,6 +12,7 @@ const OrderPage = () => {
   const [images, setImages] = useState([]);
   const [name, setName] = useState("")
   const [p, setP] = useState([])
+  const [loading, setLoading] = useState(true)
   const getProducts = async () => {
 
     const user = await fetch("/me")
@@ -34,6 +35,7 @@ const OrderPage = () => {
     // });
     // setP(yyy);
     // console.log(p);
+    setLoading(false)
     // console.log(this.state.data);
     // then you want to set the state, set the empty array to an array of 30
   };
@@ -48,7 +50,7 @@ const OrderPage = () => {
     // if you are triggering re render in your effect function, add the dependancy array
     
     // do this so no infinite loop
-  }, []);
+  }, [loading]);
   console.log(product)
     console.log(p);
 

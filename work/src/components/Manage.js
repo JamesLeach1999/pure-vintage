@@ -12,7 +12,7 @@ const Manage = () => {
   const [data, setData] = useState([])
   const [images, setImages] = useState(require('../assets/cap1.jpg'))
   const [page, setPage] = useState(0)
-  
+  const [loading, setLoading] = useState(true)
   const getManage = async () => {
 
     const admin = await Axios.get("/me")
@@ -26,24 +26,20 @@ const Manage = () => {
           console.log(window.location);
           const json = await response.json();
           setData([json.names])
-          
+          setLoading(false)
   
         } else {
           console.log(window.location.search);
           const parsed = queryString.parse(window.location.search);
-          if (parsed['skip']) {
-            var skip = parseInt(parsed['skip']);
-            setPage(skip)
-          } else if (!parsed['skip']) {
-            var skip = 0
-          }
+          
           console.log(parsed['skip']);
   
           console.log(parsed['category']);
+          var skip
           if (!parsed["skip"]) {
-            var skip = 0;
+            skip = 0;
           } else {
-            var skip = parseInt(parsed["skip"]);
+            skip = parseInt(parsed["skip"]);
           }
           const res = await Axios.get("/store1", {
             params: {
@@ -54,6 +50,7 @@ const Manage = () => {
             },
           });
           setData(res.data.names)
+          setLoading(false)
         }
       } catch (error) {
         console.log(error);
@@ -64,7 +61,7 @@ const Manage = () => {
 
   useEffect(() => {
     getManage()
-  })
+  }, [loading])
 
   
 

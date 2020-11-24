@@ -12,7 +12,7 @@ const Test = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
-
+  const [loading, setLoading] = useState(true)
   const getData = async () => {
     try {
       if (window.location.search === "") {
@@ -45,6 +45,8 @@ const Test = () => {
         console.log(response);
         const json = await response.json();
         setData([json.names]);
+
+        setLoading(false)
         // await Axios({
         //   method: "GET",
         //   data: {
@@ -69,7 +71,7 @@ const Test = () => {
   useEffect(() => {
     getData()
     // window.location.replace("http://localhost:5000");
-  });
+  }, [loading]);
   return (
     <div className="small-container row filter-container">
       <div className="row product">

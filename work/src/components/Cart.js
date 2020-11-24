@@ -9,7 +9,7 @@ const Cart = () => {
   const [images, setImages] = useState(require('../assets/cap1.jpg'))
   const [total, setTotal] = useState(0)
   const [user, setUser] = useState({})
-  
+  const [loading, setLoading] = useState(true)
   const getCart = async () => {
     const profile = await fetch(`/me`);
 console.log(profile)
@@ -45,7 +45,7 @@ console.log(profile)
         });
         var sum = total.reduce((a, b) => a + b, 0);
           console.log(data);
-
+        setLoading(false)
         setTotal(sum)
       } catch (error) {
         console.log(data)
@@ -56,7 +56,7 @@ console.log(profile)
 
   useEffect(() => {
     getCart()
-  })
+  }, [loading])
   
   
     return (

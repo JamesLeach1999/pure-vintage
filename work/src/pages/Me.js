@@ -10,7 +10,7 @@ const Me = () => {
   const [data, setData] = useState([])
   const [orders, setOrders] = useState([])
   const [sum, setSum] = useState([])
-  
+  const [loading, setLoading] = useState(true)
 
     const getMe = async () => {
       const profile = await fetch(`/me`);
@@ -54,6 +54,7 @@ const Me = () => {
         // console.log(sumPrice)
         setSum(sumPrice)
         setOrders(it)
+        setLoading(false)
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -63,7 +64,7 @@ const Me = () => {
 
     useEffect(() => {
       getMe()
-    },[])
+    },[loading])
   
 
     return (

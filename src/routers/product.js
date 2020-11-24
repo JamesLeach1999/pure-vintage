@@ -125,10 +125,7 @@ router.get('/manage', ensureAuthenticated, async (req, res) => {
   if (!user.isAdmin) {
     res.redirect('/home');
   } else {
-    res.send( {
-      isAdmin: true,
-      isAuth: true,
-    });
+    res.redirect("/manage")
   }
 });
 // getting the add page
@@ -284,11 +281,7 @@ router.get('/delete', ensureAuthenticated, async (req, res) => {
     // getting the add page
     const user = await User.findById({ _id: req.session.passport.user });
     const products = await Product.find({});
-    res.send({
-      names: products,
-      isAuth: true,
-      isAdmin: user.isAdmin,
-    });
+    res.redirect("/manage")
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }
@@ -482,12 +475,7 @@ console.log(await Product.find({category: ["shoes"]}));
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
   console.log(pro1)
-  res.send({
-    pageTitle: 'welcome',
-    cat1: pro1,
-    isAuth: false,
-    isAdmin: false,
-  });
+  res.redirect("/store")
 });
 
 router.post('/store', async (req, res) => {
@@ -538,12 +526,7 @@ console.log(await Product.find({ category: ['jim'] }));
       clothes.push(ite);
     });
   }
-  res.send({
-    pageTitle: 'welcome',
-    names: clothes,
-    isAuth: true,
-    isAdmin: false,
-  });
+  res.redirect("/store")
 });
 
 // getting individual products based on their passed in ids from the store page
@@ -667,11 +650,7 @@ router.get('/cart', ensureAuthenticated, async (req, res) => {
     fullCart.push(product);
   }
   // console.log(fullCart)
-  res.send({
-    cart: fullCart,
-    isAuth: true,
-    isAdmin: isAdmin,
-  });
+  res.redirect("/cart")
 });
 
 // removing products from your cart. can currently only do 1 at a time with the cart.remove

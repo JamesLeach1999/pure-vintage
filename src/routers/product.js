@@ -125,7 +125,10 @@ router.get('/manage', ensureAuthenticated, async (req, res) => {
   if (!user.isAdmin) {
     res.redirect('/home');
   } else {
-    res.redirect("/manage")
+    res.render('manage.ejs', {
+      isAdmin: true,
+      isAuth: true,
+    });
   }
 });
 // getting the add page
@@ -133,7 +136,7 @@ router.get('/add', ensureAuthenticated, async (req, res) => {
   try {
     const user = await User.findById({ _id: req.session.passport.user });
 
-    res.send( {
+    res.render('add.ejs', {
       isAuth: true,
       isAdmin: user.isAdmin,
     });
@@ -149,7 +152,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
     const user = await User.findById({ _id: req.session.passport.user });
 
     const products = await Product.find({});
-    res.send( {
+    res.render('edit.ejs', {
       names: products,
       isAuth: true,
       isAdmin: user.isAdmin,
@@ -208,7 +211,7 @@ router.post('/edit', ensureAuthenticated, async (req, res) => {
   //         console.log(res)
   //     })
   // }
-  res.send( {
+  res.render('edit.ejs', {
     pageTitle: 'welcome',
     names: clothes,
     isAuth: true,
@@ -281,7 +284,11 @@ router.get('/delete', ensureAuthenticated, async (req, res) => {
     // getting the add page
     const user = await User.findById({ _id: req.session.passport.user });
     const products = await Product.find({});
-    res.redirect("/manage")
+    res.render('delete.ejs', {
+      names: products,
+      isAuth: true,
+      isAdmin: user.isAdmin,
+    });
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }
@@ -475,7 +482,12 @@ console.log(await Product.find({category: ["shoes"]}));
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
   console.log(pro1)
-  res.redirect("/store")
+  res.send({
+    pageTitle: 'welcome',
+    cat1: pro1,
+    isAuth: false,
+    isAdmin: false,
+  });
 });
 
 router.post('/store', async (req, res) => {
@@ -526,7 +538,13 @@ console.log(await Product.find({ category: ['jim'] }));
       clothes.push(ite);
     });
   }
-  res.redirect("/store")
+  res.send({
+    pageTitle: 'welcome',
+    names: clothes,
+
+    isAuth: true,
+    isAdmin: false,
+  });
 });
 
 // getting individual products based on their passed in ids from the store page
@@ -650,7 +668,11 @@ router.get('/cart', ensureAuthenticated, async (req, res) => {
     fullCart.push(product);
   }
   // console.log(fullCart)
-  res.redirect("/cart")
+  res.send({
+    cart: fullCart,
+    isAuth: true,
+    isAdmin: isAdmin,
+  });
 });
 
 // removing products from your cart. can currently only do 1 at a time with the cart.remove
@@ -676,7 +698,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect('https://cryptic-temple-54361.herokuapp.com/cart');
+    res.redirect("/home")
   } catch (error) {
     res.status(500).send(error);
   }

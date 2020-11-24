@@ -4,6 +4,7 @@ import Filter from "./Filter";
 import { Link, useParams } from "react-router-dom";
 import queryString from "query-string";
 import Axios from "axios";
+import { parse } from "path";
 
 const Test = () => {
   const cat = useParams("category");
@@ -36,15 +37,21 @@ const Test = () => {
         const response = await fetch(`/store1`);
         console.log(response);
         const json = await response.json();
+        if(!parsed['skip']){
+            var skip = 0
+        } else {
+            var skip = parseInt(parsed["skip"]);
+        }
         const res = await Axios.get("/store1", {
           params: {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],
-            skip: parseInt(parsed["skip"]),
+            skip: skip
           },
         });
         setData([res.names]);
+        console.log(data)
       }
     } catch (error) {
       console.log(error);

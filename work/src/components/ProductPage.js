@@ -58,7 +58,7 @@ const ProductPage = () => {
               method="POST"
               onSubmit={() =>
                 window.location.replace(
-                  "https://cryptic-temple-54361.herokuapp.com/store"
+                  "/store"
                 )
               }
             >

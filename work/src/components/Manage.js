@@ -96,7 +96,7 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
-                      onClick={() => window.location.reload()}
+                      // onClick={() => window.location.reload()}
                     >
                       Featured
                     </button>
@@ -110,7 +110,7 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
-                      onClick={() => window.location.reload()}
+                      // onClick={() => window.location.reload()}
                     >
                       deletr
                     </button>
@@ -218,7 +218,6 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
-                      onClick={() => window.location.reload()}
                     >
                       Featured
                     </button>
@@ -232,7 +231,6 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
-                      onClick={() => window.location.reload()}
                     >
                       deletr
                     </button>

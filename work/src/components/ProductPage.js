@@ -54,7 +54,7 @@ const ProductPage = () => {
             <h4>{product.price}</h4>
 
             <form
-              action="https://cryptic-temple-54361.herokuapp.com/added"
+              action="/added"
               method="POST"
             >
               <input type="text" value={product._id} name="id" hidden />

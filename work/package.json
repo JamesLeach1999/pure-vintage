@@ -22,7 +22,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start && npm install",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "dev": "cd ../src && npm start && npm install",
     "test": "react-scripts test",
@@ -84,5 +84,6 @@
   "engine": {
     "npm": "6.14.8",
     "node": "12.18.2"
-  }
+  },
+  "proxy": "http://localhost:9000"
 }

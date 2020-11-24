@@ -444,6 +444,7 @@ router.get('/store', async (req, res) => {
 
       var clothes = [];
         console.log('i work2');
+console.log(await Product.find({category: ["shoes"]}));
 
       if (query.category || query.size || query.brand) {
           console.log('i work4');
@@ -453,7 +454,7 @@ router.get('/store', async (req, res) => {
         pro1.forEach((ite) => {
           clothes.push(ite);
         });
-        // console.log(cloth[0])
+        // console.log(clothes)
         res.send({
           pageTitle: 'welcome',
           names: clothes,
@@ -480,7 +481,7 @@ router.get('/store', async (req, res) => {
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
-  // console.log(pro1)
+  console.log(pro1)
   res.send({
     pageTitle: 'welcome',
     cat1: pro1,
@@ -523,7 +524,7 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-
+console.log(await Product.find({ category: ['jim'] }));
     pro.forEach((n) => {
       clothes.push(n);
     });
@@ -697,7 +698,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect('/store');
+    res.redirect("/cart")
   } catch (error) {
     res.status(500).send(error);
   }

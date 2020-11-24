@@ -9,9 +9,11 @@
   },
   "scripts": {
     "start": "npm install && node server.js",
-    "dev": "env-cmd node server.js",
+    "dev": "env-cmd nodemon server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
+    "proxy": "http://localhost:3000",
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -61,5 +63,4 @@
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"
   }
-  
 }

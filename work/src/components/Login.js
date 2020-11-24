@@ -41,7 +41,6 @@ const App = props => {
       
       url: "/login",
     }).then((res) => {
-      console.log(res)
       if(res.data){
         props.handleLogin(res.data.passport)
       } else {

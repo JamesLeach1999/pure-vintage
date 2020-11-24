@@ -80,10 +80,13 @@ console.log(profile)
                   <td>{product.size}</td>
                   <td id="total">{product.price}</td>
                   <td>
-                    <form action="/cartProduct" method="POST">
+                    <form action="/cartProduct" method="POST"                         
+>
                       <input type="text" value={product._id} name="id" hidden />
                       <input type="checkbox" />
-                      <input type="submit" />
+                      <button
+                        type="submit"
+                      >Remove?</button>
                     </form>
                   </td>
                 </tr>

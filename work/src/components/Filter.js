@@ -8,7 +8,7 @@ const Filter = () => {
   console.log(categories)
   return (
     <form
-      action="https://cryptic-temple-54361.herokuapp.com/store"
+      action="/store"
       method="post"
       name="category"
       className="col-4 filter filter-container"

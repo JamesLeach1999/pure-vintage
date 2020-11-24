@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import Product from "../components/Product"
-import Rows from "../components/StoreRows"
+import Rows from "../components/Test"
 import Filter from "../components/Filter"
 
 // for products need to use fetch

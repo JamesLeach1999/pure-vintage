@@ -399,7 +399,7 @@ router.get('/store1', async (req, res) => {
   var category;
 
   console.log('i work3');
-  console.log(req.query);
+  console.log(req.query.params);
 
   // console.log(req.body)
   if (req.query.category) {

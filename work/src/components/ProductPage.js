@@ -56,6 +56,11 @@ const ProductPage = () => {
             <form
               action="/added"
               method="POST"
+              onSubmit={() =>
+                window.location.replace(
+                  "https://cryptic-temple-54361.herokuapp.com/store"
+                )
+              }
             >
               <input type="text" value={product._id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>

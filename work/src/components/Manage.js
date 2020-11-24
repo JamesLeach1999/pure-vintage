@@ -94,14 +94,7 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       Featured
                     </button>
                   </form>
@@ -112,14 +105,7 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       deletr
                     </button>
                   </form>
@@ -146,14 +132,7 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       Featured
                     </button>
                   </form>
@@ -164,14 +143,7 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       deletr
                     </button>
                   </form>
@@ -198,14 +170,7 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       Featured
                     </button>
                   </form>
@@ -216,14 +181,7 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       deletr
                     </button>
                   </form>
@@ -252,11 +210,7 @@ class Manage extends Component {
                     />
                     <button
                       type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
+                      onClick={() => window.location.reload()}
                     >
                       Featured
                     </button>
@@ -268,14 +222,7 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button
-                      type="submit"
-                      onClick={() =>
-                        window.location.replace(
-                          "https://cryptic-temple-54361.herokuapp.com/manage"
-                        )
-                      }
-                    >
+                    <button type="submit" onClick={(e) => e.preventDefault()}>
                       deletr
                     </button>
                   </form>

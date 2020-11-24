@@ -83,14 +83,7 @@ console.log(profile)
                     <form action="/cartProduct" method="POST">
                       <input type="text" value={product._id} name="id" hidden />
                       <input type="checkbox" />
-                      <button
-                        type="submit"
-                        onClick={() =>
-                          window.location.replace(
-                            "https://cryptic-temple-54361.herokuapp.com/cart"
-                          )
-                        }
-                      >
+                      <button type="submit" onClick={(e) => e.preventDefault()}>
                         Remove?
                       </button>
                     </form>

@@ -44,9 +44,11 @@ console.log(profile)
           return total.push(pr.price);
         });
         var sum = total.reduce((a, b) => a + b, 0);
-  
+          console.log(data);
+
         setTotal(sum)
       } catch (error) {
+        console.log(data)
         console.log(error);
       }
     }
@@ -103,7 +105,7 @@ console.log(profile)
             <td></td>
             <td></td>
             <td>Total</td>
-            <td>{this.state.total}</td>
+            <td>{total}</td>
           </tr>
         </table>
 

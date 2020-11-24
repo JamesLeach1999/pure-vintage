@@ -46,7 +46,7 @@ const MainPage = (props) => {
         price={sum}
         onSuccessfulCheckout={async () => {
           window.location.replace(
-            "https://cryptic-temple-54361.herokuapp.com/me"
+            "/me"
           );
         }}
       />

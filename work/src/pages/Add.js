@@ -7,6 +7,9 @@ import Axios from 'axios';
 
 const Addpage = () => {
 
+  const [data, setData] = useState([])
+  const [orders, setOrders] = useState([])
+  const [sum, setSum] = useState()
 
   const add = async () => {
 
@@ -30,12 +33,12 @@ const Addpage = () => {
             allOrders.push(order);
           }
         });
-        this.setState({ data: allOrders });
+        setData(allOrders)
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
         var sum;
-        this.state.data.map((items) => {
+        data.map((items) => {
           it.push(JSON.parse(items.orderItems));
           // console.log(it)
           it.map((price) => {
@@ -54,11 +57,11 @@ const Addpage = () => {
           sumPrice.push(sum);
         });
         // console.log(sumPrice)
-        this.setState({ sum: sumPrice });
-        this.setState({ orders: it });
+        setSum(sumPrice)
+        setOrders(it)
         // console.log(this.state.orders);
       } catch (error) {
-        console.log(this.state.data);
+        console.log(data);
         console.log(error);
       }
     }

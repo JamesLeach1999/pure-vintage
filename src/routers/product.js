@@ -678,6 +678,16 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
         },
       }
     );
+    if(!user){
+      var auth = false
+      var admin = false
+    } else if (!user.isAdmin){
+      var auth = true;
+      var admin = false;
+    } else {
+      var auth = true;
+      var admin = true;
+    }
     await user.save();
     const test = await Product.findOne({
       _id: user.cart,
@@ -685,7 +695,15 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     console.log(test);
     // console.log(req.query.cart)
 
-    res.redirect('back');
+    res.send({
+      pageTitle: 'welcome',
+      name: product,
+      query: req.query.id,
+      inCart: req.query.inCart,
+      reviews: product.reviews,
+      isAuth: auth,
+      isAdmin: admin,
+    });
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }

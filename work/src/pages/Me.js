@@ -42,7 +42,6 @@ const Me = () => {
             var t = [];
             price.map((r) => {
               t.push(r.product.price);
-              console.log(t);
             });
             sum = t.reduce(function (a, b) {
               return a + b;
@@ -64,7 +63,7 @@ const Me = () => {
 
     useEffect(() => {
       getMe()
-    })
+    },[])
   
 
     return (

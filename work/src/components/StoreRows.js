@@ -67,10 +67,7 @@ const Test = () => {
   };
 
   useEffect(() => {
-    console.log("cungt");
-    if(!data){
-      getData();
-    }
+    getData()
     // window.location.replace("http://localhost:5000");
   });
   return (

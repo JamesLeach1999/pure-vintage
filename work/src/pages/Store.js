@@ -77,7 +77,7 @@ const People = props => {
         <br />
         <br />
 
-        <button type="submit" onClick={(e) => e.preventDefault()}>
+        <button type="submit" onClick={() => window.location.reload()}>
           btn
         </button>
       </form>

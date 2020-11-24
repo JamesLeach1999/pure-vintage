@@ -83,7 +83,10 @@ console.log(profile)
                     <form action="/cartProduct" method="POST">
                       <input type="text" value={product._id} name="id" hidden />
                       <input type="checkbox" />
-                      <button type="submit" onClick={(e) => e.preventDefault()}>
+                      <button
+                        type="submit"
+                        onClick={() => window.location.reload()}
+                      >
                         Remove?
                       </button>
                     </form>

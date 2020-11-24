@@ -94,7 +94,10 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="submit"
+                      onClick={() => window.location.reload()}
+                    >
                       Featured
                     </button>
                   </form>
@@ -105,7 +108,10 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="submit"
+                      onClick={() => window.location.reload()}
+                    >
                       deletr
                     </button>
                   </form>
@@ -132,9 +138,7 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
-                      Featured
-                    </button>
+                    <button type="submit">Featured</button>
                   </form>
                   <form action="/delete" method="post">
                     <input
@@ -143,7 +147,10 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="submit"
+                      onClick={() => window.location.reload()}
+                    >
                       deletr
                     </button>
                   </form>
@@ -170,9 +177,7 @@ class Manage extends Component {
                       onClick={(e) => e.preventDefault()}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
-                      Featured
-                    </button>
+                    <button type="submit">Featured</button>
                   </form>
                   <form action="/delete" method="post">
                     <input
@@ -181,7 +186,10 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="submit"
+                      onClick={() => window.location.reload()}
+                    >
                       deletr
                     </button>
                   </form>
@@ -222,7 +230,10 @@ class Manage extends Component {
                       value={product._id}
                       hidden
                     />
-                    <button type="submit" onClick={(e) => e.preventDefault()}>
+                    <button
+                      type="submit"
+                      onClick={() => window.location.reload()}
+                    >
                       deletr
                     </button>
                   </form>

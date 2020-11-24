@@ -512,7 +512,13 @@ router.post('/store', async (req, res) => {
       clothes.push(ite);
     });
   }
-  res.redirect('http://localhost:5000/store');
+  res.send({
+    pageTitle: 'welcome',
+    names: clothes,
+    query: req.query.id,
+    isAuth: false,
+    isAdmin: false,
+  });
 });
 
 // getting individual products based on their passed in ids from the store page

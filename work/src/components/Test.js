@@ -40,8 +40,8 @@ const Test = () => {
         const json = await response.json();
         setData([json.names])
         await Axios({
-          method: "GET",
-          query: {
+          method: "POST",
+          data: {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],
@@ -49,7 +49,7 @@ const Test = () => {
           },
           withCredentials: true,
 
-          url: "/store1",
+          url: "/store",
         }).then((res) => {
             console.log(res.data.names);
           setData(res.data.names)

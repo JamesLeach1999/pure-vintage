@@ -13,6 +13,7 @@ const Test = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
+  const [loading, setLoading] = useState(true)
 
   const getData = async () => {
     try {
@@ -21,6 +22,7 @@ const Test = () => {
         console.log(window.location);
         const json = await response.json();
         setData([json.names]);
+        setLoading(false)
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
@@ -53,6 +55,7 @@ const Test = () => {
         console.log(res)
         setData([res.data.names]);
         console.log(data)
+        setLoading(false)
       }
     } catch (error) {
       console.log(error);
@@ -63,7 +66,7 @@ const Test = () => {
     console.log("cungt");
     getData();
     // window.location.replace("http://localhost:5000/store")
-  });
+  }, [loading]);
   return (
     <div className="small-container row filter-container">
       <div className="row product">

@@ -50,6 +50,7 @@ export default class App extends Component {
       <Router>
         {/* render you can pass in and call it directly, can add additional props */}
         <div className="App">
+            <Nav/>
           <Switch>
             {/* <Route path={"/"} render={(props) => (
             <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />

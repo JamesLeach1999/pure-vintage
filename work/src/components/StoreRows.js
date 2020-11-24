@@ -16,6 +16,7 @@ const Test = () => {
   const getData = async () => {
     try {
       if (window.location.search === "") {
+        console.log("bfrwoeiuoviueafsnv8orsenylvfshgfilvyesuhwkefajgcjsrebyf")
         const response = await fetch(`/store1`);
         console.log(response)
         console.log(window.location);

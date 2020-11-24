@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import Product from "./Product";
 import Filter from "./Filter";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import queryString from "query-string";
 import Axios from "axios";
 
 const Test = () => {
 
+    const cat = useParams("category")
+    const brand = useParams("brand")
+    const size = useParams("size")
     const [data, setData] = useState([])
     const [page, setPage] = useState(0)
     const [image, setImage] = useState(require('../assets/cap1.jpg'))
@@ -37,7 +40,7 @@ const Test = () => {
 
         console.log(parsed["category"]);
         await Axios({
-          method: "POST",
+          method: "GET",
           data: {
             category: parsed["category"],
             brand: parsed["brand"],

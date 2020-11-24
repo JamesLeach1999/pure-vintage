@@ -50,6 +50,7 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
     }
+    
     if(!data){
       window.location.replace("/store")
     }

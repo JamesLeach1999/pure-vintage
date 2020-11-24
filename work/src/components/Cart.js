@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import CartProduct from './CartProduct';
 import { Link } from 'react-router-dom';
 import { intersection } from 'lodash';
 import Order from "../pageStripe/index"
-class Cart extends Component {
-  constructor() {
-    super();
-    this.state = { data: [], images: require('../assets/cap1.jpg'), total: 0, user: {} };
-  }
+const Cart = () => {
 
-  async componentDidMount() {
-
+  const [data, setData] = useState([])
+  const [images, setImages] = useState(require('../assets/cap1.jpg'))
+  const [total, setTotal] = useState(0)
+  const [user, setUser] = useState({})
+  
+  const getCart = async () => {
     const profile = await fetch(`/me`);
 console.log(profile)
     if (!profile) {
@@ -53,8 +53,12 @@ console.log(profile)
       }
     }
   }
+
+  useEffect(() => {
+    getCart()
+  })
   
-  render() {
+  
     return (
       <div className="small-container cart-page">
       <h1>Cart</h1>
@@ -114,7 +118,7 @@ console.log(profile)
         <table></table>
       </div>
     );
-  }
+  
 }
 // const Cart = () => {
 //   return (

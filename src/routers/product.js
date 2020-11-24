@@ -672,7 +672,11 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect('/home');
+    res.send({
+      cart: fullCart,
+      isAuth: true,
+      isAdmin: user.isAdmin,
+    });
   } catch (error) {
     res.status(500).send(error);
   }

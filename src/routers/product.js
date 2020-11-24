@@ -125,7 +125,7 @@ router.get('/manage', ensureAuthenticated, async (req, res) => {
   if (!user.isAdmin) {
     res.redirect('/home');
   } else {
-    res.redirect(req.originalUrl)
+    res.redirect('https://cryptic-temple-54361.herokuapp.com/manage');
   }
 });
 // getting the add page

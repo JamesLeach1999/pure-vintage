@@ -125,10 +125,7 @@ router.get('/manage', ensureAuthenticated, async (req, res) => {
   if (!user.isAdmin) {
     res.redirect('/home');
   } else {
-    res.render('manage.ejs', {
-      isAdmin: true,
-      isAuth: true,
-    });
+    res.redirect(req.originalUrl)
   }
 });
 // getting the add page

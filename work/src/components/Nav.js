@@ -96,7 +96,7 @@ export default class Nav extends Component {
                       <Link to="/cart">cart</Link>
                     </li>
                   ) : (
-                    ""
+                    ''
                   )}
 
                   {this.state.auth === false ? (
@@ -113,14 +113,14 @@ export default class Nav extends Component {
                       <Link to="/me">me</Link>
                     </li>
                   ) : (
-                    ""
+                    ''
                   )}
                   {this.state.admin !== false ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>
                   ) : (
-                    ""
+                    ''
                   )}
                 </ul>
               </nav>
@@ -132,7 +132,50 @@ export default class Nav extends Component {
             </div>
           </div>
         </div>
-        
+        <Switch>
+          {/* <Route path={"/"} render={(props) => (
+            <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />
+            )}>
+            </Route> */}
+          <Route exact path={'/'}>
+            <Welcome />
+            <Home />
+          </Route>
+          <Route path="/store">
+            <Store />
+            {/* <Welcome />
+            <Home /> */}
+          </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+          <Route
+            path={'/login'}
+            render={(props) => (
+              <Login {...props} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn} />
+            )}
+          ></Route>
+          <Route path="/me">
+            <Me />
+          </Route>
+
+          <Route path="/manage">
+            <Manage />
+          </Route>
+          <Route path="/allOrders">
+            <PastOrders />
+          </Route>
+          <Route path="/add">
+            <Add />
+          </Route>
+
+          <Route path="/edit/:id" children={<Edit />}></Route>
+          <Route path="/order" children={<Order />}></Route>
+          <Route path="/orderProducts/:id" children={<OrderProducts />}></Route>
+          <Route path="/refundProducts/:id" children={<RefundProducts />}></Route>
+
+          <Route path="/product/:id" children={<Product />}></Route>
+        </Switch>
       </Router>
     );
   }

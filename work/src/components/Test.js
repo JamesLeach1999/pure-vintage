@@ -36,7 +36,7 @@ const Test = () => {
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
-        Axios({
+        await Axios({
           method: "POST",
           data: {
             category: parsed["category"],
@@ -49,7 +49,7 @@ const Test = () => {
           url: "/store",
         }).then((res) => {
           setData(res.data.names)
-          console.log(this.state.data);
+          console.log(data);
         });
       }
     } catch (error) {

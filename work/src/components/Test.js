@@ -51,7 +51,7 @@ const Test = () => {
           },
         });
         console.log(res)
-        setData(res.names);
+        setData(res.data.names);
       }
     } catch (error) {
       console.log(error);
@@ -80,7 +80,7 @@ const Test = () => {
       </div>
       <div className="row product">
         {data.map((products) => {
-          return products.slice(page, page + 4).map((product) => {
+          return products.slice(page + 4, page + 8).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
@@ -93,7 +93,7 @@ const Test = () => {
       </div>
       <div className="row product">
         {data.map((products) => {
-          return products.slice(page, page + 4).map((product) => {
+          return products.slice(page + 8, page + 12).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
@@ -106,7 +106,7 @@ const Test = () => {
       </div>
       <div className="row product">
         {data.map((products) => {
-          return products.slice(page, page + 4).map((product) => {
+          return products.slice(page + 12, page + 16).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>

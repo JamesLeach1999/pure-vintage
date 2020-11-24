@@ -50,8 +50,8 @@ const Test = () => {
             skip: skip
           },
         });
-        setData([res.names]);
-        console.log(data)
+        console.log(res)
+        setData(res.names);
       }
     } catch (error) {
       console.log(error);

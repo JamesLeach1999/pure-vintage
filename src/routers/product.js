@@ -541,7 +541,6 @@ console.log(await Product.find({ category: ['jim'] }));
   res.send({
     pageTitle: 'welcome',
     names: clothes,
-
     isAuth: true,
     isAdmin: false,
   });

@@ -36,7 +36,7 @@ const Test = () => {
         const response = await fetch(`/store1`);
         console.log(response);
         const json = await response.json();
-        const res = await Axios.get("https://httpbin.org/get", {
+        const res = await Axios.get("/store1", {
           params: {
             category: parsed["category"],
             brand: parsed["brand"],

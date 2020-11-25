@@ -95,7 +95,7 @@ const Me = () => {
                   <tr>
                     {/* <Link to={`/orderProducts/${product._id}`}> */}
                       <td>
-                        <img src={`/assets/${product.images[0]}`} alt="" />
+                        {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                         {/* <p>{this.state.orders.name}</p> */}
                       </td>
                       <td>

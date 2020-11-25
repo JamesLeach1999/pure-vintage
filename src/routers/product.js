@@ -22,7 +22,7 @@ const multer = require('multer');
 // multer is the most simple and popular library for image uploads in node
 
 var storage = multer.diskStorage({
-  destination: '/public/assets/',
+  destination: 'C:/wamp/www/node/pure-vintage - Copy/work/build/assets',
   filename: function (req, file, cb) {
     //req.body is empty...
     //How could I get the new_file_name property sent from client here?

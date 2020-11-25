@@ -59,6 +59,8 @@ const Me = () => {
         setSum(sumPrice);
         setOrders(it);
         setLoading(false);
+        console.log(order)
+        console.log(data)
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -86,20 +88,50 @@ const Me = () => {
 
               {orders.map((product, i) => {
                 return (
-                  <div>
-                    <OrderProducts id={data[i]._id} />
+                  <tr>
+                    <Link to={`/refundProducts/${product._id}`}>
+                      <OrderProducts id={product._id} />
+                    </Link>
+                    <br />
 
-                    <form action="/refund" methd="post">
-                      <input type="" name="id" value={data[i]._id} hidden />
-                      <input
-                        type=""
-                        name="intent"
-                        value={data[i].intent}
-                        hidden
-                      />
-                      <button type="submit">Refund?</button>
-                    </form>
-                  </div>
+                    <td>{product.size}</td>
+                    <td id="total">{product.price}</td>
+                    <td>
+                      <form action="/refund" method="POST">
+                        <input
+                          type="text"
+                          value={product._id}
+                          name="id"
+                          hidden
+                        />
+                        <input
+                          type=""
+                          name="intent"
+                          value={data[i].intent}
+                          hidden
+                        />
+                        {/* <input type="checkbox" /> */}
+                        <button type="submit">Refund?</button>
+                      </form>
+                    </td>
+                  </tr>
+                  // <tr>
+                  //   <div>
+                  //     <Link to={`/refundProducts/${product._id}`}>
+                  //       <OrderProducts id={data[i]._id} />
+                  //     </Link>
+                  //     <form action="/refund" methd="post">
+                  //       <input type="" name="id" value={data[i]._id} hidden />
+                  //       <input
+                  //         type=""
+                  //         name="intent"
+                  //         value={data[i].intent}
+                  //         hidden
+                  //       />
+                  //       <button type="submit">Refund?</button>
+                  //     </form>
+                  //   </div>
+                  // // </tr>
                 );
               })}
             </table>

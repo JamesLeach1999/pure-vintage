@@ -69,13 +69,12 @@ class Product extends Component {
       <div className="testimonial">
         <div className="small-container">
           <div class="row">
-            <h1>{this.props.id}</h1>
+            {/* <h1>{this.props.id}</h1> */}
             {this.state.data.map((product, i) => {
               return (
                 <Link to={`/refundProducts/${this.state.data[i]._id}`}>
                   <tr>
                     <td>
-                      <h1>{this.state.data[i]._id}</h1>
                       <img
                         src={`/assets/${this.state.data[i].image[0]}`}
                         alt=""

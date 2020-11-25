@@ -239,13 +239,13 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
       var product = await Order.findById({
         _id: pastOrders[i],
       });
-
+      console.log(product)
       orders.push(product);
     }
   }
 
   orders.forEach((items) => {
-    console.log(JSON.parse(items.orderItems))
+    console.log(JSON.parse(items))
   })
 
   res.send({

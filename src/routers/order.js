@@ -247,8 +247,11 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
   }
 
   orders.forEach((items) => {
-    console.log("numberwang 1")
-    console.log(JSON.parse(items.orderItems[0]))
+    console.log("nuttn")
+    if(items !== null){
+      console.log("numberwang 1")
+      console.log(JSON.parse(items.orderItems[0]))
+    }
   })
 
   res.send({

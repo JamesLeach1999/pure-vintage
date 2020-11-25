@@ -39,13 +39,12 @@ const Me = () => {
           m.map((price) => {
             console.log(price);
             var t = [];
-            price.map((r) => {
-              t.push(r.price);
-            });
+            t.push(price.price)
             sum = t.reduce(function (a, b) {
               return a + b;
             }, 0);
             console.log(sum);
+            console.log(t)
             t = [];
           });
           sumPrice.push(sum);

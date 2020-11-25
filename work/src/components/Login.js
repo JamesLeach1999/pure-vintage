@@ -10,7 +10,6 @@ const App = props => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
-  const [user1, setUser] = useState({})
   const register = () => {
     Axios({
       method: "POST",
@@ -44,7 +43,6 @@ const App = props => {
     }).then((res) => {
       if(res.data){
         props.handleLogin(res.data.passport)
-        props.setUser(res.data.passport)
       } else {
         props.handleLogin(false)
       }

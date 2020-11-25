@@ -20,54 +20,44 @@ import PastOrders from '../pages/Past';
 import OrderProducts from '../pages/OrderPage';
 import RefundProducts from '../pages/RefundPage';
 import GetAuth from './GetAuth';
-import login from "../hooks/loginState"
+
 // have to use links like this in the nav
-const Nav = () => {
+export default class Nav extends Component {
+  constructor() {
+    super();
 
-  const [user, setUser] = useState({})
-  const [admin, setAdmin] = useState(false)
-  const [auth, setAuth] = useState(false)
-  // constructor() {
-  //   super();
+    this.state = {
+      loggedIn: 'NOT_LOGGED_IN',
+      user: {},
+      admin: false,
+      auth: false,
+    };
+    // updating state
+    this.handleLogin = this.handleLogin.bind(this);
+  }
 
-  //   this.state = {
-  //     loggedIn: 'NOT_LOGGED_IN',
-  //     user: {},
-  //     admin: false,
-  //     auth: false,
-  //   };
-  //   // updating state
-  //   this.handleLogin = this.handleLogin.bind(this);
-  // }
-
-  
-
-  const handleLogin = async(data) => {
-    console.log(login())
+  async handleLogin(data) {
     console.log(data);
     if (data) {
       console.log("thats numberwang")
       const work = await Axios.post('/getAuth', {
         id: data.user,
       });
-      setAuth(true)
-      setAdmin(work.data.isAdmin)
       console.log(work);
-      // this.setState({
-      //   loggedIn: 'Logged in',
-      //   auth: true,
-      //   admin: work.data.isAdmin
-      // });
+      this.setState({
+        loggedIn: 'Logged in',
+        auth: true,
+        admin: work.data.isAdmin
+      });
+      console.log(work.data)
+      localStorage.setItem("user", work.data)
+      console.log(localStorage.getItem("user"))
     }
     
     if(!data){
       window.location.replace("/store")
     }
   }
-
-  useEffect(() => {
-    handleLogin()
-  },[window.location])
 
   // errorToggle () {
   //   // this.setState({error: false})
@@ -86,7 +76,9 @@ const Nav = () => {
   //     console.log('thats numbereang');
   //   }
   // };
+  async componentDidMount() {}
 
+  render() {
     return (
       <Router>
         <div className="header">
@@ -164,7 +156,7 @@ const Nav = () => {
           <Route
             path={'/login'}
             render={(props) => (
-              <Login {...props} handleLogin={handleLogin} loggedIn={setUser(this.user)} />
+              <Login {...props} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn} />
             )}
           ></Route>
           <Route path="/me">
@@ -190,7 +182,5 @@ const Nav = () => {
         </Switch>
       </Router>
     );
-  
+  }
 }
-
-export default Nav

@@ -100,7 +100,7 @@ export default class Nav extends Component {
                   <li>
                     <Link to="/store">store</Link>
                   </li>
-                  {localStorage.getItem("auth") !== false ? (
+                  {localStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/cart">cart</Link>
                     </li>
@@ -108,7 +108,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {localStorage.getItem("auth") !== false ? (
+                  {localStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -117,14 +117,14 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )}
-                  {localStorage.getItem("auth") !== false ? (
+                  {localStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/me">me</Link>
                     </li>
                   ) : (
                     ""
                   )}
-                  {localStorage.getItem("admin") !== false ? (
+                  {localStorage.getItem("admin") === "true" ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>

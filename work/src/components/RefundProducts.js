@@ -24,7 +24,7 @@ console.log(profile)
         console.log(this.props.id);
         var allOrders = [];
         console.log(json);
-        json.names.map((order) => {
+        json.names.orderItems.map((order) => {
           // console.log(order);
           if (order !== null) {
             allOrders.push(order);

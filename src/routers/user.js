@@ -140,6 +140,7 @@ router.get("/about", async (req, res) => {
 })
 
 router.get('/me', async (req, res) => {
+    console.log(req.query.id)
   const user = await User.findById({_id: req.query.id})
 
   console.log(user)

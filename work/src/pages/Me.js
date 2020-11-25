@@ -18,10 +18,10 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
-        const order = await fetch("/pastOrders");
+        const order = await fetch(`/pastOrders?id=${localStorage.getItem("user")}`);
         const orderJson = await order.json();
         var allOrders = [];
-        // console.log(orderJson);
+        console.log(orderJson);
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {

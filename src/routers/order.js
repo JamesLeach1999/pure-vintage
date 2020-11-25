@@ -225,11 +225,11 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 });
 
 
-router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
+router.get('/pastOrders', async (req, res) => {
   console.log('thats numberwang');
-  console.log(req.session.passport.user)
+  // console.log(req.session.passport.user)
 
-  const user = await User.findById({ _id: req.session.passport.user });
+  const user = await User.findById({ _id: req.query.id });
   // retrieving only the first 5 results
   const pastOrders = user.pastOrders;
   var orders = [];

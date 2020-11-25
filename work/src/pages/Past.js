@@ -3,7 +3,7 @@ import Product from "../components/Product";
 import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
-import OrderProducts from "../components/RefundProducts";
+import OrderProducts from "../pages/RefundPage";
 import Axios from "axios";
 
 const Me = () => {
@@ -59,9 +59,9 @@ const Me = () => {
         setSum(sumPrice);
         setOrders(it);
         setLoading(false);
-        console.log(sum)
-        console.log(order)
-        console.log(data)
+        console.log(sum);
+        console.log(order);
+        console.log(data);
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -92,47 +92,42 @@ const Me = () => {
                   <tr>
                     <Link to={`/refundProducts/${product._id}`}>
                       <OrderProducts id={product._id} />
-                    </Link>
-                    <br />
-
-                    <td>{product.size}</td>
-                    <td id="total">{product.price}</td>
-                    <td>
-                      <form action="/refund" method="POST">
-                        <input
-                          type="text"
-                          value={product._id}
-                          name="id"
-                          hidden
-                        />
-                        <input
-                          type=""
-                          name="intent"
-                          value={data[i].intent}
-                          hidden
-                        />
-                        {/* <input type="checkbox" /> */}
-                        <button type="submit">Refund?</button>
-                      </form>
-                    </td>
+                      <td>
+                        <img
+                          src={`/assets/${this.state.data[i].image[0]}`}
+                          alt=""
+                          />
+                        <p>{this.state.data[i].name}</p>
+                      </td>
+                          </Link>
+                      <td>
+                        <ul>
+                          <li>{this.state.data[i].shipping.address}</li>
+                          <li>{this.state.data[i].shipping.city}</li>
+                          <li>{this.state.data[i].shipping.postcode}</li>
+                        </ul>
+                      </td>
+                      <td>{this.state.data[i].updatedAt}</td>
+                      <td>£ {this.state.sum[i]}</td>
+                      <td>
+                        <form action="/refund" method="POST">
+                          <input
+                            type="text"
+                            value={product._id}
+                            name="id"
+                            hidden
+                          />
+                          <input
+                            type=""
+                            name="intent"
+                            value={data[i].intent}
+                            hidden
+                          />
+                          {/* <input type="checkbox" /> */}
+                          <button type="submit">Refund?</button>
+                        </form>
+                      </td>
                   </tr>
-                  // <tr>
-                  //   <div>
-                  //     <Link to={`/refundProducts/${product._id}`}>
-                  //       <OrderProducts id={data[i]._id} />
-                  //     </Link>
-                  //     <form action="/refund" methd="post">
-                  //       <input type="" name="id" value={data[i]._id} hidden />
-                  //       <input
-                  //         type=""
-                  //         name="intent"
-                  //         value={data[i].intent}
-                  //         hidden
-                  //       />
-                  //       <button type="submit">Refund?</button>
-                  //     </form>
-                  //   </div>
-                  // // </tr>
                 );
               })}
             </table>

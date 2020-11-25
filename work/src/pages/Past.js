@@ -19,12 +19,13 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
-        const profile = await fetch(`/me`);
-        const json = await profile.json();
+        // const profile = await fetch(`/me`);
+        // const json = await profile.json();
 
-        const order = await fetch("/pastOrders");
+        const order = await fetch("/allOrders");
         const orderJson = await order.json();
         var allOrders = [];
+        console.log(orderJson)
         // console.log(orderJson);
         orderJson.names.map((order) => {
           // console.log(order);

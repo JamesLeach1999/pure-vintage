@@ -173,10 +173,10 @@ console.log(req.body)
 });
 
 
-router.get('/allOrders', ensureAuthenticated, async (req, res) => {
+router.get('/allOrders', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
-  // console.log(orders)
+  console.log(orders)
 
   res.send( {
     names: orders,
@@ -235,6 +235,7 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
   var orders = [];
   var orderInfo = [];
   for (var i = 0; i < pastOrders.length; i++) {
+    
     if (pastOrders[i] !== null) {
       var product = await Order.findById({
         _id: pastOrders[i],
@@ -246,7 +247,7 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
       // console.log(product)
     }
   }
-console.log(orders)
+// console.log(orders)
   orders.forEach((items) => {
     // console.log("nuttn")
     if(items !== null){

@@ -145,9 +145,9 @@ router.get('/me', async (req, res) => {
   console.log(user)
 
   res.send({
-    userProfile: userProfile,
+    userProfile: user,
     isAuth: true,
-    isAdmin: userProfile.isAdmin,
+    isAdmin: user.isAdmin,
   });
 });
 

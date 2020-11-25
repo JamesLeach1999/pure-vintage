@@ -58,7 +58,7 @@ const ProductPage = () => {
               method="POST"
               
             >
-              <input type="text" value={product._id} name="id" hidden />
+              <input type="text" value={id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>
                 Add to cart: <input type="checkbox" />
               </h3>

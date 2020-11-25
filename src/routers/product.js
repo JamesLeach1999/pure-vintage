@@ -697,7 +697,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
 
     res.send({
       pageTitle: 'welcome',
-      name: product,
+      name: newP,
       query: req.query.id,
       inCart: req.query.inCart,
       reviews: product.reviews,
@@ -759,7 +759,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect("/store1")
+    res.redirect("back")
   } catch (error) {
     res.status(500).send(error);
   }

@@ -50,7 +50,10 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", [work.data.isAdmin, work.data.isAuth])
+      localStorage.setItem("user", {
+        auth: true,
+        admin: work.data.isAdmin
+      })
       console.log(localStorage)
     }
     
@@ -100,10 +103,10 @@ export default class Nav extends Component {
                       <Link to="/cart">cart</Link>
                     </li>
                   ) : (
-                    ''
+                    ""
                   )}
 
-                  {this.state.auth === false ? (
+                  {localStorage.user.auth === false ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -112,19 +115,19 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )}
-                  {this.state.auth !== false ? (
+                  {localStorage.user.auth !== false ? (
                     <li>
                       <Link to="/me">me</Link>
                     </li>
                   ) : (
-                    ''
+                    ""
                   )}
-                  {this.state.admin !== false ? (
+                  {localStorage.user.admin !== false ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>
                   ) : (
-                    ''
+                    ""
                   )}
                 </ul>
               </nav>
@@ -141,7 +144,7 @@ export default class Nav extends Component {
             <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />
             )}>
             </Route> */}
-          <Route exact path={'/'}>
+          <Route exact path={"/"}>
             <Welcome />
             <Home />
           </Route>
@@ -154,9 +157,13 @@ export default class Nav extends Component {
             <Cart />
           </Route>
           <Route
-            path={'/login'}
+            path={"/login"}
             render={(props) => (
-              <Login {...props} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn} />
+              <Login
+                {...props}
+                handleLogin={this.handleLogin}
+                loggedIn={this.state.loggedIn}
+              />
             )}
           ></Route>
           <Route path="/me">
@@ -176,7 +183,10 @@ export default class Nav extends Component {
           <Route path="/edit/:id" children={<Edit />}></Route>
           <Route path="/order" children={<Order />}></Route>
           <Route path="/orderProducts/:id" children={<OrderProducts />}></Route>
-          <Route path="/refundProducts/:id" children={<RefundProducts />}></Route>
+          <Route
+            path="/refundProducts/:id"
+            children={<RefundProducts />}
+          ></Route>
 
           <Route path="/product/:id" children={<Product />}></Route>
         </Switch>

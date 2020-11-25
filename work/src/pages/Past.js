@@ -111,7 +111,7 @@ const Me = () => {
                         </ul>
                       </td>
                       <td>{product.updatedAt}</td>
-                      <td>£ {this.state.sum[i]}</td>
+                      <td>£ {sum[i]}</td>
                       <td>
                         <form action="/refund" method="POST">
                           <input

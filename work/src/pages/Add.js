@@ -95,7 +95,7 @@ return (
           value="submit"
           onClick={() =>
             window.location.replace(
-              "https://cryptic-temple-54361.herokuapp.com/manage"
+              "/store"
             )
           }
         />

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Component } from 'react';
-import defaultImage from '../assets/shoes1.jpg';
-import image from '../assets/cap1.jpg';
-import { useFetch } from '../hooks/useFetch';
-import Reviews from './Reviews';
-import { Link, useParams } from 'react-router-dom';
-import Axios from "axios"
-import Product from './Product';
+import React, { useState, useEffect, Component } from "react";
+import defaultImage from "../assets/shoes1.jpg";
+import image from "../assets/cap1.jpg";
+import { useFetch } from "../hooks/useFetch";
+import Reviews from "./Reviews";
+import { Link, useParams } from "react-router-dom";
+import Axios from "axios";
+import Product from "./Product";
 class EditPage extends Component {
   constructor() {
     super();
@@ -13,32 +13,26 @@ class EditPage extends Component {
   }
 
   async componentDidMount() {
-    const profile = await fetch(`/me`);
-console.log(profile)
+    const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
+    console.log(profile);
     if (!profile) {
-      window.location.replace('/store');
+      window.location.replace("/store");
     } else {
-
       try {
-        console.log(this.props.id)
-        const response = await fetch(
-          `/product?id=${this.props.id}`
-        );
+        console.log(this.props.id);
+        const response = await fetch(`/product?id=${this.props.id}`);
         const json = await response.json();
-        console.log(json)
+        console.log(json);
         this.setState({ data: json.name, images: json.name.image[0] });
         console.log(this.state.data);
-        
       } catch (error) {
         console.log(this.props.id);
         console.log(error);
       }
-     }
+    }
   }
 
-
-  render(){
-
+  render() {
     return (
       <div className="col-4">
         <img src={`/assets/${this.state.images}`} alt="" />
@@ -51,10 +45,9 @@ console.log(profile)
           <i class="fa fa-star-o"></i>
         </div>
         <p>{this.state.data.price}</p>
-        
       </div>
     );
   }
-};
+}
 
 export default EditPage;

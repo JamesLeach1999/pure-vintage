@@ -7,12 +7,12 @@ import Axios from 'axios';
 
 const OrderPage = () => {
   const { id } = useParams();
-  const url = `/orderProducts?id=${id}`;
-  console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
   const [p, setP] = useState([]);
   const getProducts = async () => {
+    const url = `/orderProducts?id=${id}`;
+    console.log(id);
     const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
 console.log(profile)
     if (!profile || !profile.data.isAdmin) {

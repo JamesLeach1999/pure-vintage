@@ -34,30 +34,28 @@ const Me = () => {
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
-        var sum;
+        var sum1;
         var m;
+        var t = [];
         data.map((items) => {
           m = JSON.parse(items.orderItems);
-          it.push([m])
+          // it.push(m)
           console.log(m);
-          if (m.length > 0) {
-            m.map((price) => {
-              console.log(price);
-              var t = [];
-              t.push(price.price);
-              sum = t.reduce(function (a, b) {
-                return a + b;
-              }, 0);
-              console.log(sum);
+          it.map((price) => {
+            console.log(price);
+            it.push(price)
+            var t = [];
+            price.map((r) => {
+              t.push(r.product.price);
               console.log(t);
-              t = [];
-              sumPrice.push(sum);
             });
-          } else {
-            sum = m[0].price;
-            sumPrice.push(sum);
-          }
-          console.log(m);
+            sum1 = t.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+            console.log(sum1);
+            t = [];
+          });
+          it.push(m)
         });
         // console.log(sumPrice)
         setSum(sumPrice);

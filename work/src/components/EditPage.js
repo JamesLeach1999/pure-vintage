@@ -4,16 +4,16 @@ import image from '../assets/cap1.jpg';
 import { useFetch } from '../hooks/useFetch';
 import Reviews from './Reviews';
 import { Link, useParams } from 'react-router-dom';
-
+import Axios from "axios"
 const ProductPage = () => {
   const { id } = useParams();
-  const url = `/product?id=${id}`;
-  console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
   
   const getProducts = async () => {
-    const profile = await fetch(`/me`);
+    const url = `/product?id=${id}`;
+    console.log(id);
+    const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
 console.log(profile)
     if (!profile) {
       window.location.replace('/store');

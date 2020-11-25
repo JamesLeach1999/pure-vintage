@@ -41,7 +41,7 @@ const Me = () => {
         var idk = []
         data.map((items) => {
           it.push(JSON.parse(items.orderItems));
-          console.log(it)
+          console.log(it) 
           it.map((price) => {
             console.log(price);
             idk.push(price)
@@ -56,6 +56,7 @@ const Me = () => {
             console.log(sum1);
             t = [];
           });
+          console.log(idk)
           sumPrice.push(sum1);
         });
         // console.log(sumPrice)

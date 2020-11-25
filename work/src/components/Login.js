@@ -43,7 +43,6 @@ const App = (props) => {
     }).then((res) => {
       if (res.data) {
         props.handleLogin(res.data.passport);
-        window.location.replace("/store");
       } else {
         props.handleLogin(false);
       }
@@ -65,9 +64,7 @@ const App = (props) => {
         <input
           placeholder="password"
           type="password"
-          onChange={(e) => {
-            setRegisterPassword(e.target.value);
-          }}
+          onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <button onClick={register}>Submit</button>
       </div>
@@ -81,9 +78,7 @@ const App = (props) => {
         <input
           placeholder="password"
           type="password"
-          onChange={(e) => {
-            setLoginPassword(e.target.value);
-          }}
+          onChange={(e) => setLoginPassword(e.target.value)}
         />
         <button onClick={login}>Submit</button>
       </div>

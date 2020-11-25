@@ -20,7 +20,7 @@ import PastOrders from '../pages/Past';
 import OrderProducts from '../pages/OrderPage';
 import RefundProducts from '../pages/RefundPage';
 import GetAuth from './GetAuth';
-
+import login from "../hooks/loginState"
 // have to use links like this in the nav
 export default class Nav extends Component {
   constructor() {
@@ -34,6 +34,11 @@ export default class Nav extends Component {
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  async componentDidMount(){
+    console.log(login())
+    this.handleLogin()
   }
 
   async handleLogin(data) {
@@ -73,7 +78,6 @@ export default class Nav extends Component {
   //     console.log('thats numbereang');
   //   }
   // };
-  async componentDidMount() {}
 
   render() {
     return (

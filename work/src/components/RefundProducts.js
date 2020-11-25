@@ -23,7 +23,7 @@ console.log(profile)
         const json = await response.json();
         console.log(this.props.id);
         var allOrders = [];
-        // console.log(orderJson);
+        console.log(json);
         json.names.map((order) => {
           // console.log(order);
           if (order !== null) {

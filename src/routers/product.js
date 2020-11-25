@@ -691,14 +691,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     console.log(test);
     // console.log(req.query.cart)
 
-    res.send({
-      pageTitle: 'welcome',
-      name: newP,
-      query: req.query.id,
-      inCart: req.query.inCart,
-      isAuth: auth,
-      isAdmin: admin,
-    });
+    res.redirect("/store")
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }

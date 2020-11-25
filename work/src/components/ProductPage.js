@@ -36,7 +36,7 @@ const ProductPage = () => {
   }, []);
 
   console.log(product);
-  console.log(images)
+  console.log(images);
   return (
     <div>
       <div class="small-container single-product">
@@ -53,16 +53,16 @@ const ProductPage = () => {
             <h1>{product.name}</h1>
             <h4>{product.price}</h4>
 
-            <form
-              action="/added"
-              method="POST"
-              
-            >
+            <form action="/added" method="POST">
               <input type="text" value={id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>
                 Add to cart: <input type="checkbox" />
               </h3>
-              <input type="submit" style={{ width: "150px", margin: "20px" }} />
+              <input
+                type="submit"
+                style={{ width: "150px", margin: "20px" }}
+                onClick={() => window.location.replace("/store")}
+              />
             </form>
             {/* <a href="" class="btn">Add to cart</a> */}
             <h3>

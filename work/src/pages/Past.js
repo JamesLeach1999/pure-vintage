@@ -62,7 +62,7 @@ const Me = () => {
         setSum(sumPrice);
         setOrders(idk);
         setLoading(false);
-        console.log(sum);
+        console.log(JSON.parse(data[0].orderItems[0].product[0].image));
         console.log(orders);
         console.log(data);
         // console.log(this.state.orders);
@@ -96,10 +96,10 @@ const Me = () => {
                     <Link to={`/refundProducts/${product._id}`}>
                       <OrderProducts id={product._id} />
                       <td>
-                        {/* <img
-                          src={`/assets/${product.image[0]}`}
+                        <img
+                          src={`/assets/${JSON.parse(product.orderItems[0].product[0].image)}`}
                           alt=""
-                          /> */}
+                          />
                         <p>{product.name}</p>
                       </td>
                           </Link>

@@ -51,7 +51,7 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", toArray([true, work.data.isAdmin, work.data._id]))
+      localStorage.setItem("user", toArray(true, work.data.isAdmin, work.data.id))
       console.log(localStorage)
     }
     

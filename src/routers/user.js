@@ -107,7 +107,8 @@ router.post("/getAuth", async (req, res) => {
 
     res.send({
         isAuth: true,
-        isAdmin: auth.isAdmin
+        isAdmin: auth.isAdmin,
+        id: auth._id
     })
 })
 

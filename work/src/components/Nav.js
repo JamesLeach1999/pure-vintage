@@ -50,7 +50,7 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", work.data)
+      localStorage.setItem("user", [work.data.isAdmin, work.data.isAuth])
       console.log(localStorage)
     }
     

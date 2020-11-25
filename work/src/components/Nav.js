@@ -22,44 +22,52 @@ import RefundProducts from '../pages/RefundPage';
 import GetAuth from './GetAuth';
 import login from "../hooks/loginState"
 // have to use links like this in the nav
-export default class Nav extends Component {
-  constructor() {
-    super();
+const Nav = () => {
 
-    this.state = {
-      loggedIn: 'NOT_LOGGED_IN',
-      user: {},
-      admin: false,
-      auth: false,
-    };
-    // updating state
-    this.handleLogin = this.handleLogin.bind(this);
-  }
+  const [user, setUser] = useState({})
+  const [admin, setAdmin] = useState(false)
+  const [auth, setAuth] = useState(false)
+  // constructor() {
+  //   super();
 
-  async componentDidMount(){
+  //   this.state = {
+  //     loggedIn: 'NOT_LOGGED_IN',
+  //     user: {},
+  //     admin: false,
+  //     auth: false,
+  //   };
+  //   // updating state
+  //   this.handleLogin = this.handleLogin.bind(this);
+  // }
+
+  
+
+  const handleLogin = async(data) => {
     console.log(login())
-    this.handleLogin()
-  }
-
-  async handleLogin(data) {
     console.log(data);
     if (data) {
       console.log("thats numberwang")
       const work = await Axios.post('/getAuth', {
         id: data.user,
       });
+      setAuth(true)
+      setAdmin(work.data.isAdmin)
       console.log(work);
-      this.setState({
-        loggedIn: 'Logged in',
-        auth: true,
-        admin: work.data.isAdmin
-      });
+      // this.setState({
+      //   loggedIn: 'Logged in',
+      //   auth: true,
+      //   admin: work.data.isAdmin
+      // });
     }
     
     if(!data){
       window.location.replace("/store")
     }
   }
+
+  useEffect(() => {
+    handleLogin()
+  },[window.location])
 
   // errorToggle () {
   //   // this.setState({error: false})
@@ -79,7 +87,6 @@ export default class Nav extends Component {
   //   }
   // };
 
-  render() {
     return (
       <Router>
         <div className="header">
@@ -157,7 +164,7 @@ export default class Nav extends Component {
           <Route
             path={'/login'}
             render={(props) => (
-              <Login {...props} handleLogin={this.handleLogin} loggedIn={this.state.loggedIn} />
+              <Login {...props} handleLogin={handleLogin} loggedIn={setUser(this.user)} />
             )}
           ></Route>
           <Route path="/me">
@@ -183,5 +190,5 @@ export default class Nav extends Component {
         </Switch>
       </Router>
     );
-  }
+  
 }

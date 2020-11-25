@@ -35,12 +35,12 @@ const Me = () => {
         var sum;
         data.map((items) => {
           var m = JSON.parse(items.orderItems)
-          // console.log(it)
+          console.log(m)
           m.map((price) => {
             console.log(price);
             var t = [];
             price.map((r) => {
-              t.push(r.product.price);
+              t.push(r.price);
             });
             sum = t.reduce(function (a, b) {
               return a + b;

@@ -51,7 +51,7 @@ export default class Nav extends Component {
       });
       console.log(work.data)
       localStorage.setItem("user", work.data)
-      console.log(localStorage.getItem("user").auth)
+      console.log(localStorage)
     }
     
     if(!data){

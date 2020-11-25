@@ -9,7 +9,7 @@ module.exports = {
   // using passport functions make this process alot easier
   ensureAuthenticated: async function (req, res, next) {
     if (req.isAuthenticated()) {
-      console.log('auth');
+      // console.log('auth');
       return next();
     }
 

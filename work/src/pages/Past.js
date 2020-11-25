@@ -38,11 +38,13 @@ const Me = () => {
         var it = [];
         var sumPrice = [];
         var sum1;
+        var idk = []
         data.map((items) => {
           it.push(JSON.parse(items.orderItems));
           console.log(it)
           it.map((price) => {
             console.log(price);
+            idk.push(price)
             var t = [];
             price.map((r) => {
               t.push(r.product.price);
@@ -58,7 +60,7 @@ const Me = () => {
         });
         // console.log(sumPrice)
         setSum(sumPrice);
-        setOrders(it);
+        setOrders(idk);
         setLoading(false);
         console.log(sum);
         console.log(orders);
@@ -101,15 +103,15 @@ const Me = () => {
                         <p>{product.name}</p>
                       </td>
                           </Link>
-                      {/* <td>
+                      <td>
                         <ul>
-                          <li>{this.state.data[i].shipping.address}</li>
-                          <li>{this.state.data[i].shipping.city}</li>
-                          <li>{this.state.data[i].shipping.postcode}</li>
+                          <li>{product.shipping.address}</li>
+                          <li>{product.shipping.city}</li>
+                          <li>{product.shipping.postcode}</li>
                         </ul>
                       </td>
-                      <td>{this.state.data[i].updatedAt}</td>
-                      <td>£ {this.state.sum[i]}</td> */}
+                      <td>{product.updatedAt}</td>
+                      <td>£ {this.state.sum[i]}</td>
                       <td>
                         <form action="/refund" method="POST">
                           <input

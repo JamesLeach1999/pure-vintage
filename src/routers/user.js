@@ -139,6 +139,14 @@ router.get("/about", async (req, res) => {
     })
 })
 
+router.get('/me', async (req, res) => {
+  const user = await User.findById({_id: req.query.id})
+
+  console.log(user)
+
+  res.send(user)
+});
+
 // rendering login page
 // router.get("/login", async (req, res) => {
 //     // retrieving id data set in passport line 32

@@ -39,7 +39,7 @@ const Me = () => {
         var sum1;
         data.map((items) => {
           it.push(JSON.parse(items.orderItems));
-          // console.log(it)
+          console.log(it)
           it.map((price) => {
             console.log(price);
             var t = [];
@@ -94,13 +94,13 @@ const Me = () => {
                       <OrderProducts id={product._id} />
                       <td>
                         <img
-                          src={`/assets/${this.state.data[i].image[0]}`}
+                          src={`/assets/${product.image[0]}`}
                           alt=""
                           />
-                        <p>{this.state.data[i].name}</p>
+                        <p>{product.name}</p>
                       </td>
                           </Link>
-                      <td>
+                      {/* <td>
                         <ul>
                           <li>{this.state.data[i].shipping.address}</li>
                           <li>{this.state.data[i].shipping.city}</li>
@@ -108,7 +108,7 @@ const Me = () => {
                         </ul>
                       </td>
                       <td>{this.state.data[i].updatedAt}</td>
-                      <td>£ {this.state.sum[i]}</td>
+                      <td>£ {this.state.sum[i]}</td> */}
                       <td>
                         <form action="/refund" method="POST">
                           <input

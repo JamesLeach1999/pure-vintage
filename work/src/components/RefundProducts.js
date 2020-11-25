@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import Axios from "axios"
 // function ID(id) {
 //   return id;
 // }
@@ -11,7 +11,7 @@ class Product extends Component {
   }
 
   async componentDidMount() {
-    const profile = await fetch(`/me`);
+    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
     console.log(profile);
     if (!profile) {
       window.location.replace("/store");

@@ -13,7 +13,7 @@ const OrderPage = () => {
   const [images, setImages] = useState([]);
   const [p, setP] = useState([]);
   const getProducts = async () => {
-    const profile = await Axios.get(`/me`);
+    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
 console.log(profile)
     if (!profile || !profile.data.isAdmin) {
       window.location.replace('/store');

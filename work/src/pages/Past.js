@@ -13,7 +13,7 @@ const Me = () => {
   const [loading, setLoading] = useState(true);
 
   const getOrders = async () => {
-    const profile = await Axios.get(`/me`);
+    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
     console.log(profile);
     if (!profile || !profile.data.isAdmin) {
       window.location.replace("/store");
@@ -96,10 +96,10 @@ const Me = () => {
                     <Link to={`/refundProducts/${product._id}`}>
                       <OrderProducts id={product._id} />
                       <td>
-                        <img
+                        {/* <img
                           src={`/assets/${JSON.parse(product.orderItems[0].product[0].image)}`}
                           alt=""
-                          />
+                          /> */}
                         <p>{product.name}</p>
                       </td>
                           </Link>

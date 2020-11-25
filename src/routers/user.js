@@ -114,22 +114,22 @@ router.post("/getAuth", async (req, res) => {
 })
 
 // get own profile
-router.get("/me", ensureAuthenticated, async (req, res) => {
-    // retrieving id data set in passport line 32
-    const id = req.session.passport.user
+// router.get("/me", ensureAuthenticated, async (req, res) => {
+//     // retrieving id data set in passport line 32
+//     const id = req.session.passport.user
 
-    const userProfile = await User.findById({
-        _id: id
-    })
+//     const userProfile = await User.findById({
+//         _id: id
+//     })
 
-// console.log(userProfile)
-    res.send( {
-        userProfile: userProfile,
-        isAuth: true,
-        isAdmin: userProfile.isAdmin
-    })
+// // console.log(userProfile)
+    // res.send( {
+    //     userProfile: userProfile,
+    //     isAuth: true,
+    //     isAdmin: userProfile.isAdmin
+    // })
 
-})
+// })
 
 router.get("/about", async (req, res) => {
 
@@ -144,7 +144,11 @@ router.get('/me', async (req, res) => {
 
   console.log(user)
 
-  res.send(user)
+  res.send({
+    userProfile: userProfile,
+    isAuth: true,
+    isAdmin: userProfile.isAdmin,
+  });
 });
 
 // rendering login page

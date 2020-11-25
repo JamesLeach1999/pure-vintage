@@ -21,7 +21,7 @@ const Addpage = () => {
     } else {
   
       try {
-        const profile = await fetch(`/me`);
+    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
         const json = await profile.json();
   
         const order = await fetch('/pastOrders');

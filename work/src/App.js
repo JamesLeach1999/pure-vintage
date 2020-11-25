@@ -42,6 +42,7 @@ export default class App extends Component {
       loggedIn: "Logged in",
       user: {data},
     })
+    console.log(this.state.user)
   }
 
   render(){

@@ -54,9 +54,10 @@ class Product extends Component {
           });
           sumPrice.push(sum);
         });
-        // console.log(sumPrice)
+        this.setState({ orders: it });
         this.setState({ sum: sumPrice });
-        //   this.setState({ data: it });
+        console.log(this.state.data);
+        console.log(this.state.orders);
       } catch (error) {
         console.log(this.props.id);
         console.log(error);
@@ -72,7 +73,7 @@ class Product extends Component {
             {/* <h1>{this.props.id}</h1> */}
             {this.state.data.map((product, i) => {
               return (
-                <Link to={`/refundProducts/${this.state.data[i]._id}`}>
+                <Link to={`/refundPage/${this.state.data[i]._id}`}>
                   <tr>
                     <td>
                       <img

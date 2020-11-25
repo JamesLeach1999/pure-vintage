@@ -60,7 +60,7 @@ const Me = () => {
         setOrders(it);
         setLoading(false);
         console.log(sum);
-        console.log(order);
+        console.log(orders);
         console.log(data);
         // console.log(this.state.orders);
       } catch (error) {

@@ -241,16 +241,16 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
       });
           console.log('numberwang 2');
 
-      console.log(product)
+      // console.log(product)
       orders.push(product);
     }
   }
 
   orders.forEach((items) => {
-    console.log("nuttn")
+    // console.log("nuttn")
     if(items !== null){
-      console.log("numberwang 1")
-      console.log(JSON.parse(items.orderItems[0]))
+      // console.log("numberwang 1")
+      // console.log(JSON.parse(items.orderItems[0]))
     }
   })
 
@@ -276,7 +276,9 @@ router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
   var orders = [];
   var orderInfo = [];
   const product = await Order.findById({_id: req.query.id})
+  console.log(product)
   const p = JSON.parse(product.orderItems)
+  console.log(p)
   p.forEach((items) => {
     console.log(items)
     it.push(JSON.parse(items.orderItems));

@@ -8,7 +8,7 @@ import OrderProducts from "../components/OrderProducts";
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [sum, setSum] = useState([]);
+  const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const getMe = async () => {
@@ -34,9 +34,9 @@ const Me = () => {
         var sumPrice = [];
         var sum;
         data.map((items) => {
-          it.push(JSON.parse(items.orderItems));
+          var m = JSON.parse(items.orderItems)
           // console.log(it)
-          it.map((price) => {
+          m.map((price) => {
             console.log(price);
             var t = [];
             price.map((r) => {
@@ -49,6 +49,7 @@ const Me = () => {
             t = [];
           });
           sumPrice.push(sum);
+          console.log(m)
         });
         // console.log(sumPrice)
         setSum(sumPrice);
@@ -56,6 +57,7 @@ const Me = () => {
         setLoading(false);
         console.log(data);
         console.log(orders);
+        console.log(total)
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -82,11 +84,23 @@ const Me = () => {
               </tr>
               {orders.map((product, i) => {
                 return (
-                  <Link to={`/orderProducts/${product.id}`}>
-                    <tr>
-                      <OrderProducts id={product._id} />
-                    </tr>
-                  </Link>
+                  <tr>
+                    <Link to={`/orderProducts/${product._id}`}>
+                      <td>
+                        <img src={`/assets/${product.images[0]}`} alt="" />
+                        {/* <p>{this.state.orders.name}</p> */}
+                      </td>
+                      <td>
+                        <ul>
+                          <li>{product.shipping.address}</li>
+                          <li>{product.shipping.city}</li>
+                          <li>{product.shipping.postcode}</li>
+                        </ul>
+                      </td>
+                      <td>{product.updatedAt}</td>
+                <td>{total}</td>
+                    </Link>
+                  </tr>
                 );
               })}
             </table>

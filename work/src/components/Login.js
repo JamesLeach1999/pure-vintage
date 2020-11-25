@@ -43,10 +43,10 @@ const App = (props) => {
     }).then((res) => {
       if (res.data) {
         props.handleLogin(res.data.passport);
-        window.location.reload()
       } else {
         props.handleLogin(false);
       }
+      window.location.replace("/store");
     });
   };
 

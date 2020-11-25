@@ -62,9 +62,9 @@ const Me = () => {
         setSum(sumPrice);
         setOrders(idk);
         setLoading(false);
+        console.log(data);
         console.log(JSON.parse(data[0].orderItems[0].product[0].image));
         console.log(orders);
-        console.log(data);
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);

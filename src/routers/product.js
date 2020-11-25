@@ -747,7 +747,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect("back")
+    res.redirect("/store")
   } catch (error) {
     res.status(500).send(error);
   }

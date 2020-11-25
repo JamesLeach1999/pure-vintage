@@ -325,11 +325,7 @@ router.post('/editPost', async (req, res) => {
     }
   }
   const products = await Product.find({});
-  res.send({
-    names: products,
-    isAuth: true,
-    isAdmin: true,
-  });
+  res.redirect("back")
 });
 
 // getting the delete agent,again will add pagnintation
@@ -700,7 +696,6 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
       name: newP,
       query: req.query.id,
       inCart: req.query.inCart,
-      reviews: product.reviews,
       isAuth: auth,
       isAdmin: admin,
     });

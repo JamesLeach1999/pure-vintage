@@ -122,6 +122,7 @@ const Test = () => {
         })}
       </div>
 
+      {/* </div> */}
       <div className="pagination-div">
         <form action="/store" method="get">
           <button name="skip" value={16}>
@@ -134,7 +135,7 @@ const Test = () => {
             Page 3
           </button>
         </form>
-      </div>
+        </div>
     </div>
   );
 };

@@ -108,7 +108,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {localStorage.getItem("auth") === "true" ? (
+                  {localStorage.getItem("auth") === "false" ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>

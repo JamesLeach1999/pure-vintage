@@ -25,7 +25,7 @@ console.log(profile)
         var allOrders = [];
         console.log(json);
         json.names.orderItems.map((order) => {
-          // console.log(order);
+          console.log(order);
           if (order !== null) {
             allOrders.push(order);
           }

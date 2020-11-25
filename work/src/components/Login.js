@@ -64,7 +64,9 @@ const App = (props) => {
         <input
           placeholder="password"
           type="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
+          onChange={(e) => {
+            window.location.reload()
+            setRegisterPassword(e.target.value)}}
         />
         <button onClick={register}>Submit</button>
       </div>
@@ -78,7 +80,10 @@ const App = (props) => {
         <input
           placeholder="password"
           type="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
+          onChange={(e) => {
+            window.location.reload();
+            setLoginPassword(e.target.value);
+          }}
         />
         <button onClick={login}>Submit</button>
       </div>

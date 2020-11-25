@@ -454,7 +454,7 @@ router.get('/home', async (req, res) => {
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store1', async (req, res) => {
   var category;
-
+console.log(localStorage)
   console.log('i work3');
   console.log(req.query.params);
 

@@ -12,6 +12,7 @@ const People = props => {
     var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
 
+  console.log(localStorage)
  
   return (
     <div className="filter-container">

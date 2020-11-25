@@ -20,6 +20,7 @@ import PastOrders from '../pages/Past';
 import OrderProducts from '../pages/OrderPage';
 import RefundProducts from '../pages/RefundPage';
 import GetAuth from './GetAuth';
+import { toArray } from 'lodash';
 
 // have to use links like this in the nav
 export default class Nav extends Component {
@@ -50,7 +51,7 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", [true, work.data.isAdmin, work.data])
+      localStorage.setItem("user", toArray([true, work.data.isAdmin, work.data._id]))
       console.log(localStorage)
     }
     
@@ -95,7 +96,7 @@ export default class Nav extends Component {
                   <li>
                     <Link to="/store">store</Link>
                   </li>
-                  {this.state[0] !== false ? (
+                  {localStorage.state[0] !== false ? (
                     <li>
                       <Link to="/cart">cart</Link>
                     </li>
@@ -112,7 +113,7 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )}
-                  {localStorage.user.auth !== false ? (
+                  {localStorage.user[0] !== false ? (
                     <li>
                       <Link to="/me">me</Link>
                     </li>

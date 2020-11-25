@@ -23,7 +23,7 @@ const multer = require('multer');
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'C:/wamp/www/node/pure-vintage - Copywork/build/assets');
+    cb(null, 'C:/wamp/www/node/pure-vintage - Copywork/build/assets/');
   },
   filename: function (req, file, cb) {
     //req.body is empty...

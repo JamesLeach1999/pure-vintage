@@ -18,7 +18,9 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
-        const order = await fetch(`/pastOrders?id=${localStorage.getItem("user")}`);
+        const order = await fetch(
+          `/pastOrders?id=${localStorage.getItem("user")}`
+        );
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);
@@ -33,26 +35,28 @@ const Me = () => {
         var it = [];
         var sumPrice = [];
         var sum;
+        var m;
         data.map((items) => {
-          var m = JSON.parse(items.orderItems)
-          console.log(m)
-          if(m.length > 0){
+          m = JSON.parse(items.orderItems);
+          console.log(m);
+          if (m.length > 0) {
             m.map((price) => {
               console.log(price);
               var t = [];
-              t.push(price.price)
+              t.push(price.price);
               sum = t.reduce(function (a, b) {
                 return a + b;
               }, 0);
               console.log(sum);
-              console.log(t)
+              console.log(t);
               t = [];
+              sumPrice.push(sum);
             });
           } else {
-            sum = m[0].price
+            sum = m[0].price;
+            sumPrice.push(sum);
           }
-          sumPrice.push(sum);
-          console.log(m)
+          console.log(m);
         });
         // console.log(sumPrice)
         setSum(sumPrice);
@@ -60,7 +64,7 @@ const Me = () => {
         setLoading(false);
         console.log(data);
         console.log(orders);
-        console.log(total)
+        console.log(total);
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -88,7 +92,7 @@ const Me = () => {
               {orders.map((product, i) => {
                 return (
                   <tr>
-                    <Link to={`/orderProducts/${product._id}`}>
+                    {/* <Link to={`/orderProducts/${product._id}`}> */}
                       <td>
                         <img src={`/assets/${product.images[0]}`} alt="" />
                         {/* <p>{this.state.orders.name}</p> */}
@@ -101,8 +105,8 @@ const Me = () => {
                         </ul>
                       </td>
                       <td>{product.updatedAt}</td>
-                <td>{total}</td>
-                    </Link>
+                      <td>{total}</td>
+                    {/* </Link> */}
                   </tr>
                 );
               })}

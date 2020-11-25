@@ -17,7 +17,7 @@ const Manage = () => {
 
     const admin = await fetch(`/me?id=${localStorage.getItem("user")}`);
     console.log(admin)
-    if(!admin || !admin.isAdmin ){
+    if(!admin || !admin.userProfile.isAdmin ){
       window.location.replace("/store")
     } else {
         try {

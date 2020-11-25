@@ -15,9 +15,9 @@ const Manage = () => {
   const [loading, setLoading] = useState(true)
   const getManage = async () => {
 
-    const admin = await fetch(`/me?id=${localStorage.getItem("user")}`);
+    const admin = await Axios(`/me?id=${localStorage.getItem("user")}`);
     console.log(admin)
-    if(!admin || !admin.userProfile.isAdmin ){
+    if(!admin || !admin.data.isAdmin ){
       window.location.replace("/store")
     } else {
         try {

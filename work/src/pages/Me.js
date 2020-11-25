@@ -38,6 +38,7 @@ const Me = () => {
         var m;
         data.map((items) => {
           m = JSON.parse(items.orderItems);
+          it.push([m])
           console.log(m);
           if (m.length > 0) {
             m.map((price) => {
@@ -89,7 +90,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {orders.map((product, i) => {
+              {data.map((product, i) => {
                 return (
                   <tr>
                     {/* <Link to={`/orderProducts/${product._id}`}> */}

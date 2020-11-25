@@ -6,14 +6,13 @@ import { Link, useParams } from "react-router-dom";
 import OrderProducts from "../components/OrderProducts";
 
 const Me = () => {
+  const [data, setData] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [sum, setSum] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const [data, setData] = useState([])
-  const [orders, setOrders] = useState([])
-  const [sum, setSum] = useState([])
-  const [loading, setLoading] = useState(true)
-
-    const getMe = async () => {
-      const profile = await fetch(`/me?id=${localStorage.getItem("user")}`);
+  const getMe = async () => {
+    const profile = await fetch(`/me?id=${localStorage.getItem("user")}`);
     console.log(profile);
     if (!profile) {
       window.location.replace("/store");
@@ -29,7 +28,7 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-        setData(allOrders)
+        setData(allOrders);
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
@@ -52,49 +51,50 @@ const Me = () => {
           sumPrice.push(sum);
         });
         // console.log(sumPrice)
-        setSum(sumPrice)
-        setOrders(it)
-        setLoading(false)
+        setSum(sumPrice);
+        setOrders(it);
+        setLoading(false);
+        console.log(data);
+        console.log(orders);
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
         console.log(error);
       }
-    }}
+    }
+  };
 
-    useEffect(() => {
-      getMe()
-    },[loading])
-  
+  useEffect(() => {
+    getMe();
+  }, [loading]);
 
-    return (
-      <>
-        <div className="testimonial">
-          <div className="small-container">
-            <div class="row">
-              <table>
-                <tr>
-                  <th>Product details:</th>
-                  <th>Shipping details:</th>
-                  <th>Date ordered:</th>
-                  <th>Price:</th>
-                </tr>
-                {orders.map((product, i) => {
-                  return (
-                    // <Link to={`/orderProducts/${this.state.data[i]}`}>
+  return (
+    <>
+      <div className="testimonial">
+        <div className="small-container">
+          <div class="row">
+            <table>
+              <tr>
+                <th>Product details:</th>
+                <th>Shipping details:</th>
+                <th>Date ordered:</th>
+                <th>Price:</th>
+              </tr>
+              {orders.map((product, i) => {
+                return (
+                  <Link to={`/orderProducts/${product.id}`}>
                     <tr>
-                      <OrderProducts id={data[i]._id} />
+                      <OrderProducts id={product._id} />
                     </tr>
-                    // </Link>
-                  );
-                })}
-              </table>
-            </div>
+                  </Link>
+                );
+              })}
+            </table>
           </div>
         </div>
-      </>
-    );
-  }
-
+      </div>
+    </>
+  );
+};
 
 export default Me;

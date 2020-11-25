@@ -36,17 +36,21 @@ const Me = () => {
         data.map((items) => {
           var m = JSON.parse(items.orderItems)
           console.log(m)
-          m.map((price) => {
-            console.log(price);
-            var t = [];
-            t.push(price.price)
-            sum = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum);
-            console.log(t)
-            t = [];
-          });
+          if(m.length > 0){
+            m.map((price) => {
+              console.log(price);
+              var t = [];
+              t.push(price.price)
+              sum = t.reduce(function (a, b) {
+                return a + b;
+              }, 0);
+              console.log(sum);
+              console.log(t)
+              t = [];
+            });
+          } else {
+            sum = m[0].price
+          }
           sumPrice.push(sum);
           console.log(m)
         });

@@ -244,7 +244,9 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
     }
   }
 
-  // console.log(orders);
+  orders.forEach((items) => {
+    console.log(JSON.parse(items.orderItems))
+  })
 
   res.send({
     pageTitle: 'welcome',
@@ -268,6 +270,26 @@ router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
   var orders = [];
   var orderInfo = [];
   const product = await Order.findById({_id: req.query.id})
+  const p = JSON.parse(product.orderItems)
+  p.forEach((items) => {
+    console.log(items)
+    it.push(JSON.parse(items.orderItems));
+    it.map((price) => {
+      console.log(price);
+      var t = [];
+      price.map((r) => {
+        t.push(r.product.price);
+        console.log(t);
+      });
+      sum = t.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      console.log(sum);
+      t = [];
+    });
+    sumPrice.push(sum);
+  });
+  console.log(sumPrice)
 
   // console.log(orders);
 

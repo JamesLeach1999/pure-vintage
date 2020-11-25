@@ -10,6 +10,7 @@ const Addpage = () => {
   const [data, setData] = useState([])
   const [orders, setOrders] = useState([])
   const [sum, setSum] = useState()
+  const [loading, setLoading] = useState(true)
 
   const add = async () => {
 
@@ -59,6 +60,7 @@ const Addpage = () => {
         // console.log(sumPrice)
         setSum(sumPrice)
         setOrders(it)
+        setLoading(false)
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -70,7 +72,7 @@ const Addpage = () => {
 
   useEffect(() => {
     add()
-  })
+  }, [loading])
 return (
   <div>
     <div class="grid category">

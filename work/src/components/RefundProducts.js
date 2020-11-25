@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link, useParams } from "react-router-dom";
 
 // function ID(id) {
 //   return id;
@@ -12,11 +12,10 @@ class Product extends Component {
 
   async componentDidMount() {
     const profile = await fetch(`/me`);
-console.log(profile)
+    console.log(profile);
     if (!profile) {
-      window.location.replace('/store');
+      window.location.replace("/store");
     } else {
-
       try {
         console.log();
         const response = await fetch(`/orderProducts?id=${this.props.id}`);
@@ -30,9 +29,10 @@ console.log(profile)
             allOrders.push(order);
           }
         });
-  
-        this.setState({ data: allOrders });
-  
+
+        this.setState({ data: JSON.parse(allOrders) });
+        console.log(this.state.data);
+
         var it = [];
         var sumPrice = [];
         var sum;
@@ -57,7 +57,6 @@ console.log(profile)
         // console.log(sumPrice)
         this.setState({ sum: sumPrice });
         //   this.setState({ data: it });
-        console.log(this.state.data);
       } catch (error) {
         console.log(this.props.id);
         console.log(error);
@@ -77,7 +76,10 @@ console.log(profile)
                   <tr>
                     <td>
                       <h1>{this.state.data[i]._id}</h1>
-                      <img src={`/assets/${this.state.data[i].image[0]}`} alt="" />
+                      <img
+                        src={`/assets/${this.state.data[i].image[0]}`}
+                        alt=""
+                      />
                       <p>{this.state.data[i].name}</p>
                     </td>
                     <td>

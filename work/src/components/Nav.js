@@ -50,10 +50,7 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", {
-        auth: true,
-        admin: work.data.isAdmin
-      })
+      localStorage.setItem("user", [true, work.data.isAdmin, work.data])
       console.log(localStorage)
     }
     
@@ -98,7 +95,7 @@ export default class Nav extends Component {
                   <li>
                     <Link to="/store">store</Link>
                   </li>
-                  {this.state.auth !== false ? (
+                  {this.state[0] !== false ? (
                     <li>
                       <Link to="/cart">cart</Link>
                     </li>
@@ -106,7 +103,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {localStorage.user.auth === false ? (
+                  {localStorage.user[0] === false ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -122,7 +119,7 @@ export default class Nav extends Component {
                   ) : (
                     ""
                   )}
-                  {localStorage.user.admin !== false ? (
+                  {localStorage.user[1] !== false ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>

@@ -239,13 +239,14 @@ router.get('/pastOrders', ensureAuthenticated, async (req, res) => {
       var product = await Order.findById({
         _id: pastOrders[i],
       });
-          console.log('numberwang 2');
+      if(product !== null || product !== undefined){
 
+        orders.push(product);
+      }
       // console.log(product)
-      orders.push(product);
     }
   }
-
+console.log(orders)
   orders.forEach((items) => {
     // console.log("nuttn")
     if(items !== null){
@@ -276,9 +277,13 @@ router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
   var orders = [];
   var orderInfo = [];
   const product = await Order.findById({_id: req.query.id})
+  console.log("thats nuberwang 3")
   console.log(product)
   const p = JSON.parse(product.orderItems)
+  
   console.log(p)
+  console.log('thats nuberwang 4');
+  var it = []
   p.forEach((items) => {
     console.log(items)
     it.push(JSON.parse(items.orderItems));
@@ -298,8 +303,9 @@ router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
     sumPrice.push(sum);
   });
   console.log(sumPrice)
+  console.log('thats nuberwang 5');
 
-  // console.log(orders);
+  console.log(it);
 
   res.send({
     pageTitle: 'welcome',

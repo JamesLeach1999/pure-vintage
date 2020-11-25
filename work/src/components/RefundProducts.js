@@ -37,7 +37,7 @@ class Product extends Component {
         var sumPrice = [];
         var sum;
         this.state.data.map((items) => {
-          it.push(JSON.parse(items.orderItems));
+          it.push(JSON.parse(items.orderItems[0]));
           // console.log(it)
           it.map((price) => {
             console.log(price);

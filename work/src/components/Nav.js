@@ -51,11 +51,15 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("user", toArray(true, work.data.isAdmin, work.data.id))
+      localStorage.setItem("auth", true)
+      localStorage.setItem("admin", work.data.isAdmin)
+      localStorage.setItem("user", work.data.id)
       console.log(localStorage)
     }
     
     if(!data){
+      localStorage.setItem("auth", false);
+      localStorage.setItem("admin", false);
       window.location.replace("/store")
     }
   }
@@ -96,7 +100,7 @@ export default class Nav extends Component {
                   <li>
                     <Link to="/store">store</Link>
                   </li>
-                  {localStorage!== false ? (
+                  {localStorage.getItem("auth") !== false ? (
                     <li>
                       <Link to="/cart">cart</Link>
                     </li>
@@ -104,7 +108,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {localStorage === false ? (
+                  {localStorage.getItem("auth") !== false ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -113,14 +117,14 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )}
-                  {localStorage !== false ? (
+                  {localStorage.getItem("auth") !== false ? (
                     <li>
                       <Link to="/me">me</Link>
                     </li>
                   ) : (
                     ""
                   )}
-                  {localStorage !== false ? (
+                  {localStorage.getItem("admin") !== false ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>

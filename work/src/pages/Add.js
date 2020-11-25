@@ -86,9 +86,8 @@ return (
         <input
           type="file"
           placeholder="image"
-          multiple="multiple"
           name="image"
-        />
+        multiple />
         <input type="number" placeholder="price" name="price" />
         <input
           type="submit"

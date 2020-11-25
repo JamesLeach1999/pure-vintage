@@ -55,7 +55,7 @@ const Me = () => {
             console.log(sum1);
             t = [];
           });
-          it.push(m)
+          sumPrice.push(sum1)
         });
         // console.log(sumPrice)
         setSum(sumPrice);

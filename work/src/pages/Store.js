@@ -13,7 +13,7 @@ const People = props => {
   var [sizes, setSizes] = useState([]);
 
   console.log(localStorage)
-  window.location.reload()
+  
  
   return (
     <div className="filter-container">

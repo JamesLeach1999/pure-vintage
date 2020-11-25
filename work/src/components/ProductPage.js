@@ -19,7 +19,7 @@ const ProductPage = () => {
     //   console.log(products.name)
     console.log(products.name.image);
     // this will run 30 times because its after every re render. will be stuck in loop
-    setProducts([products.name]);
+    setProducts(products.name);
     setImages(products.name.image);
     // then you want to set the state, set the empty array to an array of 30
   };

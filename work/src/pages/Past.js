@@ -93,10 +93,10 @@ const Me = () => {
                     <Link to={`/refundProducts/${product._id}`}>
                       <OrderProducts id={product._id} />
                       <td>
-                        <img
+                        {/* <img
                           src={`/assets/${product.image[0]}`}
                           alt=""
-                          />
+                          /> */}
                         <p>{product.name}</p>
                       </td>
                           </Link>
@@ -120,7 +120,7 @@ const Me = () => {
                           <input
                             type=""
                             name="intent"
-                            value={data[i].intent}
+                            value={product.intent}
                             hidden
                           />
                           {/* <input type="checkbox" /> */}

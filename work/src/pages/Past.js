@@ -36,7 +36,7 @@ const Me = () => {
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
-        var sum;
+        var sum1;
         data.map((items) => {
           it.push(JSON.parse(items.orderItems));
           // console.log(it)
@@ -47,18 +47,19 @@ const Me = () => {
               t.push(r.product.price);
               console.log(t);
             });
-            sum = t.reduce(function (a, b) {
+            sum1 = t.reduce(function (a, b) {
               return a + b;
             }, 0);
-            console.log(sum);
+            console.log(sum1);
             t = [];
           });
-          sumPrice.push(sum);
+          sumPrice.push(sum1);
         });
         // console.log(sumPrice)
         setSum(sumPrice);
         setOrders(it);
         setLoading(false);
+        console.log(sum)
         console.log(order)
         console.log(data)
         // console.log(this.state.orders);
@@ -86,7 +87,7 @@ const Me = () => {
                 <th>Price:</th>
               </tr>
 
-              {orders.map((product, i) => {
+              {data.map((product, i) => {
                 return (
                   <tr>
                     <Link to={`/refundProducts/${product._id}`}>

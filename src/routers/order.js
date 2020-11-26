@@ -283,12 +283,10 @@ router.get("/orderProducts",  async (req, res) => {
 
   res.send({
     pageTitle: 'welcome',
-    user: user,
     names: product,
     orderInfo: p,
     //   categories: categories,
     isAuth: true,
-    isAdmin: user.isAdmin,
   });
 })
 

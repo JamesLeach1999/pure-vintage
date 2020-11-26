@@ -3,7 +3,7 @@ import Product from "../components/Product";
 import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
-import OrderProducts from "../pages/RefundProducts";
+import OrderProducts from "../components/RefundProducts";
 import Axios from "axios";
 
 const Me = () => {

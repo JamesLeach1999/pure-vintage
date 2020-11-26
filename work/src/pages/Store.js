@@ -15,7 +15,11 @@ const People = (props) => {
 
   return (
     <div>
-      <form className="col-4 filter filter-container" action="/store" style={{border: "1px solid black"}}>
+      <form
+        className="col-4 filter filter-container"
+        action="/store"
+        style={{ border: "1px solid black" }}
+      >
         <section>
           <section>
             <h5>Filters</h5>
@@ -351,6 +355,7 @@ const People = (props) => {
               </div>
             </section>
           </section>
+          <button type="submit">btn</button>
         </section>
       </form>
 

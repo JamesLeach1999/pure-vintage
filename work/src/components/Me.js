@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 // import Product from "../components/Product";
 // import Rows from "../components/Rows";
-// import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 // import OrderProducts from "../components/OrderProducts";
 
 const Me = () => {
@@ -38,7 +38,9 @@ const Me = () => {
           m = JSON.parse(items.orderItems);
           it.push(m);
           console.log(m);
-          m.map((price) => {
+          console.log(it);
+
+          m.product.map((price) => {
             console.log(price);
             it.push(price);
             var t = [];
@@ -55,7 +57,7 @@ const Me = () => {
           });
           console.log(it.reverse());
         });
-        console.log(typeof(it))
+        console.log(typeof it);
         console.log(it.reverse());
         setSum(sumPrice.reverse());
         setOrders(it.reverse());
@@ -90,8 +92,10 @@ const Me = () => {
               {data.map((product, i) => {
                 return (
                   <tr>
-                    {/* <Link to={`/orderProducts/${product._id}`}> */}
                     <td>
+                      <Link to={`/orderProducts/${product._id}`}>
+                        <h1>Review?</h1>
+                      </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
                     </td>

@@ -114,6 +114,7 @@ p {
   margin: auto;
   padding-left: 25px;
   padding-right: 25px;
+  z-index: 3;
 }
 
 .store-container {
@@ -338,7 +339,9 @@ ul {
   display: none;
 }
 
-
+.pa{
+  width: 100%;
+}
 
 /* media queries for menu */
 /* only for less than 800 px */

@@ -28,7 +28,7 @@ const Me = () => {
           }
         });
         setData(allOrders);
-        console.log(allOrders)
+        console.log(allOrders.reverse())
         var t = []
         allOrders.forEach((order) => {
             var m = JSON.parse(order.orderItems)
@@ -36,7 +36,7 @@ const Me = () => {
             t.push(m[0].product)
             
         })
-        console.log(t)
+        console.log(t.reverse())
         setLoading(false);
         console.log(data);
         

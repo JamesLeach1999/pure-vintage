@@ -4,7 +4,7 @@ import Axios from "axios"
 // function ID(id) {
 //   return id;
 // }
-const Product = () => {
+const Product = (props) => {
   const {id} = useParams()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
@@ -18,7 +18,7 @@ const Product = () => {
     } else {
       try {
         console.log();
-        const response = await fetch(`/orderProducts?id=${id}`);
+        const response = await fetch(`/orderProducts?id=${props.id}`);
         const json = await response.json();
         console.log(id);
         var allOrders = [];
@@ -37,7 +37,7 @@ const Product = () => {
         // console.log(this.state.orders);
 
       } catch (error) {
-        console.log(this.props.id);
+        // console.log(this.props.id);
         console.log(error);
       }}
     

@@ -3,7 +3,7 @@ import Product from "../components/Product";
 import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
-import OrderProducts from "../components/RefundProducts";
+import OrderProducts from "../components/RefundPage";
 import Axios from "axios";
 
 const Me = () => {
@@ -61,7 +61,7 @@ const Me = () => {
         });
         // console.log(sumPrice)
         setSum(sumPrice);
-        setOrders(idk);
+        // setOrders(idk);
         setLoading(false);
         console.log(data);
         // console.log(JSON.parse(data[0].orderItems[0].product[0].image));
@@ -95,13 +95,13 @@ const Me = () => {
                 return (
                   <tr>
                     <Link to={`/refundProducts/${product._id}`}>
-                      <OrderProducts id={product._id} />
+                      <OrderProducts />
                       <td>
                         {/* <img
                           src={`/assets/${JSON.parse(product.orderItems[0].product[0].image)}`}
                           alt=""
                           /> */}
-                        <p>{product.name}</p>
+                        <h2>Refund individual</h2>
                       </td>
                           </Link>
                       <td>

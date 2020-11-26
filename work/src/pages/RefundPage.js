@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const OrderPage = () => {
   const { id } = useParams();
-  const [product, setProducts] = useState([]);
+  const [product, setProducts] = useState();
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true)
   const [p, setP] = useState([]);
@@ -27,13 +27,15 @@ const OrderPage = () => {
       setProducts(products);
       console.log(product);
       var yyy = [];
-      var items = JSON.parse(product.orderItems)
+      var items = JSON.parse(products.orderItems)
+      console.log(items)
       items[0].map((item) => {
         yyy.push(item)
       });
       setP(yyy);
       console.log(p);
       setLoading(false)
+      console.log(product)
       // console.log(this.state.data);
       // then you want to set the state, set the empty array to an array of 30
     

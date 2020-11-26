@@ -6,7 +6,7 @@ import React, { Component, useState, useEffect } from "react";
 
 const Me = () => {
   const [data, setData] = useState([]);
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState();
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -55,9 +55,9 @@ const Me = () => {
           sumPrice.push(sum1);
           console.log(it);
         });
-        console.log(it);
+        console.log(it.reverse());
         setSum(sumPrice);
-        setOrders(it);
+        setOrders(it.reverse());
         setLoading(false);
         console.log(data);
         console.log(orders);

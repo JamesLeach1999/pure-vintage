@@ -344,6 +344,7 @@ ul {
   margin-top: 150px;
   margin-left: 50px;
   float: left;
+  justify-content: left;
   /* display:inline-flex; */
 }
 .filter .filter-container button {
@@ -366,6 +367,7 @@ ul {
   padding-top: auto;
   text-align: left;
   position: relative;
+  justify-content: left;
   /* border: 2px solid red; */
   width: 250px;
 }

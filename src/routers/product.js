@@ -75,7 +75,7 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
 console.log(req.file)
 console.log(req.files);
 
-  var fileJPG = req.files;
+  var fileJPG;
 
   // File upload
   // fileJPG.forEach(async (img) => {
@@ -89,7 +89,8 @@ console.log(req.files);
       console.log('* ' + image.public_id);
       console.log('* ' + image.url);
       console.log(image)
-      waitForAllUploads(image, err, image);
+      fileJPG = image.url
+      // waitForAllUploads(image, err, image);
     });
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
@@ -116,9 +117,9 @@ console.log(req.files);
     });
   }
 
-  const user = await User.findOne({
-    _id: req.session.passport.user,
-  });
+  // const user = await User.findOne({
+  //   _id: req.session.passport.user,
+  // });
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway
 
@@ -129,7 +130,7 @@ console.log(req.files);
     category,
     description,
     size,
-    image: ogName,
+    image: fileJPG,
     featured: false,
   });
 

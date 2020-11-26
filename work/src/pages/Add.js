@@ -14,14 +14,14 @@ const Addpage = () => {
 
   const add = async () => {
 
-    const profile = await Axios.get(`/me`);
+    // const profile = await Axios.get(`/me`);
+    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
   console.log(profile)
     if (!profile || !profile.data.isAdmin) {
       window.location.replace('/store');
     } else {
   
       try {
-    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
         const json = await profile.json();
   
         const order = await fetch('/pastOrders');

@@ -16,18 +16,16 @@ var reviewSchema = new mongoose.Schema({
   }, {
     timestamps: true
   });
-
-  var photoSchema = new mongoose.Schema({
-    title: {type: String, length: 255},
-    image: {type: JSON}
-  })
   
   var productSchema = new mongoose.Schema({
     name: {
       type: String,
       required: true
     },
-    image: [{photoSchema}],
+    image: [{
+      type: String,
+      required: true
+    }],
     brand: {
       type: String,
       required: true

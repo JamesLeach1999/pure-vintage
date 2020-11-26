@@ -133,7 +133,7 @@ console.log(req.files);
 });
 
 // getting the manage products page for the create, edit and delete page links
-router.post('/manage', async (req, res) => {
+router.post('/manage', ensureAuthenticated, async (req, res) => {
   // console.log(req.body.category)
   var category;
 

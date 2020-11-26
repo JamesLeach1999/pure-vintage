@@ -144,6 +144,9 @@ router.get('/me', async (req, res) => {
   const user = await User.findById({_id: req.query.id})
 
   console.log(user)
+  if(!user){
+      throw new Error()
+  }
 
   res.send({
     userProfile: user,

@@ -19,22 +19,17 @@ const OrderPage = () => {
       // this returns a promise. so need to extract data from response (generally in json)
       const response = await Axios.get(url);
       console.log(response)
-      const products = await response.json();
+      const products = response.data.names
   
         console.log(products)
       var allOrders = [];
-      products.names.map((order) => {
-        // console.log(order);
-        if (order !== null) {
-          allOrders.push(order);
-        }
-      });
-      setProducts(allOrders);
+      
+      setProducts(products);
       console.log(product);
-      console.log(p);
       var yyy = [];
-      await product.map((item) => {
-        yyy.push(JSON.parse(item.orderItems));
+      var items = JSON.parse(product.orderItems)
+      items[0].map((item) => {
+        yyy.push(item)
       });
       setP(yyy);
       console.log(p);
@@ -55,19 +50,18 @@ const OrderPage = () => {
 
     // do this so no infinite loop
   }, [loading]);
-  console.log(product);
-  console.log(p);
+  
 
   return (
     <div>
       <div class="small-container">
         <div class="row product">
-          {product.map((item, i) => {
-            var y = JSON.parse(item.orderItems);
+          {p.map((item, i) => {
+            
             return (
               <div className="col-4">
-                <img src={`${y[i].product.image[0]}`} alt="" />
-                <h4>{y[i].product.name}</h4>
+                <img src={`${item.images}`} alt="" />
+                <h4>{item.name}</h4>
                 <div class="rating">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
@@ -75,12 +69,12 @@ const OrderPage = () => {
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star-o"></i>
                 </div>
-                <p>{y[i].product.price}</p>
+                <p>{item.price}</p>
                 <form action="/refundSingle" method="post">
-                  <input type="" name="productId" value={y[i].product._id} hidden />
-                  <input type="" name="id" value={item._id} hidden />
-                  <input type="" name="amount" value={y[i].product.price} hidden />
-                  <input type="" name="intent" value={item.intent} hidden />
+                  <input type="" name="productId" value={item._id} hidden />
+                  <input type="" name="id" value={product._id} hidden />
+                  <input type="" name="amount" value={item.price} hidden />
+                  <input type="" name="intent" value={product.intent} hidden />
                   <button type="submit">Refund Product?</button>
                 </form>
               </div>

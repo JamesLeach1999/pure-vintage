@@ -10,6 +10,7 @@ const App = (props) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
+  console.log(loginUsername)
   const register = () => {
     Axios({
       method: "POST",
@@ -80,7 +81,7 @@ const App = (props) => {
       </div>
 
       <div>
-        <form>
+        {/* <form> */}
           <h1>Login</h1>
           <input
             placeholder="username"
@@ -92,7 +93,7 @@ const App = (props) => {
             onChange={(e) => setLoginPassword(e.target.value)}
           />
           <button onClick={login}>Submit</button>
-      </form>
+      {/* </form> */}
         </div>
 
       <form action="/logout" method="get">

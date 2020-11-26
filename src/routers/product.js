@@ -78,10 +78,9 @@ console.log(req.files);
   var fileJPG = req.files;
 
   // File upload
-  
   // fileJPG.forEach(async (img) => {
-    cloudinary.uploader.upload('pizza.jpg', { tags: 'pure-vintage', public_id: req.file.originalname }, function (err, image) {
-      console.log();
+    cloudinary.uploader.upload(req.files.image.tempFilePath, { tags: 'pure-vintage', public_id: req.files.image.name }, function (err, image) {
+      // console.log();
       console.log('** File Upload');
       if (err) {
         console.warn(err);

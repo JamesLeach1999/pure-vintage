@@ -18,52 +18,55 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
-        const order = await fetch(
-          `/pastOrders?id=${localStorage.getItem("user")}`
-        );
-        const orderJson = await order.json();
-        var allOrders = [];
-        console.log(orderJson);
-        orderJson.names.map((order) => {
-          // console.log(order);
-          if (order !== null) {
-            allOrders.push(order);
-          }
-        });
-        setData(allOrders);
-        // console.log(this.state.data);
-        var it = [];
-        var sumPrice = [];
-        var sum1;
-        var m;
-        var t = [];
-        data.map((items) => {
-          m = JSON.parse(items.orderItems);
-          // it.push(m)
-          console.log(m);
-          it.map((price) => {
-            console.log(price);
-            it.push(price)
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum1 = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum1);
-            t = [];
+        if(data === [] && total === []){
+          
+          const order = await fetch(
+            `/pastOrders?id=${localStorage.getItem("user")}`
+          );
+          const orderJson = await order.json();
+          var allOrders = [];
+          console.log(orderJson);
+          orderJson.names.map((order) => {
+            // console.log(order);
+            if (order !== null) {
+              allOrders.push(order);
+            }
           });
-          sumPrice.push(sum1)
-        });
-        // console.log(sumPrice)
-        setSum(sumPrice);
-        setOrders(it);
-        setLoading(false);
-        console.log(data);
-        console.log(orders);
-        console.log(total);
+          setData(allOrders);
+          // console.log(this.state.data);
+          var it = [];
+          var sumPrice = [];
+          var sum1;
+          var m;
+          var t = [];
+          data.map((items) => {
+            m = JSON.parse(items.orderItems);
+            // it.push(m)
+            console.log(m);
+            it.map((price) => {
+              console.log(price);
+              it.push(price)
+              var t = [];
+              price.map((r) => {
+                t.push(r.product.price);
+                console.log(t);
+              });
+              sum1 = t.reduce(function (a, b) {
+                return a + b;
+              }, 0);
+              console.log(sum1);
+              t = [];
+            });
+            sumPrice.push(sum1)
+          });
+          // console.log(sumPrice)
+          setSum(sumPrice);
+          setOrders(it);
+          setLoading(false);
+          console.log(data);
+          console.log(orders);
+          console.log(total);
+        }
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);

@@ -47,7 +47,7 @@ console.log(profile)
 
   // cant use async await on useEffect (can in callback funcions), need a seperate function
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
-  // no fucking clue
+  // no  clue
   useEffect(() => {
     // this returns all 30 users in an array using setState
     getProducts();

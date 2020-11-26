@@ -169,7 +169,7 @@ console.log(req.body)
   });
   console.log("work plz")
 
-  res.send('it fucking worked');
+  res.send('it  worked');
 });
 
 

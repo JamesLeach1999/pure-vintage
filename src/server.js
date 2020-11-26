@@ -12,12 +12,13 @@ const session = require('express-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const cloudinary = require("cloudinary")
 // using dotenv to get environment variables
 // dotenv.config();
 // app.use(cors())
 
 require('./middleware/passport')(passport);
+
 
 const whitelist = [
   'http://localhost:3000',

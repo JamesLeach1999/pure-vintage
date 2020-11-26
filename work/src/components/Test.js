@@ -63,7 +63,7 @@ const Test = () => {
   };
 
   useEffect(() => {
-    console.log("cungt");
+    console.log("work");
     getData();
     // window.location.replace("http://localhost:5000/store")
   }, [loading]);

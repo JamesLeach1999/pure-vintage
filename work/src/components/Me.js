@@ -28,43 +28,17 @@ const Me = () => {
           }
         });
         setData(allOrders);
-        // console.log(this.state.data);
-        var it = [];
-        var sum1;
-        var m;
-        var t = [];
-        var sumPrice = [];
-        data.map((items) => {
-          m = JSON.parse(items.orderItems);
-          it.push(m);
-          console.log(m);
-          console.log(it);
-
-          m.product.map((price) => {
-            console.log(price);
-            it.push(price);
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum1 = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum1);
-            t = [];
-            sumPrice.push(sum1);
-          });
-          console.log(it);
-        });
-        console.log(typeof it);
-        console.log(it);
-        setSum(sumPrice.reverse());
-        setOrders(it.reverse());
+        var t
+        allOrders.forEach((order) => {
+            var m = JSON.parse(order.orderItems)
+            console.log(m)
+            t.push(m)
+            
+        })
+        console.log(t)
         setLoading(false);
         console.log(data);
-        console.log(orders);
-        console.log(total);
+        
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);

@@ -15,7 +15,7 @@ const People = (props) => {
 
   return (
     <div>
-        <section>
+        <section className="p">
       <form  action="/store" style={{border: "1px solid black"}}>
           <section>
             <h5>Filters</h5>

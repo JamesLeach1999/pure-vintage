@@ -114,7 +114,6 @@ p {
   margin: auto;
   padding-left: 25px;
   padding-right: 25px;
-  z-index: 3;
 }
 
 .store-container {
@@ -339,8 +338,55 @@ ul {
   display: none;
 }
 
-.pa{
+.p{
   width: 100%;
+}
+.col-4 .filter-container {
+  flex-basis: 10%;
+  position: relative;
+  border: 2px solid red;
+  margin-top: 150px;
+  margin-left: 50px;
+  float: left;
+  justify-content: left;
+  /* display:inline-flex; */
+}
+.filter .filter-container button {
+  margin-left: 40px;
+  /* margin-top: 150px; */
+
+  position: relative;
+  text-align: left;
+  /* top: 100px; */
+  float: left;
+}
+
+.order-row {
+  flex-basis: 100%;
+}
+.filter {
+  left: 20px;
+  top: 35px;
+
+  padding-top: auto;
+  text-align: left;
+  position: relative;
+  justify-content: left;
+  /* border: 2px solid red; */
+  width: 250px;
+}
+.filter-title {
+  position: relative;
+  bottom: -30px;
+  text-align: left;
+  border: 2px solid black;
+}
+
+.checkbox .filter  {
+  /* size: 300px; */
+
+  color: red;
+  width: 60%;
 }
 
 /* media queries for menu */

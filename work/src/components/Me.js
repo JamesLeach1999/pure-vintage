@@ -6,7 +6,7 @@ import React, { Component, useState, useEffect } from "react";
 
 const Me = () => {
   const [data, setData] = useState([]);
-  const [orders, setOrders] = useState();
+  const [orders, setOrders] = useState({});
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -30,15 +30,15 @@ const Me = () => {
         setData(allOrders);
         // console.log(this.state.data);
         var it = [];
-        var sumPrice = [];
         var sum1;
         var m;
         var t = [];
+        var sumPrice = [];
         data.map((items) => {
           m = JSON.parse(items.orderItems);
           it.push(m);
           console.log(m);
-          it.map((price) => {
+          m.map((price) => {
             console.log(price);
             it.push(price);
             var t = [];
@@ -51,13 +51,13 @@ const Me = () => {
             }, 0);
             console.log(sum1);
             t = [];
+            sumPrice.push(sum1);
           });
-          sumPrice.push(sum1);
           console.log(it.reverse());
         });
         console.log(typeof(it))
         console.log(it.reverse());
-        setSum(sumPrice);
+        setSum(sumPrice.reverse());
         setOrders(it.reverse());
         setLoading(false);
         console.log(data);

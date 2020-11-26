@@ -19,7 +19,7 @@ const People = (props) => {
         <form
           className="col-4 filter filter-container"
           action="/store"
-          style={{ border: "1px solid black", marginLeft: "200px" }}
+          style={{ border: "1px solid black", marginLeft: "35px" }}
         >
           <section>
             <h5>Filters</h5>

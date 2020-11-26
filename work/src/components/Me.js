@@ -27,8 +27,7 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-        console.log(allOrders.reverse())
-        setData(allOrders.reverse());
+        console.log(allOrders.reverse());
         var iter = allOrders.reverse();
         var t = [];
         iter.forEach((order) => {
@@ -37,6 +36,9 @@ const Me = () => {
           t.push(m[0].product);
         });
         setOrders(t);
+        if (orders) {
+          setData(allOrders.reverse());
+        }
         setLoading(false);
         console.log(data);
         console.log(orders);
@@ -64,12 +66,12 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {orders ? data.map((product, i) => {
+              {data.map((product, i) => {
                 return (
                   <tr>
                     <td>
                       <Link to={`/orderProducts/${product._id}`}>
-                        <img src={orders[i].image[0]} alt=""/>
+                        <img src={orders[i].image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
@@ -86,27 +88,7 @@ const Me = () => {
                     {/* </Link> */}
                   </tr>
                 );
-              }): (
-                  <tr>
-                    <td>
-                      {/* <Link to={`/orderProducts/${product._id}`}>
-                        <img src={orders[i].image[0]} alt=""/>
-                      </Link> */}
-                      {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
-                      {/* <p>{this.state.orders.name}</p> */}
-                    </td>
-                    <td>
-                      <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                      </ul>
-                    </td>
-                    <td></td>
-                    <td></td>
-                    {/* </Link> */}
-                  </tr>
-                )}
+              })}
             </table>
           </div>
         </div>

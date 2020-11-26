@@ -46,16 +46,16 @@ const App = (props) => {
       } else {
         props.handleLogin(false);
       }
-      window.location.replace("/store");
+      // window.location.replace("/store");
     });
   };
 
   const logout = async () => {
-            localStorage.setItem("auth", false);
-            localStorage.setItem("admin", false);
-            localStorage.setItem("user", "");
+            localStorage.removeItem("auth")
+            localStorage.removeItem("admin")
+            localStorage.removeItem("user")
 
-            window.location.replace("/store");
+            // window.location.replace("/store");
           }
 
   return (

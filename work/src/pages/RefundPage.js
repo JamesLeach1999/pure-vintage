@@ -13,15 +13,12 @@ const OrderPage = () => {
   const [p, setP] = useState([]);
   const getProducts = async () => {
     console.log(id);
-    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile)
-    if (!profile || !profile.data.isAdmin) {
-      window.location.replace('/store');
-    } else {
+    
       const url = `/orderProducts?id=${id}`;
 
       // this returns a promise. so need to extract data from response (generally in json)
-      const response = await fetch(url);
+      const response = await Axios.get(url);
+      console.log(response)
       const products = await response.json();
   
         console.log(products)
@@ -44,7 +41,7 @@ const OrderPage = () => {
       setLoading(false)
       // console.log(this.state.data);
       // then you want to set the state, set the empty array to an array of 30
-    }
+    
   };
 
   // cant use async await on useEffect (can in callback funcions), need a seperate function

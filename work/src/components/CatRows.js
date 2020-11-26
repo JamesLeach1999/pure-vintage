@@ -30,15 +30,21 @@ class CatRows extends Component {
       <div className="small-container">
         <h1>Categories</h1>
         <div className="row">
-          <Link to="/store?category=coats">
+          <Link to="/store?category=shirts">
             <div className="col-2">
-              <img src="/assets/coat1.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
+                alt=""
+              />
               <h2 style={{ textAlign: "center" }}>Coats</h2>
             </div>
           </Link>
-          <Link to="/store?category=shirts">
+          <Link to="/store?category=puffer">
             <div className="col-2">
-              <img src="/assets/P0.jpg" alt="" />
+              <img
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
+                alt=""
+              />
               <h2 style={{ textAlign: "center" }}>Shirts</h2>
             </div>
           </Link>

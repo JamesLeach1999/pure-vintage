@@ -14,7 +14,7 @@ const People = (props) => {
   console.log(localStorage);
 
   return (
-    <div className="filter-container">
+    <div>
       <form className="col-4 filter filter-container" action="/store" style={{border: "1px solid black"}}>
         <section>
           <section>

@@ -5,9 +5,9 @@ import { intersection } from "lodash";
 import Order from "../pageStripe/index";
 const Cart = () => {
   const [data, setData] = useState([]);
-  const [images, setImages] = useState(require("../assets/cap1.jpg"));
+  // const [images, setImages] = useState(require("../assets/cap1.jpg"));
   const [total, setTotal] = useState(0);
-  const [user, setUser] = useState({});
+  // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const getCart = async () => {
     const profile = await fetch(`/me?id=${localStorage.getItem("user")}`);
@@ -18,9 +18,7 @@ const Cart = () => {
       try {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
-        const user = await fetch("/me");
-        const meResp = user.json();
-        setUser(meResp);
+        
         const response = await fetch(`/cart`);
         const json = await response.json();
         console.log(json);
@@ -36,15 +34,12 @@ const Cart = () => {
         setData([notNull]);
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
-        var total = [];
-        var p = data[0].map((pr) => {
-          console.log(pr.price);
-          return total.push(pr.price);
-        });
-        var sum = total.reduce((a, b) => a + b, 0);
+        
+        
+        // var sum = total.reduce((a, b) => a + b, 0);
         console.log(data);
         setLoading(false);
-        setTotal(sum);
+        // setTotal(sum);
       } catch (error) {
         console.log(data);
         console.log(error);
@@ -70,6 +65,8 @@ const Cart = () => {
         {/* <tr> */}
         {data.map((products) => {
           return products.map((product) => {
+            var tota = product.price
+            setTotal(tota + tota)
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <tr>

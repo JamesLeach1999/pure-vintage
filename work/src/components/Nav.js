@@ -90,7 +90,11 @@ export default class Nav extends Component {
           <div class="container">
             <div class="navbar">
               <div class="logo">
-                <img src={defaultImage} alt="logo" width="125px" />
+                <img
+                  src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
+                  alt="logo"
+                  width="125px"
+                />
               </div>
               <nav>
                 <ul id="MenuItems">

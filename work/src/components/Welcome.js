@@ -4,20 +4,29 @@ import defaultImage from "../assets/Logo_blue_text.jpg";
 
 const Welcome = () => {
     return (
-        <>
-            
-            <div class="row header">
-                <div class="col-2">
-                    <h1>High quality clothing <br/> from your favorite brands</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br/> Molestias, magni dignissimos. Maxime ab architecto expedita.</p>
-                    <a href="" class="btn">Explore now &#10132;</a>
-                </div>
-                <div class="col-2">
-                    <img src={defaultImage} alt=""/>
-                </div>
-            </div>
-            </>
-    )
+      <>
+        <div class="row header">
+          <div class="col-2">
+            <h1>
+              High quality clothing <br /> from your favorite brands
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. <br />{" "}
+              Molestias, magni dignissimos. Maxime ab architecto expedita.
+            </p>
+            <a href="" class="btn">
+              Explore now &#10132;
+            </a>
+          </div>
+          <div class="col-2">
+            <img
+              src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </>
+    );
 }
 
 export default Welcome

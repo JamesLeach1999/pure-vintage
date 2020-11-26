@@ -13,11 +13,11 @@ class EditPage extends Component {
   }
 
   async componentDidMount() {
-    const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile);
-    if (!profile) {
-      window.location.replace("/store");
-    } else {
+    // const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
+    // console.log(profile);
+    // if (!profile) {
+    //   window.location.replace("/store");
+    // } else {
       try {
         console.log(this.props.id);
         const response = await fetch(`/product?id=${this.props.id}`);
@@ -30,7 +30,7 @@ class EditPage extends Component {
         console.log(error);
       }
     }
-  }
+  // }
 
   render() {
     return (

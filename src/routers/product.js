@@ -72,6 +72,8 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
 
   // retreiving input data. using multer middleware for the image
 
+  console.log(req.files)
+
   var fileJPG = req.files;
 
   // File upload
@@ -87,8 +89,7 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
       console.log('* ' + image.public_id);
       console.log('* ' + image.url);
       console.log(image)
-      ogName.push(image.url)
-      waitForAllUploads(image.tags, err, image);
+      waitForAllUploads(image, err, image);
     });
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   });

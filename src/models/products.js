@@ -27,7 +27,7 @@ var reviewSchema = new mongoose.Schema({
       type: String,
       required: true
     },
-    image: [photoSchema],
+    image: [{photoSchema}],
     brand: {
       type: String,
       required: true

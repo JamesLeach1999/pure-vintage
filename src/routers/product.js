@@ -8,7 +8,7 @@ const Product = require('../models/products');
 const multer = require('multer');
 const cloudinary = require("cloudinary").v2
 
-applicationCache.use(fileUpload({
+app.use(fileUpload({
   useTempFiles: true
 }))
 

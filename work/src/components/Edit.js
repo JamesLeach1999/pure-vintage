@@ -35,7 +35,7 @@ class EditPage extends Component {
   render() {
     return (
       <div className="col-4">
-        <img src={`/assets/${this.state.images}`} alt="" />
+        <img src={`${this.state.images}`} alt="" />
         <h4>{this.state.data.name}</h4>
         <div class="rating">
           <i class="fa fa-star"></i>

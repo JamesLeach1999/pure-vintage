@@ -30,7 +30,7 @@ class CartProduct extends Component {
       <div>
         <td>
           <div class="cart-info">
-            <img src={`/assets/${this.state.image}`} alt="" />
+            <img src={`${this.state.image}`} alt="" />
             <div>
               <p>{this.state.data.name}</p>
               {/* <small>Price: {this.state.data.price}</small> */}

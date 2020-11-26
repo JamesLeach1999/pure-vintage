@@ -18,7 +18,7 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
-        if(data === [] && total === []){
+        if(data === []){
           
           const order = await fetch(
             `/pastOrders?id=${localStorage.getItem("user")}`

@@ -50,9 +50,7 @@ console.log(profile)
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2">
-            {images.map((e) => {
-              return <img src={`/assets/${e}`} alt="shit"></img>;
-            })}
+              <img src={`${images}`} alt="shit"></img>;
           </div>
           <div class="col-2">
             <form action="/editPost" method="post">

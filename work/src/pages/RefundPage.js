@@ -67,7 +67,7 @@ console.log(profile)
             var y = JSON.parse(item.orderItems);
             return (
               <div className="col-4">
-                <img src={`/assets/${y[i].product.image[0]}`} alt="" />
+                <img src={`${y[i].product.image[0]}`} alt="" />
                 <h4>{y[i].product.name}</h4>
                 <div class="rating">
                   <i class="fa fa-star"></i>

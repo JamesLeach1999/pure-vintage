@@ -43,9 +43,9 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             {images.length > 0 ? (
-              <img src={`/assets/${images[0]}`} alt="shit"></img>
+              <img src={`${images[0]}`} alt="shit"></img>
             ) : (
-              <img src={`/assets/${images}`} alt="shit"></img>
+              <img src={`${images}`} alt="shit"></img>
             )}
           </div>
           <div class="col-2">

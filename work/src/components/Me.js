@@ -27,19 +27,19 @@ const Me = () => {
             allOrders.push(order);
           }
         });
+        console.log(allOrders.reverse())
         setData(allOrders.reverse());
-        var iter = allOrders.reverse()
-        var t = []
+        var iter = allOrders.reverse();
+        var t = [];
         iter.forEach((order) => {
-            var m = JSON.parse(order.orderItems)
-            console.log(m[0])
-            t.push(m[0].product)
-            
-        })
-        setOrders(t)
+          var m = JSON.parse(order.orderItems);
+          console.log(m[0]);
+          t.push(m[0].product);
+        });
+        setOrders(t);
         setLoading(false);
         console.log(data);
-        console.log(orders)
+        console.log(orders);
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -67,9 +67,10 @@ const Me = () => {
               {data.map((product, i) => {
                 return (
                   <tr>
-                      <Link to={`/orderProducts/${product._id}`}>
                     <td>
-                        <h1>Review?</h1>
+                      <Link to={`/orderProducts/${product._id}`}>
+                        <img src={orders[i].image[0]} alt=""/>
+                      </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
                     </td>
@@ -83,7 +84,6 @@ const Me = () => {
                     <td>{product.updatedAt}</td>
                     <td>{total}</td>
                     {/* </Link> */}
-                      </Link>
                   </tr>
                 );
               })}

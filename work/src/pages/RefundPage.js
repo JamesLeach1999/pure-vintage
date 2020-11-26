@@ -62,8 +62,8 @@ const OrderPage = () => {
             
             return (
               <div className="col-4">
-                <img src={`${item.images}`} alt="" />
-                <h4>{item.name}</h4>
+                <img src={`${item.product.images}`} alt="" />
+                <h4>{item.product.name}</h4>
                 <div class="rating">
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star"></i>
@@ -71,11 +71,11 @@ const OrderPage = () => {
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star-o"></i>
                 </div>
-                <p>{item.price}</p>
+                <p>{item.product.price}</p>
                 <form action="/refundSingle" method="post">
-                  <input type="" name="productId" value={item._id} hidden />
+                  <input type="" name="productId" value={item.product._id} hidden />
                   <input type="" name="id" value={product._id} hidden />
-                  <input type="" name="amount" value={item.price} hidden />
+                  <input type="" name="amount" value={item.product.price} hidden />
                   <input type="" name="intent" value={product.intent} hidden />
                   <button type="submit">Refund Product?</button>
                 </form>

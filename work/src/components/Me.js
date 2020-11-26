@@ -11,7 +11,6 @@ const Me = () => {
   const [loading, setLoading] = useState(true);
 
   const getMe = async () => {
-    
     if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
@@ -37,7 +36,7 @@ const Me = () => {
         var t = [];
         data.map((items) => {
           m = JSON.parse(items.orderItems);
-          // it.push(m)
+          it.push(m);
           console.log(m);
           it.map((price) => {
             console.log(price);
@@ -54,8 +53,9 @@ const Me = () => {
             t = [];
           });
           sumPrice.push(sum1);
+          console.log(it);
         });
-        // console.log(sumPrice)
+        console.log(it);
         setSum(sumPrice);
         setOrders(it);
         setLoading(false);

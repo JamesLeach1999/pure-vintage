@@ -16,7 +16,7 @@ const People = (props) => {
   return (
     <div>
       <form
-        className="col-4 filter filter-container"
+        className="small-container col-4 filter filter-container"
         action="/store"
         style={{ border: "1px solid black" }}
       >

@@ -45,14 +45,14 @@ const App = (props) => {
       if (res.data) {
         console.log(res.data)
         props.handleLogin(res.data.passport);
+        if(localStorage.getItem("user")){
+  
+          window.location.replace("/store");
+        }
       } else {
         props.handleLogin(false);
       }
 
-      if(localStorage.getItem("user")){
-
-        window.location.replace("/store");
-      }
     });
   };
 

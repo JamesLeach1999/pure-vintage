@@ -7,9 +7,15 @@ import Axios from 'axios';
 
 const Addpage = () => {
 
-  const [data, setData] = useState([])
-  const [orders, setOrders] = useState([])
-  const [sum, setSum] = useState()
+  const [name, setName] = useState()
+  const [brand, setBrand] = useState()
+  const [category, setCategory] = useState()
+    const [description, setDescription] = useState()
+  const [size, setSize] = useState()
+    const [price, setPrice] = useState()
+    const [image, setImage] = useState()
+
+
   const [loading, setLoading] = useState(true)
 
   const add = async () => {
@@ -22,82 +28,91 @@ const Addpage = () => {
     } else {
   
       try {
-        const json = await profile.json();
-  
-        const order = await fetch('/pastOrders');
-        const orderJson = await order.json();
-        var allOrders = [];
-        // console.log(orderJson);
-        orderJson.names.map((order) => {
-          // console.log(order);
-          if (order !== null) {
-            allOrders.push(order);
-          }
+        Axios({
+          method: "POST",
+          data: {
+            name,
+            brand,
+            category,
+            description,
+            size,
+            price,
+            image
+          },
+          withCredentials: true,
+
+          url: "/products",
+        }).then((res) => {
+            console.log(res.data)
+            // props.handleLogin(res.data.passport);
+          
+          window.location.replace("/store");
         });
-        setData(allOrders)
-        // console.log(this.state.data);
-        var it = [];
-        var sumPrice = [];
-        var sum;
-        data.map((items) => {
-          it.push(JSON.parse(items.orderItems));
-          // console.log(it)
-          it.map((price) => {
-            console.log(price);
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum);
-            t = [];
-          });
-          sumPrice.push(sum);
-        });
-        // console.log(sumPrice)
-        setSum(sumPrice)
-        setOrders(it)
-        setLoading(false)
         // console.log(this.state.orders);
       } catch (error) {
-        console.log(data);
+        // console.log(data);
         console.log(error);
       }
     }
   }
 
 
-  useEffect(() => {
-    add()
-  }, [loading])
+  // useEffect(() => {
+  //   add()
+  // }, [loading])
 return (
   <div>
     <div class="grid category">
       <form action="/products" method="post" enctype="multipart/form-data">
-        <input type="text" placeholder="name" name="name" />
-        <input type="text" placeholder="brand" name="brand" />
-        <input type="text" placeholder="category" name="category" />
-        <input type="text" placeholder="description" name="description" />
-        <input type="text" placeholder="size" name="size" />
+        <input
+          type="text"
+          placeholder="name"
+          name="name"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="brand"
+          name="brand"
+          onChange={(e) => setBrand(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="category"
+          name="category"
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="description"
+          name="description"
+          onChange={(e) => setDescription(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="size"
+          name="size"
+          onChange={(e) => setSize(e.target.value)}
+        />
 
         <input
           type="file"
           placeholder="image"
           name="image"
-        multiple />
-        <input type="number" placeholder="price" name="price" />
+          multiple
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="price"
+          name="price"
+          onChange={(e) => setPrice(e.target.value)}
+        />
         <input
           type="submit"
           name="submit"
           value="submit"
-          onClick={() =>
-            window.location.replace(
-              "/store"
-            )
-          }
+          onClick={() => add()}
         />
       </form>
     </div>

@@ -10,15 +10,14 @@ const Cart = () => {
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const getCart = async () => {
-    const profile = await fetch(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile);
-    if (!profile) {
+    
+    if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
-        
+
         const response = await fetch(`/cart`);
         const json = await response.json();
         console.log(json);
@@ -34,8 +33,7 @@ const Cart = () => {
         setData([notNull]);
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
-        
-        
+
         // var sum = total.reduce((a, b) => a + b, 0);
         console.log(data);
         setLoading(false);

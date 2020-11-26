@@ -11,9 +11,8 @@ const Product = (props) => {
   const [order, setOrder] = useState()
 
     const getOrderProducts = async () => {
-      const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile);
-    if (!profile) {
+      
+    if (!localStorage.getItem("admin") || localStorage.getItem("admin") === "false") {
       window.location.replace("/store");
     } else {
       try {
@@ -23,23 +22,23 @@ const Product = (props) => {
         console.log(id);
         var allOrders = [];
         console.log(json);
-        setProducts(json.orderItems)
-        setOrder(json.names)
+        setProducts(json.orderItems);
+        setOrder(json.names);
 
         // console.log(this.state.data);
 
         // var it = [];
         // var sumPrice = [];
         // var sum;
-        console.log(products)
-        setLoading(false)
+        console.log(products);
+        setLoading(false);
         // console.log(this.state.data);
         // console.log(this.state.orders);
-
       } catch (error) {
         // console.log(this.props.id);
         console.log(error);
-      }}
+      }
+    }
     
   }
 

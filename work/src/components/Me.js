@@ -11,9 +11,8 @@ const Me = () => {
   const [loading, setLoading] = useState(true);
 
   const getMe = async () => {
-    const profile = await fetch(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile);
-    if (!profile) {
+    
+    if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {

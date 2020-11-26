@@ -15,27 +15,28 @@ const Manage = () => {
   const [loading, setLoading] = useState(true)
   const getManage = async () => {
 
-    const admin = await Axios(`/me?id=${localStorage.getItem("user")}`);
-    console.log(admin)
-    if(admin.status === 503|| !admin.data.isAdmin ){
-      window.location.replace("/store")
+    
+    if (
+      !localStorage.getItem("admin") ||
+      localStorage.getItem("admin") === "false"
+    ) {
+      window.location.replace("/store");
     } else {
-        try {
+      try {
         if (!window.location.search) {
           const response = await fetch(`/store1`);
           console.log(window.location);
           const json = await response.json();
-          setData([json.names])
-          setLoading(false)
-  
+          setData([json.names]);
+          setLoading(false);
         } else {
           console.log(window.location.search);
           const parsed = queryString.parse(window.location.search);
-          
-          console.log(parsed['skip']);
-  
-          console.log(parsed['category']);
-          var skip
+
+          console.log(parsed["skip"]);
+
+          console.log(parsed["category"]);
+          var skip;
           if (!parsed["skip"]) {
             skip = 0;
           } else {
@@ -49,14 +50,13 @@ const Manage = () => {
               skip: skip,
             },
           });
-          setData(res.data.names)
-          setLoading(false)
+          setData(res.data.names);
+          setLoading(false);
         }
       } catch (error) {
         console.log(error);
       }
-
-      }
+    }
   }
 
   useEffect(() => {

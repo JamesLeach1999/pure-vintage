@@ -23,10 +23,12 @@ const Addpage = () => {
     // const profile = await Axios.get(`/me`);
     const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
   console.log(profile)
-    if (!profile || !profile.data.isAdmin) {
-      window.location.replace('/store');
+    if (
+      !localStorage.getItem("admin") ||
+      localStorage.getItem("admin") === "false"
+    ) {
+      window.location.replace("/store");
     } else {
-  
       try {
         Axios({
           method: "POST",
@@ -37,16 +39,16 @@ const Addpage = () => {
             description,
             size,
             price,
-            image
+            image,
           },
-          headers: {'Content-Type': 'multipart/form-data' },
+          headers: { "Content-Type": "multipart/form-data" },
           withCredentials: true,
 
           url: "/products",
         }).then((res) => {
-            console.log(res.data)
-            // props.handleLogin(res.data.passport);
-          
+          console.log(res.data);
+          // props.handleLogin(res.data.passport);
+
           window.location.replace("/store");
         });
         // console.log(this.state.orders);

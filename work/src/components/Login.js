@@ -48,7 +48,11 @@ const App = (props) => {
       } else {
         props.handleLogin(false);
       }
-      // window.location.replace("/store");
+
+      if(localStorage.getItem("user")){
+
+        window.location.replace("/store");
+      }
     });
   };
 

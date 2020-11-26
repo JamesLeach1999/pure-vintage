@@ -12,32 +12,40 @@ const OrderPage = () => {
   const [loading, setLoading] = useState(true)
   const [p, setP] = useState([]);
   const getProducts = async () => {
-    console.log(id);
-    
+
+    if (
+      !localStorage.getItem("admin") ||
+      localStorage.getItem("admin") === "false"
+    ) {
+      window.location.replace("/store");
+    } else {
+      console.log(id);
+
       const url = `/orderProducts?id=${id}`;
 
       // this returns a promise. so need to extract data from response (generally in json)
       const response = await Axios.get(url);
-      console.log(response)
-      const products = response.data.names
-  
-        console.log(products)
+      console.log(response);
+      const products = response.data.names;
+
+      console.log(products);
       var allOrders = [];
-      
+
       setProducts(products);
       console.log(product);
       var yyy = [];
-      var items = JSON.parse(products.orderItems)
-      console.log(items)
+      var items = JSON.parse(products.orderItems);
+      console.log(items);
       items.map((item) => {
-        yyy.push(item)
+        yyy.push(item);
       });
       setP(yyy);
       console.log(p);
-      setLoading(false)
-      console.log(product)
+      setLoading(false);
+      console.log(product);
       // console.log(this.state.data);
       // then you want to set the state, set the empty array to an array of 30
+    }
     
   };
 

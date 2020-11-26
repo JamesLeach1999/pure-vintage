@@ -13,9 +13,11 @@ const Me = () => {
   const [loading, setLoading] = useState(true);
 
   const getOrders = async () => {
-    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
-    console.log(profile);
-    if (!profile || !profile.data.isAdmin) {
+    
+    if (
+      !localStorage.getItem("admin") ||
+      localStorage.getItem("admin") === "false"
+    ) {
       window.location.replace("/store");
     } else {
       try {
@@ -25,7 +27,7 @@ const Me = () => {
         const order = await fetch("/allOrders");
         const orderJson = await order.json();
         var allOrders = [];
-        console.log(orderJson)
+        console.log(orderJson);
         // console.log(orderJson);
         orderJson.names.map((order) => {
           // console.log(order);
@@ -38,13 +40,13 @@ const Me = () => {
         var it = [];
         var sumPrice = [];
         var sum1;
-        var idk = []
+        var idk = [];
         data.map((items) => {
           it.push(JSON.parse(items.orderItems));
-          console.log(it) 
+          console.log(it);
           it.map((price) => {
             console.log(price);
-            idk.push(price)
+            idk.push(price);
             var t = [];
             price.map((r) => {
               t.push(r.product.price);
@@ -56,7 +58,7 @@ const Me = () => {
             console.log(sum1);
             t = [];
           });
-          console.log(idk)
+          console.log(idk);
           sumPrice.push(sum1);
         });
         // console.log(sumPrice)

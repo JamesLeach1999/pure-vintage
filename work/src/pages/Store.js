@@ -15,8 +15,8 @@ const People = (props) => {
 
   return (
     <div>
-      <form className="col-4 filter filter-container" action="/store" style={{border: "1px solid black"}}>
         <section>
+      <form  action="/store" style={{border: "1px solid black"}}>
           <section>
             <h5>Filters</h5>
 
@@ -352,10 +352,10 @@ const People = (props) => {
             </section>
           </section>
           <button type="submit">Search</button>
-        </section>
 
       </form>
 
+        </section>
       {/* </label> */}
       {/* <label className="checkbox filter">
           <input

@@ -62,7 +62,7 @@ const OrderPage = () => {
             return (
               <div>
                 <div className="col-4">
-                  <img src={`${item.product.images}`} alt="" />
+                  <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>
                   <div class="rating">
                     <i class="fa fa-star"></i>

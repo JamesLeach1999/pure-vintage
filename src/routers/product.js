@@ -661,7 +661,7 @@ router.post('/reviews', ensureAuthenticated, async (req, res) => {
     rating: star,
     comment: brand,
   };
-
+console.log(req.body)
   const product = await Product.findById({
     _id: id,
   });

@@ -55,10 +55,10 @@ const Me = () => {
             t = [];
             sumPrice.push(sum1);
           });
-          console.log(it.reverse());
+          console.log(it);
         });
         console.log(typeof it);
-        console.log(it.reverse());
+        console.log(it);
         setSum(sumPrice.reverse());
         setOrders(it.reverse());
         setLoading(false);

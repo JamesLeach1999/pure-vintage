@@ -7,7 +7,7 @@ import Axios from 'axios';
 
 const OrderPage = () => {
   const { id } = useParams();
-  const [product, setProducts] = useState();
+  const [product, setProducts] = useState({});
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true)
   const [p, setP] = useState([]);
@@ -29,7 +29,7 @@ const OrderPage = () => {
       var yyy = [];
       var items = JSON.parse(products.orderItems)
       console.log(items)
-      items[0].map((item) => {
+      items.map((item) => {
         yyy.push(item)
       });
       setP(yyy);

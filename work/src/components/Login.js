@@ -94,7 +94,7 @@ const App = (props) => {
       <form action="/logout" method="get">
         <button
           type="submit"
-          onClick={() => logout}
+          onClick={logout}
         >
           Logout?
         </button>

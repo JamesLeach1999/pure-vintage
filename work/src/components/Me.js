@@ -29,11 +29,11 @@ const Me = () => {
         });
         setData(allOrders);
         console.log(allOrders)
-        var t
+        var t = []
         allOrders.forEach((order) => {
             var m = JSON.parse(order.orderItems)
-            console.log(m)
-            t.push(m)
+            console.log(m[0])
+            t.push(m[0].product)
             
         })
         console.log(t)

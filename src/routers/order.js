@@ -239,7 +239,7 @@ router.get('/pastOrders', async (req, res) => {
     if (pastOrders[i] !== null) {
       var product = await Order.findById({
         _id: pastOrders[i],
-      });
+      }).sort([['createdAt', -1]]);
       if(product !== null || product !== undefined){
 
         orders.push(product);

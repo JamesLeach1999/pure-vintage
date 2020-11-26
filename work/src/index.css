@@ -344,11 +344,11 @@ ul {
   display: flex;
 }
 .col-4 .filter-container {
-  flex: 15%;
+  flex: 20%;
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
-  margin-left: 50px;
+  margin-left: 10%;
   float: left;
   justify-content: left;
   /* display:inline-flex; */

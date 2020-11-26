@@ -28,6 +28,7 @@ const Me = () => {
           }
         });
         setData(allOrders);
+        console.log(allOrders)
         var t
         allOrders.forEach((order) => {
             var m = JSON.parse(order.orderItems)

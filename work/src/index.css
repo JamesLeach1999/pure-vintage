@@ -112,6 +112,7 @@ p {
 .small-container {
   max-width: 1080px;
   margin: auto;
+  flex: 70%;
   padding-left: 25px;
   padding-right: 25px;
 }
@@ -340,9 +341,10 @@ ul {
 
 .p{
   width: 100%;
+  display: flex;
 }
 .col-4 .filter-container {
-  flex-basis: 10%;
+  flex: 15%;
   position: relative;
   border: 2px solid red;
   margin-top: 150px;

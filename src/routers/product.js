@@ -29,43 +29,43 @@ cloudinary.config({
 // IMAGES, defining the destination
 // multer is the most simple and popular library for image uploads in node
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'C:/wamp/www/node/pure-vintage - Copywork/public/assets/');
-  },
-  filename: function (req, file, cb) {
-    //req.body is empty...
-    //How could I get the new_file_name property sent from client here?
-    cb(null, file.originalname);
-  },
-});
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'C:/wamp/www/node/pure-vintage - Copywork/public/assets/');
+//   },
+//   filename: function (req, file, cb) {
+//     //req.body is empty...
+//     //How could I get the new_file_name property sent from client here?
+//     cb(null, file.originalname);
+//   },
+// });
 
-const upload = multer({
-  limits: {
-    fileSize: 100000000,
-    size: 100000000,
-  },
-  storage: storage,
+// const upload = multer({
+//   limits: {
+//     fileSize: 100000000,
+//     size: 100000000,
+//   },
+//   storage: storage,
 
-  // the value is a function to run whenever a file is uploaded
+//   // the value is a function to run whenever a file is uploaded
 
-  fileFilter(req, file, cb) {
-    console.log(file);
-    // using regex to check the file type is correct
-    if (
-      !file.originalname.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf|.png|.jpg|.jpeg)$/i)
-    ) {
-      return cb(new Error('please upload images of correct file type'));
-    }
+//   fileFilter(req, file, cb) {
+//     console.log(file);
+//     // using regex to check the file type is correct
+//     if (
+//       !file.originalname.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf|.png|.jpg|.jpeg)$/i)
+//     ) {
+//       return cb(new Error('please upload images of correct file type'));
+//     }
 
-    cb(undefined, true);
-  },
-});
+//     cb(undefined, true);
+//   },
+// });
 
 
 
 // only admins can upload and uses multer middleware to handle images
-router.post('/products', ensureAuthenticated, upload.array('image', 10), async (req, res) => {
+router.post('/products', ensureAuthenticated,  async (req, res) => {
   var errors = [];
   // using an array to store theimages max is 10 images
   var ogName = [];

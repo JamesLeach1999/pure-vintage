@@ -81,23 +81,23 @@ const App = (props) => {
       </div>
 
       <div>
-        <h1>Login</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button onClick={login}>Submit</button>
-      </div>
+        <form>
+          <h1>Login</h1>
+          <input
+            placeholder="username"
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+          <input
+            placeholder="password"
+            type="password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <button onClick={login}>Submit</button>
+      </form>
+        </div>
+
       <form action="/logout" method="get">
-        <button
-          type="submit"
-          onClick={logout}
-        >
+        <button type="submit" onClick={logout}>
           Logout?
         </button>
       </form>

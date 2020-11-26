@@ -19,6 +19,14 @@ const cloudinary = require("cloudinary")
 
 require('./middleware/passport')(passport);
 
+var fileUpload = require('express-fileupload');
+
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
+
 
 const whitelist = [
   'http://localhost:3000',

@@ -2,15 +2,11 @@ const router = require('express').Router();
 const User = require('../models/User');
 const { loadPage, ensureAuthenticated } = require('../middleware/auth');
 console.log('i work8');
-var fileUpload = require("express-fileupload")
 const { filter } = require('../emails/account');
 const Product = require('../models/products');
 const multer = require('multer');
 const cloudinary = require("cloudinary").v2
 
-app.use(fileUpload({
-  useTempFiles: true
-}))
 
 
 cloudinary.config({

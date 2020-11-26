@@ -53,8 +53,9 @@ const Me = () => {
             t = [];
           });
           sumPrice.push(sum1);
-          console.log(it);
+          console.log(it.reverse());
         });
+        console.log(typeof(it))
         console.log(it.reverse());
         setSum(sumPrice);
         setOrders(it.reverse());

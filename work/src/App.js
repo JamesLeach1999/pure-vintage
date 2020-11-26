@@ -35,6 +35,18 @@ export default class App extends Component {
         {/* render you can pass in and call it directly, can add additional props */}
         <div className="App">
           <Nav />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+
           <Footer />
         </div>
       </Router>

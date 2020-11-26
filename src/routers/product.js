@@ -126,9 +126,7 @@ console.log(req.files);
   try {
     await products.save();
 
-    res.send({
-      names: products,
-    });
+    res.redirect("/store")
   } catch (error) {
     res.status(401).send(error);
   }

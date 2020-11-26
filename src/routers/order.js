@@ -267,16 +267,9 @@ router.get('/pastOrders', async (req, res) => {
   });
 });
 
-router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
+router.get("/orderProducts",  async (req, res) => {
   console.log(req.query.id);
   // console.log(req.session.passport.user);
-
-  const user = await User.findById({ _id: req.session.passport.user });
-  // retrieving only the first 5 results
-  const pastOrders = user.pastOrders;
-  // console.log(pastOrders)
-  var orders = [];
-  var orderInfo = [];
   const product = await Order.findById({_id: req.query.id})
   console.log("thats nuberwang 3")
   console.log(product)
@@ -285,34 +278,14 @@ router.get("/orderProducts", ensureAuthenticated, async (req, res) => {
   console.log(p)
   console.log('thats nuberwang 4');
   var it = []
-  p.forEach((items) => {
-    console.log(items)
-    it.push(JSON.parse(items.orderItems));
-    it.map((price) => {
-      console.log(price);
-      var t = [];
-      price.map((r) => {
-        t.push(r.product.price);
-        console.log(t);
-      });
-      sum = t.reduce(function (a, b) {
-        return a + b;
-      }, 0);
-      console.log(sum);
-      t = [];
-    });
-    sumPrice.push(sum);
-  });
-  console.log(sumPrice)
+  
   console.log('thats nuberwang 5');
-
-  console.log(it);
 
   res.send({
     pageTitle: 'welcome',
     user: user,
     names: product,
-    orderInfo: orderInfo,
+    orderInfo: p,
     //   categories: categories,
     isAuth: true,
     isAdmin: user.isAdmin,

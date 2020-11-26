@@ -172,20 +172,6 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
-// a get request to create an admin with the isAdmin property set to true. meaninng no users can use post to create an admin
-router.get('/createadmin', async (req, res) => {
-  bcrypt.genSalt(10, async (err, salt) => {
-    bcrypt.hash('password1', salt, async (err, hash) => {
-      const user = new User({
-        name: 'alex',
-        email: 'Alex.Gilbert161@outlook.com',
-        password: hash,
-        isAdmin: true,
-      });
-      const newUser = await user.save();
-      res.send(newUser);
-    });
-  });
-});
+
 
 module.exports = router;

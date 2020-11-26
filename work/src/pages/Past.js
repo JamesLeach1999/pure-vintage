@@ -95,7 +95,6 @@ const Me = () => {
                 return (
                   <tr>
                     <Link to={`/refundProducts/${product._id}`}>
-                      <OrderProducts />
                       <td>
                         {/* <img
                           src={`/assets/${JSON.parse(product.orderItems[0].product[0].image)}`}

@@ -50,6 +50,14 @@ const App = (props) => {
     });
   };
 
+  const logout = async () => {
+            localStorage.setItem("auth", false);
+            localStorage.setItem("admin", false);
+            localStorage.setItem("user", "");
+
+            window.location.replace("/store");
+          }
+
   return (
     <div className="App">
       <div>
@@ -86,13 +94,7 @@ const App = (props) => {
       <form action="/logout" method="get">
         <button
           type="submit"
-          onClick={() => {
-            localStorage.setItem("auth", false);
-            localStorage.setItem("admin", false);
-            localStorage.setItem("user", "");
-
-            window.location.replace("/store");
-          }}
+          onClick={() => logout}
         >
           Logout?
         </button>

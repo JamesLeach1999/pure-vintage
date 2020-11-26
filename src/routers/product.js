@@ -72,13 +72,15 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
   // retreiving input data. using multer middleware for the image
 
   console.log(req.body)
+console.log(req.file)
+console.log(req.files);
 
   var fileJPG = req.files;
 
   // File upload
   
   // fileJPG.forEach(async (img) => {
-    cloudinary.uploader.upload('pizza.jpg', { tags: 'pure-vintage', public_id: img.originalname }, function (err, image) {
+    cloudinary.uploader.upload('pizza.jpg', { tags: 'pure-vintage', public_id: req.file.originalname }, function (err, image) {
       console.log();
       console.log('** File Upload');
       if (err) {

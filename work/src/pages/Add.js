@@ -39,6 +39,7 @@ const Addpage = () => {
             price,
             image
           },
+          headers: {'Content-Type': 'multipart/form-data' },
           withCredentials: true,
 
           url: "/products",

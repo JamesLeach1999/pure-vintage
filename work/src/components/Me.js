@@ -64,7 +64,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {data.map((product, i) => {
+              {orders ? data.map((product, i) => {
                 return (
                   <tr>
                     <td>
@@ -86,7 +86,27 @@ const Me = () => {
                     {/* </Link> */}
                   </tr>
                 );
-              })}
+              }): (
+                  <tr>
+                    <td>
+                      {/* <Link to={`/orderProducts/${product._id}`}>
+                        <img src={orders[i].image[0]} alt=""/>
+                      </Link> */}
+                      {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
+                      {/* <p>{this.state.orders.name}</p> */}
+                    </td>
+                    <td>
+                      <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                      </ul>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    {/* </Link> */}
+                  </tr>
+                )}
             </table>
           </div>
         </div>

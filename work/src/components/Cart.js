@@ -65,8 +65,8 @@ const Cart = () => {
         {/* <tr> */}
         {data.map((products) => {
           return products.map((product) => {
-            var tota = product.price
-            setTotal(tota + tota)
+            // var tota = product.price
+            // setTotal(tota + tota)
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <tr>
@@ -94,7 +94,7 @@ const Cart = () => {
           <td></td>
           <td></td>
           <td>Total</td>
-          <td>{total}</td>
+          {/* <td>{total}</td> */}
         </tr>
       </table>
 

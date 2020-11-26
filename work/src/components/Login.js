@@ -47,6 +47,8 @@ const App = (props) => {
         props.handleLogin(false);
       }
       // window.location.replace("/store");
+    }).then(() => {
+      window.location.reload()
     });
   };
 

@@ -177,7 +177,7 @@ router.get('/createadmin', async (req, res) => {
   bcrypt.genSalt(10, async (err, salt) => {
     bcrypt.hash('password1', salt, async (err, hash) => {
       const user = new User({
-        name: 'jim',
+        name: 'alex',
         email: 'Alex.Gilbert161@outlook.com',
         password: hash,
         isAdmin: true,

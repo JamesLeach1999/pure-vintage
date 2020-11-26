@@ -348,7 +348,7 @@ ul {
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
-  margin-left: 150px;
+  /* margin-left: 150px; */
   /* float: left;
   justify-content: left; */
   /* display:inline-flex; */
@@ -390,6 +390,8 @@ ul {
   color: red;
   width: 60%;
 }
+
+
 
 /* media queries for menu */
 /* only for less than 800 px */

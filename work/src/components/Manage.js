@@ -17,7 +17,7 @@ const Manage = () => {
 
     const admin = await Axios(`/me?id=${localStorage.getItem("user")}`);
     console.log(admin)
-    if(!admin || !admin.data.isAdmin ){
+    if(!admin.status(503) || !admin.data.isAdmin ){
       window.location.replace("/store")
     } else {
         try {

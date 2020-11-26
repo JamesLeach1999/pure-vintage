@@ -58,8 +58,8 @@ export default class Nav extends Component {
     }
     
     if(!data){
-      localStorage.setItem("auth", false);
-      localStorage.setItem("admin", false);
+      // localStorage.setItem("auth", false);
+      // localStorage.setItem("admin", false);
       window.location.replace("/store")
     }
   }

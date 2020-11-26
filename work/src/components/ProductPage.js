@@ -49,7 +49,7 @@ const ProductPage = () => {
             )}
           </div>
           <div class="col-2">
-            <p>Home / t shirt</p>
+            <p>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>{product.price}</h4>
 

@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 const Me = () => {
   const [data, setData] = useState([]);
-  const [orders, setOrders] = useState({});
+  const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -27,19 +27,19 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-        setData(allOrders);
-        console.log(allOrders.reverse())
+        setData(allOrders.reverse());
+        var iter = allOrders.reverse()
         var t = []
-        allOrders.forEach((order) => {
+        iter.forEach((order) => {
             var m = JSON.parse(order.orderItems)
             console.log(m[0])
             t.push(m[0].product)
             
         })
-        console.log(t.reverse())
+        setOrders(t)
         setLoading(false);
         console.log(data);
-        
+        console.log(orders)
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -67,10 +67,9 @@ const Me = () => {
               {data.map((product, i) => {
                 return (
                   <tr>
-                    <td>
                       <Link to={`/orderProducts/${product._id}`}>
+                    <td>
                         <h1>Review?</h1>
-                      </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
                     </td>
@@ -84,6 +83,7 @@ const Me = () => {
                     <td>{product.updatedAt}</td>
                     <td>{total}</td>
                     {/* </Link> */}
+                      </Link>
                   </tr>
                 );
               })}

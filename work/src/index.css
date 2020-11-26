@@ -344,17 +344,17 @@ ul {
   display: flex;
 }
 .col-4 .filter-container {
-  flex: 20%;
+  flex: 15%;
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
   margin-left: 10%;
-  float: left;
-  justify-content: left;
+  /* float: left;
+  justify-content: left; */
   /* display:inline-flex; */
 }
 .filter .filter-container button {
-  margin-left: 40px;
+  /* margin-left: 40px; */
   /* margin-top: 150px; */
 
   position: relative;
@@ -367,7 +367,7 @@ ul {
   flex-basis: 100%;
 }
 .filter {
-  left: 20px;
+  /* left: 20px; */
   top: 35px;
 
   padding-top: auto;

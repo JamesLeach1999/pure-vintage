@@ -126,22 +126,22 @@ router.get('/about', async (req, res) => {
   });
 });
 
-router.get('/me', async (req, res) => {
-  console.log("number")
-  console.log(req.query.id);
-  const user = await User.findById({ _id: req.query.id });
+// router.get('/me', async (req, res) => {
+//   console.log("number")
+//   console.log(req.query.id);
+//   const user = await User.findById({ _id: req.query.id });
 
-  console.log(user);
-  if (!user) {
-    throw new Error();
-  }
+//   console.log(user);
+//   if (!user) {
+//     throw new Error();
+//   }
 
-  res.send({
-    userProfile: user,
-    isAuth: true,
-    isAdmin: user.isAdmin,
-  });
-});
+//   res.send({
+//     userProfile: user,
+//     isAuth: true,
+//     isAdmin: user.isAdmin,
+//   });
+// });
 
 // rendering login page
 // router.get("/login", async (req, res) => {

@@ -41,9 +41,9 @@ const Me = () => {
             items.forEach((item) => {
               t.push(item.price)
             })
+            setSum(t)
           })
         }
-        setSum(t)
         console.log(total)
 
         // console.log(orders[0][0].product.image[0]);

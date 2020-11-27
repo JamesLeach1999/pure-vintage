@@ -87,7 +87,7 @@ const Me = () => {
                 return (
                   <tr>
                     <td>
-                      <Link to={`/orderProducts/${product._id}}`}>
+                      <Link to={`/orderProducts/${product._id}`}>
                         <img src={orders[i][0].product.image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}

@@ -254,10 +254,12 @@ router.get('/pastOrders', async (req, res) => {
   console.log("numeorwanf")
   console.log(filtered);
 
-  var items = JSON.parse(filtered.orderItems[0])
+  var ite = filtered.forEach((items) => {
+    return JSON.parse(items.orderItems)
+  })
 
   console.log("working")
-  console.log(items)
+  console.log(ite)
 
   res.send({
     pageTitle: 'welcome',

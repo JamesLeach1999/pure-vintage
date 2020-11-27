@@ -10,7 +10,7 @@ const Me = () => {
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("nuttn");
-  const [nulll, setNull] = useState("c")
+  const [nulll, setNull] = useState("c");
 
   console.log(localStorage.getItem("user"));
   var i = localStorage.getItem("user");
@@ -19,13 +19,10 @@ const Me = () => {
     setId(i);
   }
   console.log(id);
-  const url = `/pastOrders?id=${id}`
+  const url = `/pastOrders?id=${id}`;
 
   const getMe = async () => {
-    if (!localStorage.getItem("user")) {
-      setNull("whoops")
-      window.location.replace("/store");
-    } else {
+    if (localStorage.getItem("user")) {
       try {
         const order = await fetch(url);
         const orderJson = await order.json();
@@ -57,6 +54,9 @@ const Me = () => {
         console.log(data);
         console.log(error);
       }
+    } else {
+      setNull("whoops");
+      window.location.replace("/store");
     }
   };
 

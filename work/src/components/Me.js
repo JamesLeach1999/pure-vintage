@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
-  // const [total, setSum] = useState([]);
+  const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("nuttn");
   const [nulll, setNull] = useState("c");
@@ -33,12 +33,20 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-
+        var t = []
         setOrders(orderJson.orderInfo);
         if (orders) {
           setData(allOrders.reverse());
+          orders.forEach((items) => {
+            items.forEach((item) => {
+              t.push(item.price)
+            })
+          })
         }
-        console.log(orders[0][0].product.image[0]);
+        setSum(t)
+        console.log(total)
+
+        // console.log(orders[0][0].product.image[0]);
 
         setLoading(false);
         console.log(data);
@@ -79,11 +87,7 @@ const Me = () => {
                 return (
                   <tr>
                     <td>
-                      <Link
-                        to={`/orderProducts/${
-                          product._id
-                        }/${localStorage.getItem("user")}`}
-                      >
+                      <Link to={`/orderProducts/${product._id}}`}>
                         <img src={orders[i][0].product.image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}

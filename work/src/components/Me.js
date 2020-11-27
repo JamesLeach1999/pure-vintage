@@ -12,19 +12,14 @@ const Me = () => {
   const [id, setId] = useState("nuttn");
   const [nulll, setNull] = useState("c");
 
-  console.log(localStorage.getItem("user"));
-  var i = localStorage.getItem("user");
-  console.log(i);
-  if (id === "nuttn") {
-    setId(i);
-  }
-  console.log(id);
-  const url = `/pastOrders?id=${id}`;
+  
+
+  localStorage.setItem("id", localStorage.getItem("user"))
 
   const getMe = async () => {
     if (localStorage.getItem("user")) {
       try {
-        const order = await fetch(url);
+        const order = await fetch(`/pastOrders?id=${localStorage.getItem("id")}`);
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);

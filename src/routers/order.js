@@ -247,19 +247,22 @@ router.get('/pastOrders', async (req, res) => {
       // console.log(product)
     }
   }
-  console.log("numeorwanf")
-console.log(orders)
   var filtered = orders.filter(function (el) {
     return el != null;
   });
-  console.log('numeorwanf111');
-
+  
+  console.log("numeorwanf")
   console.log(filtered);
+
+  var items = JSON.parse(filtered.orderItems[0])
+
+  console.log("working")
+  console.log(items)
 
   res.send({
     pageTitle: 'welcome',
     user: user,
-    names: orders,
+    names: filtered,
     orderInfo: orderInfo,
     //   categories: categories,
     isAuth: true,

@@ -10,6 +10,7 @@ const Me = () => {
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("nuttn");
+  const [nulll, setNull] = useState("c")
 
   console.log(localStorage.getItem("user"));
   var i = localStorage.getItem("user");
@@ -22,6 +23,7 @@ const Me = () => {
 
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
+      setNull("whoops")
       window.location.replace("/store");
     } else {
       try {

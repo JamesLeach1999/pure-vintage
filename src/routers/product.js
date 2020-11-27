@@ -714,12 +714,12 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
 });
 
 // getting the cart page. using an array to return all cart items to be displayed with ejs
-router.get('/cart', ensureAuthenticated, async (req, res) => {
+router.get('/cart', async (req, res) => {
   var fullCart = [];
-  console.log(req.session);
-
+  // console.log(req.session);
+  var id = req.query.user
   const user = await User.findById({
-    _id: req.session.passport.user,
+    _id: id
   });
 
   const isAdmin = user.isAdmin;

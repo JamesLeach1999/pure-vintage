@@ -9,6 +9,8 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const url = `/cart?user=${localStorage.getItem("user")}`;
   const getCart = async () => {
     
     if (!localStorage.getItem("user")) {
@@ -18,7 +20,7 @@ const Cart = () => {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
 
-        const response = await fetch(`/cart`);
+        const response = await fetch(url);
         const json = await response.json();
         console.log(json);
 

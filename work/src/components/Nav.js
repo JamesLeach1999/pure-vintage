@@ -83,7 +83,7 @@ export default class Nav extends Component {
     return (
       <Router>
         <div className="header">
-          <div class="container">
+          <div class="container" style={{color: "white"}}>
             <div class="navbar">
               <div class="logo">
                 <img

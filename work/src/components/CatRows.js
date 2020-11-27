@@ -36,7 +36,7 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
                 alt=""
               />
-              <h2 style={{ textAlign: "center" }}>Coats</h2>
+              <h2 style={{ textAlign: "center" }}>Shirts</h2>
             </div>
           </Link>
           <Link to="/store?category=puffer">
@@ -45,7 +45,7 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
                 alt=""
               />
-              <h2 style={{ textAlign: "center" }}>Shirts</h2>
+              <h2 style={{ textAlign: "center" }}>Puffer jackets</h2>
             </div>
           </Link>
         </div>

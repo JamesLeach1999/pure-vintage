@@ -214,11 +214,16 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
   })
 
     // console.log(orderItems);
+    var percent = req.body.percent/100
+
+    var refundPrice = amount * percent
+
+
 
 
   const refund = await stripe.refunds.create({
     payment_intent: req.body.intent,
-    amount: amount * 100
+    amount: refundPrice * 100
   });
   console.log(refund)
 

@@ -84,6 +84,7 @@ const OrderPage = () => {
                   <input type="" name="productId" value={item.product._id} hidden />
                   <input type="" name="id" value={product._id} hidden />
                   <input type="" name="amount" value={item.product.price} hidden />
+                  <input type="number" name="percent" max="100" value=""/>
                   <input type="" name="intent" value={product.intent} hidden />
                   <button type="submit">Refund Product?</button>
                 </form>

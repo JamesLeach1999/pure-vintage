@@ -19,7 +19,13 @@ const People = (props) => {
         <form
           className="col-4 filter filter-container"
           action="/store"
-          style={{ border: "1px solid black", width: "350px", position: "relative", left: "40px", paddingLeft: "25px" }}
+          style={{
+            border: "1px solid black",
+            width: "350px",
+            position: "relative",
+            left: "40px",
+            paddingLeft: "25px",
+          }}
         >
           <section>
             <h5>Filters</h5>
@@ -225,6 +231,21 @@ const People = (props) => {
                   for="reebok"
                 >
                   Reebok
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="north"
+                  id="north"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="north"
+                >
+                  North face
                 </label>
               </div>
             </section>

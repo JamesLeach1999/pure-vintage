@@ -33,11 +33,13 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-        
+
         setOrders(orderJson.orderInfo);
         if (orders) {
           setData(allOrders.reverse());
         }
+        console.log(orders[0][0].product.image[0]);
+
         setLoading(false);
         console.log(data);
         console.log(orders);
@@ -55,7 +57,7 @@ const Me = () => {
   useEffect(() => {
     localStorage.setItem("id", localStorage.getItem("user"));
     console.log(localStorage.getItem("id"));
-  },[])
+  }, []);
 
   useEffect(() => {
     getMe();
@@ -77,8 +79,12 @@ const Me = () => {
                 return (
                   <tr>
                     <td>
-                      <Link to={`/orderProducts/${product._id}/${localStorage.getItem("user")}`}>
-                        <img src={orders[i][0].image[0]} alt="" />
+                      <Link
+                        to={`/orderProducts/${
+                          product._id
+                        }/${localStorage.getItem("user")}`}
+                      >
+                        <img src={orders[i][0].product.image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}

@@ -255,7 +255,9 @@ router.get('/pastOrders', async (req, res) => {
   console.log(filtered);
 
   var ite = filtered.forEach((items) => {
-    return JSON.parse(items.orderItems)
+    console.log(JSON.parse(items.orderItems));
+    console.log(JSON.parse(items.orderItems[0]));
+    return JSON.parse(items.orderItems[0])
   })
 
   console.log("working")

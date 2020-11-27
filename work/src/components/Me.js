@@ -60,7 +60,11 @@ const Me = () => {
   };
 
   useEffect(() => {
-    getID();
+    localStorage.setItem("id", localStorage.getItem("user"));
+    console.log(localStorage.getItem("id"));
+  },[])
+
+  useEffect(() => {
     getMe();
   }, [loading]);
 

@@ -9,21 +9,21 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [id, setId] = useState()
+  const [id, setId] = useState("nuttn");
 
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {
-        console.log(localStorage.getItem("user"))
+        console.log(localStorage.getItem("user"));
         var i = localStorage.getItem("user");
-        console.log(i)
-        setId(i)
-        console.log(id)
-        const order = await fetch(
-          `/pastOrders?id=${i}`
-        );
+        console.log(i);
+        if (id === "nuttn") {
+          setId(i);
+        }
+        console.log(id);
+        const order = await fetch(`/pastOrders?id=${i}`);
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);

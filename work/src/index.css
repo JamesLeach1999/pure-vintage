@@ -353,15 +353,7 @@ ul {
   justify-content: left; */
   /* display:inline-flex; */
 }
-.filter .filter-container button {
-  /* margin-left: 40px; */
-  /* margin-top: 150px; */
 
-  position: relative;
-  text-align: left;
-  /* top: 100px; */
-  float: left;
-}
 
 .order-row {
   flex-basis: 100%;
@@ -377,19 +369,9 @@ ul {
   /* border: 2px solid red; */
   width: 250px;
 }
-.filter-title {
-  position: relative;
-  bottom: -30px;
-  text-align: left;
-  border: 2px solid black;
-}
 
-.checkbox .filter  {
-  /* size: 300px; */
 
-  color: red;
-  width: 60%;
-}
+
 
 
 

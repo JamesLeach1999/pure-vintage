@@ -20,9 +20,6 @@ const Addpage = () => {
 
   const add = async () => {
 
-    // const profile = await Axios.get(`/me`);
-    const profile = await Axios.get(`/me?id=${localStorage.getItem("user")}`);
-  console.log(profile)
     if (
       !localStorage.getItem("admin") ||
       localStorage.getItem("admin") === "false"

@@ -13,22 +13,23 @@ const ProductPage = () => {
   const getProducts = async () => {
     const url = `/product?id=${id}`;
     console.log(id);
-    const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
-console.log(profile)
-    if (!profile) {
-      window.location.replace('/store');
+    
+    if (
+      !localStorage.getItem("admin") ||
+      localStorage.getItem("admin") === "false"
+    ) {
+      window.location.replace("/store");
     } else {
       // this returns a promise. so need to extract data from response (generally in json)
       const response = await fetch(url);
       const products = await response.json();
-  
+
       //   console.log(products.name)
       console.log(products.name.image);
       // this will run 30 times because its after every re render. will be stuck in loop
       setProducts(products.name);
       setImages(products.name.image);
       // then you want to set the state, set the empty array to an array of 30
-
     }
 
   };

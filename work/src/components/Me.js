@@ -16,6 +16,7 @@ const Me = () => {
       window.location.replace("/store");
     } else {
       try {
+        console.log(localStorage.getItem("user"))
         setId(localStorage.getItem("user"));
         console.log(id)
         const order = await fetch(

@@ -56,6 +56,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     
     const { data: clientSecret } = await axios.post('/payment_intents', {
       amount: price*100,
+      id: localStorage.getItem("user"),
       address: billingDetails.address.line1,
       city: billingDetails.address.city,
       postcode: billingDetails.address.postal_code

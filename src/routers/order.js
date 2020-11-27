@@ -75,10 +75,10 @@ router.get('/check', (req, res) => {
   res.render('test.ejs');
 });
 
-router.post('/payment_intents', ensureAuthenticated, async (req, res) => {
+router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
     try {
-      const id = req.session.passport.user;
+      const id = req.body.id;
       // console.log(req.body)
       const user = await User.findById({ _id: id });
       console.log("thtas number")
@@ -260,6 +260,11 @@ router.get('/pastOrders', async (req, res) => {
     // console.log(JSON.parse(items.orderItems));
     console.log(JSON.parse(items.orderItems[0]));
     item.push(JSON.parse(items.orderItems[0]))
+  })
+
+  var i = []
+  item.forEach((r) => {
+
   })
 
   console.log("working")

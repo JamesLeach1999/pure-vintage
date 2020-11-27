@@ -13,6 +13,7 @@ const OrderPage = () => {
   const [p, setP] = useState([]);
   const getProducts = async () => {
 
+    const url = `/orderProducts?id=${id}&user=${localStorage.getItem("user")}`;
     if (
       !localStorage.getItem("admin") ||
       localStorage.getItem("admin") === "false"
@@ -21,7 +22,6 @@ const OrderPage = () => {
     } else {
       console.log(id);
 
-      const url = `/orderProducts?id=${id}`;
 
       // this returns a promise. so need to extract data from response (generally in json)
       const response = await Axios.get(url);

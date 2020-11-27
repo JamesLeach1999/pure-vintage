@@ -278,6 +278,9 @@ router.get('/pastOrders', async (req, res) => {
 
 router.get("/orderProducts",  async (req, res) => {
   console.log(req.query.id);
+  console.log(req.query.user)
+
+  const user = await User.findById({_id: req.query.user})
   // console.log(req.session.passport.user);
   const product = await Order.findById({_id: req.query.id})
   console.log("thats nuberwang 3")
@@ -292,6 +295,7 @@ router.get("/orderProducts",  async (req, res) => {
 
   res.send({
     pageTitle: 'welcome',
+    user: user,
     names: product,
     orderInfo: p,
     //   categories: categories,

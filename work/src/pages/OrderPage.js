@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 const OrderPage = () => {
   const { id } = useParams();
-  const url = `/orderProducts?id=${id}`;
+  const url = `/orderProducts?id=${id}&user=${localStorage.getItem("user")}`;
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);

@@ -247,10 +247,12 @@ router.get('/pastOrders', async (req, res) => {
       // console.log(product)
     }
   }
+  console.log("numeorwanf")
 console.log(orders)
   var filtered = orders.filter(function (el) {
     return el != null;
   });
+  console.log('numeorwanf111');
 
   console.log(filtered);
 

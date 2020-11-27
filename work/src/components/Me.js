@@ -18,12 +18,14 @@ const Me = () => {
     setId(i);
   }
   console.log(id);
+  const url = `/pastOrders?id=${id}`
+
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {
-        const order = await fetch(`/pastOrders?id=${id}`);
+        const order = await fetch(url);
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);

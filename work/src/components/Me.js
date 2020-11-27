@@ -17,7 +17,9 @@ const Me = () => {
     } else {
       try {
         console.log(localStorage.getItem("user"))
-        setId(localStorage.getItem("user"));
+        var i = localStorage.getItem("user");
+        console.log(i)
+        setId(i)
         console.log(id)
         const order = await fetch(
           `/pastOrders?id=${id}`

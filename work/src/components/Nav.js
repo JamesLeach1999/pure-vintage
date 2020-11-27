@@ -2,25 +2,21 @@ import React, { useState, useEffect, Component } from 'react';
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Axios from 'axios';
-import defaultImage from "../assets/Logo_blue_text.jpg";
 import Welcome from './Welcome';
 import Home from '../pages/Home';
 import Store from '../pages/Store';
 import Product from './ProductPage';
 import Cart from './Cart';
 import Login from './Login';
-import Filter from './Filter';
 import Me from '../pages/Me';
 import Order from '../pageStripe/index';
 import Manage from '../pages/Manage';
 import Add from '../pages/Add';
 import Edit from './EditPage';
-import auth from './OrderSum';
 import PastOrders from '../pages/Past';
 import OrderProducts from '../pages/OrderPage';
 import RefundProducts from '../pages/RefundPage';
-import GetAuth from './GetAuth';
-import { toArray } from 'lodash';
+
 
 // have to use links like this in the nav
 export default class Nav extends Component {

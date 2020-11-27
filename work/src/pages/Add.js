@@ -64,56 +64,73 @@ return (
   <div>
     <div class="grid category">
       <form action="/products" method="post" enctype="multipart/form-data">
-        <input
-          type="text"
-          placeholder="name"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="brand"
-          name="brand"
-          onChange={(e) => setBrand(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="category"
-          name="category"
-          onChange={(e) => setCategory(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="description"
-          name="description"
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="size"
-          name="size"
-          onChange={(e) => setSize(e.target.value)}
-        />
-
-        <input
-          type="file"
-          placeholder="image"
-          name="image"
-          multiple
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="price"
-          name="price"
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <input
-          type="submit"
-          name="submit"
-          value="submit"
-          onClick={() => add()}
-        />
+        <ul>
+          <li>
+            <input
+              type="text"
+              placeholder="name"
+              name="name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              placeholder="brand"
+              name="brand"
+              onChange={(e) => setBrand(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              placeholder="category"
+              name="category"
+              onChange={(e) => setCategory(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              placeholder="description"
+              name="description"
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              placeholder="size"
+              name="size"
+              onChange={(e) => setSize(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="file"
+              placeholder="image"
+              name="image"
+              multiple
+              onChange={(e) => setImage(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="number"
+              placeholder="price"
+              name="price"
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="submit"
+              name="submit"
+              value="submit"
+              onClick={() => add()}
+            />
+          </li>
+        </ul>
       </form>
     </div>
   </div>

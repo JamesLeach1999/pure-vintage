@@ -220,8 +220,9 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
     payment_intent: req.body.intent,
     amount: amount * 100
   });
+  console.log(refund)
 
-  res.send(refund);
+  res.redirect("/allOrders");
 });
 
 

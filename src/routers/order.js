@@ -79,7 +79,7 @@ router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
     try {
       const id = req.body.id;
-      // console.log(req.body)
+      console.log(req.body)
       const user = await User.findById({ _id: id });
       console.log("thtas number")
 
@@ -148,8 +148,8 @@ router.post("/testing", async (req, res) => {
 })
 
 router.post('/te', ensureAuthenticated, async (req, res) => {
-  const id = req.session.passport.user;
-
+  const id = req.body.id;
+console.log(req.body)
   var items = [];
   const user = await User.findById({ _id: id });
   console.log("thats wangnumbe")

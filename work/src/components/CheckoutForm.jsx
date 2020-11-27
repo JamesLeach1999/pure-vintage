@@ -83,7 +83,8 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       payment_method: paymentMethodReq.paymentMethod.id,
     });
     await axios.post("/te", {
-      test: confirmedCardPayment
+      test: confirmedCardPayment,
+      id: localStorage.getItem("user")
     })
     // redirect on checkout if no errors
     onSuccessfulCheckout("/pastOrders");

@@ -9,7 +9,7 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [id, setId] = useState("")
+  const [id, setId] = useState()
 
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
@@ -22,7 +22,7 @@ const Me = () => {
         setId(i)
         console.log(id)
         const order = await fetch(
-          `/pastOrders?id=${id}`
+          `/pastOrders?id=${i}`
         );
         const orderJson = await order.json();
         var allOrders = [];

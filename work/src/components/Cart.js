@@ -9,6 +9,7 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const url = `/cart?id=${localStorage.getItem("user")}`;
 
   const getCart = async () => {
     
@@ -16,7 +17,6 @@ const Cart = () => {
       window.location.replace("/store");
     } else {
       try {
-        const url = `/cart?id=${localStorage.getItem("user")}`;
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
 

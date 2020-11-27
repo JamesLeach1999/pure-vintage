@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 // import "./App.css";
 import Axios from "axios";
-import auth from "./OrderSum";
 
 const App = (props) => {
   const [registerUsername, setRegisterUsername] = useState("");

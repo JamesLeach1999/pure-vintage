@@ -1,41 +1,41 @@
-import React from 'react'
-import Carousel from "react-elastic-carousel"
-import Item from "./Item"
-import "../css/slide.css"
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
-
-const Car = () => {
-    return (
-      <>
-        <div className="car">
-          <Carousel breakPoints={breakPoints}>
-            {/* <Item> */}
-              <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512786/img_nature_wide_q8vuhx.jpg"
-                alt=""
-              />
-            {/* </Item> */}
-            {/* <Item> */}
-              <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512795/img_snow_wide_ys9co2.jpg"
-                alt=""
-              />
-            {/* </Item> */}
-            {/* <Item> */}
-              <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"
-                alt=""
-              />
-            {/* </Item> */}
-          </Carousel>
-        </div>
-      </>
-    );
+import React, { Component } from 'react'
+import Card from "./Item"
+class Car extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+    
+    render() {
+        return (
+            <div>
+                <div className="view-port" styles={styles.view_port}>
+                    <div className="card-container" styles={styles.card_container}>
+                        <Card/>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
+const styles = {
+    view_port:{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: "350px",
+        height: "200px",
+        backgroundColor: "red"
+    },
+    card_container: {
+        display: "flex",
+        flexDirection: "row",
+        width: "fit-content"
+    }
+}
 export default Car

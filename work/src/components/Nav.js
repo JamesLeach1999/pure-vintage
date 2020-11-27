@@ -16,7 +16,7 @@ import Edit from './EditPage';
 import PastOrders from '../pages/Past';
 import OrderProducts from '../pages/OrderPage';
 import RefundProducts from '../pages/RefundPage';
-
+import T from "./Car"
 
 // have to use links like this in the nav
 export default class Nav extends Component {
@@ -83,7 +83,7 @@ export default class Nav extends Component {
     return (
       <Router>
         <div className="header">
-          <div class="container" style={{color: "white"}}>
+          <div class="container" style={{ color: "white" }}>
             <div class="navbar">
               <div class="logo">
                 <img
@@ -157,6 +157,9 @@ export default class Nav extends Component {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/t">
+            <T />
           </Route>
           <Route
             path={"/login"}

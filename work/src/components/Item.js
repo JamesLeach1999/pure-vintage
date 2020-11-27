@@ -1,12 +1,23 @@
-import styled from "styled-components";
+import React from 'react'
 
-export default styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 500px;
-  width: 100%;
-  
-  margin: 0 15px;
-  font-size: 4em;
-`;
+function Item(props) {
+    return (
+        <div>
+            card
+        </div>
+    )
+}
+
+const styles = {
+    card: {
+        width: "350px",
+        height: "200px",
+        backgroundColor: "blue",
+        border: "2px solid black",
+        borderSizing: "border-box",
+        fontSize: "2.5em",
+        color: "white"
+
+    }
+}
+export default Item

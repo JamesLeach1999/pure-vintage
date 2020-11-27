@@ -13,9 +13,11 @@ const OrderPage = () => {
   const [name, setName] = useState("")
   const [p, setP] = useState([])
   const [loading, setLoading] = useState(true)
+
+  const urlMe = `/me?id=${localStorage.getItem("user")}`;
   const getProducts = async () => {
 
-    const user = await fetch(`/me?id=${localStorage.getItem("user")}`);
+    const user = await fetch(urlMe);
     const userJson = await user.json()
     console.log(userJson)
     setName(userJson.userProfile.name)

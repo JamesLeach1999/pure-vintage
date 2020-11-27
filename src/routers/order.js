@@ -227,7 +227,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 
 router.get('/pastOrders', async (req, res) => {
   console.log('thats numberwang');
-  // console.log(req.session.passport.user)
+  console.log(req.query.id)
 
   const user = await User.findById({ _id: req.query.id });
   // retrieving only the first 5 results
@@ -254,14 +254,16 @@ router.get('/pastOrders', async (req, res) => {
   console.log("numeorwanf")
   console.log(filtered);
 
-  var ite = filtered.forEach((items) => {
-    console.log(JSON.parse(items.orderItems));
+  var item = []
+
+  filtered.forEach((items) => {
+    // console.log(JSON.parse(items.orderItems));
     console.log(JSON.parse(items.orderItems[0]));
-    return JSON.parse(items.orderItems[0])
+    item.push(JSON.parse(items.orderItems[0]))
   })
 
   console.log("working")
-  console.log(ite)
+  console.log(item)
 
   res.send({
     pageTitle: 'welcome',

@@ -1,7 +1,7 @@
 import React from 'react'
 import defaultImage from "../assets/Logo_blue_text.jpg";
 import { UncontrolledCarousel } from "reactstrap";
-
+import Car from "./Car"
 const items = [
   {
     src:
@@ -34,7 +34,7 @@ const Welcome = () => {
     return (
       <>
         <div class="row header">
-          <UncontrolledCarousel items={items} />
+          <Car/>
         </div>
       </>
     );

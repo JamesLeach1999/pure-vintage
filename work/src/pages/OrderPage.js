@@ -1,35 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import defaultImage from '../assets/shoes1.jpg';
-import image from '../assets/cap1.jpg';
-import { useFetch } from '../hooks/useFetch';
-import { Link, useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import defaultImage from "../assets/shoes1.jpg";
+import image from "../assets/cap1.jpg";
+import { useFetch } from "../hooks/useFetch";
+import { Link, useParams } from "react-router-dom";
 
 const OrderPage = () => {
-  const { id, me } = useParams();
+  const { id } = useParams();
   const url = `/orderProducts?id=${id}`;
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
-  const [name, setName] = useState("")
-  const [p, setP] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [name, setName] = useState("");
+  const [p, setP] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const urlMe = `/me?id=${me}`;
   const getProducts = async () => {
-
-    const user = await fetch(urlMe);
-    const userJson = await user.json()
-    console.log(userJson)
-    setName(userJson.userProfile.name)
+    
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
-
-      console.log(products.names.orderItems)
     
-    const t = JSON.parse(products.names.orderItems)
-    setProducts(t)
-    console.log(name)
+    console.log(products.names.orderItems);
+    setName(products.user.name);
+
+    const t = JSON.parse(products.names.orderItems);
+    setProducts(t);
+    console.log(name);
     // console.log(p);
     // var yyy = [];
     // await product.map((item) => {
@@ -37,7 +33,7 @@ const OrderPage = () => {
     // });
     // setP(yyy);
     // console.log(p);
-    setLoading(false)
+    setLoading(false);
     // console.log(this.state.data);
     // then you want to set the state, set the empty array to an array of 30
   };
@@ -47,14 +43,14 @@ const OrderPage = () => {
   // no  clue
   useEffect(() => {
     // this returns all 30 users in an array using setState
-    getProducts()
+    getProducts();
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
-    
+
     // do this so no infinite loop
   }, [loading]);
-  console.log(product)
-    console.log(p);
+  console.log(product);
+  console.log(p);
 
   return (
     <div>
@@ -93,8 +89,6 @@ const OrderPage = () => {
                 </form>
               </div>
             );
-            
-            
           })}
         </div>
       </div>

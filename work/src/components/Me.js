@@ -7,7 +7,7 @@ import { Link, useParams } from "react-router-dom";
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [total, setSum] = useState([]);
+  // const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("nuttn");
   const [nulll, setNull] = useState("c");
@@ -33,15 +33,8 @@ const Me = () => {
             allOrders.push(order);
           }
         });
-        console.log(allOrders.reverse());
-        var iter = allOrders.reverse();
-        var t = [];
-        iter.forEach((order) => {
-          var m = JSON.parse(order.orderItems);
-          console.log(m[0]);
-          t.push(m[0].product);
-        });
-        setOrders(t);
+        
+        setOrders(orderJson.orderInfo);
         if (orders) {
           setData(allOrders.reverse());
         }
@@ -85,7 +78,7 @@ const Me = () => {
                   <tr>
                     <td>
                       <Link to={`/orderProducts/${product._id}/${localStorage.getItem("user")}`}>
-                        <img src={orders[i].image[0]} alt="" />
+                        <img src={orders[i][0].image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
@@ -98,7 +91,7 @@ const Me = () => {
                       </ul>
                     </td>
                     <td>{product.updatedAt}</td>
-                    <td>{total}</td>
+                    <td>tree fiddy</td>
                     {/* </Link> */}
                   </tr>
                 );

@@ -14,24 +14,24 @@ const Car = () => {
       <>
         <div className="car">
           <Carousel breakPoints={breakPoints}>
-            <Item>
+            {/* <Item> */}
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512786/img_nature_wide_q8vuhx.jpg"
                 alt=""
               />
-            </Item>
-            <Item>
+            {/* </Item> */}
+            {/* <Item> */}
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512795/img_snow_wide_ys9co2.jpg"
                 alt=""
               />
-            </Item>
-            <Item>
+            {/* </Item> */}
+            {/* <Item> */}
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"
                 alt=""
               />
-            </Item>
+            {/* </Item> */}
           </Carousel>
         </div>
       </>

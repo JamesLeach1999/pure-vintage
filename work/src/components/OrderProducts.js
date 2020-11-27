@@ -11,17 +11,13 @@ class Product extends Component {
   }
 
   async componentDidMount() {
-    const profile = await fetch(`/me`);
-    console.log(profile);
-    if (!profile) {
+    
+    if (!localStorage.getItem("user")) {
       window.location.replace('/store');
     } else {
       try {
-        const user = await fetch('/me');
-        const userJson = user.json();
-
-        this.setState({ name: userJson.name });
-        const response = await fetch(`/orderProducts?id=${this.props.id}`);
+        
+        const response = await fetch(`/orderProducts?id=${this.props.id}&user=${localStorage.getItem("user")}`);
         const json = await response.json();
         console.log(this.props.id);
         var p = [];

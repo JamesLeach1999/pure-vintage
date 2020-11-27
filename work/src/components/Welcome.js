@@ -37,32 +37,32 @@ const Welcome = () => {
 
   return (
     <>
-      <div class="row header">
+      <div className="row header">
         {/* <!-- Slideshow container --> */}
-        <div class="slideshow-container">
+        <div className="slideshow-container">
           {/* <!-- Full-width images with number and caption text --> */}
-          <div class="mySlides fade">
-            <div class="numbertext">1 / 3</div>
+          <div className="mySlides fade">
+            <div className="numbertext">1 / 3</div>
             <img
               src="http://res.cloudinary.com/dhey8vvcx/image/upload/v1606510442/img_lights_wide.jpg.jpg"
               alt="1"
               style={{ width: "100%" }}
             />
-            <div class="text">Caption Text</div>
+            <div className="text">Caption Text</div>
           </div>
 
-          <div class="mySlides fade">
-            <div class="numbertext">2 / 3</div>
+          <div className="mySlides fade">
+            <div className="numbertext">2 / 3</div>
             <img
               src="http://res.cloudinary.com/dhey8vvcx/image/upload/v1606510459/img_mountains_wide.jpg.jpg"
               alt="2"
               style={{ width: "100%" }}
             />
-            <div class="text">Caption Two</div>
+            <div className="text">Caption Two</div>
           </div>
 
-          <div class="mySlides fade">
-            <div class="numbertext">3 / 3</div>
+          <div className="mySlides fade">
+            <div className="numbertext">3 / 3</div>
             <img
               src="
 http://res.cloudinary.com/dhey8vvcx/image/upload/v1606510424/img_nature_wide.jpg.jpg
@@ -70,13 +70,13 @@ http://res.cloudinary.com/dhey8vvcx/image/upload/v1606510424/img_nature_wide.jpg
               alt="3"
               style={{ width: "100%" }}
             />
-            <div class="text">Caption Three</div>
+            <div className="text">Caption Three</div>
           </div>
 
-          <a class="prev" onclick={plusSlides(-1)}>
+          <a className="prev" onClick={plusSlides(-1)}>
             &#10094;
           </a>
-          <a class="next" onclick={plusSlides(1)}>
+          <a className="next" onClick={plusSlides(1)}>
             &#10095;
           </a>
         </div>
@@ -84,9 +84,9 @@ http://res.cloudinary.com/dhey8vvcx/image/upload/v1606510424/img_nature_wide.jpg
 
         {/* <!-- The dots/circles --> */}
         <div style={{ textAlign: "center" }}>
-          <span class="dot" onclick={currentSlide(1)}></span>
-          <span class="dot" onclick={currentSlide(2)}></span>
-          <span class="dot" onclick={currentSlide(3)}></span>
+          <span className="dot" onClick={currentSlide(1)}></span>
+          <span className="dot" onClick={currentSlide(2)}></span>
+          <span className="dot" onClick={currentSlide(3)}></span>
         </div>
       </div>
     </>

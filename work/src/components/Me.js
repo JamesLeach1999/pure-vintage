@@ -9,7 +9,7 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [id, setId] = useState()
+  const [id, setId] = useState("")
 
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
@@ -17,6 +17,7 @@ const Me = () => {
     } else {
       try {
         setId(localStorage.getItem("user"));
+        console.log(id)
         const order = await fetch(
           `/pastOrders?id=${id}`
         );

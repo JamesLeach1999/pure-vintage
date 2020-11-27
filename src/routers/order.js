@@ -247,12 +247,12 @@ router.get('/pastOrders', async (req, res) => {
       // console.log(product)
     }
   }
-// console.log(orders)
+console.log(orders)
   orders.forEach((items) => {
     // console.log("nuttn")
     if(items !== null){
       // console.log("numberwang 1")
-      // console.log(JSON.parse(items.orderItems[0]))
+      console.log(JSON.parse(items.orderItems[0]))
     }
   })
 

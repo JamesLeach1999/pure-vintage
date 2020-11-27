@@ -9,14 +9,16 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [id, setId] = useState()
 
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {
+        setId(localStorage.getItem("user"));
         const order = await fetch(
-          `/pastOrders?id=${localStorage.getItem("user")}`
+          `/pastOrders?id=${id}`
         );
         const orderJson = await order.json();
         var allOrders = [];

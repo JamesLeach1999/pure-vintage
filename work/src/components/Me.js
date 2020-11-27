@@ -26,7 +26,7 @@ const Me = () => {
         );
         const orderJson = await order.json();
         var allOrders = [];
-        console.log(orderJson);
+        console.log(orderJson.orderInfo);
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {
@@ -84,7 +84,7 @@ const Me = () => {
                 return (
                   <tr>
                     <td>
-                      <Link to={`/orderProducts/${product._id}`}>
+                      <Link to={`/orderProducts/${product._id}/${localStorage.getItem("user")}`}>
                         <img src={orders[i].image[0]} alt="" />
                       </Link>
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}

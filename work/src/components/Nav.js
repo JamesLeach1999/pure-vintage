@@ -188,7 +188,7 @@ export default class Nav extends Component {
 
           <Route path="/edit/:id" children={<Edit />}></Route>
           <Route path="/order" children={<Order />}></Route>
-          <Route path="/orderProducts/:id" children={<OrderProducts />}></Route>
+          <Route path="/orderProducts/:id/:me" children={<OrderProducts />}></Route>
           <Route
             path="/refundProducts/:id"
             children={<RefundProducts />}

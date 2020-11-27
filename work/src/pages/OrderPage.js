@@ -5,7 +5,7 @@ import { useFetch } from '../hooks/useFetch';
 import { Link, useParams } from 'react-router-dom';
 
 const OrderPage = () => {
-  const { id } = useParams();
+  const { id, me } = useParams();
   const url = `/orderProducts?id=${id}`;
   console.log(id);
   const [product, setProducts] = useState([]);
@@ -14,7 +14,7 @@ const OrderPage = () => {
   const [p, setP] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const urlMe = `/me?id=${localStorage.getItem("user")}`;
+  const urlMe = `/me?id=${me}`;
   const getProducts = async () => {
 
     const user = await fetch(urlMe);

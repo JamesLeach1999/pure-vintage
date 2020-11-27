@@ -269,7 +269,7 @@ router.get('/pastOrders', async (req, res) => {
     pageTitle: 'welcome',
     user: user,
     names: filtered,
-    orderInfo: orderInfo,
+    orderInfo: item,
     //   categories: categories,
     isAuth: true,
     isAdmin: user.isAdmin,

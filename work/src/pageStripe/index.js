@@ -10,13 +10,14 @@ import axios from 'axios';
 const MainPage = (props) => {
   const [sum, SetSum] = useState();
 
+  const url = `/cart1?id=${localStorage.getItem("user")}`;
   useEffect(() => {
     const work = async () => {
       try {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
 
-        const response = await fetch(`/cart1?id=${localStorage.getItem("users")}`);
+        const response = await fetch(url);
         const json = await response.json();
         console.log(json);
 

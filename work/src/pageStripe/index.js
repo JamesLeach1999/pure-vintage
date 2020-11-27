@@ -16,7 +16,7 @@ const MainPage = (props) => {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
 
-        const response = await fetch(`/cart`);
+        const response = await fetch(`/cart1`);
         const json = await response.json();
         console.log(json);
 

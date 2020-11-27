@@ -202,92 +202,92 @@ router.post('/manage', ensureAuthenticated, async (req, res) => {
   });
 });
 // getting the add page
-router.get('/add', ensureAuthenticated, async (req, res) => {
-  try {
-    const user = await User.findById({ _id: req.session.passport.user });
+// router.get('/add', ensureAuthenticated, async (req, res) => {
+//   try {
+//     const user = await User.findById({ _id: req.session.passport.user });
 
-    res.render('add.ejs', {
-      isAuth: true,
-      isAdmin: user.isAdmin,
-    });
-  } catch (error) {
-    res.status(400).send(error + 'numberwang');
-  }
-});
+//     res.render('add.ejs', {
+//       isAuth: true,
+//       isAdmin: user.isAdmin,
+//     });
+//   } catch (error) {
+//     res.status(400).send(error + 'numberwang');
+//   }
+// });
 
 // getting the edit page, will add pagnintation
-router.get('/edit', ensureAuthenticated, async (req, res) => {
-  try {
-    // getting the add page
-    const user = await User.findById({ _id: req.session.passport.user });
+// router.get('/edit', ensureAuthenticated, async (req, res) => {
+//   try {
+//     // getting the add page
+//     const user = await User.findById({ _id: req.session.passport.user });
 
-    const products = await Product.find({});
-    res.render('edit.ejs', {
-      names: products,
-      isAuth: true,
-      isAdmin: user.isAdmin,
-    });
-  } catch (error) {
-    res.status(400).send(error + 'numberwang');
-  }
-});
+//     const products = await Product.find({});
+//     res.render('edit.ejs', {
+//       names: products,
+//       isAuth: true,
+//       isAdmin: user.isAdmin,
+//     });
+//   } catch (error) {
+//     res.status(400).send(error + 'numberwang');
+//   }
+// });
 
-router.post('/edit', ensureAuthenticated, async (req, res) => {
-  console.log(req.body);
-  var category;
-  if (req.body.category) {
-    var category = req.body.category.toString();
-    var catStr = category.replace(/,/g, ' ');
+// router.post('/edit', ensureAuthenticated, async (req, res) => {
+//   console.log(req.body);
+//   var category;
+//   if (req.body.category) {
+//     var category = req.body.category.toString();
+//     var catStr = category.replace(/,/g, ' ');
 
-    req.body.category = catStr;
-  }
-  if (req.body.brand) {
-    var brand = req.body.brand.toString();
-    var brandStr = brand.replace(/,/g, ' ');
+//     req.body.category = catStr;
+//   }
+//   if (req.body.brand) {
+//     var brand = req.body.brand.toString();
+//     var brandStr = brand.replace(/,/g, ' ');
 
-    req.body.brand = brandStr;
-  }
-  if (req.body.size) {
-    var size = req.body.size.toString();
-    var sizeStr = size.replace(/,/g, ' ');
+//     req.body.brand = brandStr;
+//   }
+//   if (req.body.size) {
+//     var size = req.body.size.toString();
+//     var sizeStr = size.replace(/,/g, ' ');
 
-    req.body.size = sizeStr;
-  }
+//     req.body.size = sizeStr;
+//   }
 
-  var clothes = [];
-  if (
-    req.body.category === undefined &&
-    req.body.brand === undefined &&
-    req.body.size === undefined
-  ) {
-    const pro = await Product.find({});
+//   var clothes = [];
+//   if (
+//     req.body.category === undefined &&
+//     req.body.brand === undefined &&
+//     req.body.size === undefined
+//   ) {
+//     const pro = await Product.find({});
 
-    pro.forEach((n) => {
-      clothes.push(n);
-    });
-  } else {
-    console.log('i work7');
+//     pro.forEach((n) => {
+//       clothes.push(n);
+//     });
+//   } else {
+//     console.log('i work7');
 
-    var pro1 = await filter(req.body);
-    pro1.forEach((ite) => {
-      clothes.push(ite);
-    });
-  }
+//     var pro1 = await filter(req.body);
+//     pro1.forEach((ite) => {
+//       clothes.push(ite);
+//     });
+//   }
 
-  console.log(req.body.yes);
+//   console.log(req.body.yes);
 
-  // if(req.body.delete){
-  //     Product.findByIdAndDelete({_id: req.body.delete}, (err, res) => {
-  //         console.log(res)
-  //     })
-  // }
-  res.render('edit.ejs', {
-    pageTitle: 'welcome',
-    names: clothes,
-    isAuth: true,
-    isAdmin: true,
-  });
-});
+//   // if(req.body.delete){
+//   //     Product.findByIdAndDelete({_id: req.body.delete}, (err, res) => {
+//   //         console.log(res)
+//   //     })
+//   // }
+//   res.render('edit.ejs', {
+//     pageTitle: 'welcome',
+//     names: clothes,
+//     isAuth: true,
+//     isAdmin: true,
+//   });
+// });
 
 router.post('/editPost', async (req, res) => {
   console.log(req.body);
@@ -344,21 +344,21 @@ router.post('/editPost', async (req, res) => {
   res.redirect("back")
 });
 
-// getting the delete agent,again will add pagnintation
-router.get('/delete', ensureAuthenticated, async (req, res) => {
-  try {
-    // getting the add page
-    const user = await User.findById({ _id: req.session.passport.user });
-    const products = await Product.find({});
-    res.render('delete.ejs', {
-      names: products,
-      isAuth: true,
-      isAdmin: user.isAdmin,
-    });
-  } catch (error) {
-    res.status(400).send(error + 'numberwang');
-  }
-});
+// // getting the delete agent,again will add pagnintation
+// router.get('/delete', ensureAuthenticated, async (req, res) => {
+//   try {
+//     // getting the add page
+//     const user = await User.findById({ _id: req.session.passport.user });
+//     const products = await Product.find({});
+//     res.render('delete.ejs', {
+//       names: products,
+//       isAuth: true,
+//       isAdmin: user.isAdmin,
+//     });
+//   } catch (error) {
+//     res.status(400).send(error + 'numberwang');
+//   }
+// });
 
 router.post('/delete', async (req, res) => {
   var category;

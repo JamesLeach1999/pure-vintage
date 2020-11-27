@@ -34,11 +34,12 @@ const Me = () => {
           }
         });
         var t = []
-        setOrders(orderJson.orderInfo);
+        setOrders(orderJson.orderInfo.reverse());
         if (orders) {
           setData(allOrders.reverse());
           orders.forEach((items) => {
             items.forEach((item) => {
+              console.log(item)
               t.push(item.price)
             })
             setSum(t)

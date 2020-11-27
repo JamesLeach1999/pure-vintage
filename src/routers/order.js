@@ -173,7 +173,7 @@ console.log(req.body)
 });
 
 
-router.get('/allOrders', async (req, res) => {
+router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
   console.log(orders)

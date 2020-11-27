@@ -23,7 +23,7 @@ const Me = () => {
       try {
         
 
-        const order = await fetch("/allOrders");
+        const order = await fetch("/allOrder");
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);

@@ -252,7 +252,7 @@ console.log(orders)
     // console.log("nuttn")
     if(items !== null){
       // console.log("numberwang 1")
-      console.log(JSON.parse(items.orderItems[0]))
+      console.log(JSON.parse(items))
     }
   })
 

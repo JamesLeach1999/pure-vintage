@@ -10,7 +10,7 @@ const Cart = () => {
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   console.log(localStorage.getItem("user"));
-  const url = `/cart?id=${localStorage.getItem("user")}`;
+  const url = `/cart1?id=${localStorage.getItem("user")}`;
 
   const getCart = async () => {
     if (!localStorage.getItem("user")) {

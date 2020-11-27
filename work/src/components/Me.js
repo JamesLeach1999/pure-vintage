@@ -11,19 +11,19 @@ const Me = () => {
   const [loading, setLoading] = useState(true);
   const [id, setId] = useState("nuttn");
 
+  console.log(localStorage.getItem("user"));
+  var i = localStorage.getItem("user");
+  console.log(i);
+  if (id === "nuttn") {
+    setId(i);
+  }
+  console.log(id);
   const getMe = async () => {
     if (!localStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {
-        console.log(localStorage.getItem("user"));
-        var i = localStorage.getItem("user");
-        console.log(i);
-        if (id === "nuttn") {
-          setId(i);
-        }
-        console.log(id);
-        const order = await fetch(`/pastOrders?id=${i}`);
+        const order = await fetch(`/pastOrders?id=${id}`);
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson);

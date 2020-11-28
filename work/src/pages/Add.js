@@ -62,10 +62,10 @@ const Addpage = () => {
   // }, [loading])
 return (
   <div>
-    <div class="grid category">
+    <div class="grid category" style={{ alignContent: "left", textAlign: "left" }}>
       <br />
       <br />
-      <br />
+
       <form action="/products" method="post" enctype="multipart/form-data">
         <ul>
           <li>
@@ -76,7 +76,6 @@ return (
               onChange={(e) => setName(e.target.value)}
             />
           </li>
-          <br />
           <br />
           <br />
           <li>
@@ -105,7 +104,6 @@ return (
               <option value="north">North Face</option>
             </select>
           </li>
-          <br />
           <br />
           <br />
           <li>
@@ -143,12 +141,20 @@ return (
           <br />
           <li>
             Size
-            <input
-              type="text"
-              placeholder="size"
+            <select
+              id="size"
               name="size"
               onChange={(e) => setSize(e.target.value)}
-            />
+            >
+              <option value="none">none</option>
+              <option value="XS">XS</option>
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+              <option value="XL">XL</option>
+              <option value="XXL">XXL</option>
+            </select>
+            
           </li>
           <br />
           <br />

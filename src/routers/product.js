@@ -80,16 +80,16 @@ console.log(req.files.image.length);
   // File upload
   // fileJPG.forEach(async (img) => {
 
-  if(req.files.image.length > 0){
     var fileJPG = []
+  if(req.files.image.length > 1){
     req.files.image.forEach(async(im, i) => {
       var cloud = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
       fileJPG.push(cloud)
     })
     console.log(fileJPG)
   } else {
-    var fileJPG = await cloudinary.uploader.upload(req.files.image.tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image.name })
-
+    var cloud = await cloudinary.uploader.upload(req.files.image.tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image.name })
+    fileJPG.push(cloud)
   }
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });

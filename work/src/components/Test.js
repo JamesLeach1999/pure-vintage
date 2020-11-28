@@ -68,7 +68,7 @@ const Test = () => {
     // window.location.replace("http://localhost:5000/store")
   }, [loading]);
   return (
-    <div className="small-container">
+    <div className="store-container">
       <div className="row product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {

@@ -32,7 +32,8 @@ class Product extends Component {
     return (
       <div className="col-4">
         <img className="pro" onMouseOver={() => {
-          if(this.state.images.length > 0){
+          if(this.state.images.length > 1){
+            console.log("works")
             var i = document.getElementsByClassName("pro")
             return i.src = this.state.images[1]
           }

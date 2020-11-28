@@ -509,8 +509,12 @@ router.get('/store1', async (req, res) => {
     req.query.size === undefined &&
     req.query.skip === undefined
   ) {
-    const pro = await Product.find({}).limit(16);
-    console.log(await Product.find({ category: ['jim'] }));
+    var pro;
+    pro = await Product.find({}).limit(16);
+    if(req.query.price){
+      console.log(req.query.price)
+      pro = await Product.find({price: {"$lt": req.query.price}}).limit(16);
+    }
     pro.forEach((n) => {
       clothes.push(n);
     });

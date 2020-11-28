@@ -11,10 +11,7 @@ const People = (props) => {
   var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
   var [price, setPrice] = useState(0)
-console.log(price)
-  
 
-  console.log(localStorage);
 
   return (
     <div>
@@ -495,13 +492,14 @@ console.log(price)
                   Shirts
                 </label>
               </div>
-              Max price: {price}
+              Max price: £{price}
               <input
                 type="range"
                 id="price"
                 name="price"
                 min="0"
                 max="1000"
+                value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></input>
             </section>

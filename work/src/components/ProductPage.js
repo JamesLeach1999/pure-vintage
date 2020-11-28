@@ -33,7 +33,6 @@ const ProductPage = () => {
     // this returns all 30 users in an array using setState
     getProducts();
     // this means it only runs once
-    setImages(images[0])
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);

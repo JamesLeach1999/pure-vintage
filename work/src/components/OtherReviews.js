@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Review from "./Review";
+import Review from "./OtherRevs";
 import { Link, useParams } from "react-router-dom";
 import GetId from "./GetId";
 
@@ -24,10 +24,10 @@ class Reviews extends Component {
       console.log(this.state.data[0][0]);
       console.log(this.state.data);
       this.state.data.map((e) => {
-                  
-                  e.map((t) => {
-                    console.log(t)
-                  })})
+        e.map((t) => {
+          console.log(t);
+        });
+      });
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -40,29 +40,20 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews from similar Products:
           <div class="row">
-              {this.state.data.map((e) => {
-                  
-                <div>
-                  <i class="fa fa-quote-left"></i>
-                  {e.map((t) => {
-                    return (
-                      <div key={t._id}>
-                        <h3
-                          style={{ paddingBottom: "15px", marginTop: "-30px" }}
-                        >
-                          {t.name}
-                        </h3>
-                        <p>{t.comment}</p>
-                        <p style={{ paddingTop: "15px" }}>{t.rating}/5</p>
-                        {/* <img src="assets/shoes1.jpg" alt="" /> */}
-                      </div>
-                    );
-                  })}
-                </div>;
-              })
-            }
+            {this.state.data.map((e) => {
+              <div>
+                {e.map((t) => {
+                  return (
+                  <div class="col-3">
+                    {' '}
+                    <Review d={this.state.data} revId={t._id} id={this.state.i} />{' '}
+                  </div>
+                  );
+                })}
+              </div>;
+            })}
             {/* {this.state.data ? ( */}
-              {/* <div>
+            {/* <div>
                 <i class="fa fa-quote-left"></i>
 
                 <div key={this.state.data[0]._id}>
@@ -74,8 +65,8 @@ class Reviews extends Component {
                     {this.state.data[0].rating}/5
                   </p>
                   {/* <img src="assets/shoes1.jpg" alt="" /> */}
-                {/* </div> */}
-              {/* </div> */} 
+            {/* </div> */}
+            {/* </div> */}
             {/* // ): ""} */}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />

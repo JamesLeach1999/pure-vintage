@@ -76,24 +76,18 @@ console.log(req.file)
 console.log(req.files);
 
   
-console.log(req.files.image.length);
+
   // File upload
   // fileJPG.forEach(async (img) => {
+    for(var i = 0; req.files.image > i; i++){
+      var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
+      console.log(fileJPG)
+      ogName.push(fileJPG.url)
 
-    var fileJPG = []
-  if(req.files.image.length > 1){
-    req.files.image.forEach(async(im, i) => {
-      var cloud = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
-      fileJPG.push(cloud)
-    })
-    console.log(fileJPG)
-  } else {
-    var cloud = await cloudinary.uploader.upload(req.files.image.tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image.name })
-    fileJPG.push(cloud)
-  }
+    }
+    console.log(ogName)
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
-  console.log(fileJPG)
 
   console.log(ogName);
   const price = req.body.price;
@@ -120,12 +114,7 @@ console.log(req.files.image.length);
   //   _id: req.session.passport.user,
   // });
 
-  if(fileJPG.length > 0){
-    var urls = []
-    urls.push(fileJPG.length)
-  } else {
-    var urls = fileJPG.length
-  }
+  console.log(fileJPG.url)
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway
 
@@ -136,7 +125,7 @@ console.log(req.files.image.length);
     category,
     description,
     size,
-    image: urls,
+    image: fileJPG.url,
     featured: false,
   });
 

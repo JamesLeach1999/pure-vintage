@@ -62,7 +62,7 @@ const Addpage = () => {
   // }, [loading])
 return (
   <div>
-    <div class="grid category" style={{ alignContent: "left", textAlign: "left" }}>
+    <div class="grid category" className="small-container" style={{ alignContent: "left", textAlign: "left" }}>
       <br />
       <br />
 

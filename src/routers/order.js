@@ -214,9 +214,15 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
   })
 
     // console.log(orderItems);
-    var percent = req.body.percent/100
+    var refundPrice;
+    if(req.body.percent){
+      var percent = req.body.percent/100
 
-    var refundPrice = amount * percent
+      refundPrice = amount * percent
+    } else {
+      refundPrice = amount
+    }
+
 
 
 

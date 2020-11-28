@@ -145,7 +145,7 @@ console.log(t)
 });
 
 // getting the manage products page for the create, edit and delete page links
-router.get('/manage1', ensureAuthenticated, async (req, res) => {
+router.get('/manage1', async (req, res) => {
   // console.log(req.body.category)
   var category;
   // console.log(localStorage)

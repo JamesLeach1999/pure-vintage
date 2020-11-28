@@ -22,6 +22,10 @@ const ProductPage = () => {
     // this will run 30 times because its after every re render. will be stuck in loop
     setProducts(products.name);
     setImages(products.name.image);
+
+    if(images){
+      setSmall(images[0])
+    }
     // then you want to set the state, set the empty array to an array of 30
   };
 
@@ -45,13 +49,13 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <img
-              src={`${images[0]}`}
+              src={`${small}`}
               alt="shit"
               style={{ width: "520px", height: "520px" }}
             ></img>
-            {/* <div class="small-img-row">
+            <div class="small-img-row">
               <div class="small-img-col">
-                {images[1] !== undefined ? (
+                {images[1] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[1]}`}
                     onClick={() => setSmall(images[1])}
@@ -65,7 +69,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[2] !== undefined ? (
+                {images[2] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[2]}`}
                     onClick={() => setSmall(images[2])}
@@ -79,7 +83,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[3] !== undefined ? (
+                {images[3] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[3]}`}
                     onClick={() => setSmall(images[3])}
@@ -93,7 +97,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[4] !== undefined ? (
+                {images[4] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[4]}`}
                     onClick={() => setSmall(images[4])}
@@ -106,7 +110,7 @@ const ProductPage = () => {
                   ""
                 )}
               </div>
-            </div> */}
+            </div>
           </div>
           <div class="col-2">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>

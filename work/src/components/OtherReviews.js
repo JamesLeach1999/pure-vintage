@@ -51,8 +51,9 @@ class Reviews extends Component {
                   </div>
                 );
               })
-            ) : ""}{this.state.data ? (
-              <div>
+            ) : ""}
+            {/* {this.state.data ? ( */}
+              {/* <div>
                 <i class="fa fa-quote-left"></i>
 
                 <div key={this.state.data[0]._id}>
@@ -64,9 +65,9 @@ class Reviews extends Component {
                     {this.state.data[0].rating}/5
                   </p>
                   {/* <img src="assets/shoes1.jpg" alt="" /> */}
-                </div>
-              </div>
-            ): ""}
+                {/* </div> */}
+              {/* </div> */} 
+            {/* // ): ""} */}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}

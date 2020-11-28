@@ -287,47 +287,49 @@ var filter = async function (query) {
     size = j;
   }
 
-  var price = 1000
+  var pr = 1000
   if(query.price > 0){
-    price = query.price
+    pr = query.price
   }
+
+  console.log(pr)
 
   var products;
 
   if (query.category && query.brand && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }, {price: {"$lt": price}}],
+      $and: [{ category: category }, { brand: brand }, { size: size }, {price: {"$lt": pr}}],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { size: size }, { price: { "$lt": price } }],
+      $and: [{ category: category }, { size: size }, { price: { "$lt": pr } }],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }, , { price: { "$lt": price } }],
+      $and: [{ category: category }, { brand: brand }, { size: size }, , { price: { "$lt": pr } }],
     };
   } else if (query.brand && query.size) {
     products = {
-      $and: [{ brand: brand }, { size: size }, , { price: { "$lt": price } }],
+      $and: [{ brand: brand }, { size: size }, , { price: { "$lt": pr } }],
     };
   } else if (query.category && query.brand) {
     products = {
-      $and: [{ category: category }, { brand: brand }, , { price: { "$lt": price } }],
+      $and: [{ category: category }, { brand: brand }, , { price: { "$lt": pr } }],
     };
   } else if (query.category) {
     products = {
       category: category,
-      price: {"$lt": price}
+      price: {"$lt": pr}
     };
   } else if (query.brand) {
     products = {
       brand: brand,
-      price: { "$lt": price },
+      price: { "$lt": pr },
     };
   } else if (query.size) {
     products = {
       size: size,
-      price: { "$lt": price },
+      price: { "$lt": pr },
     };
   }
   console.log(products);

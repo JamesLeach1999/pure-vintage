@@ -545,6 +545,22 @@ router.get('/featuredRows', async (req, res) => {
   });
 });
 
+router.get("/otherReviews", async (req,res) => {
+  var revs = await Product.find({category: req.query.category})
+
+  var reviews = []
+
+  revs.forEach((r) => {
+    reviews.push(r.reviews.slice(-1)[0])
+  })
+
+  console.log(reviews)
+
+  res.send({
+    revs: reviews
+  })
+})
+
 router.post('/store', async (req, res) => {
   // console.log(req.body.category)
   var category;

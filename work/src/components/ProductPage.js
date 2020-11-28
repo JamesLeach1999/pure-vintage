@@ -4,7 +4,7 @@ import image from "../assets/cap1.jpg";
 import { useFetch } from "../hooks/useFetch";
 import Reviews from "./Reviews";
 import { Link, useParams } from "react-router-dom";
-
+import OtherReviews from "./OtherReviews"
 const ProductPage = () => {
   const { id } = useParams();
   const url = `/product?id=${id}`;
@@ -142,6 +142,7 @@ const ProductPage = () => {
           </div>
         </div>
         <Reviews />
+        <OtherReviews/>
       </div>
     </div>
   );

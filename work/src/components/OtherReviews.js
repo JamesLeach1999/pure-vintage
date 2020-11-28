@@ -35,23 +35,27 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews from similar Products:
           <div class="row">
-            {this.state.data.length > 0 ? (
-              this.state.data.map((e) => {
-                return (
-                  <div>
-                    <i class="fa fa-quote-left"></i>
-                    <div key={e._id}>
-                      <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
-                        {e.name}
-                      </h3>
-                      <p>{e.comment}</p>
-                      <p style={{ paddingTop: "15px" }}>{e.rating}/5</p>
-                      {/* <img src="assets/shoes1.jpg" alt="" /> */}
-                    </div>
-                  </div>
-                );
+              {this.state.data.map((e) => {
+                  
+                <div>
+                  <i class="fa fa-quote-left"></i>
+                  {e.map((t) => {
+                    return (
+                      <div key={t._id}>
+                        <h3
+                          style={{ paddingBottom: "15px", marginTop: "-30px" }}
+                        >
+                          {t.name}
+                        </h3>
+                        <p>{t.comment}</p>
+                        <p style={{ paddingTop: "15px" }}>{t.rating}/5</p>
+                        {/* <img src="assets/shoes1.jpg" alt="" /> */}
+                      </div>
+                    );
+                  })}
+                </div>;
               })
-            ) : ""}
+            }
             {/* {this.state.data ? ( */}
               {/* <div>
                 <i class="fa fa-quote-left"></i>

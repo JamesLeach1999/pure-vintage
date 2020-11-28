@@ -17,7 +17,7 @@ const Manage = () => {
       <section className="p">
         <form
           className="col-4 filter filter-container"
-          action="/manage1"
+          action="/manage"
           style={{
             border: "1px solid black",
             width: "350px",

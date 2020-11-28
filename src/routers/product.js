@@ -145,51 +145,61 @@ console.log(t)
 });
 
 // getting the manage products page for the create, edit and delete page links
-router.get('/manage1', async (req, res) => {
+router.post('/manage', async (req, res) => {
   // console.log(req.body.category)
   var category;
-  // console.log(localStorage)
-  console.log('i work3');
-  console.log(req.query.params);
+
+  console.log('i work2');
+  console.log(req.method);
 
   // console.log(req.body)
-  if (req.query.category) {
-    var category = req.query.category.toString();
+  if (req.body.category) {
+    var category = req.body.category.toString();
     var catStr = category.replace(/,/g, ' ');
 
-    req.query.category = catStr;
+    req.body.category = catStr;
   }
-  if (req.query.brand) {
-    var brand = req.query.brand.toString();
+  if (req.body.brand) {
+    var brand = req.body.brand.toString();
     var brandStr = brand.replace(/,/g, ' ');
 
-    req.query.brand = brandStr;
+    req.body.brand = brandStr;
   }
-  if (req.query.size) {
-    var size = req.query.size.toString();
+  if (req.body.size) {
+    var size = req.body.size.toString();
     var sizeStr = size.replace(/,/g, ' ');
 
-    req.query.size = sizeStr;
+    req.body.size = sizeStr;
   }
 
   var clothes = [];
   if (
-    req.query.category === undefined &&
-    req.query.brand === undefined &&
-    req.query.size === undefined &&
-    req.query.skip === undefined
+    req.body.category === undefined &&
+    req.body.brand === undefined &&
+    req.body.size === undefined &&
+    req.body.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
-
+    console.log(await Product.find({ category: ['jim'] }));
     pro.forEach((n) => {
       clothes.push(n);
     });
   } else {
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    const user = await User.findById({ _id: req.session.passport.user });
+    if (!user) {
+      var auth = false;
+      var admin = false;
+    } else if (!user.isAdmin) {
+      var auth = true;
+      var admin = false;
+    } else {
+      var auth = true;
+      var admin = true;
+    }
+    // console.log(req.body)
     console.log('i work5');
 
-    var pro1 = await filter(req.query);
+    var pro1 = await filter(req.body);
     console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
@@ -199,8 +209,8 @@ router.get('/manage1', async (req, res) => {
     pageTitle: 'welcome',
     names: clothes,
     query: req.query.id,
-    isAuth: false,
-    isAdmin: false,
+    isAuth: auth,
+    isAdmin: admin,
   });
 });
 // getting the add page
@@ -544,7 +554,7 @@ router.get("/otherReviews", async (req,res) => {
     // console.log(r.reviews)
     reviews.push(r.reviews.slice(-1)[0])
   })
-console.log("numbe")
+console.log
   console.log(reviews)
 
   res.send({

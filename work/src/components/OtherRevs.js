@@ -9,6 +9,7 @@ class Review extends Component {
 
   async componentDidMount() {
     try {
+        console.log(this.props.id)
       const response = await fetch(`/product?id=${this.props.id}`);
       const json = await response.json();
       console.log(json.name);

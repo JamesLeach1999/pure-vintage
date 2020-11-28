@@ -11,7 +11,7 @@ const ProductPage = () => {
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
-  const [small, setSmall] = useState(images[0])
+  const [small, setSmall] = useState()
   const getProducts = async () => {
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
@@ -30,7 +30,7 @@ const ProductPage = () => {
   // no  clue
   useEffect(() => {
 
-    
+    setImages(images[0])
     // this returns all 30 users in an array using setState
     getProducts();
     // this means it only runs once
@@ -50,46 +50,45 @@ const ProductPage = () => {
               alt="shit"
               style={{ width: "520px", height: "520px" }}
             ></img>
-            <div class="small-img-row">
-              <div class="small-img-col">
-                <img
+            <div class="small-img-col">
+                {images[1] ? (<img
                   src={`${images[1]}`}
                   onClick={() => setSmall(images[1])}
                   alt=""
                   style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
-                />
+                />): ""}
               </div>
               <div class="small-img-col">
-                <img
+                {images[2] ? (<img
                   src={`${images[2]}`}
                   onClick={() => setSmall(images[2])}
                   alt=""
                   style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
-                />
+                />): ""}
               </div>
               <div class="small-img-col">
-                <img
+                {images[3] ? (<img
                   src={`${images[3]}`}
                   onClick={() => setSmall(images[3])}
                   alt=""
                   style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
-                />
+                />): ""}
               </div>
               <div class="small-img-col">
-                <img
+                {images[4] ? (<img
                   src={`${images[4]}`}
                   onClick={() => setSmall(images[4])}
                   alt=""
                   style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
-                />
+                />): ""}
               </div>
             </div>
           </div>

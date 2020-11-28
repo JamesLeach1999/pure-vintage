@@ -7,7 +7,7 @@
   pointer-events: none;
 }
 .sliderimg{
-  width: 100%;
+  width: 95%;
   height: 900px;
   object-fit: cover
 }

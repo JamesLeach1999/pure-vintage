@@ -48,6 +48,15 @@ class CatRows extends Component {
               <h2 style={{ textAlign: "center" }}>Puffer jackets</h2>
             </div>
           </Link>
+          <Link to="/store?category=fleeces">
+            <div className="col-2">
+              <img
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606574995/P0_1_a_jn2c3w.jpg"
+                alt=""
+              />
+              <h2 style={{ textAlign: "center" }}>Fleeces</h2>
+            </div>
+          </Link>
         </div>
       </div>
     );

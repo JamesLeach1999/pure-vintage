@@ -74,22 +74,51 @@ return (
             />
           </li>
           <li>
-            <input
-              type="text"
-              placeholder="brand"
+            Brand
+            <select
+              id="brand"
               name="brand"
               onChange={(e) => setBrand(e.target.value)}
-            />
+            >
+              <option value="fila">fila</option>
+              <option value="nike">nike</option>
+              <option value="levi">levi</option>
+              <option value="champion">Champion</option>
+              <option value="burberry">Burberry</option>
+              <option value="ysl">YSL</option>
+              <option value="kappa">Kappa</option>
+              <option value="dior">Dior</option>
+              <option value="ralph">Ralph lauren</option>
+              <option value="lacoste">Lacoste</option>
+              <option value="tommy">Tommy hilfiger</option>
+              <option value="guess">Guess</option>
+              <option value="reebok">Reebok</option>
+              <option value="puma">Puma</option>
+              <option value="adidas">Adidas</option>
+            </select>
           </li>
           <li>
-            <input
-              type="text"
-              placeholder="category"
+            Category
+            <select
+              id="category"
               name="category"
               onChange={(e) => setCategory(e.target.value)}
-            />
+            >
+              <option value="accessories">Accessories</option>
+              <option value="jeans">Jeans</option>
+              <option value="trousers">Trousers</option>
+              <option value="puffer">Puffer jackets</option>
+              <option value="fleeces">Fleeces</option>
+              <option value="caps">Caps</option>
+              <option value="shirts">Shirts</option>
+              <option value="polos">Polos</option>
+              <option value="tracksuits">Tracksuits</option>
+              <option value="trackjack">Track jackets</option>
+              <option value="tshirts">T shirts</option>
+            </select>
           </li>
           <li>
+            Description
             <input
               type="text"
               placeholder="description"
@@ -98,6 +127,7 @@ return (
             />
           </li>
           <li>
+            Size
             <input
               type="text"
               placeholder="size"
@@ -106,6 +136,7 @@ return (
             />
           </li>
           <li>
+            Images
             <input
               type="file"
               placeholder="image"
@@ -115,6 +146,7 @@ return (
             />
           </li>
           <li>
+            Price
             <input
               type="number"
               placeholder="price"

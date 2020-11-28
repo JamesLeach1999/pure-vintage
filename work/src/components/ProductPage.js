@@ -46,11 +46,11 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <img
-              src={`${small}`}
+              src={`${images[0]}`}
               alt="shit"
               style={{ width: "520px", height: "520px" }}
             ></img>
-            <div class="small-img-row">
+            {/* <div class="small-img-row">
               <div class="small-img-col">
                 {images[1] !== undefined ? (
                   <img
@@ -107,7 +107,7 @@ const ProductPage = () => {
                   ""
                 )}
               </div>
-            </div>
+            </div> */}
           </div>
           <div class="col-2">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>

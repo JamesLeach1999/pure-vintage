@@ -76,17 +76,21 @@ console.log(req.file)
 console.log(req.files.image);
 
   var t = []
-
+console.log("numberwang 1")
   t.push(req.files.image[0])
 console.log(t)
   // File upload
   // fileJPG.forEach(async (img) => {
     for(var i = 0; req.files.image.length > i; i++){
       var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
+      console.log('numberwang 2');
+
       console.log(fileJPG)
       ogName.push(fileJPG.url)
 
     }
+    console.log('numberwang 3');
+
     console.log(ogName)
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });

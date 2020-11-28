@@ -10,13 +10,14 @@ const Manage = () => {
   var [categories, setCategories] = useState([]);
   var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
+  var [price, setPrice] = useState(0);
 
   return (
     <div>
       <section className="p">
         <form
           className="col-4 filter filter-container"
-          action="/manage"
+          action="/manage1"
           style={{
             border: "1px solid black",
             width: "350px",
@@ -103,7 +104,7 @@ const Manage = () => {
                   class="form-check-label small text-uppercase card-link-secondary"
                   for="XL"
                 >
-                  Collectible
+                  XL
                 </label>
               </div>
               <div class="form-check pl-0 mb-3 pb-1">
@@ -116,9 +117,9 @@ const Manage = () => {
                 />
                 <label
                   class="form-check-label small text-uppercase card-link-secondary"
-                  for="XL"
+                  for="XXL"
                 >
-                  XL
+                  XXL
                 </label>
               </div>
             </section>
@@ -246,11 +247,100 @@ const Manage = () => {
                   North face
                 </label>
               </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="tommy"
+                  id="tommy"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="tommy"
+                >
+                  Tommy Hilfiger
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="lacoste"
+                  id="lacoste"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="lacoste"
+                >
+                  Lacoste
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="kappa"
+                  id="kappa"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="kappa"
+                >
+                  Kappa
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="champion"
+                  id="champion"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="champion"
+                >
+                  Champion
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="lacoste"
+                  id="lacoste"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="lacoste"
+                >
+                  Lacoste
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="levi"
+                  id="levi"
+                  name="brand"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="levi"
+                >
+                  Levi
+                </label>
+              </div>
             </section>
 
             <section class="mb-4">
               <h6 class="font-weight-bold mb-3">Categories</h6>
-
               <div class="form-check pl-0 mb-3">
                 <input
                   type="checkbox"
@@ -311,20 +401,49 @@ const Manage = () => {
                   Puffer jackets
                 </label>
               </div>
-
               <div class="form-check pl-0 mb-3">
                 <input
                   type="checkbox"
                   class="form-check-input filled-in"
-                  value="hoodies"
-                  id="hoodies"
+                  value="fleeces"
+                  id="fleeces"
                   name="category"
                 />
                 <label
                   class="form-check-label small text-uppercase card-link-secondary"
-                  for="hoodies"
+                  for="fleeces"
                 >
-                  Hoodies
+                  Fleeces
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="caps"
+                  id="caps"
+                  name="category"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="caps"
+                >
+                  Caps
+                </label>
+              </div>
+              <div class="form-check pl-0 mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input filled-in"
+                  value="trackjack"
+                  id="trackjack"
+                  name="category"
+                />
+                <label
+                  class="form-check-label small text-uppercase card-link-secondary"
+                  for="trackjack"
+                >
+                  Track Jackets
                 </label>
               </div>
               <div class="form-check pl-0 mb-3">
@@ -372,6 +491,16 @@ const Manage = () => {
                   Shirts
                 </label>
               </div>
+              Max price: £{price}
+              <input
+                type="range"
+                id="price"
+                name="price"
+                min="0"
+                max="1000"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              ></input>
             </section>
           </section>
           <button type="submit">Search</button>

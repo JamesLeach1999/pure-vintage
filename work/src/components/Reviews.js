@@ -30,6 +30,7 @@ class Reviews extends Component {
     return (
       <div class="testimonial">
         <div class="small-container">
+          Reviews:
           <div class="row">
             
               {this.state.data.map((e) => {

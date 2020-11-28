@@ -35,7 +35,7 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews from similar Products:
           <div class="row">
-            {this.state.data.length > 0 ? (
+            {this.state.data[0].length > 0 ? (
               this.state.data.map((e) => {
                 return (
                   <div>
@@ -55,13 +55,13 @@ class Reviews extends Component {
               <div>
                 <i class="fa fa-quote-left"></i>
 
-                <div key={this.state.data._id}>
+                <div key={this.state.data[0][0]._id}>
                   <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
-                    {this.state.data.name}
+                    {this.state.data[0][0].name}
                   </h3>
-                  <p>{this.state.data.comment}</p>
+                  <p>{this.state.data[0][0].comment}</p>
                   <p style={{ paddingTop: "15px" }}>
-                    {this.state.data.rating}/5
+                    {this.state.data[0][0].rating}/5
                   </p>
                   {/* <img src="assets/shoes1.jpg" alt="" /> */}
                 </div>

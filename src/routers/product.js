@@ -79,7 +79,18 @@ console.log(req.files);
 
   // File upload
   // fileJPG.forEach(async (img) => {
+
+  if(req.files.length > 0){
+    var fileJPG = []
+    req.files.forEach((i) => {
+      var cloud = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
+      fileJPG.push(cloud)
+    })
+    console.log(fileJPG)
+  } else {
     var fileJPG = await cloudinary.uploader.upload(req.files.image.tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image.name })
+
+  }
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
 
@@ -108,7 +119,12 @@ console.log(req.files);
   //   _id: req.session.passport.user,
   // });
 
-  console.log(fileJPG.url)
+  if(fileJPG.length > 0){
+    var urls = []
+    urls.push(fileJPG.length)
+  } else {
+    var urls = fileJP.length
+  }
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway
 
@@ -119,7 +135,7 @@ console.log(req.files);
     category,
     description,
     size,
-    image: fileJPG.url,
+    image: urls,
     featured: false,
   });
 

@@ -31,18 +31,14 @@ class Product extends Component {
           style={{ transitionDuration: "0.3s" }}
           src={`${this.state.images[0]}`}
           onMouseOver={(e) => {
-            if (this.state.images.length > 0) {
+            if (this.state.images[1]) {
               e.currentTarget.src = this.state.images[1];
-            } else {
-              return null
-            }
+            } 
           }}
           onMouseOut={(e) => {
-            if (this.state.images.length > 0) {
-              e.currentTarget.src = this.state.images[1];
-            } else {
-              return null
-            }
+            if (this.state.images[1]) {
+              e.currentTarget.src = this.state.images[0];
+            } 
           }}
           alt=""
         />

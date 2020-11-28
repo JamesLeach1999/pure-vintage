@@ -507,16 +507,16 @@ router.get('/store1', async (req, res) => {
     req.query.category === undefined &&
     req.query.brand === undefined &&
     req.query.size === undefined &&
-    req.query.skip === undefined &&
-    req.query.price === undefined
+    req.query.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-    
+        console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+
     pro.forEach((n) => {
       clothes.push(n);
     });
   } else {
-    console.log(req.query)
+    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
     console.log('i work5');
 
     var pro1 = await filter(req.query);
@@ -551,6 +551,7 @@ router.get("/otherReviews", async (req,res) => {
   var reviews = []
 
   revs.forEach((r) => {
+    console.log(r.reviews)
     reviews.push(r.reviews.slice(-1)[0])
   })
 

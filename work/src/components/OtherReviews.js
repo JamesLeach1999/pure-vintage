@@ -19,7 +19,7 @@ class Reviews extends Component {
       const revResponse = await fetch(`/otherReviews?category=${json.name.category}&id=${id}`);
       const revJson = await revResponse.json();
       this.setState({ data: [revJson.revs] });
-      console.log(revJson)
+      console.log(this.state.data)
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -37,8 +37,13 @@ class Reviews extends Component {
                         {" "}
                         <Review revId={e._id} id={this.state.i} />{" "}
                       </div>
-              )
-            }): ""}
+                        )
+            }): (
+                <div class="col-3">
+                {" "}
+                <Review revId={this.state.data._id} id={this.state.i} />{" "}
+                </div>
+            )}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}

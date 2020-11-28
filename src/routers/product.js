@@ -551,10 +551,10 @@ router.get("/otherReviews", async (req,res) => {
   var reviews = []
 
   revs.forEach((r) => {
-    console.log(r.reviews)
+    // console.log(r.reviews)
     reviews.push(r.reviews.slice(-1)[0])
   })
-
+console.log("numbe")
   console.log(reviews)
 
   res.send({

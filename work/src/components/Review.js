@@ -22,7 +22,7 @@ class Review extends Component {
 
       this.setState({ review: review });
 
-      console.log(this.state.review[0]);
+      console.log(this.state.review);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);

@@ -28,11 +28,22 @@ class Product extends Component {
     return (
       <div className="col-4">
         <img
-          className="pro"
           style={{ transitionDuration: "0.3s" }}
-          onMouseOver={(e) => {if(this.state.images.length > 0){(e.currentTarget.src = this.state.images[1])}}}
-          onMouseOut={(e) => (e.currentTarget.src = this.state.images[0])}
           src={`${this.state.images[0]}`}
+          onMouseOver={(e) => {
+            if (this.state.images.length > 0) {
+              e.currentTarget.src = this.state.images[1];
+            } else {
+              return null
+            }
+          }}
+          onMouseOut={(e) => {
+            if (this.state.images.length > 0) {
+              e.currentTarget.src = this.state.images[1];
+            } else {
+              return null
+            }
+          }}
           alt=""
         />
         <h4>{this.state.data.name}</h4>

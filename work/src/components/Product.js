@@ -10,19 +10,14 @@ class Product extends Component {
     this.state = { data: [], images: [] };
   }
 
-  
-
   async componentDidMount() {
     try {
-      const response = await fetch(
-        `/product?id=${this.props.id}`
-      );
+      const response = await fetch(`/product?id=${this.props.id}`);
       const json = await response.json();
-      console.log(json)
+      console.log(json);
       this.setState({ data: json.name, images: json.name.image });
       console.log(this.state.data);
-      console.log(this.state.images)
-      
+      console.log(this.state.images);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);
@@ -34,7 +29,9 @@ class Product extends Component {
       <div className="col-4">
         <img
           className="pro"
-          onMouseOver={(e) => (e.currentTarget.src = this.state.images[1])}
+          style={{ transitionDuration: "0.3s" }}
+          onMouseOver={(e) => {if(this.state.images.length > 0){(e.currentTarget.src = this.state.images[1])}}}
+          onMouseOut={(e) => (e.currentTarget.src = this.state.images[0])}
           src={`${this.state.images[0]}`}
           alt=""
         />

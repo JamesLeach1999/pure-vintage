@@ -73,7 +73,7 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
 
   console.log(req.body)
 console.log(req.file)
-console.log(req.files.image);
+// console.log(req.files.image);
 
   var t = []
 console.log("numberwang 1")
@@ -131,7 +131,7 @@ console.log(t)
     category,
     description,
     size,
-    image: fileJPG.url,
+    image: ogName,
     featured: false,
   });
 

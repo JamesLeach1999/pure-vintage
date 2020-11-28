@@ -21,6 +21,7 @@ class Product extends Component {
       console.log(json)
       this.setState({ data: json.name, images: json.name.image });
       console.log(this.state.data);
+      console.log(this.state.images)
       
     } catch (error) {
       console.log(this.props.id);
@@ -30,8 +31,13 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="col-4" onMouseOver={(this.src = this.state.images[1])}>
-        <img className="pro" src={`${this.state.images[0]}`} alt="" />
+      <div className="col-4">
+        <img
+          className="pro"
+          onMouseOver={(e) => (e.currentTarget.src = this.state.images[1])}
+          src={`${this.state.images[0]}`}
+          alt=""
+        />
         <h4>{this.state.data.name}</h4>
         <div class="rating">
           <i class="fa fa-star"></i>

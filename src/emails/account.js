@@ -287,40 +287,47 @@ var filter = async function (query) {
     size = j;
   }
 
-  console.log(query.price)
+  var price = 1000
+  if(query.price > 0){
+    price = query.price
+  }
+
   var products;
 
   if (query.category && query.brand && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }],
+      $and: [{ category: category }, { brand: brand }, { size: size }, {price: {"$lt": price}}],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { size: size }],
+      $and: [{ category: category }, { size: size }, { price: { "$lt": price } }],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }],
+      $and: [{ category: category }, { brand: brand }, { size: size }, , { price: { "$lt": price } }],
     };
   } else if (query.brand && query.size) {
     products = {
-      $and: [{ brand: brand }, { size: size }],
+      $and: [{ brand: brand }, { size: size }, , { price: { "$lt": price } }],
     };
   } else if (query.category && query.brand) {
     products = {
-      $and: [{ category: category }, { brand: brand }],
+      $and: [{ category: category }, { brand: brand }, , { price: { "$lt": price } }],
     };
   } else if (query.category) {
     products = {
       category: category,
+      price: {"$lt": price}
     };
   } else if (query.brand) {
     products = {
       brand: brand,
+      price: { "$lt": price },
     };
   } else if (query.size) {
     products = {
       size: size,
+      price: { "$lt": price },
     };
   }
   console.log(products);
@@ -332,9 +339,8 @@ var filter = async function (query) {
     var skip = 0;
   }
   console.log(products);
-  console.log(await Product.find(products));
+  // console.log(await Product.find(products));
 
-  var price = 1000;
   var t = await Product.find(products);
 
   return t;

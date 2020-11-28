@@ -159,7 +159,7 @@ return (
           <br />
           <br />
           <li>
-            Images
+            Images. Please drag images here or highlight multiple and upload them
             <input
               type="file"
               placeholder="image"

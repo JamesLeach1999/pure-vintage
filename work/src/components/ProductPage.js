@@ -11,6 +11,7 @@ const ProductPage = () => {
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
+  const [small, setSmall] = useState(images[0])
   const getProducts = async () => {
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
@@ -29,22 +30,7 @@ const ProductPage = () => {
   // no  clue
   useEffect(() => {
 
-    var productImg = document.getElementById("productImg");
-    // 4 images so will be an array
-    var smallImg = document.getElementsByClassName("smallImg");
-
-    smallImg[0].onclick = function () {
-      productImg.src = smallImg[0].src;
-    };
-    smallImg[1].onclick = function () {
-      productImg.src = smallImg[1].src;
-    };
-    smallImg[2].onclick = function () {
-      productImg.src = smallImg[2].src;
-    };
-    smallImg[3].onclick = function () {
-      productImg.src = smallImg[3].src;
-    };
+    
     // this returns all 30 users in an array using setState
     getProducts();
     // this means it only runs once
@@ -59,11 +45,19 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2">
-            <img src={`${images[0]}`} alt="shit"></img>
-            <div class="small-img-row">
+            <img
+              src={`${small}`}
+              alt="shit"
+              style={{ width: "480px", height: "480px" }}
+            ></img>
+            <div
+              class="small-img-row"
+              style={{ width: "480px", height: "150px" }}
+            >
               <div class="small-img-col">
                 <img
                   src={`${images[1]}`}
+                  onClick={() => setSmall(images[1])}
                   alt=""
                   width="100%"
                   class="smallImg"
@@ -72,6 +66,7 @@ const ProductPage = () => {
               <div class="small-img-col">
                 <img
                   src={`${images[2]}`}
+                  onClick={() => setSmall(images[2])}
                   alt=""
                   width="100%"
                   class="smallImg"
@@ -80,6 +75,7 @@ const ProductPage = () => {
               <div class="small-img-col">
                 <img
                   src={`${images[3]}`}
+                  onClick={() => setSmall(images[3])}
                   alt=""
                   width="100%"
                   class="smallImg"
@@ -88,6 +84,7 @@ const ProductPage = () => {
               <div class="small-img-col">
                 <img
                   src={`${images[4]}`}
+                  onClick={() => setSmall(images[4])}
                   alt=""
                   width="100%"
                   class="smallImg"

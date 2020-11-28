@@ -28,6 +28,23 @@ const ProductPage = () => {
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
   // no  clue
   useEffect(() => {
+
+    var productImg = document.getElementById("productImg");
+    // 4 images so will be an array
+    var smallImg = document.getElementsByClassName("smallImg");
+
+    smallImg[0].onclick = function () {
+      productImg.src = smallImg[0].src;
+    };
+    smallImg[1].onclick = function () {
+      productImg.src = smallImg[1].src;
+    };
+    smallImg[2].onclick = function () {
+      productImg.src = smallImg[2].src;
+    };
+    smallImg[3].onclick = function () {
+      productImg.src = smallImg[3].src;
+    };
     // this returns all 30 users in an array using setState
     getProducts();
     // this means it only runs once
@@ -42,14 +59,44 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2">
-            {images.length > 0 ? (
-              <img src={`${images[0]}`} alt="shit"></img>
-            ) : (
-              <img src={`${images}`} alt="shit"></img>
-            )}
+            <img src={`${images[0]}`} alt="shit"></img>
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img
+                  src={`${images[1]}`}
+                  alt=""
+                  width="100%"
+                  class="smallImg"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src={`${images[2]}`}
+                  alt=""
+                  width="100%"
+                  class="smallImg"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src={`${images[3]}`}
+                  alt=""
+                  width="100%"
+                  class="smallImg"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src={`${images[4]}`}
+                  alt=""
+                  width="100%"
+                  class="smallImg"
+                />
+              </div>
+            </div>
           </div>
           <div class="col-2">
-            <p style={{textTransform: "uppercase"}}>{product.category}</p>
+            <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>{product.price}</h4>
 

@@ -24,7 +24,7 @@ export default class Nav extends Component {
     super();
 
     this.state = {
-      loggedIn: "NOT_LOGGED_IN",
+      loggedIn: 'NOT_LOGGED_IN',
       user: {},
       admin: false,
       auth: false,
@@ -36,27 +36,27 @@ export default class Nav extends Component {
   async handleLogin(data) {
     console.log(data);
     if (data) {
-      console.log("thats numberwang");
-      const work = await Axios.post("/getAuth", {
+      console.log("thats numberwang")
+      const work = await Axios.post('/getAuth', {
         id: data.user,
       });
       console.log(work);
       this.setState({
-        loggedIn: "Logged in",
+        loggedIn: 'Logged in',
         auth: true,
-        admin: work.data.isAdmin,
+        admin: work.data.isAdmin
       });
-      console.log(work.data);
-      localStorage.setItem("auth", true);
-      localStorage.setItem("admin", work.data.isAdmin);
-      localStorage.setItem("user", work.data.id);
-      console.log(localStorage);
+      console.log(work.data)
+      localStorage.setItem("auth", true)
+      localStorage.setItem("admin", work.data.isAdmin)
+      localStorage.setItem("user", work.data.id)
+      console.log(localStorage)
     }
-
-    if (!data) {
+    
+    if(!data){
       // localStorage.setItem("auth", false);
       // localStorage.setItem("admin", false);
-      window.location.replace("/store");
+      window.location.replace("/store")
     }
   }
 
@@ -77,29 +77,13 @@ export default class Nav extends Component {
   //     console.log('thats numbereang');
   //   }
   // };
-
-  doSomethingBeforeUnload = () => {
-    localStorage.removeItem("auth");
-    localStorage.removeItem("admin");
-    localStorage.removeItem("user");
-  };
-
-  setupBeforeUnloadListener = () => {
-    window.addEventListener("beforeunload", (ev) => {
-      ev.preventDefault();
-      return this.doSomethingBeforeUnload();
-    });
-  };
-
-  async componentDidMount() {
-    this.setupBeforeUnloadListener();
-  }
+  async componentDidMount() {}
 
   render() {
     return (
       <Router>
         <div className="header">
-          <div class="container" style={{ color: "white" }}>
+          <div class="container" style={{color: "white"}}>
             <div class="navbar">
               <div class="logo">
                 <img

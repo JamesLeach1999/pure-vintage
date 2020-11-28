@@ -50,45 +50,62 @@ const ProductPage = () => {
               alt="shit"
               style={{ width: "520px", height: "520px" }}
             ></img>
-            <div class="small-img-col">
-                {images[1] ? (<img
-                  src={`${images[1]}`}
-                  onClick={() => setSmall(images[1])}
-                  alt=""
-                  style={{ width: "124px", height: "124px" }}
-                  width="100%"
-                  class="smallImg"
-                />): ""}
+            <div class="small-img-row">
+              <div class="small-img-col">
+                {images[1] ? (
+                  <img
+                    src={`${images[1]}`}
+                    onClick={() => setSmall(images[1])}
+                    alt=""
+                    style={{ width: "124px", height: "124px" }}
+                    width="100%"
+                    class="smallImg"
+                  />
+                ) : (
+                  ""
+                )}
               </div>
               <div class="small-img-col">
-                {images[2] ? (<img
-                  src={`${images[2]}`}
-                  onClick={() => setSmall(images[2])}
-                  alt=""
-                  style={{ width: "124px", height: "124px" }}
-                  width="100%"
-                  class="smallImg"
-                />): ""}
+                {images[2] ? (
+                  <img
+                    src={`${images[2]}`}
+                    onClick={() => setSmall(images[2])}
+                    alt=""
+                    style={{ width: "124px", height: "124px" }}
+                    width="100%"
+                    class="smallImg"
+                  />
+                ) : (
+                  ""
+                )}
               </div>
               <div class="small-img-col">
-                {images[3] ? (<img
-                  src={`${images[3]}`}
-                  onClick={() => setSmall(images[3])}
-                  alt=""
-                  style={{ width: "124px", height: "124px" }}
-                  width="100%"
-                  class="smallImg"
-                />): ""}
+                {images[3] ? (
+                  <img
+                    src={`${images[3]}`}
+                    onClick={() => setSmall(images[3])}
+                    alt=""
+                    style={{ width: "124px", height: "124px" }}
+                    width="100%"
+                    class="smallImg"
+                  />
+                ) : (
+                  ""
+                )}
               </div>
               <div class="small-img-col">
-                {images[4] ? (<img
-                  src={`${images[4]}`}
-                  onClick={() => setSmall(images[4])}
-                  alt=""
-                  style={{ width: "124px", height: "124px" }}
-                  width="100%"
-                  class="smallImg"
-                />): ""}
+                {images[4] ? (
+                  <img
+                    src={`${images[4]}`}
+                    onClick={() => setSmall(images[4])}
+                    alt=""
+                    style={{ width: "124px", height: "124px" }}
+                    width="100%"
+                    class="smallImg"
+                  />
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>

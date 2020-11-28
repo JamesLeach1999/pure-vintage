@@ -76,7 +76,7 @@ console.log(req.file)
 console.log(req.files);
 
   
-
+console.log(req.files.image.length);
   // File upload
   // fileJPG.forEach(async (img) => {
 
@@ -93,6 +93,7 @@ console.log(req.files);
   }
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
+  console.log(fileJPG)
 
   console.log(ogName);
   const price = req.body.price;
@@ -123,7 +124,7 @@ console.log(req.files);
     var urls = []
     urls.push(fileJPG.length)
   } else {
-    var urls = fileJP.length
+    var urls = fileJPG.length
   }
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway

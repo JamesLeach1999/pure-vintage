@@ -63,6 +63,9 @@ const Addpage = () => {
 return (
   <div>
     <div class="grid category">
+      <br />
+      <br />
+      <br />
       <form action="/products" method="post" enctype="multipart/form-data">
         <ul>
           <li>
@@ -73,6 +76,9 @@ return (
               onChange={(e) => setName(e.target.value)}
             />
           </li>
+          <br />
+          <br />
+          <br />
           <li>
             Brand
             <select
@@ -80,6 +86,7 @@ return (
               name="brand"
               onChange={(e) => setBrand(e.target.value)}
             >
+              <option value="none">N/A</option>
               <option value="fila">fila</option>
               <option value="nike">nike</option>
               <option value="levi">levi</option>
@@ -95,8 +102,12 @@ return (
               <option value="reebok">Reebok</option>
               <option value="puma">Puma</option>
               <option value="adidas">Adidas</option>
+              <option value="north">North Face</option>
             </select>
           </li>
+          <br />
+          <br />
+          <br />
           <li>
             Category
             <select
@@ -117,6 +128,8 @@ return (
               <option value="tshirts">T shirts</option>
             </select>
           </li>
+          <br />
+          <br />
           <li>
             Description
             <input
@@ -126,6 +139,8 @@ return (
               onChange={(e) => setDescription(e.target.value)}
             />
           </li>
+          <br />
+          <br />
           <li>
             Size
             <input
@@ -135,6 +150,8 @@ return (
               onChange={(e) => setSize(e.target.value)}
             />
           </li>
+          <br />
+          <br />
           <li>
             Images
             <input
@@ -145,6 +162,8 @@ return (
               onChange={(e) => setImage(e.target.value)}
             />
           </li>
+          <br />
+          <br />
           <li>
             Price
             <input
@@ -154,6 +173,8 @@ return (
               onChange={(e) => setPrice(e.target.value)}
             />
           </li>
+          <br />
+          <br />
           <li>
             <input
               type="submit"

@@ -286,6 +286,8 @@ var filter = async function (query) {
     // console.log(j)
     size = j;
   }
+
+  console.log(query.price)
   var products;
 
   if (query.category && query.brand && query.size) {
@@ -321,17 +323,18 @@ var filter = async function (query) {
       size: size,
     };
   }
-  console.log(products)
+  console.log(products);
 
-  console.log(query.skip + "thats numberwang");
+  console.log(query.skip + 'thats numberwang');
   if (query.skip !== null || query.skip !== undefined) {
     var skip = query.skip;
   } else {
     var skip = 0;
   }
-  console.log(products)
-console.log(await Product.find(products));
+  console.log(products);
+  console.log(await Product.find(products));
 
+  var price = 1000;
   var t = await Product.find(products);
 
   return t;

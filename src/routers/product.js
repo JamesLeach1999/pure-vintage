@@ -75,17 +75,19 @@ router.post('/products', ensureAuthenticated,  async (req, res) => {
 console.log(req.file)
 console.log(req.files.image);
 
-  
+  var t = []
 
+  t.push(req.files.image[0])
+console.log(t)
   // File upload
   // fileJPG.forEach(async (img) => {
     for(var i = 0; req.files.image.length > i; i++){
       var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
       console.log(fileJPG)
-      // ogName.push(fileJPG.url)
+      ogName.push(fileJPG.url)
 
     }
-    // console.log(ogName)
+    console.log(ogName)
     // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
 

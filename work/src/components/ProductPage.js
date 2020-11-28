@@ -48,17 +48,15 @@ const ProductPage = () => {
             <img
               src={`${small}`}
               alt="shit"
-              style={{ width: "480px", height: "480px" }}
+              style={{ width: "520px", height: "520px" }}
             ></img>
-            <div
-              class="small-img-row"
-              style={{ width: "480px", height: "150px" }}
-            >
+            <div class="small-img-row">
               <div class="small-img-col">
                 <img
                   src={`${images[1]}`}
                   onClick={() => setSmall(images[1])}
                   alt=""
+                  style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
                 />
@@ -68,6 +66,7 @@ const ProductPage = () => {
                   src={`${images[2]}`}
                   onClick={() => setSmall(images[2])}
                   alt=""
+                  style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
                 />
@@ -77,6 +76,7 @@ const ProductPage = () => {
                   src={`${images[3]}`}
                   onClick={() => setSmall(images[3])}
                   alt=""
+                  style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
                 />
@@ -86,6 +86,7 @@ const ProductPage = () => {
                   src={`${images[4]}`}
                   onClick={() => setSmall(images[4])}
                   alt=""
+                  style={{ width: "124px", height: "124px" }}
                   width="100%"
                   class="smallImg"
                 />

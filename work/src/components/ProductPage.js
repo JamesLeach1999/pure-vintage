@@ -23,9 +23,11 @@ const ProductPage = () => {
     setProducts(products.name);
     setImages(products.name.image);
 
-    if(images){
-      setSmall(images[0])
+    if (images) {
+      setSmall(images[0]);
     }
+
+    
     // then you want to set the state, set the empty array to an array of 30
   };
 
@@ -36,6 +38,9 @@ const ProductPage = () => {
 
     // this returns all 30 users in an array using setState
     getProducts();
+    if (images) {
+      setSmall(images[0]);
+    }
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
@@ -49,7 +54,7 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <img
-              src={`${small}`}
+              src={`${small || images[0]}`}
               alt="shit"
               style={{ width: "520px", height: "520px" }}
             ></img>

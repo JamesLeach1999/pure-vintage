@@ -49,6 +49,7 @@ const Test = () => {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],
+            price: parsed['price'],
             skip: skip
           },
         });

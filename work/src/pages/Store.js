@@ -10,6 +10,9 @@ const People = (props) => {
   var [categories, setCategories] = useState([]);
   var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
+  var [price, setPrice] = useState(0)
+console.log(price)
+  
 
   console.log(localStorage);
 
@@ -342,7 +345,6 @@ const People = (props) => {
 
             <section class="mb-4">
               <h6 class="font-weight-bold mb-3">Categories</h6>
-
               <div class="form-check pl-0 mb-3">
                 <input
                   type="checkbox"
@@ -403,7 +405,6 @@ const People = (props) => {
                   Puffer jackets
                 </label>
               </div>
-
               <div class="form-check pl-0 mb-3">
                 <input
                   type="checkbox"
@@ -494,6 +495,15 @@ const People = (props) => {
                   Shirts
                 </label>
               </div>
+              Max price: {price}
+              <input
+                type="range"
+                id="price"
+                name="price"
+                min="0"
+                max="1000"
+                onChange={(e) => setPrice(e.target.value)}
+              ></input>
             </section>
           </section>
           <button type="submit">Search</button>

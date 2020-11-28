@@ -21,7 +21,7 @@ class Reviews extends Component {
       );
       const revJson = await revResponse.json();
       this.setState({ data: [revJson.revs] });
-      console.log(this.state.data[0]);
+      console.log(this.state.data[0][0]);
       console.log(this.state.data);
     } catch (error) {
       console.log(this.props);
@@ -35,7 +35,7 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews from similar Products:
           <div class="row">
-            {this.state.data[0].length > 0 ? (
+            {this.state.data.length > 0 ? (
               this.state.data.map((e) => {
                 return (
                   <div>

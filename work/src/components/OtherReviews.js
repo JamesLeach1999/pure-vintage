@@ -31,18 +31,30 @@ class Reviews extends Component {
       <div class="testimonial">
         <div class="small-container">
           <div class="row">
-            {this.state.data.length > 0 ?this.state.data.map((e) => {
-              return (
-                      <div class="col-3">
-                        {" "}
-                        <Review revId={e._id} id={this.state.i} />{" "}
-                      </div>
-                        )
-            }): (
-                <div class="col-3">
-                {" "}
-                <Review revId={this.state.data._id} id={this.state.i} />{" "}
-                </div>
+            {this.state.data.length > 0 ? (
+              this.state.data.map((e) => {
+                return (
+                  <div key={e._id}>
+                    <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
+                      {e.name}
+                    </h3>
+                    <p>{e.comment}</p>
+                    <p style={{ paddingTop: "15px" }}>{e.rating}/5</p>
+                    {/* <img src="assets/shoes1.jpg" alt="" /> */}
+                  </div>
+                );
+              })
+            ) : (
+              <div key={this.state.data[0]._id}>
+                <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
+                  {this.state.data[0].name}
+                </h3>
+                <p>{this.state.data[0].comment}</p>
+                <p style={{ paddingTop: "15px" }}>
+                  {this.state.data[0].rating}/5
+                </p>
+                {/* <img src="assets/shoes1.jpg" alt="" /> */}
+              </div>
             )}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />

@@ -291,7 +291,7 @@ var filter = async function (query) {
   if(query.price > 0){
     pr = query.price
   }
-
+console.log("yeyey")
   console.log(pr)
 
   var products;
@@ -332,7 +332,8 @@ var filter = async function (query) {
       price: { "$lt": pr },
     };
   }
-  console.log(products);
+  console.log("nennene")
+  console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
 
   console.log(query.skip + 'thats numberwang');
   if (query.skip !== null || query.skip !== undefined) {

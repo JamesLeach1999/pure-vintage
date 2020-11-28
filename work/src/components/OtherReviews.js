@@ -23,6 +23,11 @@ class Reviews extends Component {
       this.setState({ data: [revJson.revs] });
       console.log(this.state.data[0][0]);
       console.log(this.state.data);
+      this.state.data.map((e) => {
+                  
+                  e.map((t) => {
+                    console.log(t)
+                  })})
     } catch (error) {
       console.log(this.props);
       console.log(error);

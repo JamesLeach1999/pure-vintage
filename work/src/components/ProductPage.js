@@ -30,10 +30,10 @@ const ProductPage = () => {
   // no  clue
   useEffect(() => {
 
-    setImages(images[0])
     // this returns all 30 users in an array using setState
     getProducts();
     // this means it only runs once
+    setImages(images[0])
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
@@ -52,7 +52,7 @@ const ProductPage = () => {
             ></img>
             <div class="small-img-row">
               <div class="small-img-col">
-                {images[1] ? (
+                {images[1] !== undefined ? (
                   <img
                     src={`${images[1]}`}
                     onClick={() => setSmall(images[1])}
@@ -66,7 +66,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[2] ? (
+                {images[2] !== undefined ? (
                   <img
                     src={`${images[2]}`}
                     onClick={() => setSmall(images[2])}
@@ -80,7 +80,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[3] ? (
+                {images[3] !== undefined ? (
                   <img
                     src={`${images[3]}`}
                     onClick={() => setSmall(images[3])}
@@ -94,7 +94,7 @@ const ProductPage = () => {
                 )}
               </div>
               <div class="small-img-col">
-                {images[4] ? (
+                {images[4] !== undefined ? (
                   <img
                     src={`${images[4]}`}
                     onClick={() => setSmall(images[4])}

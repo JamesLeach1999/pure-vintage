@@ -84,7 +84,7 @@ p {
 }
 
 .header {
-  background: radial-gradient(#fff, #ffd6d6);
+  background: radial-gradient(#fff, #0c0e80);
   height: 100%;
 }
 
@@ -176,9 +176,9 @@ h4 {
   color: #ff523b;
 }
 
-.col-4:hover {
+/* .col-4:hover {
   transform: translateY(-5px);
-}
+} */
 
 /* offer */
 

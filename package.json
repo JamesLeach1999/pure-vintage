@@ -46,6 +46,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "query-string": "^6.13.7",
+    "react-alice-carousel": "^2.1.0",
     "react-confetti": "^5.0.1",
     "react-dom": "^16.7.0",
     "react-elastic-carousel": "^0.9.5",

@@ -80,9 +80,9 @@ console.log(req.files);
   // File upload
   // fileJPG.forEach(async (img) => {
 
-  if(req.files.length > 0){
+  if(req.files.image.length > 0){
     var fileJPG = []
-    req.files.forEach(async(i) => {
+    req.files.image.forEach(async(im, i) => {
       var cloud = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
       fileJPG.push(cloud)
     })

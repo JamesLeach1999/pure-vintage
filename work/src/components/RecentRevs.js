@@ -36,8 +36,8 @@ class Reviews extends Component {
             <p>{review.comment}</p>
             <p style={{ paddingTop: "15px" }}>{review.rating}/5</p>
             {/* <img src="assets/shoes1.jpg" alt="" /> */}
-          </div>;
-    })} */}
+          {/* </div>; */}
+    {/* // })} */}
     </div>
     );
   }

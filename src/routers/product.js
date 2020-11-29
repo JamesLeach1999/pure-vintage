@@ -537,6 +537,7 @@ router.get('/store1', async (req, res) => {
 
 router.get('/recentReviews', async (req, res) => {
   var review = [];
+  var proImages = []
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
 
@@ -544,6 +545,9 @@ router.get('/recentReviews', async (req, res) => {
 
     const oProducts = JSON.parse(orders[i].orderItems);
     console.log('num');
+    const images = oProducts[0].product.image[0]
+
+    proImages.push(images)
     console.log(oProducts[0].product.reviews);
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
@@ -555,8 +559,17 @@ router.get('/recentReviews', async (req, res) => {
   
   console.log('yes');
   console.log(review);
+  console.log("no")
+  console.log(proImages)
 
-  res.send('numberwang');
+  var filtered = review.filter(function (el) {
+    return el != null;
+  });
+
+  res.send({
+    name: filtered,
+    images: proImages
+  });
 });
 
 router.get('/featuredRows', async (req, res) => {

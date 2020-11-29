@@ -9,7 +9,7 @@ class OtherRevs extends Component {
 
   async componentDidMount() {
     try {
-      
+      console.log(this.props.datat)
       const response = await fetch(`/otherReviews?category=${this.props.category}&id=${this.props.id}`);
       const json = await response.json();
       this.setState({ data: json.name[0].reviews });

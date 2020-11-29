@@ -7,7 +7,7 @@ import Other from "./OtherRevs";
 class Reviews extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: [] };
+    this.state = { data: [], images: [], other: [] };
   }
 
   async componentDidMount() {
@@ -23,14 +23,14 @@ class Reviews extends Component {
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
       const revJson = await revRes.json();
-      console.log(revJson.name)
+      console.log(revJson.name);
       var t = [];
       revJson.name.map((rev) => {
-        console.log(rev)
-        t.push(rev.review);
+        console.log(rev);
+        t.push(rev.reviews[0]);
       });
-
-      console.log(t)
+      this.setState({ other: t });
+      console.log(t);
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -63,21 +63,13 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews:
           <div class="row">
-            {this.state.data.map((e) => {
-              return e.reviews.length > 0
-                ? e.reviews.map((r) => {
-                    return (
-                      <div class="col-3">
-                        {" "}
-                        <Other
-                          category={e.category}
-                          revId={r._id}
-                          id={e._id}
-                        />{" "}
-                      </div>
-                    );
-                  })
-                : "";
+            {this.state.other.map((e) => {
+              return (
+                <div class="col-3">
+                  {" "}
+                  <Other datat={e} category={this.state.data.category} revId={e._id} id={e._id} />{" "}
+                </div>
+              );
             })}
           </div>
         </div>

@@ -542,12 +542,12 @@ router.get('/recentReviews', async (req, res) => {
   orders.forEach(async (o) => {
     const oProducts = JSON.parse(o.orderItems);
     console.log('num');
-    console.log(oProducts[0]);
-    console.log(oProducts[0]._id);
+    console.log(oProducts[0].product);
+    review.push(oProducts[0].product.reviews[0])
+console.log("wang")
+    console.log(oProducts[0].product.reviews[0]);
 
-    const pro = await Product.findById({ _id: oProducts[0].product._id });
-    console.log('num1');
-    review.push(pro.reviews[0])
+    
   });
 console.log("yes")
   console.log(review);

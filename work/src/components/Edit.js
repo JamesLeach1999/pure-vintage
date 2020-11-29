@@ -45,6 +45,30 @@ class EditPage extends Component {
           <i class="fa fa-star-o"></i>
         </div>
         <p>{this.state.data.price}</p>
+        <form action="/featured" method="post">
+          <input
+            type="text"
+            name="featured"
+            value={this.state.data._id}
+            onClick={(e) => e.preventDefault()}
+            hidden
+          />
+          <button
+            type="submit"
+            // onClick={() => window.location.reload()}
+          >
+            Featured
+          </button>
+        </form>
+        <form action="/delete" method="post">
+          <input type="text" name="delete" value={this.state.data._id} hidden />
+          <button
+            type="submit"
+            // onClick={() => window.location.reload()}
+          >
+            deletr
+          </button>
+        </form>
       </div>
     );
   }

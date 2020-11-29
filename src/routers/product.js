@@ -548,7 +548,7 @@ router.get('/featuredRows', async (req, res) => {
 router.get("/otherReviews", async (req,res) => {
   var revs = await Product.find({_id: {"$ne": req.query.id}, category: req.query.category})
   console.log("number 3")
-
+console.log(revs)
   res.send({
     revs: revs
   })
@@ -635,7 +635,7 @@ router.get('/product', async (req, res) => {
       const user = await User.findById({ _id: req.session.passport.user });
       const isAdmin = user.isAdmin;
       console.log("wangernumb 1")
-console.log(product);
+// console.log(product);
 
       // also returning all images which will be shown on the individual product page
       res.send({
@@ -658,7 +658,7 @@ console.log(product);
       });
             console.log('wangernumb 2');
 
-console.log(product)
+// console.log(product)
       res.send({
         pageTitle: 'welcome',
         name: product,

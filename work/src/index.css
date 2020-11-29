@@ -351,7 +351,7 @@ ul {
   width: 100%;
   display: flex;
 }
-.col-4 .filter-container {
+.filter-container {
   flex: 15%;
   position: relative;
   border: 2px solid red;

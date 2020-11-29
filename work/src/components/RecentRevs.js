@@ -16,6 +16,7 @@ class Reviews extends Component {
       const pJson = await p.json();
       this.setState({ data: pJson.name });
       this.setState({ images: pJson.images });
+      console.log(this.state.images)
       console.log(this.state.data);
     } catch (error) {
       console.log(this.props);
@@ -31,6 +32,7 @@ class Reviews extends Component {
           <div class="row">
             {this.state.data.map((review, i) => {
               <div key={review._id}>
+                  <h1>yeyeyeyey</h1>
                 <img src={this.state.images[i]} alt="" />
                 <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
                   {review.name}

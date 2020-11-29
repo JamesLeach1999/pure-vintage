@@ -21,8 +21,7 @@ class OtherRevs extends Component {
     return (
       <div>
         <i class="fa fa-quote-left"></i>
-        {this.state.review.map((t) => {
-          return (
+        
             <div key={this.props.datat._id}>
               <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
                 {this.props.datat.name}
@@ -31,8 +30,7 @@ class OtherRevs extends Component {
               <p style={{ paddingTop: "15px" }}>{this.props.datat.rating}/5</p>
               {/* <img src="assets/shoes1.jpg" alt="" /> */}
             </div>
-          );
-        })}
+          
       </div>
     );
   }

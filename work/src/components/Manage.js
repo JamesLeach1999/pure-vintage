@@ -23,7 +23,7 @@ const Manage = () => {
       window.location.replace("/store");
     } else {
       try {
-        if (!window.location.search) {
+        if (window.location.search === "") {
           const response = await fetch(`/manage1`);
           console.log(window.location);
           const json = await response.json();
@@ -51,6 +51,7 @@ const Manage = () => {
               price: parsed['price']
             },
           });
+          console.log(res)
           setData(res.data.names);
           setLoading(false);
         }

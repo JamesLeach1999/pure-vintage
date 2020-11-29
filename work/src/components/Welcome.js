@@ -8,8 +8,8 @@ const Welcome = () => {
 
 
     return (
-      
-        <div class="row header" style={{width: "1903px"}}>
+      <>
+        <div class="row header">
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"
@@ -25,7 +25,7 @@ const Welcome = () => {
             />
           </AliceCarousel>
         </div>
-      
+      </>
     );
 }
 

@@ -351,16 +351,16 @@ ul {
   width: 100%;
   display: flex;
 }
-.filter-container {
+.col-4 .filter-container {
   flex: 15%;
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
   border: "1px solid black";
-  width: "350px";
-  position: "relative";
-  left: "40px";
-  padding-left: "25px";
+            width: "350px";
+            position: "relative";
+            left: "40px";
+            padding-left: "25px";
   /* margin-left: 150px; */
   /* float: left;
   justify-content: left; */
@@ -411,11 +411,11 @@ ul {
     transition: max-height 0.5s;
   } */
 
-  .logo {
+  .logo{
     display: none;
   }
 
-  nav {
+  nav{
     position: fixed;
   }
 
@@ -428,7 +428,8 @@ ul {
 
   nav ul li a {
     color: darkred;
-    display: inline;
+        display: inline;
+
   }
 
   /* .menu-icon {

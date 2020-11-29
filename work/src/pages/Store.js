@@ -17,7 +17,7 @@ const People = (props) => {
     <div>
       <section className="p">
         <form
-          className="filter filter-container"
+          className="col-4 filter filter-container"
           action="/store"
           
         >

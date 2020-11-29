@@ -52,7 +52,7 @@ const Manage = () => {
             },
           });
           console.log(res)
-          setData(res.data.names);
+          setData([res.data.names]);
           setLoading(false);
         }
       } catch (error) {

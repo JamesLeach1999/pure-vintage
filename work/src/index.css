@@ -381,14 +381,16 @@ ul {
   border: none;
   border-radius: 3px;
   /* background: radial-gradient(#fff, #0104bd5e); */
-  color: lightsteelblue
+  background-color: darkgreen;
+  color: white;
 }
 
-.feat {
+.del {
   border: none;
   border-radius: 3px;
   /* background: radial-gradient(#fff, #0104bd5e); */
-  color: lightsteelblue
+  background-color: crimson;
+  color: white;
 }
 
 /* media queries for menu */
@@ -404,15 +406,25 @@ ul {
     transition: max-height 0.5s;
   } */
 
+  .logo{
+    display: none;
+  }
+
+  nav{
+    position: sticky;
+  }
+
   nav ul li {
-    display: block;
+    display: inline;
     margin-right: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
   }
 
   nav ul li a {
-    color: #fff;
+    color: darkred;
+        display: inline;
+
   }
 
   .menu-icon {

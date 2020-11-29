@@ -476,6 +476,63 @@ router.get('/home', async (req, res) => {
   }
 });
 
+router.get('/manage1', async (req, res) => {
+  var category;
+  // console.log(localStorage)
+  console.log('i work3');
+  console.log(req.query.params);
+
+  // console.log(req.body)
+  if (req.query.category) {
+    var category = req.query.category.toString();
+    var catStr = category.replace(/,/g, ' ');
+
+    req.query.category = catStr;
+  }
+  if (req.query.brand) {
+    var brand = req.query.brand.toString();
+    var brandStr = brand.replace(/,/g, ' ');
+
+    req.query.brand = brandStr;
+  }
+  if (req.query.size) {
+    var size = req.query.size.toString();
+    var sizeStr = size.replace(/,/g, ' ');
+
+    req.query.size = sizeStr;
+  }
+
+  var clothes = [];
+  if (
+    req.query.category === undefined &&
+    req.query.brand === undefined &&
+    req.query.size === undefined &&
+    req.query.skip === undefined
+  ) {
+    const pro = await Product.find({}).limit(16);
+    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+
+    pro.forEach((n) => {
+      clothes.push(n);
+    });
+  } else {
+    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    console.log('i work5');
+
+    var pro1 = await filter(req.query);
+    console.log(pro1);
+    pro1.forEach((ite) => {
+      clothes.push(ite);
+    });
+  }
+  res.send({
+    pageTitle: 'welcome',
+    names: clothes,
+    query: req.query.id,
+    isAuth: false,
+    isAdmin: false,
+  });
+});
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store1', async (req, res) => {
   var category;

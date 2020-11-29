@@ -42,7 +42,7 @@ const Manage = () => {
           } else {
             skip = parseInt(parsed["skip"]);
           }
-          const res = await Axios.get("/store1", {
+          const res = await Axios.get("/manage1", {
             params: {
               category: parsed["category"],
               brand: parsed["brand"],

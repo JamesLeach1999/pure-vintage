@@ -498,6 +498,7 @@ const Manage = () => {
                 name="price"
                 min="0"
                 max="1000"
+                default="1000"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></input>
@@ -570,7 +571,7 @@ const Manage = () => {
         <button type="submit">
           btn
         </button> */}
-        <ManageComponent />
+        <Manage />
       </section>
     </div>
   );

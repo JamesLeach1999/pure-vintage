@@ -20,7 +20,7 @@ class Reviews extends Component {
       console.log("work");
       console.log(this.state.data);
       const revRes = await fetch(
-        `/otherReviews?category=${this.props.category}&id=${id}`
+        `/otherReviews?category=${json.name.category}&id=${id}`
       );
       const revJson = await revRes.json();
       console.log(revJson)

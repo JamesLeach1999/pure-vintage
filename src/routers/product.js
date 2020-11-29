@@ -541,7 +541,7 @@ router.get("/recentReviews", async(req, res) => {
     orders.forEach(async (o) => {
       const oProducts = JSON.parse(o.orderItems)
 
-      oProducts.product.forEach((op) => {
+      oProducts.product.forEach(async (op) => {
         const product = await Product.findById({_id: op._id})
 
         reviews.push(product.reviews)

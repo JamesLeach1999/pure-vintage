@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import defaultImage from "../assets/shoes1.jpg";
 
-class Review extends Component {
+class OtherRevs extends Component {
   constructor() {
     super();
     this.state = { data: [], review: [] };
@@ -17,7 +17,7 @@ class Review extends Component {
         const review = this.state.data.filter(
           (rev) => rev._id === this.props.revId
         );
-
+console.log(review)
         this.setState({ review: review });
 
         console.log(this.state.review);
@@ -48,4 +48,4 @@ class Review extends Component {
   }
 }
 
-export default Review;
+export default OtherRevs;

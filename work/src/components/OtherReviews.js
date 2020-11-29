@@ -42,16 +42,16 @@ class Reviews extends Component {
           Reviews from similar Products:
           <div class="row">
             {this.state.data.map((e) => {
-              <div>
-                {e.map((t) => {
-                  return (
-                  <div class="col-3">
-                    {' '}
-                    <Review d={this.state.data} category={this.state.d} revId={t._id} id={this.state.i} />{' '}
-                  </div>
-                  );
-                })}
-              </div>;
+              return e.reviews.length > 0
+                ? e.reviews.map((r) => {
+                    return (
+                      <div class="col-3">
+                        {" "}
+                        <Review revId={r._id} id={e._id} />{" "}
+                      </div>
+                    );
+                  })
+                : "";
             })}
             {/* {this.state.data ? ( */}
             {/* <div>

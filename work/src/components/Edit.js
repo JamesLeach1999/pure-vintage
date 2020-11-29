@@ -53,17 +53,18 @@ class EditPage extends Component {
             onClick={(e) => e.preventDefault()}
             hidden
           />
-          <button
+          <button className="feat"
             type="submit"
             // onClick={() => window.location.reload()}
           >
             Featured
           </button>
         </form>
+        <br/>
         <form action="/delete" method="post">
           <input type="text" name="delete" value={this.state.data._id} hidden />
           <button
-            type="submit"
+            type="submit" className="del"
             // onClick={() => window.location.reload()}
           >
             deletr

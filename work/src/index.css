@@ -377,6 +377,12 @@ ul {
   width: 250px;
 }
 
+.feat {
+  border: none;
+  border-radius: 8px;
+  background: radial-gradient(#fff, #0104bd5e);
+}
+
 /* media queries for menu */
 /* only for less than 800 px */
 @media only screen and (max-width: 800px) {

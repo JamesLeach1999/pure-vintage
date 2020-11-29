@@ -538,7 +538,6 @@ router.get('/store1', async (req, res) => {
 router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({})
     .sort([['createdAt', -1]])
-    .limit(4);
 
   var reviews = [];
   orders.forEach(async (o) => {
@@ -546,6 +545,13 @@ router.get('/recentReviews', async (req, res) => {
     console.log('num');
     console.log(oProducts[0]);
     console.log(oProducts[0]._id);
+
+    const pro = await Product.findById({ _id: oProducts[0].product._id });
+    console.log("num1")
+    console.log(pro.reviews)
+    if(pro.reviews !== []){
+      reviews.push(pro.reviews[0])
+    }
   });
 
   console.log(reviews);

@@ -5,9 +5,8 @@ console.log('i work8');
 const { filter } = require('../emails/account');
 const Product = require('../models/products');
 const multer = require('multer');
-const cloudinary = require("cloudinary").v2
-const Order = require("../models/Order")
-
+const cloudinary = require('cloudinary').v2;
+const Order = require('../models/Order');
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -61,38 +60,40 @@ cloudinary.config({
 //   },
 // });
 
-
-
 // only admins can upload and uses multer middleware to handle images
-router.post('/products', ensureAuthenticated,  async (req, res) => {
+router.post('/products', ensureAuthenticated, async (req, res) => {
   var errors = [];
   // using an array to store theimages max is 10 images
   var ogName = [];
 
   // retreiving input data. using multer middleware for the image
 
-  console.log(req.body)
-console.log(req.file)
-// console.log(req.files.image);
+  console.log(req.body);
+  console.log(req.file);
+  // console.log(req.files.image);
 
-  var t = []
-console.log("numberwang 1")
-  t.push(req.files.image[0])
-console.log(t)
+  var t = [];
+  console.log('numberwang 1');
+  t.push(req.files.image[0]);
+  console.log(t);
   // File upload
   // fileJPG.forEach(async (img) => {
-    for(var i = 0; req.files.image.length > i; i++){
-      var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, { width: 1250, height: 1250, tags: 'pure-vintage', public_id: req.files.image[i].name })
-      console.log('numberwang 2');
+  for (var i = 0; req.files.image.length > i; i++) {
+    var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
+      width: 1250,
+      height: 1250,
+      tags: 'pure-vintage',
+      public_id: req.files.image[i].name,
+    });
+    console.log('numberwang 2');
 
-      console.log(fileJPG)
-      ogName.push(fileJPG.url)
+    console.log(fileJPG);
+    ogName.push(fileJPG.url);
+  }
+  console.log('numberwang 3');
 
-    }
-    console.log('numberwang 3');
-
-    console.log(ogName)
-    // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
+  console.log(ogName);
+  // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
 
   // console.log(ogName);
@@ -104,7 +105,7 @@ console.log(t)
   const size = req.body.size;
 
   // ERROR CHECKING. makes sure all fields filled
-  if (!price || !name  || !brand || !category || !description) {
+  if (!price || !name || !brand || !category || !description) {
     errors.push({
       msg: 'please fill all fields',
     });
@@ -120,7 +121,7 @@ console.log(t)
   //   _id: req.session.passport.user,
   // });
 
-  console.log(fileJPG.url)
+  console.log(fileJPG.url);
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway
 
@@ -138,7 +139,7 @@ console.log(t)
   try {
     await products.save();
 
-    res.redirect("/store")
+    res.redirect('/store');
   } catch (error) {
     res.status(401).send(error);
   }
@@ -353,7 +354,7 @@ router.post('/editPost', async (req, res) => {
     }
   }
   const products = await Product.find({});
-  res.redirect("back")
+  res.redirect('back');
 });
 
 // // getting the delete agent,again will add pagnintation
@@ -478,7 +479,7 @@ router.get('/home', async (req, res) => {
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store1', async (req, res) => {
   var category;
-// console.log(localStorage)
+  // console.log(localStorage)
   console.log('i work3');
   console.log(req.query.params);
 
@@ -510,7 +511,7 @@ router.get('/store1', async (req, res) => {
     req.query.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-        console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
 
     pro.forEach((n) => {
       clothes.push(n);
@@ -534,26 +535,23 @@ router.get('/store1', async (req, res) => {
   });
 });
 
-router.get("/recentReviews", async(req, res) => {
-    const orders = await Order.find({}).sort([['createdAt', -1]]).limit(4);
+router.get('/recentReviews', async (req, res) => {
+  const orders = await Order.find({})
+    .sort([['createdAt', -1]])
+    .limit(4);
 
-    var reviews = []
-    orders.forEach(async (o) => {
-      const oProducts = JSON.parse(o.orderItems)
-      console.log(oProducts)
-// console.log(o)
-      oProducts.forEach(async (op) => {
-        const product = await Product.findById({_id: op._id})
+  var reviews = [];
+  orders.forEach(async (o) => {
+    const oProducts = JSON.parse(o.orderItems);
+    console.log('num');
+    console.log(oProducts[0]);
+    console.log(oProducts[0]._id);
+  });
 
-        reviews.push(product.reviews)
-      })
-    })
+  console.log(reviews);
 
-    console.log(reviews)
-
-    res.send("numberwang")
-
-})
+  res.send('numberwang');
+});
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
@@ -566,14 +564,14 @@ router.get('/featuredRows', async (req, res) => {
   });
 });
 
-router.get("/otherReviews", async (req,res) => {
-  var revs = await Product.find({_id: {"$ne": req.query.id}, category: req.query.category})
-  console.log("number 3")
-console.log(revs)
+router.get('/otherReviews', async (req, res) => {
+  var revs = await Product.find({ _id: { $ne: req.query.id }, category: req.query.category });
+  console.log('number 3');
+  console.log(revs);
   res.send({
-    name: revs
-  })
-})
+    name: revs,
+  });
+});
 
 router.post('/store', async (req, res) => {
   // console.log(req.body.category)
@@ -615,17 +613,16 @@ router.post('/store', async (req, res) => {
       clothes.push(n);
     });
   } else {
-
-    const user = await User.findById({_id: req.session.passport.user})
-    if(!user){
-      var auth = false
-      var admin = false
-    } else if (!user.isAdmin){
-      var auth = true
-      var admin = false
+    const user = await User.findById({ _id: req.session.passport.user });
+    if (!user) {
+      var auth = false;
+      var admin = false;
+    } else if (!user.isAdmin) {
+      var auth = true;
+      var admin = false;
     } else {
-      var auth = true
-      var admin = true
+      var auth = true;
+      var admin = true;
     }
     // console.log(req.body)
     console.log('i work5');
@@ -655,8 +652,8 @@ router.get('/product', async (req, res) => {
 
       const user = await User.findById({ _id: req.session.passport.user });
       const isAdmin = user.isAdmin;
-      console.log("wangernumb 1")
-// console.log(product);
+      console.log('wangernumb 1');
+      // console.log(product);
 
       // also returning all images which will be shown on the individual product page
       res.send({
@@ -677,9 +674,9 @@ router.get('/product', async (req, res) => {
       const product = await Product.findOne({
         _id: req.query.id,
       });
-            console.log('wangernumb 2');
+      console.log('wangernumb 2');
 
-// console.log(product)
+      // console.log(product)
       res.send({
         pageTitle: 'welcome',
         name: product,
@@ -708,7 +705,7 @@ router.post('/reviews', ensureAuthenticated, async (req, res) => {
     rating: star,
     comment: brand,
   };
-console.log(req.body)
+  console.log(req.body);
   const product = await Product.findById({
     _id: id,
   });
@@ -737,10 +734,10 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
         },
       }
     );
-    if(!user){
-      var auth = false
-      var admin = false
-    } else if (!user.isAdmin){
+    if (!user) {
+      var auth = false;
+      var admin = false;
+    } else if (!user.isAdmin) {
       var auth = true;
       var admin = false;
     } else {
@@ -754,7 +751,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     console.log(test);
     // console.log(req.query.cart)
 
-    res.redirect("/store")
+    res.redirect('/store');
   } catch (error) {
     res.status(400).send(error + 'numberwang');
   }
@@ -763,11 +760,11 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
 // getting the cart page. using an array to return all cart items to be displayed with ejs
 router.get('/cart1', async (req, res) => {
   var fullCart = [];
-  console.log("thats numberwang")
+  console.log('thats numberwang');
   console.log(req.query.id);
-  var id = req.query.id
+  var id = req.query.id;
   const user = await User.findById({
-    _id: id
+    _id: id,
   });
 
   const isAdmin = user.isAdmin;
@@ -811,7 +808,7 @@ router.post('/cartProduct', ensureAuthenticated, async (req, res) => {
     // const products = await User.findByIdAndDelete({cart: req.body.id})
 
     // console.log(user)
-    res.redirect("/store")
+    res.redirect('/store');
   } catch (error) {
     res.status(500).send(error);
   }

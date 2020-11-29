@@ -379,8 +379,16 @@ ul {
 
 .feat {
   border: none;
-  border-radius: 8px;
-  background: radial-gradient(#fff, #0104bd5e);
+  border-radius: 3px;
+  /* background: radial-gradient(#fff, #0104bd5e); */
+  color: lightsteelblue
+}
+
+.feat {
+  border: none;
+  border-radius: 3px;
+  /* background: radial-gradient(#fff, #0104bd5e); */
+  color: lightsteelblue
 }
 
 /* media queries for menu */

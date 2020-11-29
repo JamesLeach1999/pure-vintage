@@ -20,9 +20,10 @@ class Reviews extends Component {
       console.log("work");
       console.log(this.state.data);
       const revRes = await fetch(
-        `/otherReviews?category=${this.props.category}&id=${this.props.id}`
+        `/otherReviews?category=${this.props.category}&id=${id}`
       );
       const revJson = await revRes.json();
+      console.log(revJson)
       var t = [];
       revJson.name.map((rev) => {
         t.push(rev.review);

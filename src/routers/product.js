@@ -539,8 +539,10 @@ router.get('/recentReviews', async (req, res) => {
   var review = [];
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
-  orders.forEach(async (o) => {
-    const oProducts = JSON.parse(o.orderItems);
+
+  for(var i = 0; i < orders.length; i++){
+
+    const oProducts = JSON.parse(orders[i].orderItems);
     console.log('num');
     console.log(oProducts[0].product.reviews);
     const product = await Product.findById({ _id: oProducts[0].product._id });
@@ -549,8 +551,8 @@ router.get('/recentReviews', async (req, res) => {
     // if (product.reviews[0] !== undefined || product.reviews[0] !== []) {
     console.log(product.reviews[0]);
     review.push(product.reviews[0]);
-    // }
-  });
+  }
+  
   console.log('yes');
   console.log(review);
 

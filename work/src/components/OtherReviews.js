@@ -12,19 +12,11 @@ class Reviews extends Component {
   async componentDidMount() {
     try {
       const id = document.getElementById("id").innerHTML;
-      this.setState({ i: id });
       console.log(id);
       const response = await fetch(`/product?id=${id}`);
       const json = await response.json();
-      this.setState({d: json.name.category})
-      console.log(this.state.d)
-      const revResponse = await fetch(
-        `/otherReviews?category=${json.name.category}&id=${id}`
-      );
-      const revJson = await revResponse.json();
-      console.log(revJson)
-      this.setState({ data: revJson.revs });
-            console.log("work1");
+      this.setState({ data: [json.name] });
+      console.log("work222");
       console.log(this.state.data);
       // console.log(this.state.data.revs);
       
@@ -40,21 +32,18 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews:
           <div class="row">
-            {/* {this.state.data.map((e) => {
+            {this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
                     return (
                       <div class="col-3">
                         {" "}
-                        <Review revId={r._id} id={this.state.i} />{" "}
+                        <Review revId={r._id} id={e._id} />{" "}
                       </div>
                     );
                   })
                 : "";
-            })} */}
-            {/* <h1>{this.state.data[0].reviews.name}</h1> */}
-            {/* <Review />
-            <Review /> */}
+            })}
           </div>
         </div>
         <h1 id="id" hidden>

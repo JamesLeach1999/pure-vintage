@@ -9,22 +9,21 @@ class OtherRevs extends Component {
 
   async componentDidMount() {
     try {
-      console.log(this.props.id)
-      console.log(this.props.category)
-        const revRes = await fetch(`/otherProducts?category=${this.props.category}&id=${this.props.id}`)
-        const revJson = await revRes.json()
+      const response = await fetch(`/product?id=${this.props.id}`);
+      const json = await response.json();
+      console.log(json.name);
+      this.setState({ data: json.name.reviews });
+      const revRes = await fetch(`/otherReviews?category=${json.name}&id=${this.props.id}`)
+      const revJson = await revRes.json()
+      this.setState({review: revJson.rev})
+      const review = this.state.review.filter(
+        (rev) => rev._id === this.props.revId
+      );
+      console.log(review);
 
-        this.setState({data: revJson})
-        console.log("work")
-        console.log(this.state.data)
+      this.setState({ review: review });
 
-        const review = this.state.data.filter(
-          (rev) => rev._id === this.props.revId
-        );
-console.log(review)
-        this.setState({ review: review });
-console.log("bierbebigebhf")
-        console.log(this.state.review);
+      console.log(this.state.review);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);

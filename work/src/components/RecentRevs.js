@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Review from "./Review";
 import { Link, useParams } from "react-router-dom";
 import GetId from "./GetId";
-import Other from "./OtherRevs";
+import Recent from "./RecRevs";
 
 class Reviews extends Component {
   constructor() {
@@ -30,17 +30,23 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews:
           <div class="row">
-            {this.state.data.map((review, i) => {
-              <div key={review._id}>
-                  <h1>yeyeyeyey</h1>
-                <img src={this.state.images[i]} alt="" />
-                <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
-                  {review.name}
-                </h3>
-                <p>{review.comment}</p>
-                <p style={{ paddingTop: "15px" }}>{review.rating}/5</p>
-                {/* <img src="assets/shoes1.jpg" alt="" /> */}
-              </div>;
+            {this.state.data.map((e, i) => {
+              return (
+                <div class="col-3">
+                  {this.state.images.length > 0 ? (
+                    <img src={this.state.images[i]} alt="" />
+                  ) : (
+                    <img src={this.state.images} alt="" />
+                  )}{" "}
+                  <br />
+                  <Recent
+                    data={e}
+                    category={this.state.data.category}
+                    revId={e._id}
+                    id={e._id}
+                  />{" "}
+                </div>
+              );
             })}
           </div>
         </div>

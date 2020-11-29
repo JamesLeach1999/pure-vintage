@@ -12,9 +12,9 @@ class OtherRevs extends Component {
       
       const response = await fetch(`/otherReviews?category=${this.props.category}&id=${this.props.id}`);
       const json = await response.json();
-      console.log(json.name);
       this.setState({ data: json.name.reviews });
-      const review = this.state.data.filter(
+      console.log(this.state.data);
+      const review = this.state.data[0].filter(
         (rev) => rev._id === this.props.revId
       );
       console.log(review);

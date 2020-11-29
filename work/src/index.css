@@ -89,9 +89,7 @@ p {
   height: 100%;
 }
 .work {
-  position: relative;
-  margin-left: 50px;
-  right: 5px;
+  margin-left: 10px;
 }
 
 .header .row {

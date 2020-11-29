@@ -67,7 +67,7 @@ class EditPage extends Component {
             type="submit" className="del"
             // onClick={() => window.location.reload()}
           >
-            deletr
+            delete
           </button>
         </form>
       </div>

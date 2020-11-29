@@ -49,10 +49,10 @@ const ProductPage = () => {
   return (
     <div>
       <div class="small-container single-product">
-        <div class="row">
           <div class="col-2">
-              <img src={`${images}`} alt="shit"></img>;
+            <img src={`${images}`} alt="shit"></img>;
           </div>
+        <div class="row">
           <div class="col-2">
             <form action="/editPost" method="post">
               <h4>{product.name}</h4>
@@ -68,13 +68,23 @@ const ProductPage = () => {
               <input type="text" placeholder="category" name="edit" />
               <h4>{product.description}</h4>
 
-              <input type="text" placeholder="description" name="edit" />
+              <input
+                type="text"
+                placeholder="description"
+                name="edit"
+                style={{ border: "1px solid black", borderRadius: "3px" }}
+              />
               <h4>{product.size}</h4>
 
               <input type="text" placeholder="size" name="edit" />
               {/* <h4>{product.name}</h4> */}
 
-              <input type="file" placeholder="image" multiple="multiple" name="image" />
+              <input
+                type="file"
+                placeholder="image"
+                multiple="multiple"
+                name="image"
+              />
               <h4>{product.price}</h4>
 
               <input type="number" placeholder="price" name="edit" />

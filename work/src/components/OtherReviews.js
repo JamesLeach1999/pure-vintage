@@ -6,7 +6,7 @@ import GetId from "./GetId";
 class Reviews extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: [], i: "", d: [] };
+    this.state = { data: [], images: [], i: "", d: [], work: [] };
   }
 
   async componentDidMount() {
@@ -18,7 +18,10 @@ class Reviews extends Component {
       this.setState({ data: [json.name] });
       console.log("work222");
       console.log(this.state.data);
-      // console.log(this.state.data.revs);
+      if(this.state.data !== undefined){
+        this.setState({work: this.state.data})
+      }
+      console.log(this.state.data.work);
       
     } catch (error) {
       console.log(this.props);
@@ -32,7 +35,7 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews:
           <div class="row">
-            {this.state.data.map((e) => {
+            {this.state.work.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
                     return (

@@ -9,14 +9,12 @@ class OtherRevs extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`/product?id=${this.props.id}`);
+      
+      const response = await fetch(`/otherReviews?category=${this.props.category}&id=${this.props.id}`);
       const json = await response.json();
       console.log(json.name);
       this.setState({ data: json.name.reviews });
-      const revRes = await fetch(`/otherReviews?category=${json.name}&id=${this.props.id}`)
-      const revJson = await revRes.json()
-      this.setState({review: revJson.rev})
-      const review = this.state.review.filter(
+      const review = this.state.data.filter(
         (rev) => rev._id === this.props.revId
       );
       console.log(review);
@@ -34,7 +32,7 @@ class OtherRevs extends Component {
     return (
       <div>
         <i class="fa fa-quote-left"></i>
-        {this.props.review.map((t) => {
+        {this.state.review.map((t) => {
           return (
             <div key={t._id}>
               <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>

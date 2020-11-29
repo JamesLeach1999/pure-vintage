@@ -550,7 +550,7 @@ router.get("/otherReviews", async (req,res) => {
   console.log("number 3")
 console.log(revs)
   res.send({
-    revs: revs
+    name: revs
   })
 })
 

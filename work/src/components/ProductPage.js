@@ -142,7 +142,7 @@ const ProductPage = () => {
           </div>
         </div>
         <Reviews />
-        <OtherReviews/>
+        {/* <OtherReviews/> */}
       </div>
     </div>
   );

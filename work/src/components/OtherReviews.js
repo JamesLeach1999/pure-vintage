@@ -23,7 +23,7 @@ class Reviews extends Component {
       );
       const revJson = await revResponse.json();
       console.log(revJson)
-      this.setState({ data: [revJson.revs] });
+      this.setState({ data: revJson });
       console.log(this.state.data);
       
     } catch (error) {

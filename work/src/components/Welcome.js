@@ -8,7 +8,7 @@ const Welcome = () => {
 
 
     return (
-      <>
+      
         <div class="row header" style={{width: "1903px"}}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
@@ -25,7 +25,7 @@ const Welcome = () => {
             />
           </AliceCarousel>
         </div>
-      </>
+      
     );
 }
 

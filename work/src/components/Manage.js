@@ -24,7 +24,7 @@ const Manage = () => {
     } else {
       try {
         if (!window.location.search) {
-          const response = await fetch(`/store1`);
+          const response = await fetch(`/manage1`);
           console.log(window.location);
           const json = await response.json();
           setData([json.names]);
@@ -48,6 +48,7 @@ const Manage = () => {
               brand: parsed["brand"],
               size: parsed["size"],
               skip: skip,
+              price: parsed['price']
             },
           });
           setData(res.data.names);

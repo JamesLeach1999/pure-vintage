@@ -19,6 +19,7 @@ class Reviews extends Component {
       );
       const json = await response.json();
       this.setState({ data: [json.name] });
+      console.log("work")
       console.log(this.state.data);
     } catch (error) {
       console.log(this.props);

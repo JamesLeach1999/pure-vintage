@@ -31,6 +31,8 @@ class Reviews extends Component {
           <h1>Recent reviews</h1>
           <br/>
           <br/>
+          <br/>
+          <br/>
           <div class="row">
             {this.state.data.map((e, i) => {
               return (
@@ -41,6 +43,9 @@ class Reviews extends Component {
                     <img src={this.state.images} alt="" />
                   )}{" "}
                   <br />
+                  <br/>
+                  <br/>
+                  <br/>
                   <Recent
                     data={e}
                     category={this.state.data.category}

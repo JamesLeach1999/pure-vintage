@@ -44,7 +44,11 @@ class Reviews extends Component {
     return (
       <div class="testimonial">
         <div class="small-container">
-          Reviews:
+          <h1>Reviews</h1>
+          <br />
+          <br />
+          <br />
+
           <div class="row">
             {this.state.data.map((e) => {
               return e.reviews.length > 0
@@ -64,15 +68,28 @@ class Reviews extends Component {
           </div>
         </div>
         <div class="small-container">
-          Reviews from similar products:
+          <h1>Reviews from similar products:</h1>
+          <br />
+          <br />
+          <br />
           <div class="row">
             {this.state.other.map((e, i) => {
               return (
                 <div class="col-3">
-                  {this.state.images.length > 0 ? <img src={this.state.images[i]} alt=""/>: <img src={this.state.images} alt=""/>}
-                  {" "}
+                  {this.state.images.length > 0 ? (
+                    <img src={this.state.images[i]} alt="" />
+                  ) : (
+                    <img src={this.state.images} alt="" />
+                  )}{" "}
+                  <br />
                   <br/>
-                  <Other datat={e} category={this.state.data.category} revId={e._id} id={e._id} />{" "}
+                  <br/>
+                  <Other
+                    datat={e}
+                    category={this.state.data.category}
+                    revId={e._id}
+                    id={e._id}
+                  />{" "}
                 </div>
               );
             })}

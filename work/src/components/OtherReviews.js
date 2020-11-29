@@ -33,7 +33,10 @@ class Reviews extends Component {
     return (
       <div class="testimonial">
         <div class="small-container">
-          Reviews:
+          <h1>Reviews</h1>
+          <br />
+          <br />
+          <br />
           <div class="row">
             {this.state.work.map((e) => {
               return e.reviews.length > 0

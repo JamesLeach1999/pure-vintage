@@ -9,7 +9,18 @@ class Review extends Component {
 
   async componentDidMount() {
     try {
-        console.log(this.props.d)
+        const revRes = await fetch(`/otherProducts?category=${this.props.category}&id=${this.props.id}`)
+        const revJson = await revRes.json()
+
+        this.setState({data: revJson})
+
+        const review = this.state.data.filter(
+          (rev) => rev._id === this.props.revId
+        );
+
+        this.setState({ review: review });
+
+        console.log(this.state.review);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);
@@ -20,7 +31,7 @@ class Review extends Component {
     return (
       <div>
         <i class="fa fa-quote-left"></i>
-        {this.props.d.map((t) => {
+        {this.props.review.map((t) => {
           return (
             <div key={t._id}>
               <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>

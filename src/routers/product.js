@@ -554,7 +554,7 @@ router.get("/otherReviews", async (req,res) => {
     // console.log(r.reviews)
     reviews.push(r.reviews.slice(-1)[0])
   })
-console.log
+console.log("numbero wang")
   console.log(reviews)
 
   res.send({

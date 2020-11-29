@@ -6,7 +6,7 @@ import GetId from "./GetId";
 class Reviews extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: [], i: "" };
+    this.state = { data: [], images: [], i: "", d: [] };
   }
 
   async componentDidMount() {
@@ -16,6 +16,7 @@ class Reviews extends Component {
       console.log(id);
       const response = await fetch(`/product?id=${id}`);
       const json = await response.json();
+      this.setState({d: json.name.category})
       const revResponse = await fetch(
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
@@ -46,7 +47,7 @@ class Reviews extends Component {
                   return (
                   <div class="col-3">
                     {' '}
-                    <Review d={this.state.data} revId={t._id} id={this.state.i} />{' '}
+                    <Review d={this.state.data} category={this.state.d} revId={t._id} id={this.state.i} />{' '}
                   </div>
                   );
                 })}

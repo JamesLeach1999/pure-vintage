@@ -571,7 +571,7 @@ const Manage = () => {
         <button type="submit">
           btn
         </button> */}
-        <Manage />
+        <ManageComponent />
       </section>
     </div>
   );

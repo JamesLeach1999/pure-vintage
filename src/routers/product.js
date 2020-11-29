@@ -547,7 +547,7 @@ router.get('/featuredRows', async (req, res) => {
 
 router.get("/otherReviews", async (req,res) => {
   var revs = await Product.find({_id: {"$ne": req.query.id}, category: req.query.category})
-  
+  console.log("number 3")
 
   res.send({
     revs: revs

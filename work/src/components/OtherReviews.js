@@ -38,8 +38,8 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews:
           <div class="row">
-            {this.state.data.map((e) => {
-              return e.reviews.length > 0
+            {this.state.data ? this.state.data.map((e) => {
+              return e.reviews.length > 0 
                 ? e.reviews.map((r) => {
                     return (
                       <div class="col-3">
@@ -49,7 +49,7 @@ class Reviews extends Component {
                     );
                   })
                 : "";
-            })}
+            }) : ""}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}

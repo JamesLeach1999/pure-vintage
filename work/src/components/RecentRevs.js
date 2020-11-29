@@ -28,7 +28,9 @@ class Reviews extends Component {
     return (
       <div class="testimonial">
         <div class="small-container">
-          Reviews:
+          <h1>Recent reviews</h1>
+          <br/>
+          <br/>
           <div class="row">
             {this.state.data.map((e, i) => {
               return (

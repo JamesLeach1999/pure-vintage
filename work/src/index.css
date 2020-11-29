@@ -92,6 +92,8 @@ p {
 .header .row {
   margin-top: 70px;
   width: 100%;
+  position: relative;
+  right: 5px;
 }
 
 .categories {

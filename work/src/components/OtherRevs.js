@@ -15,13 +15,15 @@ class OtherRevs extends Component {
         const revJson = await revRes.json()
 
         this.setState({data: revJson})
+        console.log("work")
+        console.log(this.state.data)
 
         const review = this.state.data.filter(
           (rev) => rev._id === this.props.revId
         );
 console.log(review)
         this.setState({ review: review });
-
+console.log("bierbebigebhf")
         console.log(this.state.review);
     } catch (error) {
       console.log(this.props.id);

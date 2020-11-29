@@ -21,14 +21,10 @@ class Reviews extends Component {
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
       const revJson = await revResponse.json();
+      console.log(revJson)
       this.setState({ data: [revJson.revs] });
-      console.log(this.state.data[0][0]);
       console.log(this.state.data);
-      this.state.data.map((e) => {
-        e.map((t) => {
-          console.log(t);
-        });
-      });
+      
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -41,7 +37,7 @@ class Reviews extends Component {
         <div class="small-container">
           Reviews from similar Products:
           <div class="row">
-            {this.state.data.map((e) => {
+            {/* {this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
                     return (
@@ -52,7 +48,7 @@ class Reviews extends Component {
                     );
                   })
                 : "";
-            })}
+            })} */}
             {/* {this.state.data ? ( */}
             {/* <div>
                 <i class="fa fa-quote-left"></i>

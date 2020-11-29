@@ -3,7 +3,7 @@ import defaultImage from "../assets/Logo_blue_text.jpg";
 import { UncontrolledCarousel } from "reactstrap";
 import Car from "./Car"
 import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
+import "../css/alice-carousel.css";
 const Welcome = () => {
 
 

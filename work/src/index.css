@@ -356,6 +356,11 @@ ul {
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
+  border: "1px solid black";
+  width: "350px";
+  position: "relative";
+  left: "40px";
+  padding-left: "25px";
   /* margin-left: 150px; */
   /* float: left;
   justify-content: left; */
@@ -406,12 +411,12 @@ ul {
     transition: max-height 0.5s;
   } */
 
-  .logo{
+  .logo {
     display: none;
   }
 
-  nav{
-    position: sticky;
+  nav {
+    position: fixed;
   }
 
   nav ul li {
@@ -423,14 +428,13 @@ ul {
 
   nav ul li a {
     color: darkred;
-        display: inline;
-
+    display: inline;
   }
 
-  .menu-icon {
+  /* .menu-icon {
     display: block;
     cursor: pointer;
-  }
+  } */
 }
 
 /* all products */

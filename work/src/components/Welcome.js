@@ -9,19 +9,19 @@ const Welcome = () => {
 
     return (
       <>
-        <div class="row header">
+        <div class="row header" style={{width: "100%"}}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"
-              className="sliderimg"
+              className="sliderimg" alt=""
             />
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512795/img_snow_wide_ys9co2.jpg"
-              className="sliderimg"
+              className="sliderimg" alt=""
             />
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512786/img_nature_wide_q8vuhx.jpg"
-              className="sliderimg"
+              className="sliderimg" alt=""
             />
           </AliceCarousel>
         </div>

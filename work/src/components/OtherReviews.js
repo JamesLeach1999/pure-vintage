@@ -17,6 +17,7 @@ class Reviews extends Component {
       const response = await fetch(`/product?id=${id}`);
       const json = await response.json();
       this.setState({d: json.name.category})
+      console.log(this.state.d)
       const revResponse = await fetch(
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
@@ -35,9 +36,9 @@ class Reviews extends Component {
     return (
       <div class="testimonial">
         <div class="small-container">
-          Reviews from similar Products:
+          Reviews:
           <div class="row">
-            {/* {this.state.data.map((e) => {
+            {this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
                     return (
@@ -48,23 +49,7 @@ class Reviews extends Component {
                     );
                   })
                 : "";
-            })} */}
-            {/* {this.state.data ? ( */}
-            {/* <div>
-                <i class="fa fa-quote-left"></i>
-
-                <div key={this.state.data[0]._id}>
-                  <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>
-                    {this.state.data[0].name}
-                  </h3>
-                  <p>{this.state.data[0].comment}</p>
-                  <p style={{ paddingTop: "15px" }}>
-                    {this.state.data[0].rating}/5
-                  </p>
-                  {/* <img src="assets/shoes1.jpg" alt="" /> */}
-            {/* </div> */}
-            {/* </div> */}
-            {/* // ): ""} */}
+            })}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}

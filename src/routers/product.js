@@ -547,18 +547,10 @@ router.get('/featuredRows', async (req, res) => {
 
 router.get("/otherReviews", async (req,res) => {
   var revs = await Product.find({_id: {"$ne": req.query.id}, category: req.query.category})
-
-  var reviews = []
-
-  revs.forEach((r) => {
-    // console.log(r.reviews)
-    reviews.push(r)
-  })
-console.log("numbero wang")
-  console.log(reviews)
+  
 
   res.send({
-    revs: reviews
+    revs: revs
   })
 })
 

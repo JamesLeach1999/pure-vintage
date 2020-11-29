@@ -9,6 +9,8 @@ class OtherRevs extends Component {
 
   async componentDidMount() {
     try {
+      console.log(this.props.id)
+      console.log(this.props.category)
         const revRes = await fetch(`/otherProducts?category=${this.props.category}&id=${this.props.id}`)
         const revJson = await revRes.json()
 

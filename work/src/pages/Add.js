@@ -62,13 +62,20 @@ const Addpage = () => {
   // }, [loading])
 return (
   <div>
-    <div class="grid category" className="small-container" style={{ alignContent: "left", textAlign: "left" }}>
+    <div
+      class="grid category"
+      className="small-container"
+      style={{ alignContent: "left", textAlign: "left" }}
+    >
       <br />
       <br />
 
       <form action="/products" method="post" enctype="multipart/form-data">
         <ul>
           <li>
+            <h3>Name:</h3>
+            <br />
+
             <input
               type="text"
               placeholder="name"
@@ -79,7 +86,8 @@ return (
           <br />
           <br />
           <li>
-            Brand
+            <h3>Brand:</h3>
+            <br />
             <select
               id="brand"
               name="brand"
@@ -107,7 +115,8 @@ return (
           <br />
           <br />
           <li>
-            Category
+            <h3>Category:</h3>
+            <br />
             <select
               id="category"
               name="category"
@@ -129,18 +138,21 @@ return (
           <br />
           <br />
           <li>
-            Description
+            <h3>Description</h3>
+            <br />
             <input
               type="text"
               placeholder="description"
               name="description"
+              style={{width: "300px", height: "200px"}}
               onChange={(e) => setDescription(e.target.value)}
             />
           </li>
           <br />
           <br />
           <li>
-            Size
+            <h3>Size:</h3>
+            <br />
             <select
               id="size"
               name="size"
@@ -154,12 +166,15 @@ return (
               <option value="XL">XL</option>
               <option value="XXL">XXL</option>
             </select>
-            
           </li>
           <br />
           <br />
           <li>
-            Images. Please drag images here or highlight multiple and upload them
+            <h4>
+              Images. Please drag images here or highlight multiple and upload
+              them:
+            </h4>
+            <br />
             <input
               type="file"
               placeholder="image"
@@ -171,7 +186,8 @@ return (
           <br />
           <br />
           <li>
-            Price
+            <h3>Price:</h3>
+            <br />
             <input
               type="number"
               placeholder="price"

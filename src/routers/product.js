@@ -552,7 +552,7 @@ router.get("/otherReviews", async (req,res) => {
 
   revs.forEach((r) => {
     // console.log(r.reviews)
-    reviews.push(r.reviews.slice(-1)[0])
+    reviews.push(r)
   })
 console.log("numbero wang")
   console.log(reviews)
@@ -642,6 +642,8 @@ router.get('/product', async (req, res) => {
 
       const user = await User.findById({ _id: req.session.passport.user });
       const isAdmin = user.isAdmin;
+      console.log("wangernumb 1")
+console.log(product);
 
       // also returning all images which will be shown on the individual product page
       res.send({
@@ -662,7 +664,9 @@ router.get('/product', async (req, res) => {
       const product = await Product.findOne({
         _id: req.query.id,
       });
+            console.log('wangernumb 2');
 
+console.log(product)
       res.send({
         pageTitle: 'welcome',
         name: product,

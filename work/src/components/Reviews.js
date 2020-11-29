@@ -25,10 +25,13 @@ class Reviews extends Component {
       const revJson = await revRes.json();
       console.log(revJson.name);
       var t = [];
+      var img = []
       revJson.name.map((rev) => {
         console.log(rev);
+        img.push(rev.image[0])
         t.push(rev.reviews[0]);
       });
+      this.setState({images: img})
       this.setState({ other: t });
       console.log(t);
     } catch (error) {
@@ -61,11 +64,12 @@ class Reviews extends Component {
           </div>
         </div>
         <div class="small-container">
-          Reviews:
+          Reviews from similar products:
           <div class="row">
-            {this.state.other.map((e) => {
+            {this.state.other.map((e, i) => {
               return (
                 <div class="col-3">
+                  <img src={this.state.images[i]} alt=""/>
                   {" "}
                   <Other datat={e} category={this.state.data.category} revId={e._id} id={e._id} />{" "}
                 </div>

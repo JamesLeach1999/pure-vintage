@@ -330,8 +330,13 @@ console.log("yeyey")
     products = {
       size: size,
       price: { "$lt": pr },
+    }; 
+  } else {
+    products = {
+      price: { $lt: pr },
     };
   }
+
   console.log("nennene")
   console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
 

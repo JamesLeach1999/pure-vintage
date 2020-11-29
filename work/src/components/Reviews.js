@@ -69,7 +69,7 @@ class Reviews extends Component {
             {this.state.other.map((e, i) => {
               return (
                 <div class="col-3">
-                  <img src={this.state.images[i]} alt=""/>
+                  {this.state.images.length > 0 ? <img src={this.state.images[i]} alt=""/>: <img src={this.state.images} alt=""/>}
                   {" "}
                   <Other datat={e} category={this.state.data.category} revId={e._id} id={e._id} />{" "}
                 </div>

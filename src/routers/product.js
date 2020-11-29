@@ -548,16 +548,12 @@ router.get('/recentReviews', async (req, res) => {
     const pro = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
     console.log(pro.reviews[0]);
-    if (pro.reviews !== []) {
-      var i = 0;
-      while (i < 4) {
-        review.push(pro.reviews[0]);
-        i++;
-      }
+    if (pro.reviews[0] !== []) {
+      review.push(pro.reviews[0])
     }
   });
 console.log("yes")
-  console.log(reviews);
+  console.log(review);
 
   res.send('numberwang');
 });

@@ -71,6 +71,7 @@ class Reviews extends Component {
                 <div class="col-3">
                   {this.state.images.length > 0 ? <img src={this.state.images[i]} alt=""/>: <img src={this.state.images} alt=""/>}
                   {" "}
+                  <br/>
                   <Other datat={e} category={this.state.data.category} revId={e._id} id={e._id} />{" "}
                 </div>
               );

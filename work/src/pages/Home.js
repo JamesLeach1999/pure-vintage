@@ -6,7 +6,7 @@ import Welcome from "../components/Welcome"
 import Login from "../components/Login"
 import CatRows from "../components/CatRows"
 import FeaturedRow from "../components/FeaturedRow"
-
+import Recent from "../components/RecentRevs"
 
 export default class Home extends Component {
   constructor(props){
@@ -30,6 +30,7 @@ export default class Home extends Component {
         <Rows/>
         <CatRows/>
         <FeaturedRow/>
+        <Recent/>
       </div>
     )
   }

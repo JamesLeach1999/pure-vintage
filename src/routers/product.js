@@ -6,7 +6,7 @@ const { filter } = require('../emails/account');
 const Product = require('../models/products');
 const multer = require('multer');
 const cloudinary = require("cloudinary").v2
-
+const Order = require("../models/Order")
 
 
 cloudinary.config({
@@ -533,6 +533,26 @@ router.get('/store1', async (req, res) => {
     isAdmin: false,
   });
 });
+
+router.get("/recentReviews", async(req, res) => {
+    const orders = await Order.find({}).sort([['createdAt', -1]]).limit(4);
+
+    var reviews = []
+    orders.forEach(async (o) => {
+      const oProducts = JSON.parse(o.orderItems)
+
+      oProducts.product.forEach((op) => {
+        const product = await Product.findById({_id: op._id})
+
+        reviews.push(product.reviews)
+      })
+    })
+
+    console.log(reviews)
+
+    res.send("numberwang")
+
+})
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });

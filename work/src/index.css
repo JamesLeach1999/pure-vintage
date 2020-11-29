@@ -381,7 +381,7 @@ ul {
 /* media queries for menu */
 /* only for less than 800 px */
 @media only screen and (max-width: 800px) {
-  nav ul {
+  /* nav ul {
     position: absolute;
     top: 100px;
     left: 0;
@@ -389,7 +389,7 @@ ul {
     width: 100%;
     overflow: hidden;
     transition: max-height 0.5s;
-  }
+  } */
 
   nav ul li {
     display: block;

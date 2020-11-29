@@ -68,7 +68,7 @@
     .alice-carousel__stage-item.__hidden {
       opacity: 0;
       overflow: hidden; }
-
+/* 
 .alice-carousel__prev-btn,
 .alice-carousel__next-btn {
   display: inline-block;
@@ -144,7 +144,7 @@
     border-width: 0 0 0 10px; }
   .alice-carousel__play-btn-item.__pause::after {
     top: 0;
-    left: 18px; }
+    left: 18px; } */
 
 .alice-carousel__dots {
   margin: 30px 3px 5px;

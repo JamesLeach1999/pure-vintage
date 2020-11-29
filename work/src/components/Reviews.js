@@ -23,9 +23,10 @@ class Reviews extends Component {
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
       const revJson = await revRes.json();
-      console.log(revJson)
+      console.log(revJson.name)
       var t = [];
       revJson.name.map((rev) => {
+        console.log(rev)
         t.push(rev.review);
       });
 

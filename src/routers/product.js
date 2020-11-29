@@ -536,8 +536,7 @@ router.get('/store1', async (req, res) => {
 });
 
 router.get('/recentReviews', async (req, res) => {
-  const orders = await Order.find({})
-    .sort([['createdAt', -1]])
+  const orders = await Order.find({}).sort([['createdAt', -1]]);
 
   var reviews = [];
   orders.forEach(async (o) => {
@@ -547,13 +546,17 @@ router.get('/recentReviews', async (req, res) => {
     console.log(oProducts[0]._id);
 
     const pro = await Product.findById({ _id: oProducts[0].product._id });
-    console.log("num1")
-    console.log(pro.reviews)
-    if(pro.reviews !== []){
-      reviews.push(pro.reviews[0])
+    console.log('num1');
+    console.log(pro.reviews);
+    if (pro.reviews !== []) {
+      var i = 0;
+      while (i < 4) {
+        reviews.push(pro.reviews[0]);
+        i++;
+      }
     }
   });
-
+console.log("yes")
   console.log(reviews);
 
   res.send('numberwang');

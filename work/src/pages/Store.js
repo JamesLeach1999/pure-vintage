@@ -10,8 +10,61 @@ const People = (props) => {
   var [categories, setCategories] = useState([]);
   var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
-  var [price, setPrice] = useState(0)
+  var [price, setPrice] = useState(0);
+  const [size, setSize] = useState(window.innerWidth);
+  const [style, setStyle] = useState({})
+  // this outputs 770px
+  console.log(size);
 
+  const bigSize = {
+    border: "1px solid black",
+    width: "350px",
+    position: "relative",
+    left: "40px",
+    paddingLeft: "25px",
+  };
+
+  const smallSize = {
+    border: "1px solid black",
+    width: "200px",
+    position: "relative",
+    left: "40px",
+    paddingLeft: "25px",
+  };
+
+  // this is the callback (can do it inline), uses the initial size for default
+  // then everytime it changes, it is updated by passing inthe new FUNCTION
+  // with window. anything is a function. everytime it changes it is stored in memory
+  // this happens because everytime the size change, it triggers a re render, but not of the page
+  // this is where the cleanup comes in. so it dosent take up all ur memory
+  const checkSize = () => {
+    setSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+
+    if(window.innerWidth > 660){
+      setStyle(bigSize)
+    } else {
+      setStyle(smallSize)
+    }
+    // we use a callback to run every time the event takes place
+    // every time we call the callback function, it triggers a re render
+    window.addEventListener("resize", checkSize);
+    // everytime we use useEffect, we have the optionof returning
+    // whatever we place in here will be invoked once we exit the use effect
+    // before we trigger useEffect after the re render, we remove the listener
+    return () => {
+      console.log("clean up");
+      window.removeEventListener("resize", checkSize);
+      // cant just use console.log. needs to return something like useState does on update
+      // everytime useEffect is called, it adds the listener and sets the state
+      // everytime use effect called, it returns remove the listener
+      // ok so everytime useEffect called, trigger checkSize to change the window size
+      // but it dosent RETURN the addeventlistener, it returns remove
+      // the checksize here just does the same thing. you just have to put in a call back
+    };
+  }, []);
 
   return (
     <div>
@@ -19,13 +72,7 @@ const People = (props) => {
         <form
           className="f-col filter filter-container"
           action="/store"
-          style={{
-            border: "1px solid black",
-            width: "350px",
-            position: "relative",
-            left: "40px",
-            paddingLeft: "25px",
-          }}
+          style={style}
         >
           <section>
             <h5>Filters</h5>

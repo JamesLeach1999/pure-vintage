@@ -29,7 +29,7 @@ const People = (props) => {
     maxWidth: "30%",
     position: "relative",
     fontSize: "15px",
-    left: "15px",
+    marginLeft: "-15px",
     paddingLeft: "25px",
   };
 
@@ -1022,7 +1022,7 @@ const People = (props) => {
                 <br />
                 Max price: £{price}
                 <input
-                  style={{ fontSize: "10px" }}
+                  style={{ fontSize: "20px" }}
                   type="number"
                   id="price"
                   name="price"

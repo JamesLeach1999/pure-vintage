@@ -71,39 +71,42 @@ const App = (props) => {
           placeholder="name"
           onChange={(e) => setRegisterName(e.target.value)}
         />
-        <br/>
+        <br /> <br /> 
         <input
           placeholder="username"
           onChange={(e) => setRegisterUsername(e.target.value)}
         />
-        <br/>
+        <br /> <br />
         <input
           placeholder="password"
           type="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
-        <br/>
-        <button onClick={register}>Submit</button>
+        <br />
+        <button onClick={register}>Register</button>
       </div>
+      <br />
+      <br />
 
       <div>
         {/* <form> */}
-          <h1>Login</h1>
-          <input
-            placeholder="username"
-            onChange={(e) => setLoginUsername(e.target.value)}
-          />
-          <br/>
-          <input
-            placeholder="password"
-            type="password"
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
-          <br/>
-          <button onClick={login}>Submit</button>
-      {/* </form> */}
-        </div>
-<br/>
+        <h1>Login</h1>
+        <input
+          placeholder="username"
+          onChange={(e) => setLoginUsername(e.target.value)}
+        />
+        <br />
+        <br />
+        <input
+          placeholder="password"
+          type="password"
+          onChange={(e) => setLoginPassword(e.target.value)}
+        />
+        <br />
+        <button onClick={login}>Login</button>
+        {/* </form> */}
+      </div>
+      <br />
       <form action="/logout" method="get">
         <button type="submit" onClick={logout}>
           Logout?

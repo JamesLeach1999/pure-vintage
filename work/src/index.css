@@ -356,20 +356,24 @@ ul {
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
-  
 }
 
 .f-col p {
   font-size: 14px;
 }
 
-.f-col{
+.f-col {
   flex-basis: 25%;
   padding: 10px;
   max-width: 250px;
   margin-bottom: 50px;
   transition: transform 0.5s;
 
+  border: "1px solid black";
+  width: "350px";
+  position: "relative";
+  left: "40px";
+  padding-left: "25px";
 }
 
 .order-row {
@@ -416,11 +420,11 @@ ul {
     transition: max-height 0.5s;
   } */
 
-  .logo{
+  .logo {
     display: none;
   }
 
-  nav{
+  nav {
     position: fixed;
   }
 
@@ -433,8 +437,7 @@ ul {
 
   nav ul li a {
     color: darkred;
-        display: inline;
-
+    display: inline;
   }
 
   /* .menu-icon {

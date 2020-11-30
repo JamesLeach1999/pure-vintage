@@ -126,7 +126,7 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>{product.price}</h4>

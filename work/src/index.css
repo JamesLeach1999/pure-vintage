@@ -632,6 +632,7 @@ th:last-child {
 
   nav ul {
     display: inline-flex;
+    align-self: flex-start;
   }
 
   nav ul li {

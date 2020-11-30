@@ -1010,7 +1010,7 @@ const People = (props) => {
                     <input type="checkbox" />
                     <span class="checkbox-custom rectangular"></span>
                   </label>
-                  <div class="input-title">Rectangular</div>
+                  <div class="input-title">Shirts</div>
                 </div>
                 Max price: £{price}
                 <input

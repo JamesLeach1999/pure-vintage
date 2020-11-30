@@ -18,7 +18,7 @@ const People = (props) => {
 
   const bigSize = {
     border: "1px solid black",
-    width: "350px",
+    maxWidth: "350px",
     position: "relative",
     left: "40px",
     paddingLeft: "25px",
@@ -26,7 +26,7 @@ const People = (props) => {
 
   const smallSize = {
     border: "1px solid black",
-    width: "30%",
+    maxWidth: "30%",
     position: "relative",
     fontSize: "15px",
     left: "30px",

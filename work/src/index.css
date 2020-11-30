@@ -690,7 +690,7 @@ th:last-child {
     clear: both;
     display: block;
     padding: 0px 0px;
-    background-color: #009bff;
+    background-color: green;
     border-radius: 4px;
   }
   .card::after {
@@ -706,14 +706,14 @@ th:last-child {
     padding: 40px 0px;
   }
   .card .circular-container {
-    background-color: #0067ff;
+    background-color:red;
   }
 
   .input-title {
     clear: both;
     padding: 22px 0px 0px 0px;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.6);
+    color: yellow;
     font-weight: 300;
   }
 
@@ -749,11 +749,11 @@ th:last-child {
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-    border: 2px solid #ffffff;
+    border: 2px solid grey;
   }
 
   .checkbox-label input:checked ~ .checkbox-custom {
-    background-color: #ffffff;
+    background-color:orange;
     border-radius: 5px;
     -webkit-transform: rotate(0deg) scale(1);
     -ms-transform: rotate(0deg) scale(1);
@@ -770,7 +770,7 @@ th:last-child {
     height: 0px;
     width: 0px;
     border-radius: 5px;
-    border: solid #009bff;
+    border: solid purple;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(0deg) scale(0);
     -ms-transform: rotate(0deg) scale(0);
@@ -792,7 +792,7 @@ th:last-child {
     top: 3px;
     width: 6px;
     height: 12px;
-    border: solid #009bff;
+    border: solid brown;
     border-width: 0 2px 2px 0;
     background-color: transparent;
     border-radius: 0;
@@ -807,7 +807,7 @@ th:last-child {
     width: 0px;
     height: 0px;
     border-radius: 5px;
-    border: 2px solid #ffffff;
+    border: 2px solid yellow;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);
@@ -832,30 +832,5 @@ th:last-child {
   }
 
   /* Style for Circular Checkbox */
-  .checkbox-label .checkbox-custom.circular {
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-  }
-
-  .checkbox-label input:checked ~ .checkbox-custom.circular {
-    background-color: #ffffff;
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-  }
-  .checkbox-label input:checked ~ .checkbox-custom.circular::after {
-    border: solid #0067ff;
-    border-width: 0 2px 2px 0;
-  }
-  .checkbox-label .checkbox-custom.circular::after {
-    border-radius: 50%;
-  }
-
-  .checkbox-label .checkbox-custom.circular::before {
-    border-radius: 50%;
-    border: 2px solid #ffffff;
-  }
-
-  .checkbox-label input:checked ~ .checkbox-custom.circular::before {
-    border-radius: 50%;
-  }
+  
 }

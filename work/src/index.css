@@ -426,12 +426,15 @@ ul {
     display: none;
   }
 
-  nav{
-    display:flex;justify-content:center;align-items:center;width:400px;height:110px;
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 110px;
   }
 
-  nav ul{
-
+  nav ul {
     display: inline-flex;
   }
 
@@ -441,7 +444,6 @@ ul {
     margin-top: 10px;
     margin-bottom: 10px;
     align-items: center;
-    
   }
 
   nav ul li a {
@@ -628,13 +630,11 @@ th:last-child {
     /* margin-top: 20px; */
   }
 
-  nav ul{
-
+  nav ul {
     display: inline-flex;
   }
 
   nav ul li {
-    
     margin-right: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -652,8 +652,12 @@ th:last-child {
     flex-basis: 100%;
   }
 
-  nav{
-    display:flex;justify-content:center;align-items:center;width:400px;height:110px;
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 110px;
   }
 
   .col-2 img {
@@ -685,38 +689,35 @@ th:last-child {
     clear: both;
     display: block;
     padding: 0px 0px;
-    background-color: #009BFF;
+    background-color: #009bff;
     border-radius: 4px;
-}
-.card::after {
+  }
+  .card::after {
     clear: both;
     display: block;
     content: "";
-}
-.card .checkbox-container {
+  }
+  .card .checkbox-container {
     float: left;
     width: 50%;
     box-sizing: border-box;
-    text-align:center;
-  padding: 40px 0px;
-}
-.card .circular-container {
-  background-color:#0067FF;
-}
+    text-align: center;
+    padding: 40px 0px;
+  }
+  .card .circular-container {
+    background-color: #0067ff;
+  }
 
-.input-title {
+  .input-title {
     clear: both;
     padding: 22px 0px 0px 0px;
     font-size: 16px;
-    color: rgba(255,255,255,.6);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 300;
-}
+  }
 
-
-
-
-/* Styling Checkbox Starts */
-.checkbox-label {
+  /* Styling Checkbox Starts */
+  .checkbox-label {
     display: block;
     position: relative;
     margin: auto;
@@ -726,15 +727,15 @@ th:last-child {
     height: 24px;
     width: 24px;
     clear: both;
-}
+  }
 
-.checkbox-label input {
+  .checkbox-label input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
-}
+  }
 
-.checkbox-label .checkbox-custom {
+  .checkbox-label .checkbox-custom {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -747,22 +748,20 @@ th:last-child {
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-    border: 2px solid #FFFFFF;
-}
+    border: 2px solid #ffffff;
+  }
 
-
-.checkbox-label input:checked ~ .checkbox-custom {
-    background-color: #FFFFFF;
+  .checkbox-label input:checked ~ .checkbox-custom {
+    background-color: #ffffff;
     border-radius: 5px;
     -webkit-transform: rotate(0deg) scale(1);
     -ms-transform: rotate(0deg) scale(1);
     transform: rotate(0deg) scale(1);
-    opacity:1;
-    border: 2px solid #FFFFFF;
-}
+    opacity: 1;
+    border: 2px solid #ffffff;
+  }
 
-
-.checkbox-label .checkbox-custom::after {
+  .checkbox-label .checkbox-custom::after {
     position: absolute;
     content: "";
     left: 12px;
@@ -770,39 +769,36 @@ th:last-child {
     height: 0px;
     width: 0px;
     border-radius: 5px;
-    border: solid #009BFF;
+    border: solid #009bff;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(0deg) scale(0);
     -ms-transform: rotate(0deg) scale(0);
     transform: rotate(0deg) scale(0);
-    opacity:1;
+    opacity: 1;
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-}
+  }
 
+  .checkbox-label input:checked ~ .checkbox-custom::after {
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
+    opacity: 1;
+    left: 8px;
+    top: 3px;
+    width: 6px;
+    height: 12px;
+    border: solid #009bff;
+    border-width: 0 2px 2px 0;
+    background-color: transparent;
+    border-radius: 0;
+  }
 
-.checkbox-label input:checked ~ .checkbox-custom::after {
-  -webkit-transform: rotate(45deg) scale(1);
-  -ms-transform: rotate(45deg) scale(1);
-  transform: rotate(45deg) scale(1);
-  opacity:1;
-  left: 8px;
-  top: 3px;
-  width: 6px;
-  height: 12px;
-  border: solid #009BFF;
-  border-width: 0 2px 2px 0;
-  background-color: transparent;
-  border-radius: 0;
-}
-
-
-
-/* For Ripple Effect */
-.checkbox-label .checkbox-custom::before {
+  /* For Ripple Effect */
+  .checkbox-label .checkbox-custom::before {
     position: absolute;
     content: "";
     left: 10px;
@@ -810,13 +806,13 @@ th:last-child {
     width: 0px;
     height: 0px;
     border-radius: 5px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
-    transform: scale(0);  
-}
+    transform: scale(0);
+  }
 
-.checkbox-label input:checked ~ .checkbox-custom::before {
+  .checkbox-label input:checked ~ .checkbox-custom::before {
     left: -3px;
     top: -3px;
     width: 24px;
@@ -825,43 +821,40 @@ th:last-child {
     -webkit-transform: scale(3);
     -ms-transform: scale(3);
     transform: scale(3);
-    opacity:0;
+    opacity: 0;
     z-index: 999;
     transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     -moz-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
-}
+  }
 
-
-
-
-/* Style for Circular Checkbox */
-.checkbox-label .checkbox-custom.circular {
+  /* Style for Circular Checkbox */
+  .checkbox-label .checkbox-custom.circular {
     border-radius: 50%;
-    border: 2px solid #FFFFFF;
-}
+    border: 2px solid #ffffff;
+  }
 
-.checkbox-label input:checked ~ .checkbox-custom.circular {
-    background-color: #FFFFFF;
+  .checkbox-label input:checked ~ .checkbox-custom.circular {
+    background-color: #ffffff;
     border-radius: 50%;
-    border: 2px solid #FFFFFF;
-}
-.checkbox-label input:checked ~ .checkbox-custom.circular::after {
-    border: solid #0067FF;
+    border: 2px solid #ffffff;
+  }
+  .checkbox-label input:checked ~ .checkbox-custom.circular::after {
+    border: solid #0067ff;
     border-width: 0 2px 2px 0;
-}
-.checkbox-label .checkbox-custom.circular::after {
+  }
+  .checkbox-label .checkbox-custom.circular::after {
     border-radius: 50%;
-}
+  }
 
-.checkbox-label .checkbox-custom.circular::before {
+  .checkbox-label .checkbox-custom.circular::before {
     border-radius: 50%;
-    border: 2px solid #FFFFFF;
-}
+    border: 2px solid #ffffff;
+  }
 
-.checkbox-label input:checked ~ .checkbox-custom.circular::before {
+  .checkbox-label input:checked ~ .checkbox-custom.circular::before {
     border-radius: 50%;
-}
+  }
 }

@@ -1005,11 +1005,12 @@ const People = (props) => {
                 </div>
                 {/* class="form-check-input filled-in" class="form-check-label small
                 text-uppercase card-link-secondary" */}
-                <div class="checkbox-container">
+                <div class="checkbox-container" style={{backgroundColor: "blue", color: "white"}}>
                   <label class="checkbox-label">
                     <input type="checkbox" />
                     <span class="checkbox-custom rectangular"></span>
                   </label>
+                  Shirts
                   <div class="input-title">Shirts</div>
                 </div>
                 Max price: £{price}

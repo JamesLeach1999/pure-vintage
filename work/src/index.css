@@ -89,12 +89,11 @@ p {
   background: radial-gradient(#fff, #0104bd5e);
   height: 100%;
 }
-.work {
-  margin-left: 0px;
-}
+
 
 .header .row {
   margin-top: 70px;
+  margin-left: -20px;
   width: 100%;
 }
 

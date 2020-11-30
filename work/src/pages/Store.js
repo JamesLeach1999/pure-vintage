@@ -17,7 +17,7 @@ const People = (props) => {
     <div>
       <section className="p">
         <form
-          className="col-4 filter filter-container"
+          className="f-col filter filter-container"
           action="/store"
           style={{
             border: "1px solid black",

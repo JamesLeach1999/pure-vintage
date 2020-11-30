@@ -351,20 +351,25 @@ ul {
   width: 100%;
   display: flex;
 }
-.col-4 .filter-container {
+.f-col .filter-container {
   flex: 15%;
   position: relative;
   border: 2px solid red;
   margin-top: 150px;
-  border: "1px solid black";
-            width: "350px";
-            position: "relative";
-            left: "40px";
-            padding-left: "25px";
-  /* margin-left: 150px; */
-  /* float: left;
-  justify-content: left; */
-  /* display:inline-flex; */
+  
+}
+
+.f-col p {
+  font-size: 14px;
+}
+
+.f-col{
+  flex-basis: 25%;
+  padding: 10px;
+  max-width: 250px;
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+
 }
 
 .order-row {

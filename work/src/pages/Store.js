@@ -29,7 +29,7 @@ const People = (props) => {
     width: "20%",
     position: "relative",
     fontSize: "15px",
-    // right: "15px",
+    left: "15px",
     // paddingLeft: "25px",
   };
 

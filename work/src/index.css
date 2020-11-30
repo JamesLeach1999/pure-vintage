@@ -92,6 +92,7 @@ p {
 
 
 .header .row .work {
+  max-width: 1900px;
   margin-top: 70px;
   margin-left: -20px;
   width: 100%;

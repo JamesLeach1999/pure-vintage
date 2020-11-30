@@ -20,7 +20,7 @@ const ProductPage = () => {
     } else {
       setStyle({ width: "60px", height: "60px" });
     }
-    
+
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
@@ -134,7 +134,9 @@ const ProductPage = () => {
             <form action="/added" method="POST">
               <input type="text" value={id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>
-                Add to cart: <input type="checkbox" />
+                Add to cart:
+                <br/>
+                 <input type="checkbox" />
               </h3>
               <input
                 type="submit"

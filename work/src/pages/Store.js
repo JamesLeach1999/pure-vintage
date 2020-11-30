@@ -26,10 +26,10 @@ const People = (props) => {
 
   const smallSize = {
     border: "1px solid black",
-    width: "20%",
+    width: "30%",
     position: "relative",
     fontSize: "15px",
-    left: "15px",
+    left: "30px",
     // paddingLeft: "25px",
   };
 
@@ -75,7 +75,7 @@ const People = (props) => {
           style={style}
         >
           {window.innerWidth > 660 ? (
-            <section>
+            <section style={{height: "1500px"}}>
               <h5>Filters</h5>
 
               <section class="mb-4">
@@ -1023,12 +1023,12 @@ const People = (props) => {
                 Max price: £{price}
                 <input
                   style={{ fontSize: "40px" }}
-                  type="range"
+                  type="number"
                   id="price"
                   name="price"
                   min="0"
                   max="1000"
-                  default="1000"
+                  // default="1000"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 ></input>

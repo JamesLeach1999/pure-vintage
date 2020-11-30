@@ -63,6 +63,7 @@ const OrderPage = () => {
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>
+                  <br/>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -76,7 +77,9 @@ const OrderPage = () => {
                   <input type="" name="id" value={item.product._id} hidden />
                   <input type="text" name="name" value={name} hidden />
                   <input type="number" name="star" max="5" />
+                  <br/>
                   <input type="text" name="desc" />
+                  <br/>
                   <button
                     type="submit"
                     onClick={() =>

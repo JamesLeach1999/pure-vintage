@@ -56,35 +56,38 @@ const ProductPage = () => {
           <div class="col-2">
             <form action="/editPost" method="post">
               <h4>{product.name}</h4>
+              <br/>
               <input type="text" name="id" value={product._id} hidden />
               <h4>{product.name}</h4>
-
+<br/>
               <input type="text" placeholder="name" name="edit" />
               <h4>{product.brand}</h4>
-
+<br/>
               <input type="text" placeholder="brand" name="edit" />
               <h4>{product.category}</h4>
-
+<br/>
               <input type="text" placeholder="category" name="edit" />
               <h4>{product.description}</h4>
-
+<br/>
               <input
                 type="text"
                 placeholder="description"
                 name="edit"
                 style={{ border: "1px solid black", borderRadius: "3px" }}
               />
+              <br/>
               <h4>{product.size}</h4>
 
               <input type="text" placeholder="size" name="edit" />
               {/* <h4>{product.name}</h4> */}
-
+<br/>
               <input
                 type="file"
                 placeholder="image"
                 multiple="multiple"
                 name="image"
               />
+              <br/>
               <h4>{product.price}</h4>
 
               <input type="number" placeholder="price" name="edit" />

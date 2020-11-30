@@ -28,8 +28,8 @@ const People = (props) => {
     border: "1px solid black",
     width: "35%",
     position: "relative",
-    left: "40px",
-    paddingLeft: "25px",
+    left: "10px",
+    // paddingLeft: "25px",
   };
 
   // this is the callback (can do it inline), uses the initial size for default

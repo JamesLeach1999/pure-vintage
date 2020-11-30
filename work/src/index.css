@@ -426,15 +426,22 @@ ul {
     display: none;
   }
 
-  .header {
-    position: fixed;
+  nav{
+    display:flex;justify-content:center;align-items:center;width:400px;height:110px;
+  }
+
+  nav ul{
+
+    display: inline-flex;
   }
 
   nav ul li {
-    display: inline;
+    flex-basis: auto;
     margin-right: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+    align-items: center;
+    
   }
 
   nav ul li a {
@@ -621,6 +628,18 @@ th:last-child {
     /* margin-top: 20px; */
   }
 
+  nav ul{
+
+    display: inline-flex;
+  }
+
+  nav ul li {
+    
+    margin-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .row {
     text-align: center;
   }
@@ -633,8 +652,8 @@ th:last-child {
     flex-basis: 100%;
   }
 
-  .header {
-    position: fixed;
+  nav{
+    display:flex;justify-content:center;align-items:center;width:400px;height:110px;
   }
 
   .col-2 img {

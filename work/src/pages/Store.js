@@ -1007,14 +1007,18 @@ const People = (props) => {
                 text-uppercase card-link-secondary" */}
                 <div class="checkbox-container">
                   <label class="checkbox-label">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      value="shirts"
+                      id="shirts"
+                      name="category"
+                    />
                     <span class="checkbox-custom rectangular"></span>
                   </label>
-                  <br/>
-                  Shirts
-                  {/* <div class="input-title">Shirts</div> */}
+
+                  <div class="input-title">Shirts</div>
                 </div>
-                <br/>
+                <br />
                 Max price: £{price}
                 <input
                   style={{ fontSize: "40px" }}

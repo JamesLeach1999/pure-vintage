@@ -1022,7 +1022,7 @@ const People = (props) => {
                 <br />
                 Max price: £{price}
                 <input
-                  style={{ fontSize: "20px" }}
+                  style={{ fontSize: "15px" }}
                   type="number"
                   id="price"
                   name="price"

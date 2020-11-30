@@ -65,8 +65,8 @@ p {
 .col-2 img {
   width: 520px;
   height: 520px;
-  max-height: 600px;
-  max-width: 600px;
+  max-height: 520px;
+  max-width: 520px;
   padding: 50px 0;
 }
 

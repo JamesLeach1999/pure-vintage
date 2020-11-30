@@ -12,7 +12,15 @@ const ProductPage = () => {
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
   const [small, setSmall] = useState()
+  const [style, setStyle] = useState()
   const getProducts = async () => {
+
+    if (window.innerWidth > 600) {
+      setStyle({ width: "124px", height: "124px" });
+    } else {
+      setStyle({ width: "60px", height: "60px" });
+    }
+    
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
@@ -26,6 +34,8 @@ const ProductPage = () => {
     if (images) {
       setSmall(images[0]);
     }
+
+    
 
     
     // then you want to set the state, set the empty array to an array of 30
@@ -64,7 +74,7 @@ const ProductPage = () => {
                     src={`${images[1]}`}
                     onClick={() => setSmall(images[1])}
                     alt=""
-                    style={{ width: "124px", height: "124px" }}
+                    style={style}
                     width="100%"
                     class="smallImg"
                   />
@@ -78,7 +88,7 @@ const ProductPage = () => {
                     src={`${images[2]}`}
                     onClick={() => setSmall(images[2])}
                     alt=""
-                    style={{ width: "124px", height: "124px" }}
+                    style={style}
                     width="100%"
                     class="smallImg"
                   />
@@ -92,7 +102,7 @@ const ProductPage = () => {
                     src={`${images[3]}`}
                     onClick={() => setSmall(images[3])}
                     alt=""
-                    style={{ width: "124px", height: "124px" }}
+                    style={style}
                     width="100%"
                     class="smallImg"
                   />
@@ -106,7 +116,7 @@ const ProductPage = () => {
                     src={`${images[4]}`}
                     onClick={() => setSmall(images[4])}
                     alt=""
-                    style={{ width: "124px", height: "124px" }}
+                    style={style}
                     width="100%"
                     class="smallImg"
                   />

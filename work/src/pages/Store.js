@@ -30,7 +30,7 @@ const People = (props) => {
     position: "relative",
     fontSize: "15px",
     left: "30px",
-    // paddingLeft: "25px",
+    paddingLeft: "25px",
   };
 
   // this is the callback (can do it inline), uses the initial size for default
@@ -1022,7 +1022,7 @@ const People = (props) => {
                 <br />
                 Max price: £{price}
                 <input
-                  style={{ fontSize: "40px" }}
+                  style={{ fontSize: "10px" }}
                   type="number"
                   id="price"
                   name="price"

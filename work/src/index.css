@@ -685,12 +685,14 @@ th:last-child {
   }
 
   .card {
+    position: relative;
+    align-content: center;
     width: 500px;
     margin: 50px auto;
     clear: both;
     display: block;
     padding: 0px 0px;
-    background-color: green;
+    background-color: white;
     border-radius: 4px;
   }
   .card::after {
@@ -713,7 +715,7 @@ th:last-child {
     clear: both;
     padding: 22px 0px 0px 0px;
     font-size: 16px;
-    color: yellow;
+    color: black;
     font-weight: 300;
   }
 
@@ -753,7 +755,7 @@ th:last-child {
   }
 
   .checkbox-label input:checked ~ .checkbox-custom {
-    background-color:orange;
+    background-color:rgb(82, 82, 82);
     border-radius: 5px;
     -webkit-transform: rotate(0deg) scale(1);
     -ms-transform: rotate(0deg) scale(1);
@@ -792,7 +794,7 @@ th:last-child {
     top: 3px;
     width: 6px;
     height: 12px;
-    border: solid brown;
+    border: solid black;
     border-width: 0 2px 2px 0;
     background-color: transparent;
     border-radius: 0;
@@ -807,7 +809,7 @@ th:last-child {
     width: 0px;
     height: 0px;
     border-radius: 5px;
-    border: 2px solid yellow;
+    border: 2px solid grey;
     -webkit-transform: scale(0);
     -ms-transform: scale(0);
     transform: scale(0);

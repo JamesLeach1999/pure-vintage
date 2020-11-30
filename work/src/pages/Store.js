@@ -1012,6 +1012,8 @@ const People = (props) => {
                     backgroundColor: "blue",
                     color: "white",
                     textAlign: "center",
+                    position: "relative",
+                    right: "5px"
                   }}
                 >
                   <label class="checkbox-label">
@@ -1028,6 +1030,8 @@ const People = (props) => {
                   {/* Shirts */}
                   {/* <div class="input-title">Shirts</div> */}
                 </div>
+                <br/>
+                <br/>
                 Max price: £{price}
                 <input
                   style={{ fontSize: "40px" }}

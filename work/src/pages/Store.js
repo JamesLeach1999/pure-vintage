@@ -28,7 +28,7 @@ const People = (props) => {
     border: "1px solid black",
     width: "35%",
     position: "relative",
-    left: "10px",
+    right: "100px",
     // paddingLeft: "25px",
   };
 

@@ -688,7 +688,7 @@ th:last-child {
   .card {
     position: relative;
     align-content: center;
-    width: 500px;
+    /* width: 500px; */
     margin: 50px auto;
     clear: both;
     display: block;

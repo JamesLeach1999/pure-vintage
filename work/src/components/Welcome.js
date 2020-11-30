@@ -10,7 +10,7 @@ const Welcome = () => {
     return (
       <>
         <div class="row header work">
-          <AliceCarousel autoPlay autoPlayInterval="3000">
+          <AliceCarousel autoPlay autoPlayInterval="3000" style={{maxWidth: "1896px"}}>
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"
               className="sliderimg" alt=""

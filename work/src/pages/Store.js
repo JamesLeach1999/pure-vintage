@@ -1006,6 +1006,7 @@ const People = (props) => {
                 {/* class="form-check-input filled-in" class="form-check-label small
                 text-uppercase card-link-secondary" */}
                 <div class="checkbox-container">
+                  Shirts
                   <label class="checkbox-label">
                     <input
                       type="checkbox"
@@ -1016,7 +1017,6 @@ const People = (props) => {
                     <span class="checkbox-custom rectangular"></span>
                   </label>
 
-                  <div class="input-title">Shirts</div>
                 </div>
                 <br />
                 Max price: £{price}

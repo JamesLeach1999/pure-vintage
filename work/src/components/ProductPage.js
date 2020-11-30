@@ -64,7 +64,7 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <img
-              src={`${small || images[0]}`}
+              src={`${images[0]}`}
               alt="shit"
             ></img>
             <div class="small-img-row">

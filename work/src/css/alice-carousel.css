@@ -35,7 +35,7 @@
 .alice-carousel {
   position: relative;
   width: 100%;
-  max-width: 1895px;
+  max-width: 1903px;
   margin: 0;
   direction: ltr;
 }
@@ -45,7 +45,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
   box-sizing: border-box;
-  max-width: 1895px;
+  max-width: 1903px;
   width: 100%;
   height: auto;
 }

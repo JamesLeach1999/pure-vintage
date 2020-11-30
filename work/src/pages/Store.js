@@ -27,8 +27,9 @@ const People = (props) => {
   const smallSize = {
     border: "1px solid black",
     width: "35%",
-    position: "relative",
-    left: "10px",
+    alignItems: "left"
+    // position: "relative",
+    // left: "10px",
     // paddingLeft: "25px",
   };
 
@@ -1005,9 +1006,22 @@ const People = (props) => {
                 </div>
                 {/* class="form-check-input filled-in" class="form-check-label small
                 text-uppercase card-link-secondary" */}
-                <div class="checkbox-container" style={{backgroundColor: "blue", color: "white", textAlign: "center"}}>
+                <div
+                  class="checkbox-container"
+                  style={{
+                    backgroundColor: "blue",
+                    color: "white",
+                    textAlign: "center",
+                  }}
+                >
                   <label class="checkbox-label">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      value="coats"
+                      id="coats"
+                      name="category"
+                    />
+                    <br/>
                     Shirts
                     <span class="checkbox-custom rectangular"></span>
                   </label>

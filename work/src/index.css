@@ -368,11 +368,9 @@ ul {
   max-width: 250px;
   margin-bottom: 50px;
   transition: transform 0.5s;
-
 }
 
-#work{
-  
+#work {
   border: "1px solid black";
   width: "350px";
   position: "relative";
@@ -428,7 +426,7 @@ ul {
     display: none;
   }
 
-  nav {
+  .header {
     position: fixed;
   }
 
@@ -633,6 +631,16 @@ th:last-child {
   .col-5,
   .footer {
     flex-basis: 100%;
+  }
+
+  .header {
+    position: fixed;
+  }
+
+  .col-2 img {
+    max-height: 300px;
+    max-width: 300px;
+    padding: 50px 0;
   }
 
   .single-product .row {

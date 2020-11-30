@@ -56,7 +56,6 @@ const ProductPage = () => {
             <img
               src={`${small || images[0]}`}
               alt="shit"
-              style={{ width: "520px", height: "520px" }}
             ></img>
             <div class="small-img-row">
               <div class="small-img-col">

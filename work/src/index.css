@@ -622,6 +622,10 @@ th:last-child {
 /* media query for less than 600px screen */
 
 @media only screen and (max-width: 600px) {
+
+  *{
+    margin-right: -9px;
+  }
   .categories .small-container,
   .col-3 {
     flex-basis: 100%;

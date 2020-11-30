@@ -1010,7 +1010,6 @@ const People = (props) => {
                   class="checkbox-container"
                   style={{
                     backgroundColor: "blue",
-                    color: "white",
                     textAlign: "center",
                     position: "relative",
                     right: "5px"

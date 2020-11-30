@@ -26,9 +26,10 @@ const People = (props) => {
 
   const smallSize = {
     border: "1px solid black",
-    width: "35%",
+    width: "20%",
     position: "relative",
-    right: "100px",
+    fontSize: "15px",
+    right: "15px",
     // paddingLeft: "25px",
   };
 

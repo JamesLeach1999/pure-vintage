@@ -18,6 +18,7 @@ const People = (props) => {
       <section className="p">
         <form
           className="f-col filter filter-container"
+          id="work"
           action="/store"
           
         >

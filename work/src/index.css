@@ -369,6 +369,10 @@ ul {
   margin-bottom: 50px;
   transition: transform 0.5s;
 
+}
+
+#work{
+  
   border: "1px solid black";
   width: "350px";
   position: "relative";

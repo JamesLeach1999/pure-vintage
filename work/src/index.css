@@ -656,6 +656,7 @@ th:last-child {
     display: flex;
     justify-content: center;
     align-items: center;
+    word-spacing: 3px;
     width: 400px;
     height: 110px;
   }

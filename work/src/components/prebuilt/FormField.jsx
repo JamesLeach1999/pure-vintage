@@ -30,7 +30,7 @@ const Input = styled.input`
   font-size: 16px;
   width: 100%;
   padding: 11px 15px 11px 8px;
-  color: #d3d3d3;
+  color: white;
   background-color: transparent;
   animation: 1ms void-animation-out;
 

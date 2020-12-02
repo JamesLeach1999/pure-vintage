@@ -8,7 +8,7 @@
     "node": "12.18.2"
   },
   "scripts": {
-    "start": "node src/server.js",
+    "start": "nodemon src/server.js",
     "dev": "node src/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
@@ -63,7 +63,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "node-cache": "^5.1.2",
-    "nodemon": "^2.0.4",
+    "nodemon": "^2.0.6",
     "prettier": "^2.1.1",
     "stripe": "^8.107.0",
     "supertest": "^4.0.2"

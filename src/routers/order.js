@@ -147,7 +147,7 @@ router.post("/testing", async (req, res) => {
   console.log(req.body)
 })
 
-router.post('/te', ensureAuthenticated, async (req, res) => {
+router.post('/te', async (req, res) => {
   const id = req.body.id;
 console.log(req.body)
   var items = [];

@@ -28,7 +28,6 @@ const GlobalStyles = () => (
         body,
         html {
           font-size: 14px;
-          width: 650px;
           font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
         }
       `}

@@ -1,38 +1,67 @@
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import axios from 'axios';
+import { useState } from "react";
+import styled from "@emotion/styled";
+import axios from "axios";
 
-import Row from './prebuilt/Row';
-import BillingDetailsFields from './prebuilt/BillingDetailsFields';
-import SubmitButton from './prebuilt/SubmitButton';
-import CheckoutError from './prebuilt/CheckoutError';
+import Row from "./prebuilt/Row";
+import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
+import SubmitButton from "./prebuilt/SubmitButton";
+import CheckoutError from "./prebuilt/CheckoutError";
 
-
-import { CardElement, CartElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import { CardCvcElement } from '@stripe/react-stripe-js';
+import {
+  CardElement,
+  CartElement,
+  useElements,
+  useStripe,
+} from "@stripe/react-stripe-js";
+import { CardCvcElement } from "@stripe/react-stripe-js";
 
 const CardElementContainer = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
   color: #d3d3d3;
-  
+
   & .StripeElement {
     width: 100%;
     padding: 15px;
   }
 `;
 
-
 const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
+  var styles;
+  if (window.innerWidth > 1500) {
+    styles = {
+      width: "4000px",
+      margin: "30px auto",
+      boxShadow:
+        "0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),inset 0 1px 0 #000000",
+
+      borderRadius: "4px",
+      border: "#000000",
+      backgroundColor: "#ffffff",
+      position: "relative",
+    };
+  } else {
+    styles = {
+      width: "250px",
+      margin: "30px auto",
+      boxShadow:
+        "0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),inset 0 1px 0 #000000",
+
+      borderRadius: "4px",
+      border: "#000000",
+      backgroundColor: "#ffffff",
+      position: "relative",
+    };
+  }
 
   // so we load stripe, then we inject to checkout using elements, then use stripe is how to get back the stripe object
   const stripe = useStripe();
   // custom hook from stripe
   const elements = useElements();
-  console.log()
+  console.log();
 
   const handleFormSubmit = async (ev) => {
     ev.preventDefault();
@@ -53,13 +82,13 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     // create payment intent on server
     // returns client_secret of payment intent
-    
-    const { data: clientSecret } = await axios.post('/payment_intents', {
-      amount: price*100,
+
+    const { data: clientSecret } = await axios.post("/payment_intents", {
+      amount: price * 100,
       id: localStorage.getItem("user"),
       address: billingDetails.address.line1,
       city: billingDetails.address.city,
-      postcode: billingDetails.address.postal_code
+      postcode: billingDetails.address.postal_code,
     });
 
     const cardElement = elements.getElement(CardElement);
@@ -70,7 +99,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     // need stripe.js object
     // create payment method
     const paymentMethodReq = await stripe.createPaymentMethod({
-      type: 'card',
+      type: "card",
       card: cardElement,
       billing_details: billingDetails,
     });
@@ -84,28 +113,27 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     });
     await axios.post("/te", {
       test: confirmedCardPayment,
-      id: localStorage.getItem("user")
-    })
+      id: localStorage.getItem("user"),
+    });
     // redirect on checkout if no errors
     onSuccessfulCheckout("/pastOrders");
   };
   // to display errors, use a try catch and in the catch, set the checkoutError state object
-
 
   // again, just styling. full docs at stripe
   const cardElementOptions = {
     // way to inject styles into i frame. 3 different styles in different cases
     style: {
       base: {
-        fontSize: '16px',
-        color: '#fff',
-        '::placeholder': {
-          color: '#87bbfd',
+        fontSize: "16px",
+        color: "#fff",
+        "::placeholder": {
+          color: "#87bbfd",
         },
       },
       invalid: {
-        color: '#FFC7EE',
-        iconColor: '#FFC7EE',
+        color: "#FFC7EE",
+        iconColor: "#FFC7EE",
       },
       complete: {},
     },
@@ -114,19 +142,19 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <Row>
+      <Row style={styles}>
         <BillingDetailsFields />
       </Row>
-      <Row>
+      <Row style={styles}>
         <CardElementContainer>
           {/* options jusv for styling */}
           <CardElement options={cardElementOptions} />
         </CardElementContainer>
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
-      <Row>
+      <Row style={styles}>
         <SubmitButton disabled={isProcessing}>
-          {isProcessing ? 'Processing...' : `Pay £${price}`}
+          {isProcessing ? "Processing..." : `Pay £${price}`}
         </SubmitButton>
       </Row>
     </form>

@@ -41,7 +41,7 @@ const MainPage = (props) => {
   }, []);
 
   return (
-    <Layout title="Donut Shop">
+    <Layout title="Donut Shop" className="store-container">
       <h1>{sum}</h1>
       <CheckoutForm
         price={sum}

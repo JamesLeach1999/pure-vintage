@@ -30,20 +30,7 @@ const CardElementContainer = styled.div`
 const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
-  var [styles, setStyles] = useState({});
-
-  if (window.innerWidth > 1000) {
-    setStyles({
-      width: "350px",
-      margin: "30px auto",
-      boxShadow:
-        "0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #000000",
-      borderRadius: "4px",
-      border: "red",
-      backgrounColor: "#ffffff",
-      position: "relative",
-    });
-  }
+  
 
   // so we load stripe, then we inject to checkout using elements, then use stripe is how to get back the stripe object
   const stripe = useStripe();

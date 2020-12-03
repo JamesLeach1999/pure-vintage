@@ -23,7 +23,7 @@ const Label = styled.label`
   font-size: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border-right: 1px solid #00000;
+  border-right: 1px solid black;
 `;
 
 const Input = styled.input`
@@ -33,6 +33,7 @@ const Input = styled.input`
   color: black;
   background-color: transparent;
   animation: 1ms void-animation-out;
+  border-right: 1px solid black;
 
   &::placeholder {
     color: #000000;

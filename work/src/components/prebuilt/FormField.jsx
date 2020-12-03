@@ -23,19 +23,19 @@ const Label = styled.label`
   font-size: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border-right: 1px solid #fffff;
+  border-right: 1px solid #00000;
 `;
 
 const Input = styled.input`
   font-size: 16px;
   width: 100%;
   padding: 11px 15px 11px 8px;
-  color: #FFFFFF;
+  color: grey;
   background-color: transparent;
   animation: 1ms void-animation-out;
 
   &::placeholder {
-    color: #FFFFFF;
+    color: #000000;
   }
 `;
 

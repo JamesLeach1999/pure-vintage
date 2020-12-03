@@ -42,7 +42,7 @@ const MainPage = (props) => {
 
   return (
     <Layout title="Donut Shop" className="store-container">
-      <h1>{sum}</h1>
+      <h1>£{sum} total</h1>
       <CheckoutForm
         price={sum}
         onSuccessfulCheckout={async () => {

@@ -87,7 +87,8 @@ const Manage = () => {
                     <Edit id={product._id} />
                     {/* <Product/> */}
                   </Link>
-                  {/* <form action="/featured" method="post">
+                  <br/>
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -115,7 +116,7 @@ const Manage = () => {
                     >
                       deletr
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -131,7 +132,9 @@ const Manage = () => {
                     <Edit id={product._id} />
                     {/* <Product/> */}
                   </Link>
-                  {/* <form action="/featured" method="post">
+                  <br />
+
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -159,7 +162,7 @@ const Manage = () => {
                     >
                       deletr
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -175,7 +178,9 @@ const Manage = () => {
                     <Edit id={product._id} />
                     {/* <Product/> */}
                   </Link>
-                  {/* <form action="/featured" method="post">
+                  <br />
+
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -203,7 +208,7 @@ const Manage = () => {
                     >
                       deletr
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -219,7 +224,9 @@ const Manage = () => {
                     <Edit id={product._id} />
                     {/* <Product/> */}
                   </Link>
-                  {/* <form action="/featured" method="post">
+                  <br />
+
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -247,7 +254,7 @@ const Manage = () => {
                     >
                       deletr
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });

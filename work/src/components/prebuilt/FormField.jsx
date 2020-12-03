@@ -6,7 +6,7 @@ const FormFieldContainer = styled.div`
   -ms-flex-align: center;
   align-items: center;
   margin-left: 15px;
-  border-top: 10px solid #819efc;
+  border-top: 10px solid #d3d3d3;
   color: #FFFFFF;
 
   &:first-of-type {
@@ -18,7 +18,7 @@ const Label = styled.label`
   width: 20%;
   min-width: 70px;
   padding: 11px 0;
-  color: #d3d3d3;
+  color: black;
   overflow: hidden;
   font-size: 16px;
   text-overflow: ellipsis;
@@ -30,7 +30,7 @@ const Input = styled.input`
   font-size: 16px;
   width: 100%;
   padding: 11px 15px 11px 8px;
-  color: grey;
+  color: black;
   background-color: transparent;
   animation: 1ms void-animation-out;
 

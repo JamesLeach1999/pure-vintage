@@ -7,7 +7,7 @@ const FormFieldContainer = styled.div`
   align-items: center;
   margin-left: 15px;
   border-top: 10px solid #000000;
-  color: #FFFFFF;
+  color: #000000;
 
   &:first-of-type {
     border-top: none;

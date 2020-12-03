@@ -33,7 +33,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   var styles;
   if (window.innerWidth > 1500) {
     styles = {
-      width: "4000px",
+      width: "400px",
       margin: "30px auto",
       boxShadow:
         "0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),inset 0 1px 0 #000000",

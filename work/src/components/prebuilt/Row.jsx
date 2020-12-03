@@ -7,7 +7,7 @@ const Row = styled.div`
     inset 0 1px 0 #829fff;
   border-radius: 4px;
   border: #000000;
-  background-color: #7795f8;
+  background-color: #ffffff;
   position: relative;
 `;
 

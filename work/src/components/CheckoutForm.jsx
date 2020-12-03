@@ -101,7 +101,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     style: {
       base: {
         fontSize: "16px",
-        color: "#fff",
+        color: "#000000",
         "::placeholder": {
           color: "#87bbfd",
         },

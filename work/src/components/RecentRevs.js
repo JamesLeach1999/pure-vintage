@@ -14,8 +14,9 @@ class Reviews extends Component {
     try {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
-      console.log(pJson)
-      this.setState({ data: pJson.name });
+      var pros = pJson.name.slice(0, 4)
+      console.log(pros)
+      this.setState({ data:  pros});
       this.setState({ images: pJson.images });
       console.log(this.state.images)
       console.log(this.state.data);

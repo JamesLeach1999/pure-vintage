@@ -6,7 +6,7 @@ const FormFieldContainer = styled.div`
   -ms-flex-align: center;
   align-items: center;
   margin-left: 15px;
-  border-top: 10px solid #d3d3d3;
+  border-top: 10px solid #000000;
   color: #FFFFFF;
 
   &:first-of-type {

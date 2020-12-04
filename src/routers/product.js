@@ -69,7 +69,7 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
   // retreiving input data. using multer middleware for the image
 
   console.log(req.body);
-  console.log(req.file);
+  console.log(req.files);
   // console.log(req.files.image);
 
   var t = [];

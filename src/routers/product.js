@@ -78,18 +78,32 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
   console.log(t);
   // File upload
   // fileJPG.forEach(async (img) => {
-  for (var i = 0; req.files.image.length > i; i++) {
-    var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
-      width: 1250,
-      height: 1250,
-      tags: 'pure-vintage',
-      public_id: req.files.image[i].name,
-    });
-    console.log('numberwang 2');
+    if(req.files.image.length > 0){
 
-    console.log(fileJPG);
-    ogName.push(fileJPG.url);
-  }
+      for (var i = 0; req.files.image.length > i; i++) {
+        var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
+          width: 1250,
+          height: 1250,
+          tags: 'pure-vintage',
+          public_id: req.files.image[i].name,
+        });
+        console.log('numberwang 2');
+    
+        console.log(fileJPG);
+        ogName.push(fileJPG.url);
+      }
+    } else {
+      var fileJPG = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
+        width: 1250,
+        height: 1250,
+        tags: 'pure-vintage',
+        public_id: req.files.image.name,
+      });
+      console.log('numberwang 5');
+
+      console.log(fileJPG);
+      ogName.push(fileJPG.url);
+    }
   console.log('numberwang 3');
 
   console.log(ogName);

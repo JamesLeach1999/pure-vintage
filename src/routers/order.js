@@ -218,7 +218,8 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
   if (req.body.percent) {
     var percent = req.body.percent / 100;
 
-    refundPrice = amount * percent;
+    var refundPr = amount * percent;
+    refundPrice = Math.round(refundPr)
   } else {
     refundPrice = amount;
   }

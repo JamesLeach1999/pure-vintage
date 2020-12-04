@@ -25,14 +25,16 @@ class Reviews extends Component {
       const revJson = await revRes.json();
       console.log(revJson.name);
       var t = [];
-      var img = []
+      var img = [];
       revJson.name.map((rev) => {
         console.log(rev);
-        img.push(rev.image[0])
+        img.push(rev.image[0]);
         t.push(rev.reviews[0]);
       });
-      this.setState({images: img})
+      this.setState({ images: img });
       this.setState({ other: t });
+      console.log(t);
+      console.log(this.state.data)
       console.log(this.state.other);
     } catch (error) {
       console.log(this.props);
@@ -50,18 +52,20 @@ class Reviews extends Component {
           <br />
 
           <div class="row">
-            {this.state.data !== undefined ? this.state.data.map((e) => {
-              return e.reviews.length > 0
-                ? e.reviews.map((r) => {
-                    return (
-                      <div class="col-3">
-                        {" "}
-                        <Review revId={r._id} id={e._id} />{" "}
-                      </div>
-                    );
-                  })
-                : "";
-            }): ""}
+            {this.state.data !== undefined
+              ? this.state.data.map((e) => {
+                  return e.reviews.length > 0
+                    ? e.reviews.map((r) => {
+                        return (
+                          <div class="col-3">
+                            {" "}
+                            <Review revId={r._id} id={e._id} />{" "}
+                          </div>
+                        );
+                      })
+                    : "";
+                })
+              : ""}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}
@@ -73,26 +77,28 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row">
-            {this.state.data !== undefined ? this.state.other.map((e, i) => {
-              return (
-                <div class="col-3">
-                  {this.state.images.length > 0 ? (
-                    <img src={this.state.images[i]} alt="" />
-                  ) : (
-                    <img src={this.state.images} alt="" />
-                  )}{" "}
-                  <br />
-                  <br/>
-                  <br/>
-                  <Other
-                    datat={e}
-                    category={this.state.data.category}
-                    revId={e._id}
-                    id={e._id}
-                  />{" "}
-                </div>
-              );
-            }): ""}
+            {this.state.data !== undefined
+              ? this.state.other.map((e, i) => {
+                  return (
+                    <div class="col-3">
+                      {this.state.images.length > 0 ? (
+                        <img src={this.state.images[i]} alt="" />
+                      ) : (
+                        <img src={this.state.images} alt="" />
+                      )}{" "}
+                      <br />
+                      <br />
+                      <br />
+                      <Other
+                        datat={e}
+                        category={this.state.data.category}
+                        revId={e._id}
+                        id={e._id}
+                      />{" "}
+                    </div>
+                  );
+                })
+              : ""}
           </div>
         </div>
         <h1 id="id" hidden>

@@ -80,7 +80,7 @@ const OrderPage = () => {
                   <i class="fa fa-star"></i>
                   <i class="fa fa-star-o"></i>
                 </div>
-                <p>{item.product.price}</p>
+                <p>£{item.product.price}</p>
                 <br/>
                 <form action="/refundSingle" method="post">
                   <input type="" name="productId" value={item.product._id} hidden />

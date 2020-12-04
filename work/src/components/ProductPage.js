@@ -129,7 +129,7 @@ const ProductPage = () => {
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
-            <h4>{product.price}</h4>
+            <h4>£{product.price}</h4>
 
             <form action="/added" method="POST">
               <input type="text" value={id} name="id" hidden />

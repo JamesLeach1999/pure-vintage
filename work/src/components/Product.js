@@ -50,7 +50,7 @@ class Product extends Component {
           <i class="fa fa-star"></i>
           <i class="fa fa-star-o"></i>
         </div>
-        <p>{this.state.data.price}</p>
+        <p>£{this.state.data.price}</p>
       </div>
     );
   }

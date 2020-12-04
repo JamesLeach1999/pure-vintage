@@ -16,7 +16,7 @@ const StoreProduct = ({name, image, price, rating}) => {
           <i class="fa fa-star"></i>
           <i class="fa fa-star-o"></i>
         </div>
-  <p>{price}</p>
+  <p>£{price}</p>
       </div>
   );
 };

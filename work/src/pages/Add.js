@@ -19,7 +19,7 @@ const Addpage = () => {
   const [loading, setLoading] = useState(true)
 
   const add = async () => {
-
+console.log(sessionStorage)
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false"

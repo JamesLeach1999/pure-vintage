@@ -29,7 +29,10 @@ class Reviews extends Component {
       revJson.name.map((rev) => {
         console.log(rev);
         img.push(rev.image[0]);
-        t.push(rev.reviews[0]);
+        if(rev.reviews[0] !== undefined){
+          t.push(rev.reviews[0]);
+        }
+          
       });
       this.setState({ images: img });
       this.setState({ other: t });
@@ -45,7 +48,7 @@ class Reviews extends Component {
   render() {
     return (
       <div class="testimonial">
-        {/* <div class="small-container">
+        <div class="small-container">
           <h1>Reviews</h1>
           <br />
           <br />
@@ -67,8 +70,8 @@ class Reviews extends Component {
               }
             
           </div>
-        </div> */}
-        {/* <div class="small-container">
+        </div>
+        <div class="small-container">
           <h1>Reviews from similar products:</h1>
           <br />
           <br />
@@ -97,7 +100,7 @@ class Reviews extends Component {
                 })
               : ""}
           </div>
-        </div> */}
+        </div>
         <h1 id="id" hidden>
           <GetId />
         </h1>

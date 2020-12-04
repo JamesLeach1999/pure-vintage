@@ -52,8 +52,7 @@ class Reviews extends Component {
           <br />
 
           <div class="row">
-            {this.state.other[0] !== undefined
-              ? this.state.data.map((e) => {
+            { this.state.data.map((e) => {
                   return e.reviews.length > 0
                     ? e.reviews.map((r) => {
                         return (
@@ -65,7 +64,7 @@ class Reviews extends Component {
                       })
                     : "";
                 })
-              : ""}
+              }
             
           </div>
         </div>

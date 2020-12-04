@@ -57,9 +57,9 @@ console.log(sessionStorage)
   }
 
 
-  // useEffect(() => {
-  //   add()
-  // }, [loading])
+  useEffect(() => {
+    add()
+  }, [loading])
 return (
   <div>
     <div

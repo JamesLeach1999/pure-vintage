@@ -29,13 +29,15 @@ class Reviews extends Component {
       revJson.name.map((rev) => {
         console.log(rev);
         img.push(rev.image[0]);
-        if(rev.reviews[0] !== undefined){
-          t.push(rev.reviews[0]);
-        }
-          
+        
+        t.push(rev.reviews[0]);
+      });
+
+      var filtered = t.filter(function (el) {
+        return el != null;
       });
       this.setState({ images: img });
-      this.setState({ other: t });
+      this.setState({ other: filtered });
       console.log(t);
       console.log(this.state.data)
       console.log(this.state.other);

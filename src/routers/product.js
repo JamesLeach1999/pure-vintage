@@ -106,7 +106,7 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
     }
   console.log('numberwang 3');
 
-  console.log(ogName);
+  var flip = ogName.reverse()
   // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
 
@@ -146,7 +146,7 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
     category,
     description,
     size,
-    image: ogName,
+    image: flip,
     featured: false,
   });
 

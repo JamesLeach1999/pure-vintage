@@ -13,7 +13,7 @@ class EditPage extends Component {
   }
 
   async componentDidMount() {
-    // const profile = await Axios(`/me?id=${localStorage.getItem("user")}`);
+    // const profile = await Axios(`/me?id=${sessionStorage.getItem("user")}`);
     // console.log(profile);
     // if (!profile) {
     //   window.location.replace("/store");

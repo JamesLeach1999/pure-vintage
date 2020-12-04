@@ -9,11 +9,11 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  console.log(localStorage.getItem("user"));
-  const url = `/cart1?id=${localStorage.getItem("user")}`;
+  console.log(sessionStorage.getItem("user"));
+  const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
   const getCart = async () => {
-    if (!localStorage.getItem("user")) {
+    if (!sessionStorage.getItem("user")) {
       window.location.replace("/store");
     } else {
       try {

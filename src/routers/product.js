@@ -373,7 +373,7 @@ router.post('/editPost', async (req, res) => {
 //   }
 // });
 
-router.post('/delete', async (req, res) => {
+router.post('/delete', ensureAuthenticated, async (req, res) => {
   var category;
   if (req.body.category) {
     var category = req.body.category.toString();
@@ -476,7 +476,7 @@ router.get('/home', async (req, res) => {
   }
 });
 
-router.get('/manage1', async (req, res) => {
+router.get('/manage1', ensureAuthenticated, async (req, res) => {
   var category;
   // console.log(localStorage)
   console.log('i work3');

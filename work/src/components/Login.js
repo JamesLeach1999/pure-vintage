@@ -9,7 +9,6 @@ const App = (props) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
-  console.log(loginUsername)
   const register = () => {
     Axios({
       method: "POST",
@@ -42,26 +41,24 @@ const App = (props) => {
       url: "/login",
     }).then((res) => {
       if (res.data) {
-        console.log(res.data)
+        console.log(res.data);
         props.handleLogin(res.data.passport);
-        if(localStorage.getItem("user")){
-  
+        if (sessionStorage.getItem("user")) {
           window.location.replace("/store");
         }
       } else {
         props.handleLogin(false);
       }
-
     });
   };
 
   const logout = async () => {
-            localStorage.removeItem("auth")
-            localStorage.removeItem("admin")
-            localStorage.removeItem("user")
+    sessionStorage.removeItem("auth");
+    sessionStorage.removeItem("admin");
+    sessionStorage.removeItem("user");
 
-            // window.location.replace("/store");
-          }
+    // window.location.replace("/store");
+  };
 
   return (
     <div className="App">
@@ -71,9 +68,9 @@ const App = (props) => {
           placeholder="name"
           onChange={(e) => setRegisterName(e.target.value)}
         />
-        <br /> <br /> 
+        <br /> <br />
         <input
-          placeholder="username"
+          placeholder="email"
           onChange={(e) => setRegisterUsername(e.target.value)}
         />
         <br /> <br />
@@ -92,7 +89,7 @@ const App = (props) => {
         {/* <form> */}
         <h1>Login</h1>
         <input
-          placeholder="username"
+          placeholder="email"
           onChange={(e) => setLoginUsername(e.target.value)}
         />
         <br />

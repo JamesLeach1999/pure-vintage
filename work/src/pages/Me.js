@@ -7,7 +7,7 @@ const People = (props) => {
   var [brands, setBrands] = useState([]);
   var [sizes, setSizes] = useState([]);
 
-  console.log(localStorage);
+  console.log(sessionStorage);
 
   return (
     <div>

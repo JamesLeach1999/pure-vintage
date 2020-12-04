@@ -47,15 +47,15 @@ export default class Nav extends Component {
         admin: work.data.isAdmin
       });
       console.log(work.data)
-      localStorage.setItem("auth", true)
-      localStorage.setItem("admin", work.data.isAdmin)
-      localStorage.setItem("user", work.data.id)
-      console.log(localStorage)
+      sessionStorage.setItem("auth", true)
+      sessionStorage.setItem("admin", work.data.isAdmin)
+      sessionStorage.setItem("user", work.data.id)
+      console.log(sessionStorage)
     }
     
     if(!data){
-      // localStorage.setItem("auth", false);
-      // localStorage.setItem("admin", false);
+      // sessionStorage.setItem("auth", false);
+      // sessionStorage.setItem("admin", false);
       window.location.replace("/store")
     }
   }
@@ -100,7 +100,7 @@ export default class Nav extends Component {
                   <li>
                     <Link to="/store">store</Link>
                   </li>
-                  {localStorage.getItem("auth") === "true" ? (
+                  {sessionStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/cart">cart</Link>
                     </li>
@@ -108,7 +108,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {localStorage.getItem("auth") === "false" ? (
+                  {sessionStorage.getItem("auth") === "false" ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -117,14 +117,14 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )}
-                  {localStorage.getItem("auth") === "true" ? (
+                  {sessionStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/me">me</Link>
                     </li>
                   ) : (
                     ""
                   )}
-                  {localStorage.getItem("admin") === "true" ? (
+                  {sessionStorage.getItem("admin") === "true" ? (
                     <li>
                       <Link to="/manage">manage</Link>
                     </li>

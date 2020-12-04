@@ -75,13 +75,13 @@ router.get('/check', (req, res) => {
   res.render('test.ejs');
 });
 
-router.post('/payment_intents', async (req, res) => {
+router.post('/payment_intents', ensureAuthenticated, async (req, res) => {
   if (req.method === 'POST') {
     try {
       const id = req.body.id;
-      console.log(req.body)
+      console.log(req.body);
       const user = await User.findById({ _id: id });
-      console.log("thtas number")
+      console.log('thtas number');
 
       var cart = user.cart;
       var fullCart = [];
@@ -90,8 +90,7 @@ router.post('/payment_intents', async (req, res) => {
         var product = await Product.findById({
           _id: cart[i],
         });
-        if(product !== null){
-
+        if (product !== null) {
           items.push({ product });
           fullCart.push(product.price);
         }
@@ -112,7 +111,7 @@ router.post('/payment_intents', async (req, res) => {
         shipping: destination,
         total: sum,
         isPaid: false,
-        intent: ""
+        intent: '',
       });
       // console.log(order._id);
 
@@ -143,17 +142,17 @@ router.post('/payment_intents', async (req, res) => {
   }
 });
 
-router.post("/testing", async (req, res) => {
-  console.log(req.body)
-})
+router.post('/testing', async (req, res) => {
+  console.log(req.body);
+});
 
-router.post('/te', async (req, res) => {
+router.post('/te', ensureAuthenticated, async (req, res) => {
   const id = req.body.id;
-console.log(req.body)
+  console.log(req.body);
   var items = [];
   const user = await User.findById({ _id: id });
-  console.log("thats wangnumbe")
-console.log(req.body)
+  console.log('thats wangnumbe');
+  console.log(req.body);
   var cart = user.cart;
 
   User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
@@ -163,83 +162,79 @@ console.log(req.body)
   const orderID = user.pastOrders.slice(-1)[0];
   // console.log(orderID);
   var items = [];
-  console.log(user.name)
-  Order.findByIdAndUpdate({ _id: orderID }, { isPaid: true, intent:req.body.test.paymentIntent.id }, (err, res) => {
-    orderConf(user.email, user.name, res.orderItems);
-  });
-  console.log("work plz")
+  console.log(user.name);
+  Order.findByIdAndUpdate(
+    { _id: orderID },
+    { isPaid: true, intent: req.body.test.paymentIntent.id },
+    (err, res) => {
+      orderConf(user.email, user.name, res.orderItems);
+    }
+  );
+  console.log('work plz');
 
   res.send('it  worked');
 });
 
-
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
-  console.log(orders)
+  console.log(orders);
 
-  res.send( {
+  res.send({
     names: orders,
     isAuth: true,
     isAdmin: true,
   });
 });
 
-router.post("/refund", ensureAuthenticated, async (req, res) => {
-  
-  Order.findByIdAndRemove({_id: req.body.id}, (err, res) => {
-    console.log(res)
-    console.log("nailed it")
-  })
+router.post('/refund', ensureAuthenticated, async (req, res) => {
+  Order.findByIdAndRemove({ _id: req.body.id }, (err, res) => {
+    console.log(res);
+    console.log('nailed it');
+  });
   const refund = await stripe.refunds.create({
     payment_intent: req.body.intent,
   });
 
-  res.send(refund)
-})
+  res.send(refund);
+});
 
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
+  const amount = req.body.amount;
+  console.log(amount);
+  const productId = req.body.productId;
+  const order = await Order.findById({ _id: req.body.id });
 
-  const amount = req.body.amount
-  console.log(amount)
-  const productId = req.body.productId
-  const order = await Order.findById({_id: req.body.id})
-
-  const orderItems = JSON.parse(order.orderItems)
+  const orderItems = JSON.parse(order.orderItems);
 
   // console.log(orderItems)
 
   orderItems.forEach((item) => {
-    console.log(item)
-  })
+    console.log(item);
+  });
 
-    // console.log(orderItems);
-    var refundPrice;
-    if(req.body.percent){
-      var percent = req.body.percent/100
+  // console.log(orderItems);
+  var refundPrice;
+  if (req.body.percent) {
+    var percent = req.body.percent / 100;
 
-      refundPrice = amount * percent
-    } else {
-      refundPrice = amount
-    }
-
-
-
-
+    refundPrice = amount * percent;
+  } else {
+    refundPrice = amount;
+  }
 
   const refund = await stripe.refunds.create({
     payment_intent: req.body.intent,
-    amount: refundPrice * 100
+    amount: refundPrice * 100,
   });
-  console.log(refund)
+  console.log(refund);
 
-  res.redirect("/allOrders");
+  res.redirect('/allOrders');
 });
-
 
 router.get('/pastOrders', async (req, res) => {
   console.log('thats numberwang');
-  console.log(req.query.id)
+  console.log(req.query.id);
 
   const user = await User.findById({ _id: req.query.id });
   // retrieving only the first 5 results
@@ -247,13 +242,11 @@ router.get('/pastOrders', async (req, res) => {
   var orders = [];
   var orderInfo = [];
   for (var i = 0; i < pastOrders.length; i++) {
-    
     if (pastOrders[i] !== null) {
       var product = await Order.findById({
         _id: pastOrders[i],
       }).sort([['createdAt', -1]]);
-      if(product !== null || product !== undefined){
-
+      if (product !== null || product !== undefined) {
         orders.push(product);
       }
       // console.log(product)
@@ -262,25 +255,23 @@ router.get('/pastOrders', async (req, res) => {
   var filtered = orders.filter(function (el) {
     return el != null;
   });
-  
-  console.log("numeorwanf")
+
+  console.log('numeorwanf');
   console.log(filtered);
 
-  var item = []
+  var item = [];
 
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
     console.log(JSON.parse(items.orderItems[0]));
-    item.push(JSON.parse(items.orderItems[0]))
-  })
+    item.push(JSON.parse(items.orderItems[0]));
+  });
 
-  var i = []
-  item.forEach((r) => {
+  var i = [];
+  item.forEach((r) => {});
 
-  })
-
-  console.log("working")
-  console.log(item)
+  console.log('working');
+  console.log(item);
 
   res.send({
     pageTitle: 'welcome',
@@ -293,21 +284,21 @@ router.get('/pastOrders', async (req, res) => {
   });
 });
 
-router.get("/orderProducts",  async (req, res) => {
+router.get('/orderProducts', async (req, res) => {
   console.log(req.query.id);
-  console.log(req.query.user)
+  console.log(req.query.user);
 
-  const user = await User.findById({_id: req.query.user})
+  const user = await User.findById({ _id: req.query.user });
   // console.log(req.session.passport.user);
-  const product = await Order.findById({_id: req.query.id})
-  console.log("thats nuberwang 3")
-  console.log(product)
-  const p = JSON.parse(product.orderItems)
-  
-  console.log(p)
+  const product = await Order.findById({ _id: req.query.id });
+  console.log('thats nuberwang 3');
+  console.log(product);
+  const p = JSON.parse(product.orderItems);
+
+  console.log(p);
   console.log('thats nuberwang 4');
-  var it = []
-  
+  var it = [];
+
   console.log('thats nuberwang 5');
 
   res.send({
@@ -318,6 +309,6 @@ router.get("/orderProducts",  async (req, res) => {
     //   categories: categories,
     isAuth: true,
   });
-})
+});
 
 module.exports = router;

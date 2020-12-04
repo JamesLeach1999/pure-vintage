@@ -15,8 +15,8 @@ const ProductPage = () => {
     console.log(id);
     
     if (
-      !localStorage.getItem("admin") ||
-      localStorage.getItem("admin") === "false"
+      !sessionStorage.getItem("admin") ||
+      sessionStorage.getItem("admin") === "false"
     ) {
       window.location.replace("/store");
     } else {

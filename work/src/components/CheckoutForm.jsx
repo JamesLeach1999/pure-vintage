@@ -60,7 +60,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
     const { data: clientSecret } = await axios.post("/payment_intents", {
       amount: price * 100,
-      id: localStorage.getItem("user"),
+      id: sessionStorage.getItem("user"),
       address: billingDetails.address.line1,
       city: billingDetails.address.city,
       postcode: billingDetails.address.postal_code,
@@ -88,7 +88,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     });
     await axios.post("/te", {
       test: confirmedCardPayment,
-      id: localStorage.getItem("user"),
+      id: sessionStorage.getItem("user"),
     });
     // redirect on checkout if no errors
     onSuccessfulCheckout("/pastOrders");

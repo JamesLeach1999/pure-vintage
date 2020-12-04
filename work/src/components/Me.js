@@ -13,16 +13,16 @@ const Me = () => {
   const [nulll, setNull] = useState("c");
 
   function getID() {
-    localStorage.setItem("id", localStorage.getItem("user"));
-    console.log(localStorage.getItem("id"));
+    sessionStorage.setItem("id", sessionStorage.getItem("user"));
+    console.log(sessionStorage.getItem("id"));
   }
 
   const getMe = async () => {
-    if (localStorage.getItem("user")) {
+    if (sessionStorage.getItem("user")) {
       try {
-        console.log(localStorage.getItem("id"));
+        console.log(sessionStorage.getItem("id"));
         const order = await fetch(
-          `/pastOrders?id=${localStorage.getItem("id")}`
+          `/pastOrders?id=${sessionStorage.getItem("id")}`
         );
         const orderJson = await order.json();
         var allOrders = [];
@@ -58,8 +58,8 @@ const Me = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("id", localStorage.getItem("user"));
-    console.log(localStorage.getItem("id"));
+    sessionStorage.setItem("id", sessionStorage.getItem("user"));
+    console.log(sessionStorage.getItem("id"));
   }, []);
 
   useEffect(() => {

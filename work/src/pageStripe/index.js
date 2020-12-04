@@ -10,7 +10,7 @@ import axios from 'axios';
 const MainPage = (props) => {
   const [sum, SetSum] = useState();
 
-  const url = `/cart1?id=${localStorage.getItem("user")}`;
+  const url = `/cart1?id=${sessionStorage.getItem("user")}`;
   useEffect(() => {
     const work = async () => {
       try {

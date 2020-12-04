@@ -12,12 +12,12 @@ class Product extends Component {
 
   async componentDidMount() {
     
-    if (!localStorage.getItem("user")) {
+    if (!sessionStorage.getItem("user")) {
       window.location.replace('/store');
     } else {
       try {
         
-        const response = await fetch(`/orderProducts?id=${this.props.id}&user=${localStorage.getItem("user")}`);
+        const response = await fetch(`/orderProducts?id=${this.props.id}&user=${sessionStorage.getItem("user")}`);
         const json = await response.json();
         console.log(this.props.id);
         var p = [];

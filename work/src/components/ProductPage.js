@@ -64,7 +64,7 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <img
-              src={`${images[0]}`}
+              src={`${small||images[0]}`}
               alt="shit"
             ></img>
             <div class="small-img-row">
@@ -72,7 +72,7 @@ const ProductPage = () => {
                 {images[1] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[1]}`}
-                    onClick={setSmall(images[1])}
+                    onClick={() => setSmall(images[1])}
                     alt=""
                     style={style}
                     width="100%"
@@ -86,7 +86,7 @@ const ProductPage = () => {
                 {images[2] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[2]}`}
-                    onClick={setSmall(images[2])}
+                    onClick={() => setSmall(images[2])}
                     alt=""
                     style={style}
                     width="100%"
@@ -100,7 +100,7 @@ const ProductPage = () => {
                 {images[3] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[3]}`}
-                    onClick={setSmall(images[3])}
+                    onClick={() => setSmall(images[3])}
                     alt=""
                     style={style}
                     width="100%"
@@ -114,7 +114,7 @@ const ProductPage = () => {
                 {images[4] !== undefined && images !== undefined ? (
                   <img
                     src={`${images[4]}`}
-                    onClick={(images[4])}
+                    onClick={() => setSmall(images[4])}
                     alt=""
                     style={style}
                     width="100%"

@@ -108,7 +108,7 @@ export default class Nav extends Component {
                     ""
                   )}
 
-                  {sessionStorage.getItem("auth") === "false" ? (
+                  {sessionStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>

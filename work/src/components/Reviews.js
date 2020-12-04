@@ -45,13 +45,13 @@ class Reviews extends Component {
   render() {
     return (
       <div class="testimonial">
-        <div class="small-container">
+        {/* <div class="small-container">
           <h1>Reviews</h1>
           <br />
           <br />
-          <br />
+          <br /> */}
 
-          <div class="row">
+          {/* <div class="row">
             {this.state.data !== undefined
               ? this.state.data.map((e) => {
                   return e.reviews.length > 0
@@ -66,17 +66,15 @@ class Reviews extends Component {
                     : "";
                 })
               : ""}
-            {/* <h1>{this.state.data[0].reviews.name}</h1> */}
-            {/* <Review />
-            <Review /> */}
-          </div>
-        </div>
-        <div class="small-container">
+             */}
+          {/* </div>
+        </div> */}
+        {/* <div class="small-container">
           <h1>Reviews from similar products:</h1>
           <br />
           <br />
-          <br />
-          <div class="row">
+          <br /> */}
+          {/* <div class="row">
             {this.state.data !== undefined
               ? this.state.other.map((e, i) => {
                   return (
@@ -100,10 +98,10 @@ class Reviews extends Component {
                 })
               : ""}
           </div>
-        </div>
-        <h1 id="id" hidden>
+        </div> */}
+        {/* <h1 id="id" hidden>
           <GetId />
-        </h1>
+        </h1> */}
       </div>
     );
   }

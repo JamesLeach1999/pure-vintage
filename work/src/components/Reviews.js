@@ -73,7 +73,7 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row">
-            {this.state.other.map((e, i) => {
+            {this.state.other ? this.state.other.map((e, i) => {
               return (
                 <div class="col-3">
                   {this.state.images.length > 0 ? (
@@ -92,7 +92,7 @@ class Reviews extends Component {
                   />{" "}
                 </div>
               );
-            })}
+            }): ""}
           </div>
         </div>
         <h1 id="id" hidden>

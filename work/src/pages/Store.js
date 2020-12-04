@@ -32,7 +32,7 @@ const People = (props) => {
     marginLeft: "-2px",
     paddingLeft: "25px",
   };
-
+console.log(sessionStorage)
   // this is the callback (can do it inline), uses the initial size for default
   // then everytime it changes, it is updated by passing inthe new FUNCTION
   // with window. anything is a function. everytime it changes it is stored in memory

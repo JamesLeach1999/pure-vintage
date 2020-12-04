@@ -33,7 +33,7 @@ class Reviews extends Component {
       });
       this.setState({images: img})
       this.setState({ other: t });
-      console.log(t);
+      console.log(this.state.other);
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -50,7 +50,7 @@ class Reviews extends Component {
           <br />
 
           <div class="row">
-            {this.state.data.map((e) => {
+            {this.state.data !== undefined ? this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
                     return (
@@ -61,7 +61,7 @@ class Reviews extends Component {
                     );
                   })
                 : "";
-            })}
+            }): ""}
             {/* <h1>{this.state.data[0].reviews.name}</h1> */}
             {/* <Review />
             <Review /> */}
@@ -73,7 +73,7 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row">
-            {this.state.other ? this.state.other.map((e, i) => {
+            {this.state.data !== undefined ? this.state.other.map((e, i) => {
               return (
                 <div class="col-3">
                   {this.state.images.length > 0 ? (

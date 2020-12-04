@@ -99,9 +99,9 @@ class Reviews extends Component {
               : ""}
           </div>
         </div> */}
-        {/* <h1 id="id" hidden>
+        <h1 id="id" hidden>
           <GetId />
-        </h1> */}
+        </h1>
       </div>
     );
   }

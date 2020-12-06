@@ -17,7 +17,7 @@ import Edit from "./EditPage";
 import PastOrders from "../pages/Past";
 import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
-import { Button } from "./Button";
+import { Button1 } from "./Button";
 import "../css/Navbar.css";
 
 // have to use links like this in the nav
@@ -146,7 +146,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-            <Button></Button>
+            <Button1></Button1>
           </ul>
         </nav>
 

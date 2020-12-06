@@ -644,6 +644,7 @@ th:last-child {
   width: 200px;
   height: 70px;
   background-color: red;
+  display: block;
 }
 
   nav ul {

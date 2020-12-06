@@ -40,7 +40,6 @@
   padding: 0.5rem 1rem;
   position: relative;
   justify-content: center;
-  padding-top: 80px;
 }
 
 .nav-links:hover {
@@ -140,7 +139,7 @@
         transition: 250ms;
     }
 
-    Button{
+    Button1{
         display: none;
     }
     

@@ -67,18 +67,20 @@ export default class Nav extends Component {
     }
   }
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClick1, false);
-  }
+  // componentDidMount() {
+  //   document.addEventListener("mousedown", this.handleClick1, false);
+  // }
 
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClick1, false);
-  }
+  // componentWillMount() {
+  //   document.addEventListener("mousedown", this.handleClick1, false);
+  // }
   
   handleClick1 = (e) => {
     if(this.node.contains(e.target)){
+      console.log("out")
       alert("out")
     } else {
+      console.log("in")
       alert("in")
     }
     
@@ -98,7 +100,7 @@ export default class Nav extends Component {
                 />
               </div> */}
         <nav className="NavbarItems">
-          <div className="menu-icon" onClick={this.handleClick}>
+          <div className="menu-icon" onClick={this.handleClick1}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>

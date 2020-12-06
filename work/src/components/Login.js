@@ -100,12 +100,12 @@ const App = (props) => {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <br />
-        <button onClick={login}>Login</button>
+        <button className="" onClick={login}>Login</button>
         {/* </form> */}
       </div>
       <br />
       <form action="/logout" method="get">
-        <button type="submit" onClick={logout}>
+        <button className="" type="submit" onClick={logout}>
           Logout?
         </button>
       </form>

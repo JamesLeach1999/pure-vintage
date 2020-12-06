@@ -116,7 +116,7 @@ export default class Nav extends Component {
               <Link to="/store">store</Link>
             </li>
             {sessionStorage.getItem("auth") === "true" ? (
-              <li>
+              <li className="nav-links">
                 <Link to="/cart">cart</Link>
               </li>
             ) : (

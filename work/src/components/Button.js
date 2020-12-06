@@ -26,7 +26,7 @@ export const Button = ({
     >
       {sessionStorage.getItem("auth") === "false" ||
       !sessionStorage.getItem("auth") ? (
-        <li className="nav-links">
+        <li className="nav-links-mobile">
           <Link to="/login">login</Link>
         </li>
       ) : (

@@ -39,17 +39,21 @@ const App = (props) => {
       withCredentials: true,
 
       url: "/login",
-    }).then((res) => {
-      if (res.data) {
-        console.log(res.data);
-        props.handleLogin(res.data.passport);
-        if (sessionStorage.getItem("user")) {
-          window.location.replace("/store");
+    })
+      .then((res) => {
+        if (res.data) {
+          console.log(res.data);
+          props.handleLogin(res.data.passport);
+          if (sessionStorage.getItem("user")) {
+            console.log("numberwang login");
+          }
+        } else {
+          props.handleLogin(false);
         }
-      } else {
-        props.handleLogin(false);
-      }
-    });
+      })
+      .finally(() => {
+        window.location.replace("/store");
+      });
   };
 
   const logout = async () => {
@@ -100,7 +104,9 @@ const App = (props) => {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <br />
-        <button className="wow" onClick={login}>Login</button>
+        <button className="wow" onClick={login}>
+          Login
+        </button>
         {/* </form> */}
       </div>
       <br />

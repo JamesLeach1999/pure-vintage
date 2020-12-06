@@ -40,6 +40,10 @@ export default class Nav extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
+  handleClickOutside = () => {
+    this.setState({clicked: false})
+  }
+
   async handleLogin(data) {
     console.log(data);
     if (data) {
@@ -67,6 +71,7 @@ export default class Nav extends Component {
     }
   }
 
+  
   // errorToggle () {
   //   // this.setState({error: false})
   //   var menuItems = document.getElementById('MenuItems');
@@ -99,7 +104,7 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div> */}
-        <nav className="NavbarItems">
+        <nav className="NavbarItems" onClick={this.handleClickOutside}>
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

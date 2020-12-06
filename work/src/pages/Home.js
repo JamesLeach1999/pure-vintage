@@ -27,6 +27,7 @@ export default class Home extends Component {
   render(){
     return (
       <div>
+        <h1 style={{position: "sticky"}}>work</h1>
         <Rows/>
         <CatRows/>
         <FeaturedRow/>

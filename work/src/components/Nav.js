@@ -34,11 +34,13 @@ export default class Nav extends Component {
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
+  // handleClick = () => {
+  //   this.setState({ clicked: !this.state.clicked });
+  // };
 
   async handleLogin(data) {
     console.log(data);
@@ -67,31 +69,31 @@ export default class Nav extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   document.addEventListener("mousedown", this.handleClick1, false);
-  // }
-
-  // componentWillMount() {
-  //   document.addEventListener("mousedown", this.handleClick1, false);
-  // }
-  
-  handleClick1 = (e) => {
-    console.log(e)
-        console.log(e.target);
-
-    if(this.contains(e.target)){
-      console.log("out")
-      alert("out")
+  handleClick() {
+    if (!this.state.clicked) {
+      // attach/remove event handler
+      document.addEventListener("click", this.handleOutsideClick, false);
     } else {
-      console.log("in")
-      alert("in")
+      document.removeEventListener("click", this.handleOutsideClick, false);
     }
-    
+
+    this.setState((prevState) => ({
+      popupVisible: !prevState.popupVisible,
+    }));
+  }
+
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.handleClick();
   }
 
   render() {
     return (
-      <Router >
+      <Router>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
@@ -102,8 +104,8 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div> */}
-        <nav className="NavbarItems">
-          <div className="menu-icon" onClick={this.handleClick1}>
+        <nav className="NavbarItems" ref={(node) => (this.node = node)}>
+          <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>

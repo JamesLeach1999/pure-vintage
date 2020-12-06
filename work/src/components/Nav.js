@@ -79,6 +79,7 @@ export default class Nav extends Component {
     if(this.node.contains(e.target)){
       alert("out")
     }
+    this.handleClickOutside()
   }
 
   render() {

@@ -65,7 +65,7 @@
 
     
     .NavbarItems{
-        position: relative;
+        position: fixed;
     }
     .nav-menu{
         display: flex;

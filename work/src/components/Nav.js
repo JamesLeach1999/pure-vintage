@@ -96,7 +96,7 @@ export default class Nav extends Component {
 
   render() {
     return (
-      <Router style={{position:"sticky"}}>
+      <Router>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
@@ -107,7 +107,7 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div> */}
-        <nav className="NavbarItems" ref={(node) => (this.node = node)}>
+        <nav className="NavbarItems">
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

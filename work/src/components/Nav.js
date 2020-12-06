@@ -40,10 +40,6 @@ export default class Nav extends Component {
     this.setState({ clicked: !this.state.clicked });
   };
 
-  handleClickOutside = () => {
-    this.setState({clicked: false})
-  }
-
   async handleLogin(data) {
     console.log(data);
     if (data) {
@@ -71,29 +67,23 @@ export default class Nav extends Component {
     }
   }
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClick1);
+  }
+
+  componentWillMount() {
+    document.addEventListener("mousedown", this.handleClick1);
+  }
   
-  // errorToggle () {
-  //   // this.setState({error: false})
-  //   var menuItems = document.getElementById('MenuItems');
-  //   menuItems.style.maxHeight = '0px';
-  //   // setError(true)
-  //   if ((this === undefined || this.state.error) === undefined) {
-  //     console.log('thats numbereang');
-  //     this.setState({ error: true });
-  //     menuItems.style.maxHeight = '0px';
-  //   } else {
-  //     menuItems.style.maxHeight = '200px';
-  //     menuItems.style.maxWidth = '500px';
-  //     menuItems.style.textAlign = 'right';
-  //     this.setState({ error: false });
-  //     console.log('thats numbereang');
-  //   }
-  // };
-  async componentDidMount() {}
+  handleClick1 = (e) => {
+    if(this.node.contains(e.target)){
+      alert("out")
+    }
+  }
 
   render() {
     return (
-      <Router>
+      <Router ref={(node) => (this.node = node)}>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

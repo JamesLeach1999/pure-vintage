@@ -90,10 +90,10 @@
   .NavbarItems{
     position: fixed;
       display: flex;
-      justify-content: space-between;
+      /* justify-content: space-between;
       align-items: center;
       padding: 0.7rem 2rem;
-      overflow: hidden;
+      overflow: hidden; */
       z-index: 1;
       width: 100%; 
       margin: auto;

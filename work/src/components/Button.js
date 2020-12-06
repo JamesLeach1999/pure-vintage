@@ -26,11 +26,11 @@ export const Button = ({
     >
       {sessionStorage.getItem("auth") === "false" ||
       !sessionStorage.getItem("auth") ? (
-        <li>
+        <li className="nav-links">
           <Link to="/login">login</Link>
         </li>
       ) : (
-        <li>
+        <li className="nav-links-mobile">
           <Link to="/login">Logout?</Link>
         </li>
       )}

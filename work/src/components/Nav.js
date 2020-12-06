@@ -92,42 +92,38 @@ export default class Nav extends Component {
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
-              {/* <div class="logo">
+        {/* <div class="logo">
                 <img
                   src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
                   alt="logo"
                   width="125px"
                 />
               </div> */}
-              <nav className="NavbarItems">
-                <div className="menu-icon" onClick={this.handleClick}>
-                  <i
-                    className={
-                      this.state.clicked ? "fas fa-times" : "fas fa-bars"
-                    }
-                  ></i>
-                </div>
-                <ul
-                  id="MenuItems"
-                  className={
-                    this.state.clicked ? "nav-menu active" : "nav-menu"
-                  }
-                >
-                  <li>
-                    <Link to="/">home</Link>
-                  </li>
-                  <li>
-                    <Link to="/store">store</Link>
-                  </li>
-                  {sessionStorage.getItem("auth") === "true" ? (
-                    <li>
-                      <Link to="/cart">cart</Link>
-                    </li>
-                  ) : (
-                    ""
-                  )}
-                  <Button></Button>
-                  {/* {sessionStorage.getItem("auth") === "false" ||
+        <nav className="NavbarItems">
+          <div className="menu-icon" onClick={this.handleClick}>
+            <i
+              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+            ></i>
+          </div>
+          <ul
+            id="MenuItems"
+            className={this.state.clicked ? "nav-menu active" : "nav-menu"}
+          >
+            <li className="nav-links">
+              <Link to="/">home</Link>
+            </li>
+            <li className="nav-links">
+              <Link to="/store">store</Link>
+            </li>
+            {sessionStorage.getItem("auth") === "true" ? (
+              <li>
+                <Link to="/cart">cart</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            <Button></Button>
+            {/* {sessionStorage.getItem("auth") === "false" ||
                   !sessionStorage.getItem("auth") ? (
                     <li>
                       <Link to="/login">login</Link>
@@ -137,28 +133,28 @@ export default class Nav extends Component {
                       <Link to="/login">Logout?</Link>
                     </li>
                   )} */}
-                  {sessionStorage.getItem("auth") === "true" ? (
-                    <li>
-                      <Link to="/me">me</Link>
-                    </li>
-                  ) : (
-                    ""
-                  )}
-                  {sessionStorage.getItem("admin") === "true" ? (
-                    <li>
-                      <Link to="/manage">manage</Link>
-                    </li>
-                  ) : (
-                    ""
-                  )}
-                </ul>
-              </nav>
+            {sessionStorage.getItem("auth") === "true" ? (
+              <li className="nav-links">
+                <Link to="/me">me</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            {sessionStorage.getItem("admin") === "true" ? (
+              <li className="nav-links">
+                <Link to="/manage">manage</Link>
+              </li>
+            ) : (
+              ""
+            )}
+          </ul>
+        </nav>
 
-              {/* <img src={defaultImage} alt="" width="30px" height="30px" />
+        {/* <img src={defaultImage} alt="" width="30px" height="30px" />
               <button onClick={this.errorToggle}>
                 <img src="assets/shoes1.jpg" alt="" class="menu-icon" />
               </button> */}
-            {/* </div>
+        {/* </div>
           </div>
         </div> */}
         <Switch>

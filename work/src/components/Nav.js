@@ -122,7 +122,6 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-            <Button></Button>
             {/* {sessionStorage.getItem("auth") === "false" ||
                   !sessionStorage.getItem("auth") ? (
                     <li>
@@ -147,6 +146,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
+            <Button></Button>
           </ul>
         </nav>
 

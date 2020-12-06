@@ -76,6 +76,7 @@ export default class Nav extends Component {
   // }
   
   handleClick1 = (e) => {
+    console.log(e)
     if(this.node.contains(e.target)){
       console.log("out")
       alert("out")

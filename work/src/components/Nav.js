@@ -89,16 +89,16 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <div className="header">
+        {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
-            <div class="navbar">
-              <div class="logo">
+            <div class="navbar"> */}
+              {/* <div class="logo">
                 <img
                   src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
                   alt="logo"
                   width="125px"
                 />
-              </div>
+              </div> */}
               <nav className="NavbarItems">
                 <div className="menu-icon" onClick={this.handleClick}>
                   <i
@@ -158,9 +158,9 @@ export default class Nav extends Component {
               <button onClick={this.errorToggle}>
                 <img src="assets/shoes1.jpg" alt="" class="menu-icon" />
               </button> */}
-            </div>
+            {/* </div>
           </div>
-        </div>
+        </div> */}
         <Switch>
           {/* <Route path={"/"} render={(props) => (
             <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />

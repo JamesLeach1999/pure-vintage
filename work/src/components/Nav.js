@@ -72,13 +72,16 @@ export default class Nav extends Component {
   handleClick() {
     if (!this.state.clicked) {
       // attach/remove event handler
+      console.log("c")
       document.addEventListener("click", this.handleOutsideClick, false);
     } else {
+            console.log("l");
+
       document.removeEventListener("click", this.handleOutsideClick, false);
     }
 
     this.setState((prevState) => ({
-      popupVisible: !prevState.popupVisible,
+      clicked: !prevState.clicked,
     }));
   }
 

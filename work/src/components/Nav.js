@@ -67,24 +67,11 @@ export default class Nav extends Component {
     }
   }
 
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClick1);
-  }
-
-  componentWillMount() {
-    document.addEventListener("mousedown", this.handleClick1);
-  }
   
-  handleClick1 = (e) => {
-    if(this.node.contains(e.target)){
-      alert("out")
-    }
-    this.handleClickOutside()
-  }
 
   render() {
     return (
-      <Router ref={(node) => (this.node = node)}>
+      <Router >
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
@@ -95,7 +82,7 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div> */}
-        <nav className="NavbarItems" onClick={this.handleClickOutside}>
+        <nav className="NavbarItems">
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

@@ -78,35 +78,34 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
   console.log(t);
   // File upload
   // fileJPG.forEach(async (img) => {
-    if(req.files.image.length > 0){
-
-      for (var i = 0; req.files.image.length > i; i++) {
-        var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
-          width: 1250,
-          height: 1250,
-          tags: 'pure-vintage',
-          public_id: req.files.image[i].name,
-        });
-        console.log('numberwang 2');
-    
-        console.log(fileJPG);
-        ogName.push(fileJPG.url);
-      }
-    } else {
-      var fileJPG = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
+  if (req.files.image.length > 0) {
+    for (var i = 0; req.files.image.length > i; i++) {
+      var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
         width: 1250,
         height: 1250,
         tags: 'pure-vintage',
-        public_id: req.files.image.name,
+        public_id: req.files.image[i].name,
       });
-      console.log('numberwang 5');
+      console.log('numberwang 2');
 
       console.log(fileJPG);
       ogName.push(fileJPG.url);
     }
+  } else {
+    var fileJPG = await cloudinary.uploader.upload(req.files.image.tempFilePath, {
+      width: 1250,
+      height: 1250,
+      tags: 'pure-vintage',
+      public_id: req.files.image.name,
+    });
+    console.log('numberwang 5');
+
+    console.log(fileJPG);
+    ogName.push(fileJPG.url);
+  }
   console.log('numberwang 3');
 
-  var flip = ogName.reverse()
+  var flip = ogName.reverse();
   // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
   // });
 
@@ -608,30 +607,29 @@ router.get('/store1', async (req, res) => {
 
 router.get('/recentReviews', async (req, res) => {
   var review = [];
-  var proImages = []
+  var proImages = [];
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
-
-  for(var i = 0; i < orders.length; i++){
-
+  for (var i = 0; i < orders.length; i++) {
     const oProducts = JSON.parse(orders[i].orderItems);
     console.log('num');
-    const images = oProducts[0].product.image[0]
+    const images = oProducts[0].product.image[0];
 
-    proImages.push(images)
+    proImages.push(images);
     console.log(oProducts[0].product.reviews);
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
     console.log(product);
-    // if (product.reviews[0] !== undefined || product.reviews[0] !== []) {
-    console.log(product.reviews[0]);
-    review.push(product.reviews[0]);
+    if (product.reviews[0] !== undefined || product.reviews[0] !== [] || product !== null) {
+      console.log(product.reviews[0]);
+      review.push(product.reviews[0]);
+    }
   }
-  
+
   console.log('yes');
   console.log(review);
-  console.log("no")
-  console.log(proImages)
+  console.log('no');
+  console.log(proImages);
 
   var filtered = review.filter(function (el) {
     return el != null;
@@ -639,7 +637,7 @@ router.get('/recentReviews', async (req, res) => {
 
   res.send({
     name: filtered,
-    images: proImages
+    images: proImages,
   });
 });
 

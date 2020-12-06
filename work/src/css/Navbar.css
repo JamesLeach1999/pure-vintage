@@ -65,7 +65,8 @@
 
     
     .NavbarItems{
-        position: fixed;
+        position: sticky;
+        z-index: 3;
     }
     .nav-menu{
         display: flex;

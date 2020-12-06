@@ -1,22 +1,24 @@
-import React, { useState, useEffect, Component } from 'react';
+import React, { useState, useEffect, Component } from "react";
 // import { Link } from "react-router-dom";
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Axios from 'axios';
-import Welcome from './Welcome';
-import Home from '../pages/Home';
-import Store from '../pages/Store';
-import Product from './ProductPage';
-import Cart from './Cart';
-import Login from './Login';
-import Me from '../pages/Me';
-import Order from '../pageStripe/index';
-import Manage from '../pages/Manage';
-import Add from '../pages/Add';
-import Edit from './EditPage';
-import PastOrders from '../pages/Past';
-import OrderProducts from '../pages/OrderPage';
-import RefundProducts from '../pages/RefundPage';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
+import Axios from "axios";
+import Welcome from "./Welcome";
+import Home from "../pages/Home";
+import Store from "../pages/Store";
+import Product from "./ProductPage";
+import Cart from "./Cart";
+import Login from "./Login";
+import Me from "../pages/Me";
+import Order from "../pageStripe/index";
+import Manage from "../pages/Manage";
+import Add from "../pages/Add";
+import Edit from "./EditPage";
+import PastOrders from "../pages/Past";
+import OrderProducts from "../pages/OrderPage";
+import RefundProducts from "../pages/RefundPage";
+import { Button } from "./Button";
+import "../css/Navbar.css";
 
 // have to use links like this in the nav
 export default class Nav extends Component {
@@ -24,39 +26,44 @@ export default class Nav extends Component {
     super();
 
     this.state = {
-      loggedIn: 'NOT_LOGGED_IN',
+      loggedIn: "NOT_LOGGED_IN",
       user: {},
       admin: false,
       auth: false,
+      clicked: false,
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
   }
 
+  handleClick = () => {
+    this.setState({ clicked: !this.state.clicked });
+  };
+
   async handleLogin(data) {
     console.log(data);
     if (data) {
-      console.log("thats numberwang")
-      const work = await Axios.post('/getAuth', {
+      console.log("thats numberwang");
+      const work = await Axios.post("/getAuth", {
         id: data.user,
       });
       console.log(work);
       this.setState({
-        loggedIn: 'Logged in',
+        loggedIn: "Logged in",
         auth: true,
-        admin: work.data.isAdmin
+        admin: work.data.isAdmin,
       });
-      console.log(work.data)
-      sessionStorage.setItem("auth", true)
-      sessionStorage.setItem("admin", work.data.isAdmin)
-      sessionStorage.setItem("user", work.data.id)
-      console.log(sessionStorage)
+      console.log(work.data);
+      sessionStorage.setItem("auth", true);
+      sessionStorage.setItem("admin", work.data.isAdmin);
+      sessionStorage.setItem("user", work.data.id);
+      console.log(sessionStorage);
     }
-    
-    if(!data){
+
+    if (!data) {
       // sessionStorage.setItem("auth", false);
       // sessionStorage.setItem("admin", false);
-      window.location.replace("/store")
+      window.location.replace("/store");
     }
   }
 
@@ -83,7 +90,7 @@ export default class Nav extends Component {
     return (
       <Router>
         <div className="header">
-          <div class="container" style={{color: "white"}}>
+          <div class="container" style={{ color: "white" }}>
             <div class="navbar">
               <div class="logo">
                 <img
@@ -92,8 +99,20 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div>
-              <nav>
-                <ul id="MenuItems">
+              <nav className="NavbarItems">
+                <div className="menu-icon" onClick={this.handleClick}>
+                  <i
+                    className={
+                      this.state.clicked ? "fas fa-times" : "fas fa-bars"
+                    }
+                  ></i>
+                </div>
+                <ul
+                  id="MenuItems"
+                  className={
+                    this.state.clicked ? "nav-menu active" : "nav-menu"
+                  }
+                >
                   <li>
                     <Link to="/">home</Link>
                   </li>
@@ -107,8 +126,9 @@ export default class Nav extends Component {
                   ) : (
                     ""
                   )}
-
-                  {sessionStorage.getItem("auth") === "false" || !sessionStorage.getItem("auth") ? (
+                  <Button></Button>
+                  {/* {sessionStorage.getItem("auth") === "false" ||
+                  !sessionStorage.getItem("auth") ? (
                     <li>
                       <Link to="/login">login</Link>
                     </li>
@@ -116,7 +136,7 @@ export default class Nav extends Component {
                     <li>
                       <Link to="/login">Logout?</Link>
                     </li>
-                  )}
+                  )} */}
                   {sessionStorage.getItem("auth") === "true" ? (
                     <li>
                       <Link to="/me">me</Link>

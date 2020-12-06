@@ -137,7 +137,12 @@ p {
   padding-left: 25px;
   padding-right: 25px;
 }
-
+.wow{
+  font-size: large;
+  width: 200px;
+  height: 70px;
+  background-color: red;
+}
 .store {
   padding: 100px;
 }

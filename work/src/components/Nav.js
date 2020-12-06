@@ -77,6 +77,8 @@ export default class Nav extends Component {
   
   handleClick1 = (e) => {
     console.log(e)
+        console.log(e.target);
+
     if(this.contains(e.target)){
       console.log("out")
       alert("out")
@@ -89,7 +91,7 @@ export default class Nav extends Component {
 
   render() {
     return (
-      <Router onClick={this.handleClick1}>
+      <Router >
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
@@ -101,7 +103,7 @@ export default class Nav extends Component {
                 />
               </div> */}
         <nav className="NavbarItems">
-          <div className="menu-icon">
+          <div className="menu-icon" onClick={this.handleClick1}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>

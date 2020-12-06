@@ -97,6 +97,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
+        <h1 style={{position:"sticky"}}>work</h1>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

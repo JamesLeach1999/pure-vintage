@@ -641,9 +641,11 @@ th:last-child {
   }
   .wow{
   font-size: large;
-  width: 200px;
-  height: 70px;
-  background-color: red;
+  position: relative;
+  width: 125px;
+  height: 35px;
+  left: 200px;
+  background-color: grey;
   display: block;
 }
 

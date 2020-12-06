@@ -100,7 +100,7 @@ const App = (props) => {
           onChange={(e) => setLoginPassword(e.target.value)}
         />
         <br />
-        <button className="wow" onClick={login}>Login</button>
+        <input type="submit" onClick={login}>Login</input>
         {/* </form> */}
       </div>
       <br />

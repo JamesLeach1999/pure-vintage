@@ -67,11 +67,26 @@ export default class Nav extends Component {
     }
   }
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClick1, false);
+  }
+
+  componentWillMount() {
+    document.addEventListener("mousedown", this.handleClick1, false);
+  }
   
+  handleClick1 = (e) => {
+    if(this.node.contains(e.target)){
+      alert("out")
+    } else {
+      alert("in")
+    }
+    
+  }
 
   render() {
     return (
-      <Router >
+      <Router ref={(node) => (this.node = node)}>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

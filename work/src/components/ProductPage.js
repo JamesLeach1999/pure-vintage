@@ -76,8 +76,7 @@ const ProductPage = () => {
               style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {
-                <Card image={i} />
-
+                return (<Card image={i} />)
               })}
               {/* <Card image={images[1]} />
               <Card image={images[2]} />

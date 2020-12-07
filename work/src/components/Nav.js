@@ -32,6 +32,7 @@ export default class Nav extends Component {
       admin: false,
       auth: false,
       clicked: false,
+      cartClicked: false,
       data: [],
     };
     // updating state
@@ -99,18 +100,18 @@ export default class Nav extends Component {
   }
 
   handleCartClick() {
-    if (!this.state.clicked) {
+    if (!this.state.cartClicked) {
       // attach/remove event handler
       console.log("c");
-      document.addEventListener("click", this.handleOutsideClick, false);
+      document.addEventListener("click", this.handleCartOutsideClick, false);
     } else {
       console.log("l");
 
-      document.removeEventListener("click", this.handleOutsideClick, false);
+      document.removeEventListener("click", this.handleCartOutsideClick, false);
     }
 
     this.setState((prevState) => ({
-      clicked: !prevState.clicked,
+      cartClick: !prevState.clicked,
     }));
   }
 
@@ -120,7 +121,7 @@ export default class Nav extends Component {
       return;
     }
 
-    this.handleClick();
+    this.handleCartClick();
   }
 
   render() {

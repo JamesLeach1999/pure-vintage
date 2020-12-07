@@ -15,7 +15,7 @@ const ProductPage = () => {
   const [images, setImages] = useState([]);
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
-  const [vert, setVert] = useState(false);
+  const [vert, setVert] = useState(false)
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -25,10 +25,11 @@ const ProductPage = () => {
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
-      setVert(false);
+            setVert(false);
+
     } else {
       setStyle({ width: "60px", height: "60px" });
-      setVert(true);
+      setVert(true)
     }
 
     // this returns a promise. so need to extract data from response (generally in json)
@@ -72,10 +73,8 @@ const ProductPage = () => {
             <Carousel
               breakPoints={breakPoints}
               showArrows={false}
-              verticalMode={vert}
-              style={{ backgroundColor: "white", color: "white", width: "85%" }}
+              style={{ backgroundColor: "white", color: "white" }}
             >
-              
               <Card image={images[0]} />
               <Card image={images[1]} />
               <Card image={images[2]} />
@@ -155,14 +154,13 @@ const ProductPage = () => {
               <h3 style={{ justifyContent: "center" }}>
                 Add to cart:
                 <br />
-                <input
-                  type="submit"
-                  style={{ width: "150px", margin: "20px" }}
-                  onClick={() => window.location.replace("/store")}
-                >
-                  Add to cart
-                </input>
+                <input type="checkbox" />
               </h3>
+              <input
+                type="submit"
+                style={{ width: "150px", margin: "20px" }}
+                onClick={() => window.location.replace("/store")}
+              />
             </form>
             {/* <a href="" class="btn">Add to cart</a> */}
             <h3>

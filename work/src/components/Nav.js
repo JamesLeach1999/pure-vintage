@@ -107,7 +107,7 @@ export default class Nav extends Component {
             ></i>
           </div>
           <ul
-            id="CartMenuItems"
+            id="MenuItems"
             className={this.state.clicked ? "cart-menu active" : "cart-menu"}
           >
             <li className="cart-links">

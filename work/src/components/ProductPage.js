@@ -15,7 +15,7 @@ const ProductPage = () => {
   const [images, setImages] = useState([]);
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
-  const [vert, setVert] = useState(false)
+  const [vert, setVert] = useState(false);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -25,11 +25,10 @@ const ProductPage = () => {
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
-            setVert(false);
-
+      setVert(false);
     } else {
       setStyle({ width: "60px", height: "60px" });
-      setVert(true)
+      setVert(true);
     }
 
     // this returns a promise. so need to extract data from response (generally in json)
@@ -76,11 +75,9 @@ const ProductPage = () => {
               verticalMode={vert}
               style={{ backgroundColor: "white", color: "white", width: "85%" }}
             >
-              <Card image={images[0]} />
-              <Card image={images[1]} />
-              <Card image={images[2]} />
-              <Card image={images[3]} />
-              <Card image={images[4]} />
+              {images.map((imageCard) => {
+                return <Card image={imageCard} />;
+              })}
             </Carousel>
             {/* <img
               src={`${small||images[0]}`}
@@ -155,13 +152,14 @@ const ProductPage = () => {
               <h3 style={{ justifyContent: "center" }}>
                 Add to cart:
                 <br />
-                <input type="checkbox" />
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => window.location.replace("/store")}
+                >
+                  Add to cart
+                </input>
               </h3>
-              <input
-                type="submit"
-                style={{ width: "150px", margin: "20px" }}
-                onClick={() => window.location.replace("/store")}
-              />
             </form>
             {/* <a href="" class="btn">Add to cart</a> */}
             <h3>

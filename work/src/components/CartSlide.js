@@ -58,7 +58,18 @@ class Cart extends Component {
           ></i>
         </div>
         <ul className={this.state.clicked ? "cart-menu active" : "cart-menu"}>
-          workrk
+          {this.state.data.map((item, index) => {
+              return item.map((product) => {
+
+                  return (
+                    <li key={index}>
+                      <h2 className={product.name}>
+                        {item.name}
+                      </h2>
+                    </li>
+                  );
+              })
+          })}
         </ul>
         {/* <Button>Sign up</Button> */}
       </cart>

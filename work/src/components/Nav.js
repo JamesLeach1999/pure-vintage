@@ -128,8 +128,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <CartSlide/>
-        {/* <nav className="cartItems" ref={(node) => (this.node = node)} style={{height: "400px"}}>
+        <nav className="cartItems" ref={(node) => (this.node = node)} style={{height: "400px"}}>
           <div className="cart-menu-icon" onClick={this.handleCartClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -169,7 +168,7 @@ export default class Nav extends Component {
             )}
           <Button1></Button1>
           </ul>
-        </nav> */}
+        </nav>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}
@@ -180,7 +179,7 @@ export default class Nav extends Component {
                   width="125px"
                 />
               </div> */}
-        <nav className="NavbarItems" ref={(node) => (this.node = node)}>
+        <nav className="NavbarItems" >
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

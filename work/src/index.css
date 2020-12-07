@@ -34,6 +34,10 @@ body {
   position: relative;
   right: 100px;
 }
+.col-2-pics .product{
+  position: relative;
+  right: 100px;
+}
 nav {
   flex: 1;
   text-align: right;
@@ -78,6 +82,19 @@ p {
 }
 
 .col-2 img {
+  width: 515px;
+  height: 515px;
+  max-height: 515px;
+  max-width: 515px;
+  padding: 50px 0;
+}
+
+.col-2-pics {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+
+.col-2-pics img {
   width: 515px;
   height: 515px;
   max-height: 515px;
@@ -526,6 +543,14 @@ select:focus {
   padding: 20px;
 }
 
+.single-product .col-2-pics img {
+  padding: 0;
+}
+
+.single-product .col-2-pics {
+  padding: 20px;
+}
+
 .single-product h4 {
   margin: 20px 0;
   font-size: 22px;
@@ -714,6 +739,10 @@ th:last-child {
   }*/
 
   .single-product .col-2 {
+    padding: 20px 0;
+  }
+
+  .single-product .col-2-pics {
     padding: 20px 0;
   }
 

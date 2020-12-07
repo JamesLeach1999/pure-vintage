@@ -65,7 +65,7 @@ const ProductPage = () => {
     <div>
       <div class="small-container single-product">
         <div class="row">
-          <div class="col-2">
+          <div class="col-2-pics">
             <Carousel breakPoints={breakPoints}>
               <Card image={images[0]} />
               <Card image={images[1]} />

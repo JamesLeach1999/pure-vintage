@@ -72,14 +72,17 @@ const ProductPage = () => {
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
-              showArrows={false}
-              style={{ backgroundColor: "white", color: "white" }}
+              showArrows={vert}
+              style={{ backgroundColor: "white", color: "white", width: "85%" }}
             >
-              <Card image={images[0]} />
-              <Card image={images[1]} />
+              {images.map((i) => {
+                <Card image={i} />
+
+              })}
+              {/* <Card image={images[1]} />
               <Card image={images[2]} />
               <Card image={images[3]} />
-              <Card image={images[4]} />
+              <Card image={images[4]} /> */}
             </Carousel>
             {/* <img
               src={`${small||images[0]}`}

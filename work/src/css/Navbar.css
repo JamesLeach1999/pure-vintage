@@ -147,10 +147,11 @@
         display: block;
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         transform: translate(-100%, 60%);
-        font-size: 1.8rem;
+        font-size: 3rem;
         cursor: pointer;
+
     }
 
     .fa-times{

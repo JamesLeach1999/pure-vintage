@@ -66,7 +66,10 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2-pics">
-            <Carousel breakPoints={breakPoints}>
+            <Carousel
+              breakPoints={breakPoints}
+              style={{ backgroundColor: "red", color: "white" }}
+            >
               <Card image={images[0]} />
               <Card image={images[1]} />
               <Card image={images[2]} />

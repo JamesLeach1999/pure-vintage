@@ -75,9 +75,12 @@ const ProductPage = () => {
               verticalMode={vert}
               style={{ backgroundColor: "white", color: "white", width: "85%" }}
             >
-              {images.map((imageCard) => {
-                return <Card image={imageCard} />;
-              })}
+              
+              <Card image={images[0]} />
+              <Card image={images[1]} />
+              <Card image={images[2]} />
+              <Card image={images[3]} />
+              <Card image={images[4]} />
             </Carousel>
             {/* <img
               src={`${small||images[0]}`}

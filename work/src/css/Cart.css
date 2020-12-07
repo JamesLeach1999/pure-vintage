@@ -121,6 +121,8 @@
     }
 
     .cart-menu-icon{
+        color: red;
+        size: 150px;
         display: block;
         position: absolute;
         top: -35px;

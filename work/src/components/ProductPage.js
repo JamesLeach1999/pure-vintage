@@ -15,6 +15,7 @@ const ProductPage = () => {
   const [images, setImages] = useState([]);
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
+  const [vert, setVert] = useState(false)
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -24,8 +25,11 @@ const ProductPage = () => {
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
+            setVert(false);
+
     } else {
       setStyle({ width: "60px", height: "60px" });
+      setVert(true)
     }
 
     // this returns a promise. so need to extract data from response (generally in json)
@@ -68,7 +72,9 @@ const ProductPage = () => {
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
-              style={{ backgroundColor: "red", color: "white" }}
+              showArrows={false}
+              verticalMode={vert}
+              style={{ backgroundColor: "white", color: "white" }}
             >
               <Card image={images[0]} />
               <Card image={images[1]} />

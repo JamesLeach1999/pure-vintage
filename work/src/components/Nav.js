@@ -128,7 +128,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <nav className="cartItems" ref={(node) => (this.node = node)}>
+        <nav className="cartItems" ref={(node) => (this.node = node)} style={{height: "400px"}}>
           <div className="cart-menu-icon" onClick={this.handleCartClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -166,6 +166,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
+          <Button1></Button1>
           </ul>
         </nav>
         {/* <div className="header">

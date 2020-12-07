@@ -74,7 +74,7 @@ const ProductPage = () => {
               breakPoints={breakPoints}
               showArrows={false}
               verticalMode={vert}
-              style={{ backgroundColor: "white", color: "white" }}
+              style={{ backgroundColor: "white", color: "white", width: "85%" }}
             >
               <Card image={images[0]} />
               <Card image={images[1]} />

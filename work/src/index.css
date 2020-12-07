@@ -21,6 +21,7 @@ body {
   align-items: center;
   max-width: 1080px;
   margin: auto;
+  margin-left: 125px;
   flex: 70%;
   padding-left: 25px;
   padding-right: 25px;
@@ -95,7 +96,7 @@ p {
 }
 
 .col-2-pics img {
-  width: 700px;
+  width: 5000px;
   height: 600px;
   max-height: 600px;
   max-width: 700px;

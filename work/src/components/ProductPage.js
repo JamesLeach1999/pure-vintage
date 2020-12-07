@@ -67,12 +67,11 @@ const ProductPage = () => {
         <div class="row">
           <div class="col-2">
             <Carousel breakPoints={breakPoints}>
-              <Card index="1" id={product._id} />
-              <Card index="2" id={product._id} />
-              <Card index="3" id={product._id} />
-              <Card index="4" id={product._id} />
-              <Card index="5" id={product._id} />
-              <Card index="6" id={product._id} />
+              <Card image={images[0]} />
+              <Card image={images[1]} />
+              <Card image={images[2]} />
+              <Card image={images[3]} />
+              <Card image={images[4]} />
             </Carousel>
             {/* <img
               src={`${small||images[0]}`}

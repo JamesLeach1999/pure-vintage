@@ -32,15 +32,13 @@ export default class Nav extends Component {
       admin: false,
       auth: false,
       clicked: false,
-      cartClicked: false,
-      data: [],
+      data: []
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
-    this.handleCartClick = this.handleCartClick.bind(this);
-    this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    
   }
 
   // handleClick = () => {
@@ -77,10 +75,10 @@ export default class Nav extends Component {
   handleClick() {
     if (!this.state.clicked) {
       // attach/remove event handler
-      console.log("c");
+      console.log("c")
       document.addEventListener("click", this.handleOutsideClick, false);
     } else {
-      console.log("l");
+            console.log("l");
 
       document.removeEventListener("click", this.handleOutsideClick, false);
     }
@@ -99,36 +97,12 @@ export default class Nav extends Component {
     this.handleClick();
   }
 
-  handleCartClick() {
-    if (!this.state.cartClicked) {
-      // attach/remove event handler
-      console.log("c");
-      document.addEventListener("click", this.handleCartOutsideClick, false);
-    } else {
-      console.log("l");
-
-      document.removeEventListener("click", this.handleCartOutsideClick, false);
-    }
-
-    this.setState((prevState) => ({
-      cartClick: !prevState.clicked,
-    }));
-  }
-
-  handleCartOutsideClick(e) {
-    // ignore clicks on the component itself
-    if (this.node.contains(e.target)) {
-      return;
-    }
-
-    this.handleCartClick();
-  }
-
   render() {
     return (
       <Router>
+
         <nav className="cartItems" ref={(node) => (this.node = node)}>
-          <div className="cart-menu-icon" onClick={this.handleCartClick}>
+          <div className="cart-menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
@@ -150,7 +124,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-
+            
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="cart-links">
                 <Link to="/me">me</Link>
@@ -165,8 +139,8 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-          </ul>
-        </nav>
+            </ul>
+            </nav>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { MenuItems } from "./MenuItems";
-import { Button } from "../Buttons";
+// import { MenuItems } from "./MenuItems";
+import { Button } from "../Button";
 import "../css/Cart.css";
 class Navbar extends Component {
   state = { clicked: false, data: [] };

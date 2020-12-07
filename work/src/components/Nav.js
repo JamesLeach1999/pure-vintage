@@ -19,7 +19,7 @@ import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
 import { Button1 } from "./Button";
 import "../css/Navbar.css";
-
+import CartSlide from "./CartSlide"
 // have to use links like this in the nav
 export default class Nav extends Component {
   constructor() {
@@ -97,6 +97,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
+        <CartSlide/>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

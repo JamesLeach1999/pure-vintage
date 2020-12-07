@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { MenuItems } from "./MenuItems";
-import { Button } from "../Button";
+// import  Button  from "../Button";
 import "../css/Cart.css";
 class Navbar extends Component {
   state = { clicked: false, data: [] };
@@ -71,7 +71,7 @@ class Navbar extends Component {
               })
           })}
         </ul>
-        <Button>Sign up</Button>
+        {/* <Button>Sign up</Button> */}
       </nav>
     );
   }

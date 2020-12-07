@@ -9,7 +9,17 @@ body {
   width: 100%;
   font-family: "Commissioner", sans-serif;
 }
-
+.card{
+  width: 600px;
+  height: 500px;
+  background: #333;
+  color: #fff;
+  font-size: 30px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .navbar {
   display: flex;
   align-items: center;

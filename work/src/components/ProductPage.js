@@ -4,17 +4,24 @@ import image from "../assets/cap1.jpg";
 import { useFetch } from "../hooks/useFetch";
 import Reviews from "./Reviews";
 import { Link, useParams } from "react-router-dom";
-import OtherReviews from "./OtherReviews"
+import Carousel from "react-elastic-carousel";
+import OtherReviews from "./OtherReviews";
+import Card from "./PicCard";
 const ProductPage = () => {
   const { id } = useParams();
   const url = `/product?id=${id}`;
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
-  const [small, setSmall] = useState()
-  const [style, setStyle] = useState()
-  const getProducts = async () => {
+  const [small, setSmall] = useState();
+  const [style, setStyle] = useState();
 
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 680, itemsToShow: 2 },
+    { width: 1200, itemsToShow: 3 },
+  ];
+  const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
     } else {
@@ -35,9 +42,6 @@ const ProductPage = () => {
       setSmall(images[0]);
     }
 
-    
-
-    
     // then you want to set the state, set the empty array to an array of 30
   };
 
@@ -45,7 +49,6 @@ const ProductPage = () => {
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
   // no  clue
   useEffect(() => {
-
     // this returns all 30 users in an array using setState
     getProducts();
     if (images) {
@@ -63,7 +66,15 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2">
-            <img
+            <Carousel breakPoints={breakPoints}>
+              <Card index="1" id={product._id} />
+              <Card index="2" id={product._id} />
+              <Card index="3" id={product._id} />
+              <Card index="4" id={product._id} />
+              <Card index="5" id={product._id} />
+              <Card index="6" id={product._id} />
+            </Carousel>
+            {/* <img
               src={`${small||images[0]}`}
               alt="shit"
             ></img>
@@ -124,7 +135,7 @@ const ProductPage = () => {
                   ""
                 )}
               </div>
-            </div>
+                </div> */}
           </div>
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
@@ -135,8 +146,8 @@ const ProductPage = () => {
               <input type="text" value={id} name="id" hidden />
               <h3 style={{ justifyContent: "center" }}>
                 Add to cart:
-                <br/>
-                 <input type="checkbox" />
+                <br />
+                <input type="checkbox" />
               </h3>
               <input
                 type="submit"

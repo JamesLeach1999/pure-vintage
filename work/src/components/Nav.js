@@ -101,13 +101,13 @@ export default class Nav extends Component {
       <Router>
 
         <nav className="cartItems" ref={(node) => (this.node = node)}>
-          <div className="menu-icon" onClick={this.handleClick}>
+          <div className="cart-menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
           </div>
           <ul
-            id="MenuItems"
+            id="CartMenuItems"
             className={this.state.clicked ? "cart-menu active" : "cart-menu"}
           >
             <li className="cart-links">

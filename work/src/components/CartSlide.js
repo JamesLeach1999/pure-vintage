@@ -6,10 +6,9 @@ class Navbar extends Component {
   state = { clicked: false, data: [] };
 
   getCart = async () => {
+      if(sessionStorage.getItem("user")){
     const url = `/cart1?id=${sessionStorage.getItem("user")}`;
-    if (!sessionStorage.getItem("user")) {
-      window.location.replace("/store");
-    } else {
+    
       try {
         // const test = await fetch("http://localhost:9000/store");
         // console.log(test);
@@ -37,6 +36,7 @@ class Navbar extends Component {
         console.log(error);
       }
     }
+    
   };
   handleClick = () => {
     this.setState({ clicked: !this.state.clicked });

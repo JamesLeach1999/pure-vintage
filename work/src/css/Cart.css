@@ -1,4 +1,4 @@
-.NavbarItems {
+.cartItems {
   background: linear-gradient(
     90deg,
     rgb(110, 94, 254) 0%,
@@ -11,7 +11,7 @@
   font-size: 1.2rem;
 }
 
-.navbar-logo {
+.cart-logo {
   color: #fff;
   justify-self: start;
   margin-left: 20px;
@@ -23,7 +23,7 @@
   font-size: 1.6rem;
 }
 
-.nav-menu {
+.cart-menu {
   display: grid;
   grid-template-columns: repeat(6, auto);
   grid-gap: 10px;
@@ -34,7 +34,7 @@
   margin-right: 2rem;
 }
 
-.nav-links {
+.cart-links {
   color: white;
   text-decoration: none;
   padding: 0.5rem 0.7rem;
@@ -43,7 +43,7 @@
   padding-top: 45px;
 }
 
-.nav-links:hover {
+.cart-links:hover {
   background-color: #6d76f7;
   border-radius: 4px;
   transition: all 0.2s ease-out;
@@ -53,7 +53,7 @@
   color: #fff;
 }
 
-.nav-links-mobile {
+.cart-links-mobile {
   display: none;
 }
 
@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 960px){
 
-    .navbar {
+    .cart {
       position: fixed;
       display: flex;
       justify-content: space-between;
@@ -87,7 +87,7 @@
         12px 0 15px -4px rgba(31, 73, 125, 0.8),
         -12px 0 15px -4px rgba(31, 73, 125, 0.8);
     }
-  .NavbarItems{
+  .cartItems{
     position: fixed;
       display: flex;
       /* justify-content: space-between;
@@ -100,7 +100,7 @@
       top: 0;
   }
     
-    .nav-menu{
+    .cart-menu{
 
       
         display: flex;
@@ -115,7 +115,7 @@
         
     }
 
-    .nav-menu.active{
+    .cart-menu.active{
         background: #6668f4;
         left: 0;
         opacity: 1;
@@ -124,19 +124,19 @@
         width: 70%;
     }
 
-    .nav-links{
+    .cart-links{
         text-align: center;
         padding: 2rem;
         width: 100%;
         display: table;
     }
 
-    .nav-links:hover{
+    .cart-links:hover{
         background-color: #7577fa;
         border-radius: 0;
     }
 
-    .navbar-logo{
+    .cart-logo{
         position: absolute;
         top: 0;
         left: 0;
@@ -159,7 +159,7 @@
         font-size: 2rem;
     }
 
-    .nav-links-mobile{
+    .cart-links-mobile{
         display: block;
         text-align: center;
         padding: 1.5rem;
@@ -173,7 +173,7 @@
         font-size: 1.5rem;
     }
 
-    .nav-links-mobile:hover{
+    .cart-links-mobile:hover{
         background: #fff;
         color: #6568f4;
         transition: 250ms;

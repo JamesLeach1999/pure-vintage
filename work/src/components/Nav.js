@@ -19,6 +19,7 @@ import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
 import { Button1 } from "./Button";
 import "../css/Navbar.css";
+import "../css/Cart.css";
 import CartSlide from "./CartSlide"
 // have to use links like this in the nav
 export default class Nav extends Component {
@@ -31,6 +32,7 @@ export default class Nav extends Component {
       admin: false,
       auth: false,
       clicked: false,
+      data: []
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
@@ -97,7 +99,47 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <CartSlide/>
+
+        <nav className="cartItems" ref={(node) => (this.node = node)}>
+          <div className="menu-icon" onClick={this.handleClick}>
+            <i
+              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+            ></i>
+          </div>
+          <ul
+            id="MenuItems"
+            className={this.state.clicked ? "cart-menu active" : "cart-menu"}
+          >
+            <li className="cart-links">
+              <Link to="/">home</Link>
+            </li>
+            <li className="cart-links">
+              <Link to="/store">store</Link>
+            </li>
+            {sessionStorage.getItem("auth") === "true" ? (
+              <li className="cart-links">
+                <Link to="/cart">cart</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            
+            {sessionStorage.getItem("auth") === "true" ? (
+              <li className="cart-links">
+                <Link to="/me">me</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            {sessionStorage.getItem("admin") === "true" ? (
+              <li className="cart-links">
+                <Link to="/manage">manage</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            </ul>
+            </nav>
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

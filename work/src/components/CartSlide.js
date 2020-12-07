@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
 import "../css/Cart.css";
-class Navbar extends Component {
+class Cart extends Component {
   state = { clicked: false, data: [] };
 
   getCart = async () => {
@@ -48,8 +48,8 @@ class Navbar extends Component {
 
   render() {
     return (
-      <nav className="NavbarItems">
-        <h1 className="navbar-logo">
+      <cart className="cartbarItems">
+        <h1 className="cart-logo">
           React<i className="fab fa-react"></i>
         </h1>
         <div className="menu-icon" onClick={this.handleClick}>
@@ -57,7 +57,7 @@ class Navbar extends Component {
             className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
+        <ul className={this.state.clicked ? "cart-menu active" : "cart-menu"}>
           {this.state.data.map((item, index) => {
               return item.map((product) => {
 
@@ -72,9 +72,9 @@ class Navbar extends Component {
           })}
         </ul>
         {/* <Button>Sign up</Button> */}
-      </nav>
+      </cart>
     );
   }
 }
 
-export default Navbar;
+export default Cart;

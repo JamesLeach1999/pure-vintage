@@ -73,7 +73,7 @@ const ProductPage = () => {
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white", width: "85%" }}
+              style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {
                 <Card image={i} />

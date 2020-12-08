@@ -136,6 +136,11 @@ class Cart extends Component {
   render() {
     return (
       <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
+        <div>
+          <Link to="/order" style={{ textAlign: "right" }}>
+            checkout
+          </Link>
+        </div>
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
@@ -145,6 +150,13 @@ class Cart extends Component {
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
         >
+          <table>
+        <tr>
+          <th style={{ textAlign: "left", paddingLeft: "20px" }}>Product</th>
+          <th>Size</th>
+          <th>Sub total</th>
+          <th>Remove?</th>
+        </tr>
           {this.state.data.map((products) => {
             return products.map((product) => {
               // var tota = product.price
@@ -170,6 +182,7 @@ class Cart extends Component {
               );
             });
           })}
+          </table>
         </ul>
       </nav>
     );

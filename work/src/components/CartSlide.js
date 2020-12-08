@@ -47,7 +47,7 @@ const Cart = () => {
         });
         console.log(notNull);
         setData([notNull]);
-        this.setState({ data: [notNull] });
+        // this.setState({ data: [notNull] });
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
 
@@ -101,14 +101,14 @@ const Cart = () => {
     <nav className="cartItems" ref={(node1) => (node1 = node1)}>
       <div className="cart-menu-icon" onClick={handleCartClick}>
         <i
-          className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
+          className={cartClicked ? "fas fa-times" : "fas fa-bars"}
         ></i>
       </div>
       <ul
         id="MenuItems"
-        className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
+        className={cartClicked ? "cart-menu active" : "cart-menu"}
       >
-        {this.state.data.map((products) => {
+        {data.map((products) => {
           return products.map((product) => {
             // var tota = product.price
             // setTotal(tota + tota)

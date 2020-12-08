@@ -19,7 +19,6 @@ import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
 import { Button1 } from "./Button";
 import "../css/Navbar.css";
-import "../css/Cart.css";
 import CartSlide from "./CartSlide"
 // have to use links like this in the nav
 export default class Nav extends Component {
@@ -39,9 +38,6 @@ export default class Nav extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
-
-    this.handleCartClick = this.handleCartClick.bind(this);
-    this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
   }
 
   // handleClick = () => {
@@ -104,77 +100,12 @@ export default class Nav extends Component {
     this.handleClick();
   }
 
-  handleCartClick() {
-    if (!this.state.cartClicked) {
-      // attach/remove event handler
-      console.log("c");
-      document.addEventListener("click", this.handleCartOutsideClick, false);
-    } else {
-      console.log("l");
-
-      document.removeEventListener("click", this.handleCartOutsideClick, false);
-    }
-
-    this.setState((prevState) => ({
-      cartClicked: !prevState.cartClicked,
-    }));
-  }
-
-  handleCartOutsideClick(e) {
-    // ignore clicks on the component itself
-    if (this.node1.contains(e.target)) {
-      console.log("thats numberwang")
-      console.log(this.node1)
-      return;
-    }
-
-    this.handleCartClick();
-  }
+  
 
   render() {
     return (
       <Router>
-        <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
-          <div className="cart-menu-icon" onClick={this.handleCartClick}>
-            <i
-              className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-          <ul
-            id="MenuItems"
-            className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          >
-            <li className="cart-links">
-              <Link to="/">home</Link>
-            </li>
-            <li className="cart-links">
-              <Link to="/store">store</Link>
-            </li>
-            {sessionStorage.getItem("auth") === "true" ? (
-              <li className="cart-links">
-                <Link to="/cart">cart</Link>
-              </li>
-            ) : (
-              ""
-            )}
-
-            {sessionStorage.getItem("auth") === "true" ? (
-              <li className="cart-links">
-                <Link to="/me">me</Link>
-              </li>
-            ) : (
-              ""
-            )}
-            {sessionStorage.getItem("admin") === "true" ? (
-              <li className="cart-links">
-                <Link to="/manage">manage</Link>
-              </li>
-            ) : (
-              ""
-            )}
-          <Button1></Button1>
-          </ul>
-        </nav>
+        
         {/* <div className="header">
           <div class="container" style={{ color: "white" }}>
             <div class="navbar"> */}

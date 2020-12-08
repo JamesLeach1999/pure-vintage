@@ -15,7 +15,7 @@ const ProductPage = () => {
   const [images, setImages] = useState([]);
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
-  const [vert, setVert] = useState(false)
+  const [vert, setVert] = useState(false);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -25,11 +25,10 @@ const ProductPage = () => {
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
-            setVert(false);
-
+      setVert(false);
     } else {
       setStyle({ width: "60px", height: "60px" });
-      setVert(true)
+      setVert(true);
     }
 
     // this returns a promise. so need to extract data from response (generally in json)
@@ -48,7 +47,21 @@ const ProductPage = () => {
 
     // then you want to set the state, set the empty array to an array of 30
   };
+  const setCart = (pID) => {
+    if (!localStorage.getItem("unAuthCart")) {
+      var unAuthCart = [pID];
+      localStorage.setItem("unAuthCart", JSON.stringify(unAuthCart));
+      console.log(localStorage)
+    } else {
+      var cart = localStorage.getItem("unAuthCart");
+      var cartJson = JSON.parse(cart);
 
+      console.log(cartJson);
+      cartJson.push(pID);
+      localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
+      console.log(localStorage);
+    }
+  };
   // cant use async await on useEffect (can in callback funcions), need a seperate function
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
   // no  clue
@@ -76,94 +89,46 @@ const ProductPage = () => {
               style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {
-                return (<Card image={i} />)
+                return <Card image={i} />;
               })}
-              {/* <Card image={images[1]} />
-              <Card image={images[2]} />
-              <Card image={images[3]} />
-              <Card image={images[4]} /> */}
             </Carousel>
-            {/* <img
-              src={`${small||images[0]}`}
-              alt="shit"
-            ></img>
-            <div class="small-img-row">
-              <div class="small-img-col">
-                {images[1] !== undefined && images !== undefined ? (
-                  <img
-                    src={`${images[1]}`}
-                    onClick={() => setSmall(images[1])}
-                    alt=""
-                    style={style}
-                    width="100%"
-                    class="smallImg"
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div class="small-img-col">
-                {images[2] !== undefined && images !== undefined ? (
-                  <img
-                    src={`${images[2]}`}
-                    onClick={() => setSmall(images[2])}
-                    alt=""
-                    style={style}
-                    width="100%"
-                    class="smallImg"
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div class="small-img-col">
-                {images[3] !== undefined && images !== undefined ? (
-                  <img
-                    src={`${images[3]}`}
-                    onClick={() => setSmall(images[3])}
-                    alt=""
-                    style={style}
-                    width="100%"
-                    class="smallImg"
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
-              <div class="small-img-col">
-                {images[4] !== undefined && images !== undefined ? (
-                  <img
-                    src={`${images[4]}`}
-                    onClick={() => setSmall(images[4])}
-                    alt=""
-                    style={style}
-                    width="100%"
-                    class="smallImg"
-                  />
-                ) : (
-                  ""
-                )}
-              </div>
-                </div> */}
           </div>
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
 
-            <form action="/added" method="POST">
-              <input type="text" value={id} name="id" hidden />
-              <h3 style={{ justifyContent: "center" }}>
-                Add to cart:
-                <br />
-                <input type="checkbox" />
-              </h3>
-              <input
-                type="submit"
-                style={{ width: "150px", margin: "20px" }}
-                onClick={() => window.location.replace("/store")}
-              />
-            </form>
+            {localStorage.getItem("auth") === "true" ? (
+              <form action="/added" method="POST">
+                <input type="text" value={id} name="id" hidden />
+                <h3 style={{ justifyContent: "center" }}>
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
+                </h3>
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => window.location.replace("/store")}
+                />
+              </form>
+            ) : (
+              <form method="POST">
+                <h3 style={{ justifyContent: "center" }}>
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
+                </h3>
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => {
+                    setCart(id);
+                    window.location.replace("/store");
+                  }}
+                />
+              </form>
+            )}
             {/* <a href="" class="btn">Add to cart</a> */}
             <h3>
               Product details <i class="fa fa-indent"></i>

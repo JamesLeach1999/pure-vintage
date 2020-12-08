@@ -57,6 +57,7 @@ class Cart extends Component {
       }
     } else {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
+      console.log(unAuthCart)
       var cartArray = [];
       for (var i = 0; unAuthCart.length > i; i++) {
         const response = await fetch(`/product?id=${unAuthCart[i]}`);
@@ -154,7 +155,7 @@ console.log(c)
                     <td>{product.size}</td>
                     <td id="total">{product.price}</td>
                     <td>
-                      {localStorage.getItem("auth") === "true" ? (
+                      {sessionStorage.getItem("auth") === "true" ? (
                         <form action="/cartProduct" method="POST">
                           <input
                             type="text"

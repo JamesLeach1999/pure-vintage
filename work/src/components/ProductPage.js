@@ -53,7 +53,7 @@ const ProductPage = () => {
       var cart = localStorage.getItem("unAuthCart");
       var cartJson = JSON.parse(cart);
       cartJson.push(pID);
-      console.log(cartJson);
+      console.log(pID);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
       setCartProducts(localStorage.getItem("unAuthCart"))
       console.log(cartProducts)
@@ -73,7 +73,7 @@ const ProductPage = () => {
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
-      console.log(cartProducts);
+      console.log(cartProduct);
 
   console.log(product);
   console.log(images);

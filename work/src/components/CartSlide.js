@@ -14,7 +14,6 @@ class Cart extends Component {
       user: {},
       admin: false,
       auth: false,
-      clicked: false,
       cartClicked: false,
       data: [],
     };
@@ -24,38 +23,7 @@ class Cart extends Component {
     this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
   }
 
-  getCart = async () => {
-    if (sessionStorage.getItem("user")) {
-      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
-
-      try {
-        // const test = await fetch("http://localhost:9000/store");
-        // console.log(test);
-
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-
-        var notNull = [];
-        json.cart.map((pro) => {
-          if (pro !== null) {
-            notNull.push(pro);
-          }
-        });
-        console.log(notNull);
-
-        this.setState({ data: [notNull] });
-        // var total = document.getElementById("total")
-        // console.log(this.state.data.name.price);
-
-        // var sum = total.reduce((a, b) => a + b, 0);
-
-        // setTotal(sum);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
+  
   handleCartClick() {
     if (!this.state.cartClicked) {
       // attach/remove event handler
@@ -137,9 +105,6 @@ class Cart extends Component {
     return (
       <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
         <div>
-          <Link to="/order" style={{ textAlign: "right" }}>
-            checkout
-          </Link>
         </div>
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
@@ -150,6 +115,9 @@ class Cart extends Component {
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
         >
+          <Link to="/order" style={{ textAlign: "right" }}>
+            checkout
+          </Link>
           <table>
         <tr>
           <th style={{ textAlign: "left", paddingLeft: "20px" }}>Product</th>

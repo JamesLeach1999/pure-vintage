@@ -94,7 +94,7 @@ const ProductPage = () => {
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
 
-            {localStorage.getItem("auth") === "true" ? (
+            {sessionStorage.getItem("auth") === "true" ? (
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>

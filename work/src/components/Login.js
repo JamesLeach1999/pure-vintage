@@ -46,14 +46,14 @@ const App = (props) => {
           props.handleLogin(res.data.passport);
           if (sessionStorage.getItem("user")) {
             console.log("numberwang login");
+                    window.location.replace("/store");
+
           }
         } else {
           props.handleLogin(false);
         }
       })
-      .finally(() => {
-        window.location.replace("/store");
-      });
+      
   };
 
   const logout = async () => {

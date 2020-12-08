@@ -94,6 +94,8 @@ export default class Nav extends Component {
   handleOutsideClick(e) {
     // ignore clicks on the component itself
     if (this.node.contains(e.target)) {
+            console.log("thats wangernumb");
+
             console.log(this.node);
 
       return;
@@ -120,8 +122,9 @@ export default class Nav extends Component {
 
   handleCartOutsideClick(e) {
     // ignore clicks on the component itself
-    if (this.node.contains(e.target)) {
-      console.log(this.node)
+    if (this.node1.contains(e.target)) {
+      console.log("thats numberwang")
+      console.log(this.node1)
       return;
     }
 
@@ -131,7 +134,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <nav className="cartItems" ref={(node) => (this.node = node)} style={{height: "400px"}}>
+        <nav className="cartItems" ref={(node1) => (this.node1 = node1)} style={{height: "400px"}}>
           <div className="cart-menu-icon" onClick={this.handleCartClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

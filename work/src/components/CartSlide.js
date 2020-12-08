@@ -98,9 +98,8 @@ class Cart extends Component {
 
   removeCart(id){
     var c = JSON.parse(localStorage.getItem("unAuthCart"))
-
-    var filtered = c.filter(function (value, index, arr) {
-      console.log(value)
+console.log(c)
+    var filtered = c.filter(function (value) {
       return value !== id;
     });
     console.log(filtered)

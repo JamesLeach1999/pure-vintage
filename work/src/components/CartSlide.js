@@ -64,7 +64,7 @@ const Cart = () => {
         const response = await fetch(`/product?id=${unAuthCart[i]}`);
         const json = await response.json();
         console.log(json);
-        cartArray.push(json)
+        cartArray.push(json.name)
       }
       setData([cartArray])
     }

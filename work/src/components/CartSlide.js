@@ -106,13 +106,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <nav
-        className="cartItems"
-        ref={(node1) => (this.node1 = node1)}
-        style={
-          this.state.cartClicked ? { display: "block" } : { display: "none" }
-        }
-      >
+      <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
@@ -121,6 +115,9 @@ class Cart extends Component {
         <ul
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
+          style={
+            this.state.cartClicked ? { display: "block" } : { display: "none" }
+          }
         >
           <Link to="/order" style={{ textAlign: "right" }}>
             checkout

@@ -122,6 +122,8 @@ class Cart extends Component {
         console.log(cartJson);
 
         this.setState({ data: cartJson });
+      } else {
+        console.log("numerowanger")
       }
     }
   }

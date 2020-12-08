@@ -39,21 +39,18 @@ const App = (props) => {
       withCredentials: true,
 
       url: "/login",
-    })
-      .then((res) => {
-        if (res.data) {
-          console.log(res.data);
-          props.handleLogin(res.data.passport);
-          if (sessionStorage.getItem("user")) {
-            console.log("numberwang login");
-                    window.location.replace("/store");
-
-          }
-        } else {
-          props.handleLogin(false);
+    }).then((res) => {
+      if (res.data) {
+        console.log(res.data);
+        props.handleLogin(res.data.passport);
+        if (sessionStorage.getItem("user")) {
+          console.log("numberwang login");
+          window.location.replace("/store");
         }
-      })
-      
+      } else {
+        props.handleLogin(false);
+      }
+    });
   };
 
   const logout = async () => {

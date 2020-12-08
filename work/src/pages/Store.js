@@ -15,7 +15,9 @@ const People = (props) => {
   const [style, setStyle] = useState({});
   // this outputs 770px
   console.log(size);
-  console.log(localStorage.getItem("user"))
+  console.log(localStorage.getItem("unAuthCart"));
+  console.log(localStorage);
+  console.log(sessionStorage);
 
   const bigSize = {
     border: "1px solid black",
@@ -33,7 +35,7 @@ const People = (props) => {
     marginLeft: "-2px",
     paddingLeft: "25px",
   };
-console.log(sessionStorage)
+  console.log(sessionStorage);
   // this is the callback (can do it inline), uses the initial size for default
   // then everytime it changes, it is updated by passing inthe new FUNCTION
   // with window. anything is a function. everytime it changes it is stored in memory
@@ -76,7 +78,7 @@ console.log(sessionStorage)
           style={style}
         >
           {window.innerWidth > 660 ? (
-            <section style={{height: "1500px"}}>
+            <section style={{ height: "1500px" }}>
               <h5>Filters</h5>
 
               <section class="mb-4">
@@ -87,13 +89,13 @@ console.log(sessionStorage)
                     class="form-check-label small text-uppercase card-link-secondary"
                     for="XS"
                   >
-                  <input
-                    type="checkbox"
-                    class="form-check-input filled-in"
-                    value="XS"
-                    id="XS"
-                    name="size"
-                  />
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="XS"
+                      id="XS"
+                      name="size"
+                    />
                     XS
                   </label>
                 </div>
@@ -1018,7 +1020,6 @@ console.log(sessionStorage)
                     />
                     <span class="checkbox-custom rectangular"></span>
                   </label>
-
                 </div>
                 <br />
                 Max price: £{price}

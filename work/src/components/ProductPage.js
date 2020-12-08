@@ -58,7 +58,7 @@ const ProductPage = () => {
       var cartJson = JSON.parse(cart);
       cartJson.push(pID);
       console.log(cartJson);
-      localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
+      localStorage.setItem("unAuthCart", JSON.stringify(cartJson.slice(-1)[0]));
       setCartProducts(localStorage.getItem("unAuthCart"))
       console.log(cartProducts)
       console.log(localStorage.getItem("unAuthCart"));

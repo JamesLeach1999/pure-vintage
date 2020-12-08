@@ -174,7 +174,7 @@ console.log(c)
                             hidden
                           />
                           <input type="checkbox" /> */}
-                          <button type="submit" onClick={this.removeCart(product._id)}>Remove?</button>
+                          <button type="submit" onClick={() => this.removeCart(product._id)}>Remove?</button>
                         </form>
                       )}
                     </td>

@@ -26,10 +26,10 @@ const ProductPage = () => {
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "124px", height: "124px" });
-      setVert(false);
+      setVert(true);
     } else {
       setStyle({ width: "60px", height: "60px" });
-      setVert(true);
+      setVert(false);
     }
 
     // this returns a promise. so need to extract data from response (generally in json)
@@ -50,8 +50,8 @@ const ProductPage = () => {
   };
   const setCart = (pID) => {
     if (!localStorage.getItem("unAuthCart")) {
-      var unAuthCart = [pID];
-      localStorage.setItem("unAuthCart", JSON.stringify(unAuthCart));
+      var unAuthCart = pID;
+      localStorage.setItem("unAuthCart", [JSON.stringify(unAuthCart)]);
       console.log(localStorage)
     } else {
       var cart = localStorage.getItem("unAuthCart");
@@ -60,9 +60,9 @@ const ProductPage = () => {
       console.log(cartJson);
       cartJson.push(pID);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
-      setCartProducts(localStorage)
+      setCartProducts(localStorage.getItem("unAuthCart"))
       console.log(cartProducts)
-      console.log(localStorage);
+      console.log(localStorage.getItem("unAuthCart"));
     }
   };
   // cant use async await on useEffect (can in callback funcions), need a seperate function
@@ -126,10 +126,7 @@ const ProductPage = () => {
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
-                  onClick={() => {
-                    setCart(id);
-                    window.location.replace("/store");
-                  }}
+                  onClick={setCart(id)}
                 />
               </form>
             )}

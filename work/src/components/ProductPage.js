@@ -10,6 +10,7 @@ import Card from "./PicCard";
 const ProductPage = () => {
   const { id } = useParams();
   const url = `/product?id=${id}`;
+  localStorage.clear()
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
@@ -56,7 +57,6 @@ const ProductPage = () => {
     } else {
       var cart = localStorage.getItem("unAuthCart");
       var cartJson = JSON.parse(cart);
-localStorage.removeItem("unAuthCart");
       cartJson.push(pID);
       console.log(cartJson);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));

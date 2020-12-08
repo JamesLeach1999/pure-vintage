@@ -49,20 +49,16 @@ const ProductPage = () => {
     // then you want to set the state, set the empty array to an array of 30
   };
   const setCart = (pID) => {
-    if (!localStorage.getItem("unAuthCart")) {
-      var unAuthCart = pID;
-      localStorage.setItem("unAuthCart", JSON.stringify(unAuthCart));
-      console.log(localStorage)
-    } else {
+    
       var cart = localStorage.getItem("unAuthCart");
       var cartJson = JSON.parse(cart);
       cartJson.push(pID);
       console.log(cartJson);
-      localStorage.setItem("unAuthCart", JSON.stringify(cartJson.slice(-1)[0]));
+      localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
       setCartProducts(localStorage.getItem("unAuthCart"))
       console.log(cartProducts)
       console.log(localStorage.getItem("unAuthCart"));
-    }
+    
   };
   // cant use async await on useEffect (can in callback funcions), need a seperate function
   // it looks for the cleanup function, not a promise. cant use promise in useEffect

@@ -114,12 +114,14 @@ class Cart extends Component {
         console.log(error);
       }
     } else {
-      var cart = sessionStorage.getItem("unAuthCart")
-      console.log(cart)
-      var cartJson = JSON.parse(cart)
-      console.log(cartJson)
+      if (sessionStorage.getItem("unAuthCart")) {
+        var cart = sessionStorage.getItem("unAuthCart");
+        console.log(cart);
+        var cartJson = JSON.parse(cart);
+        console.log(cartJson);
 
-      this.setState({data: cartJson})
+        this.setState({ data: cartJson });
+      }
     }
   }
 

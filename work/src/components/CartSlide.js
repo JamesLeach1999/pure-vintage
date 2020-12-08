@@ -107,6 +107,7 @@ class Cart extends Component {
   render() {
     return (
       <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
+        <div></div>
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
@@ -122,37 +123,46 @@ class Cart extends Component {
           <Link to="/order" style={{ textAlign: "right" }}>
             checkout
           </Link>
-          {/* <table> */}
-          {/* <tr>
-          <th style={{ textAlign: "left", paddingLeft: "20px" }}>Product</th>
-          <th>Size</th>
-          <th>Sub total</th>
-          <th>Remove?</th>
-        </tr> */}
-          {this.state.data.map((products) => {
-            return products.map((product) => {
-              // var tota = product.price
-              // setTotal(tota + tota)
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-              return (
-                <li>
-                  <Link to={`/product/${product._id}`}>
-                    <CartProduct id={product._id} />
-                  </Link>
-                  <br />
+          <table>
+            <tr>
+              <th style={{ textAlign: "left", paddingLeft: "20px" }}>
+                Product
+              </th>
+              <th>Size</th>
+              <th>Sub total</th>
+              <th>Remove?</th>
+            </tr>
+            {this.state.data.map((products) => {
+              return products.map((product) => {
+                // var tota = product.price
+                // setTotal(tota + tota)
+                // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+                return (
+                  <tr>
+                    <Link to={`/product/${product._id}`}>
+                      <CartProduct id={product._id} />
+                    </Link>
+                    <br />
 
-                  <p>{product.size}</p>
-                  <p id="total">{product.price}</p>
-                  <form action="/cartProduct" method="POST">
-                    <input type="text" value={product._id} name="id" hidden />
-                    <input type="checkbox" />
-                    <button type="submit">Remove?</button>
-                  </form>
-                </li>
-              );
-            });
-          })}
-          {/* </table> */}
+                    <td>{product.size}</td>
+                    <td id="total">{product.price}</td>
+                    <td>
+                      <form action="/cartProduct" method="POST">
+                        <input
+                          type="text"
+                          value={product._id}
+                          name="id"
+                          hidden
+                        />
+                        <input type="checkbox" />
+                        <button type="submit">Remove?</button>
+                      </form>
+                    </td>
+                  </tr>
+                );
+              });
+            })}
+          </table>
         </ul>
       </nav>
     );

@@ -23,18 +23,7 @@ class Cart extends Component {
     this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
   }
 
-  
-  async handleCartClick() {
-    if (!this.state.cartClicked) {
-      // attach/remove event handler
-      console.log("c");
-      document.addEventListener("click", this.handleCartOutsideClick, false);
-    } else {
-      console.log("l");
-
-      document.removeEventListener("click", this.handleCartOutsideClick, false);
-    }
-
+  async getCart(){
     console.log("numberwang")
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -77,6 +66,21 @@ class Cart extends Component {
       console.log(cartArray)
       this.setState({data: [cartArray]})
     }
+  }
+
+  
+  handleCartClick() {
+    if (!this.state.cartClicked) {
+      // attach/remove event handler
+      console.log("c");
+      document.addEventListener("click", this.handleCartOutsideClick, false);
+    } else {
+      console.log("l");
+
+      document.removeEventListener("click", this.handleCartOutsideClick, false);
+    }
+
+    
 
     this.setState((prevState) => ({
       cartClicked: !prevState.cartClicked,
@@ -94,9 +98,8 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
-  async checkCart(){
-    console.log("workrkrk")
-    sessionStorage.getItem("unAuthCart")
+  componentDidMount(){
+    this.getCart()
   }
 
   

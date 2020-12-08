@@ -105,17 +105,8 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
+        <CartSlide/>
         
-        {/* <div className="header">
-          <div class="container" style={{ color: "white" }}>
-            <div class="navbar"> */}
-        {/* <div class="logo">
-                <img
-                  src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
-                  alt="logo"
-                  width="125px"
-                />
-              </div> */}
         <nav className="NavbarItems" ref={(node) => (this.node = node)}>
           <div className="menu-icon" onClick={this.handleClick}>
             <i

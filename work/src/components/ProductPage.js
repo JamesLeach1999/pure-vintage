@@ -113,7 +113,7 @@ const ProductPage = () => {
                 />
               </form>
             ) : (
-              <form method="POST">
+              <form>
                 <h3 style={{ justifyContent: "center" }}>
                   Add to cart:
                   <br />

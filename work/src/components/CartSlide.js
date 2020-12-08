@@ -58,9 +58,18 @@ const Cart = () => {
         console.log(error);
       }
     } else {
-      console.log(localStorage)
+      var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"))
+      var cartArray = []
+      for(var i = 0; unAuthCart.length > i; i++){
+        const response = await fetch(`/product?id=${unAuthCart[i]}`);
+        const json = await response.json();
+        console.log(json);
+        cartArray.push(json)
+      }
+      setData([cartArray])
     }
   };
+  console.log(data)
   const handleCartClick = () => {
     if (!cartClicked) {
       // attach/remove event handler

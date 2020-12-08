@@ -137,12 +137,12 @@ export default class Nav extends Component {
         <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
           <div className="cart-menu-icon" onClick={this.handleCartClick}>
             <i
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
+              className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
           </div>
           <ul
             id="MenuItems"
-            className={this.state.clicked ? "cart-menu active" : "cart-menu"}
+            className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
           >
             <li className="cart-links">
               <Link to="/">home</Link>

@@ -73,15 +73,10 @@ const ProductPage = () => {
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
-      console.log(localStorage.getItem("unAuthCart"));
-var cart = localStorage.getItem("unAuthCart");
-var cartJson = JSON.parse(cart);
-console.log(cartJson);
-
-cartJson.push(id);
-console.log(cartJson);
-  console.log(product);
-  console.log(images);
+      var cart = localStorage.getItem("unAuthCart");
+      console.log(cart)
+      var cartJson = JSON.parse(cart);
+      console.log(cartJson)
   return (
     <div>
       <div class="small-container single-product">

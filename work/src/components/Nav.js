@@ -134,7 +134,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <nav className="cartItems" ref={(node1) => (this.node1 = node1)} style={{height: "400px"}}>
+        <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
           <div className="cart-menu-icon" onClick={this.handleCartClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

@@ -17,11 +17,11 @@
   margin-left: 20px;
   cursor: pointer;
 }
-
+/* 
 .fa-react {
   margin-left: 0.5rem;
   font-size: 1.6rem;
-}
+} */
 
 .cart-menu {
   display: grid;
@@ -49,10 +49,10 @@
   transition: all 0.2s ease-out;
 }
 
-.fa-bars {
+/* .fa-bars {
   color: #fff;
   z-index: 555;
-}
+} */
 
 .cart-links-mobile {
   display: none;
@@ -118,6 +118,7 @@
   }
 
   .cart-menu-icon {
+    color: black;
     background-color: red;
     height: 300px;
     display: block;
@@ -130,10 +131,10 @@
     z-index: 444;
   }
 
-  .fa-times {
+  /* .fa-times {
     color: #fff;
     font-size: 2rem;
-  }
+  } */
 
   .cart-links-mobile {
     display: block;

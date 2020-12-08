@@ -24,7 +24,7 @@ class Cart extends Component {
   }
 
   
-  handleCartClick() {
+  async handleCartClick() {
     if (!this.state.cartClicked) {
       // attach/remove event handler
       console.log("c");
@@ -35,28 +35,6 @@ class Cart extends Component {
       document.removeEventListener("click", this.handleCartOutsideClick, false);
     }
 
-    this.setState((prevState) => ({
-      cartClicked: !prevState.cartClicked,
-    }));
-  }
-
-  handleCartOutsideClick(e) {
-    // ignore clicks on the component itself
-    if (this.node1.contains(e.target)) {
-      console.log("thats numberwang");
-      console.log(this.node1);
-      return;
-    }
-
-    this.handleCartClick();
-  }
-
-  async checkCart(){
-    console.log("workrkrk")
-    sessionStorage.getItem("unAuthCart")
-  }
-
-  async componentDidMount() {
     console.log("numberwang")
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -99,7 +77,29 @@ class Cart extends Component {
       console.log(cartArray)
       this.setState({data: [cartArray]})
     }
+
+    this.setState((prevState) => ({
+      cartClicked: !prevState.cartClicked,
+    }));
   }
+
+  handleCartOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node1.contains(e.target)) {
+      console.log("thats numberwang");
+      console.log(this.node1);
+      return;
+    }
+
+    this.handleCartClick();
+  }
+
+  async checkCart(){
+    console.log("workrkrk")
+    sessionStorage.getItem("unAuthCart")
+  }
+
+  
 
   render() {
     return (

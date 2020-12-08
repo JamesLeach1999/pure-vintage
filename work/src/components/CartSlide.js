@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
-import CartProduct from "./CartProduct"
+import CartProduct from "./CartProduct";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import "../css/Cart.css";
 class Cart extends Component {
-
   constructor() {
     super();
 
-  this.state = {
+    this.state = {
       loggedIn: "NOT_LOGGED_IN",
       user: {},
       admin: false,
@@ -20,7 +19,7 @@ class Cart extends Component {
       data: [],
     };
     // updating state
-    
+
     this.handleCartClick = this.handleCartClick.bind(this);
     this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
   }
@@ -84,8 +83,39 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
-  async componentDidMount(){
-    this.getCart()
+  async componentDidMount() {
+    if (sessionStorage.getItem("user")) {
+      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+
+      try {
+        // const test = await fetch("http://localhost:9000/store");
+        // console.log(test);
+
+        const response = await fetch(url);
+        const json = await response.json();
+        console.log(json);
+
+        var notNull = [];
+        json.cart.map((pro) => {
+          if (pro !== null) {
+            notNull.push(pro);
+          }
+        });
+        console.log(notNull);
+
+        this.setState({ data: [notNull] });
+        // var total = document.getElementById("total")
+        // console.log(this.state.data.name.price);
+
+        // var sum = total.reduce((a, b) => a + b, 0);
+
+        // setTotal(sum);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      
+    }
   }
 
   render() {

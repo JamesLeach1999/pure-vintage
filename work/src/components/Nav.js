@@ -47,7 +47,7 @@ export default class Nav extends Component {
   async handleLogin(data) {
     console.log(data);
     if (data) {
-      console.log("thats numberwang");
+      console.log("thats numberwangssss");
       const work = await Axios.post("/getAuth", {
         id: data.user,
       });

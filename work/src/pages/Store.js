@@ -15,7 +15,7 @@ const People = (props) => {
   const [style, setStyle] = useState({});
   // this outputs 770px
   console.log(size);
-  console.log(localStorage.getItem("unAuthCart"))
+  console.log(localStorage.getItem("user"))
 
   const bigSize = {
     border: "1px solid black",

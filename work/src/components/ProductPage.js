@@ -78,6 +78,7 @@ const ProductPage = () => {
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
+      console.log(cartProducts);
 
   console.log(product);
   console.log(images);

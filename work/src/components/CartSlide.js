@@ -84,6 +84,7 @@ class Cart extends Component {
   }
 
   async checkCart(){
+    console.log("workrkrk")
     return sessionStorage.getItem("unAuthCart")
   }
 

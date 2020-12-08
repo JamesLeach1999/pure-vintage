@@ -128,7 +128,8 @@ class Cart extends Component {
         console.log(json);
         cartArray.push(json.name);
       }
-      this.setState({data: cartArray})
+      console.log(cartArray)
+      this.setState({data: [cartArray]})
     }
   }
 

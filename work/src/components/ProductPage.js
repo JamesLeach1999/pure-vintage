@@ -74,7 +74,12 @@ const ProductPage = () => {
     // do this so no infinite loop
   }, []);
       console.log(localStorage.getItem("unAuthCart"));
+var cart = localStorage.getItem("unAuthCart");
+var cartJson = JSON.parse(cart);
+console.log(cartJson);
 
+cartJson.push(id);
+console.log(cartJson);
   console.log(product);
   console.log(images);
   return (

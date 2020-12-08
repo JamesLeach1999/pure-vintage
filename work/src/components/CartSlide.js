@@ -83,6 +83,10 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
+  async checkCart(){
+    return sessionStorage.getItem("unAuthCart")
+  }
+
   async componentDidMount() {
     console.log("numberwang")
     if (sessionStorage.getItem("user")) {
@@ -115,16 +119,9 @@ class Cart extends Component {
         console.log(error);
       }
     } else {
-      if (sessionStorage.getItem("unAuthCart")) {
-        var cart = sessionStorage.getItem("unAuthCart");
-        console.log(cart);
-        var cartJson = JSON.parse(cart);
-        console.log(cartJson);
-
-        this.setState({ data: cartJson });
-      } else {
-        console.log("numerowanger")
-      }
+      var items = await this.checkCart()
+      console.log("yes")
+      console.log(items)
     }
   }
 

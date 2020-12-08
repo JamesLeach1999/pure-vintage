@@ -106,8 +106,13 @@ class Cart extends Component {
 
   render() {
     return (
-      <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
-        
+      <nav
+        className="cartItems"
+        ref={(node1) => (this.node1 = node1)}
+        style={
+          this.state.cartClicked ? { display: "block" } : { display: "none" }
+        }
+      >
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
@@ -121,7 +126,7 @@ class Cart extends Component {
             checkout
           </Link>
           {/* <table> */}
-        {/* <tr>
+          {/* <tr>
           <th style={{ textAlign: "left", paddingLeft: "20px" }}>Product</th>
           <th>Size</th>
           <th>Sub total</th>
@@ -141,11 +146,11 @@ class Cart extends Component {
 
                   <p>{product.size}</p>
                   <p id="total">{product.price}</p>
-                    <form action="/cartProduct" method="POST">
-                      <input type="text" value={product._id} name="id" hidden />
-                      <input type="checkbox" />
-                      <button type="submit">Remove?</button>
-                    </form>
+                  <form action="/cartProduct" method="POST">
+                    <input type="text" value={product._id} name="id" hidden />
+                    <input type="checkbox" />
+                    <button type="submit">Remove?</button>
+                  </form>
                 </li>
               );
             });

@@ -75,7 +75,7 @@ router.get('/check', (req, res) => {
   res.render('test.ejs');
 });
 
-router.post('/payment_intents', ensureAuthenticated, async (req, res) => {
+router.post('/payment_intents',  async (req, res) => {
   if (req.method === 'POST') {
     try {
       const id = req.body.id;
@@ -146,7 +146,7 @@ router.post('/testing', async (req, res) => {
   console.log(req.body);
 });
 
-router.post('/te', ensureAuthenticated, async (req, res) => {
+router.post('/te',  async (req, res) => {
   const id = req.body.id;
   console.log(req.body);
   var items = [];

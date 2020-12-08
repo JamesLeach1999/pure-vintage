@@ -5,6 +5,7 @@ import CartProduct from "./CartProduct";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import "../css/Cart.css";
+import { filter } from "lodash";
 class Cart extends Component {
   constructor() {
     super();
@@ -23,8 +24,8 @@ class Cart extends Component {
     this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
   }
 
-  async getCart(){
-    console.log("numberwang")
+  async getCart() {
+    console.log("numberwang");
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
@@ -63,12 +64,11 @@ class Cart extends Component {
         console.log(json);
         cartArray.push(json.name);
       }
-      console.log(cartArray)
-      this.setState({data: [cartArray]})
+      console.log(cartArray);
+      this.setState({ data: [cartArray] });
     }
   }
 
-  
   handleCartClick() {
     if (!this.state.cartClicked) {
       // attach/remove event handler
@@ -79,8 +79,6 @@ class Cart extends Component {
 
       document.removeEventListener("click", this.handleCartOutsideClick, false);
     }
-
-    
 
     this.setState((prevState) => ({
       cartClicked: !prevState.cartClicked,
@@ -98,11 +96,19 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
-  componentDidMount(){
-    this.getCart()
+  removeCart(id){
+    var c = JSON.parse(localStorage.getItem("unAuthCart"))
+
+    var filtered = c.filter(function (value, index, arr) {
+      return value !== id;
+    });
+    console.log(filtered)
+    localStorage.setItem("unAuthCart", JSON.stringify(filtered))
   }
 
-  
+  componentDidMount() {
+    this.getCart();
+  }
 
   render() {
     return (
@@ -111,6 +117,7 @@ class Cart extends Component {
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
+            style={{ zIndex: "4000" }}
           ></i>
         </div>
         <ul
@@ -147,16 +154,29 @@ class Cart extends Component {
                     <td>{product.size}</td>
                     <td id="total">{product.price}</td>
                     <td>
-                      <form action="/cartProduct" method="POST">
-                        <input
-                          type="text"
-                          value={product._id}
-                          name="id"
-                          hidden
-                        />
-                        <input type="checkbox" />
-                        <button type="submit">Remove?</button>
-                      </form>
+                      {localStorage.getItem("auth") === "true" ? (
+                        <form action="/cartProduct" method="POST">
+                          <input
+                            type="text"
+                            value={product._id}
+                            name="id"
+                            hidden
+                          />
+                          <input type="checkbox" />
+                          <button type="submit">Remove?</button>
+                        </form>
+                      ) : (
+                        <form>
+                          {/* <input
+                            type="text"
+                            value={product._id}
+                            name="id"
+                            hidden
+                          />
+                          <input type="checkbox" /> */}
+                          <button type="submit" onClick={this.removeCart(product._id)}>Remove?</button>
+                        </form>
+                      )}
                     </td>
                   </tr>
                 );

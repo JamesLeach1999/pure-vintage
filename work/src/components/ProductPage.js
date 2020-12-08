@@ -16,6 +16,7 @@ const ProductPage = () => {
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
   const [vert, setVert] = useState(false);
+  const [cartProducts, setCartProducts] = useState([])
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -59,6 +60,8 @@ const ProductPage = () => {
       console.log(cartJson);
       cartJson.push(pID);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
+      setCartProducts(localStorage)
+      console.log(cartProducts)
       console.log(localStorage);
     }
   };

@@ -84,6 +84,7 @@ class Cart extends Component {
   }
 
   async componentDidMount() {
+    console.log("numberwang")
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 

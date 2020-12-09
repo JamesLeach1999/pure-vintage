@@ -31,7 +31,6 @@ const CardElementContainer = styled.div`
 const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
-  
 
   // so we load stripe, then we inject to checkout using elements, then use stripe is how to get back the stripe object
   const stripe = useStripe();
@@ -51,6 +50,9 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         postal_code: ev.target.zip.value,
       },
     };
+
+    var cart = JSON.parse(localStorage.getItem("unAuthCart")) || "";
+
     // disabe button whilst requesting
     setProcessingTo(true);
 
@@ -59,7 +61,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     // create payment intent on server
     // returns client_secret of payment intent
 
-    var id = sessionStorage.getItem("user") || billingDetails.email
+    var id = sessionStorage.getItem("user") || billingDetails.email;
 
     const { data: clientSecret } = await axios.post("/payment_intents", {
       amount: price * 100,
@@ -67,6 +69,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       address: billingDetails.address.line1,
       city: billingDetails.address.city,
       postcode: billingDetails.address.postal_code,
+      cart: cart
     });
 
     const cardElement = elements.getElement(CardElement);
@@ -89,11 +92,10 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
       payment_method: paymentMethodReq.paymentMethod.id,
     });
-    var cart = JSON.parse(localStorage.getItem("unAuthCart")) || ""
     await axios.post("/te", {
       test: confirmedCardPayment,
       id: id,
-      cart: cart
+      cart: cart,
     });
     // redirect on checkout if no errors
     onSuccessfulCheckout("/store");
@@ -122,7 +124,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      
       <Row>
         <BillingDetailsFields />
       </Row>

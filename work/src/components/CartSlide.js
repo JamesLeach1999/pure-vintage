@@ -118,7 +118,7 @@ console.log(c)
         <div className="cart-menu-icon" onClick={this.handleCartClick}>
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
-            style={{ zIndex: "4000" }}
+            style={{ zIndex: "40000" }}
           ></i>
         </div>
         <ul

@@ -88,7 +88,7 @@ class Cart extends Component {
         this.setState({ data: [cartArray] });
       }
 
-      console.log(this.state.data)
+      console.log(this.state.data);
       var pr = [];
       this.state.data.map((products) => {
         return products.map((product) => {
@@ -131,14 +131,24 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
-  removeCart(id) {
+  async removeCart(id) {
     var c = JSON.parse(localStorage.getItem("unAuthCart"));
     console.log(c);
     var filtered = c.filter(function (value) {
       return value !== id;
     });
     console.log(filtered);
+
+    
     localStorage.setItem("unAuthCart", JSON.stringify(filtered));
+
+    const response = await fetch(`/product?id=${id}`);
+    const json = await response.json();
+    var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"))
+console.log(cartPrice)
+    var newPrice = cartPrice - json.name.price
+console.log(newPrice)
+    localStorage.setItem("unAuthCartPrice", newPrice)
   }
 
   componentDidMount() {
@@ -161,18 +171,20 @@ class Cart extends Component {
         <ul
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          style={
-            this.state.cartClicked ? { display: "block" } : { display: "none" }
-          }
         >
-          <Link to="/order" style={{ textAlign: "right" }}>
-            checkout
-          </Link>
-          {sessionStorage.getItem("auth") === "true" ? (
-            <h3>{this.state.price}</h3>
-          ) : (
-            <h3>{localStorage.getItem("unAuthCartPrice")}</h3>
-          )}
+          <section className="center-text">
+            <Link
+              to="/order"
+              style={{ fontSize: "40px", backgroundColor: "white" }}
+            >
+              checkout
+            </Link>
+            {sessionStorage.getItem("auth") === "true" ? (
+              <h3>{this.state.price}</h3>
+            ) : (
+              <h3>{localStorage.getItem("unAuthCartPrice")}</h3>
+            )}
+          </section>
           <table>
             <tr>
               <th style={{ textAlign: "left", paddingLeft: "20px" }}>

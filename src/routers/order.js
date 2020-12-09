@@ -79,18 +79,10 @@ router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
       const id = req.body.id;
 
-      var user;
       console.log(req.body);
       try {
-        user = await User.findById({ _id: id });
-        
-      } catch (error) {
-        console.log(error)
-        
-      }
-      console.log("numb")
-      console.log(user)
-      if (user) {
+        var user = await User.findById({ _id: id });
+
         console.log('thtas number');
 
         var cart = user.cart;
@@ -129,7 +121,9 @@ router.post('/payment_intents', async (req, res) => {
         await user.save();
         const { amount } = req.body;
         console.log(amount);
-      } else {
+        
+      } catch (error) {
+        console.log(error)
         console.log('thtas number 2');
 
         var cart = req.body.cart;
@@ -168,6 +162,7 @@ router.post('/payment_intents', async (req, res) => {
         const { amount } = req.body;
         console.log(amount);
       }
+      
 
       // Psst. For production-ready applications we recommend not using the
       // amount directly from the client without verifying it first. This is to

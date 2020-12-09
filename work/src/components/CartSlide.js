@@ -127,9 +127,9 @@ console.log(c)
         <ul
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          // style={
-          //   this.state.cartClicked ? { display: "block" } : { display: "none" }
-          // }
+          style={
+            this.state.cartClicked ? { display: "none" } : { display: "block" }
+          }
         >
           <Link to="/order" style={{ textAlign: "right" }}>
             checkout

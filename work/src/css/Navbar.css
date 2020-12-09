@@ -14,9 +14,8 @@
   z-index: 494949;
 }
 
-.NavbarItems:hover{
+#MenuItems:hover{
   opacity: 0.1;
-  color: black;
 }
 
 .navbar-logo {
@@ -47,12 +46,14 @@
   text-decoration: none;
   padding: 0.5rem 0.7rem;
   position: relative;
+  font-size: large;
   justify-content: center;
   padding-top: 45px;
 }
 
 .nav-links:hover {
   background-color: #6d76f7;
+  color: black;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }

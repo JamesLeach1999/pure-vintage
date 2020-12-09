@@ -608,7 +608,7 @@ router.get('/store1', async (req, res) => {
 router.get('/recentReviews', async (req, res) => {
   var review = [];
   var proImages = [];
-  const orders = await Order.find({}).sort([['createdAt', -1]]);
+  const orders = await Order.find({})
 
   for (var i = 0; i < orders.length; i++) {
     const oProducts = JSON.parse(orders[i].orderItems);

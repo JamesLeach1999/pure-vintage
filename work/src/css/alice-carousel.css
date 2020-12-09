@@ -34,7 +34,7 @@
 
 .alice-carousel {
   position: relative;
-  width: inherit;
+  width: 100%;
   max-width: 1903px;
   margin: 0;
   direction: ltr;

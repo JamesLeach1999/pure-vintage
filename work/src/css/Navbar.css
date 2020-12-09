@@ -41,6 +41,7 @@
   position: relative;
   justify-content: center;
   padding-top: 45px;
+  right: 500px;
 }
 
 .nav-links:hover {

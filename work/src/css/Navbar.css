@@ -39,7 +39,7 @@
   text-decoration: none;
   padding: 0.5rem 0.7rem;
   position: relative;
-  justify-content: center;
+  justify-content: left;
   padding-top: 45px;
   display: grid;
   grid-template-rows: repeat(6, auto);

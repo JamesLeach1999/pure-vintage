@@ -154,7 +154,12 @@ export default class Nav extends Component {
               ""
             )}
             <li className="nav-links">
-              <Button1></Button1>
+              {sessionStorage.getItem("auth") === "false" ||
+              !sessionStorage.getItem("auth") ? (
+                <Link to="/login">login</Link>
+              ) : (
+                <Link to="/login">Logout?</Link>
+              )}
             </li>
           </ul>
         </nav>

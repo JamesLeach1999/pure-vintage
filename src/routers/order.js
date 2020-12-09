@@ -121,6 +121,13 @@ router.post('/payment_intents', async (req, res) => {
       await order.save();
       user.pastOrders.push(order._id);
       await user.save();
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount,
+        currency: 'gbp',
+      });
+
+      res.status(200).send(paymentIntent.client_secret);
     } catch (error) {
       console.log(error);
       console.log('thtas number 2');
@@ -157,6 +164,12 @@ router.post('/payment_intents', async (req, res) => {
       // console.log(order._id);
 
       await order.save();
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount,
+        currency: 'gbp',
+      });
+
+      res.status(200).send(paymentIntent.client_secret);
     }
 
     // Psst. For production-ready applications we recommend not using the
@@ -166,12 +179,7 @@ router.post('/payment_intents', async (req, res) => {
     // a uniquely identifiable product and calculate the total price server-side.
     // Then, you would only fulfill orders using the quantity you charged for.
 
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount,
-      currency: 'gbp',
-    });
-
-    res.status(200).send(paymentIntent.client_secret);
+    
     // } catch (err) {
     //   res.status(500).json({ statusCode: 500, message: err.message });
     // }

@@ -41,7 +41,10 @@
   position: relative;
   justify-content: center;
   padding-top: 45px;
-  right: 500px;
+  display: grid;
+  grid-template-rows: repeat(6, auto);
+    grid-gap: 10px;
+
 }
 
 .nav-links:hover {

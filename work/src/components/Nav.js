@@ -105,7 +105,7 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <CartSlide/>
+        <CartSlide />
         <nav className="NavbarItems" ref={(node) => (this.node = node)}>
           <div className="menu-icon" onClick={this.handleClick}>
             <i
@@ -153,12 +153,11 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-            <Button1></Button1>
+            <li className="nav-links">
+              <Button1></Button1>
+            </li>
           </ul>
         </nav>
-
-        
-
 
         {/* <img src={defaultImage} alt="" width="30px" height="30px" />
               <button onClick={this.errorToggle}>

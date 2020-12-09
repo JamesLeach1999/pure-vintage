@@ -77,106 +77,101 @@ router.get('/check', (req, res) => {
 
 router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
-      const id = req.body.id;
+    const { amount } = req.body;
 
-      console.log(req.body);
-      try {
-        var user = await User.findById({ _id: id });
+    const id = req.body.id;
 
-        console.log('thtas number');
+    console.log(req.body);
+    try {
+      var user = await User.findById({ _id: id });
 
-        var cart = user.cart;
-        var fullCart = [];
-        var items = [];
-        for (var i = 0; i < cart.length; i++) {
-          var product = await Product.findById({
-            _id: cart[i],
-          });
-          if (product !== null) {
-            items.push({ product });
-            fullCart.push(product.price);
-          }
-        }
-        var sum = fullCart.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-        const destination = {
-          address: req.body.address,
-          city: req.body.city,
-          postcode: req.body.postcode,
-        };
-        console.log(items);
-        const order = new Order({
-          user: id,
-          orderItems: JSON.stringify(items),
-          shipping: destination,
-          total: sum,
-          isPaid: false,
-          intent: '',
+      console.log('thtas number');
+
+      var cart = user.cart;
+      var fullCart = [];
+      var items = [];
+      for (var i = 0; i < cart.length; i++) {
+        var product = await Product.findById({
+          _id: cart[i],
         });
-        // console.log(order._id);
-
-        await order.save();
-        user.pastOrders.push(order._id);
-        await user.save();
-        const { amount } = req.body;
-        console.log(amount);
-        
-      } catch (error) {
-        console.log(error)
-        console.log('thtas number 2');
-
-        var cart = req.body.cart;
-        var fullCart = [];
-        var items = [];
-        for (var i = 0; i < cart.length; i++) {
-          var product = await Product.findById({
-            _id: cart[i],
-          });
-          if (product !== null) {
-            items.push({ product });
-            fullCart.push(product.price);
-          }
+        if (product !== null) {
+          items.push({ product });
+          fullCart.push(product.price);
         }
-        var sum = fullCart.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-        const destination = {
-          address: req.body.address,
-          city: req.body.city,
-          postcode: req.body.postcode,
-        };
-        console.log(items);
-        const order = new Order({
-          user: req.body.id,
-          orderItems: JSON.stringify(items),
-          shipping: destination,
-          total: sum,
-          isPaid: false,
-          intent: '',
-        });
-        // console.log(order._id);
-
-        await order.save();
-
-        const { amount } = req.body;
-        console.log(amount);
       }
-      
-
-      // Psst. For production-ready applications we recommend not using the
-      // amount directly from the client without verifying it first. This is to
-      // prevent bad actors from changing the total amount on the client before
-      // it gets sent to the server. A good approach is to send the quantity of
-      // a uniquely identifiable product and calculate the total price server-side.
-      // Then, you would only fulfill orders using the quantity you charged for.
-
-      const paymentIntent = await stripe.paymentIntents.create({
-        amount,
-        currency: 'gbp',
+      var sum = fullCart.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      const destination = {
+        address: req.body.address,
+        city: req.body.city,
+        postcode: req.body.postcode,
+      };
+      console.log(items);
+      const order = new Order({
+        user: id,
+        orderItems: JSON.stringify(items),
+        shipping: destination,
+        total: sum,
+        isPaid: false,
+        intent: '',
       });
+      // console.log(order._id);
 
-      res.status(200).send(paymentIntent.client_secret);
+      await order.save();
+      user.pastOrders.push(order._id);
+      await user.save();
+    } catch (error) {
+      console.log(error);
+      console.log('thtas number 2');
+
+      var cart = req.body.cart;
+      var fullCart = [];
+      var items = [];
+      for (var i = 0; i < cart.length; i++) {
+        var product = await Product.findById({
+          _id: cart[i],
+        });
+        if (product !== null) {
+          items.push({ product });
+          fullCart.push(product.price);
+        }
+      }
+      var sum = fullCart.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      const destination = {
+        address: req.body.address,
+        city: req.body.city,
+        postcode: req.body.postcode,
+      };
+      console.log(items);
+      const order = new Order({
+        user: req.body.id,
+        orderItems: JSON.stringify(items),
+        shipping: destination,
+        total: sum,
+        isPaid: false,
+        intent: '',
+      });
+      // console.log(order._id);
+
+      await order.save();
+    }
+
+    // Psst. For production-ready applications we recommend not using the
+    // amount directly from the client without verifying it first. This is to
+    // prevent bad actors from changing the total amount on the client before
+    // it gets sent to the server. A good approach is to send the quantity of
+    // a uniquely identifiable product and calculate the total price server-side.
+    // Then, you would only fulfill orders using the quantity you charged for.
+
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency: 'gbp',
+    });
+
+    res.status(200).send(paymentIntent.client_secret);
     // } catch (err) {
     //   res.status(500).json({ statusCode: 500, message: err.message });
     // }

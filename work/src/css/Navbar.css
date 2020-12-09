@@ -11,6 +11,11 @@
   font-size: 1.2rem;
 }
 
+.NavbarItems:hover{
+  opacity: 0.1;
+  color: black;
+}
+
 .navbar-logo {
   color: #fff;
   justify-self: start;
@@ -29,7 +34,7 @@
   grid-gap: 10px;
   list-style: none;
   text-align: start;
-  width: 70vw;
+  width: 85vw;
   justify-content: start;
   margin-right: 2rem;
 }

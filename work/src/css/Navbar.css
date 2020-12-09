@@ -28,8 +28,8 @@
   grid-template-columns: repeat(6, auto);
   grid-gap: 10px;
   list-style: none;
-  text-align: center;
-  width: 75vw;
+  text-align: start;
+  width: 60vw;
   justify-content: start;
   margin-right: 2rem;
 }

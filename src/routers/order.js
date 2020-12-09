@@ -77,7 +77,6 @@ router.get('/check', (req, res) => {
 
 router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
-    try {
       const id = req.body.id;
       console.log(req.body);
       const user = await User.findById({ _id: id });
@@ -175,9 +174,9 @@ router.post('/payment_intents', async (req, res) => {
       });
 
       res.status(200).send(paymentIntent.client_secret);
-    } catch (err) {
-      res.status(500).json({ statusCode: 500, message: err.message });
-    }
+    // } catch (err) {
+    //   res.status(500).json({ statusCode: 500, message: err.message });
+    // }
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');

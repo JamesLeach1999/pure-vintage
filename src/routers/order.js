@@ -75,51 +75,91 @@ router.get('/check', (req, res) => {
   res.render('test.ejs');
 });
 
-router.post('/payment_intents',  async (req, res) => {
+router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
     try {
       const id = req.body.id;
       console.log(req.body);
       const user = await User.findById({ _id: id });
-      console.log('thtas number');
+      if (user) {
+        console.log('thtas number');
 
-      var cart = user.cart;
-      var fullCart = [];
-      var items = [];
-      for (var i = 0; i < cart.length; i++) {
-        var product = await Product.findById({
-          _id: cart[i],
-        });
-        if (product !== null) {
-          items.push({ product });
-          fullCart.push(product.price);
+        var cart = user.cart;
+        var fullCart = [];
+        var items = [];
+        for (var i = 0; i < cart.length; i++) {
+          var product = await Product.findById({
+            _id: cart[i],
+          });
+          if (product !== null) {
+            items.push({ product });
+            fullCart.push(product.price);
+          }
         }
+        var sum = fullCart.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+        const destination = {
+          address: req.body.address,
+          city: req.body.city,
+          postcode: req.body.postcode,
+        };
+        console.log(items);
+        const order = new Order({
+          user: id,
+          orderItems: JSON.stringify(items),
+          shipping: destination,
+          total: sum,
+          isPaid: false,
+          intent: '',
+        });
+        // console.log(order._id);
+
+        await order.save();
+        user.pastOrders.push(order._id);
+        await user.save();
+        const { amount } = req.body;
+        console.log(amount);
+      } else {
+        console.log('thtas number 2');
+
+        var cart = req.body.cart;
+        var fullCart = [];
+        var items = [];
+        for (var i = 0; i < cart.length; i++) {
+          var product = await Product.findById({
+            _id: cart[i],
+          });
+          if (product !== null) {
+            items.push({ product });
+            fullCart.push(product.price);
+          }
+        }
+        var sum = fullCart.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+        const destination = {
+          address: req.body.address,
+          city: req.body.city,
+          postcode: req.body.postcode,
+        };
+        console.log(items);
+        const order = new Order({
+          id: req.body.id,
+          orderItems: JSON.stringify(items),
+          shipping: destination,
+          total: sum,
+          isPaid: false,
+          intent: '',
+        });
+        // console.log(order._id);
+
+        await order.save();
+
+        const { amount } = req.body;
+        console.log(amount);
       }
-      var sum = fullCart.reduce(function (a, b) {
-        return a + b;
-      }, 0);
 
-      const destination = {
-        address: req.body.address,
-        city: req.body.city,
-        postcode: req.body.postcode,
-      };
-      console.log(items);
-      const order = new Order({
-        user: id,
-        orderItems: JSON.stringify(items),
-        shipping: destination,
-        total: sum,
-        isPaid: false,
-        intent: '',
-      });
-      // console.log(order._id);
-
-      await order.save();
-      user.pastOrders.push(order._id);
-      await user.save();
-      const { amount } = req.body;
-      console.log(amount);
       // Psst. For production-ready applications we recommend not using the
       // amount directly from the client without verifying it first. This is to
       // prevent bad actors from changing the total amount on the client before
@@ -146,30 +186,42 @@ router.post('/testing', async (req, res) => {
   console.log(req.body);
 });
 
-router.post('/te',  async (req, res) => {
+router.post('/te', async (req, res) => {
   const id = req.body.id;
   console.log(req.body);
   var items = [];
   const user = await User.findById({ _id: id });
-  console.log('thats wangnumbe');
-  console.log(req.body);
-  var cart = user.cart;
+  if (user) {
+    console.log('thats wangnumbe');
+    console.log(req.body);
+    var cart = user.cart;
 
-  User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
-    console.log(err);
-  });
+    User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
+      console.log(err);
+    });
 
-  const orderID = user.pastOrders.slice(-1)[0];
-  // console.log(orderID);
-  var items = [];
-  console.log(user.name);
-  Order.findByIdAndUpdate(
-    { _id: orderID },
-    { isPaid: true, intent: req.body.test.paymentIntent.id },
-    (err, res) => {
-      orderConf(user.email, user.name, res.orderItems);
-    }
-  );
+    const orderID = user.pastOrders.slice(-1)[0];
+    // console.log(orderID);
+    var items = [];
+    console.log(user.name);
+    Order.findByIdAndUpdate(
+      { _id: orderID },
+      { isPaid: true, intent: req.body.test.paymentIntent.id },
+      (err, res) => {
+        orderConf(user.email, user.name, res.orderItems);
+      }
+    );
+  } else {
+    const oID = await Order.find({});
+    const orderID = oID.slice(-1)[0];
+    Order.findByIdAndUpdate(
+      { _id: orderID._id },
+      { isPaid: true, intent: req.body.test.paymentIntent.id },
+      (err, res) => {
+        orderConf(id, 'user', res.orderItems);
+      }
+    );
+  }
   console.log('work plz');
 
   res.send('it  worked');
@@ -219,7 +271,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
     var percent = req.body.percent / 100;
 
     var refundPr = amount * percent;
-    refundPrice = Math.round(refundPr)
+    refundPrice = Math.round(refundPr);
   } else {
     refundPrice = amount;
   }

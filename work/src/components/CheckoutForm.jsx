@@ -14,6 +14,7 @@ import {
   useStripe,
 } from "@stripe/react-stripe-js";
 import { CardCvcElement } from "@stripe/react-stripe-js";
+import { session } from "passport";
 
 const CardElementContainer = styled.div`
   height: 40px;
@@ -58,9 +59,11 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     // create payment intent on server
     // returns client_secret of payment intent
 
+    var id = sessionStorage.getItem("user") || billingDetails.email
+
     const { data: clientSecret } = await axios.post("/payment_intents", {
       amount: price * 100,
-      id: sessionStorage.getItem("user"),
+      id: id,
       address: billingDetails.address.line1,
       city: billingDetails.address.city,
       postcode: billingDetails.address.postal_code,
@@ -86,12 +89,14 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
       payment_method: paymentMethodReq.paymentMethod.id,
     });
+    var cart = JSON.parse(localStorage.getItem("unAuthCart")) || ""
     await axios.post("/te", {
       test: confirmedCardPayment,
-      id: sessionStorage.getItem("user"),
+      id: id,
+      cart: cart
     });
     // redirect on checkout if no errors
-    onSuccessfulCheckout("/pastOrders");
+    onSuccessfulCheckout("/store");
   };
   // to display errors, use a try catch and in the catch, set the checkoutError state object
 
@@ -117,10 +122,12 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
+      
       <Row>
         <BillingDetailsFields />
       </Row>
       <Row>
+        <h2>Card number, CVV and expiry</h2>
         <CardElementContainer>
           {/* options jusv for styling */}
           <CardElement options={cardElementOptions} />

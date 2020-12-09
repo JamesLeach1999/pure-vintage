@@ -721,9 +721,9 @@ th:last-child {
     flex-basis: 100%;
   }
 
-  .row .header.work{
+  /* .row .header.work{
     width: 98%;
-  }
+  } */
 
   nav {
     display: flex;

@@ -24,7 +24,7 @@ const shippingSchema = {
   });
   
   const orderSchema = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    user: { type: String, required: true },
     orderItems: [{type: String}],
     shipping: shippingSchema,
     payment: paymentSchema,

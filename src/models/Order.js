@@ -24,7 +24,7 @@ const shippingSchema = {
   });
   
   const orderSchema = new mongoose.Schema({
-    user: { type: String, required: true },
+    user: { type: Schema.Types.Mixed, required: true },
     orderItems: [{type: String}],
     shipping: shippingSchema,
     payment: paymentSchema,

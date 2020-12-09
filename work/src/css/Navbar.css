@@ -4,12 +4,14 @@
     rgb(110, 94, 254) 0%,
     rgba(73, 63, 252, 1) 100%
   );
+  width: inherit;
   height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
   position: fixed;
+  z-index: 494949;
 }
 
 .NavbarItems:hover{

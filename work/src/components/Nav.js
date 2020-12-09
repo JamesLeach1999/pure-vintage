@@ -116,12 +116,12 @@ export default class Nav extends Component {
             id="MenuItems"
             className={this.state.clicked ? "nav-menu active" : "nav-menu"}
           >
-            <li className="nav-links">
-              <Link to="/">home</Link>
-            </li>
-            <li className="nav-links">
-              <Link to="/store">store</Link>
-            </li>
+            <Link to="/">
+              <li className="nav-links">home</li>
+            </Link>
+            <Link to="/store">
+              <li className="nav-links">store</li>
+            </Link>
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="nav-links">
                 <Link to="/cart">cart</Link>

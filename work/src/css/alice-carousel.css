@@ -41,6 +41,7 @@
 }
 
 .alice-carousel__wrapper {
+  left: 25px;
   position: relative;
   overflow-x: hidden;
   overflow-y: hidden;

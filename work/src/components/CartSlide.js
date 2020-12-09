@@ -17,7 +17,7 @@ class Cart extends Component {
       auth: false,
       cartClicked: false,
       data: [],
-      price: 0
+      price: 0,
     };
     // updating state
 
@@ -54,6 +54,12 @@ class Cart extends Component {
           });
         });
         console.log(p);
+
+        var sum = p.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+
+        this.setState({ price: sum });
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
 
@@ -65,7 +71,7 @@ class Cart extends Component {
       }
     } else {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-      console.log(unAuthCart)
+      console.log(unAuthCart);
       var cartArray = [];
       for (var i = 0; unAuthCart.length > i; i++) {
         const response = await fetch(`/product?id=${unAuthCart[i]}`);
@@ -75,13 +81,18 @@ class Cart extends Component {
       }
       console.log(cartArray);
       this.setState({ data: [cartArray] });
-      var p = []
+      var p = [];
       this.state.data.map((products) => {
         return products.map((product) => {
-          p.push(product.price)
-        })
-      })
-      console.log(p)
+          p.push(product.price);
+        });
+      });
+      console.log(p);
+      var sum = p.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+
+      localStorage.setItem("unAuthCartPrice", sum);
     }
   }
 
@@ -112,14 +123,14 @@ class Cart extends Component {
     this.handleCartClick();
   }
 
-  removeCart(id){
-    var c = JSON.parse(localStorage.getItem("unAuthCart"))
-console.log(c)
+  removeCart(id) {
+    var c = JSON.parse(localStorage.getItem("unAuthCart"));
+    console.log(c);
     var filtered = c.filter(function (value) {
       return value !== id;
     });
-    console.log(filtered)
-    localStorage.setItem("unAuthCart", JSON.stringify(filtered))
+    console.log(filtered);
+    localStorage.setItem("unAuthCart", JSON.stringify(filtered));
   }
 
   componentDidMount() {
@@ -149,6 +160,11 @@ console.log(c)
           <Link to="/order" style={{ textAlign: "right" }}>
             checkout
           </Link>
+          {sessionStorage.getItem("auth") === "true" ? (
+            <h3>{this.state.price}</h3>
+          ) : (
+            <h3>{localStorage.getItem("unAuthCartPrice")}</h3>
+          )}
           <table>
             <tr>
               <th style={{ textAlign: "left", paddingLeft: "20px" }}>

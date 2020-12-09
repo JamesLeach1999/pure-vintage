@@ -10,30 +10,35 @@ import axios from 'axios';
 const MainPage = (props) => {
   const [sum, SetSum] = useState();
 
-  const url = `/cart1?id=${sessionStorage.getItem("user")}`;
   useEffect(() => {
     const work = async () => {
-      try {
-        // const test = await fetch("http://localhost:9000/store");
-        // console.log(test);
-
-        const response = await fetch(url);
-        const json = await response.json();
-        console.log(json);
-
-        var total = [];
-        json.cart.map((pr) => {
-          if (pr !== null) {
-            console.log(pr.price);
-            return total.push(pr.price);
-          }
-        });
-        var sum = total.reduce((a, b) => a + b, 0);
-        console.log(sum);
-
-        SetSum(sum);
-      } catch (error) {
-        console.log(error);
+      if(sessionStorage.getItem("user")){
+        const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+        try {
+          // const test = await fetch("http://localhost:9000/store");
+          // console.log(test);
+  
+          const response = await fetch(url);
+          const json = await response.json();
+          console.log(json);
+  
+          var total = [];
+          json.cart.map((pr) => {
+            if (pr !== null) {
+              console.log(pr.price);
+              return total.push(pr.price);
+            }
+          });
+          var sum = total.reduce((a, b) => a + b, 0);
+          console.log(sum);
+  
+          SetSum(sum);
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        var price = parseInt(localStorage.getItem("unAuthCartPrice"))
+        SetSum(price)
       }
     };
 
@@ -46,6 +51,7 @@ const MainPage = (props) => {
       <CheckoutForm
         price={sum}
         onSuccessfulCheckout={async () => {
+          localStorage.clear()
           window.location.replace(
             "https://cryptic-temple-54361.herokuapp.com"
           );

@@ -134,12 +134,13 @@ p {
 .header {
   background: radial-gradient(#fff, #0104bd5e);
   height: 100%;
+  position: relative;
+    left: 400px;
 }
 
 
 .header .row .work {
-  position: relative;
-    left: 40px;
+  
 
   /* max-width: 1900px; */
   margin-top: 70px;

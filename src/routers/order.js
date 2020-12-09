@@ -179,7 +179,6 @@ router.post('/payment_intents', async (req, res) => {
     // a uniquely identifiable product and calculate the total price server-side.
     // Then, you would only fulfill orders using the quantity you charged for.
 
-    
     // } catch (err) {
     //   res.status(500).json({ statusCode: 500, message: err.message });
     // }
@@ -197,8 +196,8 @@ router.post('/te', async (req, res) => {
   const id = req.body.id;
   console.log(req.body);
   var items = [];
-  const user = await User.findById({ _id: id });
-  if (user) {
+  try {
+    const user = await User.findById({ _id: id });
     console.log('thats wangnumbe');
     console.log(req.body);
     var cart = user.cart;
@@ -218,20 +217,24 @@ router.post('/te', async (req, res) => {
         orderConf(user.email, user.name, res.orderItems);
       }
     );
-  } else {
-    const oID = await Order.find({});
-    const orderID = oID.slice(-1)[0];
-    Order.findByIdAndUpdate(
-      { _id: orderID._id },
-      { isPaid: true, intent: req.body.test.paymentIntent.id },
-      (err, res) => {
-        orderConf(id, 'user', res.orderItems);
-      }
-    );
+      res.send('it  worked');
+
+  } catch (error) {
+  const oID = await Order.find({});
+  const orderID = oID.slice(-1)[0];
+  Order.findByIdAndUpdate(
+    { _id: orderID._id },
+    { isPaid: true, intent: req.body.test.paymentIntent.id },
+    (err, res) => {
+      orderConf(id, 'user', res.orderItems);
+    }
+  );
+    res.send('it  worked');
+
   }
+
   console.log('work plz');
 
-  res.send('it  worked');
 });
 
 router.get('/allOrder', async (req, res) => {

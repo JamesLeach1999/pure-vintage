@@ -115,10 +115,13 @@ console.log(c)
     return (
       <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
         <div></div>
-        <div className="cart-menu-icon" onClick={this.handleCartClick}>
+        <div
+          className="cart-menu-icon"
+          onClick={this.handleCartClick}
+          style={{ zIndex: "40000" }}
+        >
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
-            style={{ zIndex: "40000" }}
           ></i>
         </div>
         <ul
@@ -175,7 +178,12 @@ console.log(c)
                             hidden
                           />
                           <input type="checkbox" /> */}
-                          <button type="submit" onClick={() => this.removeCart(product._id)}>Remove?</button>
+                          <button
+                            type="submit"
+                            onClick={() => this.removeCart(product._id)}
+                          >
+                            Remove?
+                          </button>
                         </form>
                       )}
                     </td>

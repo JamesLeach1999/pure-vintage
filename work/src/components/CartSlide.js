@@ -146,7 +146,7 @@ console.log(c)
             </tr>
             {this.state.data.map((products) => {
               return products.map((product) => {
-                this.setState({price: product.price+product.price})
+                this.setState({price: product.price})
                 // var tota = product.price
                 // setTotal(tota + tota)
                 // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

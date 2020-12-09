@@ -111,7 +111,7 @@
   /* height: 300px; */
   color: black;
   display: block;
-  position: absolute;
+  position: fixed;
   top: -35px;
   right: 0;
   transform: translate(-100%, 60%);

@@ -7,9 +7,7 @@ import Filter from "../components/Filter";
 
 // for products need to use fetch
 const People = (props) => {
-  var [categories, setCategories] = useState([]);
-  var [brands, setBrands] = useState([]);
-  var [sizes, setSizes] = useState([]);
+  var [clicked, setClicked] = useState(false)
   var [price, setPrice] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});

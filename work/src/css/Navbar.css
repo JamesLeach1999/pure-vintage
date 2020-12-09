@@ -4,7 +4,7 @@
     rgb(110, 94, 254) 0%,
     rgba(73, 63, 252, 1) 100%
   ); */
-  background: yellow;
+  background-color:rgba(0, 0, 0, 0.1);
   width: 100vw;
   height: 80px;
   display: flex;
@@ -16,7 +16,7 @@
 }
 
 .NavbarItems:hover{
-  background-color:rgba(0, 0, 0, 0.1)
+  background: white;
 }
 
 .navbar-logo {

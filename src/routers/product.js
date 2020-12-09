@@ -620,9 +620,11 @@ router.get('/recentReviews', async (req, res) => {
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
     console.log(product);
-    if (product !== null || product.reviews[0] !== null) {
-      console.log(product.reviews[0]);
-      review.push(product.reviews[0]);
+    if (product !== null) {
+      if (product.reviews[0] !== null) {
+        console.log(product.reviews[0]);
+        review.push(product.reviews[0]);
+      }
     }
   }
 

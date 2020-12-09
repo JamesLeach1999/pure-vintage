@@ -7,7 +7,7 @@
 body {
   max-width: 1903px;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: "Commissioner", sans-serif;
 }
 .cardPics{

@@ -78,8 +78,16 @@ router.get('/check', (req, res) => {
 router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
       const id = req.body.id;
+
+      var user;
       console.log(req.body);
-      const user = await User.findById({ _id: id });
+      try {
+        user = await User.findById({ _id: id });
+        
+      } catch (error) {
+        console.log(error)
+        
+      }
       console.log("numb")
       console.log(user)
       if (user) {

@@ -30,7 +30,7 @@
   list-style: none;
   text-align: center;
   width: 75vw;
-  justify-content: end;
+  justify-content: start;
   margin-right: 2rem;
 }
 
@@ -39,12 +39,8 @@
   text-decoration: none;
   padding: 0.5rem 0.7rem;
   position: relative;
-  justify-content: left;
+  justify-content: center;
   padding-top: 45px;
-  display: grid;
-  grid-template-rows: repeat(6, auto);
-    grid-gap: 10px;
-
 }
 
 .nav-links:hover {

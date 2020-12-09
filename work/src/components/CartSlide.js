@@ -47,6 +47,13 @@ class Cart extends Component {
         console.log(notNull);
 
         this.setState({ data: [notNull] });
+        var p = [];
+        this.state.data.map((products) => {
+          return products.map((product) => {
+            p.push(product.price);
+          });
+        });
+        console.log(p);
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
 
@@ -68,6 +75,13 @@ class Cart extends Component {
       }
       console.log(cartArray);
       this.setState({ data: [cartArray] });
+      var p = []
+      this.state.data.map((products) => {
+        return products.map((product) => {
+          p.push(product.price)
+        })
+      })
+      console.log(p)
     }
   }
 
@@ -146,7 +160,6 @@ console.log(c)
             </tr>
             {this.state.data.map((products) => {
               return products.map((product) => {
-                this.setState({price: product.price})
                 // var tota = product.price
                 // setTotal(tota + tota)
                 // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -158,7 +171,7 @@ console.log(c)
                     <br />
 
                     <td>{product.size}</td>
-                    <td id="total">{this.state.price}</td>
+                    <td id="total">{product.price}</td>
                     <td>
                       {sessionStorage.getItem("auth") === "true" ? (
                         <form action="/cartProduct" method="POST">

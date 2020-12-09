@@ -73,22 +73,30 @@ class Cart extends Component {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
       console.log(unAuthCart);
       var cartArray = [];
-      for (var i = 0; unAuthCart.length > i; i++) {
-        const response = await fetch(`/product?id=${unAuthCart[i]}`);
+      if (unAuthCart.length === 0) {
+        const response = await fetch(`/product?id=${unAuthCart}`);
         const json = await response.json();
-        console.log(json);
-        cartArray.push(json.name);
+        this.setState({ data: [json] });
+      } else {
+        for (var i = 0; unAuthCart.length > i; i++) {
+          const response = await fetch(`/product?id=${unAuthCart[i]}`);
+          const json = await response.json();
+          console.log(json);
+          cartArray.push(json.name);
+        }
+        console.log(cartArray);
+        this.setState({ data: [cartArray] });
       }
-      console.log(cartArray);
-      this.setState({ data: [cartArray] });
-      var p = [];
+
+      console.log(this.state.data)
+      var pr = [];
       this.state.data.map((products) => {
         return products.map((product) => {
-          p.push(product.price);
+          pr.push(product.price);
         });
       });
-      console.log(p);
-      var sum = p.reduce(function (a, b) {
+      console.log(pr);
+      var sum = pr.reduce(function (a, b) {
         return a + b;
       }, 0);
 

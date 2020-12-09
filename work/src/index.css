@@ -138,6 +138,9 @@ p {
 
 
 .header .row .work {
+  position: relative;
+    left: 20px;
+
   /* max-width: 1900px; */
   margin-top: 70px;
   /* margin-left: -20px; */

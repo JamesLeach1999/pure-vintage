@@ -128,7 +128,7 @@ console.log(c)
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
           style={
-            this.state.cartClicked ? { display: "none" } : { display: "block" }
+            this.state.cartClicked ? { display: "block" } : { display: "none" }
           }
         >
           <Link to="/order" style={{ textAlign: "right" }}>

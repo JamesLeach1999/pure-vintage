@@ -115,13 +115,13 @@
     top: 0;
     right: 0;
     transform: translate(25%, 50%);
-    z-index: 444;
+    z-index: 4445;
   }
 
   .cart-menu-icon {
     color: black;
     background-color: red;
-    height: 300px;
+    /* height: 300px; */
     display: block;
     position: absolute;
     top: -35px;
@@ -129,7 +129,7 @@
     transform: translate(-100%, 60%);
     font-size: 3rem;
     cursor: pointer;
-    z-index: 444;
+    z-index: 4444;
   }
 
   /* .fa-times {

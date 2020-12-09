@@ -163,7 +163,7 @@ console.log(c)
                             name="id"
                             hidden
                           />
-                          <input type="checkbox" />
+                          {/* <input type="checkbox" /> */}
                           <button type="submit">Remove?</button>
                         </form>
                       ) : (

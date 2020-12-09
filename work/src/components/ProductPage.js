@@ -16,7 +16,7 @@ const ProductPage = () => {
   const [small, setSmall] = useState();
   const [style, setStyle] = useState();
   const [vert, setVert] = useState(false);
-  const [cartProducts, setCartProducts] = useState([])
+  const [cartProducts, setCartProducts] = useState([]);
 
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -49,17 +49,18 @@ const ProductPage = () => {
     // then you want to set the state, set the empty array to an array of 30
   };
   const setCart = (pID) => {
-    
-      // var cart = localStorage.getItem("unAuthCart") || [];
-      
+    // var cart = localStorage.getItem("unAuthCart") || [];
+    if (localStorage.getItem("unAuthCart") === null) {
+      localStorage.setItem("unAuthCart", pID);
+    } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));
       cartJson.push(pID);
       console.log(pID);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
-      setCartProducts(localStorage.getItem("unAuthCart"))
-      console.log(cartProducts)
+      setCartProducts(localStorage.getItem("unAuthCart"));
+      console.log(cartProducts);
       console.log(localStorage.getItem("unAuthCart"));
-    
+    }
   };
   // cant use async await on useEffect (can in callback funcions), need a seperate function
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
@@ -74,7 +75,7 @@ const ProductPage = () => {
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
-      
+
   return (
     <div>
       <div class="small-container single-product">

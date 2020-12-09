@@ -1,9 +1,10 @@
 .NavbarItems {
-  background: linear-gradient(
+  /* background: linear-gradient(
     90deg,
     rgb(110, 94, 254) 0%,
     rgba(73, 63, 252, 1) 100%
-  );
+  ); */
+  background: yellow;
   width: 100vw;
   height: 80px;
   display: flex;
@@ -14,12 +15,12 @@
   z-index: 4;
 }
 
-#MenuItems:hover{
-  opacity: 0.1;
+.NavbarItems:hover{
+  background-color:rgba(0, 0, 0, 0.1)
 }
 
 .navbar-logo {
-  color: #fff;
+  color: black;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;

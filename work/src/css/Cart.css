@@ -65,16 +65,8 @@
 @media screen and (max-width: 960px) {
   /*  */
   .cartItems {
-    position: fixed;
-    display: flex;
-    /* justify-content: space-between;
-      align-items: center;
-      padding: 0.7rem 2rem;
-      overflow: hidden; */
-    z-index: 1;
-    width: 100%;
-    margin: auto;
-    top: 0;
+    position: relative;
+    
   }
 
   .cart-menu {
@@ -82,7 +74,7 @@
     flex-direction: column;
     width: 100%;
     height: 800px;
-    position: absolute;
+    position: fixed;
     top: 80px;
     right: -100%;
     opacity: 1;

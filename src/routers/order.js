@@ -6,7 +6,7 @@ const multer = require('multer');
 const Order = require('../models/Order');
 const stripeSecret = process.env.SECRET_KEY;
 const stripePublic = process.env.STRIPE_PUBLIC_SECRET;
-const { orderConf } = require('../emails/account');
+const { orderConf, orderConfAdmin } = require('../emails/account');
 router.get('/test', async (req, res) => {
   const firstFew = await Product.find({}).limit(4);
   const brands = await Product.find({}).limit(3);
@@ -215,26 +215,24 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         orderConf(user.email, user.name, res.orderItems);
+        orderConfAdmin(res.orderItems, res.shipping);
       }
     );
-      res.send('it  worked');
-
-  } catch (error) {
-  const oID = await Order.find({});
-  const orderID = oID.slice(-1)[0];
-  Order.findByIdAndUpdate(
-    { _id: orderID._id },
-    { isPaid: true, intent: req.body.test.paymentIntent.id },
-    (err, res) => {
-      orderConf(id, 'user', res.orderItems);
-    }
-  );
     res.send('it  worked');
-
+  } catch (error) {
+    const oID = await Order.find({});
+    const orderID = oID.slice(-1)[0];
+    Order.findByIdAndUpdate(
+      { _id: orderID._id },
+      { isPaid: true, intent: req.body.test.paymentIntent.id },
+      (err, res) => {
+        orderConf(id, 'user', res.orderItems);
+      }
+    );
+    res.send('it  worked');
   }
 
   console.log('work plz');
-
 });
 
 router.get('/allOrder', async (req, res) => {

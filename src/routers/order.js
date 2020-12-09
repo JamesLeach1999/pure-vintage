@@ -81,6 +81,8 @@ router.post('/payment_intents', async (req, res) => {
       const id = req.body.id;
       console.log(req.body);
       const user = await User.findById({ _id: id });
+      console.log("numb")
+      console.log(user)
       if (user) {
         console.log('thtas number');
 

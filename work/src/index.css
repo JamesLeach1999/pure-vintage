@@ -690,7 +690,22 @@ th:last-child {
     /* margin-top: 20px; */
   }
 
-  
+  /* .cardPics {
+    width: 60vw;
+    height: 420px;
+    background: #333;
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1080px;
+    margin: auto;
+    flex: 70%;
+    padding-left: 25px;
+    padding-right: 25px;
+  } */
+
   .wow {
     font-size: large;
     position: relative;
@@ -766,18 +781,10 @@ th:last-child {
     height: 400px;
     max-height: 420px;
     max-width: 325px;
-    padding: 50px 0;
+    /* padding: 50px 0; */
   }
 
-  .col-2-pics img {
-    position: relative;
-    /* left: 35px; */
-    width: 350px;
-    height: 475px;
-    /* max-height: 600px;
-    max-width: 700px; */
-    padding: 50px 0;
-  }
+  
   .single-product h1 {
     font-size: 26px;
     line-height: 32px;
@@ -787,7 +794,7 @@ th:last-child {
     display: none;
   }
 
-  .rec-item-wrapper{
+  .rec-item-wrapper {
     width: 80%;
   }
   .card {

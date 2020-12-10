@@ -37,8 +37,21 @@ const MainPage = (props) => {
           console.log(error);
         }
       } else {
-        var price = parseInt(localStorage.getItem("unAuthCartPrice"))
-        SetSum(price)
+        var items = JSON.parse(localStorage.getItem("unAuthCart"))
+        var cartTotal = []
+        items.map( async (item) => {
+          var res = await fetch(`/product?id=${item}`)
+          var resJson = await res.json()
+
+          cartTotal.push(resJson.name.price)
+        })
+
+        var cartSum = cartTotal.reduce((a, b) => a + b, 0);
+        console.log(cartSum);
+
+        SetSum(cartSum)
+
+
       }
     };
 

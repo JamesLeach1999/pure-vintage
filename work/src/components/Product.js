@@ -43,13 +43,7 @@ class Product extends Component {
           alt=""
         />
         <h4>{this.state.data.name}</h4>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star-o"></i>
-        </div>
+        
         <p>£{this.state.data.price}</p>
       </div>
     );

@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import defaultImage from '../assets/shoes1.jpg';
-import image from '../assets/cap1.jpg';
-import { useFetch } from '../hooks/useFetch';
-import Reviews from './Reviews';
-import { Link, useParams } from 'react-router-dom';
-import Axios from "axios"
+import React, { useState, useEffect } from "react";
+import defaultImage from "../assets/shoes1.jpg";
+import image from "../assets/cap1.jpg";
+import { useFetch } from "../hooks/useFetch";
+import Reviews from "./Reviews";
+import { Link, useParams } from "react-router-dom";
+import Axios from "axios";
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
-  
+
   const getProducts = async () => {
     const url = `/product?id=${id}`;
     console.log(id);
-    
+
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false"
@@ -31,7 +31,6 @@ const ProductPage = () => {
       setImages(products.name.image);
       // then you want to set the state, set the empty array to an array of 30
     }
-
   };
 
   // cant use async await on useEffect (can in callback funcions), need a seperate function
@@ -49,45 +48,45 @@ const ProductPage = () => {
   return (
     <div>
       <div class="small-container single-product">
-          <div class="col-2">
-            <img src={`${images}`} alt="shit"></img>;
-          </div>
+        <div class="col-2">
+          <img src={`${images}`} alt="shit"></img>;
+        </div>
         <div class="row">
           <div class="col-2">
             <form action="/editPost" method="post">
               <h4>{product.name}</h4>
-              <br/>
+              <br />
               <input type="text" name="id" value={product._id} hidden />
               <h4>{product.name}</h4>
-<br/>
+              <br />
               <input type="text" placeholder="name" name="edit" />
               <h4>{product.brand}</h4>
-<br/>
+              <br />
               <input type="text" placeholder="brand" name="edit" />
               <h4>{product.category}</h4>
-<br/>
+              <br />
               <input type="text" placeholder="category" name="edit" />
               <h4>{product.description}</h4>
-<br/>
+              <br />
               <input
                 type="text"
                 placeholder="description"
                 name="edit"
                 style={{ border: "1px solid black", borderRadius: "3px" }}
               />
-              <br/>
+              <br />
               <h4>{product.size}</h4>
 
               <input type="text" placeholder="size" name="edit" />
               {/* <h4>{product.name}</h4> */}
-<br/>
+              <br />
               <input
                 type="file"
                 placeholder="image"
                 multiple="multiple"
                 name="image"
               />
-              <br/>
+              <br />
               <h4>{product.price}</h4>
 
               <input type="number" placeholder="price" name="edit" />

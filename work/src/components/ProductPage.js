@@ -79,10 +79,13 @@ const ProductPage = () => {
 
   return (
     <div>
-      <br/><br/><br/><br/>
-      <div class="small-container single-product">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="small-container single-product" style={{ maxWidth: "70vw" }}>
         <div class="row">
-          <div class="col-2-pics" style={{width: "70%"}}>
+          <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}

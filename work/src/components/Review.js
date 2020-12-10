@@ -32,7 +32,6 @@ class Review extends Component {
   render() {
     return (
       <div>
-        <i class="fa fa-quote-left"></i>
         {this.state.review.map((t) => {
           return (
             <div key={t._id}>

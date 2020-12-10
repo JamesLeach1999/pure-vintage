@@ -22,7 +22,7 @@ body {
   align-items: center;
   max-width: 1080px;
   margin: auto;
-  /* margin-left: 125px; */
+  margin-left: 125px;
   flex: 70%;
   padding-left: 25px;
   padding-right: 25px;
@@ -38,7 +38,7 @@ body {
 }
 .col-2-pics .product {
   position: relative;
-  /* right: 100px; */
+  right: 100px;
 }
 nav {
   flex: 1;
@@ -90,11 +90,11 @@ p {
   max-width: 515px;
   padding: 50px 0;
 }
-/* 
+
 .col-2-pics {
   flex-basis: 50%;
   min-width: 600px;
-} */
+}
 
 .rec-dot_active {
   color: blue;
@@ -105,7 +105,6 @@ p {
   position: relative;
   left: 35px;
   width: 500px;
-  min-width: 500px;
   height: 600px;
   max-height: 600px;
   max-width: 700px;
@@ -681,7 +680,6 @@ th:last-child {
 
 @media only screen and (max-width: 600px) {
   body {
-    width: 100vw;
     max-width: 100%;
   }
   .categories .small-container,
@@ -692,22 +690,7 @@ th:last-child {
     /* margin-top: 20px; */
   }
 
-  /* .cardPics {
-    width: 60vw;
-    height: 420px;
-    background: #333;
-    color: #fff;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1080px;
-    margin: auto;
-    flex: 70%;
-    padding-left: 25px;
-    padding-right: 25px;
-  } */
-
+  
   .wow {
     font-size: large;
     position: relative;
@@ -767,27 +750,35 @@ th:last-child {
     text-align: left;
   }*/
 
-  /* .single-product .col-2 {
+  .single-product .col-2 {
     padding: 20px 0;
   }
 
   .single-product .col-2-pics {
     padding: 20px 0;
+    max-width: 300px;
   }
-  
+
   .col-2-pics img {
     position: relative;
+    /* left: 35px; */
     width: 300px;
-    height: 400px;
+    height: 475px;
+    max-height: 600px;
     min-width: 300px;
-    max-height: 420px;
     max-width: 325px;
-  } */
-  /* max-width: 300px; */
-  /* left: 35px; */
-  /* padding: 50px 0; */
+    padding: 50px 0;
+  }
 
-  
+  .col-2-pics img {
+    position: relative;
+    /* left: 35px; */
+    width: 350px;
+    height: 475px;
+    /* max-height: 600px;
+    max-width: 700px; */
+    padding: 50px 0;
+  }
   .single-product h1 {
     font-size: 26px;
     line-height: 32px;
@@ -797,7 +788,6 @@ th:last-child {
     display: none;
   }
 
-  
   .card {
     position: relative;
     align-content: center;
@@ -834,15 +824,5 @@ th:last-child {
     font-weight: 300;
   }
 
-  /* .col-2-pics img {
-  position: relative;
-  left: 35px;
-  width: 325px;
-  height: 425px;
-  min-width: 320px;
-  max-height: 425px;
-  max-width: 325px;
-  padding: 50px 0;
-} */
   /* Style for Circular Checkbox */
 }

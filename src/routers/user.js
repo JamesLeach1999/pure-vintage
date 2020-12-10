@@ -69,8 +69,7 @@ router.post('/register', (req, res, next) => {
           newUser.password = hash;
 
           console.log(hash);
-          newUser
-            .save()
+          await newUser.save()
             passport.authenticate('local', (err, user, info) => {
               console.log(user);
               if (err) throw err;

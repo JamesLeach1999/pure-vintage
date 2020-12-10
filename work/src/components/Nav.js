@@ -105,8 +105,8 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <nav className="NavbarItems" ref={(node) => (this.node = node)}>
-        <CartSlide />
+        <nav className="NavbarItems" ref={(node) => (this.node = node)} style={{width: "100vw"}}>
+        <CartSlide style={{right: "66px"}} />
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

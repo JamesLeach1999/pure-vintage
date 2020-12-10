@@ -88,7 +88,9 @@ const App = (props) => {
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <br />
-        <button onClick={register}>Register</button>
+        <button className="wow" onClick={register}>
+          Register
+        </button>
       </div>
       <br />
       <br />

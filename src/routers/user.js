@@ -73,10 +73,10 @@ router.post('/register', (req, res) => {
             .save()
             .then((user) => {
               console.log(user);
-              res.redirect('/');
+              res.send(req.session);
             })
             .catch((err) => {
-              res.redirect('/login');
+              res.send(req.session);
             });
         });
       });
@@ -172,7 +172,5 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/store');
 });
-
-
 
 module.exports = router;

@@ -19,9 +19,8 @@ const ProductPage = () => {
   const [cartProducts, setCartProducts] = useState([]);
 
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 680, itemsToShow: 2 },
-    { width: 1200, itemsToShow: 3 },
+    { width: 1, itemsToShow: 1 }
+    
   ];
   const getProducts = async () => {
     if (window.innerWidth > 600) {

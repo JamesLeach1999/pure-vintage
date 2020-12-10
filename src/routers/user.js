@@ -71,9 +71,19 @@ router.post('/register', (req, res) => {
           console.log(hash);
           newUser
             .save()
-            .then((user) => {
-              console.log(user);
-              res.send(req.session);
+            .then(() => {
+              passport.authenticate('local', (err, user, info) => {
+                console.log(user);
+                if (err) throw err;
+                if (!user) res.send('no user');
+                else {
+                  req.logIn(user, (err) => {
+                    if (err) throw err;
+                    res.send(req.session);
+                    console.log(req.session);
+                  });
+                }
+              })(req, res, next);
             })
             .catch((err) => {
               res.send(req.session);

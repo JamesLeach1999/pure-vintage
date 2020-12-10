@@ -773,7 +773,7 @@ th:last-child {
 
   .single-product .col-2-pics {
     padding: 20px 0;
-    max-width: 300px;
+    /* max-width: 300px; */
   }
 
   .col-2-pics img {
@@ -781,6 +781,7 @@ th:last-child {
     /* left: 35px; */
     width: 300px;
     height: 400px;
+    min-width: 300px;
     max-height: 420px;
     max-width: 325px;
     /* padding: 50px 0; */
@@ -796,9 +797,7 @@ th:last-child {
     display: none;
   }
 
-  .rec-item-wrapper {
-    width: 80%;
-  }
+  
   .card {
     position: relative;
     align-content: center;
@@ -840,7 +839,7 @@ th:last-child {
   left: 35px;
   width: 325px;
   height: 425px;
-  min-width: 325px;
+  min-width: 320px;
   max-height: 425px;
   max-width: 325px;
   padding: 50px 0;

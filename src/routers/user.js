@@ -12,7 +12,7 @@ const router = new express.Router();
 
 // so this means /api/user/register
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => {
   const { name, email, password, password2 } = req.body;
 
   let errors = [];
@@ -71,23 +71,18 @@ router.post('/register', (req, res) => {
           console.log(hash);
           newUser
             .save()
-            .then(() => {
-              passport.authenticate('local', (err, user, info) => {
-                console.log(user);
-                if (err) throw err;
-                if (!user) res.send('no user');
-                else {
-                  req.logIn(user, (err) => {
-                    if (err) throw err;
-                    res.send(req.session);
-                    console.log(req.session);
-                  });
-                }
-              })(req, res, next);
-            })
-            .catch((err) => {
-              res.send(req.session);
-            });
+            passport.authenticate('local', (err, user, info) => {
+              console.log(user);
+              if (err) throw err;
+              if (!user) res.send('no user');
+              else {
+                req.logIn(user, (err) => {
+                  if (err) throw err;
+                  res.send(req.session);
+                  console.log(req.session);
+                });
+              }
+            })(req, res, next);
         });
       });
     });
@@ -182,5 +177,7 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/store');
 });
+
+
 
 module.exports = router;

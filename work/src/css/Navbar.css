@@ -98,19 +98,21 @@
       -12px 0 15px -4px rgba(31, 73, 125, 0.8);
   }
   .NavbarItems {
-    position: fixed;
-    display: flex;
-    background-color: rgba(0, 0, 0, 0.1);
-
-    /* justify-content: space-between;
-      align-items: center;
-      padding: 0.7rem 2rem;
-      overflow: hidden; */
-    z-index: 1;
-    width: 100%;
-    margin: auto;
-    top: 0;
-  }
+  /* background: linear-gradient(
+    90deg,
+    rgb(110, 94, 254) 0%,
+    rgba(73, 63, 252, 1) 100%
+  ); */
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  z-index: 4;
+}
   .NavbarItems:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }

@@ -25,7 +25,7 @@ const ProductPage = () => {
   ];
   const getProducts = async () => {
     if (window.innerWidth > 600) {
-      setStyle({ width: "124px", height: "124px" });
+      setStyle({ width: "60vw", height: "124px" });
       setVert(true);
     } else {
       setStyle({ width: "60px", height: "60px" });

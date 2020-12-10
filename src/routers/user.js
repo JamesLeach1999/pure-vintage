@@ -12,7 +12,7 @@ const router = new express.Router();
 
 // so this means /api/user/register
 
-router.post('/register', (req, res, next) => {
+router.post('/register', async (req, res, next) => {
   const { name, email, password, password2 } = req.body;
 
   let errors = [];

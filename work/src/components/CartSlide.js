@@ -139,16 +139,15 @@ class Cart extends Component {
     });
     console.log(filtered);
 
-    
     localStorage.setItem("unAuthCart", JSON.stringify(filtered));
 
     const response = await fetch(`/product?id=${id}`);
     const json = await response.json();
-    var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"))
-console.log(cartPrice)
-    var newPrice = cartPrice - json.name.price
-console.log(newPrice)
-    localStorage.setItem("unAuthCartPrice", newPrice)
+    var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"));
+    console.log(cartPrice);
+    var newPrice = cartPrice - json.name.price;
+    console.log(newPrice);
+    localStorage.setItem("unAuthCartPrice", newPrice);
   }
 
   componentDidMount() {

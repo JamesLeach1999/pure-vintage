@@ -32,7 +32,7 @@ class CartProduct extends Component {
           <div class="cart-info">
             <img src={`${this.state.image}`} alt="" />
             <div>
-              <h1>{this.state.data.name}</h1>
+              <h4>{this.state.data.name}</h4>
               {/* <small>Price: {this.state.data.price}</small> */}
               <br />
               {/* <form action="/cartProduct" method="POST">

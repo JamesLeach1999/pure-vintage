@@ -584,4 +584,4 @@ console.log("yeyey")
 };
 
 // this is just to export many things
-module.exports = { sendWelcome, sendCancel, filter, orderConf };
+module.exports = { sendWelcome, sendCancel, filter, orderConf, orderConfAdmin };

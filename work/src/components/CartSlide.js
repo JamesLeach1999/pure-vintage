@@ -180,9 +180,9 @@ console.log(newPrice)
               checkout
             </Link>
             {sessionStorage.getItem("auth") === "true" ? (
-              <h3>{this.state.price}</h3>
+              <h3>£{this.state.price}</h3>
             ) : (
-              <h3>{localStorage.getItem("unAuthCartPrice")}</h3>
+              <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
             )}
           </section>
           <table>

@@ -173,10 +173,8 @@
 
   .cart-menu-icon {
     color: black;
-    background-color: red;
-    /* height: 300px; */
     display: block;
-    position: absolute;
+    position: fixed;
     top: -35px;
     right: 0;
     transform: translate(-100%, 60%);

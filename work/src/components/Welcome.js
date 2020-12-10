@@ -40,7 +40,7 @@ useEffect(() => {
 }, []);
     return (
       <>
-        <div class="row header work" style={{ width:size, left: "20px" }}>
+        <div class="row header work" style={{ width:size, left: "15px" }}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
               src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512799/img_lights_wide_hluzf8.jpg"

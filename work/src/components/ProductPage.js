@@ -80,13 +80,13 @@ const ProductPage = () => {
   return (
     <div>
       {/* <br/><br/><br/><br/> */}
-      <div class="small-container single-product">
+      <div class="small-container">
         <div class="row">
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white", width: "85%" }}
+              style={{ backgroundColor: "white", color: "white", width: "90%" }}
             >
               {images.map((i) => {
                 return <Card image={i} />;

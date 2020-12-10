@@ -135,7 +135,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 80px;
     right: -100%;
     opacity: 1;

@@ -23,34 +23,32 @@ const App = (props) => {
       console.log(res);
       if (res.data) {
         props.handleLogin(res.data.passport);
-        
       } else {
         props.handleLogin(false);
       }
       // window.location.replace("/store");
-    }).then(() => {
-      Axios({
-        method: "POST",
-        data: {
-          email: registerUsername,
-          password: registerPassword,
-        },
-        withCredentials: true,
+    });
+    Axios({
+      method: "POST",
+      data: {
+        email: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
 
-        url: "/login",
-      }).then((res) => {
-        if (res.data) {
-          console.log(res.data);
-          props.handleLogin(res.data.passport);
-          if (sessionStorage.getItem("user")) {
-            console.log("numberwang login");
-            window.location.replace("/store");
-          }
-        } else {
-          props.handleLogin(false);
+      url: "/login",
+    }).then((res) => {
+      if (res.data) {
+        console.log(res.data);
+        props.handleLogin(res.data.passport);
+        if (sessionStorage.getItem("user")) {
+          console.log("numberwang login");
+          window.location.replace("/store");
         }
-      });
-    })
+      } else {
+        props.handleLogin(false);
+      }
+    });
   };
   const login = () => {
     Axios({
@@ -86,7 +84,10 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <br/><br/><br/><br/>
+      <br />
+      <br />
+      <br />
+      <br />
       <div>
         <h1>Register</h1>
         <input

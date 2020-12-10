@@ -161,7 +161,7 @@ class Cart extends Component {
         <div
           className="cart-menu-icon"
           onClick={this.handleCartClick}
-          style={{ zIndex: "40000" }}
+          style={{ zIndex: "40000", right: "45px" }}
         >
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}

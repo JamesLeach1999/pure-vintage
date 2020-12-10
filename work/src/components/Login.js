@@ -27,7 +27,7 @@ const App = (props) => {
       } else {
         props.handleLogin(false);
       }
-      window.location.replace("/store");
+      // window.location.replace("/store");
     }).then(() => {
       Axios({
         method: "POST",

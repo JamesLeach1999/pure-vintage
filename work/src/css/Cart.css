@@ -176,6 +176,7 @@
     display: block;
     position: fixed;
     top: -35px;
+    left: -50px;
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 3rem;

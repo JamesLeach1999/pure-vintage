@@ -787,6 +787,9 @@ th:last-child {
     display: none;
   }
 
+  .rec-item-wrapper{
+    width: 80%;
+  }
   .card {
     position: relative;
     align-content: center;

@@ -156,7 +156,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <nav className="cartItems" ref={(node1) => (this.node1 = node1)}>
+      <div className="cartItems" ref={(node1) => (this.node1 = node1)}>
         <div></div>
         <div
           className="cart-menu-icon"
@@ -244,7 +244,7 @@ class Cart extends Component {
             })}
           </table>
         </ul>
-      </nav>
+      </div>
     );
   }
 }

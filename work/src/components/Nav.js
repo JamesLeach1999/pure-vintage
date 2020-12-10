@@ -163,7 +163,6 @@ export default class Nav extends Component {
             </li>
           </ul>
         </nav>
-        <br/><br/><br/><br/><br/>
 
         {/* <img src={defaultImage} alt="" width="30px" height="30px" />
               <button onClick={this.errorToggle}>

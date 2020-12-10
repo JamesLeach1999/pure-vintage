@@ -227,6 +227,7 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         orderConf(id, 'user', res.orderItems);
+        orderConfAdmin(res.orderItems, res.shipping);
       }
     );
     res.send('it  worked');

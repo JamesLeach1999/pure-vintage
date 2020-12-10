@@ -45,7 +45,8 @@ const orderConfAdmin = async (item, shipping) => {
   }
   var json = JSON.parse(product);
 
-  console.log(email);
+  console.log(item);
+  console.log(shipping)
 
   // const user = await User.findById({_id: json.user})
   console.log('wang');

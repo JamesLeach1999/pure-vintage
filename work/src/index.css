@@ -90,11 +90,11 @@ p {
   max-width: 515px;
   padding: 50px 0;
 }
-
+/* 
 .col-2-pics {
   flex-basis: 50%;
   min-width: 600px;
-}
+} */
 
 .rec-dot_active {
   color: blue;

@@ -12,7 +12,7 @@ const router = new express.Router();
 
 // so this means /api/user/register
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', (req, res, next) => {
   const { name, email, password, password2 } = req.body;
 
   let errors = [];
@@ -69,19 +69,26 @@ router.post('/register', async (req, res, next) => {
           newUser.password = hash;
 
           console.log(hash);
-          await newUser.save()
-            passport.authenticate('local', (err, user, info) => {
-              console.log(user);
-              if (err) throw err;
-              if (!user) res.send('no user');
-              else {
-                req.logIn(user, (err) => {
-                  if (err) throw err;
-                  res.send(req.session);
-                  console.log(req.session);
-                });
-              }
-            })(req, res, next);
+          newUser
+            .save()
+            .then((user) => {
+              console.log(user)
+              passport.authenticate('local', (err, user, info) => {
+                console.log(user);
+                if (err) throw err;
+                if (!user) res.send('no user');
+                else {
+                  req.logIn(user, (err) => {
+                    if (err) throw err;
+                    res.send(req.session);
+                    console.log(req.session);
+                  });
+                }
+              })(req, res, next);
+            })
+            .catch((err) => {
+        res.send(req.session);
+            });
         });
       });
     });

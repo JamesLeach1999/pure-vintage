@@ -19,27 +19,17 @@ const App = (props) => {
       },
       withCredentials: true,
       url: "/register",
-    })
-    Axios({
-      method: "POST",
-      data: {
-        email: registerUsername,
-        password: registerPassword,
-      },
-      withCredentials: true,
-
-      url: "/login",
     }).then((res) => {
+      console.log(res);
       if (res.data) {
-        console.log(res.data);
         props.handleLogin(res.data.passport);
-        if (sessionStorage.getItem("user")) {
-          console.log("numberwang login");
-          window.location.replace("/store");
-        }
+        setLoginUsername(registerUsername)
+        setLoginPassword(registerPassword)
+        login()
       } else {
         props.handleLogin(false);
       }
+      // window.location.replace("/store");
     });
   };
   const login = () => {

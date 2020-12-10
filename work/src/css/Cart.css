@@ -174,7 +174,7 @@
   .cart-menu-icon {
     color: black;
     display: block;
-    position: fixed;
+    /* position: fixed; */
     top: -35px;
     right: 0;
     transform: translate(-100%, 60%);

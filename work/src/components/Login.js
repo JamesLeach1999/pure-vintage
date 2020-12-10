@@ -19,15 +19,7 @@ const App = (props) => {
       },
       withCredentials: true,
       url: "/register",
-    }).then((res) => {
-      console.log(res);
-      if (res.data) {
-        props.handleLogin(res.data.passport);
-      } else {
-        props.handleLogin(false);
-      }
-      // window.location.replace("/store");
-    });
+    })
     Axios({
       method: "POST",
       data: {

@@ -79,8 +79,8 @@ const ProductPage = () => {
 
   return (
     <div>
-      {/* <br/><br/><br/><br/> */}
-      <div class="small-container">
+      <br/><br/><br/><br/>
+      <div class="small-container single-product">
         <div class="row">
           <div class="col-2-pics">
             <Carousel

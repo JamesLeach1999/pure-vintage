@@ -87,6 +87,7 @@ router.post('/register', (req, res, next) => {
               })(req, res, next);
             })
             .catch((err) => {
+              console.log(err)
         res.send(req.session);
             });
         });

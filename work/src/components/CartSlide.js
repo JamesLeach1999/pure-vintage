@@ -165,7 +165,7 @@ class Cart extends Component {
         >
           <i
             className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
-            style={{color: "black", backgroundColor: "red"}}
+            style={{color: "black"}}
           ></i>
         </div>
         <ul

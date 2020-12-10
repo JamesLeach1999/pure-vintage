@@ -25,6 +25,7 @@ const App = (props) => {
         props.handleLogin(res.data.passport);
         setLoginUsername(registerUsername)
         setLoginPassword(registerPassword)
+        console.log(loginUsername)
         login()
       } else {
         props.handleLogin(false);

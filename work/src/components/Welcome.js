@@ -25,8 +25,8 @@ useEffect(() => {
   // every time we call the callback function, it triggers a re render
   window.addEventListener("resize", checkSize);
 
-  if(size > 600){
-    setSize(size + 15)
+  if(size < 600){
+    setSize(size +5)
   }
   // everytime we use useEffect, we have the optionof returning
   // whatever we place in here will be invoked once we exit the use effect

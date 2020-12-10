@@ -47,6 +47,7 @@ const MainPage = (props) => {
           console.log(resJson);
 
           cartTotal.push(resJson.name.price);
+          SetSum(cartTotal)
         } else {
           items.map(async (item) => {
             var res = await fetch(`/product?id=${item}`);
@@ -56,12 +57,12 @@ const MainPage = (props) => {
 
             cartTotal.push(resJson.name.price);
           });
+          var cartSum = cartTotal.reduce((a, b) => a + b, 0);
+          console.log(cartSum);
+  
+          SetSum(cartSum);
         }
 
-        var cartSum = cartTotal.reduce((a, b) => a + b, 0);
-        console.log(cartSum);
-
-        SetSum(cartSum);
       }
     };
 

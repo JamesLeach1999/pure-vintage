@@ -82,7 +82,7 @@ const ProductPage = () => {
       <br/><br/><br/><br/>
       <div class="small-container single-product">
         <div class="row">
-          <div class="col-2-pics">
+          <div class="col-2-pics" style={{width: "70%"}}>
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}

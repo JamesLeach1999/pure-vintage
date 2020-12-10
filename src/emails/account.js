@@ -59,7 +59,7 @@ const orderConfAdmin = async (item, shipping) => {
 
   sgMail.send({
     to: 'test@purevintage-clothing.com',
-    from: 'jimalomalom@hotmail.com',
+    from: 'order@purevintage-clothing.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>

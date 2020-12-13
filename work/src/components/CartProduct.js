@@ -1,10 +1,11 @@
+import { set } from "lodash";
 import React, { Component } from "react";
 import defaultImage from "../assets/shoes1.jpg";
 
 class CartProduct extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: require("../assets/cap1.jpg") };
+    this.state = { data: [], images: require("../assets/cap1.jpg"), title: 0 };
   }
 
   async componentDidMount() {
@@ -17,6 +18,14 @@ class CartProduct extends Component {
       const json = await response.json();
       console.log(json);
       this.setState({ data: json.name, image: json.name.image[0] });
+
+      if(window.innerWidth < 60){
+        this.setState({title: 6})
+      } else if (window.innerWidth < 1200){
+        this.setState({title: 4})
+      } else {
+        this.setState({title: 3})
+      }
 
       console.log(this.state.image);
     } catch (error) {
@@ -32,7 +41,7 @@ class CartProduct extends Component {
           <div class="cart-info">
             <img src={`${this.state.image}`} alt="" />
             <div>
-              <h4>{this.state.data.name}</h4>
+              <p>{this.state.data.name}</p>
               {/* <small>Price: {this.state.data.price}</small> */}
               <br />
               {/* <form action="/cartProduct" method="POST">

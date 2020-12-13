@@ -23,10 +23,10 @@ const App = (props) => {
       console.log(res);
       if (res.data) {
         props.handleLogin(res.data.passport);
-        setLoginUsername(registerUsername)
-        setLoginPassword(registerPassword)
-        console.log(loginUsername)
-        login()
+        setLoginUsername(registerUsername);
+        setLoginPassword(registerPassword);
+        console.log(loginUsername);
+        login();
       } else {
         props.handleLogin(false);
       }
@@ -66,62 +66,41 @@ const App = (props) => {
   };
 
   return (
-    <div className="App">
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
-        <h1>Register</h1>
-        <input
-          placeholder="name"
-          onChange={(e) => setRegisterName(e.target.value)}
-        />
-        <br /> <br />
-        <input
-          placeholder="email"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <br /> <br />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <br />
-        <button className="wow" onClick={register}>
-          Register
-        </button>
-      </div>
-      <br />
-      <br />
+    <div className="wrapper fadeInDown">
+      <div id="formContent">
+        <div class="fadeIn first">
+          <img
+            src="http://danielzawadzki.com/codepen/01/icon.svg"
+            id="icon"
+            alt="User Icon"
+          />
+        </div>
 
-      <div>
-        {/* <form> */}
-        <h1>Login</h1>
-        <input
-          placeholder="email"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <br />
-        <br />
-        <input
-          placeholder="password"
-          type="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <br />
-        <button className="wow" onClick={login}>
-          Login
-        </button>
-        {/* </form> */}
+        <form>
+          <input
+            type="text"
+            id="login"
+            class="fadeIn second"
+            name="login"
+            placeholder="login"
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+          <input
+            type="text"
+            id="password"
+            class="fadeIn third"
+            name="login"
+            placeholder="password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <button
+            type="submit"
+            class="fadeIn fourth"
+            value="Log In"
+            onClick={login}
+          />
+        </form>
       </div>
-      <br />
-      <form action="/logout" method="get">
-        <button className="wow" type="submit" onClick={logout}>
-          Logout?
-        </button>
-      </form>
     </div>
   );
 };

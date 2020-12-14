@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Reviews from "./Reviews";
+// import Reviews from "./Reviews";
 import { Link, useParams } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
 import Card from "./PicCard";

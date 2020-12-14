@@ -23,9 +23,11 @@ const Register = (props) => {
     }).then((res) => {
       console.log(res);
       if (res.data) {
+                  props.handleLogin(res.data.passport);
+
         setLoginUsername(registerUsername);
         setLoginPassword(registerPassword);
-        login();
+        // login();
       } else {
         props.handleLogin(false);
       }
@@ -33,27 +35,27 @@ const Register = (props) => {
     });
   };
 
-  const login = () => {
-    Axios({
-      method: "POST",
-      data: {
-        email: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
+//   const login = () => {
+//     Axios({
+//       method: "POST",
+//       data: {
+//         email: loginUsername,
+//         password: loginPassword,
+//       },
+//       withCredentials: true,
 
-      url: "/login",
-    }).then((res) => {
-      if (res.data) {
-        console.log(res.data);
-        props.handleLogin(res.data.passport);
+//       url: "/login",
+//     }).then((res) => {
+//       if (res.data) {
+//         console.log(res.data);
+//         props.handleLogin(res.data.passport);
 
-        window.location.replace("/store");
-      } else {
-        props.handleLogin(false);
-      }
-    });
-  };
+//         window.location.replace("/store");
+//       } else {
+//         props.handleLogin(false);
+//       }
+//     });
+//   };
   return (
     <div className="wrapper fadeInDown">
       <br /> <br />
@@ -65,7 +67,7 @@ const Register = (props) => {
           type="text"
           id="login"
           class="fadeIn second"
-          name="login"
+          name="name"
           placeholder="Name"
           onChange={(e) => setRegisterName(e.target.value)}
         />

@@ -208,7 +208,6 @@ export default class Nav extends Component {
               />
             )}
           >
-            <Register />
           </Route>
 
           <Route path="/manage">

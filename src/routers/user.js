@@ -75,6 +75,7 @@ router.post('/register', (req, res, next) => {
               console.log(user)
               passport.authenticate('local', (err, user, info) => {
                 console.log(user);
+                console.log("numberwang")
                 if (err) throw err;
                 if (!user) res.send('no user');
                 else {

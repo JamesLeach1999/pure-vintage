@@ -76,7 +76,7 @@ const ProductPage = () => {
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2-pics">
-            <Carousel
+            {/* <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
               style={{ backgroundColor: "white", color: "white" }}
@@ -84,7 +84,7 @@ const ProductPage = () => {
               {images.map((i) => {
                 return <Card image={i} />;
               })}
-            </Carousel>
+            </Carousel> */}
           </div>
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>

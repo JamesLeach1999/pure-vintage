@@ -62,6 +62,7 @@ const Register = (props) => {
       <br /> <br /> <br /> <br /> <br /> <br />
       <div id="formContent">
         <div class="fadeIn first"></div>
+        <br/>
         <input
           type="text"
           id="login"
@@ -76,17 +77,18 @@ const Register = (props) => {
           id="login"
           class="fadeIn second"
           name="login"
-          placeholder="Name"
+          placeholder="email"
           onChange={(e) => setRegisterUsername(e.target.value)}
         />
         <input
           type="password"
           id="password"
           class="fadeIn third"
-          name="Email"
+          name="password"
           placeholder="password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
+        <br/><br/>
         <button
           type="submit"
           class="fadeIn fourth"

@@ -72,6 +72,7 @@ const App = (props) => {
       <br /> <br /> <br /> <br /> <br /> <br />
       <div class="fadeIn first">
         <div id="formContent">
+          <br/>
           <input
             type="text"
             id="login"
@@ -88,19 +89,22 @@ const App = (props) => {
             placeholder="password"
             onChange={(e) => setLoginPassword(e.target.value)}
           />
+          <br/>
           <button
             type="submit"
-            class="fadeIn fourth myButton"
+            className="fadeIn fourth myButton"
             style={{ borderRadius: "5%", padding: "8px", border :"none" }}
             value="Log In"
             onClick={login}
           >
             Log in
           </button>
+
         </div>
       </div>
+      <br/>
       <Link to="/register">
-        <button style={{ borderRadius: "20%", padding: "8px" }}>Create Account</button>
+        <button className="myButton">Create Account</button>
       </Link>
     </div>
   );

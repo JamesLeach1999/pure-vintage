@@ -1,3 +1,4 @@
+import { sum } from "lodash";
 import React, { Component, useState, useEffect } from "react";
 // import Product from "../components/Product";
 // import Rows from "../components/Rows";
@@ -27,6 +28,17 @@ const Me = () => {
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson.orderInfo);
+        var sum1 = []
+        orderJson.orderInfo.map((order) => {
+          order.map((item) => {
+            sum1.push(item.price)
+          } )
+          var summed = sum1.reduce(function (a, b) {
+            return a+b;
+          }, 0)
+          setSum(total => [...total, summed])
+        })
+
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {

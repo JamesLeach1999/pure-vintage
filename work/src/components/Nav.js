@@ -122,38 +122,29 @@ export default class Nav extends Component {
             className={this.state.clicked ? "nav-menu active" : "nav-menu"}
           >
             <Link to="/">
-              <li className="nav-links">home</li>
+              <li className="nav-links">Home</li>
             </Link>
             <Link to="/store">
-              <li className="nav-links">store</li>
+              <li className="nav-links">Store</li>
             </Link>
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="nav-links">
-                <Link to="/cart">cart</Link>
+                <Link to="/cart">Cart</Link>
               </li>
             ) : (
               ""
             )}
-            {/* {sessionStorage.getItem("auth") === "false" ||
-                  !sessionStorage.getItem("auth") ? (
-                    <li>
-                      <Link to="/login">login</Link>
-                    </li>
-                  ) : (
-                    <li>
-                      <Link to="/login">Logout?</Link>
-                    </li>
-                  )} */}
+            
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="nav-links">
-                <Link to="/me">me</Link>
+                <Link to="/me">My past orders</Link>
               </li>
             ) : (
               ""
             )}
             {sessionStorage.getItem("admin") === "true" ? (
               <li className="nav-links">
-                <Link to="/manage">manage</Link>
+                <Link to="/manage">Manage</Link>
               </li>
             ) : (
               ""
@@ -161,7 +152,7 @@ export default class Nav extends Component {
             <li className="nav-links">
               {sessionStorage.getItem("auth") === "false" ||
               !sessionStorage.getItem("auth") ? (
-                <Link to="/login">login</Link>
+                <Link to="/login">Login</Link>
               ) : (
                 <Link to="/login">Logout?</Link>
               )}

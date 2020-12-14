@@ -36,13 +36,14 @@ const Test = () => {
 
         console.log(parsed["category"]);
 
-        const response = await fetch(`/store1`);
-        console.log(response);
-        const json = await response.json();
+        // const response = await fetch(`/store1`);
+        // console.log(response);
+        // const json = await response.json();
+        var skip;
         if(!parsed['skip']){
-            var skip = 0
+            skip = 0
         } else {
-            var skip = parseInt(parsed["skip"]);
+            skip = parseInt(parsed["skip"]);
         }
         const res = await Axios.get("/store1", {
           params: {

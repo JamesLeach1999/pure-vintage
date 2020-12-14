@@ -84,7 +84,7 @@ const ProductPage = () => {
       <br />
       <br />
       <div class="small-container single-product">
-        {/* <div class="row"> */}
+        <div class="row">
           {/* <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
@@ -139,7 +139,7 @@ const ProductPage = () => {
         </div>
         <Reviews />
         {/* <OtherReviews/> */}
-      {/* </div> */}
+      </div>
     </div>
   );
 };

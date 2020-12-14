@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-
+import defaultImage from "../assets/shoes1.jpg";
+import image from "../assets/cap1.jpg";
+import { useFetch } from "../hooks/useFetch";
 import Reviews from "./Reviews";
 import { Link, useParams } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
+import OtherReviews from "./OtherReviews";
 import Card from "./PicCard";
 const ProductPage = () => {
   const { id } = useParams();
@@ -15,7 +18,10 @@ const ProductPage = () => {
   const [vert, setVert] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
 
-  const breakPoints = [{ width: 1, itemsToShow: 1 }];
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 }
+    
+  ];
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "60vw", height: "124px" });
@@ -44,8 +50,8 @@ const ProductPage = () => {
   const setCart = (pID) => {
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
-      var i = [pID, pID];
-      console.log(i);
+      var i = [pID, pID]
+      console.log(i)
       localStorage.setItem("unAuthCart", JSON.stringify([pID]));
     } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));
@@ -73,13 +79,17 @@ const ProductPage = () => {
 
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white" }}
+              style={{ backgroundColor: "white", color: "white"}}
             >
               {images.map((i) => {
                 return <Card image={i} />;
@@ -95,26 +105,31 @@ const ProductPage = () => {
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
-                  
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
                 </h3>
                 <input
                   type="submit"
-                  style={{ width: "150px", margin: "20px", color: "black" }}
+                  style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
-                >Add to cart</input>
+                />
               </form>
             ) : (
               <form>
                 <h3 style={{ justifyContent: "center" }}>
-                  
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
                 </h3>
                 <input
                   type="submit"
-                  style={{ width: "150px", margin: "20px", color: "black" }}
+                  style={{ width: "150px", margin: "20px" }}
                   onClick={() => setCart(id)}
-                >Add to cart</input>
+                />
               </form>
             )}
+            {/* <a href="" class="btn">Add to cart</a> */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>
@@ -123,6 +138,7 @@ const ProductPage = () => {
           </div>
         </div>
         <Reviews />
+        {/* <OtherReviews/> */}
       </div>
     </div>
   );

@@ -78,7 +78,7 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{maxWidth: "395px"}}>
       <br />
       <br />
       <br />

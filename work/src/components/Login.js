@@ -70,42 +70,37 @@ const App = (props) => {
     <div className="wrapper fadeInDown">
       <br /> <br />
       <br /> <br /> <br /> <br /> <br /> <br />
-      <div id="formContent">
-        <div class="fadeIn first">
-          <img
-            src="http://danielzawadzki.com/codepen/01/icon.svg"
-            id="icon"
-            alt="User Icon"
+      <div class="fadeIn first">
+        <div id="formContent">
+          <input
+            type="text"
+            id="login"
+            class="fadeIn second"
+            name="login"
+            placeholder="login"
+            onChange={(e) => setLoginUsername(e.target.value)}
           />
+          <input
+            type="text"
+            id="password"
+            class="fadeIn third"
+            name="login"
+            placeholder="password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <button
+            type="submit"
+            class="fadeIn fourth"
+            style={{ borderRadius: "5%", padding: "8px" }}
+            value="Log In"
+            onClick={login}
+          >
+            Log in
+          </button>
         </div>
-
-        <input
-          type="text"
-          id="login"
-          class="fadeIn second"
-          name="login"
-          placeholder="login"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          type="text"
-          id="password"
-          class="fadeIn third"
-          name="login"
-          placeholder="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button
-          type="submit"
-          class="fadeIn fourth"
-          value="Log In"
-          onClick={login}
-        >
-          Login In
-        </button>
       </div>
       <Link to="/register">
-        <p>Create Account</p>
+        <p style={{ borderRadius: "5%", padding: "8px" }}>Create Account</p>
       </Link>
     </div>
   );

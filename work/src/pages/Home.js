@@ -7,10 +7,13 @@ import Login from "../components/Login"
 import CatRows from "../components/CatRows"
 import FeaturedRow from "../components/FeaturedRow"
 import Recent from "../components/RecentRevs"
-
+import "../css/fade.css"
 export default class Home extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      animate: true,
+    }
 
     this.handleSuccess = this.handleSuccess.bind(this)
   }
@@ -24,9 +27,19 @@ export default class Home extends Component {
     this.props.history.push("/store")
   }
 
+  componentDidMount(){
+    if(sessionStorage.getItem("firstLoadDone") === null){
+      this.setState({animate: true})
+
+      sessionStorage.setItem("firstLoadDone", 0)
+    } else {
+      this.setState({animate: false})
+    }
+  }
+
   render(){
     return (
-      <div>
+      <div className={this.state.animate ? "fade-in-hello hello span": "hello-span"}>
         <h1 style={{position: "sticky"}}>work</h1>
         <Rows/>
         <CatRows/>

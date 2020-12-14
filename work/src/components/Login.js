@@ -50,7 +50,7 @@ const App = (props) => {
         props.handleLogin(res.data.passport);
         if (sessionStorage.getItem("user")) {
           console.log("numberwang login");
-          // window.location.replace("/store");
+          window.location.replace("/store");
         }
       } else {
         props.handleLogin(false);
@@ -89,7 +89,7 @@ const App = (props) => {
             placeholder="password"
             onChange={(e) => setLoginPassword(e.target.value)}
           />
-          <br/>
+          <br/><br/>
           <button
             type="submit"
             className="fadeIn fourth myButton"
@@ -99,7 +99,7 @@ const App = (props) => {
           >
             Log in
           </button>
-
+<br/><br/>
         </div>
       </div>
       <br/>

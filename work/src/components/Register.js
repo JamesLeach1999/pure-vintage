@@ -76,12 +76,12 @@ const Register = (props) => {
           type="text"
           id="login"
           class="fadeIn second"
-          name="login"
+          name="email"
           placeholder="email"
           onChange={(e) => setRegisterUsername(e.target.value)}
         />
         <input
-          type="password"
+          type="text"
           id="password"
           class="fadeIn third"
           name="password"
@@ -91,12 +91,13 @@ const Register = (props) => {
         <br/><br/>
         <button
           type="submit"
-          class="fadeIn fourth"
+          class="fadeIn fourth myButton"
           value="Log In"
           onClick={register}
         >
           Create account
         </button>
+        <br/><br/>
       </div>
     </div>
   );

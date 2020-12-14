@@ -32,6 +32,8 @@ const Register = (props) => {
         props.handleLogin(false);
       }
       // window.location.replace("/store");
+    }).then((u) =>{
+        window.location.replace("/store")
     });
   };
 

@@ -78,12 +78,11 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <div class="small-container single-product">
+    <div class="small-container single-product">
+    <br />
+    <br />
+    <br />
+    <br />
         <div class="row">
           {/* <div class="col-2-pics">
             <Carousel
@@ -140,7 +139,6 @@ const ProductPage = () => {
         <Reviews />
         {/* <OtherReviews/> */}
       </div>
-    </div>
   );
 };
 

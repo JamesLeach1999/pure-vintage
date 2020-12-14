@@ -78,75 +78,76 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div class="small-container single-product">
-      deddw
+    <div>
+      errvcev
       <br />
       <br />
       <br />
       <br />
-      <div class="row">
-      <div class="col-2-pics">
+      <div class="small-container single-product">
+        sqdwqdwdw
+        <div class="row">
+          <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white"}}
+              style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {
                 return <Card image={i} />;
               })}
             </Carousel>
           </div>
-      <div class="col-2 product">
-        <p style={{ textTransform: "uppercase" }}>{product.category}</p>
-        <h1>{product.name}</h1>
-        <h4>£{product.price}</h4>
-        <h4>Size: {product.size}</h4>
+          <div class="col-2 product">
+            <p style={{ textTransform: "uppercase" }}>{product.category}</p>
+            <h1>{product.name}</h1>
+            <h4>£{product.price}</h4>
 
-        {sessionStorage.getItem("auth") === "true" ? (
-          <form action="/added" method="POST">
-            <input type="text" value={id} name="id" hidden />
-            <h3 style={{ justifyContent: "center" }}>
-              {/* Add to cart:
-              <br />
-              <input type="checkbox" /> */}
-            </h3>
-            <input
-              type="submit"
-              style={{ width: "150px", margin: "20px" }}
-              onClick={() => window.location.replace("/store")}
-            >
-              Add to cart
-            </input>
-          </form>
-        ) : (
-          <form>
-            <input type="text" value={id} name="id" hidden />
+            {sessionStorage.getItem("auth") === "true" ? (
+              <form action="/added" method="POST">
+                <input type="text" value={id} name="id" hidden />
+                {/* <h3 style={{ justifyContent: "center" }}>
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
+                </h3> */}
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => window.location.replace("/store")}
+                >
+                  Add to cart
+                </input>
+              </form>
+            ) : (
+              <form>
+                <input type="text" value={id} name="id" hidden />
 
-            <h3 style={{ justifyContent: "center" }}>
-              {/* Add to cart:
-              <br />
-              <input type="checkbox" /> */}
+                {/* <h3 style={{ justifyContent: "center" }}>
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
+                </h3> */}
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => setCart(id)}
+                >
+                  Add to cart
+                </input>
+              </form>
+            )}
+            {/* <a href="" class="btn">Add to cart</a> */}
+            <h3>
+              Product details <i class="fa fa-indent"></i>
             </h3>
-            <input
-              type="submit"
-              style={{ width: "150px", margin: "20px" }}
-              onClick={() => setCart(id)}
-            >
-              Add to cart
-            </input>
-          </form>
-        )}
-        {/* <a href="" class="btn">Add to cart</a> */}
-        <h3>
-          Product details <i class="fa fa-indent"></i>
-        </h3>
-        <br />
-        <p>{product.description}</p>
+            <br />
+            <p>{product.description}</p>
+          </div>
+        </div>
+        <Reviews />
+        {/* <OtherReviews/> */}
       </div>
-      {/* </div> */}
-      <Reviews />
-      {/* <OtherReviews/> */}
-    </div>
     </div>
   );
 };

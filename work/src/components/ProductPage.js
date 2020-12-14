@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import defaultImage from "../assets/shoes1.jpg";
-import image from "../assets/cap1.jpg";
-import { useFetch } from "../hooks/useFetch";
+
 import Reviews from "./Reviews";
 import { Link, useParams } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
-import OtherReviews from "./OtherReviews";
 import Card from "./PicCard";
 const ProductPage = () => {
   const { id } = useParams();

@@ -111,7 +111,7 @@ export default class Nav extends Component {
           ref={(node) => (this.node = node)}
           style={{ width: "100vw" }}
         >
-          <CartSlide style={{ position: "fixed" }} />
+          {/* <CartSlide style={{ position: "fixed" }} /> */}
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}

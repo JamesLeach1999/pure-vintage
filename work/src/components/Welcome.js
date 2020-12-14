@@ -45,15 +45,23 @@ useEffect(() => {
 }, []);
     return (
       <FadeIn>
-        <div class="row header work" style={{ width:size }}>
+        <div class="row header work" style={{ width: size }}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
-              src={size > 600? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone2_bldp53.jpg": "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontscreen_iufe40.jpg"}
+              src={
+                size > 600
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone2_bldp53.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontscreen_iufe40.jpg"
+              }
               className="sliderimg"
               alt=""
             />
             <img
-              src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512795/img_snow_wide_ys9co2.jpg"
+              src={
+                size > 600
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone1_gofkhx.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone_kodxqv.jpg"
+              }
               className="sliderimg"
               alt=""
             />

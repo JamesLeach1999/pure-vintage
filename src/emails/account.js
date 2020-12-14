@@ -12,7 +12,7 @@ const sendWelcome = (email, name) => {
   sgMail
     .send({
       to: email,
-      from: 'jimalomalom@hotmail.com',
+      from: 'support@purevintage-clothing.com',
       subject: 'welcome',
       text: `welcome to pure vintage ${name}`,
     })
@@ -27,7 +27,7 @@ const sendWelcome = (email, name) => {
 const sendCancel = (email, name) => {
   sgMail.send({
     to: email,
-    from: 'jadlljames@gmail.com',
+    from: 'support@purevintage-clothing.com',
     subject: 'welcome',
     text: `sorry to see you go ${name}`,
   });
@@ -58,8 +58,8 @@ const orderConfAdmin = async (item, shipping) => {
   }
 
   sgMail.send({
-    to: 'test@purevintage-clothing.com',
-    from: 'order@purevintage-clothing.com',
+    to: 'jadlljames@gmail.com',
+    from: 'support@purevintage-clothing.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -284,7 +284,7 @@ const orderConf = async (email, name, item) => {
 
   sgMail.send({
     to: email,
-    from: 'support@pure-vintage.com',
+    from: 'support@purevintage-clothing.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>

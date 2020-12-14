@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { Link, useParams } from "react-router-dom";
-
+import FadeIn from "react-fade-in"
+import "../css/fade.css"
 // function ID(id) {
 //   return id;
 // }
@@ -26,7 +27,7 @@ class Product extends Component {
 
   render() {
     return (
-      <div className="col-4">
+      <FadeIn className="col-4">
         <img
           style={{ transitionDuration: "0.3s" }}
           src={`${this.state.images[0]}`}
@@ -45,7 +46,7 @@ class Product extends Component {
         <h4>{this.state.data.name}</h4>
         
         <p>£{this.state.data.price}</p>
-      </div>
+      </FadeIn>
     );
   }
 }

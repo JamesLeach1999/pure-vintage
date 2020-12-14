@@ -50,6 +50,7 @@
     "react-confetti": "^5.0.1",
     "react-dom": "^16.7.0",
     "react-elastic-carousel": "^0.9.5",
+    "react-fade-in": "^1.1.1",
     "reactstrap": "^8.7.1",
     "serve": "^11.3.2",
     "sharp": "^0.25.4",

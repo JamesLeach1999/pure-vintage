@@ -3,6 +3,7 @@ import defaultImage from "../assets/Logo_blue_text.jpg";
 import { UncontrolledCarousel } from "reactstrap";
 import Car from "./Car"
 import AliceCarousel from "react-alice-carousel";
+import FadeIn from "react-fade-in"
 import "../css/alice-carousel.css";
 const Welcome = () => {
 
@@ -43,7 +44,7 @@ useEffect(() => {
   };
 }, []);
     return (
-      <>
+      <FadeIn>
         <div class="row header work" style={{ width:size, maxWidth: "1903px" }}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
@@ -63,7 +64,7 @@ useEffect(() => {
             />
           </AliceCarousel>
         </div>
-      </>
+      </FadeIn>
     );
 }
 

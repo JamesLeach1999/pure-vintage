@@ -201,6 +201,9 @@ export default class Nav extends Component {
           <Route path="/me">
             <Me />
           </Route>
+          <Route path="/register">
+            
+          </Route>
 
           <Route path="/manage">
             <Manage />

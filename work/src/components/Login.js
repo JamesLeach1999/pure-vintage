@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 // import "./App.css";
 import Axios from "axios";
-import "../css/Login.css"
+import "../css/Login.css";
+import { Link } from "react-router-dom";
 const App = (props) => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -67,11 +68,8 @@ const App = (props) => {
 
   return (
     <div className="wrapper fadeInDown">
-
-
-
-
-    
+      <br /> <br />
+      <br /> <br /> <br /> <br /> <br /> <br />
       <div id="formContent">
         <div class="fadeIn first">
           <img
@@ -81,31 +79,32 @@ const App = (props) => {
           />
         </div>
 
-        <form>
-          <input
-            type="text"
-            id="login"
-            class="fadeIn second"
-            name="login"
-            placeholder="login"
-            onChange={(e) => setLoginUsername(e.target.value)}
-          />
-          <input
-            type="text"
-            id="password"
-            class="fadeIn third"
-            name="login"
-            placeholder="password"
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
-          <button
-            type="submit"
-            class="fadeIn fourth"
-            value="Log In"
-            onClick={login}
-          />
-        </form>
+        <input
+          type="text"
+          id="login"
+          class="fadeIn second"
+          name="login"
+          placeholder="login"
+          onChange={(e) => setLoginUsername(e.target.value)}
+        />
+        <input
+          type="text"
+          id="password"
+          class="fadeIn third"
+          name="login"
+          placeholder="password"
+          onChange={(e) => setLoginPassword(e.target.value)}
+        />
+        <button
+          type="submit"
+          class="fadeIn fourth"
+          value="Log In"
+          onClick={login}
+        />
       </div>
+      <Link to="/register">
+        <p>Create Account</p>
+      </Link>
     </div>
   );
 };

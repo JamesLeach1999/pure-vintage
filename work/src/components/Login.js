@@ -100,7 +100,9 @@ const App = (props) => {
           class="fadeIn fourth"
           value="Log In"
           onClick={login}
-        />
+        >
+          Login In
+        </button>
       </div>
       <Link to="/register">
         <p>Create Account</p>

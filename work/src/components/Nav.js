@@ -18,6 +18,7 @@ import PastOrders from "../pages/Past";
 import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
 import { Button1 } from "./Button";
+import Register from "./Register"
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide"
 // have to use links like this in the nav
@@ -202,7 +203,7 @@ export default class Nav extends Component {
             <Me />
           </Route>
           <Route path="/register">
-            
+              <Register/>
           </Route>
 
           <Route path="/manage">

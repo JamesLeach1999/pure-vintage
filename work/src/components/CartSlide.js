@@ -164,9 +164,12 @@ class Cart extends Component {
           style={{ zIndex: "40000" }}
         >
           <i
-            className={this.state.cartClicked ? "fas fa-times" : "fas fa-bars"}
-            style={{color: "black"}}
+            className={
+              this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
+            }
+            style={{ color: "black" }}
           ></i>
+          
         </div>
         <ul
           id="MenuItems"

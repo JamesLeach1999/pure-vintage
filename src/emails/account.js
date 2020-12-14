@@ -565,17 +565,18 @@ console.log("yeyey")
 
   console.log("nennene")
   console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
-
+  var t;
   console.log(query.skip + 'thats numberwang');
   if (query.skip !== null || query.skip !== undefined) {
-    var skip = query.skip;
+    var skip = parseInt(query.skip);
+    t = await Product.find(products).skip(skip);
   } else {
     var skip = 0;
+    t = await Product.find(products)
   }
   console.log(products);
   // console.log(await Product.find(products));
 
-  var t = await Product.find(products);
 
   return t;
 

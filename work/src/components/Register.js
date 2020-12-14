@@ -68,7 +68,7 @@ const Register = (props) => {
           id="login"
           class="fadeIn second"
           name="login"
-          placeholder="login"
+          placeholder="Name"
           onChange={(e) => setRegisterName(e.target.value)}
         />
 
@@ -77,7 +77,7 @@ const Register = (props) => {
           id="login"
           class="fadeIn second"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           onChange={(e) => setRegisterUsername(e.target.value)}
         />
         <input
@@ -85,7 +85,7 @@ const Register = (props) => {
           id="password"
           class="fadeIn third"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
         <br/><br/>

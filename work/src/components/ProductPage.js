@@ -75,7 +75,7 @@ const ProductPage = () => {
     <div>
       <div class="small-container single-product">
         <div class="row">
-          {/* <div class="col-2-pics">
+          <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
@@ -85,7 +85,7 @@ const ProductPage = () => {
                 return <Card image={i} />;
               })}
             </Carousel>
-          </div> */}
+          </div>
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
@@ -95,26 +95,31 @@ const ProductPage = () => {
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
-                  
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
                 </h3>
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
-                >Add to cart?</input>
+                />
               </form>
             ) : (
               <form>
                 <h3 style={{ justifyContent: "center" }}>
-                  
+                  Add to cart:
+                  <br />
+                  <input type="checkbox" />
                 </h3>
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => setCart(id)}
-                >Add to cart?</input>
+                />
               </form>
             )}
+            {/* <a href="" class="btn">Add to cart</a> */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>
@@ -123,6 +128,7 @@ const ProductPage = () => {
           </div>
         </div>
         <Reviews />
+        {/* <OtherReviews/> */}
       </div>
     </div>
   );

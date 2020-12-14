@@ -20,7 +20,6 @@ class OtherRevs extends Component {
   render() {
     return (
       <div>
-        <i class="fa fa-quote-left"></i>
         
             <div key={this.props.datat._id}>
               <h3 style={{ paddingBottom: "15px", marginTop: "-30px" }}>

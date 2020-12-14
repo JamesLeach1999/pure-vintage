@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+// import "./App.css";
 import Axios from "axios";
-
+import "../css/Login.css";
+import { Link } from "react-router-dom";
 const Register = (props) => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -21,10 +23,8 @@ const Register = (props) => {
     }).then((res) => {
       console.log(res);
       if (res.data) {
-        props.handleLogin(res.data.passport);
         setLoginUsername(registerUsername);
         setLoginPassword(registerPassword);
-        console.log(loginUsername);
         login();
       } else {
         props.handleLogin(false);
@@ -47,10 +47,8 @@ const Register = (props) => {
       if (res.data) {
         console.log(res.data);
         props.handleLogin(res.data.passport);
-        if (sessionStorage.getItem("user")) {
-          console.log("numberwang login");
-          // window.location.replace("/store");
-        }
+
+        window.location.replace("/store");
       } else {
         props.handleLogin(false);
       }

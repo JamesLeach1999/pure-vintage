@@ -74,7 +74,7 @@ const ProductPage = () => {
   return (
     <div>
       <div class="small-container single-product">
-        {/* <div class="row">
+        <div class="row">
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
@@ -122,7 +122,7 @@ const ProductPage = () => {
             <p>{product.description}</p>
           </div>
         </div>
-        <Reviews /> */}
+        {/* <Reviews /> */}
       </div>
     </div>
   );

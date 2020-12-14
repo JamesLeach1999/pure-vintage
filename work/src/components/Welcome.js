@@ -26,9 +26,9 @@ useEffect(() => {
   // every time we call the callback function, it triggers a re render
   window.addEventListener("resize", checkSize);
 
-  // if(size > 600){
-    setSize(size +5)
-  // }
+  if(size < 600){
+    setSize(size +13)
+  }
   // everytime we use useEffect, we have the optionof returning
   // whatever we place in here will be invoked once we exit the use effect
   // before we trigger useEffect after the re render, we remove the listener
@@ -48,7 +48,7 @@ useEffect(() => {
         <div class="row header work" style={{ width:size }}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
-              src={size > 600 ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontscreen_iufe40.jpg":  "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone2_bldp53.jpg"}
+              src={size > 600? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone2_bldp53.jpg": "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontscreen_iufe40.jpg"}
               className="sliderimg"
               alt=""
             />

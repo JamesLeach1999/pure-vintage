@@ -11,6 +11,7 @@ const People = (props) => {
   var [price, setPrice] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
+  const [animate, setAnimate] = useState(false)
   // this outputs 770px
   console.log(size);
   console.log(localStorage.getItem("unAuthCart"));
@@ -49,6 +50,14 @@ const People = (props) => {
     } else {
       setStyle(smallSize);
     }
+    if (sessionStorage.getItem("firstLoadDone") === null) {
+      setAnimate( true );
+
+      sessionStorage.setItem("firstLoadDone", 0);
+    } else {
+      setAnimate(false);
+    }
+
     // we use a callback to run every time the event takes place
     // every time we call the callback function, it triggers a re render
     window.addEventListener("resize", checkSize);
@@ -68,8 +77,11 @@ const People = (props) => {
   }, []);
 
   return (
-    <div>
-      <br/><br/>
+    <div
+      className={animate ? "fade-in-hello hello span" : "hello-span"}
+    >
+      <br />
+      <br />
       <section className="p">
         <form
           className="f-col filter filter-container"

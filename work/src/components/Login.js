@@ -100,7 +100,7 @@ const App = (props) => {
         </div>
       </div>
       <Link to="/register">
-        <p style={{ borderRadius: "5%", padding: "8px" }}>Create Account</p>
+        <button style={{ borderRadius: "20%", padding: "8px" }}>Create Account</button>
       </Link>
     </div>
   );

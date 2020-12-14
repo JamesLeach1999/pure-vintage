@@ -11,7 +11,13 @@ const People = (props) => {
 
   return (
     <div>
-      <Me/>
+      <br /> <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Me />
     </div>
   );
 };

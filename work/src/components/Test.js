@@ -70,7 +70,13 @@ const Test = () => {
   }, [loading]);
   return (
     <div className="store-container">
-      <br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <br />
       <div className="row product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
@@ -137,7 +143,7 @@ const Test = () => {
             Page 3
           </button>
         </form>
-        </div>
+      </div>
     </div>
   );
 };

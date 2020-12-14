@@ -69,7 +69,7 @@ return (
     >
       <br />
       <br />
-
+      <br /> <br /> <br />
       <form action="/products" method="post" enctype="multipart/form-data">
         <ul>
           <li>
@@ -144,7 +144,7 @@ return (
               type="text"
               placeholder="description"
               name="description"
-              style={{width: "300px", height: "200px"}}
+              style={{ width: "300px", height: "200px" }}
               onChange={(e) => setDescription(e.target.value)}
             />
           </li>

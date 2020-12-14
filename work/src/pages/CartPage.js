@@ -2,6 +2,12 @@ import React from "react";
 const Cart = () => {
   return (
     <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <div class="small-container cart-page">
         <table>
           <tr>

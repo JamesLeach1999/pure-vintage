@@ -106,8 +106,12 @@ export default class Nav extends Component {
   render() {
     return (
       <Router>
-        <nav className="NavbarItems" ref={(node) => (this.node = node)} style={{width: "100vw"}}>
-            <CartSlide style={{position: "fixed"}}/>
+        <nav
+          className="NavbarItems"
+          ref={(node) => (this.node = node)}
+          style={{ width: "100vw" }}
+        >
+          <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>
             <i
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
@@ -202,8 +206,18 @@ export default class Nav extends Component {
           <Route path="/me">
             <Me />
           </Route>
-          <Route path="/register">
-              <Register/>
+          <Route
+            
+            path={"/register"}
+            render={(props) => (
+              <Register
+                {...props}
+                handleLogin={this.handleLogin}
+                loggedIn={this.state.loggedIn}
+              />
+            )}
+          >
+            <Register />
           </Route>
 
           <Route path="/manage">

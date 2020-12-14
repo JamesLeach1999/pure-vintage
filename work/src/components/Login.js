@@ -90,8 +90,8 @@ const App = (props) => {
           />
           <button
             type="submit"
-            class="fadeIn fourth"
-            style={{ borderRadius: "5%", padding: "8px" }}
+            class="fadeIn fourth myButton"
+            style={{ borderRadius: "5%", padding: "8px", border :"none" }}
             value="Log In"
             onClick={login}
           >

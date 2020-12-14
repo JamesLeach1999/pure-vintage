@@ -18,10 +18,7 @@ const ProductPage = () => {
   const [vert, setVert] = useState(false);
   const [cartProducts, setCartProducts] = useState([]);
 
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 }
-    
-  ];
+  const breakPoints = [{ width: 1, itemsToShow: 1 }];
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "60vw", height: "124px" });
@@ -50,8 +47,8 @@ const ProductPage = () => {
   const setCart = (pID) => {
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
-      var i = [pID, pID]
-      console.log(i)
+      var i = [pID, pID];
+      console.log(i);
       localStorage.setItem("unAuthCart", JSON.stringify([pID]));
     } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));
@@ -78,18 +75,14 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div style={{maxWidth: "395px"}}>
-      <br />
-      <br />
-      <br />
-      <br />
+    <div>
       <div class="small-container single-product">
         <div class="row">
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white"}}
+              style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {
                 return <Card image={i} />;

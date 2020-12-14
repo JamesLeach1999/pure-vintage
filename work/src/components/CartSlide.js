@@ -157,7 +157,6 @@ class Cart extends Component {
   render() {
     return (
       <div className="cartItems" ref={(node1) => (this.node1 = node1)}>
-        <div></div>
         <div
           className="cart-menu-icon"
           onClick={this.handleCartClick}

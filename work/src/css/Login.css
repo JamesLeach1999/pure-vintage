@@ -262,13 +262,13 @@ input[type=text]:placeholder {
 }
 
 .myButton {
-	box-shadow: 0px 10px 14px -7px #276873;
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
+	box-shadow: 0px 10px 14px -7px whitesmoke;
+	background:linear-gradient(to bottom, whitesmoke 5%, whitesmoke 100%);
+	background-color:grey;
 	border-radius:8px;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color: black;
 	font-family:Arial;
 	font-size:20px;
 	font-weight:bold;

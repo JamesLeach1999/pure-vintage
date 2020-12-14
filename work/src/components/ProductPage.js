@@ -79,19 +79,17 @@ const ProductPage = () => {
 
   return (
     <div>
-      errvcev
       <br />
       <br />
       <br />
       <br />
       <div class="small-container single-product">
-        sqdwqdwdw
         <div class="row">
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
-              style={{ backgroundColor: "white", color: "white" }}
+              style={{ backgroundColor: "white", color: "white"}}
             >
               {images.map((i) => {
                 return <Card image={i} />;
@@ -106,35 +104,29 @@ const ProductPage = () => {
             {sessionStorage.getItem("auth") === "true" ? (
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
-                {/* <h3 style={{ justifyContent: "center" }}>
+                <h3 style={{ justifyContent: "center" }}>
                   Add to cart:
                   <br />
                   <input type="checkbox" />
-                </h3> */}
+                </h3>
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
-                >
-                  Add to cart
-                </input>
+                />
               </form>
             ) : (
               <form>
-                <input type="text" value={id} name="id" hidden />
-
-                {/* <h3 style={{ justifyContent: "center" }}>
+                <h3 style={{ justifyContent: "center" }}>
                   Add to cart:
                   <br />
                   <input type="checkbox" />
-                </h3> */}
+                </h3>
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => setCart(id)}
-                >
-                  Add to cart
-                </input>
+                />
               </form>
             )}
             {/* <a href="" class="btn">Add to cart</a> */}

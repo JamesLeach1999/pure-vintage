@@ -83,18 +83,18 @@ p {
   min-width: 300px;
 }
 
-.col-2-pics img {
-  width: 400px;
+.col-2 img {
+  width: 515px;
   height: 515px;
   max-height: 515px;
-  max-width: 400px;
+  max-width: 515px;
   padding: 50px 0;
 }
-/*
-.col-2-pics img{
+
+.col-2-pics {
   flex-basis: 50%;
-  min-width: 600px;
-} */
+  min-width: 300px;
+}
 
 .rec-dot_active {
   color: blue;

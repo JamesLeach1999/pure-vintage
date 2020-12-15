@@ -44,17 +44,20 @@ const App = (props) => {
       withCredentials: true,
 
       url: "/login",
-    }).then((res) => {
-      if (res.data) {
-        console.log(res.data);
-        props.handleLogin(res.data.passport);
-        
-          window.location.replace("/store");
-        
-      } else {
-        props.handleLogin(false);
-      }
-    });
+    })
+      .then((res) => {
+        if (res.data) {
+          console.log(res.data);
+          props.handleLogin(res.data.passport);
+
+          // window.location.replace("/store");
+        } else {
+          props.handleLogin(false);
+        }
+      })
+      .then((r) => {
+        window.location.replace("/store");
+      });
   };
 
   const logout = async () => {
@@ -71,7 +74,7 @@ const App = (props) => {
       <br /> <br /> <br /> <br /> <br /> <br />
       <div class="fadeIn first">
         <div id="formContent">
-          <br/>
+          <br />
           <input
             type="text"
             id="login"
@@ -88,20 +91,22 @@ const App = (props) => {
             placeholder="password"
             onChange={(e) => setLoginPassword(e.target.value)}
           />
-          <br/><br/>
+          <br />
+          <br />
           <button
             type="submit"
             className="fadeIn fourth myButton"
-            style={{ borderRadius: "5%", padding: "8px", border :"none" }}
+            style={{ borderRadius: "5%", padding: "8px", border: "none" }}
             value="Log In"
             onClick={login}
           >
             Log in
           </button>
-<br/><br/>
+          <br />
+          <br />
         </div>
       </div>
-      <br/>
+      <br />
       <Link to="/register">
         <button className="myButton">Create Account</button>
       </Link>

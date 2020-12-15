@@ -55,7 +55,7 @@ const OrderPage = () => {
 
   return (
     <div>
-      <br/><br/><br/><br/>
+      <br/>
       <div class="small-container">
         <div class="row product">
           {product.map((item, i) => {
@@ -90,7 +90,8 @@ const OrderPage = () => {
                         class="fadeIn third"
                         name="star"
                         max="5"
-                        style={{width: "40%"}}
+                        placeholder="rating"
+                        // style={{width: "40%", textAlign: "left"}}
                         // onChange={(e) => setLoginPassword(e.target.value)}
                       />
                       <br />
@@ -100,7 +101,7 @@ const OrderPage = () => {
                         id="password"
                         class="fadeIn third"
                         name="desc"
-                        placeholder="password"
+                        placeholder="Description"
                         // onChange={(e) => setLoginPassword(e.target.value)}
                       />
                       <br />

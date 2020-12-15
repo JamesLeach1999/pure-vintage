@@ -137,7 +137,7 @@
     height: 100%;
     /* position: fixed; */
     top: 80px;
-    right: -100%;
+    /* right: -100%; */
     opacity: 1;
     transition: all 0.5s ease;
   }

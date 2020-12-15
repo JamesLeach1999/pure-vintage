@@ -102,9 +102,10 @@ const ProductPage = () => {
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
-            <form>
+            <h4>Size: {product.size}</h4>
+            {/* <form>
               <h1>testform</h1>
-            </form>
+            </form> */}
 
             {/* {sessionStorage.getItem("auth") === "true" ? ( */}
               {/* <form action="/added" method="POST">
@@ -123,14 +124,14 @@ const ProductPage = () => {
             {/* // ) : ( 
             // )} */}
               <form>
-                
-                <input
+                orengoerngengeger
+                {/* <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   // onClick={() => console.log(id)}
                 >
                    Add to cart
-                </input>
+                </input> */}
               </form>
             <h3>
               Product details <i class="fa fa-indent"></i>

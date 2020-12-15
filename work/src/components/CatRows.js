@@ -31,7 +31,10 @@ class CatRows extends Component {
         <h1>Categories</h1>
         <div className="row">
           <Link to="/store?category=shirts">
-            <div className="col-4-cat" style={{ width: "500px", height: "500px" }}>
+            <div
+              className="col-4-cat"
+              style={{ width: "500px", height: "500px" }}
+            >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
                 alt=""
@@ -40,7 +43,10 @@ class CatRows extends Component {
             </div>
           </Link>
           <Link to="/store?category=puffer">
-            <div className="col-4-cat" style={{ width: "200%", height: "200%" }}>
+            <div
+              className="col-4-cat"
+              style={{ width: "500px", height: "500px" }}
+            >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
                 alt=""
@@ -49,7 +55,10 @@ class CatRows extends Component {
             </div>
           </Link>
           <Link to="/store?category=fleeces">
-            <div className="col-4-cat" style={{ width: "200%", height: "200%" }}>
+            <div
+              className="col-4-cat"
+              style={{ width: "500px", height: "500px" }}
+            >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606574995/P0_1_a_jn2c3w.jpg"
                 alt=""

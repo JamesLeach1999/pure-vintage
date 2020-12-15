@@ -48,6 +48,7 @@ const ProductPage = () => {
     // then you want to set the state, set the empty array to an array of 30
   };
   const setCart = (pID) => {
+    console.log("do something")
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
       var i = [pID, pID]
@@ -102,7 +103,7 @@ const ProductPage = () => {
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
 
-            {/* {sessionStorage.getItem("auth") === "true" ? (
+            {sessionStorage.getItem("auth") === "true" ? (
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
@@ -124,12 +125,12 @@ const ProductPage = () => {
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
-                  onClick={() => setCart(id)}
+                  onClick={() => console.log(id)}
                 >
                   Add to cart
                 </input>
               </form>
-            )} */}
+            )}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

@@ -197,7 +197,7 @@ p {
 }
 
 .col-4-cat {
-  flex-basis: 25%;
+  flex-basis: 30%;
   padding: 10px;
   /* max-width: 250px; */
   margin-bottom: 50px;

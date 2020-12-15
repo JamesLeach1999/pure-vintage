@@ -22,6 +22,7 @@ const ProductPage = () => {
     { width: 1, itemsToShow: 1 }
     
   ];
+  console.log("numberwang 1")
   const getProducts = async () => {
     if (window.innerWidth > 600) {
       setStyle({ width: "60vw", height: "124px" });
@@ -30,12 +31,16 @@ const ProductPage = () => {
       setStyle({ width: "60px", height: "60px" });
       setVert(false);
     }
+      console.log("numberwang 2");
+
 
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
 
     //   console.log(products.name)
+      console.log("numberwang 3");
+
     console.log(products.name.image);
     // this will run 30 times because its after every re render. will be stuck in loop
     setProducts(products.name);
@@ -48,6 +53,8 @@ const ProductPage = () => {
     // then you want to set the state, set the empty array to an array of 30
   };
   const setCart = (pID) => {
+      console.log("numberwang 4");
+
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
       var i = [pID, pID]
@@ -67,6 +74,8 @@ const ProductPage = () => {
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
   // no  clue
   useEffect(() => {
+      console.log("numberwang 5");
+
     // this returns all 30 users in an array using setState
     getProducts();
     if (images) {

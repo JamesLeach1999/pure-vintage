@@ -80,7 +80,7 @@ const People = (props) => {
 
   return (
     <FadeIn>
-      <div className={animate ? "fade-in-hello hello span" : "hello-span"}>
+      <div style={{border: "none"}} className={animate ? "fade-in-hello hello span" : "hello-span"}>
         <br />
         <br />
         <section className="p">
@@ -90,7 +90,7 @@ const People = (props) => {
             style={style}
           >
             {window.innerWidth > 660 ? (
-              <section style={{ height: "70vw" }}>
+              <section style={{ height: "1500px" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">
@@ -194,7 +194,12 @@ const People = (props) => {
                 </section>
 
                 <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Brand</h6>
+                  <h6
+                    class="font-weight-bold mb-3"
+                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                  >
+                    Brand
+                  </h6>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -578,7 +583,12 @@ const People = (props) => {
                 <h5>Filters</h5>
 
                 <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Size</h6>
+                  <h6
+                    class="font-weight-bold mb-3"
+                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                  >
+                    Size
+                  </h6>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -673,7 +683,12 @@ const People = (props) => {
                 </section>
 
                 <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Brand</h6>
+                  <h6
+                    class="font-weight-bold mb-3"
+                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                  >
+                    Brand
+                  </h6>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -888,7 +903,12 @@ const People = (props) => {
                 </section>
 
                 <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Categories</h6>
+                  <h6
+                    class="font-weight-bold mb-3"
+                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                  >
+                    Categories
+                  </h6>
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"

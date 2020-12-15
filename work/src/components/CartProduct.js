@@ -41,7 +41,7 @@ class CartProduct extends Component {
           <div class="cart-info">
             <img src={`${this.state.image}`} alt="" />
             <div>
-              <p>{this.state.data.name}</p>
+              {/* <p>{this.state.data.name}</p> */}
               {/* <small>Price: {this.state.data.price}</small> */}
               <br />
               {/* <form action="/cartProduct" method="POST">

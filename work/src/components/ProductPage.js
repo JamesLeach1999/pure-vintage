@@ -79,13 +79,13 @@ const ProductPage = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      {/* <br />
+      <br />
       <br />
       <br />
       <br />
       <div class="small-container single-product">
         <div class="row">
-          <div class="col-2-pics">
+          {/* <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
@@ -95,7 +95,7 @@ const ProductPage = () => {
                 return <Card image={i} />;
               })}
             </Carousel>
-          </div>
+          </div> */}
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
@@ -137,7 +137,7 @@ const ProductPage = () => {
           </div>
         </div>
         <Reviews />
-      </div> */}
+      </div>
     </div>
   );
 };

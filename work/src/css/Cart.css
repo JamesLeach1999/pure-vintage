@@ -133,10 +133,10 @@
   .cart-menu {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
     height: 100%;
     /* position: fixed; */
-    /* top: 80px; */
+    top: 80px;
     right: -100%;
     opacity: 1;
     transition: all 0.5s ease;
@@ -176,7 +176,7 @@
     display: block;
     position: fixed;
     top: -35px;
-    left: -50px;
+    /* left: -50px; */
     right: 0;
     transform: translate(-100%, 60%);
     font-size: 3rem;

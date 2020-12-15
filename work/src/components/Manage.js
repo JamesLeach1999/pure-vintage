@@ -13,12 +13,23 @@ const Manage = () => {
   const [images, setImages] = useState(require('../assets/cap1.jpg'))
   const [page, setPage] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [admin, setAdmin] = useState()
   const getManage = async () => {
 
+    Axios.post({
+      method: "POST",
+      data: {
+        name: sessionStorage.getItem("user")
+      },
+      withCredentials: true,
+      url: "/getAuth",
+    }).then((data) => {
+      setAdmin(data.isAdmin)
+    });
     
     if (
       !sessionStorage.getItem("admin") ||
-      sessionStorage.getItem("admin") === "false"
+      sessionStorage.getItem("admin") === "false" || !admin
     ) {
       window.location.replace("/store");
     } else {

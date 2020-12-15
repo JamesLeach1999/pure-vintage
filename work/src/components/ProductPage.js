@@ -124,6 +124,7 @@ const ProductPage = () => {
             {/* // ) : ( 
             // )} */}
               <form>
+                <input type="" name="" value=""/>
                 orengoerngengeger
                 {/* <input
                   type="submit"

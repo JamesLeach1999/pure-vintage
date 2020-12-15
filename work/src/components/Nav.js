@@ -34,7 +34,6 @@ export default class Nav extends Component {
       clicked: false,
       cartClicked: false,
       data: [],
-      
     };
     // updating state
     this.handleLogin = this.handleLogin.bind(this);
@@ -144,7 +143,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-            {this.state.admin === true ? (
+            {sessionStorage.getItem("admin") === "true" ? (
               <li className="nav-links">
                 <Link to="/manage">Manage</Link>
               </li>

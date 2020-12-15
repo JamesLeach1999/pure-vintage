@@ -26,7 +26,7 @@ const Manage = () => {
     }).then((data) => {
       setAdmin(data.isAdmin)
     });
-    
+    console.log(admin)
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false" || !admin

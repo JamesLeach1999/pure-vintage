@@ -21,7 +21,6 @@ const People = (props) => {
 
   const bigSize = {
     border: "1px solid black",
-    borderRadius: "15%",
 
     maxWidth: "350px",
     position: "relative",
@@ -31,7 +30,6 @@ const People = (props) => {
 
   const smallSize = {
     border: "1px solid black",
-    borderRadius: "15%",
     maxWidth: "30%",
     position: "relative",
     fontSize: "15px",
@@ -92,7 +90,7 @@ const People = (props) => {
             style={style}
           >
             {window.innerWidth > 660 ? (
-              <section style={{ height: "1500px" }}>
+              <section style={{ height: "70vw" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">
@@ -1028,16 +1026,19 @@ const People = (props) => {
                   </div>
                   {/* class="form-check-input filled-in" class="form-check-label small
                 text-uppercase card-link-secondary" */}
-                  <div class="checkbox-container">
-                    Shirts
-                    <label class="checkbox-label">
-                      <input
-                        type="checkbox"
-                        value="shirts"
-                        id="shirts"
-                        name="category"
-                      />
-                      <span class="checkbox-custom rectangular"></span>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="shirts"
+                      id="shirts"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="shirts"
+                    >
+                      Shirts
                     </label>
                   </div>
                   <br />

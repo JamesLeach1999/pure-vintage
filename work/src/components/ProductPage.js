@@ -122,10 +122,8 @@ const ProductPage = () => {
               </form> */}
             {/* // ) : ( 
             // )} */}
-              {/* <form>
-                <h3 style={{ justifyContent: "center" }}>
-                  
-                </h3>
+              <form>
+                
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
@@ -133,7 +131,7 @@ const ProductPage = () => {
                 >
                    Add to cart
                 </input>
-              </form> */}
+              </form>
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

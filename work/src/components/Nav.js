@@ -64,6 +64,7 @@ export default class Nav extends Component {
       sessionStorage.setItem("user", work.data.id);
       console.log(sessionStorage);
     }
+    console.log(this.state.auth)
 
     if (!data) {
       // sessionStorage.setItem("auth", false);

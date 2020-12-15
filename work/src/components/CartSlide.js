@@ -187,7 +187,7 @@ class Cart extends Component {
               <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
             )}
           </section>
-          <table>
+          <table style={{border: "none", fontSize: "12px", backgroundColor: "lightgrey"}}>
             <tr>
               <th style={{ textAlign: "left", paddingLeft: "20px" }}>
                 Product

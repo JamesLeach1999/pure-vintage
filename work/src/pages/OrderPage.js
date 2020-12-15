@@ -63,7 +63,7 @@ const OrderPage = () => {
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>
-                  <br/>
+                  <br />
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -73,13 +73,77 @@ const OrderPage = () => {
                   </div>
                   <p>{item.product.price}</p>
                 </div>
-                <form action="/reviews" method="post">
+
+                <div className="wrapper fadeInDown" syle={{float: "left"}}>
+                  <br /> <br />
+                  <br /> <br /> <br /> <br /> <br /> <br />
+                  <div class="fadeIn first">
+                    <div id="formContent">
+                      <br />
+                      <input
+                        type="text"
+                        id="login"
+                        class="fadeIn second"
+                        name="name"
+                        placeholder="login"
+                        value={name}
+                        hidden
+                        // onChange={(e) => setLoginUsername(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        id="password"
+                        class="fadeIn third"
+                        name="star"
+                        max="5"
+                        placeholder="password"
+                        // onChange={(e) => setLoginPassword(e.target.value)}
+                      />
+                      <br />
+                      <br />
+                      <input
+                        type="text"
+                        id="password"
+                        class="fadeIn third"
+                        name="desc"
+                        placeholder="password"
+                        // onChange={(e) => setLoginPassword(e.target.value)}
+                      />
+                      <br />
+                      <br />
+                      <button
+                        type="submit"
+                        className="fadeIn fourth myButton"
+                        style={{
+                          borderRadius: "5%",
+                          padding: "8px",
+                          border: "none",
+                        }}
+                        onClick={() =>
+                          window.location.replace(
+                            "https://cryptic-temple-54361.herokuapp.com/store"
+                          )
+                        }
+                        // onClick={login}
+                      >
+                        Submit review
+                      </button>
+                      <br />
+                      <br />
+                    </div>
+                  </div>
+                  <br />
+                  <Link to="/register">
+                    <button className="myButton">Create Account</button>
+                  </Link>
+                </div>
+                {/* <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden />
                   <input type="text" name="name" value={name} hidden />
                   <input type="number" name="star" max="5" />
-                  <br/>
+                  <br />
                   <input type="text" name="desc" />
-                  <br/>
+                  <br />
                   <button
                     type="submit"
                     onClick={() =>
@@ -90,7 +154,7 @@ const OrderPage = () => {
                   >
                     submit review
                   </button>
-                </form>
+                </form> */}
               </div>
             );
           })}

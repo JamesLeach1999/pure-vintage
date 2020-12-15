@@ -24,11 +24,11 @@ const ProductPage = () => {
   ];
   console.log("numberwang 1")
   const getProducts = async () => {
+      console.log("numberwang 7");
+
     if (window.innerWidth > 600) {
-      setStyle({ width: "60vw", height: "124px" });
       setVert(true);
     } else {
-      setStyle({ width: "60px", height: "60px" });
       setVert(false);
     }
       console.log("numberwang 2");
@@ -78,9 +78,9 @@ const ProductPage = () => {
 
     // this returns all 30 users in an array using setState
     getProducts();
-    if (images) {
-      setSmall(images[0]);
-    }
+    // if (images) {
+    //   setSmall(images[0]);
+    // }
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop

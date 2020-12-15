@@ -12,6 +12,8 @@ class Reviews extends Component {
 
   async componentDidMount() {
     try {
+      console.log("work1");
+
       const id = document.getElementById("id").innerHTML;
       console.log(id);
       const response = await fetch(`/product?id=${id}`);
@@ -26,10 +28,12 @@ class Reviews extends Component {
       console.log(revJson.name);
       var t = [];
       var img = [];
+      console.log("work  3");
+
       revJson.name.map((rev) => {
         console.log(rev);
         img.push(rev.image[0]);
-        
+
         t.push(rev.reviews[0]);
       });
 
@@ -39,7 +43,7 @@ class Reviews extends Component {
       this.setState({ images: img });
       this.setState({ other: filtered });
       console.log(t);
-      console.log(this.state.data)
+      console.log(this.state.data);
       console.log(this.state.other);
     } catch (error) {
       console.log(this.props);
@@ -57,20 +61,18 @@ class Reviews extends Component {
           <br />
 
           <div class="row">
-            { this.state.data.map((e) => {
-                  return e.reviews.length > 0
-                    ? e.reviews.map((r) => {
-                        return (
-                          <div class="col-3">
-                            {" "}
-                            <Review revId={r._id} id={e._id} />{" "}
-                          </div>
-                        );
-                      })
-                    : "";
-                })
-              }
-            
+            {this.state.data.map((e) => {
+              return e.reviews.length > 0
+                ? e.reviews.map((r) => {
+                    return (
+                      <div class="col-3">
+                        {" "}
+                        <Review revId={r._id} id={e._id} />{" "}
+                      </div>
+                    );
+                  })
+                : "";
+            })}
           </div>
         </div>
         <div class="small-container">

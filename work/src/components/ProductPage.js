@@ -104,7 +104,7 @@ const ProductPage = () => {
             <h4>£{product.price}</h4>
 
             {/* {sessionStorage.getItem("auth") === "true" ? ( */}
-              <form action="/added" method="POST">
+              {/* <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
                   
@@ -116,7 +116,7 @@ const ProductPage = () => {
                 >
                   Add to cart
                 </input>
-              </form>
+              </form> */}
             {/* // ) : ( 
             //   <form>
             //     <h3 style={{ justifyContent: "center" }}>

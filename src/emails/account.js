@@ -271,7 +271,7 @@ const orderConf = async (email, name, item) => {
   }
   var json = JSON.parse(product);
 
-  console.log(email);
+  console.log(products);
 
   // const user = await User.findById({_id: json.user})
   console.log('wang');

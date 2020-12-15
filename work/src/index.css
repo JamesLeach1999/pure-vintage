@@ -196,6 +196,17 @@ p {
   width: 100%;
 }
 
+.col-4-cat {
+  flex-basis: 25%;
+  padding: 10px;
+  /* max-width: 250px; */
+  margin-bottom: 50px;
+  transition: transform 0.5s;
+}
+
+.col-4-cat img {
+  width: 100%;
+}
 .title {
   text-align: center;
   margin: 0 auto 80px;

@@ -19,11 +19,12 @@ const Manage = () => {
     Axios.post({
       method: "POST",
       data: {
-        name: sessionStorage.getItem("user")
+        id: sessionStorage.getItem("user")
       },
       withCredentials: true,
       url: "/getAuth",
     }).then((data) => {
+      console.log(data)
       setAdmin(data.isAdmin)
     });
     console.log(admin)

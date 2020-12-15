@@ -208,7 +208,7 @@ class Cart extends Component {
                     <br />
 
                     <td>{product.size}</td>
-                    <td id="total">{product.price}</td>
+                    <td id="total">£{product.price}</td>
                     <td>
                       {sessionStorage.getItem("auth") === "true" ? (
                         <form action="/cartProduct" method="POST">

@@ -87,7 +87,7 @@ const ProductPage = () => {
       <br />
       <div class="small-container single-product">
         <div class="row">
-          <div class="col-2-pics">
+          <div class="col-2-pics" style={{ right: "60px" }}>
             <Carousel
               breakPoints={breakPoints}
               showArrows={false}

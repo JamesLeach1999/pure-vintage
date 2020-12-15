@@ -90,7 +90,7 @@ const ProductPage = () => {
           <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
-              showArrows={vert}
+              showArrows={false}
               style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {

@@ -102,6 +102,9 @@ const ProductPage = () => {
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
+            <form>
+              <h1>testform</h1>
+            </form>
 
             {/* {sessionStorage.getItem("auth") === "true" ? ( */}
               {/* <form action="/added" method="POST">
@@ -119,7 +122,7 @@ const ProductPage = () => {
               </form> */}
             {/* // ) : ( 
             // )} */}
-              <form>
+              {/* <form>
                 <h3 style={{ justifyContent: "center" }}>
                   
                 </h3>
@@ -130,7 +133,7 @@ const ProductPage = () => {
                 >
                    Add to cart
                 </input>
-              </form>
+              </form> */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

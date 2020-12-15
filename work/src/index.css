@@ -82,7 +82,7 @@ p {
   flex-basis: 50%;
   min-width: 300px;
 }
-
+/* 
 .col-2 img {
   width: 515px;
   height: 515px;
@@ -91,10 +91,10 @@ p {
   padding: 50px 0;
 }
 
-.col-2-pics {
+.col-2-pics img{
   flex-basis: 50%;
   min-width: 600px;
-}
+} */
 
 .rec-dot_active {
   color: blue;

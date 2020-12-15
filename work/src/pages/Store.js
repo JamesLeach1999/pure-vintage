@@ -89,7 +89,7 @@ const People = (props) => {
             style={style}
           >
             {window.innerWidth > 660 ? (
-              <section style={{ height: "1500px" }}>
+              <section style={{ height: "1500px" , backgroundColor:"red"}}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">

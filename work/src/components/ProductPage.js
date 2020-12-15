@@ -89,7 +89,7 @@ const ProductPage = () => {
         <div class="row">
           <div
             class="col-2-pics"
-            style={{ position: "relative", right: "80px" }}
+            style={{ position: "relative", right: "60px" }}
           >
             <Carousel
               breakPoints={breakPoints}
@@ -116,7 +116,7 @@ const ProductPage = () => {
                 <h3 style={{ justifyContent: "center" }}></h3>
                 <input
                   type="submit"
-                  value="Add to cart"
+                  value="Submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
                 />
@@ -127,7 +127,7 @@ const ProductPage = () => {
 
                 <input
                   type="submit"
-                  value="Add to cart"
+                  value="Submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => setCart(id)}
                 />

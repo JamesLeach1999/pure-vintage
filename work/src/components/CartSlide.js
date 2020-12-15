@@ -156,98 +156,91 @@ class Cart extends Component {
 
   render() {
     return (
-      <div className="cartItems" ref={(node1) => (this.node1 = node1)}>
-        <div
-          className="cart-menu-icon"
-          onClick={this.handleCartClick}
-          style={{ zIndex: "40000" }}
-        >
-          <i
-            className={
-              this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
-            }
-            style={{ color: "black" }}
-          ></i>
-          
-        </div>
-        <ul
-          id="MenuItems"
-          className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          style={{maxWidth: "100vw"}}
-        >
-          <section className="center-text">
-            <Link
-              to="/order"
-              style={{ fontSize: "40px", backgroundColor: "white" }}
-            >
-              checkout
-            </Link>
-            {sessionStorage.getItem("auth") === "true" ? (
-              <h3>£{this.state.price}</h3>
-            ) : (
-              <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
-            )}
-          </section>
-          <table style={{borderRadius: "20%", fontSize: "18px", backgroundColor: "whitesmoke", borderLeft: "1px solid black"}}>
-            <tr>
-              <th style={{ textAlign: "left", paddingLeft: "20px" }}>
-                Product
-              </th>
-              <th>Size</th>
-              <th>Sub total</th>
-              <th>Remove?</th>
-            </tr>
-            {this.state.data.map((products) => {
-              return products.map((product) => {
-                // var tota = product.price
-                // setTotal(tota + tota)
-                // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-                return (
-                  <tr>
-                    <Link to={`/product/${product._id}`}>
-                      <CartProduct id={product._id} />
-                    </Link>
-                    <br />
-
-                    <td>{product.size}</td>
-                    <td id="total">{product.price}</td>
-                    <td>
-                      {sessionStorage.getItem("auth") === "true" ? (
-                        <form action="/cartProduct" method="POST">
-                          <input
-                            type="text"
-                            value={product._id}
-                            name="id"
-                            hidden
-                          />
-                          {/* <input type="checkbox" /> */}
-                          <button type="submit">Remove?</button>
-                        </form>
-                      ) : (
-                        <form>
-                          {/* <input
-                            type="text"
-                            value={product._id}
-                            name="id"
-                            hidden
-                          />
-                          <input type="checkbox" /> */}
-                          <button
-                            type="submit"
-                            onClick={() => this.removeCart(product._id)}
-                          >
-                            Remove?
-                          </button>
-                        </form>
-                      )}
-                    </td>
-                  </tr>
-                );
-              });
-            })}
-          </table>
-        </ul>
+      <div>
+        e
       </div>
+      // <div className="cartItems" ref={(node1) => (this.node1 = node1)}>
+      //   <div
+      //     className="cart-menu-icon"
+      //     onClick={this.handleCartClick}
+      //     style={{ zIndex: "40000" }}
+      //   >
+      //     <i
+      //       className={
+      //         this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
+      //       }
+      //       style={{ color: "black" }}
+      //     ></i>
+          
+      //   </div>
+      //   <ul
+      //     id="MenuItems"
+      //     className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
+      //     style={{maxWidth: "100vw"}}
+      //   >
+      //     <section className="center-text">
+      //       <Link
+      //         to="/order"
+      //         style={{ fontSize: "40px", backgroundColor: "white" }}
+      //       >
+      //         checkout
+      //       </Link>
+      //       {sessionStorage.getItem("auth") === "true" ? (
+      //         <h3>£{this.state.price}</h3>
+      //       ) : (
+      //         <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
+      //       )}
+      //     </section>
+      //     <table style={{borderRadius: "20%", fontSize: "18px", backgroundColor: "whitesmoke", borderLeft: "1px solid black"}}>
+      //       <tr>
+      //         <th style={{ textAlign: "left", paddingLeft: "20px" }}>
+      //           Product
+      //         </th>
+      //         <th>Size</th>
+      //         <th>Sub total</th>
+      //         <th>Remove?</th>
+      //       </tr>
+      //       {this.state.data.map((products) => {
+      //         return products.map((product) => {
+                
+      //           return (
+      //             <tr>
+      //               <Link to={`/product/${product._id}`}>
+      //                 <CartProduct id={product._id} />
+      //               </Link>
+      //               <br />
+
+      //               <td>{product.size}</td>
+      //               <td id="total">{product.price}</td>
+      //               <td>
+      //                 {sessionStorage.getItem("auth") === "true" ? (
+      //                   <form action="/cartProduct" method="POST">
+      //                     <input
+      //                       type="text"
+      //                       value={product._id}
+      //                       name="id"
+      //                       hidden
+      //                     />
+      //                     <button type="submit">Remove?</button>
+      //                   </form>
+      //                 ) : (
+      //                   <form>
+                          
+      //                     <button
+      //                       type="submit"
+      //                       onClick={() => this.removeCart(product._id)}
+      //                     >
+      //                       Remove?
+      //                     </button>
+      //                   </form>
+      //                 )}
+      //               </td>
+      //             </tr>
+      //           );
+        //       });
+        //     })}
+        //   </table>
+        // </ul>
     );
   }
 }

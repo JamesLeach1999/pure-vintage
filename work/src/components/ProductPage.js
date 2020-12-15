@@ -78,7 +78,7 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%" }}>
+    <div>
       <br />
       <br />
       <br />
@@ -137,9 +137,9 @@ const ProductPage = () => {
             <p>{product.description}</p>
           </div>
         </div>
-        <Reviews />
         {/* <OtherReviews/> */}
       </div>
+        <Reviews />
     </div>
   );
 };

@@ -79,8 +79,8 @@ p {
 }
 
 .col-2 {
-  /* flex-basis: 50%; */
-  min-width: 100vw;
+  flex-basis: 50%;
+  min-width: 300px;
 }
 
 .col-2 img {
@@ -88,12 +88,12 @@ p {
   height: 515px;
   max-height: 515px;
   max-width: 515px;
-  /* padding: 50px 0; */
+  padding: 50px 0;
 }
 
 .col-2-pics {
   flex-basis: 50%;
-  min-width: 300px;
+  min-width: 100vw;
 }
 
 .rec-dot_active {
@@ -104,11 +104,11 @@ p {
 .col-2-pics img {
   position: relative;
   /* left: 35px; */
-  width: 500px;
+  width: 100vw;
   height: 600px;
   max-height: 600px;
   max-width: 700px;
-  /* padding: 50px 0; */
+  padding: 50px 0;
 }
 
 .col-2 h1 {

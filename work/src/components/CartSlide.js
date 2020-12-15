@@ -190,12 +190,12 @@ class Cart extends Component {
           </section>
           <table style={{border: "none"}} >
             <tr style={{borderBottom: "1px solid grey"}}>
-              <th style={{ textAlign: "left", paddingLeft: "20px" }}>
+              {/* <th style={{ textAlign: "left", paddingLeft: "20px" }}>
                 Product
               </th>
               <th>Size</th>
               <th>Sub total</th>
-              <th>Remove?</th>
+              <th>Remove?</th> */}
             </tr>
             {this.state.data.map((products) => {
               return products.map((product) => {

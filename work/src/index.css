@@ -82,15 +82,15 @@ p {
   flex-basis: 50%;
   min-width: 300px;
 }
-/* 
-.col-2 img {
-  width: 515px;
+
+.col-2-pics img {
+  width: 80vw;
   height: 515px;
   max-height: 515px;
-  max-width: 515px;
+  max-width: 400px;
   padding: 50px 0;
 }
-
+/*
 .col-2-pics img{
   flex-basis: 50%;
   min-width: 600px;

@@ -103,7 +103,7 @@ const ProductPage = () => {
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
 
-            {sessionStorage.getItem("auth") === "true" ? (
+            {/* {sessionStorage.getItem("auth") === "true" ? ( */}
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
@@ -117,20 +117,20 @@ const ProductPage = () => {
                   Add to cart
                 </input>
               </form>
-            ) : (
-              <form>
-                <h3 style={{ justifyContent: "center" }}>
+            {/* // ) : ( 
+            //   <form>
+            //     <h3 style={{ justifyContent: "center" }}>
                   
-                </h3>
-                <input
-                  type="submit"
-                  style={{ width: "150px", margin: "20px" }}
-                  onClick={() => console.log(id)}
-                >
-                  Add to cart
-                </input>
-              </form>
-            )}
+            //     </h3>
+            //     <input
+            //       type="submit"
+            //       style={{ width: "150px", margin: "20px" }}
+            //       onClick={() => console.log(id)}
+            //     >
+            //       Add to cart
+            //     </input>
+            //   </form>
+            // )} */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

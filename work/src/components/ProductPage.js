@@ -87,7 +87,10 @@ const ProductPage = () => {
       <br />
       <div class="small-container single-product">
         <div class="row">
-          <div class="col-2-pics" style={{ position: "relative", right: "600px" }}>
+          <div
+            class="col-2-pics"
+            style={{ position: "relative", right: "100px" }}
+          >
             <Carousel
               breakPoints={breakPoints}
               showArrows={false}
@@ -113,6 +116,7 @@ const ProductPage = () => {
                 <h3 style={{ justifyContent: "center" }}></h3>
                 <input
                   type="submit"
+                  value="Add to cart"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
                 />
@@ -123,6 +127,7 @@ const ProductPage = () => {
 
                 <input
                   type="submit"
+                  value="Add to cart"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => setCart(id)}
                 />

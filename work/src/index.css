@@ -761,7 +761,7 @@ th:last-child {
 
   .col-2 {
   flex-basis: 50%;
-  right: 40px;
+  /* right: 40px; */
   min-width: 300px;
 }
 
@@ -783,14 +783,14 @@ th:last-child {
   background-color: blue;
 }
 
-/* .col-2-pics img {
+.col-2-pics img {
   position: relative;
   width: 100vw;
-  height: 600px;
+  height: 450px;
   max-height: 600px;
   max-width: 700px;
   padding: 50px 0;
-} */
+}
   .single-product h1 {
     font-size: 26px;
     line-height: 32px;

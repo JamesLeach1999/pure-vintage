@@ -86,7 +86,7 @@ const ProductPage = () => {
       <br />
       <div class="small-container single-product">
         <div class="row">
-          {/* <div class="col-2-pics">
+          <div class="col-2-pics">
             <Carousel
               breakPoints={breakPoints}
               showArrows={vert}
@@ -96,13 +96,13 @@ const ProductPage = () => {
                 return <Card image={i} />;
               })}
             </Carousel>
-          </div> */}
+          </div>
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
             <h4>£{product.price}</h4>
 
-            {sessionStorage.getItem("auth") === "true" ? (
+            {/* {sessionStorage.getItem("auth") === "true" ? (
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}>
@@ -129,7 +129,7 @@ const ProductPage = () => {
                   Add to cart
                 </input>
               </form>
-            )}
+            )} */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>
@@ -137,7 +137,7 @@ const ProductPage = () => {
             <p>{product.description}</p>
           </div>
         </div>
-        {/* <Reviews /> */}
+        <Reviews />
       </div>
     </div>
   );

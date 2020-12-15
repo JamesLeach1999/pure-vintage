@@ -107,33 +107,27 @@ const ProductPage = () => {
               <h1>testform</h1>
             </form> */}
 
-            {/* {sessionStorage.getItem("auth") === "true" ? ( */}
-              {/* <form action="/added" method="POST">
+            {sessionStorage.getItem("auth") === "true" ? (
+              <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
-                <h3 style={{ justifyContent: "center" }}>
-                  
-                </h3>
+                <h3 style={{ justifyContent: "center" }}></h3>
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
                   onClick={() => window.location.replace("/store")}
-                >
-                  Add to cart
-                </input>
-              </form> */}
-            {/* // ) : ( 
-            // )} */}
+                />
+              </form>
+            ) : (
               <form>
-                <input type="" name="" value=""/>
-                orengoerngengeger
-                {/* <input
+                <input type="text" value={id} name="id" hidden />
+
+                <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
-                  // onClick={() => console.log(id)}
-                >
-                   Add to cart
-                </input> */}
+                  onClick={() => setCart(id)}
+                />
               </form>
+            )}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

@@ -118,19 +118,19 @@ const ProductPage = () => {
                 </input>
               </form> */}
             {/* // ) : ( 
-            //   <form>
-            //     <h3 style={{ justifyContent: "center" }}>
-                  
-            //     </h3>
-            //     <input
-            //       type="submit"
-            //       style={{ width: "150px", margin: "20px" }}
-            //       onClick={() => console.log(id)}
-            //     >
-            //       Add to cart
-            //     </input>
-            //   </form>
             // )} */}
+              <form>
+                <h3 style={{ justifyContent: "center" }}>
+                  
+                </h3>
+                <input
+                  type="submit"
+                  style={{ width: "150px", margin: "20px" }}
+                  onClick={() => console.log(id)}
+                >
+                   Add to cart
+                </input>
+              </form>
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>

@@ -24,10 +24,8 @@ const ProductPage = () => {
   ];
   const getProducts = async () => {
     if (window.innerWidth > 600) {
-      setStyle({ width: "60vw", height: "124px" });
       setVert(true);
     } else {
-      setStyle({ width: "60px", height: "60px" });
       setVert(false);
     }
 
@@ -89,11 +87,11 @@ const ProductPage = () => {
         <div class="row">
           <div
             class="col-2-pics"
-            style={{ position: "relative", right: "60px" }}
+            style={{ position: "relative", right: "45px" }}
           >
             <Carousel
               breakPoints={breakPoints}
-              showArrows={false}
+              showArrows={vert}
               style={{ backgroundColor: "white", color: "white" }}
             >
               {images.map((i) => {

@@ -22,7 +22,7 @@ body {
   align-items: center;
   max-width: 1080px;
   margin: auto;
-  margin-left: 125px;
+  /* margin-left: 125px; */
   flex: 70%;
   padding-left: 25px;
   padding-right: 25px;
@@ -766,7 +766,7 @@ th:last-child {
 }
 
 .col-2 img {
-  
+  right: 60px;
   width: 515px;
   height: 515px;
   max-height: 515px;

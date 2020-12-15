@@ -89,7 +89,7 @@ const ProductPage = () => {
         <div class="row">
           <div
             class="col-2-pics"
-            style={{ position: "relative", right: "800px" }}
+            style={{ position: "relative", right: "80px" }}
           >
             <Carousel
               breakPoints={breakPoints}

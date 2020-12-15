@@ -8,11 +8,11 @@ import FadeIn from "react-fade-in";
 
 // for products need to use fetch
 const People = (props) => {
-  var [clicked, setClicked] = useState(false)
+  var [clicked, setClicked] = useState(false);
   var [price, setPrice] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
-  const [animate, setAnimate] = useState(false)
+  const [animate, setAnimate] = useState(false);
   // this outputs 770px
   console.log(size);
   console.log(localStorage.getItem("unAuthCart"));
@@ -21,6 +21,8 @@ const People = (props) => {
 
   const bigSize = {
     border: "1px solid black",
+    borderRadius: "15%",
+
     maxWidth: "350px",
     position: "relative",
     left: "40px",
@@ -29,6 +31,7 @@ const People = (props) => {
 
   const smallSize = {
     border: "1px solid black",
+    borderRadius: "15%",
     maxWidth: "30%",
     position: "relative",
     fontSize: "15px",
@@ -52,7 +55,7 @@ const People = (props) => {
       setStyle(smallSize);
     }
     if (sessionStorage.getItem("firstLoadDone") === null) {
-      setAnimate( true );
+      setAnimate(true);
 
       sessionStorage.setItem("firstLoadDone", 0);
     } else {
@@ -89,11 +92,16 @@ const People = (props) => {
             style={style}
           >
             {window.innerWidth > 660 ? (
-              <section style={{ height: "1500px" , backgroundColor:"red"}}>
+              <section style={{ height: "1500px" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Size</h6>
+                  <h6
+                    class="font-weight-bold mb-3"
+                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                  >
+                    Size
+                  </h6>
 
                   <div class="form-check pl-0 mb-3">
                     <label

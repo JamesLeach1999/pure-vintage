@@ -126,7 +126,7 @@ const ProductPage = () => {
                 <input
                   type="submit"
                   style={{ width: "150px", margin: "20px" }}
-                  onClick={() => console.log(id)}
+                  // onClick={() => console.log(id)}
                 >
                    Add to cart
                 </input>

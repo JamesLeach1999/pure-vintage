@@ -55,6 +55,7 @@ const OrderPage = () => {
 
   return (
     <div>
+      <br/><br/><br/><br/>
       <div class="small-container">
         <div class="row product">
           {product.map((item, i) => {
@@ -64,19 +65,12 @@ const OrderPage = () => {
                   <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>
                   <br />
-                  <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                  </div>
-                  <p>{item.product.price}</p>
+                  
+                  <p>£{item.product.price}</p>
                 </div>
 
                 <div className="wrapper fadeInDown" syle={{float: "left"}}>
-                  <br /> <br />
-                  <br /> <br /> <br /> <br /> <br /> <br />
+                  
                   <div class="fadeIn first">
                     <div id="formContent">
                       <br />
@@ -96,7 +90,7 @@ const OrderPage = () => {
                         class="fadeIn third"
                         name="star"
                         max="5"
-                        placeholder="password"
+                        style={{width: "40%"}}
                         // onChange={(e) => setLoginPassword(e.target.value)}
                       />
                       <br />
@@ -133,9 +127,7 @@ const OrderPage = () => {
                     </div>
                   </div>
                   <br />
-                  <Link to="/register">
-                    <button className="myButton">Create Account</button>
-                  </Link>
+                  
                 </div>
                 {/* <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden />

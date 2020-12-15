@@ -28,6 +28,8 @@ useEffect(() => {
 
   if(size < 600){
     setSize(size +13)
+  } else {
+    setSize(size-13)
   }
   // everytime we use useEffect, we have the optionof returning
   // whatever we place in here will be invoked once we exit the use effect

@@ -132,7 +132,7 @@ p {
 }
 
 .header {
-  background: radial-gradient(#fff, #0104bd5e);
+  /* background: radial-gradient(#fff, #0104bd5e); */
   height: 100%;
   position: relative;
   left: 15px;

@@ -173,6 +173,7 @@ class Cart extends Component {
         <ul
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
+          style={{maxWidth: "100vw"}}
         >
           <section className="center-text">
             <Link

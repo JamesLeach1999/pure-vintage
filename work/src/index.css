@@ -80,7 +80,8 @@ p {
 
 .col-2 {
   /* flex-basis: 50%; */
-  min-width: 300px;
+  min-width: 600px;
+  right: 300px;
 }
 
 .col-2 img {

@@ -766,6 +766,7 @@ th:last-child {
 }
 
 .col-2 img {
+  right: 60px;
   width: 515px;
   height: 515px;
   max-height: 515px;

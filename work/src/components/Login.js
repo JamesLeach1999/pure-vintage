@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../css/Login.css";
 import { Link } from "react-router-dom";
+import { session } from "passport";
 const App = (props) => {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -56,7 +57,10 @@ const App = (props) => {
         }
       })
       .then((r) => {
-        window.location.replace("/store");
+        console.log(r);
+        if (sessionStorage.getItem("auth")) {
+          window.location.replace("/store");
+        }
       });
   };
 

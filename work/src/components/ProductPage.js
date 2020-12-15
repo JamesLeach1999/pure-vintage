@@ -22,25 +22,20 @@ const ProductPage = () => {
     { width: 1, itemsToShow: 1 }
     
   ];
-  console.log("numberwang 1")
   const getProducts = async () => {
-      console.log("numberwang 7");
-
     if (window.innerWidth > 600) {
+      setStyle({ width: "60vw", height: "124px" });
       setVert(true);
     } else {
+      setStyle({ width: "60px", height: "60px" });
       setVert(false);
     }
-      console.log("numberwang 2");
-
 
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
 
     //   console.log(products.name)
-      console.log("numberwang 3");
-
     console.log(products.name.image);
     // this will run 30 times because its after every re render. will be stuck in loop
     setProducts(products.name);
@@ -52,11 +47,7 @@ const ProductPage = () => {
 
     // then you want to set the state, set the empty array to an array of 30
   };
-        console.log("work");
-
   const setCart = (pID) => {
-      console.log("numberwang 4");
-
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
       var i = [pID, pID]
@@ -72,27 +63,23 @@ const ProductPage = () => {
       console.log(localStorage.getItem("unAuthCart"));
     }
   };
-        console.log("work2");
-
   // cant use async await on useEffect (can in callback funcions), need a seperate function
   // it looks for the cleanup function, not a promise. cant use promise in useEffect
   // no  clue
   useEffect(() => {
-      console.log("numberwang 5");
-
     // this returns all 30 users in an array using setState
     getProducts();
-    // if (images) {
-    //   setSmall(images[0]);
-    // }
+    if (images) {
+      setSmall(images[0]);
+    }
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
     // do this so no infinite loop
   }, []);
 
   return (
-    <div>
-      <br />
+    <div style={{ width: "100%" }}>
+      {/* <br />
       <br />
       <br />
       <br />
@@ -142,7 +129,6 @@ const ProductPage = () => {
                 </input>
               </form>
             )}
-            {/* <a href="" class="btn">Add to cart</a> */}
             <h3>
               Product details <i class="fa fa-indent"></i>
             </h3>
@@ -150,9 +136,8 @@ const ProductPage = () => {
             <p>{product.description}</p>
           </div>
         </div>
-        {/* <OtherReviews/> */}
-      </div>
         <Reviews />
+      </div> */}
     </div>
   );
 };

@@ -16,18 +16,11 @@ const Manage = () => {
   const [admin, setAdmin] = useState()
   const getManage = async () => {
 
-    Axios.post({
-      method: "POST",
-      data: {
-        id: sessionStorage.getItem("user")
-      },
-      withCredentials: true,
-      url: "/getAuth",
-    }).then((data) => {
-      console.log(data)
-      setAdmin(data.isAdmin)
+    const work = await Axios.post("/getAuth", {
+      id: sessionStorage.getItem("user"),
     });
-    console.log(admin)
+
+    console.log(work)
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false"

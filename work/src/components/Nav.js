@@ -18,9 +18,9 @@ import PastOrders from "../pages/Past";
 import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
 import { Button1 } from "./Button";
-import Register from "./Register"
+import Register from "./Register";
 import "../css/Navbar.css";
-import CartSlide from "./CartSlide"
+import CartSlide from "./CartSlide";
 // have to use links like this in the nav
 export default class Nav extends Component {
   constructor() {
@@ -91,17 +91,15 @@ export default class Nav extends Component {
   handleOutsideClick(e) {
     // ignore clicks on the component itself
     if (this.node.contains(e.target)) {
-            console.log("thats wangernumb");
+      console.log("thats wangernumb");
 
-            console.log(this.node);
+      console.log(this.node);
 
       return;
     }
 
     this.handleClick();
   }
-
-  
 
   render() {
     return (
@@ -111,11 +109,15 @@ export default class Nav extends Component {
           ref={(node) => (this.node = node)}
           style={{ width: "100vw" }}
         >
-          <img src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg" alt="" style={{zIndex: "-1"}}/>
+          <img
+            src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg"
+            alt=""
+            style={{ zIndex: "-1", width: "100px", height: "100px" }}
+          />
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>
             <i
-            style={{color: "black"}}
+              style={{ color: "black" }}
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
           </div>
@@ -136,7 +138,7 @@ export default class Nav extends Component {
             ) : (
               ""
             )}
-            
+
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="nav-links">
                 <Link to="/me">My past orders</Link>
@@ -200,7 +202,6 @@ export default class Nav extends Component {
             <Me />
           </Route>
           <Route
-            
             path={"/register"}
             render={(props) => (
               <Register
@@ -209,8 +210,7 @@ export default class Nav extends Component {
                 loggedIn={this.state.loggedIn}
               />
             )}
-          >
-          </Route>
+          ></Route>
 
           <Route path="/manage">
             <Manage />

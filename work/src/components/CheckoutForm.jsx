@@ -136,7 +136,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
       <Row>
-        <SubmitButton disabled={isProcessing}>
+        <SubmitButton disabled={isProcessing} style={{backgroundColor: "white"}}>
           {isProcessing ? "Processing..." : `Pay £${price}`}
         </SubmitButton>
       </Row>

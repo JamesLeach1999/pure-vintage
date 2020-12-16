@@ -127,7 +127,7 @@ const ProductPage = () => {
                 <button
                   type="submit"
                   value="Add to cart"
-                  style={{ width: "150px", margin: "20px", content:"Add to cart" }}
+                  style={{ width: "150px", margin: "20px", content:"Add to cart", backgroundColor: "white", borderRadius: "5%" }}
                   onClick={() => setCart(id)}
                 >Add to cart</button>
               </form>

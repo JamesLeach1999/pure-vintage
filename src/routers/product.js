@@ -613,7 +613,7 @@ console.log(orders)
   console.log("hmmm")
 const ordersRev = orders.reverse()
   for (var i = 0; i < ordersRev.length; i++) {
-    const oProducts = JSON.parse(orders[i].orderItems);
+    const oProducts = JSON.parse(ordersRev[i].orderItems);
     console.log('num');
     const images = oProducts[0].product.image[0];
 

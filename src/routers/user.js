@@ -104,8 +104,8 @@ router.get('/signup', async (req, res) => {
   });
 });
 
-router.get('/getAuth', async (req, res) => {
-  const auth = await User.findById({ _id: req.query.id });
+router.post('/getAuth', async (req, res) => {
+  const auth = await User.findById({ _id: req.body.id });
 
   res.send({
     isAuth: true,

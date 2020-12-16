@@ -611,9 +611,8 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({})
 console.log(orders)
   console.log("hmmm")
-  console.log(orders.reverse())
-
-  for (var i = 0; i < orders.length; i++) {
+const ordersRev = orders.reverse()
+  for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(orders[i].orderItems);
     console.log('num');
     const images = oProducts[0].product.image[0];
@@ -639,7 +638,7 @@ console.log(orders)
   var filtered = review.filter(function (el) {
     return el != null;
   });
-console.log(filtered.reverse());
+// console.log(filtered.reverse());
   res.send({
     name: filtered,
     images: proImages,

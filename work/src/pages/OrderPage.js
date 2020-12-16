@@ -65,70 +65,80 @@ const OrderPage = () => {
                   <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>
                   <br />
-                  
+
                   <p>£{item.product.price}</p>
                 </div>
 
-                <div className="wrapper fadeInDown" syle={{float: "left"}}>
-                  
+                <div className="wrapper fadeInDown" syle={{ float: "left" }}>
                   <div class="fadeIn first">
                     <div id="formContent">
                       <br />
-                      <input
-                        type="text"
-                        id="login"
-                        class="fadeIn second"
-                        name="name"
-                        placeholder="login"
-                        value={name}
-                        hidden
-                        // onChange={(e) => setLoginUsername(e.target.value)}
-                      />
-                      <input
-                        type="number"
-                        id="rating"
-                        class="fadeIn third"
-                        name="star"
-                        max="5"
-                        placeholder="rating"
-                        // style={{width: "40%", textAlign: "left"}}
-                        // onChange={(e) => setLoginPassword(e.target.value)}
-                      />
-                      <br />
-                      <br />
-                      <input
-                        type="text"
-                        id="password"
-                        class="fadeIn third"
-                        name="desc"
-                        placeholder="Description"
-                        // onChange={(e) => setLoginPassword(e.target.value)}
-                      />
-                      <br />
-                      <br />
-                      <button
-                        type="submit"
-                        className="fadeIn fourth myButton"
-                        style={{
-                          borderRadius: "5%",
-                          padding: "8px",
-                          border: "none",
-                        }}
-                        onClick={() =>
-                          window.location.replace(
-                            "https://cryptic-temple-54361.herokuapp.com/store"
-                          )
-                        }
-                        // onClick={login}
-                      >
-                        Submit review
-                      </button>
-                      <br />
-                      <br />
+                      <form method="post" action="/reviews">
+                        <input
+                          type="text"
+                          id="login"
+                          class="fadeIn second"
+                          name="name"
+                          placeholder="login"
+                          value={name}
+                          hidden
+                          // onChange={(e) => setLoginUsername(e.target.value)}
+                        />
+                        <input
+                          type="text"
+                          id="login"
+                          class="fadeIn second"
+                          name="id"
+                          placeholder="login"
+                          value={sessionStorage.getItem("user")}
+                          hidden
+                          // onChange={(e) => setLoginUsername(e.target.value)}
+                        />
+                        <input
+                          type="number"
+                          id="rating"
+                          class="fadeIn third"
+                          name="star"
+                          max="5"
+                          placeholder="rating"
+                          // style={{width: "40%", textAlign: "left"}}
+                          // onChange={(e) => setLoginPassword(e.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <input
+                          type="text"
+                          id="password"
+                          class="fadeIn third"
+                          name="desc"
+                          placeholder="Description"
+                          // onChange={(e) => setLoginPassword(e.target.value)}
+                        />
+                        <br />
+                        <br />
+                        <button
+                          type="submit"
+                          className="fadeIn fourth myButton"
+                          style={{
+                            borderRadius: "5%",
+                            padding: "8px",
+                            border: "none",
+                          }}
+                          onClick={() =>
+                            window.location.replace(
+                              "https://cryptic-temple-54361.herokuapp.com/store"
+                            )
+                          }
+                          // onClick={login}
+                        >
+                          Submit review
+                        </button>
+                        <br />
+                        <br />
+                      </form>
                     </div>
                   </div>
                   <br />
-                  
                 </div>
                 {/* <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden />

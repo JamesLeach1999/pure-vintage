@@ -431,6 +431,7 @@ console.log("wang1")
 <div style="font-family: inherit; text-align: inherit">Hello ${name},</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit">Thank you for ordering:<table><tr><th>Product</th><th>Size</th><th>Price</th></tr>
+<td>${products.size}</td>
 
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ${

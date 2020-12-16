@@ -112,7 +112,7 @@ export default class Nav extends Component {
           <img
             src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg"
             alt=""
-            style={{ zIndex: "-1", width: "100px", height: "100px" }}
+            style={{ zIndex: "-1", width: "60px", height: "60px" }}
           />
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>

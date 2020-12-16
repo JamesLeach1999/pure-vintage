@@ -36,6 +36,7 @@ const Me = () => {
           var summed = sum1.reduce(function (a, b) {
             return a+b;
           }, 0)
+          console.log(summed)
           setSum(total => [...total, summed])
           console.log(total)
         })

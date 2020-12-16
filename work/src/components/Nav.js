@@ -111,6 +111,7 @@ export default class Nav extends Component {
           ref={(node) => (this.node = node)}
           style={{ width: "100vw" }}
         >
+          <img src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg" alt="" style={{zIndex: "-1"}}/>
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>
             <i

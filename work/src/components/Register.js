@@ -9,7 +9,7 @@ const Register = (props) => {
   const [registerName, setRegisterName] = useState("");
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-  const [data, setData] = useState(null);
+  const [error, setError] = useState(false);
   const register = () => {
     Axios({
       method: "POST",
@@ -20,51 +20,55 @@ const Register = (props) => {
       },
       withCredentials: true,
       url: "/register",
-    }).then((res) => {
-      console.log(res);
-      if (res.data) {
-                  props.handleLogin(res.data.passport);
+    })
+      .then((res) => {
+        console.log(res);
+        if (res.data) {
+          props.handleLogin(res.data.passport);
 
-        setLoginUsername(registerUsername);
-        setLoginPassword(registerPassword);
-        // login();
-      } else {
-        props.handleLogin(false);
-      }
-      // window.location.replace("/store");
-    }).then((u) =>{
-        window.location.replace("/store")
-    });
+          setLoginUsername(registerUsername);
+          setLoginPassword(registerPassword);
+          setError(false)
+          // login();
+        } else {
+          props.handleLogin(false);
+          return setError(true)
+        }
+        // window.location.replace("/store");
+      })
+      .then((u) => {
+        window.location.replace("/store");
+      });
   };
 
-//   const login = () => {
-//     Axios({
-//       method: "POST",
-//       data: {
-//         email: loginUsername,
-//         password: loginPassword,
-//       },
-//       withCredentials: true,
+  //   const login = () => {
+  //     Axios({
+  //       method: "POST",
+  //       data: {
+  //         email: loginUsername,
+  //         password: loginPassword,
+  //       },
+  //       withCredentials: true,
 
-//       url: "/login",
-//     }).then((res) => {
-//       if (res.data) {
-//         console.log(res.data);
-//         props.handleLogin(res.data.passport);
+  //       url: "/login",
+  //     }).then((res) => {
+  //       if (res.data) {
+  //         console.log(res.data);
+  //         props.handleLogin(res.data.passport);
 
-//         window.location.replace("/store");
-//       } else {
-//         props.handleLogin(false);
-//       }
-//     });
-//   };
+  //         window.location.replace("/store");
+  //       } else {
+  //         props.handleLogin(false);
+  //       }
+  //     });
+  //   };
   return (
     <div className="wrapper fadeInDown">
       <br /> <br />
       <br /> <br /> <br /> <br /> <br /> <br />
       <div id="formContent">
         <div class="fadeIn first"></div>
-        <br/>
+        <br />
         <input
           type="text"
           id="login"
@@ -90,7 +94,8 @@ const Register = (props) => {
           placeholder="Password"
           onChange={(e) => setRegisterPassword(e.target.value)}
         />
-        <br/><br/>
+        <br />
+        <br />
         <button
           type="submit"
           class="fadeIn fourth myButton"
@@ -99,7 +104,23 @@ const Register = (props) => {
         >
           Create account
         </button>
-        <br/><br/>
+        {error ? (
+          <div class="alert">
+            <span
+              class="closebtn"
+              onClick={(this.parentElement.style.display = "none")}
+            >
+              &times;
+            </span>
+            <strong>Danger!</strong> Indicates a dangerous or potentially
+            negative action.
+          </div>
+        ) : (
+          ""
+        )}
+
+        <br />
+        <br />
       </div>
     </div>
   );

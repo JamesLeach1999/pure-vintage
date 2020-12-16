@@ -124,6 +124,8 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
+      <br/>
+      <br/><br/>
       <Row>
         <BillingDetailsFields />
       </Row>
@@ -136,7 +138,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
       <Row>
-        <SubmitButton disabled={isProcessing} style={{backgroundColor: "white"}}>
+        <SubmitButton disabled={isProcessing} style={{backgroundColor: "white", color: "black"}}>
           {isProcessing ? "Processing..." : `Pay £${price}`}
         </SubmitButton>
       </Row>

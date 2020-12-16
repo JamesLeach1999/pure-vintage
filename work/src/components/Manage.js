@@ -30,7 +30,7 @@ const Manage = () => {
     console.log(admin)
     if (
       !sessionStorage.getItem("admin") ||
-      sessionStorage.getItem("admin") === "false" || !admin
+      sessionStorage.getItem("admin") === "false"
     ) {
       window.location.replace("/store");
     } else {

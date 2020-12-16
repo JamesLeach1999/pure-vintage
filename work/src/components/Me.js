@@ -53,6 +53,8 @@ const Me = () => {
           
         }
         console.log(total)
+        var d = data[0].updatedAt
+        console.log(d.getMonth())
 
         // console.log(orders[0][0].product.image[0]);
 
@@ -108,7 +110,7 @@ const Me = () => {
                         <li>{product.shipping.postcode}</li>
                       </ul>
                     </td>
-                    <td>{product.updatedAt.getMonth()}</td>
+                    <td>{product.updatedAt}</td>
                     <td>tree fiddy</td>
                     {/* </Link> */}
                   </tr>

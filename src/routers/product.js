@@ -614,12 +614,12 @@ console.log(orders)
 const ordersRev = orders.reverse()
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
-    console.log('num');
+    console.log('num2');
     const images = oProducts[0].product.image[0];
 
     proImages.push(images);
     console.log(oProducts);
-    const product = await Product.findById({ _id: oProducts[i].product._id });
+    const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
     console.log(product);
     if (product !== null) {

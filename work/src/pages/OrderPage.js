@@ -55,7 +55,7 @@ const OrderPage = () => {
 
   return (
     <div>
-      <br/>
+      <br/><br/><br/><br/>
       <div class="small-container">
         <div class="row product">
           {product.map((item, i) => {
@@ -86,7 +86,7 @@ const OrderPage = () => {
                       />
                       <input
                         type="number"
-                        id="password"
+                        id="rating"
                         class="fadeIn third"
                         name="star"
                         max="5"

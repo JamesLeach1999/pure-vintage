@@ -45,7 +45,7 @@ class Product extends Component {
         />
         <h4>{this.state.data.name}</h4>
         
-        <p>£{this.state.data.price}</p>
+        <p>£{this.state.data.price}.95</p>
       </FadeIn>
     );
   }

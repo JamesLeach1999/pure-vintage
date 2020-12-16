@@ -20,7 +20,6 @@ const People = (props) => {
   console.log(sessionStorage);
 
   const bigSize = {
-    border: "1px solid black",
 
     maxWidth: "350px",
     position: "relative",
@@ -29,7 +28,6 @@ const People = (props) => {
   };
 
   const smallSize = {
-    border: "1px solid black",
     maxWidth: "30%",
     position: "relative",
     fontSize: "15px",

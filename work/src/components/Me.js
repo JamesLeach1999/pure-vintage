@@ -37,6 +37,7 @@ const Me = () => {
             return a+b;
           }, 0)
           setSum(total => [...total, summed])
+          console.log(total)
         })
 
         orderJson.names.map((order) => {
@@ -107,7 +108,7 @@ const Me = () => {
                         <li>{product.shipping.postcode}</li>
                       </ul>
                     </td>
-                    <td>{product.updatedAt}</td>
+                    <td>{product.updatedAt.getMonth()}</td>
                     <td>tree fiddy</td>
                     {/* </Link> */}
                   </tr>

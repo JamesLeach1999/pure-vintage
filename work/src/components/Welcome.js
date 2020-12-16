@@ -68,7 +68,11 @@ useEffect(() => {
               alt=""
             />
             <img
-              src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606512786/img_nature_wide_q8vuhx.jpg"
+              src={
+                size > 600
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1608123541/fontscreen_nqvuxg.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1608123578/frontphone33_j5olug.jpg"
+              }
               className="sliderimg"
               alt=""
             />

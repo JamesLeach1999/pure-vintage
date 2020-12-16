@@ -102,7 +102,7 @@ const ProductPage = () => {
           <div class="col-2 product">
             <p style={{ textTransform: "uppercase" }}>{product.category}</p>
             <h1>{product.name}</h1>
-            <h4>£{product.price}</h4>
+            <h4>£{product.price}.95</h4>
             <h4>Size: {product.size}</h4>
             {/* <form>
               <h1>testform</h1>
@@ -115,7 +115,7 @@ const ProductPage = () => {
                 <input
                   type="submit"
                   value="Submit"
-                  style={{ width: "150px", margin: "20px" }}
+                  style={{ width: "150px", margin: "20px",content:"Add to cart" }}
                   onClick={() => window.location.replace("/store")}
                 />
               </form>
@@ -126,7 +126,7 @@ const ProductPage = () => {
                 <input
                   type="submit"
                   value="Submit"
-                  style={{ width: "150px", margin: "20px" }}
+                  style={{ width: "150px", margin: "20px", content:"Add to cart" }}
                   onClick={() => setCart(id)}
                 />
               </form>

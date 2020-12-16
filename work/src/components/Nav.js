@@ -109,7 +109,7 @@ export default class Nav extends Component {
         <nav
           className="NavbarItems"
           ref={(node) => (this.node = node)}
-          style={{ width: "100vw" }}
+          style={{ width: "100%" }}
         >
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>

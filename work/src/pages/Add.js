@@ -110,6 +110,7 @@ return (
               <option value="puma">Puma</option>
               <option value="adidas">Adidas</option>
               <option value="north">North Face</option>
+              <option value="carhartt">Carhartt</option>
             </select>
           </li>
           <br />
@@ -126,7 +127,7 @@ return (
               <option value="jeans">Jeans</option>
               <option value="trousers">Trousers</option>
               <option value="puffer">Puffer jackets</option>
-              <option value="fleeces">Fleeces</option>
+              <option value="sweatshirts">Sweatshirts</option>
               <option value="caps">Caps</option>
               <option value="shirts">Shirts</option>
               <option value="polos">Polos</option>

@@ -619,7 +619,7 @@ const ordersRev = orders.reverse()
 
     proImages.push(images);
     // console.log(oProducts[0].product.reviews);
-    const product = await Product.findById({ _id: oProducts[0].product._id });
+    const product = await Product.findById({ _id: oProducts[i].product._id });
     console.log('num1');
     // console.log(product);
     if (product !== null) {

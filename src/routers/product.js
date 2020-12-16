@@ -621,10 +621,11 @@ const ordersRev = orders.reverse()
     console.log(oProducts);
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
-    console.log(product);
+    console.log(product.reviews);
     if (product !== null) {
       if (product.reviews[0] !== null) {
-        console.log(product.reviews[0]);
+        console.log("num23")
+        console.log(product.reviews);
         review.push(product.reviews[0]);
       }
     }

@@ -178,7 +178,7 @@ class Cart extends Component {
           <section className="center-text">
             <Link
               to="/order"
-              style={{ fontSize: "40px", backgroundColor: "white" }}
+              style={{ fontSize: "40px" }}
             >
               checkout
             </Link>

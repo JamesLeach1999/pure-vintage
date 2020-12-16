@@ -47,7 +47,7 @@ useEffect(() => {
 }, []);
     return (
       <FadeIn>
-        <div class="row header work">
+        <div class="row header work" style={size > 600? {width: "100%"}: {left: "50px"}}>
           <AliceCarousel autoPlay autoPlayInterval="3000">
             <img
               src={

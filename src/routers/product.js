@@ -625,7 +625,7 @@ const ordersRev = orders.reverse()
         proImages.push(product.image[0]);
         console.log("num23")
         console.log(product.reviews);
-        review.push(product.reviews[0]);
+        review.push(product.reviews.slice(-1)[0]);
       }
     }
   }

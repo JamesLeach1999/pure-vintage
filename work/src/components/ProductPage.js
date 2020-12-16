@@ -112,24 +112,24 @@ const ProductPage = () => {
               <form action="/added" method="POST">
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}></h3>
-                <input
+                <button
                   style={{ width: "150px", margin: "20px",content:"Add to cart" }}
                   type="submit"
-                  value="Submit"
+                  value="Add to cart"
                   placeholder="add to cart"
                   onClick={() => window.location.replace("/store")}
-                />
+                >Add to cart</button>
               </form>
             ) : (
               <form>
                 <input type="text" value={id} name="id" hidden />
 
-                <input
+                <button
                   type="submit"
-                  value="Submit"
+                  value="Add to cart"
                   style={{ width: "150px", margin: "20px", content:"Add to cart" }}
                   onClick={() => setCart(id)}
-                />
+                >Add to cart</button>
               </form>
             )}
             <h3>

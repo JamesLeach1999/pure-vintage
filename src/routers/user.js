@@ -46,12 +46,13 @@ router.post('/register', (req, res, next) => {
           msg: 'email in use',
         });
       }
-
+      
       if (errors.length > 0) {
         res.send({
           errors,
         });
       }
+      throw new Error("email used")
     })
     .catch((error) => {
       const newUser = new User({

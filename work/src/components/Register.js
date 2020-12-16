@@ -32,16 +32,19 @@ const Register = (props) => {
           // login();
         } else {
           props.handleLogin(false);
+          setError(true)
           throw new Error("email taken")
         }
         // window.location.replace("/store");
       })
       .then((u) => {
-        window.location.replace("/store");
-      }).catch((err) => {
-        console.log(err)
-        setError(true)
-      });
+        if(error){
+          window.location.replace("/register")
+        } else {
+          window.location.replace("/store");
+
+        }
+      })
   };
 
   //   const login = () => {

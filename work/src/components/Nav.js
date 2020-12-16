@@ -107,7 +107,7 @@ export default class Nav extends Component {
         <nav
           className="NavbarItems"
           ref={(node) => (this.node = node)}
-          style={{ width: "100vw" }}
+          style={{ width: "100%" }}
         >
           <img
             src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg"

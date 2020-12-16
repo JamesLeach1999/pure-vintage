@@ -47,11 +47,11 @@ router.post('/register', (req, res, next) => {
         });
       }
       
-      if (errors.length > 0) {
-        res.send({
-          errors,
-        });
-      }
+      // if (errors.length > 0) {
+      //   res.send({
+      //     errors,
+      //   });
+      // }
       throw new Error("email used")
     })
     .catch((error) => {
@@ -90,7 +90,7 @@ router.post('/register', (req, res, next) => {
             })
             .catch((err) => {
               console.log(err)
-        res.send(req.session);
+        res.send(err);
             });
         });
       });

@@ -636,9 +636,9 @@ router.get('/recentReviews', async (req, res) => {
   var filtered = review.filter(function (el) {
     return el != null;
   });
-
+console.log(filtered.reverse());
   res.send({
-    name: filtered.reverse(),
+    name: filtered,
     images: proImages,
   });
 });

@@ -16,6 +16,7 @@ class Reviews extends Component {
       const pJson = await p.json();
       console.log(pJson)
       var pros = pJson.name.slice(0, 4)
+      console.log(pros.reverse())
       console.log(pros)
       this.setState({ data:  pros});
       this.setState({ images: pJson.images });

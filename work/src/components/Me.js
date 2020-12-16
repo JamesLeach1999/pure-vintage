@@ -33,10 +33,10 @@ const Me = () => {
           order.map((item) => {
             sum1.push(item.price)
           } )
+          console.log(order)
           var summed = sum1.reduce(function (a, b) {
             return a+b;
           }, 0)
-          console.log(summed)
           setSum(total => [...total, summed])
           console.log(total)
         })
@@ -54,7 +54,7 @@ const Me = () => {
           
         }
         console.log(total)
-        var d = data[0].updatedAt
+        var d = data[0]
         console.log(d.getMonth())
 
         // console.log(orders[0][0].product.image[0]);

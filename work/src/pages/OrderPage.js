@@ -86,11 +86,11 @@ const OrderPage = () => {
                         />
                         <input
                           type="text"
-                          id="login"
+                          id="id"
                           class="fadeIn second"
                           name="id"
-                          placeholder="login"
-                          value={sessionStorage.getItem("user")}
+                          placeholder="id"
+                          value={item.product._id}
                           hidden
                           // onChange={(e) => setLoginUsername(e.target.value)}
                         />

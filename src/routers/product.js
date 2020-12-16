@@ -617,12 +617,12 @@ const ordersRev = orders.reverse()
     console.log('num2');
     const images = oProducts[0].product.image[0];
 
-    proImages.push(images);
     console.log(oProducts);
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
     if (product !== null) {
       if (product.reviews[0] !== null) {
+        proImages.push(product.images[0]);
         console.log("num23")
         console.log(product.reviews);
         review.push(product.reviews[0]);

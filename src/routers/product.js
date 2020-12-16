@@ -609,6 +609,9 @@ router.get('/recentReviews', async (req, res) => {
   var review = [];
   var proImages = [];
   const orders = await Order.find({})
+console.log(orders)
+  console.log("hmmm")
+  console.log(orders.reverse())
 
   for (var i = 0; i < orders.length; i++) {
     const oProducts = JSON.parse(orders[i].orderItems);
@@ -616,10 +619,10 @@ router.get('/recentReviews', async (req, res) => {
     const images = oProducts[0].product.image[0];
 
     proImages.push(images);
-    console.log(oProducts[0].product.reviews);
+    // console.log(oProducts[0].product.reviews);
     const product = await Product.findById({ _id: oProducts[0].product._id });
     console.log('num1');
-    console.log(product);
+    // console.log(product);
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log(product.reviews[0]);

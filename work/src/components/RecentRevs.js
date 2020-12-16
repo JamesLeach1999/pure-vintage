@@ -14,7 +14,8 @@ class Reviews extends Component {
     try {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
-      var pros = pJson.name.slice(0, 4)
+      var reverseJSON = pJson.name.reverse()
+      var pros = reverseJSON.name.slice(0, 4)
       console.log(pros)
       this.setState({ data:  pros});
       this.setState({ images: pJson.images });

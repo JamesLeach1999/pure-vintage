@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 import Axios from 'axios';
 import Edit from "./Edit"
+import { words } from 'lodash';
 // import { useFetch } from "../hooks/useFetch";
 
 const Manage = () => {
@@ -23,7 +24,7 @@ const Manage = () => {
     console.log(work)
     if (
       !sessionStorage.getItem("admin") ||
-      sessionStorage.getItem("admin") === "false"
+      sessionStorage.getItem("admin") === "false" || !work.data.isAdmin
     ) {
       window.location.replace("/store");
     } else {

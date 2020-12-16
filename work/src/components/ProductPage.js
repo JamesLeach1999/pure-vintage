@@ -113,9 +113,10 @@ const ProductPage = () => {
                 <input type="text" value={id} name="id" hidden />
                 <h3 style={{ justifyContent: "center" }}></h3>
                 <input
+                  style={{ width: "150px", margin: "20px",content:"Add to cart" }}
                   type="submit"
                   value="Submit"
-                  style={{ width: "150px", margin: "20px",content:"Add to cart" }}
+                  placeholder="add to cart"
                   onClick={() => window.location.replace("/store")}
                 />
               </form>

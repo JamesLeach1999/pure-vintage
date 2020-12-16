@@ -47,9 +47,10 @@ const ProductPage = () => {
   console.log(product);
   return (
     <div>
+      <br/><br/><br/><br/>
       <div class="small-container single-product">
         <div class="col-2">
-          <img src={`${images}`} alt="shit"></img>;
+          <img src={`${images[0]}`} alt="shit"></img>;
         </div>
         <div class="row">
           <div class="col-2">

@@ -622,7 +622,7 @@ const ordersRev = orders.reverse()
     console.log('num1');
     if (product !== null) {
       if (product.reviews[0] !== null) {
-        proImages.push(product);
+        proImages.push(product.image[0]);
         console.log("num23")
         console.log(product.reviews);
         review.push(product.reviews[0]);

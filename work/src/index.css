@@ -1,8 +1,6 @@
 * {
   margin: 0;
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
+  
   padding: 0;
   box-sizing: border-box;
 }
@@ -138,8 +136,9 @@ p {
   /* background: radial-gradient(#fff, #0104bd5e); */
   height: 100%;
   position: relative;
-  left: 15px;
-}
+width: 100%;
+  max-width: 100%;
+  min-width: 100%;}
 
 .header .row1 .work {
   /* max-width: 1900px; */

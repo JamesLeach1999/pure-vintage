@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import Product from "../components/Product";
-import Rows from "../components/Test";
+import row1111s from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
 
@@ -1145,7 +1145,7 @@ const People = (props) => {
         <button type="submit">
           btn
         </button> */}
-          <Rows />
+          <row1111s />
         </section>
       </div>
     </FadeIn>

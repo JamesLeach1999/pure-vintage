@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/button.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Brow11serRouter as Router, Route, Switch, Link } from "react-router-dom";
 const STYLES = ["btn--primary", "btn--outline"];
 
 const SIZES = ["btn--medium", "btn--large"];

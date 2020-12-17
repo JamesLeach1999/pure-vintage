@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
 import CartProduct from "./CartProduct";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Brow11serRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import "../css/Cart.css";
 import { filter } from "lodash";

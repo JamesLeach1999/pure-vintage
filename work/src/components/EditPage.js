@@ -52,7 +52,7 @@ const ProductPage = () => {
         <div class="col-2">
           <img src={`${images[0]}`} alt="shit"></img>;
         </div>
-        <div class="row">
+        <div class="row1">
           <div class="col-2">
             <form action="/editPost" method="post">
               <h4>{product.name}</h4>

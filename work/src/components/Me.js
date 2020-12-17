@@ -1,7 +1,7 @@
 import { sum } from "lodash";
 import React, { Component, useState, useEffect } from "react";
 // import Product from "../components/Product";
-// import Rows from "../components/Rows";
+// import row1s from "../components/row1s";
 import { Link, useParams } from "react-router-dom";
 // import OrderProducts from "../components/OrderProducts";
 
@@ -86,7 +86,7 @@ const Me = () => {
     <>
       <div className="testimonial">
         <div className="small-container">
-          <div class="row">
+          <div class="row1">
             <table>
               <tr>
                 <th>Product details:</th>

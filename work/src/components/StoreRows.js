@@ -73,8 +73,8 @@ const Test = () => {
     // window.location.replace("http://localhost:5000");
   }, [loading]);
   return (
-    <div className="small-container row filter-container">
-      <div className="row product">
+    <div className="small-container row1 filter-container">
+      <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -87,7 +87,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -100,7 +100,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -113,7 +113,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

@@ -78,7 +78,7 @@ const Test = () => {
       <br />
 
       <br />
-      <div className="row product">
+      <div className="row1111 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -91,7 +91,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1111 product">
         {data.map((products) => {
           return products.slice(page + 4, page + 8).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -104,7 +104,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1111 product">
         {data.map((products) => {
           return products.slice(page + 8, page + 12).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -117,7 +117,7 @@ const Test = () => {
           });
         })}
       </div>
-      <div className="row product">
+      <div className="row1111 product">
         {data.map((products) => {
           return products.slice(page + 12, page + 16).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

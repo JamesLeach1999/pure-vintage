@@ -71,7 +71,7 @@ const OrderPage = () => {
       <br />
 
       <div class="small-container">
-        <div class="row product">
+        <div class="row1 product">
           {p.map((item, i) => {
             return (
               <div className="col-4">

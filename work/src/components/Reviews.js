@@ -60,7 +60,7 @@ class Reviews extends Component {
           <br />
           <br />
 
-          <div class="row">
+          <div class="row1">
             {this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {
@@ -80,7 +80,7 @@ class Reviews extends Component {
           <br />
           <br />
           <br />
-          <div class="row">
+          <div class="row1">
             {this.state.other[0] !== undefined
               ? this.state.other.map((e, i) => {
                   return (

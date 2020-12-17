@@ -16,11 +16,10 @@ const OrderPage = () => {
   const [loading, setLoading] = useState(true);
 
   const getProducts = async () => {
-    
     // this returns a promise. so need to extract data from response (generally in json)
     const response = await fetch(url);
     const products = await response.json();
-    
+
     console.log(products.names.orderItems);
     setName(products.user.name);
 
@@ -55,9 +54,12 @@ const OrderPage = () => {
 
   return (
     <div>
-      <br/><br/><br/><br/>
-      <div class="small-container">
-        <div class="row product">
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="small-container">
+        <div className="row product">
           {product.map((item, i) => {
             return (
               <div>
@@ -69,15 +71,92 @@ const OrderPage = () => {
                   <p>£{item.product.price}</p>
                 </div>
 
-                <div className="wrapper fadeInDown" syle={{ float: "left" }}>
-                  <div class="fadeIn first">
+                <div
+                  className="container wrapper fadeInDown"
+                  style={{ float: "left" }}
+                >
+                  <div
+                    className="row fadeIn first"
+                    style={{ marginTop: "40px" }}
+                  >
+                    <div className="col-md-6">
+                      <div className="well well-sm">
+                        <div className="text-right">
+                          <a
+                            className="btn btn-success btn-green"
+                            href="#reviews-anchor"
+                            id="open-review-box"
+                          >
+                            Leave a Review
+                          </a>
+                        </div>
+
+                        <div
+                          className="row"
+                          id="post-review-box"
+                          style={{ display: "none" }}
+                        >
+                          <div className="col-md-12">
+                            <form
+                              accept-charset="UTF-8"
+                              action="/reviews"
+                              method="post"
+                            >
+                              <input
+                                id="ratings-hidden"
+                                name="star"
+                                type="hidden"
+                              />
+                              <textarea
+                                className="form-control animated"
+                                cols="50"
+                                id="new-review"
+                                name="desc"
+                                placeholder="Enter your review here..."
+                                rows="5"
+                              ></textarea>
+
+                              <div className="text-right">
+                                <div
+                                  className="stars starrr"
+                                  data-rating="0"
+                                ></div>
+                                <a
+                                  className="btn btn-danger btn-sm"
+                                  href="#"
+                                  id="close-review-box"
+                                  style={{
+                                    display: "none",
+                                    marginRight: "10px",
+                                  }}
+                                >
+                                  <span className="glyphicon glyphicon-remove"></span>
+                                  Cancel
+                                </a>
+                                <button
+                                  className="btn btn-success btn-lg"
+                                  type="submit"
+                                >
+                                  Save
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* <div classNameName="wrapper fadeInDown" syle={{ float: "left" }}>
+                  <div className="fadeIn first">
                     <div id="formContent">
                       <br />
                       <form method="post" action="/reviews">
                         <input
                           type="text"
                           id="login"
-                          class="fadeIn second"
+                          className="fadeIn second"
                           name="name"
                           placeholder="login"
                           value={name}
@@ -87,7 +166,7 @@ const OrderPage = () => {
                         <input
                           type="text"
                           id="id"
-                          class="fadeIn second"
+                          className="fadeIn second"
                           name="id"
                           placeholder="id"
                           value={item.product._id}
@@ -97,7 +176,7 @@ const OrderPage = () => {
                         <input
                           type="number"
                           id="rating"
-                          class="fadeIn third"
+                          className="fadeIn third"
                           name="star"
                           max="5"
                           placeholder="rating"
@@ -109,7 +188,7 @@ const OrderPage = () => {
                         <input
                           type="text"
                           id="password"
-                          class="fadeIn third"
+                          className="fadeIn third"
                           name="desc"
                           placeholder="Description"
                           // onChange={(e) => setLoginPassword(e.target.value)}
@@ -118,7 +197,7 @@ const OrderPage = () => {
                         <br />
                         <button
                           type="submit"
-                          className="fadeIn fourth myButton"
+                          classNameName="fadeIn fourth myButton"
                           style={{
                             borderRadius: "5%",
                             padding: "8px",
@@ -139,7 +218,7 @@ const OrderPage = () => {
                     </div>
                   </div>
                   <br />
-                </div>
+                </div> */}
                 {/* <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden />
                   <input type="text" name="name" value={name} hidden />

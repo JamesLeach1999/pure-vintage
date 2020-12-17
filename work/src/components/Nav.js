@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 // import { Link } from "react-router-dom";
-import { Brow1serRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Axios from "axios";
 import Welcome from "./Welcome";

@@ -71,7 +71,7 @@ const OrderPage = () => {
                   <p>£{item.product.price}</p>
                 </div>
 
-                <div
+                {/* <div
                   className="container wrapper fadeInDown"
                   style={{ float: "left" }}
                 >
@@ -146,9 +146,12 @@ const OrderPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {/* <div classNameName="wrapper fadeInDown" syle={{ float: "left" }}>
+                <div
+                  classNameName="wrapper fadeInDown"
+                  syle={{ float: "left" }}
+                >
                   <div className="fadeIn first">
                     <div id="formContent">
                       <br />
@@ -173,7 +176,54 @@ const OrderPage = () => {
                           hidden
                           // onChange={(e) => setLoginUsername(e.target.value)}
                         />
-                        <input
+                        <div className="rate fadeIn third">
+                          <input
+                            type="radio"
+                            id="star5"
+                            name="rating"
+                            value="5"
+                          />
+                          <label for="star5" title="text">
+                            5 stars
+                          </label>
+                          <input
+                            type="radio"
+                            id="star4"
+                            name="rating"
+                            value="4"
+                          />
+                          <label for="star4" title="text">
+                            4 stars
+                          </label>
+                          <input
+                            type="radio"
+                            id="star3"
+                            name="rating"
+                            value="3"
+                          />
+                          <label for="star3" title="text">
+                            3 stars
+                          </label>
+                          <input
+                            type="radio"
+                            id="star2"
+                            name="rating"
+                            value="2"
+                          />
+                          <label for="star2" title="text">
+                            2 stars
+                          </label>
+                          <input
+                            type="radio"
+                            id="star1"
+                            name="rating"
+                            value="1"
+                          />
+                          <label for="star1" title="text">
+                            1 star
+                          </label>
+                        </div>
+                        {/* <input
                           type="number"
                           id="rating"
                           className="fadeIn third"
@@ -182,7 +232,7 @@ const OrderPage = () => {
                           placeholder="rating"
                           // style={{width: "40%", textAlign: "left"}}
                           // onChange={(e) => setLoginPassword(e.target.value)}
-                        />
+                        /> */}
                         <br />
                         <br />
                         <input
@@ -218,7 +268,7 @@ const OrderPage = () => {
                     </div>
                   </div>
                   <br />
-                </div> */}
+                </div>
                 {/* <form action="/reviews" method="post">
                   <input type="" name="id" value={item.product._id} hidden />
                   <input type="text" name="name" value={name} hidden />

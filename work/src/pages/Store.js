@@ -103,10 +103,6 @@ const People = (props) => {
                   </h6>
 
                   <div class="form-check pl-0 mb-3">
-                    <label
-                      class="form-check-label small text-uppercase card-link-secondary"
-                      for="XS"
-                    >
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -114,6 +110,10 @@ const People = (props) => {
                         id="XS"
                         name="size"
                       />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="XS"
+                    >
                       XS
                     </label>
                   </div>

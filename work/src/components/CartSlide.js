@@ -73,7 +73,7 @@ class Cart extends Component {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
       console.log(unAuthCart);
       var cartArray = [];
-      if (unAuthCart.length === 0) {
+      if (unAuthCart === null || unAuthCart.length === 0) {
         const response = await fetch(`/product?id=${unAuthCart}`);
         const json = await response.json();
         this.setState({ data: [json] });

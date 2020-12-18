@@ -1,7 +1,7 @@
 // A reference to Stripe.js initialized with your real test publishable API key.
 import Stripe from 'stripe';
 
-const stripe = () +> {
+const stripe = () => {
 
     var stripe = Stripe(
       'pk_test_51HZwFVCsCFdBaBTj1SKMdwbzxufuXkDpUrKK2p7rZUpqgvCsBaxwWfHmf4HWEAgxPKf7YRNqG0v6e9pPmZnnu1aA00jLWnBzpw'

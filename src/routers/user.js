@@ -46,7 +46,7 @@ router.post('/register', (req, res, next) => {
           msg: 'email in use',
         });
       }
-      console.log("error 1")
+      
       // if (errors.length > 0) {
       //   res.send({
       //     errors,
@@ -77,10 +77,7 @@ router.post('/register', (req, res, next) => {
               passport.authenticate('local', (err, user, info) => {
                 console.log(user);
                 console.log("numberwang")
-                if (err) {
-                  console.log("error 2")
-                  throw err
-                };
+                if (err) throw err;
                 if (!user) res.send('no user');
                 else {
                   req.logIn(user, (err) => {

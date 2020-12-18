@@ -94,6 +94,7 @@ const OrderPage = () => {
                         <div
                           className="row"
                           id="post-review-box"
+                          style={{ display: "none" }}
                         >
                           <div className="col-md-12">
                             <form

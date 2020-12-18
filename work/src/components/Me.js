@@ -29,17 +29,45 @@ const Me = () => {
         var allOrders = [];
         console.log(orderJson.orderInfo);
         var sum1 = []
-        orderJson.orderInfo.map((order) => {
-          order.map((item) => {
-            sum1.push(item.price)
-          } )
-          console.log(order)
-          var summed = sum1.reduce(function (a, b) {
-            return a+b;
-          }, 0)
-          setSum(total => [...total, summed])
-          console.log(total)
-        })
+        // orderJson.orderInfo.map((order) => {
+        //   order.map((item) => {
+        //     sum1.push(item.price)
+        //   } )
+        //   console.log(order)
+        //   var summed = sum1.reduce(function (a, b) {
+        //     return a+b;
+        //   }, 0)
+        //   setSum(total => [...total, summed])
+        //   console.log(total)
+        // })
+
+        var idk = []
+        var sumPrice = []
+
+        orderJson.orderInfo.map((items) => {
+          it.push(JSON.parse(items.orderItems));
+          console.log(it);
+          it.map((price) => {
+            console.log(price);
+            idk.push(price);
+            var t = [];
+            price.map((r) => {
+              t.push(r.product.price);
+              console.log(t);
+            });
+            sum1 = t.reduce(function (a, b) {
+              return a + b;
+            }, 0);
+            console.log(sum1);
+            t = [];
+          });
+          console.log(idk);
+          sumPrice.push(sum1);
+        });
+        // console.log(sumPrice)
+        setSum(sumPrice);
+
+        console.log(total)
 
         orderJson.names.map((order) => {
           // console.log(order);

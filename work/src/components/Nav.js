@@ -39,6 +39,7 @@ export default class Nav extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.logout = this.logout.bind(this)
   }
 
   // handleClick = () => {
@@ -101,6 +102,14 @@ export default class Nav extends Component {
     this.handleClick();
   }
 
+  logout (){
+    sessionStorage.removeItem("auth");
+    sessionStorage.removeItem("admin");
+    sessionStorage.removeItem("user");
+
+    // window.location.replace("/store");
+  };
+
   render() {
     return (
       <Router>
@@ -158,7 +167,21 @@ export default class Nav extends Component {
               !sessionStorage.getItem("auth") ? (
                 <Link to="/login">Login</Link>
               ) : (
-                <Link to="/login">Logout?</Link>
+                <form>
+                  <button
+                    type="submit"
+                    className="fadeIn fourth myButton"
+                    style={{
+                      borderRadius: "5%",
+                      padding: "8px",
+                      border: "none",
+                    }}
+                    value="Log In"
+                    onClick={this.logout}
+                  >
+                    Logout
+                  </button>
+                </form>
               )}
             </li>
           </ul>

@@ -853,9 +853,8 @@ th:last-child {
 }
 
 .col-2 img {
-  right: 60px;
-  width: 515px;
-  height: 515px;
+  /* right: 60px; */
+  
   max-height: 515px;
   max-width: 515px;
   padding: 50px 0;

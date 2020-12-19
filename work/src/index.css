@@ -240,7 +240,7 @@ label{
 .col-4-cat {
   flex-basis: 30%;
   padding: 10px;
-  max-width: 250px;
+  /* max-width: 250px; */
   margin-bottom: 50px;
   transition: transform 0.5s;
 }

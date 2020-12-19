@@ -41,16 +41,31 @@ const Me = () => {
         //   console.log(total)
         // })
 
+        orderJson.names.map((order) => {
+          // console.log(order);
+          if (order !== null) {
+            allOrders.push(order);
+          }
+        });
+        var t = [];
+        setOrders(orderJson.orderInfo.reverse());
+        if (orders) {
+          setData(allOrders.reverse());
+        }
+
+        console.log(data)
+        // console.log(total);
+
         var idk = [];
         var sumPrice = [];
         var it = [];
-        orderJson.orderInfo.map((items) => {
+        allOrders.map((items) => {
           it.push(items);
           console.log(it);
           items.product.map((price) => {
             console.log(price);
             idk.push(price.price);
-            
+
             sum1 = idk.reduce(function (a, b) {
               return a + b;
             }, 0);
@@ -64,23 +79,9 @@ const Me = () => {
         });
         // console.log(sumPrice)
         setSum(sumPrice);
-
-        orderJson.names.map((order) => {
-          // console.log(order);
-          if (order !== null) {
-            allOrders.push(order);
-          }
-        });
-        var t = [];
-        setOrders(orderJson.orderInfo.reverse());
-        if (orders) {
-          setData(allOrders.reverse());
-        }
-        // console.log(total);
-        console.log(total)
-                console.log(data);
+        console.log(total);
+        console.log(data);
         console.log(orders);
-
         // data.map((item) => {
         //   item.product.map((price) => {
         //     t.push(price.price);
@@ -88,7 +89,7 @@ const Me = () => {
         //   var sum1 = t.reduce(function (a, b) {
         //     return a + b;
         //   }, 0);
-          
+
         // });
 
         console.log(total);

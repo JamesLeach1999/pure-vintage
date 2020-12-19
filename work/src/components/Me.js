@@ -123,7 +123,7 @@ const Me = () => {
       <div className="testimonial">
         <div className="small-container">
           <div class="row1">
-            <table style={{fontSize: "200%", backgroundColor: "hite"}}>
+            <table style={{fontSize: "200%", backgroundColor: "white"}}>
               <tr>
                 <th>Product details:</th>
                 <th>Shipping details:</th>

@@ -31,7 +31,7 @@ class CatRows extends Component {
         <h1>Categories</h1>
         <div className="row">
           <Link to="/store?category=shirts">
-            <div className="col-2" style={{ width: "50%", height: "50%" }}>
+            <div className="col-2">
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
                 alt=""

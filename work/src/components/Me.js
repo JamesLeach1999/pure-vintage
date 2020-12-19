@@ -28,6 +28,8 @@ const Me = () => {
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson.orderInfo);
+                console.log(orderJson.names);
+
         var sum1 = [];
         // orderJson.orderInfo.map((order) => {
         //   order.map((item) => {
@@ -50,7 +52,7 @@ const Me = () => {
         var t = [];
         setOrders(orderJson.orderInfo.reverse());
         if (orders) {
-          setData(allOrders);
+          setData(allOrders.reverse());
         }
 
         console.log(data)
@@ -63,7 +65,7 @@ const Me = () => {
           it.push(items);
           console.log(it);
           it.map((price) => {
-            console.log(price.product.price);
+            console.log(price);
             idk.push(price.product.price);
 
             var sum1 = idk.reduce(function (a, b) {
@@ -123,8 +125,8 @@ const Me = () => {
       <div className="testimonial">
         <div className="small-container">
           <div class="row1">
-            <table style={{fontSize: "200%", backgroundColor: "white"}}>
-              <tr>
+            <table>
+              <tr style={{ fontSize: "200%", backgroundColor: "white" }}>
                 <th>Product details:</th>
                 <th>Shipping details:</th>
                 <th>Date ordered:</th>

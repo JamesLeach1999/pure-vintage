@@ -82,6 +82,8 @@ const People = (props) => {
         style={{ border: "none" }}
         className={animate ? "fade-in-hello hello span" : "hello-span"}
       >
+        <br/><br/>
+        <br/>
         <br />
         <br />
         <section className="p">

@@ -591,11 +591,13 @@ router.get('/store1', async (req, res) => {
     console.log('i work5');
 
     var pro1 = await filter(req.query);
-    console.log(pro1);
+    console.log(JSON.stringify(pro1));
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
   }
+console.log("yeees")
+  console.log(JSON.stringify(clothes))
   res.send({
     pageTitle: 'welcome',
     names: clothes,

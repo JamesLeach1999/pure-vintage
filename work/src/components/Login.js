@@ -108,21 +108,16 @@ const App = (props) => {
           </button>
           <br />
           <br />
-
-          <form>
-            <button
-              type="submit"
-              className="fadeIn fourth myButton"
-              style={{ borderRadius: "5%", padding: "8px", border: "none" }}
-              value="Log In"
-              onClick={logout}
-            >Logout</button>
-          </form>
         </div>
       </div>
       <br />
       <Link to="/register">
-        <button className="myButton">Create Account</button>
+        <button
+          style={{ borderRadius: "5%", padding: "8px", border: "none" }}
+          className="myButton"
+        >
+          Create Account
+        </button>
       </Link>
     </div>
   );

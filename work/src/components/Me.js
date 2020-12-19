@@ -62,7 +62,7 @@ const Me = () => {
         data.map((items) => {
           it.push(items);
           console.log(it);
-          items.map((price) => {
+          it.map((price) => {
             console.log(price.product.price);
             idk.push(price.product.price);
 
@@ -123,7 +123,7 @@ const Me = () => {
       <div className="testimonial">
         <div className="small-container">
           <div class="row1">
-            <table style={{fontSize: "200%"}}>
+            <table style={{fontSize: "200%", backgroundColor: "hite"}}>
               <tr>
                 <th>Product details:</th>
                 <th>Shipping details:</th>

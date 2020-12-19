@@ -166,20 +166,16 @@ class Cart extends Component {
             className={
               this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
             }
-            style={{ color: "black" }}
+            style={{ color: "black", size: "300%" }}
           ></i>
-          
         </div>
         <ul
           id="MenuItems"
           className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          style={{maxWidth: "100vw"}}
+          style={{ maxWidth: "100vw" }}
         >
           <section className="center-text">
-            <Link
-              to="/order"
-              style={{ fontSize: "40px" }}
-            >
+            <Link to="/order" style={{ fontSize: "40px" }}>
               checkout
             </Link>
             {sessionStorage.getItem("auth") === "true" ? (
@@ -188,8 +184,8 @@ class Cart extends Component {
               <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
             )}
           </section>
-          <table style={{border: "none"}} >
-            <tr style={{borderBottom: "1px solid grey"}}>
+          <table style={{ border: "none" }}>
+            <tr style={{ borderBottom: "1px solid grey" }}>
               {/* <th style={{ textAlign: "left", paddingLeft: "20px" }}>
                 Product
               </th>
@@ -199,7 +195,6 @@ class Cart extends Component {
             </tr>
             {this.state.data.map((products) => {
               return products.map((product) => {
-                
                 return (
                   <tr>
                     <Link to={`/product/${product._id}`}>
@@ -222,7 +217,6 @@ class Cart extends Component {
                         </form>
                       ) : (
                         <form>
-                          
                           <button
                             type="submit"
                             onClick={() => this.removeCart(product._id)}

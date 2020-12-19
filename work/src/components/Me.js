@@ -28,7 +28,7 @@ const Me = () => {
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson.orderInfo);
-        var sum1 = []
+        var sum1 = [];
         // orderJson.orderInfo.map((order) => {
         //   order.map((item) => {
         //     sum1.push(item.price)
@@ -41,59 +41,57 @@ const Me = () => {
         //   console.log(total)
         // })
 
-        var idk = []
-        var sumPrice = []
-var it = []
+        var idk = [];
+        var sumPrice = [];
+        var it = [];
         orderJson.orderInfo.map((items) => {
-          it.push(JSON.parse(items.orderItems));
+          it.push(items);
           console.log(it);
-          it.map((price) => {
+          items.product.map((price) => {
             console.log(price);
-            idk.push(price);
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum1 = t.reduce(function (a, b) {
+            idk.push(price.price);
+            
+            sum1 = idk.reduce(function (a, b) {
               return a + b;
             }, 0);
             console.log(sum1);
-            t = [];
           });
           console.log(idk);
           sumPrice.push(sum1);
+          setSum((prev) => {
+            return prev + [sum1];
+          });
         });
         // console.log(sumPrice)
         setSum(sumPrice);
 
-        
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {
             allOrders.push(order);
           }
         });
-        var t = []
+        var t = [];
         setOrders(orderJson.orderInfo.reverse());
         if (orders) {
           setData(allOrders.reverse());
-          
         }
+        // console.log(total);
         console.log(total)
-        data.map((item) => {
-          item.product.map((price)  => {
-            t.push(price.price)
-          })
-          var sum1 = t.reduce(function (a, b) {
-            return a + b;
-          }, 0);
-          setSum((prev) => {
-            return prev + [sum1]
-          })
-        })
-        
-        console.log(total)
+                console.log(data);
+        console.log(orders);
+
+        // data.map((item) => {
+        //   item.product.map((price) => {
+        //     t.push(price.price);
+        //   });
+        //   var sum1 = t.reduce(function (a, b) {
+        //     return a + b;
+        //   }, 0);
+          
+        // });
+
+        console.log(total);
         // console.log(orders[0][0].product.image[0]);
 
         setLoading(false);

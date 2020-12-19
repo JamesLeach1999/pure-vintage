@@ -89,6 +89,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     // payment method id
     // client secret
     // get the payment intent back from this
+    console.log(paymentMethodReq)
     const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
       payment_method: paymentMethodReq.paymentMethod.id,
     });

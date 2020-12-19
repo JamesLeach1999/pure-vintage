@@ -50,7 +50,7 @@ const Me = () => {
         var t = [];
         setOrders(orderJson.orderInfo.reverse());
         if (orders) {
-          setData(allOrders.reverse());
+          setData(allOrders);
         }
 
         console.log(data)
@@ -59,14 +59,14 @@ const Me = () => {
         var idk = [];
         var sumPrice = [];
         var it = [];
-        allOrders.map((items) => {
+        data.map((items) => {
           it.push(items);
           console.log(it);
-          items.product.map((price) => {
-            console.log(price);
-            idk.push(price.price);
+          items.map((price) => {
+            console.log(price.product.price);
+            idk.push(price.product.price);
 
-            sum1 = idk.reduce(function (a, b) {
+            var sum1 = idk.reduce(function (a, b) {
               return a + b;
             }, 0);
             console.log(sum1);
@@ -77,7 +77,7 @@ const Me = () => {
             return prev + [sum1];
           });
         });
-        // console.log(sumPrice)
+        console.log(sumPrice)
         setSum(sumPrice);
         console.log(total);
         console.log(data);
@@ -123,7 +123,7 @@ const Me = () => {
       <div className="testimonial">
         <div className="small-container">
           <div class="row1">
-            <table>
+            <table style={{fontSize: "200%"}}>
               <tr>
                 <th>Product details:</th>
                 <th>Shipping details:</th>

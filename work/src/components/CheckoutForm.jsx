@@ -131,7 +131,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         <BillingDetailsFields />
       </Row>
       <Row>
-        {/* <h2 >Card number CVV/expiry</h2> */}
+        <h4>Card number CVV/expiry</h4>
         <CardElementContainer>
           {/* options jusv for styling */}
           <CardElement options={cardElementOptions} />

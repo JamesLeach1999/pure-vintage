@@ -60,7 +60,7 @@ class Reviews extends Component {
           <br />
           <br />
 
-          <div class="row1">
+          <div class="row">
             {this.state.data.map((e) => {
               return e.reviews.length > 0
                 ? e.reviews.map((r) => {

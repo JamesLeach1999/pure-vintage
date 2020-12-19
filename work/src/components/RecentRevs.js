@@ -19,7 +19,7 @@ class Reviews extends Component {
       console.log(pros.reverse())
       console.log(pros)
       this.setState({ data:  pros});
-      this.setState({ images: pJson.images.reverse() });
+      this.setState({ images: pJson.images });
       console.log(this.state.images)
       console.log(this.state.data);
     } catch (error) {

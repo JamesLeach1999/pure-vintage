@@ -55,30 +55,14 @@ const Me = () => {
           setData(allOrders.reverse());
         }
 
+        console.log(allOrders)
         console.log(data)
         // console.log(total);
 
         var idk = [];
         var sumPrice = [];
         var it = [];
-        data.map((items) => {
-          it.push(items);
-          console.log(it);
-          it.map((price) => {
-            console.log(price);
-            idk.push(price.product.price);
-
-            var sum1 = idk.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum1);
-          });
-          console.log(idk);
-          sumPrice.push(sum1);
-          setSum((prev) => {
-            return prev + [sum1];
-          });
-        });
+        orderJSON
         console.log(sumPrice)
         setSum(sumPrice);
         console.log(total);

@@ -62,7 +62,6 @@ const Me = () => {
         var idk = [];
         var sumPrice = [];
         var it = [];
-        orderJSON
         console.log(sumPrice)
         setSum(sumPrice);
         console.log(total);

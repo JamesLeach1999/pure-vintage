@@ -43,7 +43,7 @@ const Me = () => {
 
         var idk = []
         var sumPrice = []
-
+var it = []
         orderJson.orderInfo.map((items) => {
           it.push(JSON.parse(items.orderItems));
           console.log(it);
@@ -67,8 +67,7 @@ const Me = () => {
         // console.log(sumPrice)
         setSum(sumPrice);
 
-        console.log(total)
-
+        
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {
@@ -82,9 +81,19 @@ const Me = () => {
           
         }
         console.log(total)
-        var d = data[0]
-        console.log(d.getMonth())
-
+        data.map((item) => {
+          item.product.map((price)  => {
+            t.push(price.price)
+          })
+          var sum1 = t.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+          setSum((prev) => {
+            return prev + [sum1]
+          })
+        })
+        
+        console.log(total)
         // console.log(orders[0][0].product.image[0]);
 
         setLoading(false);

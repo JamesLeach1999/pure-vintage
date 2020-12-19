@@ -103,13 +103,13 @@ const People = (props) => {
                   </h6>
 
                   <div class="form-check pl-0 mb-3">
-                      <input
-                        type="checkbox"
-                        class="form-check-input filled-in"
-                        value="XS"
-                        id="XS"
-                        name="size"
-                      />
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="XS"
+                      id="XS"
+                      name="size"
+                    />
                     <label
                       class="form-check-label small text-uppercase card-link-secondary"
                       for="XS"
@@ -578,6 +578,7 @@ const People = (props) => {
                     onChange={(e) => setPrice(e.target.value)}
                   ></input>
                 </section>
+                <button type="submit">Search</button>
               </section>
             ) : (
               <section>
@@ -1076,9 +1077,9 @@ const People = (props) => {
                     onChange={(e) => setPrice(e.target.value)}
                   ></input>
                 </section>
+                <button type="submit">Search</button>
               </section>
             )}
-            <button type="submit">Search</button>
           </form>
 
           {/* </label> */}

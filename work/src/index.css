@@ -112,7 +112,8 @@ p {
 
 label{
   position: relative;
-  left: 90px;
+  left: 30px;
+  font-size: 200%;
 }
 /* .row1 {
   display: flex;

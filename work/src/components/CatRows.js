@@ -39,19 +39,19 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "30px" }}>Shirts</h1>
+              <h1 style={{ textAlign: "center", fontSize: "40px" }}>Shirts</h1>
             </div>
           </Link>
           <Link to="/store?category=puffer">
             <div
               className="col-4-cat"
-              style={{ width: "500px", height: "500px" }}
+              // style={{ width: "500px", height: "500px" }}
             >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "30px" }}>
+              <h1 style={{ textAlign: "center", fontSize: "40px" }}>
                 Puffer jackets
               </h1>
             </div>
@@ -59,25 +59,25 @@ class CatRows extends Component {
           <Link to="/store?category=fleeces">
             <div
               className="col-4-cat"
-              style={{ width: "500px", height: "500px" }}
+              // style={{ width: "500px", height: "500px" }}
             >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606574995/P0_1_a_jn2c3w.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "30px" }}>Fleeces</h1>
+              <h1 style={{ textAlign: "center", fontSize: "40px" }}>Fleeces</h1>
             </div>
           </Link>
           <Link to="/store?category=trackjack">
             <div
               className="col-4-cat"
-              style={{ width: "500px", height: "500px" }}
+              // style={{ width: "500px", height: "500px" }}
             >
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1608299315/adtrack.jpg.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "30px" }}>
+              <h1 style={{ textAlign: "center", fontSize: "40px" }}>
                 Track jackets
               </h1>
             </div>

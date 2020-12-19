@@ -318,6 +318,8 @@ router.get('/pastOrders', async (req, res) => {
     return el != null;
   });
 
+  console.log(JSON.stringify(user))
+
   console.log('numeorwanf');
   console.log(filtered);
 

@@ -170,7 +170,6 @@ export default class Nav extends Component {
                 <form>
                   <button
                     type="submit"
-                    className="fadeIn fourth myButton"
                     style={{
                       borderRadius: "5%",
                       padding: "8px",

@@ -620,10 +620,10 @@ router.get('/recentReviews', async (req, res) => {
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log("here")
-        console.log(product.image.reverse())
-        proImages.push(product.image[0]);
+        console.log(product.image)
+        proImages.push(product.image);
 
-        review.push(product.reviews.slice(-1)[0]);
+        review.push(product.reviews);
       }
     }
   }

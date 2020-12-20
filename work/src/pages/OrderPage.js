@@ -67,7 +67,7 @@ const OrderPage = () => {
       <div className="small-container">
         <div className="row product">
           {product.map((item, i) => {
-            {localStorage.getItem(`${item.product._id}`) !== "true" ? (
+            true ? (
               <div>
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
@@ -218,7 +218,7 @@ const OrderPage = () => {
 
                 
                   
-            )}
+            )
           })}
         </div>
       </div>

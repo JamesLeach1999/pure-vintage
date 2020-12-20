@@ -177,7 +177,7 @@ export default class Nav extends Component {
                       paddingTop: "5px",
                       height: "70px",
                       position: "relative",
-                      top: "0",
+                      top: "-25px",
                       border: "none",
                       background: "none",
                     }}

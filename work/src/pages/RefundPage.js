@@ -14,14 +14,19 @@ const OrderPage = () => {
   const getProducts = async () => {
 
     const url = `/orderProducts?id=${id}&user=${sessionStorage.getItem("user")}`;
+    const work = await Axios.post("/getAuth", {
+      id: sessionStorage.getItem("user"),
+    });
+
+    console.log(work);
     if (
       !sessionStorage.getItem("admin") ||
-      sessionStorage.getItem("admin") === "false"
+      sessionStorage.getItem("admin") === "false" ||
+      !work.data.isAdmin
     ) {
       window.location.replace("/store");
     } else {
       console.log(id);
-
 
       // this returns a promise. so need to extract data from response (generally in json)
       const response = await Axios.get(url);

@@ -14,15 +14,19 @@ const Me = () => {
 
   const getOrders = async () => {
     
+    const work = await Axios.post("/getAuth", {
+      id: sessionStorage.getItem("user"),
+    });
+
+    console.log(work);
     if (
       !sessionStorage.getItem("admin") ||
-      sessionStorage.getItem("admin") === "false"
+      sessionStorage.getItem("admin") === "false" ||
+      !work.data.isAdmin
     ) {
       window.location.replace("/store");
     } else {
       try {
-        
-
         const order = await fetch("/allOrder");
         const orderJson = await order.json();
         var allOrders = [];

@@ -321,13 +321,14 @@ router.get('/pastOrders', async (req, res) => {
     return el != null;
   });
 
+  
   console.log(JSON.stringify(user))
-
+  
   console.log('numeorwanf');
   console.log(filtered);
 
   var item = [];
-
+  
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
     console.log(JSON.parse(items.orderItems[0]));
@@ -336,7 +337,51 @@ router.get('/pastOrders', async (req, res) => {
 
   var i = [];
   item.forEach((r) => {});
+  
+  var allOrders = [];
+  
 
+  filtered.map((order) => {
+    // console.log(order);
+    if (order !== null) {
+      allOrders.push(order);
+    }
+  });
+  var t = [];
+
+  var revor = item.reverse();
+  var data
+  if (revor) {
+    data  = allOrders.reverse();
+  }
+
+  console.log(allOrders);
+  console.log(data);
+  // console.log(total);
+
+  var it = [];
+  var sumPrice = [];
+  var sum1;
+  var idk = [];
+  data.map((items) => {
+    it.push(JSON.parse(items.orderItems));
+    console.log(it);
+    it.map((price) => {
+      console.log(price);
+      var t = [];
+      price.map((r) => {
+        t.push(r.product.price);
+        console.log(t);
+      });
+      sum1 = t.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+      console.log(sum1);
+    });
+    sumPrice.push(sum1);
+  });
+
+  console.log(sumPrice)
   console.log('working');
   console.log(item);
 
@@ -345,6 +390,7 @@ router.get('/pastOrders', async (req, res) => {
     user: user,
     names: filtered,
     orderInfo: item,
+    total: sumPrice,
     //   categories: categories,
     isAuth: true,
     isAdmin: user.isAdmin,

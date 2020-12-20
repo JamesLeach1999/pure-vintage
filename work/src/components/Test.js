@@ -45,6 +45,9 @@ const Test = () => {
         } else {
             skip = parseInt(parsed["skip"]);
         }
+        console.log(skip)
+        console.log("hroebgfhwuibgfoursbvsurvf")
+        console.log(page)
         const res = await Axios.get("/store1", {
           params: {
             category: parsed["category"],
@@ -135,9 +138,9 @@ const Test = () => {
       <div className="pagination-div">
           <input type="button" name="skip" value={16} onClick={(e) => setPage(e.target.value)}/>
            
-          <input name="button" value={32} onClick={(e) => setPage(e.target.value)}/>
+          <input type="button" name="skip" value={32} onClick={(e) => setPage(e.target.value)}/>
             
-          <input name="button" value={48} onClick={(e) => setPage(e.target.value)}/>
+          <input type="button" name="skip" value={48} onClick={(e) => setPage(e.target.value)}/>
             
       </div>
       <br/><br/>

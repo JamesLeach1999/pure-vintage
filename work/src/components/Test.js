@@ -134,11 +134,11 @@ const Test = () => {
       {/* </div> */}
       <div className="pagination-div">
         <form>
-          <input type="button" name="skip" value={16} />
+          <input type="submit" name="skip" value={16} />
 
-          <input type="button" name="skip" value={32} />
+          <input type="submit" name="skip" value={32} />
 
-          <input type="button" name="skip" value={48} />
+          <input type="submit" name="skip" value={48} />
         </form>
       </div>
       <br />

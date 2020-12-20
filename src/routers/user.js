@@ -116,7 +116,11 @@ router.post('/getAuth', async (req, res) => {
     });
   } catch (error) {
     console.log(error)
-    
+    res.send({
+      isAuth: false,
+      isAdmin: false,
+      error,
+    });
   }
 
   

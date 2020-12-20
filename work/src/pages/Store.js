@@ -1150,6 +1150,25 @@ const People = (props) => {
           btn
         </button> */}
           <StoreRows />
+          <div className="pagination-div">
+            <form action="/store" method="post">
+              <button name="skip" value={16}>
+                Page 1
+              </button>
+              <button name="skip" value={32}>
+                Page 2
+              </button>
+              <button name="skip" value={48}>
+                Page 3
+              </button>
+            </form>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </section>
       </div>
     </FadeIn>

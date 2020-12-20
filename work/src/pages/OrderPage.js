@@ -46,7 +46,7 @@ const OrderPage = () => {
     // this returns all 30 users in an array using setState
     getProducts();
 
-    console.log(localStorage)
+    console.log(localStorage);
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
 
@@ -67,7 +67,7 @@ const OrderPage = () => {
       <div className="small-container">
         <div className="row product">
           {product.map((item, i) => {
-            return(
+            {localStorage.getItem(`${item.product._id}`) !== "true" ? (
               <div>
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
@@ -188,7 +188,7 @@ const OrderPage = () => {
                             border: "none",
                           }}
                           onClick={() => {
-                            localStorage.setItem(`${id}`, true)
+                            localStorage.setItem(`${id}`, true);
                             localStorage.setItem(`${item.product._id}`, true);
                             window.location.replace(
                               "https://cryptic-temple-54361.herokuapp.com/store"
@@ -205,9 +205,20 @@ const OrderPage = () => {
                   </div>
                   <br />
                 </div>
-                
               </div>
-            ) 
+            ) : (
+              // <div>
+                <div className="col-4">
+                  <img src={`${item.product.image[0]}`} alt="" />
+                  <h4>{item.product.name}</h4>
+                  <br />
+
+                  <p>£{item.product.price}</p>
+                </div>
+
+                
+                  
+            )}
           })}
         </div>
       </div>

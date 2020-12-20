@@ -79,6 +79,10 @@ p {
   font-size: 200%;
   left: 15px;
 }
+.fas-shopping-cart{
+  height: 95px;
+  width:95px;
+}
 .rate {
     float: left;
     height: 46px;
@@ -118,7 +122,7 @@ p {
 label{
   position: relative;
   /* left: 30px; */
-  font-size: 140%;
+  font-size: 120%;
 }
 
 /* .row {

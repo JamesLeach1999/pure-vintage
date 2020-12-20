@@ -205,7 +205,15 @@ const OrderPage = () => {
                 
               </div>
             ) : (
-              <></>
+              <div>
+                <div className="col-4">
+                  <img src={`${item.product.image[0]}`} alt="" />
+                  <h4>{item.product.name}</h4>
+                  <br />
+
+                  <p>£{item.product.price}</p>
+                </div>
+                </div>
             )
           })}
         </div>

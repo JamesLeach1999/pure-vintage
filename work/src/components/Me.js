@@ -52,8 +52,6 @@ const Me = () => {
         var sum1;
         var idk = [];
         data.map((items) => {
-          var y = items.product.updatedAt.match(/^.+?(?=\T)/)
-          console.log(y)
           it.push(JSON.parse(items.orderItems));
           console.log(it);
           it.map((price) => {

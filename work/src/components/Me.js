@@ -127,7 +127,7 @@ const Me = () => {
                       </ul>
                     </td>
                     <td>{product.updatedAt}</td>
-                    <td>{total[i]}</td>
+                    <td></td>
                     {/* </Link> */}
                   </tr>
                 );

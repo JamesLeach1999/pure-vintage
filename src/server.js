@@ -5,7 +5,6 @@ const app = express();
 const authRoute = require('./routers/user');
 const postRoute = require('./routers/product');
 const orderRoute = require('./routers/order');
-const expressLayouts = require('express-ejs-layouts');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const session = require('express-session');

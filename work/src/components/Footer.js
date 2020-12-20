@@ -11,11 +11,10 @@ const Footer = () => {
         <br />
         <br />
         <br />
-        <div class="container footer">
+        <div class="container footer" style={{backgroundColor: "white", color: "black"}}>
           <div class="row">
             <div class="footer-col-1">
-              <h3>Download app</h3>
-              <p>Lorem ipsum dolor sit amet.</p>
+              
               <div class="app-logo">
                 <img
                   src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"

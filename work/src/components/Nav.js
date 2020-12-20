@@ -176,9 +176,10 @@ export default class Nav extends Component {
                       display: "inline-block",
                       paddingTop: "5px",
                       height: "70px",
+                      position: "relative",
                       top: "0",
                       border: "none",
-                      background: "rgba(0,0,0,0.1)",
+                      background: "none",
                     }}
                     onClick={this.logout}
                   >

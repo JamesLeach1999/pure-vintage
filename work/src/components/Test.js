@@ -11,7 +11,7 @@ const Test = () => {
   const brand = useParams("brand");
   const size = useParams("size");
   const [data, setData] = useState([]);
-  var [page, setPage] = useState(0);
+  const [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
   const [loading, setLoading] = useState(true)
 
@@ -26,12 +26,12 @@ const Test = () => {
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-        // if (parsed["skip"]) {
-        //   this.setState({ page: parsed["skip"] });
-        //   setPage(parsed["skip"]);
-        // } else if (!parsed["skip"]) {
-        //   setPage(0);
-        // }
+        if (parsed["skip"]) {
+          this.setState({ page: parsed["skip"] });
+          setPage(parsed["skip"]);
+        } else if (!parsed["skip"]) {
+          setPage(0);
+        }
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
@@ -45,16 +45,13 @@ const Test = () => {
         } else {
             skip = parseInt(parsed["skip"]);
         }
-        console.log(skip)
-        console.log("hroebgfhwuibgfoursbvsurvf")
-        console.log(page)
         const res = await Axios.get("/store1", {
           params: {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],
             price: parsed['price'],
-            skip: page
+            skip: skip
           },
         });
         console.log(res)
@@ -136,15 +133,20 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div">
-          <input type="button" name="skip" value={16} onClick={(e) => setPage(e.target.value)}/>
-           
-          <input type="button" name="skip" value={32} onClick={(e) => setPage(e.target.value)}/>
-            
-          <input type="button" name="skip" value={48} onClick={(e) => setPage(e.target.value)}/>
-            
+        <form>
+          <input type="button" name="skip" value={16} />
+
+          <input type="button" name="skip" value={32} />
+
+          <input type="button" name="skip" value={48} />
+        </form>
       </div>
-      <br/><br/>
-      <br/><br/><br/><br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

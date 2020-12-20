@@ -106,13 +106,21 @@ router.get('/signup', async (req, res) => {
 });
 
 router.post('/getAuth', async (req, res) => {
-  const auth = await User.findById({ _id: req.body.id });
+  try {
+    const auth = await User.findById({ _id: req.body.id });
+    
+    res.send({
+      isAuth: true,
+      isAdmin: auth.isAdmin,
+      id: auth._id,
+    });
+  } catch (error) {
+    console.log(error)
+    
+  }
 
-  res.send({
-    isAuth: true,
-    isAdmin: auth.isAdmin,
-    id: auth._id,
-  });
+  
+
 });
 
 // get own profile

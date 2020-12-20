@@ -128,7 +128,7 @@ const Me = () => {
                         <li>{product.shipping.postcode}</li>
                       </ul>
                     </td>
-                    <td>{product.updatedAt.match(/^.+?(?=\T))/)}</td>
+                    <td>{product.updatedAt.match(/^.+?(?=\T)/)}</td>
                     <td>{total[i]}</td>
                     {/* </Link> */}
                   </tr>

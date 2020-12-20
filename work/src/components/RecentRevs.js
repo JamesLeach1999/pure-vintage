@@ -31,7 +31,7 @@ class Reviews extends Component {
   render() {
     return (
       <div class="testimonial">
-        <div class="small-container" style={{ justifyContent: "center" }}>
+        <div class="small-container" >
           <h1>Recent reviews</h1>
           <br />
           <br />
@@ -40,7 +40,7 @@ class Reviews extends Component {
           <div class="row">
             {this.state.data.map((e, i) => {
               return (
-                <div class="col-3">
+                <div class="col-3" style={{ justifyContent: "center" }}>
                   {this.state.images.length > 0 ? (
                     <img src={this.state.images[i]} alt="" />
                   ) : (

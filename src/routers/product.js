@@ -621,14 +621,14 @@ router.get('/recentReviews', async (req, res) => {
       if (product.reviews[0] !== null) {
         console.log("here")
         console.log(product)
-        proImages.push(product.image);
+        proImages.push(product.image[0]);
 
         review.push(product.reviews);
       }
     }
   }
 console.log("numberwang1")
-  console.log(review)
+  // console.log(review)
 
   var filtered = review.filter(function (el) {
     return el != [];

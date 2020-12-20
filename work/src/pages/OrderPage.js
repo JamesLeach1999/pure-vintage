@@ -261,7 +261,7 @@ const OrderPage = () => {
                             border: "none",
                           }}
                           onClick={() => {
-                            localStorage.setItem(`${item.product.id}`, true)
+                            localStorage.setItem(`${item.product._id}`, true)
                             window.location.replace(
                               "https://cryptic-temple-54361.herokuapp.com/store"
                             )

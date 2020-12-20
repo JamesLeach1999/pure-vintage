@@ -167,16 +167,11 @@ export default class Nav extends Component {
               !sessionStorage.getItem("auth") ? (
                 <Link to="/login">Login</Link>
               ) : (
-                <form>
-                  <button
-                    type="submit"
-                    
-                    value="Log In"
-                    onClick={this.logout}
-                  >
+                <li>
+                  <button type="submit" className="nav-links" value="Log In" onClick={this.logout}>
                     Logout
                   </button>
-                </form>
+                </li>
               )}
             </li>
           </ul>

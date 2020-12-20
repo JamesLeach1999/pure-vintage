@@ -69,7 +69,7 @@ const Me = () => {
           sumPrice.push(sum1);
         });
 
-        setSum(sum1)
+        setSum(sumPrice)
 
         console.log(total);
         // console.log(orders[0][0].product.image[0]);
@@ -101,7 +101,7 @@ const Me = () => {
     <>
       <div className="testimonial">
         <div className="small-container">
-          <div class="row1">
+          <div class="row">
             <table>
               <tr style={{ fontSize: "200%", backgroundColor: "white" }}>
                 <th>Product details:</th>

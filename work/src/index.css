@@ -76,7 +76,8 @@ p {
 }
 
 .small{
-  font-size: 300%;
+  font-size: 200%;
+  left: 15px;
 }
 .rate {
     float: left;
@@ -117,7 +118,7 @@ p {
 label{
   position: relative;
   /* left: 30px; */
-  font-size: 250px;
+  font-size: large;
 }
 
 /* .row {
@@ -314,6 +315,11 @@ small {
   padding-top: 60px;
 }
 
+td img {
+  width: 160px;
+  height: 160px;
+  margin-right: 10px;
+}
 .testimonial .col-3 {
   text-align: center;
   padding: 40px 20px;
@@ -719,7 +725,7 @@ table {
 th {
   padding: 5px;
   color: black;
-  background: grey;
+  background: whitesmoke;
   font-weight: normal;
   text-align: right;
 }
@@ -733,6 +739,7 @@ tr {
 
 td {
   padding: 10px 5px;
+  font-size: large;
   /* border: 1px solid black; */
 }
 

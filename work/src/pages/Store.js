@@ -580,15 +580,11 @@ const People = (props) => {
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                   ></input>
-                  <input type="radio" name="skip" value={16}>
-                    Page 1
-                  </input>
-                  <input type="radio" name="skip" value={32}>
-                    Page 2
-                  </input>
-                  <input type="radio" name="skip" value={48}>
-                    Page 3
-                  </input>
+                  <input type="radio" name="skip" value={16} />
+                  Page 1
+                  <input type="radio" name="skip" value={32} />
+                  Page 2
+                  <input type="radio" name="skip" value={48} />
                 </section>
                 <button type="submit">Search</button>
               </section>
@@ -1088,15 +1084,11 @@ const People = (props) => {
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                   ></input>
-                  <input type="radio" name="skip" value={16}>
-                    Page 1
-                  </input>
-                  <input type="radio" name="skip" value={32}>
-                    Page 2
-                  </input>
-                  <input type="radio" name="skip" value={48}>
-                    Page 3
-                  </input>
+                  <input type="radio" name="skip" value={16} />
+                  Page 1
+                  <input type="radio" name="skip" value={32} />
+                  Page 2
+                  <input type="radio" name="skip" value={48} />
                 </section>
                 <button type="submit">Search</button>
               </section>

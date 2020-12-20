@@ -178,7 +178,7 @@ const OrderPage = () => {
                           hidden
                           // onChange={(e) => setLoginUsername(e.target.value)}
                         />
-                        {/* <div className="rate fadeIn third"> */}
+                        <div className="rate fadeIn third">
                           <input
                             type="radio"
                             id="star5"
@@ -229,7 +229,7 @@ const OrderPage = () => {
                           <label for="star1" title="text">
                             1 star
                           </label>
-                        {/* </div> */}
+                        </div>
                         {/* <input
                           type="number"
                           id="star"
@@ -261,7 +261,7 @@ const OrderPage = () => {
                             border: "none",
                           }}
                           onClick={() => {
-                            localStorage.setItem(item.product.id, true)
+                            localStorage.setItem(`${item.product.id}`, true)
                             window.location.replace(
                               "https://cryptic-temple-54361.herokuapp.com/store"
                             )

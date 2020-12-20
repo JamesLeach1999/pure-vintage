@@ -263,7 +263,7 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
 });
 
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
-  const amount = req.body.amount;
+  var  amount = req.body.amount;
   console.log(amount);
   const productId = req.body.productId;
   const order = await Order.findById({ _id: req.body.id });
@@ -287,9 +287,10 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
     refundPrice = amount;
   }
 
+  var refundAmount = (refundPrice * 100) + 95
   const refund = await stripe.refunds.create({
     payment_intent: req.body.intent,
-    amount: refundPrice * 100,
+    amount: refundAmount,
   });
   console.log(refund);
 

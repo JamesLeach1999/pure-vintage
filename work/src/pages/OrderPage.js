@@ -67,7 +67,7 @@ const OrderPage = () => {
       <div className="small-container">
         <div className="row product">
           {product.map((item, i) => {
-            return localStorage.getItem(`${item.product._id}`) !== true?
+            return localStorage.getItem(`${item.product._id}`) !== "true"?
 
              (
               <div>

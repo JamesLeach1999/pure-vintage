@@ -11,7 +11,7 @@ const Test = () => {
   const brand = useParams("brand");
   const size = useParams("size");
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(0);
+  var [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
   const [loading, setLoading] = useState(true)
 
@@ -26,12 +26,12 @@ const Test = () => {
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-        if (parsed["skip"]) {
-          this.setState({ page: parsed["skip"] });
-          setPage(parsed["skip"]);
-        } else if (!parsed["skip"]) {
-          setPage(0);
-        }
+        // if (parsed["skip"]) {
+        //   this.setState({ page: parsed["skip"] });
+        //   setPage(parsed["skip"]);
+        // } else if (!parsed["skip"]) {
+        //   setPage(0);
+        // }
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
@@ -51,7 +51,7 @@ const Test = () => {
             brand: parsed["brand"],
             size: parsed["size"],
             price: parsed['price'],
-            skip: skip
+            skip: page
           },
         });
         console.log(res)
@@ -133,17 +133,12 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div">
-        <form>
-          <button name="skip" value={16}>
-            Page 1
-          </button>
-          <button name="skip" value={32}>
-            Page 2
-          </button>
-          <button name="skip" value={48}>
-            Page 3
-          </button>
-        </form>
+          <input type="button" name="skip" value={16} onClick={(e) => setPage(e.target.value)}/>
+           
+          <input name="button" value={32} onClick={(e) => setPage(e.target.value)}/>
+            
+          <input name="button" value={48} onClick={(e) => setPage(e.target.value)}/>
+            
       </div>
       <br/><br/>
       <br/><br/><br/><br/>

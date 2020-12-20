@@ -75,12 +75,12 @@ const Manage = () => {
 
     return (
       <div className="store-container">
-        <Link to="/allOrders">
-
+        <Link to="/allOrders" style={{ fontSize: "28px" }}>
           Past orders
         </Link>
-        <br/><br/>
-        <Link to="/add">
+        <br />
+        <br />
+        <Link to="/add" style={{ fontSize: "28px" }}>
           Add product
         </Link>
         <div className="row product">
@@ -93,7 +93,7 @@ const Manage = () => {
                     <Edit id={product._id} />
                     {/* <Product/> */}
                   </Link>
-                  <br/>
+                  <br />
                   <form action="/featured" method="post">
                     <input
                       type="text"
@@ -120,7 +120,7 @@ const Manage = () => {
                       type="submit"
                       // onClick={() => window.location.reload()}
                     >
-                      deletr
+                      delete
                     </button>
                   </form>
                 </>
@@ -166,7 +166,7 @@ const Manage = () => {
                       type="submit"
                       // onClick={() => window.location.reload()}
                     >
-                      deletr
+                      delete
                     </button>
                   </form>
                 </>
@@ -212,7 +212,7 @@ const Manage = () => {
                       type="submit"
                       // onClick={() => window.location.reload()}
                     >
-                      deletr
+                      delete
                     </button>
                   </form>
                 </>
@@ -258,7 +258,7 @@ const Manage = () => {
                       type="submit"
                       // onClick={() => window.location.reload()}
                     >
-                      deletr
+                      delete
                     </button>
                   </form>
                 </>
@@ -268,7 +268,7 @@ const Manage = () => {
         </div>
 
         <div className="pagination-div">
-          <form action="/manage" method="get">
+          <form action="/manage1" method="get">
             <button name="skip" value={16}>
               Page 1
             </button>

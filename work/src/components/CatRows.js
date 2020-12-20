@@ -27,7 +27,7 @@ class CatRows extends Component {
 
   render() {
     return (
-      <div className="small-container">
+      <div className="small-container" style={{justifyContent: "center"}}>
         <h1>Categories</h1>
         <div className="row">
           <Link to="/store?category=shirts">

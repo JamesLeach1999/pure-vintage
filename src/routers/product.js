@@ -620,7 +620,7 @@ router.get('/recentReviews', async (req, res) => {
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log("here")
-        console.log(product.image)
+        console.log(product)
         proImages.push(product.image);
 
         review.push(product.reviews);
@@ -631,6 +631,8 @@ router.get('/recentReviews', async (req, res) => {
   var filtered = review.filter(function (el) {
     return el != null;
   });
+  console.log("number")
+  console.log(filtered)
   // console.log(filtered.reverse());
   res.send({
     name: filtered,

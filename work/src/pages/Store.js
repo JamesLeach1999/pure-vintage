@@ -584,7 +584,7 @@ const People = (props) => {
                 <button type="submit">Search</button>
               </section>
             ) : (
-              <section style={{ fontSize: "120%" }}>
+              <section style={{ fontSize: "75%" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">

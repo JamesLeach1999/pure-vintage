@@ -71,6 +71,7 @@ const MainPage = (props) => {
 
   return (
     <Layout title="Donut Shop" className="store-container">
+      <br/><br/><br/><br/><br/>
       <h1>£{sum} total</h1>
       <CheckoutForm
         price={sum}

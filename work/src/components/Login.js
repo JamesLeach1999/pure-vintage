@@ -88,7 +88,7 @@ const App = (props) => {
             onChange={(e) => setLoginUsername(e.target.value)}
           />
           <input
-            type="text"
+            type="password"
             id="password"
             class="fadeIn third"
             name="login"

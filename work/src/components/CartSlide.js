@@ -166,7 +166,7 @@ class Cart extends Component {
             className={
               this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
             }
-            style={{ color: "black", size: "300%" }}
+            style={{ color: "black", width: "200%" , height: "200%"}}
           ></i>
         </div>
         <ul

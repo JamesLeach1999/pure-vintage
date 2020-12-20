@@ -126,7 +126,7 @@ export default class Nav extends Component {
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>
             <i
-              style={{ color: "black", size: "300%" }}
+              style={{ color: "black", width: "200%", height: "200%" }}
               className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
           </div>

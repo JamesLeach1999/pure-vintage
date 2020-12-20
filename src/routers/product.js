@@ -631,13 +631,13 @@ console.log("numberwang1")
   console.log(review)
 
   var filtered = review.filter(function (el) {
-    return el != null;
+    return el != [];
   });
   console.log("number")
-  console.log(filtered[0][0])
+  console.log(proImages)
   // console.log(filtered.reverse());
   res.send({
-    name: filtered,
+    name: filtered[0],
     images: proImages,
   });
 });

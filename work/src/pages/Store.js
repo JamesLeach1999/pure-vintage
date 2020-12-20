@@ -94,7 +94,7 @@ const People = (props) => {
             style={style}
           >
             {window.innerWidth > 660 ? (
-              <section style={{ height: "1500px", fontSize: "140%" }}>
+              <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">
@@ -584,7 +584,7 @@ const People = (props) => {
                 <button type="submit">Search</button>
               </section>
             ) : (
-              <section style={{ fontSize: "75%" }}>
+              <section style={{ fontSize: "65%" }}>
                 <h5>Filters</h5>
 
                 <section class="mb-4">

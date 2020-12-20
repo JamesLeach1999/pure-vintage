@@ -95,6 +95,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     });
     await axios.post("/te", {
       test: confirmedCardPayment,
+      email: billingDetails.email,
       id: id,
       cart: cart,
     });

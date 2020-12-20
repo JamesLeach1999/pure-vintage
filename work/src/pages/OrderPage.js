@@ -14,6 +14,7 @@ const OrderPage = () => {
   const [name, setName] = useState("");
   const [p, setP] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [star, setStar] = useState()
 
   const getProducts = async () => {
     // this returns a promise. so need to extract data from response (generally in json)
@@ -183,6 +184,7 @@ const OrderPage = () => {
                             id="star5"
                             name="rating"
                             value="5"
+                            onClick={(e) => setStar(e.target.value)}
                           />
                           <label for="star5" title="text">
                             5 stars
@@ -192,6 +194,7 @@ const OrderPage = () => {
                             id="star4"
                             name="rating"
                             value="4"
+                            onClick={(e) => setStar(e.target.value)}
                           />
                           <label for="star4" title="text">
                             4 stars
@@ -201,6 +204,7 @@ const OrderPage = () => {
                             id="star3"
                             name="rating"
                             value="3"
+                            onClick={(e) => setStar(e.target.value)}
                           />
                           <label for="star3" title="text">
                             3 stars
@@ -210,6 +214,7 @@ const OrderPage = () => {
                             id="star2"
                             name="rating"
                             value="2"
+                            onClick={(e) => setStar(e.target.value)}
                           />
                           <label for="star2" title="text">
                             2 stars
@@ -219,6 +224,7 @@ const OrderPage = () => {
                             id="star1"
                             name="rating"
                             value="1"
+                            onClick={(e) => setStar(e.target.value)}
                           />
                           <label for="star1" title="text">
                             1 star

@@ -133,7 +133,7 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div">
-        <form action="/store" method="get">
+        <form action="/store" method="post">
           <button name="skip" value={16}>
             Page 1
           </button>

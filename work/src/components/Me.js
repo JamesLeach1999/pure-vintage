@@ -64,7 +64,6 @@ const Me = () => {
               return a + b;
             }, 0);
             console.log(sum1);
-            t = [];
           });
           sumPrice.push(sum1);
         });
@@ -126,8 +125,8 @@ const Me = () => {
                         <li>{product.shipping.postcode}</li>
                       </ul>
                     </td>
-                    <td>{product.updatedAt}</td>
-                    <td></td>
+                    <td>{product.updatedAt.match(/^.+?(?=\T))/)}</td>
+                    <td>{total[i]}</td>
                     {/* </Link> */}
                   </tr>
                 );

@@ -14,7 +14,7 @@ const OrderPage = () => {
   const [name, setName] = useState("");
   const [p, setP] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [star, setStar] = useState()
+  const [star, setStar] = useState();
 
   const getProducts = async () => {
     // this returns a promise. so need to extract data from response (generally in json)
@@ -59,11 +59,13 @@ const OrderPage = () => {
       <br />
       <br />
       <br />
-      <br/><br/><br/>
+      <br />
+      <br />
+      <br />
       <div className="small-container">
         <div className="row product">
           {product.map((item, i) => {
-            return (
+            localStorage.getItem(`${item.product._id}`) !== "true" ? (
               <div>
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
@@ -72,83 +74,6 @@ const OrderPage = () => {
 
                   <p>£{item.product.price}</p>
                 </div>
-
-                {/* <div
-                  className="container wrapper fadeInDown"
-                  style={{ float: "left" }}
-                >
-                  <div
-                    className="row fadeIn first"
-                    style={{ marginTop: "40px" }}
-                  >
-                    <div className="col-md-6">
-                      <div className="well well-sm">
-                        <div className="text-right">
-                          <a
-                            className="btn btn-success btn-green"
-                            href="#reviews-anchor"
-                            id="open-review-box"
-                          >
-                            Leave a Review
-                          </a>
-                        </div>
-
-                        <div
-                          className="row"
-                          id="post-review-box"
-                          style={{ display: "none" }}
-                        >
-                          <div className="col-md-12">
-                            <form
-                              accept-charset="UTF-8"
-                              action="/reviews"
-                              method="post"
-                            >
-                              <input
-                                id="stars-hidden"
-                                name="star"
-                                type="hidden"
-                              />
-                              <textarea
-                                className="form-control animated"
-                                cols="50"
-                                id="new-review"
-                                name="desc"
-                                placeholder="Enter your review here..."
-                                rows="5"
-                              ></textarea>
-
-                              <div className="text-right">
-                                <div
-                                  className="stars starrr"
-                                  data-star="0"
-                                ></div>
-                                <a
-                                  className="btn btn-danger btn-sm"
-                                  href="#"
-                                  id="close-review-box"
-                                  style={{
-                                    display: "none",
-                                    marginRight: "10px",
-                                  }}
-                                >
-                                  <span className="glyphicon glyphicon-remove"></span>
-                                  Cancel
-                                </a>
-                                <button
-                                  className="btn btn-success btn-lg"
-                                  type="submit"
-                                >
-                                  Save
-                                </button>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
 
                 <div
                   classNameName="wrapper fadeInDown"
@@ -261,12 +186,11 @@ const OrderPage = () => {
                             border: "none",
                           }}
                           onClick={() => {
-                            localStorage.setItem(`${item.product._id}`, true)
+                            localStorage.setItem(`${item.product._id}`, true);
                             window.location.replace(
                               "https://cryptic-temple-54361.herokuapp.com/store"
-                            )
-                          }
-                          }
+                            );
+                          }}
                           // onClick={login}
                         >
                           Submit review
@@ -278,26 +202,11 @@ const OrderPage = () => {
                   </div>
                   <br />
                 </div>
-                {/* <form action="/reviews" method="post">
-                  <input type="" name="id" value={item.product._id} hidden />
-                  <input type="text" name="name" value={name} hidden />
-                  <input type="number" name="star" max="5" />
-                  <br />
-                  <input type="text" name="desc" />
-                  <br />
-                  <button
-                    type="submit"
-                    onClick={() =>
-                      window.location.replace(
-                        "https://cryptic-temple-54361.herokuapp.com/store"
-                      )
-                    }
-                  >
-                    submit review
-                  </button>
-                </form> */}
+                
               </div>
-            );
+            ) : (
+              <></>
+            )
           })}
         </div>
       </div>

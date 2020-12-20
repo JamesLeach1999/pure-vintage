@@ -628,7 +628,7 @@ router.get('/recentReviews', async (req, res) => {
     }
   }
 console.log("numberwang1")
-  // console.log(review)
+  console.log(review)
 
   var filtered = review.filter(function (el) {
     return el != [];

@@ -165,6 +165,7 @@ class Cart extends Component {
             color: "black",
             width: "75px",
             height: "75px",
+            marginLeft: "40px",
           }}
         >
           <i
@@ -175,7 +176,7 @@ class Cart extends Component {
               color: "black",
               width: "75px",
               height: "75px",
-              
+              marginLeft: "40px",
             }}
           ></i>
         </div>

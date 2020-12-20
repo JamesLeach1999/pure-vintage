@@ -10,6 +10,7 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [time, setTime] = useState([])
   const [id, setId] = useState("nuttn");
   const [nulll, setNull] = useState("c");
 
@@ -51,6 +52,8 @@ const Me = () => {
         var sum1;
         var idk = [];
         data.map((items) => {
+          var y = items.product.updatedAt.match(/^.+?(?=\T))/)
+          console.log(y)
           it.push(JSON.parse(items.orderItems));
           console.log(it);
           it.map((price) => {

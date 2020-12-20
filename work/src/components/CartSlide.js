@@ -163,9 +163,8 @@ class Cart extends Component {
           style={{
             zIndex: "40000",
             color: "black",
-            width: "50px",
-            height: "50px",
-            right: "15px",
+            width: "75px",
+            height: "75px",
           }}
         >
           <i
@@ -174,8 +173,8 @@ class Cart extends Component {
             }
             style={{
               color: "black",
-              width: "50px",
-              height: "50px",
+              width: "75px",
+              height: "75px",
             }}
           ></i>
         </div>

@@ -105,7 +105,7 @@ const OrderPage = () => {
                               method="post"
                             >
                               <input
-                                id="ratings-hidden"
+                                id="stars-hidden"
                                 name="star"
                                 type="hidden"
                               />
@@ -121,7 +121,7 @@ const OrderPage = () => {
                               <div className="text-right">
                                 <div
                                   className="stars starrr"
-                                  data-rating="0"
+                                  data-star="0"
                                 ></div>
                                 <a
                                   className="btn btn-danger btn-sm"
@@ -182,7 +182,7 @@ const OrderPage = () => {
                           <input
                             type="radio"
                             id="star5"
-                            name="rating"
+                            name="star"
                             value="5"
                             onClick={(e) => setStar(e.target.value)}
                           />
@@ -192,7 +192,7 @@ const OrderPage = () => {
                           <input
                             type="radio"
                             id="star4"
-                            name="rating"
+                            name="star"
                             value="4"
                             onClick={(e) => setStar(e.target.value)}
                           />
@@ -202,7 +202,7 @@ const OrderPage = () => {
                           <input
                             type="radio"
                             id="star3"
-                            name="rating"
+                            name="star"
                             value="3"
                             onClick={(e) => setStar(e.target.value)}
                           />
@@ -212,7 +212,7 @@ const OrderPage = () => {
                           <input
                             type="radio"
                             id="star2"
-                            name="rating"
+                            name="star"
                             value="2"
                             onClick={(e) => setStar(e.target.value)}
                           />
@@ -222,7 +222,7 @@ const OrderPage = () => {
                           <input
                             type="radio"
                             id="star1"
-                            name="rating"
+                            name="star"
                             value="1"
                             onClick={(e) => setStar(e.target.value)}
                           />
@@ -232,11 +232,11 @@ const OrderPage = () => {
                         {/* </div> */}
                         {/* <input
                           type="number"
-                          id="rating"
+                          id="star"
                           className="fadeIn third"
                           name="star"
                           max="5"
-                          placeholder="rating"
+                          placeholder="star"
                           // style={{width: "40%", textAlign: "left"}}
                           // onChange={(e) => setLoginPassword(e.target.value)}
                         /> */}
@@ -260,10 +260,12 @@ const OrderPage = () => {
                             padding: "8px",
                             border: "none",
                           }}
-                          onClick={() =>
+                          onClick={() => {
+                            localStorage.setItem(item.product.id, true)
                             window.location.replace(
                               "https://cryptic-temple-54361.herokuapp.com/store"
                             )
+                          }
                           }
                           // onClick={login}
                         >

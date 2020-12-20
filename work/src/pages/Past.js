@@ -45,7 +45,6 @@ const Me = () => {
           console.log(it);
           it.map((price) => {
             console.log(price);
-            idk.push(price);
             var t = [];
             price.map((r) => {
               t.push(r.product.price);
@@ -57,7 +56,6 @@ const Me = () => {
             console.log(sum1);
             t = [];
           });
-          console.log(idk);
           sumPrice.push(sum1);
         });
         // console.log(sumPrice)

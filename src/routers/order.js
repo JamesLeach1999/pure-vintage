@@ -77,7 +77,7 @@ router.get('/check', (req, res) => {
 
 router.post('/payment_intents', async (req, res) => {
   if (req.method === 'POST') {
-    const { amount } = req.body;
+    var { amount } = req.body;
 
     const id = req.body.id;
 
@@ -121,6 +121,7 @@ router.post('/payment_intents', async (req, res) => {
       await order.save();
       user.pastOrders.push(order._id);
       await user.save();
+      amount = amount + 95;
 
       const paymentIntent = await stripe.paymentIntents.create({
         amount,
@@ -161,6 +162,7 @@ router.post('/payment_intents', async (req, res) => {
         isPaid: false,
         intent: '',
       });
+      amount = amount + 95
       // console.log(order._id);
 
       await order.save();

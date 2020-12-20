@@ -168,7 +168,20 @@ export default class Nav extends Component {
                 <Link to="/login">Login</Link>
               ) : (
                 <li>
-                  <button type="submit" className="nav-links" value="Log In" style={{display: "inline-block", paddingTop: "5px", height: "70px", top: "0" }} onClick={this.logout}>
+                  <button
+                    type="submit"
+                    className="nav-links"
+                    value="Log In"
+                    style={{
+                      display: "inline-block",
+                      paddingTop: "5px",
+                      height: "70px",
+                      top: "0",
+                      border: "none",
+                      background: "rgba(0,0,0,0.1)",
+                    }}
+                    onClick={this.logout}
+                  >
                     Logout
                   </button>
                 </li>

@@ -45,6 +45,8 @@ const OrderPage = () => {
   useEffect(() => {
     // this returns all 30 users in an array using setState
     getProducts();
+
+    console.log(localStorage)
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
 

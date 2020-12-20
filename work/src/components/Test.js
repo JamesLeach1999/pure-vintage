@@ -26,7 +26,12 @@ const Test = () => {
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-        
+        if (parsed["skip"]) {
+          this.setState({ page: parsed["skip"] });
+          setPage(parsed["skip"]);
+        } else if (!parsed["skip"]) {
+          setPage(0);
+        }
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
@@ -127,7 +132,21 @@ const Test = () => {
       </div>
 
       {/* </div> */}
-      
+      <div className="pagination-div">
+        <form action="/store1" method="get">
+          <button name="skip" value={16}>
+            Page 1
+          </button>
+          <button name="skip" value={32}>
+            Page 2
+          </button>
+          <button name="skip" value={48}>
+            Page 3
+          </button>
+        </form>
+      </div>
+      <br/><br/>
+      <br/><br/><br/><br/>
     </div>
   );
 };

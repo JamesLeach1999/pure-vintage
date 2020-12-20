@@ -67,9 +67,9 @@ const OrderPage = () => {
       <div className="small-container">
         <div className="row product">
           {product.map((item, i) => {
-            return localStorage.getItem(`${item.product._id}`) !== "true"?
-
-             (
+            return localStorage.getItem(`${item.product._id}`) !== "true" ||
+              localStorage.getItem(`${item.product._id}`) !== true ||
+              !localStorage.getItem(`${item.product._id}`) ? (
               <div>
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
@@ -208,16 +208,16 @@ const OrderPage = () => {
                   <br />
                 </div>
               </div>
-            ): (
+            ) : (
               // <div>
-                <div className="col-4">
-                  <img src={`${item.product.image[0]}`} alt="" />
-                  <h4>{item.product.name}</h4>
-                  <br />
+              <div className="col-4">
+                <img src={`${item.product.image[0]}`} alt="" />
+                <h4>{item.product.name}</h4>
+                <br />
 
-                  <p>£{item.product.price}</p>
-                </div>
-            )
+                <p>£{item.product.price}</p>
+              </div>
+            );
           })}
         </div>
       </div>

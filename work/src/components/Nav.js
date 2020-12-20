@@ -170,11 +170,7 @@ export default class Nav extends Component {
                 <form>
                   <button
                     type="submit"
-                    style={{
-                      borderRadius: "5%",
-                      padding: "8px",
-                      border: "none",
-                    }}
+                    
                     value="Log In"
                     onClick={this.logout}
                   >

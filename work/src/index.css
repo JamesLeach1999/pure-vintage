@@ -75,6 +75,9 @@ p {
   padding-right: 25px;
 }
 
+.small{
+  font-size: 300%;
+}
 .rate {
     float: left;
     height: 46px;
@@ -113,10 +116,11 @@ p {
 
 label{
   position: relative;
-  left: 30px;
+  /* left: 30px; */
   font-size: 250px;
 }
-/* .row1 {
+
+/* .row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -125,7 +129,7 @@ label{
 
 .col-2 {
   flex-basis: 50%;
-  min-width: 300px;
+  min-width: 350px;
 }
 
 .col-2 img {
@@ -135,7 +139,9 @@ label{
   max-width: 515px;
   padding: 50px 0;
 }
-
+.row{
+  margin-left: 0;
+}
 .col-2-pics {
   flex-basis: 50%;
   min-width: 600px;
@@ -182,7 +188,7 @@ label{
   left: 15px;
 }
 
-.header .row1 .work {
+.header .row .work {
   margin-top: 70px;
   width: 100%;
 } */
@@ -479,7 +485,7 @@ ul {
   padding-left: "25px";
 }
 
-.order-row1 {
+.order-row {
   flex-basis: 100%;
 }
 .filter {
@@ -593,7 +599,7 @@ ul {
 
 /* all products */
 
-.row1-2 {
+.row-2 {
   justify-content: space-between;
   margin: 100px auto 50px;
 }
@@ -629,6 +635,7 @@ select:focus {
 
 .single-product {
   margin-top: 80px;
+  margin-left: 50px;
   left: 40px;
 }
 
@@ -678,7 +685,7 @@ select:focus {
   margin-left: 10px;
 }
 
-.small-img-row1 {
+.small-img-row {
   display: flex;
   justify-content: space-between;
 }
@@ -799,7 +806,7 @@ th:last-child {
     margin-bottom: 10px;
   }
 
-  .row1 {
+  .row {
     text-align: center;
   }
 
@@ -811,7 +818,7 @@ th:last-child {
     flex-basis: 100%;
   }
 
-  .row1 .header.work{
+  .row .header.work{
     width: 100%;
     left: 0px;
   }
@@ -834,7 +841,7 @@ th:last-child {
     max-width: 165px;
   }
 
-  /* .single-product .row1 {
+  /* .single-product .row {
     text-align: left;
   }*/
 
@@ -876,6 +883,7 @@ th:last-child {
   position: relative;
   width: 100vw;
   height: 450px;
+  margin-left: 40px;
   max-height: 600px;
   max-width: 700px;
   padding: 50px 0;

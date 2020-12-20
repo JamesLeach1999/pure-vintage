@@ -125,8 +125,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <br/>
-      <br/><br/>
+      
       <Row>
         <BillingDetailsFields />
       </Row>

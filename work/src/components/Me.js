@@ -30,19 +30,6 @@ const Me = () => {
         console.log(orderJson.orderInfo);
                 console.log(orderJson.names);
 
-        var sum1 = [];
-        // orderJson.orderInfo.map((order) => {
-        //   order.map((item) => {
-        //     sum1.push(item.price)
-        //   } )
-        //   console.log(order)
-        //   var summed = sum1.reduce(function (a, b) {
-        //     return a+b;
-        //   }, 0)
-        //   setSum(total => [...total, summed])
-        //   console.log(total)
-        // })
-
         orderJson.names.map((order) => {
           // console.log(order);
           if (order !== null) {

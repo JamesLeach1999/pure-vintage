@@ -772,7 +772,9 @@ console.log(clicked)
                 style={{
                   left: "0",
                   marginRight: "500px",
-                  color: "red",
+                  backgroundColor: "whitesmoke",
+                  border: "1px solid black",
+                  borderRadius: "7%",
                   transform: "rotate(-90deg)",
                   top: "150px",
                   width: "50px",
@@ -781,7 +783,10 @@ console.log(clicked)
               >
                 Filters
               </h1>
-              <section className="filterItems" style={clicked? { fontSize: "65%" }:{display: "none"} }>
+              <section
+                className="filterItems"
+                style={clicked ? { fontSize: "65%" } : { display: "none" }}
+              >
                 <form
                   className="f-col filter filter-container filterItems"
                   action="/store"
@@ -790,6 +795,7 @@ console.log(clicked)
                   {/* <h5>Filters</h5> */}
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
+                    style={{height: "100vh"}}
                   >
                     <section class="mb-4">
                       <h6
@@ -1563,8 +1569,8 @@ console.log(clicked)
                     </section>
                     <button type="submit">Search</button>
                   </ul>
-              </form>
-                </section>
+                </form>
+              </section>
             </>
           )}
           {/* </form> */}

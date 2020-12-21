@@ -798,7 +798,7 @@ console.log(clicked)
                     className={clicked ? "filter-menu active" : "filter-menu"}
                     style={{height: "100%", zIndex: "29292929", minHeight: "2500px"}}
                   >
-                    <section class="mb-4">
+                    <section class="mb-4 listbox">
                       <h6
                         className="font-weight-bold mb-3"
                         style={{
@@ -947,7 +947,7 @@ console.log(clicked)
                       </div>
                     </section>
 
-                    <section class="mb-4">
+                    <section class="mb-4 listbox">
                       <h6
                         class="font-weight-bold mb-3"
                         style={{

@@ -948,5 +948,11 @@ th:last-child {
     font-weight: 300;
   }
 
+  .listbox {
+  border: none;
+  height: 250px;
+  overflow-y: scroll;
+}
+
   /* Style for Circular Checkbox */
 }

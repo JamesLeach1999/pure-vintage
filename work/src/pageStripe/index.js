@@ -38,7 +38,7 @@ const MainPage = (props) => {
         }
       } else {
         var items = JSON.parse(localStorage.getItem("unAuthCart"));
-        console.log(items)
+        console.log(items);
         var cartTotal = [];
         if (items.length === 1) {
           var res = await fetch(`/product?id=${items}`);
@@ -47,7 +47,7 @@ const MainPage = (props) => {
           console.log(resJson);
 
           cartTotal.push(resJson.name.price);
-          SetSum(cartTotal)
+          SetSum(cartTotal);
         } else {
           items.map(async (item) => {
             var res = await fetch(`/product?id=${item}`);
@@ -59,10 +59,9 @@ const MainPage = (props) => {
           });
           var cartSum = cartTotal.reduce((a, b) => a + b, 0);
           console.log(cartSum);
-  
+
           SetSum(cartSum);
         }
-
       }
     };
 
@@ -71,12 +70,18 @@ const MainPage = (props) => {
 
   return (
     <Layout title="Donut Shop" className="store-container">
-      <br/><br/><br/><br/><br/>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <h1>£{sum} total</h1>
       <CheckoutForm
         price={sum}
         onSuccessfulCheckout={async () => {
-          localStorage.clear();
+          localStorage.removeItem("unAuthCart");
+          localStorage.removeItem("unAuthCartPrice");
+
           window.location.replace("https://cryptic-temple-54361.herokuapp.com");
         }}
       />

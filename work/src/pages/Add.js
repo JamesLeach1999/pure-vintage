@@ -135,7 +135,11 @@ const Addpage = () => {
                 <option value="polos">Polos</option>
                 <option value="tracksuits">Tracksuits</option>
                 <option value="trackjack">Track jackets</option>
-                <option value="tshirts">T shirts</option>
+                <option value="windbreakers">Windbreakers</option>
+                <option value="shorts">Shorts</option>
+                <option value="hoodies">Hoodies</option>
+                <option value="blazers">Blazers</option>
+                <option value="football">Football shirts</option>
               </select>
             </li>
             <br />
@@ -143,7 +147,7 @@ const Addpage = () => {
             <li>
               <h3>Description</h3>
               <br />
-              <input
+              <textarea
                 type="text"
                 placeholder="description"
                 name="description"
@@ -162,6 +166,10 @@ const Addpage = () => {
                 onChange={(e) => setSize(e.target.value)}
               >
                 <option value="none">none</option>
+                <option value="26-30">26"-30"</option>
+                <option value="31-34">31"-34"</option>
+                <option value="35-38">35"-38"</option>
+
                 <option value="XS">XS</option>
                 <option value="S">S</option>
                 <option value="M">M</option>

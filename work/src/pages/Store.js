@@ -329,15 +329,15 @@ const People = (props) => {
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
-                      value="tommy"
-                      id="tommy"
+                      value="ysl"
+                      id="ysl"
                       name="brand"
                     />
                     <label
                       class="form-check-label small text-uppercase card-link-secondary"
-                      for="tommy"
+                      for="ysl"
                     >
-                      Tommy Hilfiger
+                      YSL
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">
@@ -389,15 +389,30 @@ const People = (props) => {
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
-                      value="lacoste"
-                      id="lacoste"
+                      value="umbro"
+                      id="umbro"
                       name="brand"
                     />
                     <label
                       class="form-check-label small text-uppercase card-link-secondary"
-                      for="lacoste"
+                      for="umbro"
                     >
-                      Lacoste
+                      Umbro
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="levi"
+                      id="levi"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="levi"
+                    >
+                      Levi
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">
@@ -569,6 +584,126 @@ const People = (props) => {
                       Shirts
                     </label>
                   </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="blazers"
+                      id="blazers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="blazers"
+                    >
+                      Blazers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="football"
+                      id="football"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="football"
+                    >
+                      Football shirts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="joggers"
+                      id="joggers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="joggers"
+                    >
+                      Joggers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="necklaces"
+                      id="necklaces"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="necklaces"
+                    >
+                      Necklaces
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="polos"
+                      id="polos"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="polos"
+                    >
+                      Polos
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="shorts"
+                      id="shorts"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="shorts"
+                    >
+                      Shorts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="windbreakers"
+                      id="windbreakers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="windbreakers"
+                    >
+                      Windbreakers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="trousers"
+                      id="trousers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="trousers"
+                    >
+                      Trousers
+                    </label>
+                  </div>
                   Max price: £{price}
                   <input
                     type="range"
@@ -603,6 +738,52 @@ const People = (props) => {
                   >
                     Size
                   </h6>
+
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="26-30"
+                      id="26-30"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="26-30"
+                    >
+                      26"-30"
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="31-34"
+                      id="31-34"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="31-34"
+                    >
+                      31"-34"
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="35-38"
+                      id="35-38"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="35-38"
+                    >
+                      35"-38"
+                    </label>
+                  </div>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -914,6 +1095,111 @@ const People = (props) => {
                       Levi
                     </label>
                   </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="ysl"
+                      id="ysl"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="ysl"
+                    >
+                      YSL
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="lacoste"
+                      id="lacoste"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="lacoste"
+                    >
+                      Lacoste
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="kappa"
+                      id="kappa"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="kappa"
+                    >
+                      Kappa
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="champion"
+                      id="champion"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="champion"
+                    >
+                      Champion
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="umbro"
+                      id="umbro"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="umbro"
+                    >
+                      Umbro
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="levi"
+                      id="levi"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="levi"
+                    >
+                      Levi
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="levi"
+                      id="levi"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="levi"
+                    >
+                      Levi
+                    </label>
+                  </div>
                 </section>
 
                 <section class="mb-4">
@@ -1073,6 +1359,126 @@ const People = (props) => {
                       for="shirts"
                     >
                       Shirts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="blazers"
+                      id="blazers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="blazers"
+                    >
+                      Blazers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="football"
+                      id="football"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="football"
+                    >
+                      Football shirts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="joggers"
+                      id="joggers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="joggers"
+                    >
+                      Joggers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="necklaces"
+                      id="necklaces"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="necklaces"
+                    >
+                      Necklaces
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="polos"
+                      id="polos"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="polos"
+                    >
+                      Polos
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="shorts"
+                      id="shorts"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="shorts"
+                    >
+                      Shorts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="windbreakers"
+                      id="windbreakers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="windbreakers"
+                    >
+                      Windbreakers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="trousers"
+                      id="trousers"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="trousers"
+                    >
+                      Trousers
                     </label>
                   </div>
                   <br />

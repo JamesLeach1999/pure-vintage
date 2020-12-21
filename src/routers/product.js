@@ -600,7 +600,7 @@ router.get('/store1', async (req, res) => {
 
     var skipValue = req.body.skip + 16;
     console.log(clothes)
-    clothes = clothes.slice(req.body.skip, skipValue);
+    // clothes = clothes.slice(req.body.skip, skipValue);
     console.log('thats wangernumb555');
     console.log(clothes);
   }

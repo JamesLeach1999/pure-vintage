@@ -103,7 +103,7 @@ const People = (props) => {
                 >
                   Size
                 </h6>
-                <section className="mb-4 listbox">
+                <section className="mb-4">
                   <div class="form-check pl-0 mb-3 pb-1">
                     <input
                       type="checkbox"

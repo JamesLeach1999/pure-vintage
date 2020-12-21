@@ -785,7 +785,7 @@ console.log(clicked)
                 <form
                   className="f-col filter filter-container filterItems"
                   action="/store"
-                  style={style}
+                  // style={style}
                 >
                   {/* <h5>Filters</h5> */}
                   <ul

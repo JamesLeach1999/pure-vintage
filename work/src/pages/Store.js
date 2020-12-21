@@ -90,14 +90,14 @@ console.log(clicked)
           <h1
             className="filter-logo"
             onClick={() => setClick(!clicked)}
-            style={window.innerWidth < 660 ? { left: "0", marginRight: "200px", transform: "rotate(-90deg)", top: "150px", backgroundColor: "whitesmoke" }: {display: "none"}}
+            style={{ left: "0", marginRight: "200px", transform: "rotate(-90deg)", top: "150px" }}
           >
             Filters
           </h1>
           <form
             className="f-col filter filter-container filterItems"
             action="/store"
-            style={window.innerWidth > 660 ? {style}: {display: "none"}}
+            style={style}
           >
             {window.innerWidth > 660 ? (
               <section style={{ height: "1500px", fontSize: "110%" }}>

@@ -795,7 +795,7 @@ console.log(clicked)
                   {/* <h5>Filters</h5> */}
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
-                    style={{height: "100%", zIndex: "29292929"}}
+                    style={{height: "100%", zIndex: "29292929", minHeight: "2500px"}}
                   >
                     <section class="mb-4">
                       <h6

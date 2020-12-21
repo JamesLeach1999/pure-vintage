@@ -793,14 +793,7 @@ console.log(clicked)
                     Size
                   </h6>
 
-                  <div
-                    // class="form-check pl-0 mb-3 pb-1"
-                    className={
-                      clicked
-                        ? "form-check pl-0 mb-3 pb-1 nav-menu active"
-                        : " form-check pl-0 mb-3 pb-1 nav-menu"
-                    }
-                  >
+                  <div class="form-check pl-0 mb-3 pb-1">
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"

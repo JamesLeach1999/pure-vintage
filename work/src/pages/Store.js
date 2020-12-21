@@ -97,13 +97,58 @@ const People = (props) => {
               <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h5>Filters</h5>
 
-                  <h6
-                    class="font-weight-bold mb-3"
-                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
-                  >
-                    Size
-                  </h6>
+                <h6
+                  class="font-weight-bold mb-3"
+                  style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                >
+                  Size
+                </h6>
                 <section className="mb-4 listbox">
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="26-30"
+                      id="26-30"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="26-30"
+                    >
+                      26"-30"
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="31-34"
+                      id="31-34"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="31-34"
+                    >
+                      31"-34"
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3 pb-1">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="35-38"
+                      id="35-38"
+                      name="size"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="35-38"
+                    >
+                      35"-38"
+                    </label>
+                  </div>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -197,14 +242,13 @@ const People = (props) => {
                   </div>
                 </section>
 
-                <section class="mb-4">
-                  <h6
-                    class="font-weight-bold mb-3"
-                    style={{ padding: "10px", backgroundColor: "whitesmoke" }}
-                  >
-                    Brand
-                  </h6>
-
+                <h6
+                  class="font-weight-bold mb-3"
+                  style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                >
+                  Brand
+                </h6>
+                <section class="mb-4 listbox">
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"
@@ -432,8 +476,13 @@ const People = (props) => {
                   </div>
                 </section>
 
-                <section class="mb-4">
-                  <h6 class="font-weight-bold mb-3">Categories</h6>
+                <h6
+                  class="font-weight-bold mb-3"
+                  style={{ padding: "10px", backgroundColor: "whitesmoke" }}
+                >
+                  Categories
+                </h6>
+                <section class="mb-4 listbox">
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"

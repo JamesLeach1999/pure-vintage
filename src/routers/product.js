@@ -697,7 +697,7 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({});
-    // console.log(await Product.find({ category: ['jim'] }));
+    console.log("thats wangernumb 3");
     pro.forEach((n) => {
       clothes.push(n);
     });

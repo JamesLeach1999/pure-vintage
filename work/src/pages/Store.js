@@ -13,6 +13,7 @@ const People = (props) => {
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
   const [animate, setAnimate] = useState(false);
+  var [clicked, setClick] = useState(false)
   // this outputs 770px
   console.log(size);
   console.log(localStorage.getItem("unAuthCart"));
@@ -96,7 +97,6 @@ const People = (props) => {
             {window.innerWidth > 660 ? (
               <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h5>Filters</h5>
-
                 <h6
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
@@ -241,7 +241,6 @@ const People = (props) => {
                     </label>
                   </div>
                 </section>
-
                 <h6
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
@@ -459,7 +458,7 @@ const People = (props) => {
                       Levi
                     </label>
                   </div>
-                  
+
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"
@@ -476,7 +475,6 @@ const People = (props) => {
                     </label>
                   </div>
                 </section>
-
                 <h6
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
@@ -782,7 +780,15 @@ const People = (props) => {
               </section>
             ) : (
               <section style={{ fontSize: "65%" }}>
-                <h5>Filters</h5>
+                <h5
+                  style={{ top: "90vh", border: "2px solid black" }}
+                  onClick={() => setClick(!clicked)}
+                  className={
+                    clicked ? "nav-menu active" : "nav-menu"
+                  }
+                >
+                  Filters
+                </h5>
 
                 <section class="mb-4">
                   <h6

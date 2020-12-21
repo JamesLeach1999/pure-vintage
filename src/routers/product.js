@@ -748,7 +748,7 @@ router.get('/product', async (req, res) => {
 
       const user = await User.findById({ _id: req.session.passport.user });
       const isAdmin = user.isAdmin;
-      console.log('wangernumb 1');
+      // console.log('wangernumb 1');
       // console.log(product);
 
       // also returning all images which will be shown on the individual product page
@@ -770,7 +770,7 @@ router.get('/product', async (req, res) => {
       const product = await Product.findOne({
         _id: req.query.id,
       });
-      console.log('wangernumb 2');
+      // console.log('wangernumb 2');
 
       // console.log(product)
       res.send({

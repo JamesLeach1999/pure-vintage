@@ -26,12 +26,7 @@ const Test = () => {
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-        if (parsed["skip"]) {
-          this.setState({ page: parsed["skip"] });
-          setPage(parsed["skip"]);
-        } else if (!parsed["skip"]) {
-          setPage(0);
-        }
+        
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);

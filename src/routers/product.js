@@ -717,16 +717,16 @@ router.post('/store', async (req, res) => {
     // console.log(req.body.skip)
     // console.log(req.body)
     console.log('i work5');
+    console.log(req.body)
 
     var pro1 = await filter(req.body);
     // console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
-
     var skipValue = req.body.skip + 16
     clothes = clothes.slice(req.body.skip, skipValue)
-
+    console.log("thats wangernumb")
     console.log(clothes)
   }
   res.send({

@@ -97,13 +97,13 @@ const People = (props) => {
               <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h5>Filters</h5>
 
-                <section className="mb-4 listbox">
                   <h6
                     class="font-weight-bold mb-3"
                     style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                   >
                     Size
                   </h6>
+                <section className="mb-4 listbox">
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -724,7 +724,7 @@ const People = (props) => {
                   <button name="skip" value={48}>
                     Page 3
                   </button> */}
-                  <input type="checkbox" name="skip" value={16} />
+                  <input type="checkbox" name="skip" value="16" />
                   <input type="checkbox" name="skip" value={32} />
                   <input type="checkbox" name="skip" value={48} />
                 </section>

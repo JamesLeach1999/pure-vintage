@@ -1533,6 +1533,10 @@ console.log(clicked)
                     
                   </section>
                   <button type="submit">Search</button>
+                </ul>
+              </section>
+            )}
+          </form>
                   <h4
                     className="filter-logo"
                     onClick={() => setClick(!clicked)}
@@ -1540,10 +1544,6 @@ console.log(clicked)
                   >
                     Filters
                   </h4>
-                </ul>
-              </section>
-            )}
-          </form>
 
           {/* </label> */}
           {/* <label className="checkbox filter">

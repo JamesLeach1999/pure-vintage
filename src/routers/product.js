@@ -74,8 +74,8 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
 
   var t = [];
   console.log('numberwang 1');
-  t.push(req.files.image[0]);
-  console.log(t);
+  // t.push(req.files.image[0]);
+  // console.log(t);
   // File upload
   // fileJPG.forEach(async (img) => {
   if (req.files.image.length > 0) {

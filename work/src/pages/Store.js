@@ -754,17 +754,6 @@ const People = (props) => {
                       Trousers
                     </label>
                   </div>
-                  Max price: £{price}
-                  <input
-                    type="range"
-                    id="price"
-                    name="price"
-                    min="0"
-                    max="1000"
-                    default="1000"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                  ></input>
                   {/* <input type="radio" name="skip" value={16}>
                     Page 1
                   </input>
@@ -772,12 +761,23 @@ const People = (props) => {
                     Page 2
                   </input>
                   <button name="skip" value={48}>
-                    Page 3
+                  Page 3
                   </button> */}
                   {/* <input type="checkbox" name="skip" value="16" />
                   <input type="checkbox" name="skip" value={32} />
-                  <input type="checkbox" name="skip" value={48} /> */}
+                <input type="checkbox" name="skip" value={48} /> */}
                 </section>
+                Max price: £{price}
+                <input
+                  type="range"
+                  id="price"
+                  name="price"
+                  min="0"
+                  max="1000"
+                  default="1000"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                ></input>
                 <button type="submit">Search</button>
               </section>
             ) : (

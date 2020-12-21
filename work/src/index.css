@@ -75,51 +75,51 @@ p {
   padding-right: 25px;
 }
 
-.small{
+.small {
   font-size: 200%;
   left: 15px;
 }
-.fas-shopping-cart{
+.fas-shopping-cart {
   height: 95px;
-  width:95px;
+  width: 95px;
 }
 .rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+  float: left;
+  height: 46px;
+  padding: 0 10px;
 }
 .rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+  position: absolute;
+  top: -9999px;
 }
 .rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
 }
 .rate:not(:checked) > label:before {
-    content: '★ ';
+  content: "★ ";
 }
 .rate > input:checked ~ label {
-    color: #ffc700;    
+  color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+  color: #deb217;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
+  color: #c59b08;
 }
 
-label{
+label {
   position: relative;
   /* left: 30px; */
   font-size: 120%;
@@ -131,6 +131,13 @@ label{
   flex-wrap: wrap;
   justify-content: space-around;
 } */
+
+.listbox {
+  border: 2px solid #ccc;
+  width: 300px;
+  height: 100px;
+  overflow-y: scroll;
+}
 
 .col-2 {
   flex-basis: 50%;
@@ -144,7 +151,7 @@ label{
   max-width: 515px;
   padding: 50px 0;
 }
-.row{
+.row {
   margin-left: 0;
 }
 .col-2-pics {
@@ -531,17 +538,16 @@ ul {
   background-color: #f44336;
   color: white;
 }
- .animated {
-    -webkit-transition: height 0.2s;
-    -moz-transition: height 0.2s;
-    transition: height 0.2s;
+.animated {
+  -webkit-transition: height 0.2s;
+  -moz-transition: height 0.2s;
+  transition: height 0.2s;
 }
 
-.stars
-{
-    margin: 20px 0;
-    font-size: 24px;
-    color: #d17581;
+.stars {
+  margin: 20px 0;
+  font-size: 24px;
+  color: #d17581;
 }
 
 .closebtn {
@@ -794,7 +800,6 @@ th:last-child {
     /* margin-top: 20px; */
   }
 
-  
   .wow {
     font-size: large;
     position: relative;
@@ -828,7 +833,7 @@ th:last-child {
     flex-basis: 100%;
   }
 
-  .row .header.work{
+  .row .header.work {
     width: 100%;
     left: 0px;
   }
@@ -865,39 +870,39 @@ th:last-child {
   }
 
   .col-2 {
-  flex-basis: 50%;
-  /* right: 40px; */
-  min-width: 300px;
-}
+    flex-basis: 50%;
+    /* right: 40px; */
+    min-width: 300px;
+  }
 
-.col-2 img {
-  /* right: 60px; */
-  width: 100%;
-  height: 100%;
-  max-height: 515px;
-  max-width: 515px;
-  padding: 50px 0;
-}
+  .col-2 img {
+    /* right: 60px; */
+    width: 100%;
+    height: 100%;
+    max-height: 515px;
+    max-width: 515px;
+    padding: 50px 0;
+  }
 
-.col-2-pics {
-  flex-basis: 50%;
-  min-width: 100vw;
-}
+  .col-2-pics {
+    flex-basis: 50%;
+    min-width: 100vw;
+  }
 
-.rec-dot_active {
-  color: blue;
-  background-color: blue;
-}
+  .rec-dot_active {
+    color: blue;
+    background-color: blue;
+  }
 
-.col-2-pics img {
-  position: relative;
-  width: 100vw;
-  height: 450px;
-  margin-left: 40px;
-  max-height: 600px;
-  max-width: 700px;
-  padding: 50px 0;
-}
+  .col-2-pics img {
+    position: relative;
+    width: 100vw;
+    height: 450px;
+    margin-left: 40px;
+    max-height: 600px;
+    max-width: 700px;
+    padding: 50px 0;
+  }
   .single-product h1 {
     font-size: 26px;
     line-height: 32px;
@@ -943,6 +948,5 @@ th:last-child {
     font-weight: 300;
   }
 
-  
   /* Style for Circular Checkbox */
 }

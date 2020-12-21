@@ -5,8 +5,6 @@ import Product from "../components/Product";
 import StoreRows from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
-import "../css/listbox.css"
-import "../components/js/listbox"
 
 // for products need to use fetch
 const People = (props) => {
@@ -89,7 +87,7 @@ const People = (props) => {
         <br />
         <br />
         <br />
-        <section className="p" role="listbox" aria-labelledby="ss_elem">
+        <section className="p">
           <form
             className="f-col filter filter-container"
             action="/store"
@@ -99,7 +97,7 @@ const People = (props) => {
               <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h5>Filters</h5>
 
-                <section class="mb-4">
+                <section className="mb-4 listbox">
                   <h6
                     class="font-weight-bold mb-3"
                     style={{ padding: "10px", backgroundColor: "whitesmoke" }}

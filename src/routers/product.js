@@ -655,8 +655,8 @@ router.get('/featuredRows', async (req, res) => {
 
 router.get('/otherReviews', async (req, res) => {
   var revs = await Product.find({ _id: { $ne: req.query.id }, category: req.query.category });
-  console.log('number 3');
-  console.log(revs);
+  // console.log('number 3');
+  // console.log(revs);
   res.send({
     name: revs,
   });
@@ -697,7 +697,7 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({});
-    console.log(await Product.find({ category: ['jim'] }));
+    // console.log(await Product.find({ category: ['jim'] }));
     pro.forEach((n) => {
       clothes.push(n);
     });
@@ -714,15 +714,20 @@ router.post('/store', async (req, res) => {
       var admin = true;
     }
 
-    console.log(req.body.skip)
+    // console.log(req.body.skip)
     // console.log(req.body)
     console.log('i work5');
 
     var pro1 = await filter(req.body);
-    console.log(pro1);
+    // console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
+
+    var skipValue = req.body.skip + 16
+    clothes = clothes.slice(req.body.skip, skipValue)
+
+    console.log(clothes)
   }
   res.send({
     pageTitle: 'welcome',

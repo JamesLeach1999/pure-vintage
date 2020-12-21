@@ -522,8 +522,8 @@ var filter = async function (query) {
   if(query.price > 0){
     pr = query.price
   }
-console.log("yeyey")
-  console.log(pr)
+// console.log("yeyey")
+//   console.log(pr)
 
   var products;
 

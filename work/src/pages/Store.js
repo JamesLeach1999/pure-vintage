@@ -5,7 +5,7 @@ import Product from "../components/Product";
 import StoreRows from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
-
+import "../css/filter.css"
 // for products need to use fetch
 const People = (props) => {
   var [price, setPrice] = useState(0);
@@ -750,18 +750,7 @@ console.log(clicked)
                       Trousers
                     </label>
                   </div>
-                  {/* <input type="radio" name="skip" value={16}>
-                    Page 1
-                  </input>
-                  <input type="radio" name="skip" value={32}>
-                    Page 2
-                  </input>
-                  <button name="skip" value={48}>
-                  Page 3
-                  </button> */}
-                  {/* <input type="checkbox" name="skip" value="16" />
-                  <input type="checkbox" name="skip" value={32} />
-                <input type="checkbox" name="skip" value={48} /> */}
+                  
                 </section>
                 Max price: £{price}
                 <input
@@ -1393,8 +1382,7 @@ console.log(clicked)
                         Coats
                       </label>
                     </div>
-                    {/* class="form-check-input filled-in" class="form-check-label small
-                text-uppercase card-link-secondary" */}
+                    
                     <div class="form-check pl-0 mb-3">
                       <input
                         type="checkbox"
@@ -1539,19 +1527,10 @@ console.log(clicked)
                       name="price"
                       min="0"
                       max="1000"
-                      // default="1000"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     ></input>
-                    {/* <button name="skip" value={16}>
-                    Page 1
-                  </button>
-                  <button name="skip" value={32}>
-                    Page 2
-                  </button>
-                  <button name="skip" value={48}>
-                    Page 3
-                  </button> */}
+                    
                   </section>
                   <button type="submit">Search</button>
                   <h4

@@ -88,7 +88,7 @@ console.log(clicked)
         <br />
         <section className="p">
           <form
-            className="f-col filter filter-container"
+            className="f-col filter filter-container filterItems"
             action="/store"
             style={style}
           >
@@ -779,7 +779,7 @@ console.log(clicked)
             ) : (
               <section className="filterItems" style={{ fontSize: "65%" }}>
                 <h5>Filters</h5>
-                <div className={clicked ? "filter-menu active" : "filter-menu"}>
+                <ul className={clicked ? "filter-menu active" : "filter-menu"}>
                   <section class="mb-4">
                     <h6
                       className="font-weight-bold mb-3"
@@ -788,7 +788,7 @@ console.log(clicked)
                       Size
                     </h6>
 
-                    <div class="form-check pl-0 mb-3 pb-1">
+                    <div class="form-check pl-0 mb-3 pb-1 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -803,7 +803,7 @@ console.log(clicked)
                         26"-30"
                       </label>
                     </div>
-                    <div class="form-check pl-0 mb-3 pb-1">
+                    <div class="form-check pl-0 mb-3 pb-1 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -818,7 +818,7 @@ console.log(clicked)
                         31"-34"
                       </label>
                     </div>
-                    <div class="form-check pl-0 mb-3 pb-1">
+                    <div class="form-check pl-0 mb-3 pb-1 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -834,7 +834,7 @@ console.log(clicked)
                       </label>
                     </div>
 
-                    <div class="form-check pl-0 mb-3">
+                    <div class="form-check pl-0 mb-3 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -849,7 +849,7 @@ console.log(clicked)
                         XS
                       </label>
                     </div>
-                    <div class="form-check pl-0 mb-3 pb-1">
+                    <div class="form-check pl-0 mb-3 pb-1 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -864,7 +864,7 @@ console.log(clicked)
                         S
                       </label>
                     </div>
-                    <div class="form-check pl-0 mb-3">
+                    <div class="form-check pl-0 mb-3 filter-links">
                       <input
                         type="checkbox"
                         class="form-check-input filled-in"
@@ -1561,7 +1561,7 @@ console.log(clicked)
                   >
                     Filters
                   </h4>
-                </div>
+                </ul>
               </section>
             )}
           </form>

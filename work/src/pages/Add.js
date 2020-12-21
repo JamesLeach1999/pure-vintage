@@ -132,6 +132,8 @@ const Addpage = () => {
                 <option value="trousers">Trousers</option>
                 <option value="puffer">Puffer jackets</option>
                 <option value="sweatshirts">Sweatshirts</option>
+                <option value="fleeces">Fleeces</option>
+
                 <option value="caps">Caps</option>
                 <option value="shirts">Shirts</option>
                 <option value="polos">Polos</option>

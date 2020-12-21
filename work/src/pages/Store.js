@@ -5,6 +5,9 @@ import Product from "../components/Product";
 import StoreRows from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
+import "../css/listbox.css"
+import "../components/js/listbox"
+import "../components/js/listbox-scrollable";
 
 // for products need to use fetch
 const People = (props) => {
@@ -87,7 +90,7 @@ const People = (props) => {
         <br />
         <br />
         <br />
-        <section className="p">
+        <section className="p" role="listbox" aria-labelledby="ss_elem">
           <form
             className="f-col filter filter-container"
             action="/store"
@@ -724,6 +727,9 @@ const People = (props) => {
                   <button name="skip" value={48}>
                     Page 3
                   </button> */}
+                  <input type="checkbox" name="skip" value={16} />
+                  <input type="checkbox" name="skip" value={32} />
+                  <input type="checkbox" name="skip" value={48} />
                 </section>
                 <button type="submit">Search</button>
               </section>

@@ -713,6 +713,8 @@ router.post('/store', async (req, res) => {
       var auth = true;
       var admin = true;
     }
+
+    console.log(req.body.skip)
     // console.log(req.body)
     console.log('i work5');
 

@@ -459,19 +459,20 @@ const People = (props) => {
                       Levi
                     </label>
                   </div>
+                  
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
-                      value="levi"
-                      id="levi"
+                      value="helly"
+                      id="helly"
                       name="brand"
                     />
                     <label
                       class="form-check-label small text-uppercase card-link-secondary"
-                      for="levi"
+                      for="helly"
                     >
-                      Levi
+                      Helly Hansen
                     </label>
                   </div>
                 </section>

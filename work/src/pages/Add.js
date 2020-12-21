@@ -113,6 +113,8 @@ const Addpage = () => {
                 <option value="adidas">Adidas</option>
                 <option value="north">North Face</option>
                 <option value="carhartt">Carhartt</option>
+                <option value="helly">Helly hansen</option>
+                <option value="umbro">Umbro</option>
               </select>
             </li>
             <br />

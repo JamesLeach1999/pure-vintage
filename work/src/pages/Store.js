@@ -13,7 +13,7 @@ const People = (props) => {
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
   const [animate, setAnimate] = useState(false);
-  var [clicked, setClick] = useState(false)
+  var [clicked, setClick] = useState(false);
   // this outputs 770px
   console.log(size);
   console.log(localStorage.getItem("unAuthCart"));
@@ -21,7 +21,6 @@ const People = (props) => {
   console.log(sessionStorage);
 
   const bigSize = {
-
     maxWidth: "350px",
     position: "relative",
     left: "40px",
@@ -780,15 +779,7 @@ const People = (props) => {
               </section>
             ) : (
               <section style={{ fontSize: "65%" }}>
-                <h5
-                  style={{ top: "90vh", border: "2px solid black" }}
-                  onClick={() => setClick(!clicked)}
-                  className={
-                    clicked ? "nav-menu active" : "nav-menu"
-                  }
-                >
-                  Filters
-                </h5>
+                <h5>Filters</h5>
 
                 <section class="mb-4">
                   <h6
@@ -1564,6 +1555,13 @@ const People = (props) => {
                   </button> */}
                 </section>
                 <button type="submit">Search</button>
+                <h4
+                  className="navbar-logo"
+                  onClick={() => setClick(!clicked)}
+                  style={{ left: "0", marginRight: "200px", top: "90vh" }}
+                >
+                  Filters
+                </h4>
               </section>
             )}
           </form>

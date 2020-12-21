@@ -777,7 +777,7 @@ console.log(clicked)
                   borderRadius: "7%",
                   transform: "rotate(-90deg)",
                   top: "150px",
-                  width: "50px",
+                  // width: "50px",
                   position: "fixed",
                 }}
               >
@@ -795,7 +795,7 @@ console.log(clicked)
                   {/* <h5>Filters</h5> */}
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
-                    style={{height: "100vh"}}
+                    style={{height: "100%", zIndex: "29292929"}}
                   >
                     <section class="mb-4">
                       <h6

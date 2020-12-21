@@ -87,6 +87,13 @@ console.log(clicked)
         <br />
         <br />
         <section className="p">
+          <h1
+            className="filter-logo"
+            onClick={() => setClick(!clicked)}
+            style={{ left: "0", marginRight: "200px", transform: "rotate(-90deg)", width: "200px", height: "200px" }}
+          >
+            Filters
+          </h1>
           <form
             className="f-col filter filter-container filterItems"
             action="/store"
@@ -750,7 +757,6 @@ console.log(clicked)
                       Trousers
                     </label>
                   </div>
-                  
                 </section>
                 Max price: £{price}
                 <input
@@ -1382,7 +1388,6 @@ console.log(clicked)
                         Coats
                       </label>
                     </div>
-                    
                     <div class="form-check pl-0 mb-3">
                       <input
                         type="checkbox"
@@ -1530,20 +1535,12 @@ console.log(clicked)
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     ></input>
-                    
                   </section>
                   <button type="submit">Search</button>
                 </ul>
               </section>
             )}
           </form>
-                  <h4
-                    className="filter-logo"
-                    onClick={() => setClick(!clicked)}
-                    style={{ left: "0", marginRight: "200px", top: "200vh" }}
-                  >
-                    Filters
-                  </h4>
 
           {/* </label> */}
           {/* <label className="checkbox filter">
@@ -1609,7 +1606,7 @@ console.log(clicked)
         <button type="submit">
           btn
         </button> */}
-          <StoreRows />
+          <StoreRows style={{width: "100%"}}/>
 
           <br />
           <br />

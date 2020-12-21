@@ -771,6 +771,7 @@ console.log(clicked)
                 onClick={() => setClick(!clicked)}
                 style={{
                   left: "0",
+                  marginLeft: "8px",
                   marginRight: "500px",
                   backgroundColor: "whitesmoke",
                   border: "1px solid black",

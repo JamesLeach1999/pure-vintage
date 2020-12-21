@@ -774,10 +774,11 @@ console.log(clicked)
                   marginLeft: "8px",
                   marginRight: "500px",
                   backgroundColor: "whitesmoke",
-                  border: "1px solid black",
+                  border: "2px solid black",
                   borderRadius: "7%",
                   transform: "rotate(-90deg)",
                   top: "150px",
+                  padding: "5px",
                   // width: "50px",
                   position: "fixed",
                 }}
@@ -809,7 +810,7 @@ console.log(clicked)
                         Size
                       </h6>
 
-                      <div class="form-check pl-0 mb-3 pb-1 filter-links">
+                      <div class="form-check pl-0 mb-3 pb-1">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
@@ -824,7 +825,7 @@ console.log(clicked)
                           26"-30"
                         </label>
                       </div>
-                      <div class="form-check pl-0 mb-3 pb-1 filter-links">
+                      <div class="form-check pl-0 mb-3 pb-1">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
@@ -839,7 +840,7 @@ console.log(clicked)
                           31"-34"
                         </label>
                       </div>
-                      <div class="form-check pl-0 mb-3 pb-1 filter-links">
+                      <div class="form-check pl-0 mb-3 pb-1">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
@@ -855,7 +856,7 @@ console.log(clicked)
                         </label>
                       </div>
 
-                      <div class="form-check pl-0 mb-3 filter-links">
+                      <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
@@ -870,7 +871,7 @@ console.log(clicked)
                           XS
                         </label>
                       </div>
-                      <div class="form-check pl-0 mb-3 pb-1 filter-links">
+                      <div class="form-check pl-0 mb-3 pb-1">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"

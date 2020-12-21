@@ -950,7 +950,7 @@ th:last-child {
 
   .listbox {
   border: none;
-  height: 250px;
+  height: 200px;
   overflow-y: scroll;
 }
 

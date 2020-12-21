@@ -43,7 +43,7 @@ const People = (props) => {
   const checkSize = () => {
     setSize(window.innerWidth);
   };
-console.log(clicked)
+
   useEffect(() => {
     if (window.innerWidth > 660) {
       setStyle(bigSize);
@@ -781,11 +781,7 @@ console.log(clicked)
               <section style={{ fontSize: "65%" }}>
                 <h5>Filters</h5>
 
-                <section
-                  className="navbar-logo mb-4"
-                  onClick={() => setClick(!clicked)}
-                  style={{ left: "0", marginRight: "200px", top: "90vh" }}
-                >
+                <section class="mb-4">
                   <h6
                     class="font-weight-bold mb-3"
                     style={{ padding: "10px", backgroundColor: "whitesmoke" }}

@@ -8,7 +8,6 @@ import FadeIn from "react-fade-in";
 
 // for products need to use fetch
 const People = (props) => {
-  var [clicked, setClicked] = useState(false);
   var [price, setPrice] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
@@ -19,7 +18,7 @@ const People = (props) => {
   console.log(localStorage.getItem("unAuthCart"));
   console.log(localStorage);
   console.log(sessionStorage);
-
+console.log(clicked)
   const bigSize = {
     maxWidth: "350px",
     position: "relative",

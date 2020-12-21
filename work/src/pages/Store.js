@@ -775,8 +775,10 @@ console.log(clicked)
               onClick={() => setClick(!clicked)}
               style={{
                 left: "0",
+                marginRight: "500px", color: "red",
                 transform: "rotate(-90deg)",
                 top: "150px",
+                width: "50px",
                 position: "fixed",
               }}
             >

@@ -7,7 +7,6 @@ import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
 import "../css/listbox.css"
 import "../components/js/listbox"
-import "../components/js/listbox-scrollable";
 
 // for products need to use fetch
 const People = (props) => {

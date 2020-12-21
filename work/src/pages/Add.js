@@ -117,6 +117,7 @@ const Addpage = () => {
                 <option value="umbro">Umbro</option>
                 <option value="firetrap">Firetrap</option>
                 <option value="berghaus">Berghaus</option>
+                <option value="gap">GAP</option>
               </select>
             </li>
             <br />

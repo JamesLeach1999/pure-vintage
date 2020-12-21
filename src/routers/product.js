@@ -581,23 +581,30 @@ router.get('/store1', async (req, res) => {
     req.query.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
 
     pro.forEach((n) => {
       clothes.push(n);
     });
   } else {
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
     console.log('i work5');
+
+    console.log(req.query)
 
     var pro1 = await filter(req.query);
     console.log(JSON.stringify(pro1));
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
+
+    var skipValue = req.body.skip + 16;
+    clothes = clothes.slice(req.body.skip, skipValue);
+    console.log('thats wangernumb555');
+    console.log(clothes);
   }
 console.log("yeees")
-  console.log(JSON.stringify(clothes))
+  // console.log(JSON.stringify(clothes))
   res.send({
     pageTitle: 'welcome',
     names: clothes,

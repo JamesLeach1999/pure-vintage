@@ -43,7 +43,7 @@ const People = (props) => {
   const checkSize = () => {
     setSize(window.innerWidth);
   };
-
+console.log(clicked)
   useEffect(() => {
     if (window.innerWidth > 660) {
       setStyle(bigSize);
@@ -1558,7 +1558,7 @@ const People = (props) => {
                 <h4
                   className="navbar-logo"
                   onClick={() => setClick(!clicked)}
-                  style={{ left: "0", marginRight: "200px", top: "90vh" }}
+                  style={{ left: "0", marginRight: "200px", top: "200vh" }}
                 >
                   Filters
                 </h4>

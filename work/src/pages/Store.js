@@ -94,14 +94,13 @@ console.log(clicked)
           >
             Filters
           </h1>
-          <form
+            {/* {window.innerWidth > 660 ? ( */}
+          {/* <form
             className="f-col filter filter-container filterItems"
             action="/store"
             style={style}
-          >
-            {window.innerWidth > 660 ? (
-              <section style={{ height: "1500px", fontSize: "110%" }}>
-                <h5>Filters</h5>
+          > */}
+              {/* <section style={{ height: "1500px", fontSize: "110%" }}>
                 <h6
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
@@ -771,9 +770,15 @@ console.log(clicked)
                 ></input>
                 <button type="submit">Search</button>
               </section>
-            ) : (
+              </form> */}
+            {/* ) : ( */}
+            <form
+            className="f-col filter filter-container filterItems"
+            action="/store"
+            style={style}
+          >
               <section className="filterItems" style={{ fontSize: "65%" }}>
-                <h5>Filters</h5>
+                {/* <h5>Filters</h5> */}
                 <ul className={clicked ? "filter-menu active" : "filter-menu"}>
                   <section class="mb-4">
                     <h6
@@ -1539,8 +1544,9 @@ console.log(clicked)
                   <button type="submit">Search</button>
                 </ul>
               </section>
-            )}
-          </form>
+              </form>
+            {/* )} */}
+          {/* </form> */}
 
           {/* </label> */}
           {/* <label className="checkbox filter">

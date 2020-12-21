@@ -804,7 +804,7 @@ console.log(clicked)
                     }}
                   >
                     <section class="mb-4 listbox">
-                      <h4
+                      <h5
                         className="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -812,7 +812,7 @@ console.log(clicked)
                         }}
                       >
                         Size
-                      </h4>
+                      </h5>
 
                       <div class="form-check pl-0 mb-3 pb-1">
                         <input
@@ -953,7 +953,7 @@ console.log(clicked)
                     </section>
 
                     <section class="mb-4 listbox">
-                      <h4
+                      <h5
                         class="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -961,7 +961,7 @@ console.log(clicked)
                         }}
                       >
                         Brand
-                      </h4>
+                      </h5>
 
                       <div class="form-check pl-0 mb-3">
                         <input
@@ -1281,7 +1281,7 @@ console.log(clicked)
                     </section>
 
                     <section class="mb-4 listbox">
-                      <h4
+                      <h5
                         class="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -1289,7 +1289,7 @@ console.log(clicked)
                         }}
                       >
                         Categories
-                      </h4>
+                      </h5>
                       <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"
@@ -1562,7 +1562,7 @@ console.log(clicked)
                       </div>
                       <br />
                     </section>
-                    <h4>Max price: £{price}</h4>
+                    <h5>Max price: £{price}</h5>
 
                     <input
                       style={{ fontSize: "15px" }}
@@ -1577,10 +1577,10 @@ console.log(clicked)
                     <button
                       type="submit"
                       style={{
-                        backgroundColor: "#e7e7e7" /* Green */,
+                        backgroundColor: "#e7e7e7",
                         border: "none",
                         color: "black",
-                        padding: "15px 32px",
+                        padding: "8px 32px",
                         textAlign: "center",
                         textDecoration: "none",
                         display: "inline-block",

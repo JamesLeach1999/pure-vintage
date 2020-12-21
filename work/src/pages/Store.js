@@ -771,7 +771,7 @@ console.log(clicked)
                 onClick={() => setClick(!clicked)}
                 style={{
                   left: "0",
-                  marginLeft: "8px",
+                  marginLeft: "-25px",
                   marginRight: "500px",
                   backgroundColor: "whitesmoke",
                   border: "2px solid black",
@@ -797,10 +797,14 @@ console.log(clicked)
                   {/* <h5>Filters</h5> */}
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
-                    style={{height: "100%", zIndex: "29292929", minHeight: "2500px"}}
+                    style={{
+                      height: "100%",
+                      zIndex: "29292929",
+                      minHeight: "2500px",
+                    }}
                   >
                     <section class="mb-4 listbox">
-                      <h6
+                      <h4
                         className="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -808,7 +812,7 @@ console.log(clicked)
                         }}
                       >
                         Size
-                      </h6>
+                      </h4>
 
                       <div class="form-check pl-0 mb-3 pb-1">
                         <input
@@ -949,7 +953,7 @@ console.log(clicked)
                     </section>
 
                     <section class="mb-4 listbox">
-                      <h6
+                      <h4
                         class="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -957,7 +961,7 @@ console.log(clicked)
                         }}
                       >
                         Brand
-                      </h6>
+                      </h4>
 
                       <div class="form-check pl-0 mb-3">
                         <input
@@ -1277,7 +1281,7 @@ console.log(clicked)
                     </section>
 
                     <section class="mb-4 listbox">
-                      <h6
+                      <h4
                         class="font-weight-bold mb-3"
                         style={{
                           padding: "10px",
@@ -1285,7 +1289,7 @@ console.log(clicked)
                         }}
                       >
                         Categories
-                      </h6>
+                      </h4>
                       <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"
@@ -1557,19 +1561,36 @@ console.log(clicked)
                         </label>
                       </div>
                       <br />
-                      Max price: £{price}
-                      <input
-                        style={{ fontSize: "15px" }}
-                        type="number"
-                        id="price"
-                        name="price"
-                        min="0"
-                        max="1000"
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                      ></input>
                     </section>
-                    <button type="submit">Search</button>
+                    <h4>Max price: £{price}</h4>
+
+                    <input
+                      style={{ fontSize: "15px" }}
+                      type="number"
+                      id="price"
+                      name="price"
+                      min="0"
+                      max="1000"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                    ></input>
+                    <button
+                      type="submit"
+                      style={{
+                        backgroundColor: "#e7e7e7" /* Green */,
+                        border: "none",
+                        color: "black",
+                        padding: "15px 32px",
+                        textAlign: "center",
+                        textDecoration: "none",
+                        display: "inline-block",
+                        fontSize: "16px",
+                        margin: "4px 2px",
+                        cursor: " pointer",
+                      }}
+                    >
+                      Search
+                    </button>
                   </ul>
                 </form>
               </section>

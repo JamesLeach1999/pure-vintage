@@ -779,7 +779,7 @@ console.log(clicked)
                   transform: "rotate(-90deg)",
                   top: "150px",
                   padding: "5px",
-                  // width: "50px",
+                  width: "100px",
                   position: "fixed",
                 }}
               >
@@ -886,7 +886,7 @@ console.log(clicked)
                           S
                         </label>
                       </div>
-                      <div class="form-check pl-0 mb-3 filter-links">
+                      <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
@@ -1276,7 +1276,7 @@ console.log(clicked)
                       </div>
                     </section>
 
-                    <section class="mb-4">
+                    <section class="mb-4 listbox">
                       <h6
                         class="font-weight-bold mb-3"
                         style={{

@@ -128,7 +128,7 @@ const Manage = () => {
             });
           })}
         </div>
-        <div className="row1 product">
+        <div className="row product">
           {data.map((products) => {
             return products.slice(page + 4, page + 8).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -174,7 +174,7 @@ const Manage = () => {
             });
           })}
         </div>
-        <div className="row1 product">
+        <div className="row product">
           {data.map((products) => {
             return products.slice(page + 8, page + 12).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -220,7 +220,7 @@ const Manage = () => {
             });
           })}
         </div>
-        <div className="row1 product">
+        <div className="row product">
           {data.map((products) => {
             return products.slice(page + 12, page + 16).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

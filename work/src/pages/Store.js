@@ -90,7 +90,7 @@ console.log(clicked)
           <h1
             className="filter-logo"
             onClick={() => setClick(!clicked)}
-            style={{ left: "0", marginRight: "200px", transform: "rotate(-90deg)", top: "150px" }}
+            style={{ left: "0", transform: "rotate(-90deg)", top: "150px", position: "fixed" }}
           >
             Filters
           </h1>

@@ -774,9 +774,9 @@ const People = (props) => {
                   <button name="skip" value={48}>
                     Page 3
                   </button> */}
-                  <input type="checkbox" name="skip" value="16" />
+                  {/* <input type="checkbox" name="skip" value="16" />
                   <input type="checkbox" name="skip" value={32} />
-                  <input type="checkbox" name="skip" value={48} />
+                  <input type="checkbox" name="skip" value={48} /> */}
                 </section>
                 <button type="submit">Search</button>
               </section>

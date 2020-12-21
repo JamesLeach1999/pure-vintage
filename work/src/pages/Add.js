@@ -67,7 +67,7 @@ const Addpage = () => {
       <div
         class="grid category"
         className="small-container"
-        style={{ alignContent: "left", textAlign: "left" }}
+        style={{ alignContent: "left", textAlign: "left", fontSize: "200%" }}
       >
         <br />
         <br />
@@ -115,6 +115,8 @@ const Addpage = () => {
                 <option value="carhartt">Carhartt</option>
                 <option value="helly">Helly hansen</option>
                 <option value="umbro">Umbro</option>
+                <option value="firetrap">Firetrap</option>
+                <option value="berghaus">Berghaus</option>
               </select>
             </li>
             <br />

@@ -13,7 +13,7 @@ const Test = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     try {
@@ -22,11 +22,11 @@ const Test = () => {
         console.log(window.location);
         const json = await response.json();
         setData([json.names]);
-        setLoading(false)
+        setLoading(false);
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-        
+
         console.log(parsed["skip"]);
 
         console.log(parsed["category"]);
@@ -35,24 +35,24 @@ const Test = () => {
         // console.log(response);
         // const json = await response.json();
         var skip;
-        if(!parsed['skip']){
-            skip = 0
+        if (!parsed["skip"]) {
+          skip = 0;
         } else {
-            skip = parseInt(parsed["skip"]);
+          skip = parseInt(parsed["skip"]);
         }
         const res = await Axios.get("/store1", {
           params: {
             category: parsed["category"],
             brand: parsed["brand"],
             size: parsed["size"],
-            price: parsed['price'],
-            skip: skip
+            price: parsed["price"],
+            skip: skip,
           },
         });
-        console.log(res)
+        console.log(res);
         setData([res.data.names]);
-        console.log(data)
-        setLoading(false)
+        console.log(data);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -130,11 +130,65 @@ const Test = () => {
       <div className="pagination-div">
         <form>
           {/* <input type="submit" name="skip" value={16} /> */}
-          <button type="submit" name="skip" value={16}>1</button>
+          <button
+            type="submit"
+            name="skip"
+            value={16}
+            style={{
+              backgroundColor: "#e7e7e7" /* Green */,
+              border: "none",
+              color: "black",
+              padding: "15px 32px",
+              textAlign: "center",
+              textDecoration: "none",
+              display: "inline-block",
+              fontSize: "16px",
+              margin: "4px 2px",
+              cursor: " pointer",
+            }}
+          >
+            1
+          </button>
 
-          <input type="submit" name="skip" value={32} />
+          <button
+            type="submit"
+            name="skip"
+            value={32}
+            style={{
+              backgroundColor: "#e7e7e7" /* Green */,
+              border: "none",
+              color: "black",
+              padding: "15px 32px",
+              textAlign: "center",
+              textDecoration: "none",
+              display: "inline-block",
+              fontSize: "16px",
+              margin: "4px 2px",
+              cursor: " pointer",
+            }}
+          >
+            2
+          </button>
 
-          <input type="submit" name="skip" value={48} />
+          <button
+            type="submit"
+            name="skip"
+            value={48}
+            style={{
+              backgroundColor: "#e7e7e7" /* Green */,
+              border: "none",
+              color: "black",
+              padding: "15px 32px",
+              textAlign: "center",
+              textDecoration: "none",
+              display: "inline-block",
+              fontSize: "16px",
+              margin: "4px 2px",
+              cursor: " pointer",
+            }}
+          >
+            3
+          </button>
         </form>
       </div>
       <br />

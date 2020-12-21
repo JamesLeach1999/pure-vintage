@@ -133,8 +133,8 @@ label {
 } */
 
 .listbox {
-  border: 2px solid #ccc;
-  width: 200px;
+  border: none;
+  width: 250px;
   height: 450px;
   overflow-y: scroll;
 }

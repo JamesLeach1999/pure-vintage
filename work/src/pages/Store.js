@@ -781,7 +781,11 @@ console.log(clicked)
               <section style={{ fontSize: "65%" }}>
                 <h5>Filters</h5>
 
-                <section class="mb-4">
+                <section
+                  className="navbar-logo mb-4"
+                  onClick={() => setClick(!clicked)}
+                  style={{ left: "0", marginRight: "200px", top: "90vh" }}
+                >
                   <h6
                     class="font-weight-bold mb-3"
                     style={{ padding: "10px", backgroundColor: "whitesmoke" }}
@@ -789,7 +793,14 @@ console.log(clicked)
                     Size
                   </h6>
 
-                  <div class="form-check pl-0 mb-3 pb-1">
+                  <div
+                    // class="form-check pl-0 mb-3 pb-1"
+                    className={
+                      clicked
+                        ? "form-check pl-0 mb-3 pb-1 nav-menu active"
+                        : " form-check pl-0 mb-3 pb-1 nav-menu"
+                    }
+                  >
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"

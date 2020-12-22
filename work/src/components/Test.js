@@ -133,7 +133,7 @@ const Test = () => {
           <button
             type="submit"
             name="skip"
-            value={16}
+            value={0}
             style={{
               backgroundColor: "#e7e7e7" /* Green */,
               border: "none",
@@ -153,7 +153,7 @@ const Test = () => {
           <button
             type="submit"
             name="skip"
-            value={32}
+            value={16}
             style={{
               backgroundColor: "#e7e7e7" /* Green */,
               border: "none",
@@ -173,7 +173,7 @@ const Test = () => {
           <button
             type="submit"
             name="skip"
-            value={48}
+            value={32}
             style={{
               backgroundColor: "#e7e7e7" /* Green */,
               border: "none",
@@ -188,6 +188,25 @@ const Test = () => {
             }}
           >
             3
+          </button>
+          <button
+            type="submit"
+            name="skip"
+            value={48}
+            style={{
+              backgroundColor: "#e7e7e7" /* Green */,
+              border: "none",
+              color: "black",
+              padding: "15px 32px",
+              textAlign: "center",
+              textDecoration: "none",
+              display: "inline-block",
+              fontSize: "16px",
+              margin: "4px 2px",
+              cursor: " pointer",
+            }}
+          >
+            4
           </button>
         </form>
       </div>

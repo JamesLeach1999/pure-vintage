@@ -27,7 +27,7 @@ class CatRows extends Component {
 
   render() {
     return (
-      <div className="small-container" style={{justifyContent: "center"}}>
+      <div className="small-container" style={{ justifyContent: "center" }}>
         <h1>Categories</h1>
         <div className="row">
           <Link to="/store?category=shirts">
@@ -36,7 +36,12 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "40px" }}>Shirts</h1>
+              <h1
+                className="cat-pic"
+                style={{ textAlign: "center", fontSize: "40px" }}
+              >
+                Shirts
+              </h1>
             </div>
           </Link>
           <Link to="/store?category=puffer">
@@ -45,7 +50,10 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+              <h1
+                lassName="cat-pic"
+                style={{ textAlign: "center", fontSize: "40px" }}
+              >
                 Puffer jackets
               </h1>
             </div>
@@ -56,7 +64,12 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606574995/P0_1_a_jn2c3w.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "40px" }}>Fleeces</h1>
+              <h1
+                lassName="cat-pic"
+                style={{ textAlign: "center", fontSize: "40px" }}
+              >
+                Fleeces
+              </h1>
             </div>
           </Link>
           <Link to="/store?category=trackjack">
@@ -65,7 +78,10 @@ class CatRows extends Component {
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1608132498/greyad2.jpg.jpg"
                 alt=""
               />
-              <h1 style={{ textAlign: "center", fontSize: "40px" }}>
+              <h1
+                lassName="cat-pic"
+                style={{ textAlign: "center", fontSize: "40px" }}
+              >
                 Track jackets
               </h1>
             </div>

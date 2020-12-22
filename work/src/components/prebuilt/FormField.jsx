@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 const FormFieldContainer = styled.div`
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
   -ms-flex-align: center;
   align-items: center;
   margin-left: 15px;

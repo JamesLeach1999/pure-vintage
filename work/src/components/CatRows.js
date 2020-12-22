@@ -37,7 +37,7 @@ class CatRows extends Component {
                 alt=""
               />
               <h1
-                className="cat-pic"
+                // className="cat-pic"
                 style={{ textAlign: "center", fontSize: "40px" }}
               >
                 Shirts

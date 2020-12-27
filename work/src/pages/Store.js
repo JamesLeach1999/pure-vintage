@@ -302,7 +302,7 @@ console.log(clicked)
                       class="form-check-label small text-uppercase card-link-secondary"
                       for="ralph"
                     >
-                      Ralph
+                      Ralph lauren
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">

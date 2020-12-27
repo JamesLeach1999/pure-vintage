@@ -17,60 +17,69 @@ var reviewSchema = new mongoose.Schema({
     timestamps: true
   });
   
-  var productSchema = new mongoose.Schema({
-    name: {
-      type: String,
-      required: true
-    },
-    image: [{
-      type: String,
-      required: true
-    }],
-    brand: {
-      type: String,
-      required: true
-    },
-    price: {
-      type: Number,
-      "default": 0,
-      required: true
-    },
-    category: {
-      type: String,
-      required: true
-    },
-    size:{
-      type: String,
-      required: true
-    },
-    inStock:{
-      type: Boolean,
-      default: true
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    rating: {
-      type: Number,
-      "default": 0
-      // required: true
-    },
-    featured:{
-      type: Boolean,
-      default: false
-    },
-    
+  var productSchema = new mongoose.Schema(
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      image: [
+        {
+          type: String,
+          required: true,
+        },
+      ],
+      brand: {
+        type: String,
+        default: 'n/a',
+        required: true,
+      },
+      price: {
+        type: Number,
+        default: 0,
+        required: true,
+      },
+      category: {
+        type: String,
+        default: 'n/a',
 
-    numReviews: {
-      type: Number,
-      "default": 0
-      // required: true
+        required: true,
+      },
+      size: {
+        type: String,
+        default: 'n/a',
+
+        required: true,
+      },
+      inStock: {
+        type: Boolean,
+        default: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      rating: {
+        type: Number,
+        default: 0,
+        // required: true
+      },
+      featured: {
+        type: Boolean,
+        default: false,
+      },
+
+      numReviews: {
+        type: Number,
+        default: 0,
+        // required: true
+      },
+      reviews: [reviewSchema],
     },
-    reviews: [reviewSchema]
-  }, {
-    timestamps: true
-  });
+    {
+      timestamps: true,
+    }
+  );
 
 
 module.exports = mongoose.model('Products', productSchema);

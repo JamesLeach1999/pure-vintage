@@ -73,7 +73,7 @@ const Test = () => {
       <br />
 
       <br />
-      <div className="row product">
+      <div className="row product" style={{width: "900px"}}>
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

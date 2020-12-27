@@ -268,15 +268,85 @@ const Manage = () => {
         </div>
 
         <div className="pagination-div">
-          <form action="/manage1" method="get">
-            <button name="skip" value={16}>
-              Page 1
+          <form>
+            {/* <input type="submit" name="skip" value={16} /> */}
+            <button
+              type="submit"
+              name="skip"
+              value={0}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              1
             </button>
-            <button name="skip" value={32}>
-              Page 2
+
+            <button
+              type="submit"
+              name="skip"
+              value={16}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              2
             </button>
-            <button name="skip" value={48}>
-              Page 3
+
+            <button
+              type="submit"
+              name="skip"
+              value={32}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              3
+            </button>
+            <button
+              type="submit"
+              name="skip"
+              value={48}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              4
             </button>
           </form>
         </div>

@@ -119,7 +119,7 @@ export default class Nav extends Component {
           style={{ color: "black" }}
         >
           <img
-            src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183491/logo_blue_ajnowp.png"
+            src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609185066/Logo_white_text_anyd0j.jpg"
             alt=""
             style={{ zIndex: "-1", width: "60px", height: "60px" }}
           />

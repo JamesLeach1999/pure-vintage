@@ -61,7 +61,7 @@ useEffect(() => {
             <img
               src={
                 size > 600
-                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183418/Navy%20blue%20Tommy%20Hilfiger%20fleece%20spell%20out%20back2.jpg.jpg"
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609095061/Olive%20Green%20Ralph%20Lauren%20Harrington%20jacket5.jpg.jpg"
                   : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183653/fontscreen_facaxk.jpg"
               }
               className="sliderimg"

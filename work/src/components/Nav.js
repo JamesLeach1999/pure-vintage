@@ -116,10 +116,10 @@ export default class Nav extends Component {
         <nav
           className="NavbarItems"
           ref={(node) => (this.node = node)}
-          style={{  color: "black" }}
+          style={{ color: "black" }}
         >
           <img
-            src="https://res.cloudinary.com/dhey8vvcx/image/upload/c_thumb,w_200,g_face/v1608123578/frontphone33_j5olug.jpg"
+            src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183491/logo_blue_ajnowp.png"
             alt=""
             style={{ zIndex: "-1", width: "60px", height: "60px" }}
           />

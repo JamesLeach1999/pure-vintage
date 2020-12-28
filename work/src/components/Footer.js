@@ -11,13 +11,15 @@ const Footer = () => {
         <br />
         <br />
         <br />
-        <div class="container footer" style={{backgroundColor: "white", color: "black"}}>
+        <div
+          class="container footer"
+          style={{ backgroundColor: "white", color: "black" }}
+        >
           <div class="row">
             <div class="footer-col-1">
-              
               <div class="app-logo">
                 <img
-                  src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404113/logo_blue_zqlccw.png"
+                  src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183491/logo_blue_ajnowp.png"
                   alt="logo"
                   width="125px"
                 />

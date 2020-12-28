@@ -52,8 +52,8 @@ useEffect(() => {
             <img
               src={
                 size > 600
-                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone2_bldp53.jpg"
-                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontscreen_iufe40.jpg"
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183856/frontphone_p5ukfe.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183724/frontscreen_vzn9fw.jpg"
               }
               className="sliderimg"
               alt=""
@@ -61,8 +61,8 @@ useEffect(() => {
             <img
               src={
                 size > 600
-                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone1_gofkhx.jpg"
-                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1607961849/frontphone_kodxqv.jpg"
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183418/Navy%20blue%20Tommy%20Hilfiger%20fleece%20spell%20out%20back2.jpg.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183653/fontscreen_facaxk.jpg"
               }
               className="sliderimg"
               alt=""
@@ -70,8 +70,8 @@ useEffect(() => {
             <img
               src={
                 size > 600
-                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1608123541/fontscreen_nqvuxg.jpg"
-                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1608123578/frontphone33_j5olug.jpg"
+                  ? "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609184003/frontphone1_cltlbn.jpg"
+                  : "https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183774/frontphone2_lwysfj.jpg"
               }
               className="sliderimg"
               alt=""

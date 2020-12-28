@@ -30,24 +30,24 @@ class CatRows extends Component {
       <div className="small-container" style={{ justifyContent: "center" }}>
         <h1>Categories</h1>
         <div className="row">
-          <Link to="/store?category=shirts">
+          <Link to="/store?category=sweatshirts">
             <div className="col-2">
               <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404193/P0_1_n_jxsyb0.jpg"
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609078658/Navy%20blue%20Nike%20sweatshirt%200.jpg.jpg"
                 alt=""
               />
               <h1
                 // className="cat-pic"
                 style={{ textAlign: "center", fontSize: "40px" }}
               >
-                Shirts
+                Sweatshirts
               </h1>
             </div>
           </Link>
           <Link to="/store?category=puffer">
             <div className="col-2">
               <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606404250/P0_1_m_en9ggm.jpg"
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609184003/frontphone1_cltlbn.jpg"
                 alt=""
               />
               <h1
@@ -61,7 +61,7 @@ class CatRows extends Component {
           <Link to="/store?category=fleeces">
             <div className="col-2">
               <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1606574995/P0_1_a_jn2c3w.jpg"
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183452/Red%20Adidas%20sweatshirt%20spell%20out0.jpg.jpg"
                 alt=""
               />
               <h1
@@ -75,7 +75,7 @@ class CatRows extends Component {
           <Link to="/store?category=trackjack">
             <div className="col-2">
               <img
-                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1608132498/greyad2.jpg.jpg"
+                src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609181682/Retro%20Black%20Blue%20Adidas%20Tracksuit%20top0.jpg.jpg"
                 alt=""
               />
               <h1

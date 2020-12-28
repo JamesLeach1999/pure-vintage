@@ -279,6 +279,51 @@ console.log(clicked)
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
+                      value="guess"
+                      id="guess"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="guess"
+                    >
+                      Guess
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="kappa"
+                      id="kappa"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="kappa"
+                    >
+                      Kappa
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="dior"
+                      id="dior"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="dior"
+                    >
+                      Dior
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
                       value="tommy"
                       id="tommy"
                       name="brand"
@@ -318,6 +363,21 @@ console.log(clicked)
                       for="adidas"
                     >
                       Adidas
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="berghaus"
+                      id="berghaus"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="berghaus"
+                    >
+                      Berghaus
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">
@@ -455,6 +515,51 @@ console.log(clicked)
                       Levi
                     </label>
                   </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="puma"
+                      id="puma"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="puma"
+                    >
+                      Puma
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="valentino"
+                      id="valentino"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="valentino"
+                    >
+                      Valentino
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="carhartt"
+                      id="carhartt"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="carhartt"
+                    >
+                      Carhartt
+                    </label>
+                  </div>
 
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -469,6 +574,36 @@ console.log(clicked)
                       for="helly"
                     >
                       Helly Hansen
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="calvin"
+                      id="calvin"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="calvin"
+                    >
+                      Calvin Klein
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="gap"
+                      id="gap"
+                      name="brand"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="gap"
+                    >
+                      Gap
                     </label>
                   </div>
                 </section>
@@ -588,6 +723,36 @@ console.log(clicked)
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
+                      value="tracksuits"
+                      id="tracksuits"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="tracksuits"
+                    >
+                      Tracksuits
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="harrington"
+                      id="harrington"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="harrington"
+                    >
+                      Harrington Jackets
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
                       value="caps"
                       id="caps"
                       name="category"
@@ -627,6 +792,36 @@ console.log(clicked)
                       for="shirts"
                     >
                       Shirts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="sweatshirts"
+                      id="sweatshirts"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="sweatshirts"
+                    >
+                      Sweatshirts
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="t-shirts"
+                      id="t-shirts"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="t-shirts"
+                    >
+                      T-shirts
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">
@@ -723,6 +918,21 @@ console.log(clicked)
                     <input
                       type="checkbox"
                       class="form-check-input filled-in"
+                      value="hoodies"
+                      id="hoodies"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="hoodies"
+                    >
+                      Hoodies
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
                       value="windbreakers"
                       id="windbreakers"
                       name="category"
@@ -732,6 +942,21 @@ console.log(clicked)
                       for="windbreakers"
                     >
                       Windbreakers
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="padded"
+                      id="padded"
+                      name="category"
+                    />
+                    <label
+                      class="form-check-label small text-uppercase card-link-secondary"
+                      for="padded"
+                    >
+                      Padded jackets
                     </label>
                   </div>
                   <div class="form-check pl-0 mb-3">
@@ -997,6 +1222,51 @@ console.log(clicked)
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
+                          value="guess"
+                          id="guess"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="guess"
+                        >
+                          Guess
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="kappa"
+                          id="kappa"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="kappa"
+                        >
+                          Kappa
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="dior"
+                          id="dior"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="dior"
+                        >
+                          Dior
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
                           value="tommy"
                           id="tommy"
                           name="brand"
@@ -1020,7 +1290,22 @@ console.log(clicked)
                           class="form-check-label small text-uppercase card-link-secondary"
                           for="ralph"
                         >
-                          Ralph
+                          Ralph lauren
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="berghaus"
+                          id="berghaus"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="berghaus"
+                        >
+                          Berghaus
                         </label>
                       </div>
                       <div class="form-check pl-0 mb-3">
@@ -1081,96 +1366,6 @@ console.log(clicked)
                           for="north"
                         >
                           North face
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="tommy"
-                          id="tommy"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="tommy"
-                        >
-                          Tommy Hilfiger
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="lacoste"
-                          id="lacoste"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="lacoste"
-                        >
-                          Lacoste
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="kappa"
-                          id="kappa"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="kappa"
-                        >
-                          Kappa
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="champion"
-                          id="champion"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="champion"
-                        >
-                          Champion
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="lacoste"
-                          id="lacoste"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="lacoste"
-                        >
-                          Lacoste
-                        </label>
-                      </div>
-                      <div class="form-check pl-0 mb-3">
-                        <input
-                          type="checkbox"
-                          class="form-check-input filled-in"
-                          value="levi"
-                          id="levi"
-                          name="brand"
-                        />
-                        <label
-                          class="form-check-label small text-uppercase card-link-secondary"
-                          for="levi"
-                        >
-                          Levi
                         </label>
                       </div>
                       <div class="form-check pl-0 mb-3">
@@ -1267,15 +1462,91 @@ console.log(clicked)
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
-                          value="levi"
-                          id="levi"
+                          value="puma"
+                          id="puma"
                           name="brand"
                         />
                         <label
                           class="form-check-label small text-uppercase card-link-secondary"
-                          for="levi"
+                          for="puma"
                         >
-                          Levi
+                          Puma
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="valentino"
+                          id="valentino"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="valentino"
+                        >
+                          Valentino
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="carhartt"
+                          id="carhartt"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="carhartt"
+                        >
+                          Carhartt
+                        </label>
+                      </div>
+
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="helly"
+                          id="helly"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="helly"
+                        >
+                          Helly Hansen
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="calvin"
+                          id="calvin"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="calvin"
+                        >
+                          Calvin Klein
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="gap"
+                          id="gap"
+                          name="brand"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="gap"
+                        >
+                          Gap
                         </label>
                       </div>
                     </section>
@@ -1399,6 +1670,36 @@ console.log(clicked)
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
+                          value="tracksuits"
+                          id="tracksuits"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="tracksuits"
+                        >
+                          Tracksuits
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="harrington"
+                          id="harrington"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="harrington"
+                        >
+                          Harrington Jackets
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
                           value="caps"
                           id="caps"
                           name="category"
@@ -1438,6 +1739,36 @@ console.log(clicked)
                           for="shirts"
                         >
                           Shirts
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="sweatshirts"
+                          id="sweatshirts"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="sweatshirts"
+                        >
+                          Sweatshirts
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="t-shirts"
+                          id="t-shirts"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="t-shirts"
+                        >
+                          T-shirts
                         </label>
                       </div>
                       <div class="form-check pl-0 mb-3">
@@ -1534,6 +1865,21 @@ console.log(clicked)
                         <input
                           type="checkbox"
                           class="form-check-input filled-in"
+                          value="hoodies"
+                          id="hoodies"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="hoodies"
+                        >
+                          Hoodies
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
                           value="windbreakers"
                           id="windbreakers"
                           name="category"
@@ -1543,6 +1889,21 @@ console.log(clicked)
                           for="windbreakers"
                         >
                           Windbreakers
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="padded"
+                          id="padded"
+                          name="category"
+                        />
+                        <label
+                          class="form-check-label small text-uppercase card-link-secondary"
+                          for="padded"
+                        >
+                          Padded jackets
                         </label>
                       </div>
                       <div class="form-check pl-0 mb-3">

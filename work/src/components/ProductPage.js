@@ -153,7 +153,7 @@ const ProductPage = () => {
               Product details <i class="fa fa-indent"></i>
             </h3>
             <br />
-            <h4>{product.description}</h4>
+            <h6>{product.description}</h6>
           </div>
         </div>
         <Reviews />

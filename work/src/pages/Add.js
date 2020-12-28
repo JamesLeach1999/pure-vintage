@@ -114,6 +114,11 @@ const Addpage = () => {
                 <option value="north">North Face</option>
                 <option value="carhartt">Carhartt</option>
                 <option value="helly">Helly hansen</option>
+                <option value="calvin">Calvin Klein</option>
+                <option value="guess">Guess</option>
+                <option value="puma">Puma</option>
+                <option value="valentino">Valentino</option>
+
                 <option value="umbro">Umbro</option>
                 <option value="firetrap">Firetrap</option>
                 <option value="berghaus">Berghaus</option>
@@ -136,6 +141,10 @@ const Addpage = () => {
                 <option value="puffer">Puffer jackets</option>
                 <option value="sweatshirts">Sweatshirts</option>
                 <option value="fleeces">Fleeces</option>
+                <option value="harrington">Harrington jackets</option>
+                <option value="joggers">Joggers</option>
+                <option value="padded">Padded jackets</option>
+                <option value="shorts">Shorts</option>
 
                 <option value="caps">Caps</option>
                 <option value="shirts">Shirts</option>

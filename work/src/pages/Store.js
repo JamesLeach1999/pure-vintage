@@ -613,7 +613,7 @@ console.log(clicked)
                 >
                   Categories
                 </h6>
-                <section class="mb-4 listbox">
+                <section class="mb-4 listbox" style={{fontSize: "80%"}}>
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"

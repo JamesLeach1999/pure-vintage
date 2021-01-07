@@ -7,6 +7,7 @@ import Login from "../components/Login"
 import CatRows from "../components/CatRows"
 import FeaturedRow from "../components/FeaturedRow"
 import Recent from "../components/RecentRevs"
+import T from "../components/T"
 import "../css/fade.css"
 export default class Home extends Component {
   constructor(props){
@@ -40,6 +41,7 @@ export default class Home extends Component {
   render(){
     return (
       <div style={{width: "100%"}} className={this.state.animate ? "fade-in-hello hello span": "hello-span"}>
+        <T/>
         <Rows/>
         <CatRows/>
         <FeaturedRow/>

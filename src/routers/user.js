@@ -1,5 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
+const Product = require('../models/Products');
+const Orders = require('../models/Order');
 // const Product = require("../models/Products")
 const { ensureAuthenticated } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
@@ -46,13 +48,13 @@ router.post('/register', (req, res, next) => {
           msg: 'email in use',
         });
       }
-      
+
       // if (errors.length > 0) {
       //   res.send({
       //     errors,
       //   });
       // }
-      throw new Error("email used")
+      throw new Error('email used');
     })
     .catch((error) => {
       const newUser = new User({
@@ -73,10 +75,10 @@ router.post('/register', (req, res, next) => {
           newUser
             .save()
             .then((user) => {
-              console.log(user)
+              console.log(user);
               passport.authenticate('local', (err, user, info) => {
                 console.log(user);
-                console.log("numberwang")
+                console.log('numberwang');
                 if (err) throw err;
                 if (!user) res.send('no user');
                 else {
@@ -89,8 +91,8 @@ router.post('/register', (req, res, next) => {
               })(req, res, next);
             })
             .catch((err) => {
-              console.log(err)
-        res.send(err);
+              console.log(err);
+              res.send(err);
             });
         });
       });
@@ -108,23 +110,20 @@ router.get('/signup', async (req, res) => {
 router.post('/getAuth', async (req, res) => {
   try {
     const auth = await User.findById({ _id: req.body.id });
-    
+
     res.send({
       isAuth: true,
       isAdmin: auth.isAdmin,
       id: auth._id,
     });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.send({
       isAuth: false,
       isAdmin: false,
       error,
     });
   }
-
-  
-
 });
 
 // get own profile
@@ -199,6 +198,23 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
+router.get('/deleteProducts', async (req, res) => {
+  Product.deleteMany({}, (err, res) => {
+    if (err) throw err;
+    console.log('pro remo');
+  });
 
+  res.send('products removed');
+});
+
+router.get('/deleteOrders', async (req, res) => {
+  Orders.deleteMany({}, (err, res) => {
+    if (err) throw err;
+
+    console.log('remove');
+  });
+
+  res.send('orders removed');
+});
 
 module.exports = router;

@@ -1,7 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
-const Product = require('../models/Products');
-const Orders = require('../models/Order');
+// const Product = require('../models/Products');
+// const Orders = require('../models/Order');
 // const Product = require("../models/Products")
 const { ensureAuthenticated } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
@@ -198,23 +198,23 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
-router.get('/deleteProducts', async (req, res) => {
-  Product.deleteMany({}, (err, res) => {
-    if (err) throw err;
-    console.log('pro remo');
-  });
+// router.get('/deleteProducts', async (req, res) => {
+//   Product.deleteMany({}, (err, res) => {
+//     if (err) throw err;
+//     console.log('pro remo');
+//   });
 
-  res.send('products removed');
-});
+//   res.send('products removed');
+// });
 
-router.get('/deleteOrders', async (req, res) => {
-  Orders.deleteMany({}, (err, res) => {
-    if (err) throw err;
+// router.get('/deleteOrders', async (req, res) => {
+//   Orders.deleteMany({}, (err, res) => {
+//     if (err) throw err;
 
-    console.log('remove');
-  });
+//     console.log('remove');
+//   });
 
-  res.send('orders removed');
-});
+//   res.send('orders removed');
+// });
 
 module.exports = router;

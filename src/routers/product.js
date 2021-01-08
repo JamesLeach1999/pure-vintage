@@ -590,7 +590,7 @@ router.get('/store1', async (req, res) => {
     // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
     console.log('i work5');
 
-    console.log(req.query)
+    console.log(req.query);
 
     var pro1 = await filter(req.query);
     console.log(JSON.stringify(pro1));
@@ -599,12 +599,12 @@ router.get('/store1', async (req, res) => {
     });
 
     var skipValue = req.body.skip + 16;
-    console.log(clothes)
+    console.log(clothes);
     // clothes = clothes.slice(req.body.skip, skipValue);
     console.log('thats wangernumb555');
     console.log(clothes);
   }
-console.log("yeees")
+  console.log('yeees');
   // console.log(JSON.stringify(clothes))
   res.send({
     pageTitle: 'welcome',
@@ -627,22 +627,22 @@ router.get('/recentReviews', async (req, res) => {
     const product = await Product.findById({ _id: oProducts[0].product._id });
     if (product !== null) {
       if (product.reviews[0] !== null) {
-        console.log("here")
-        console.log(product)
+        console.log('here');
+        console.log(product);
         proImages.push(product.image[0]);
 
         review.push(product.reviews);
       }
     }
   }
-console.log("numberwang1")
-  console.log(review)
+  console.log('numberwang1');
+  console.log(review);
 
   var filtered = review.filter(function (el) {
     return el != [];
   });
-  console.log("number")
-  console.log(proImages)
+  console.log('number');
+  console.log(proImages);
   // console.log(filtered.reverse());
   res.send({
     name: filtered[0],
@@ -705,7 +705,7 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({});
-    console.log("thats wangernumb 3");
+    console.log('thats wangernumb 3');
     pro.forEach((n) => {
       clothes.push(n);
     });
@@ -725,17 +725,21 @@ router.post('/store', async (req, res) => {
     // console.log(req.body.skip)
     // console.log(req.body)
     console.log('i work5');
-    console.log(req.body)
+    console.log(req.body);
 
-    var pro1 = await filter(req.body);
+    try {
+      var pro1 = await filter(req.body);
+    } catch (error) {
+      console.log(error);
+    }
     // console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
-    var skipValue = req.body.skip + 16
-    clothes = clothes.slice(req.body.skip, skipValue)
-    console.log("thats wangernumb")
-    console.log(clothes)
+    var skipValue = req.body.skip + 16;
+    clothes = clothes.slice(req.body.skip, skipValue);
+    console.log('thats wangernumb');
+    console.log(clothes);
   }
   res.send({
     pageTitle: 'welcome',

@@ -198,23 +198,4 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
-// router.get('/deleteProducts', async (req, res) => {
-//   Product.deleteMany({}, (err, res) => {
-//     if (err) throw err;
-//     console.log('pro remo');
-//   });
-
-//   res.send('products removed');
-// });
-
-// router.get('/deleteOrders', async (req, res) => {
-//   Orders.deleteMany({}, (err, res) => {
-//     if (err) throw err;
-
-//     console.log('remove');
-//   });
-
-//   res.send('orders removed');
-// });
-
 module.exports = router;

@@ -24,6 +24,7 @@ console.log(clicked)
     position: "relative",
     left: "40px",
     paddingLeft: "25px",
+    textTransform: "capitalize",
   };
 
   const smallSize = {
@@ -32,6 +33,7 @@ console.log(clicked)
     fontSize: "15px",
     marginLeft: "-2px",
     paddingLeft: "25px",
+    textTransform: "none"
   };
   console.log(sessionStorage);
   // this is the callback (can do it inline), uses the initial size for default

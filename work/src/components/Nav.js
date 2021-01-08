@@ -2,6 +2,7 @@ import React, { useState, useEffect, Component } from "react";
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
+
 import Axios from "axios";
 import Welcome from "./Welcome";
 import Home from "../pages/Home";
@@ -21,6 +22,7 @@ import { Button1 } from "./Button";
 import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
+import "../css/dark.css"
 // have to use links like this in the nav
 export default class Nav extends Component {
   constructor() {
@@ -187,6 +189,16 @@ export default class Nav extends Component {
                   </button>
                 </li>
               )}
+            </li>
+            <li>
+              <button
+                class="dark-mode-button top-dark-mode-button"
+                aria-label="dark mode toggle"
+              >
+                <span aria-hidden="true" class="dark-toggle">
+                  <span class="DTspan"></span>
+                </span>
+              </button>
             </li>
           </ul>
         </nav>

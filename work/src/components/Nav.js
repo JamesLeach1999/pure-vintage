@@ -18,7 +18,6 @@ import Edit from "./EditPage";
 import PastOrders from "../pages/Past";
 import OrderProducts from "../pages/OrderPage";
 import RefundProducts from "../pages/RefundPage";
-import { Button1 } from "./Button";
 import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
@@ -120,10 +119,10 @@ export default class Nav extends Component {
 
     // Dark Mode Action
     let darkMode = localStorage.getItem("darkMode");
-    const darkModeToggle = document.querySelector(".dark-mode-button");
-    const darkModeToggleFooter = document.querySelector(
-      "footer .dark-mode-button"
-    );
+    const darkModeToggle = document.getElementsByClassName("dark-mode-button")
+    // const darkModeToggleFooter = document.querySelector(
+    //   "footer .dark-mode-button"
+    // );
 
     // Enable Dark Mode
     const enableDarkMode = () => {
@@ -155,14 +154,14 @@ export default class Nav extends Component {
     //in the footer, just make sure the button is inside the footer tag, and it will be
     //linked to this function.
 
-    darkModeToggleFooter.addEventListener("click", () => {
-      darkMode = localStorage.getItem("darkMode");
-      if (darkMode !== "enabled") {
-        enableDarkMode();
-      } else {
-        disableDarkMode();
-      }
-    });
+    // darkModeToggleFooter.addEventListener("click", () => {
+    //   darkMode = localStorage.getItem("darkMode");
+    //   if (darkMode !== "enabled") {
+    //     enableDarkMode();
+    //   } else {
+    //     disableDarkMode();
+    //   }
+    // });
   }
 
   render() {

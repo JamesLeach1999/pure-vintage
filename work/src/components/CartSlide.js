@@ -187,7 +187,7 @@ class Cart extends Component {
         >
           <section className="center-text">
             <Link to="/order" style={{ fontSize: "40px" }}>
-              checkout
+              Checkout
             </Link>
             {sessionStorage.getItem("auth") === "true" ? (
               <h3>£{this.state.price}</h3>

@@ -80,7 +80,7 @@ console.log(clicked)
   return (
     <FadeIn>
       <div
-        style={{ border: "none" }}
+        style={{ border: "none", textTransform: "capitalize" }}
         className={animate ? "fade-in-hello hello span" : "hello-span"}
       >
         <br />

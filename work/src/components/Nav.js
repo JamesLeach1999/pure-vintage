@@ -23,6 +23,7 @@ import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
 import "../css/dark.css"
+import "./js/darkMode"
 // have to use links like this in the nav
 export default class Nav extends Component {
   constructor() {

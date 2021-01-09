@@ -27,7 +27,7 @@ class Product extends Component {
 
   render() {
     return (
-      <FadeIn className="col-4">
+      <FadeIn className="store-col-4">
         <img
           style={{ transitionDuration: "0.3s" }}
           src={`${this.state.images[0]}`}

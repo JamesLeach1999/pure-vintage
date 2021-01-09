@@ -526,6 +526,7 @@ var filter = async function (query) {
 //   console.log(pr)
 
   var products;
+  console.log(query)
 
   if (query.category && query.brand && query.size) {
     products = {
@@ -537,15 +538,15 @@ var filter = async function (query) {
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }, , { price: { "$lt": pr } }],
+      $and: [{ category: category }, { brand: brand }, { size: size },  { price: { "$lt": pr } }],
     };
   } else if (query.brand && query.size) {
     products = {
-      $and: [{ brand: brand }, { size: size }, , { price: { "$lt": pr } }],
+      $and: [{ brand: brand }, { size: size }, { price: { "$lt": pr } }],
     };
   } else if (query.category && query.brand) {
     products = {
-      $and: [{ category: category }, { brand: brand }, , { price: { "$lt": pr } }],
+      $and: [{ category: category }, { brand: brand } , { price: { "$lt": pr } }],
     };
   } else if (query.category) {
     products = {

@@ -884,7 +884,8 @@ th:last-child {
     padding: 50px 0;
   } */
   .col-4 {
-    max-width: 150px;
+    min-width: 250px;
+    max-width: 300px;
   }
 
   /* .single-product .row {

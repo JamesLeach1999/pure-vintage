@@ -954,12 +954,14 @@ th:last-child {
 
   .col-2-pics img {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 450px;
     margin-left: 40px;
     max-height: 600px;
     max-width: 700px;
+    min-width: 325px;
     padding: 50px 0;
+    left: -35px;
   }
   .single-product h1 {
     font-size: 26px;

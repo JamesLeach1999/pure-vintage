@@ -87,7 +87,7 @@ const ProductPage = () => {
         <div class="row">
           <div
             class="col-2-pics"
-            style={{ position: "relative", right: "40px" }}
+            style={{ position: "relative", right: "40px", width: "100%" }}
           >
             <Carousel
               breakPoints={breakPoints}
@@ -153,7 +153,7 @@ const ProductPage = () => {
               Product details <i class="fa fa-indent"></i>
             </h3>
             <br />
-            <h6>{product.description}</h6>
+            <h4>{product.description}</h4>
           </div>
         </div>
         <Reviews />

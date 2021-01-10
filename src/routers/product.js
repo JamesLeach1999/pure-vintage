@@ -594,10 +594,7 @@ router.get('/store1', async (req, res) => {
 
     var pro1 = await filter(req.query);
 
-    var fs = require('fs');
-    fs.writeFile('myjsonfile.json', JSON.stringify(pro1), 'utf8', callback);
-    // console.log(pro1.toJSON())
-    // console.log();
+    
     pro1.forEach((ite) => {
       clothes.push(ite);
     });

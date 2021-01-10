@@ -441,19 +441,18 @@ console.log("wang1")
 ${product.length > 0 ? products.map((product) => {
   return (
     `<tr >
-    <td >{{${product.name}}}</td>
-    <td>{{${product.size}}}</td>
-    <td>£{{${product.price}}}</td>
+      <td >{{${product.name}}}</td>
+      <td>{{${product.size}}}</td>
+      <td>£{{${product.price}}}</td>
 
     </tr>`
   )
 }):(
   `<tr>
-<td>{{${products.name}}}</td>
-<td>{{${products.size}}}</td>
-<td>£{{${products.price}}}</td>
-
-</tr>`
+    <td>{{${products.name}}}</td>
+    <td>{{${products.size}}}</td>
+    <td>£{{${products.price}}}</td>
+  </tr>`
 )}
 
 

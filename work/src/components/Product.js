@@ -28,37 +28,32 @@ class Product extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          backgroundImage: `url(${this.state.images[1]})`,
-        }}
-      >
-        <FadeIn className="col-4">
-          <img
-            style={{
-              transition: "opacity 1s ease",
-              opacity: this.state.hover ? 0 : 1,
-            }}
-            src={`${this.state.images[0]}`}
-            onMouseOver={(e) => {
-              // e.currentTarget.style.opacity = 0;
-              // if (this.state.images[1]) {
-              this.setState({ hover: true });
-              //   e.currentTarget.src = this.state.images[1];
-              // }
-            }}
-            onMouseOut={(e) => {
-              // e.currentTarget.style.opacity = 1;
-              this.setState({ hover: false });
-            }}
-            alt=""
-          />
+      <FadeIn className="col-4">
+        <img
+          style={{
+            transition: "opacity 1s ease",
+            opacity: this.state.hover ? 0 : 1,
+          }}
+          src={`${this.state.images[0]}`}
+          onMouseOver={(e) => {
+            // e.currentTarget.style.opacity = 0;
+            // if (this.state.images[1]) {
+            this.setState({ hover: true });
+            //   e.currentTarget.src = this.state.images[1];
+            // }
+          }}
+          onMouseOut={(e) => {
+            // e.currentTarget.style.opacity = 1;
+            this.setState({ hover: false });
+          }}
+          alt=""
+        />
+        <img src={`${this.state.images[1]}`} alt="" />
 
-          <h4>{this.state.data.name}</h4>
+        <h4>{this.state.data.name}</h4>
 
-          <p>£{this.state.data.price}.95</p>
-        </FadeIn>
-      </div>
+        <p>£{this.state.data.price}.95</p>
+      </FadeIn>
     );
   }
 }

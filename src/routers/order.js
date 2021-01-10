@@ -205,7 +205,8 @@ router.post('/te', async (req, res) => {
     var cart = user.cart;
 
     User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
-      console.log(err);
+      if (err) throw err;
+      console.log(res)
     });
 
     const orderID = user.pastOrders.slice(-1)[0];

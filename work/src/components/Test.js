@@ -56,7 +56,7 @@ const Test = () => {
 
         data.map((products) => {
           products.map((product) => {
-            console.log(product.toJSON())
+            console.log(JSON.stringify(product))
           })
         })
       }

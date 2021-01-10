@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 // import { Link, useParams } from "react-router-dom";
-import FadeIn from "react-fade-in"
-import "../css/fade.css"
+import FadeIn from "react-fade-in";
+import "../css/fade.css";
 // function ID(id) {
 //   return id;
 // }
 class Product extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: [] };
+    this.state = { data: [], images: [], hover: false };
   }
 
   async componentDidMount() {
@@ -29,22 +29,25 @@ class Product extends Component {
     return (
       <FadeIn className="col-4">
         <img
-          style={{ transitionDuration: "0.7s" }}
+          style={{ transitionDuration: "0.7s", opacity: this.state.hover? 1: 0 }}
           src={`${this.state.images[0]}`}
           onMouseOver={(e) => {
             if (this.state.images[1]) {
+              this.setState({ hover: true });
               e.currentTarget.src = this.state.images[1];
-            } 
+            }
           }}
           onMouseOut={(e) => {
             if (this.state.images[1]) {
+              this.setState({ hover: false });
+
               e.currentTarget.src = this.state.images[0];
-            } 
+            }
           }}
           alt=""
         />
         <h4>{this.state.data.name}</h4>
-        
+
         <p>£{this.state.data.price}.95</p>
       </FadeIn>
     );

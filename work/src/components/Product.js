@@ -29,27 +29,28 @@ class Product extends Component {
   render() {
     return (
       <FadeIn className="col-4">
-        <img
-          style={{
-            transition: "opacity 1s ease",
-            opacity: this.state.hover ? 0 : 1,
-            position: "absolute"
-          }}
-          src={`${this.state.images[0]}`}
-          onMouseOver={(e) => {
-            // e.currentTarget.style.opacity = 0;
-            // if (this.state.images[1]) {
-            this.setState({ hover: true });
-            //   e.currentTarget.src = this.state.images[1];
-            // }
-          }}
-          onMouseOut={(e) => {
-            // e.currentTarget.style.opacity = 1;
-            this.setState({ hover: false });
-          }}
-          alt=""
-        />
-        <img src={`${this.state.images[1]}`} alt="" style={{zIndex: -1}} />
+        <div style={{ backgroundImage: `url(${this.state.images[1]})` }}>
+          <img
+            style={{
+              transition: "opacity 1s ease",
+              opacity: this.state.hover ? 0 : 1,
+              position: "absolute",
+            }}
+            src={`${this.state.images[0]}`}
+            onMouseOver={(e) => {
+              // e.currentTarget.style.opacity = 0;
+              // if (this.state.images[1]) {
+              this.setState({ hover: true });
+              //   e.currentTarget.src = this.state.images[1];
+              // }
+            }}
+            onMouseOut={(e) => {
+              // e.currentTarget.style.opacity = 1;
+              this.setState({ hover: false });
+            }}
+            alt=""
+          />
+        </div>
 
         <h4>{this.state.data.name}</h4>
 

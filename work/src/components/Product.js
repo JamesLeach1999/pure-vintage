@@ -30,13 +30,9 @@ class Product extends Component {
     return (
       <FadeIn className="col-4">
         <img
-          style={{ transitionDuration: "1s", opacity: this.state.hover? 1: 0 }}
+          style={{  transition: "opacity 1s ease" }}
           src={`${this.state.images[0]}`}
           onMouseOver={(e) => {
-            e.currentTarget.style = {
-              transitionDuration: "1s",
-              opacity: this.state.hover ? 0 : 0,
-            };
             if (this.state.images[1]) {
               this.setState({ hover: true });
               e.currentTarget.src = this.state.images[1];

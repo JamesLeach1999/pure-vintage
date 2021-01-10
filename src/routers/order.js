@@ -236,7 +236,9 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         res.orderItems.forEach((item) => {
-          Product.findByIdAndDelete({_id: item._id}, (err, res) => {
+          var id = JSON.parse(item)
+          console.log(id)
+          Product.findByIdAndDelete({_id: id._id}, (err, res) => {
             if (err) throw err;
             console.log(res)
           })

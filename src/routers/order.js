@@ -219,8 +219,9 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         res.orderItems.forEach((item) => {
           console.log('thats nunmberwag 220');
-          console.log(item);
-          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
+          var id = JSON.parse(item);
+          console.log(id)
+          Product.findByIdAndDelete({ _id: id._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
           });

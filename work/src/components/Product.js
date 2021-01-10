@@ -33,6 +33,7 @@ class Product extends Component {
           style={{
             transition: "opacity 1s ease",
             opacity: this.state.hover ? 0 : 1,
+            position: "absolute"
           }}
           src={`${this.state.images[0]}`}
           onMouseOver={(e) => {
@@ -48,7 +49,7 @@ class Product extends Component {
           }}
           alt=""
         />
-        <img src={`${this.state.images[1]}`} alt="" />
+        <img src={`${this.state.images[1]}`} alt="" style={{zIndex: -1}} />
 
         <h4>{this.state.data.name}</h4>
 

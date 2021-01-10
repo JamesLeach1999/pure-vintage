@@ -256,6 +256,10 @@ label {
   width: 100%;
 }
 
+.col-4 section {
+  width: 100%;
+}
+
 .col-4-cat {
   flex-basis: 30%;
   padding: 10px;

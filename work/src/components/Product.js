@@ -29,14 +29,14 @@ class Product extends Component {
   render() {
     return (
       <FadeIn className="col-4">
-        <div style={{ backgroundImage: `url(${this.state.images[1]})`, width: "100%" }}>
+        <section style={{ backgroundImage: `url(${this.state.images[1]})`, width: "100%" }}>
           <img
             style={{ transition: "opacity 1s ease" }}
             src={`${this.state.images[0]}`}
             onMouseOver={(e) => {
               e.currentTarget.style.opacity = 0;
               // if (this.state.images[1]) {
-              //   this.setState({ hover: true });
+                this.setState({ hover: true });
               //   e.currentTarget.src = this.state.images[1];
               // }
             }}
@@ -45,7 +45,7 @@ class Product extends Component {
             }}
             alt=""
           />
-        </div>
+        </section>
 
         <h4>{this.state.data.name}</h4>
 

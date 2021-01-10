@@ -29,7 +29,7 @@ class Product extends Component {
     return (
       <FadeIn className="col-4">
         <img
-          style={{ transitionDuration: "0.3s" }}
+          style={{ transitionDuration: "0.7s" }}
           src={`${this.state.images[0]}`}
           onMouseOver={(e) => {
             if (this.state.images[1]) {

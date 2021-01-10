@@ -29,7 +29,7 @@ class Product extends Component {
   render() {
     return (
       <FadeIn className="col-4">
-        <div style={{ backgroundImage: `url(${this.state.images[1]})` }}>
+        <div style={{ backgroundImage: `url(${this.state.images[1]})`, width: "100%" }}>
           <img
             style={{ transition: "opacity 1s ease" }}
             src={`${this.state.images[0]}`}

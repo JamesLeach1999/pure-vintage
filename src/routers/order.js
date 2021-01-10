@@ -216,6 +216,12 @@ router.post('/te', async (req, res) => {
       { _id: orderID },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
+        res.orderItems.forEach((item) => {
+          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
+            if (err) throw err;
+            console.log(res);
+          });
+        });
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -228,6 +234,12 @@ router.post('/te', async (req, res) => {
       { _id: orderID._id },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
+        res.orderItems.forEach((item) => {
+          Product.findByIdAndDelete({_id: item._id}, (err, res) => {
+            if (err) throw err;
+            console.log(res)
+          })
+        })
         orderConf(id, 'user', res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }

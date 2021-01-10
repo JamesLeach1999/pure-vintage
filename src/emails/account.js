@@ -203,7 +203,7 @@ const orderConfAdmin = async (item, shipping) => {
       <tr>
         <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">Hello {{${name}}},</div>
+<div style="font-family: inherit; text-align: inherit">Hello alex,</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit">Thank you for ordering:<table style="text-align: left; border-spacing: 0; border-collapse: collapse;" class="product-table" ><tr><th style="flex: auto; ">Product</th><th style="flex: 2">Size</th><th>Price</th></tr>
 

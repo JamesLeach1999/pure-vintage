@@ -204,10 +204,10 @@ router.post('/te', async (req, res) => {
   var items = [];
   try {
     var user
-    User.findById({ _id: id }, (err, res) => {
-      if (err) throw new Error(err);
-      user = res
-    });
+    var user = await User.findById({ _id: id });
+    if (!user) {
+      throw new Error('fnjorwfw');
+    }
     console.log('thats wangnumbe');
     console.log(req.body);
     var cart = user.cart;

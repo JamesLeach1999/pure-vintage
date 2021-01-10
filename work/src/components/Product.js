@@ -29,8 +29,9 @@ class Product extends Component {
   render() {
     return (
       <FadeIn className="col-4">
+        <div style={{ backgroundImage: `url(${this.state.images[1]})` }}>
           <img
-            style={{ transition: "opacity 1s ease", backgroundImage: `url(${this.state.images[1]})` }}
+            style={{ transition: "opacity 1s ease" }}
             src={`${this.state.images[0]}`}
             onMouseOver={(e) => {
               e.currentTarget.style.opacity = 0;
@@ -44,6 +45,7 @@ class Product extends Component {
             }}
             alt=""
           />
+        </div>
 
         <h4>{this.state.data.name}</h4>
 

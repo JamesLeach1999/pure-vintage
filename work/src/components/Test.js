@@ -85,7 +85,6 @@ const Test = () => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
-
                 <Product id={product._id} />
                 {/* <Product/> */}
               </Link>
@@ -134,125 +133,127 @@ const Test = () => {
       </div>
 
       {/* </div> */}
-      <div className="pagination-div">
+      <div className="pagination-div carousel" aria-label="Gallery">
         <form>
-          {/* <input type="submit" name="skip" value={16} /> */}
-          <button
-            type="submit"
-            name="skip"
-            value={0}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            1
-          </button>
+          <ol className="carousel_viewport">
+            {/* <input type="submit" name="skip" value={16} /> */}
+            <button
+              type="submit"
+              name="skip"
+              value={0}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              1
+            </button>
 
-          <button
-            type="submit"
-            name="skip"
-            value={16}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            2
-          </button>
+            <button
+              type="submit"
+              name="skip"
+              value={16}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              2
+            </button>
 
-          <button
-            type="submit"
-            name="skip"
-            value={32}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            3
-          </button>
-          <button
-            type="submit"
-            name="skip"
-            value={48}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            4
-          </button>
-          <button
-            type="submit"
-            name="skip"
-            value={64}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            5
-          </button>
-          <button
-            type="submit"
-            name="skip"
-            value={80}
-            style={{
-              backgroundColor: "#e7e7e7" /* Green */,
-              border: "none",
-              color: "black",
-              padding: "15px 32px",
-              textAlign: "center",
-              textDecoration: "none",
-              display: "inline-block",
-              fontSize: "16px",
-              margin: "4px 2px",
-              cursor: " pointer",
-            }}
-          >
-            6
-          </button>
+            <button
+              type="submit"
+              name="skip"
+              value={32}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              3
+            </button>
+            <button
+              type="submit"
+              name="skip"
+              value={48}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              4
+            </button>
+            <button
+              type="submit"
+              name="skip"
+              value={64}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              5
+            </button>
+            <button
+              type="submit"
+              name="skip"
+              value={80}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              6
+            </button>
+          </ol>
         </form>
       </div>
       <br />

@@ -2,7 +2,7 @@ const express = require('express');
 const User = require('../models/User');
 // const Product = require('../models/Products');
 // const Orders = require('../models/Order');
-// const Product = require("../models/Products")
+const Product = require('../models/products');
 const { ensureAuthenticated } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -197,5 +197,11 @@ router.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/store');
 });
+
+router.get("/rempros", async (req, res) => {
+  const i = await Product.remove({})
+
+  res.send("deleted")
+})
 
 module.exports = router;

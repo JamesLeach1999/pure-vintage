@@ -27,26 +27,41 @@ class Product extends Component {
   }
 
   render() {
+    const overLayStyles = {
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      opacity: 0,
+      transitionDuration: "0.5s"
+    }
     return (
       <FadeIn className="col-4">
-        <img
-          style={{ transitionDuration: "0.7s", opacity: this.state.hover? 1: 0 }}
-          src={`${this.state.images[0]}`}
-          onMouseOver={(e) => {
-            if (this.state.images[1]) {
-              this.setState({ hover: true });
-              e.currentTarget.src = this.state.images[1];
-            }
-          }}
-          onMouseOut={(e) => {
-            if (this.state.images[1]) {
-              this.setState({ hover: false });
+        <div className="overlay" style={overLayStyles}>
+          <img
+            style={{
+              transitionDuration: "0.7s",
+              opacity: this.state.hover ? 1 : 0,
+            }}
+            src={`${this.state.images[0]}`}
+            onMouseOver={(e) => {
+              if (this.state.images[1]) {
+                this.setState({ hover: true });
+                e.currentTarget.src = this.state.images[1];
+              }
+            }}
+            onMouseOut={(e) => {
+              if (this.state.images[1]) {
+                this.setState({ hover: false });
 
-              e.currentTarget.src = this.state.images[0];
-            }
-          }}
-          alt=""
-        />
+                e.currentTarget.src = this.state.images[0];
+              }
+            }}
+            alt=""
+          />
+        </div>
+
         <h4>{this.state.data.name}</h4>
 
         <p>£{this.state.data.price}.95</p>

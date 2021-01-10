@@ -15,7 +15,7 @@ class Product extends Component {
     try {
       const response = await fetch(`/product?id=${this.props.id}`);
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       this.setState({ data: json.name, images: json.name.image });
       console.log(JSON.stringify(this.state.data))
       // console.log(this.state.data);

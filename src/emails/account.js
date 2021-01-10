@@ -316,6 +316,7 @@ console.log("wang1")
     }
     body {
       color: #000000;
+      display: flex;
     }
     body a {
       color: #1188E6;
@@ -342,6 +343,10 @@ console.log("wang1")
     .column.of-4 {
       width: 25%;
     }
+      .product-table{
+          width: 600px;
+    }
+
     @media screen and (max-width:480px) {
       .preheader .rightColumnContent,
       .footer .rightColumnContent {
@@ -361,6 +366,8 @@ console.log("wang1")
       table.wrapper-mobile {
         width: 100% !important;
         table-layout: fixed;
+              text-align: left;
+
       }
       img.max-width {
         height: auto !important;
@@ -373,20 +380,13 @@ console.log("wang1")
         padding-left: 0 !important;
         padding-right: 0 !important;
       }
-      .columns {
-        width: 100% !important;
-      }
-      .column {
-        display: block !important;
-        width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
+      
       .social-icon-column {
         display: inline-block !important;
       }
+      .product-table{color: red;}
+      
+      
     }
   </style>
       <!--user entered Head Start--><!--End Head user entered-->
@@ -428,46 +428,56 @@ console.log("wang1")
       <tr>
         <td style="padding:18px 0px 18px 0px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><br></div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">Hello Jim,</div>
+<div style="font-family: inherit; text-align: inherit">Hello {{${name}}},</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">These are the orders: ${
-      json[0].product.name
-    }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${
-      json[0].product.price
-    }</div>
-${
-  products.length > 0
-    ? products.map((p) => {
-        return `<div style="font-family: inherit; text-align: inherit"><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${p.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;£${p.price}</span>&nbsp;</div>`;
-      })
-    : ''
-}
-<div style="font-family: inherit; text-align: inherit">Heres the address:.</div>
-<div style="font-family: inherit; text-align: inherit">${shipping.address}.</div>
-<div style="font-family: inherit; text-align: inherit">${shipping.city}.</div>
-<div style="font-family: inherit; text-align: inherit">${shipping.postcode}.</div>
+<div style="font-family: inherit; text-align: inherit">Thank you for ordering:<table style="text-align: left; border-spacing: 0; border-collapse: collapse;" class="product-table" ><tr><th style="flex: auto; ">Product</th><th style="flex: 2">Size</th><th>Price</th></tr>
+
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <div style="font-family: inherit; text-align: inherit"><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline"/>
+      
+</div>
+
+${product.length > 0 ? products.map((product) => {
+  return (
+    `<tr >
+    <td >{{${product.name}}}</td>
+    <td>{{${product.size}}}</td>
+    <td>£{{${product.price}}}</td>
+
+    </tr>`
+  )
+}):(
+  `<tr>
+<td>{{${products.name}}}</td>
+<td>{{${products.size}}}</td>
+<td>£{{${products.price}}}</td>
+
+</tr>`
+)}
 
 
+        
+    
+
+</table>
 <div style="font-family: inherit; text-align: inherit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div style="font-family: inherit; text-align: inherit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-
+<div style="font-family: inherit; text-align: inherit">Your order will arrive soon in 1-3 working days (maybe be longer due to the current pandemic).</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">Cheers</div>
+<div style="font-family: inherit; text-align: inherit">In the meantime, why not browse through some of our other great products?</div>
 <div style="font-family: inherit; text-align: inherit"><br></div>
-<div style="font-family: inherit; text-align: inherit">Sir Jim of House Leach</div>
+<div style="font-family: inherit; text-align: inherit">Thanks again!</div>
+<div style="font-family: inherit; text-align: inherit"><br></div>
+<div style="font-family: inherit; text-align: inherit">Pure Vintage</div>
 <div style="font-family: inherit; text-align: inherit"><br></div><div></div></div></td>
       </tr>
     </tbody>
   </table><div data-role="module-unsubscribe" class="module" role="module" data-type="unsubscribe" style="color:#444444; font-size:12px; line-height:20px; padding:16px 16px 16px 16px; text-align:Center;" data-muid="4e838cf3-9892-4a6d-94d6-170e474d21e5"><div class="Unsubscribe--addressLine"><p class="Unsubscribe--senderName" style="font-size:12px; line-height:20px;">James Leach</p><p style="font-size:12px; line-height:20px;"><span class="Unsubscribe--senderAddress">jimalomalom@hotmail.com</span>, <span class="Unsubscribe--senderCity">London</span>, <span class="Unsubscribe--senderState"></span> <span class="Unsubscribe--senderZip"></span></p></div><p style="font-size:12px; line-height:20px;"><a class="Unsubscribe--unsubscribeLink" href="{{{unsubscribe}}}" target="_blank" style="">Unsubscribe</a> - <a href="{{{unsubscribe_preferences}}}" target="_blank" class="Unsubscribe--unsubscribePreferences" style="">Unsubscribe Preferences</a></p></div></td>
                                       </tr>
                                     </table>
-                                    <!--[if mso]>
-                                  </td>
-                                </tr>
-                              </table>
-                            </center>
-                            <![endif]-->
+                                    
                           </td>
                         </tr>
                       </table>
@@ -480,7 +490,7 @@ ${
         </div>
       </center>
     </body>
-  </html>`,
+  </html>`
   
   });
 };

@@ -49,9 +49,9 @@ const Test = () => {
             skip: skip,
           },
         });
-        console.log(res);
+        // console.log(res);
         setData([res.data.names]);
-        console.log(data);
+        // console.log(data);
         setLoading(false);
 
         // data.map((products) => {

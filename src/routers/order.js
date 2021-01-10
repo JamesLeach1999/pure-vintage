@@ -83,11 +83,10 @@ router.post('/payment_intents', async (req, res) => {
 
     console.log(req.body);
     try {
-      try {
         
         var user = await User.findById({ _id: id });
-      } catch (error) {
-        throw new Error("numberwang 90")
+      if(!user){
+        throw new Error("fnjorwfw")
       }
 
       console.log('thtas number');

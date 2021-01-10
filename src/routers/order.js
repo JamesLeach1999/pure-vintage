@@ -199,7 +199,11 @@ router.post('/te', async (req, res) => {
   console.log(req.body);
   var items = [];
   try {
-    const user = await User.findById({ _id: id });
+    var user
+    User.findById({ _id: id }, (err, res) => {
+      if (err) throw err;
+      user = res
+    });
     console.log('thats wangnumbe');
     console.log(req.body);
     var cart = user.cart;

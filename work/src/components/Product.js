@@ -32,26 +32,27 @@ class Product extends Component {
         className="col-4"
         style={{
           backgroundImage: `url(${this.state.images[1]})`,
-          opacity: this.state.hover ? 0 : 1
         }}
       >
-          <img
-            style={{ transition: "opacity 1s ease" }}
-            src={`${this.state.images[0]}`}
-            onMouseOver={(e) => {
-              e.currentTarget.style.opacity = 0;
-              // if (this.state.images[1]) {
-              this.setState({ hover: true });
-              //   e.currentTarget.src = this.state.images[1];
-              // }
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.opacity = 1;
-                            this.setState({ hover: false });
-
-            }}
-            alt=""
-          />
+        <img
+          style={{
+            transition: "opacity 1s ease",
+            opacity: this.state.hover ? 0 : 1,
+          }}
+          src={`${this.state.images[0]}`}
+          onMouseOver={(e) => {
+            // e.currentTarget.style.opacity = 0;
+            // if (this.state.images[1]) {
+            this.setState({ hover: true });
+            //   e.currentTarget.src = this.state.images[1];
+            // }
+          }}
+          onMouseOut={(e) => {
+            // e.currentTarget.style.opacity = 1;
+            this.setState({ hover: false });
+          }}
+          alt=""
+        />
 
         <h4>{this.state.data.name}</h4>
 

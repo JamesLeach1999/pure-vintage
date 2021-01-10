@@ -216,6 +216,8 @@ const OrderPage = () => {
                   <br />
 
                   <p>£{item.product.price}</p>
+
+                  <h3>Already reviewed</h3>
                 </div>
             )
           })}

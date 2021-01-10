@@ -79,7 +79,7 @@ const Test = () => {
             // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
-                {console.log(JSON.parse(JSON.stringify(product))}
+                {console.log(JSON.parse(JSON.stringify(product)))}
 
                 <Product id={product._id} />
                 {/* <Product/> */}

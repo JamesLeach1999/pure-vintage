@@ -28,24 +28,26 @@ class Product extends Component {
   render() {
     return (
       <FadeIn className="col-4">
-        <img
-          style={{ transitionDuration: "1s" }}
-          src={`${this.state.images[0]}`}
-          onMouseOver={(e) => {
-            if (this.state.images[1]) {
-              e.currentTarget.style.opacity = 0;
-              e.currentTarget.style.backgroundImage = `url(${this.state.images[1]})`;
-            }
-          }}
-          onMouseOut={(e) => {
-            if (this.state.images[1]) {
-              e.currentTarget.style.opacity = 1;
+        <section style={{backgroundImage: `url(${this.state.images[1]})`, width: "100%"}}>
+          <img
+            style={{ transitionDuration: "1s" }}
+            src={`${this.state.images[0]}`}
+            onMouseOver={(e) => {
+              if (this.state.images[1]) {
+                e.currentTarget.style.opacity = 0;
+              }
+            }}
+            onMouseOut={(e) => {
+              if (this.state.images[1]) {
+                e.currentTarget.style.opacity = 1;
 
-              e.currentTarget.src = this.state.images[0];
-            }
-          }}
-          alt=""
-        />
+                e.currentTarget.src = this.state.images[0];
+              }
+            }}
+            alt=""
+          />
+        </section>
+
         <h4>{this.state.data.name}</h4>
 
         <p>£{this.state.data.price}.95</p>

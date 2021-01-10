@@ -201,7 +201,7 @@ router.post('/te', async (req, res) => {
   try {
     var user
     User.findById({ _id: id }, (err, res) => {
-      if (err) throw err;
+      if (err) throw new Error(err);
       user = res
     });
     console.log('thats wangnumbe');
@@ -209,7 +209,7 @@ router.post('/te', async (req, res) => {
     var cart = user.cart;
 
     User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
-      if (err) throw err;
+      if (err) throw new Error(err);
       console.log(res)
     });
 

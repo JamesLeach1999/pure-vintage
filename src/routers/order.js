@@ -162,7 +162,7 @@ router.post('/payment_intents', async (req, res) => {
         isPaid: false,
         intent: '',
       });
-      amount = amount + 95
+      amount = amount + 95;
       // console.log(order._id);
 
       await order.save();
@@ -217,7 +217,8 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         res.orderItems.forEach((item) => {
-          console.log(item)
+          console.log('thats nunmberwag 220');
+          console.log(item);
           Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
@@ -235,14 +236,19 @@ router.post('/te', async (req, res) => {
       { _id: orderID._id },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
+        console.log('thats nunmberwag 239');
+
+        console.log(res.orderItems);
         res.orderItems.forEach((item) => {
-          var id = JSON.parse(item)
-          console.log(id)
-          Product.findByIdAndDelete({_id: id._id}, (err, res) => {
+          var id = JSON.parse(item);
+          console.log('thats nunmberwag 244');
+
+          console.log(id);
+          Product.findByIdAndDelete({ _id: id._id }, (err, res) => {
             if (err) throw err;
-            console.log(res)
-          })
-        })
+            console.log(res);
+          });
+        });
         orderConf(id, 'user', res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -278,7 +284,7 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
 });
 
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
-  var  amount = req.body.amount;
+  var amount = req.body.amount;
   console.log(amount);
   const productId = req.body.productId;
   const order = await Order.findById({ _id: req.body.id });
@@ -302,7 +308,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
     refundPrice = amount;
   }
 
-  var refundAmount = (refundPrice * 100) + 95
+  var refundAmount = refundPrice * 100 + 95;
   const refund = await stripe.refunds.create({
     payment_intent: req.body.intent,
     amount: refundAmount,
@@ -336,14 +342,13 @@ router.get('/pastOrders', async (req, res) => {
     return el != null;
   });
 
-  
-  console.log(JSON.stringify(user))
-  
+  console.log(JSON.stringify(user));
+
   console.log('numeorwanf');
   console.log(filtered);
 
   var item = [];
-  
+
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
     console.log(JSON.parse(items.orderItems[0]));
@@ -352,9 +357,8 @@ router.get('/pastOrders', async (req, res) => {
 
   var i = [];
   item.forEach((r) => {});
-  
+
   var allOrders = [];
-  
 
   filtered.map((order) => {
     // console.log(order);
@@ -365,9 +369,9 @@ router.get('/pastOrders', async (req, res) => {
   var t = [];
 
   var revor = item.reverse();
-  var data
+  var data;
   if (revor) {
-    data  = allOrders.reverse();
+    data = allOrders.reverse();
   }
 
   console.log(allOrders);
@@ -396,7 +400,7 @@ router.get('/pastOrders', async (req, res) => {
     sumPrice.push(sum1);
   });
 
-  console.log(sumPrice)
+  console.log(sumPrice);
   console.log('working');
   console.log(item);
 

@@ -593,16 +593,18 @@ router.get('/store1', async (req, res) => {
     console.log(req.query);
 
     var pro1 = await filter(req.query);
-    console.log(JSON.stringify(pro1));
+
+    var fs = require('fs');
+    fs.writeFile('myjsonfile.json', JSON.stringify(pro1), 'utf8', callback);
+    // console.log(pro1.toJSON())
+    // console.log();
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
 
     var skipValue = req.body.skip + 16;
-    console.log(clothes);
     // clothes = clothes.slice(req.body.skip, skipValue);
     console.log('thats wangernumb555');
-    console.log(clothes);
   }
   console.log('yeees');
   // console.log(JSON.stringify(clothes))

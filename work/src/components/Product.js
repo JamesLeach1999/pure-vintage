@@ -17,8 +17,9 @@ class Product extends Component {
       const json = await response.json();
       console.log(json);
       this.setState({ data: json.name, images: json.name.image });
-      console.log(this.state.data);
-      console.log(this.state.images);
+      console.log(JSON.stringify(this.state.data))
+      // console.log(this.state.data);
+      // console.log(this.state.images);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);

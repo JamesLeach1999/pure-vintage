@@ -54,11 +54,11 @@ const Test = () => {
         console.log(data);
         setLoading(false);
 
-        data.map((products) => {
-          products.map((product) => {
-            console.log(JSON.stringify(product))
-          })
-        })
+        // data.map((products) => {
+        //   products.map((product) => {
+        //     console.log(JSON.stringify(product))
+        //   })
+        // })
       }
     } catch (error) {
       console.log(error);

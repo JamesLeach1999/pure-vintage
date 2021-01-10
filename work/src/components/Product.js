@@ -32,6 +32,7 @@ class Product extends Component {
         className="col-4"
         style={{
           backgroundImage: `url(${this.state.images[1]})`,
+          opacity: this.state.hover ? 0 : 1
         }}
       >
           <img
@@ -46,6 +47,8 @@ class Product extends Component {
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.opacity = 1;
+                            this.setState({ hover: false });
+
             }}
             alt=""
           />

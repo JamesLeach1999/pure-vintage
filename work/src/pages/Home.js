@@ -41,7 +41,7 @@ export default class Home extends Component {
   render(){
     return (
       <div style={{width: "100%"}} className={this.state.animate ? "fade-in-hello hello span": "hello-span"}>
-        <T/>
+        {/* <T/> */}
         <Rows/>
         <CatRows/>
         <FeaturedRow/>

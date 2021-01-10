@@ -166,9 +166,9 @@ label {
 
 .col-2-pics img {
   position: relative;
-  left: 35px;
+  /* left: 35px; */
   width: 500px;
-  height: 600px;
+  /* height: 600px; */
   max-height: 600px;
   max-width: 700px;
   padding: 50px 0;

@@ -41,14 +41,14 @@ class Product extends Component {
             // e.currentTarget.style.opacity = 0;
             // if (this.state.images[1]) {
             this.setState({ hover: true });
-                        e.currentTarget.style.backgroundImage = `url(${this.state.images[1]})`;
+            // e.currentTarget.style.backgroundImage = `url(${this.state.images[1]})`;
 
             // e.currentTarget.style.display = "none";
             //   e.currentTarget.src = this.state.images[1];
             // }
           }}
           onMouseOut={(e) => {
-            e.currentTarget.style.backgroundImage= `url(${this.state.images[0]})`;
+            // e.currentTarget.style.backgroundImage = `url(${this.state.images[0]})`;
 
             // e.currentTarget.style.opacity = 1;
             this.setState({ hover: false });

@@ -217,11 +217,13 @@ router.post('/te', async (req, res) => {
       { _id: orderID },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
-        res.orderItems.forEach((item) => {
           console.log('thats nunmberwag 220');
-          var id = JSON.parse(item);
+        var resJson = JSON.parse(res.orderItems)
+        console.log(resJson)
+        resJson.forEach((item) => {
+          console.log('thats nunmberwag 224');
           console.log(id)
-          Product.findByIdAndDelete({ _id: id._id }, (err, res) => {
+          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
           });
@@ -238,15 +240,13 @@ router.post('/te', async (req, res) => {
       { _id: orderID._id },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
-        console.log('thats nunmberwag 239');
+        console.log('thats nunmberwag 241');
 
-        console.log(res.orderItems);
-        res.orderItems.forEach((item) => {
-          var id = JSON.parse(item);
-          console.log('thats nunmberwag 244');
-
+        var resJson = JSON.parse(res.orderItems);
+        resJson.forEach((item) => {
+          console.log('thats nunmberwag 245');
           console.log(id);
-          Product.findByIdAndDelete({ _id: id._id }, (err, res) => {
+          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
           });

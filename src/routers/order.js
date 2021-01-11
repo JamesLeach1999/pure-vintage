@@ -251,9 +251,10 @@ router.post('/te', async (req, res) => {
         console.log('thats nunmberwag 241');
 
         var resJson = JSON.parse(res.orderItems);
+        // console.log(resJson)
         resJson.forEach((item) => {
           console.log('thats nunmberwag 245');
-          console.log(id);
+          console.log(item);
           Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
             if (err) throw err;
             console.log(res);

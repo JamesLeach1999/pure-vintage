@@ -84,7 +84,7 @@ router.post('/payment_intents', async (req, res) => {
     console.log(req.body);
     try {
         
-        var user = await User.findById({ _id: id });
+      var user = await User.findById({ _id: id });
       if(!user){
         throw new Error("fnjorwfw")
       }
@@ -203,7 +203,7 @@ router.post('/te', async (req, res) => {
   console.log(req.body);
   var items = [];
   try {
-    var user
+    // var user
     var user = await User.findById({ _id: id });
     if (!user) {
       throw new Error('fnjorwfw');
@@ -212,7 +212,7 @@ router.post('/te', async (req, res) => {
     console.log(req.body);
     var cart = user.cart;
 
-    User.updateOne({ _id: id }, { $pullAll: { cart } }, (err, res) => {
+    User.updateOne({ _id: user._id }, { $pullAll: { cart } }, (err, res) => {
       if (err) throw new Error(err);
       console.log(res)
     });
@@ -227,7 +227,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
           console.log('thats nunmberwag 220');
         var resJson = JSON.parse(res.orderItems)
-        console.log(resJson)
+        console.log(resJson[0])
         resJson.forEach((item) => {
           console.log('thats nunmberwag 224');
           console.log(id)

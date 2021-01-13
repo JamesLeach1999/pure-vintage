@@ -84,10 +84,11 @@ router.post('/payment_intents', async (req, res) => {
     console.log(req.body);
     try {
         
-      var user = await User.findById({ _id: id });
-      if(!user){
-        throw new Error("fnjorwfw")
+      if (typeof id === 'string') {
+        throw new Error('fnjorwfw');
       }
+      var user = await User.findById({ _id: id });
+      
 
       console.log('thtas number');
 
@@ -203,11 +204,11 @@ router.post('/te', async (req, res) => {
   console.log(req.body);
   var items = [];
   try {
-    // var user
     var user = await User.findById({ _id: id });
-    if (!user) {
+    if (typeof(id) === "string") {
       throw new Error('fnjorwfw');
     }
+    // var user
     console.log('thats wangnumbe');
     console.log(req.body);
     var cart = user.cart;

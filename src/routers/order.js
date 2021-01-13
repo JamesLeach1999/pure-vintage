@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/User');
+var ObjectId = require('mongoose').Types.ObjectId;
+
 const { ensureAdmin, ensureAuthenticated } = require('../middleware/auth');
 const Product = require('../models/products');
 const multer = require('multer');
@@ -83,7 +85,7 @@ router.post('/payment_intents', async (req, res) => {
 
     console.log(req.body);
     try {
-      if (typeof id === 'string') {
+      if (!ObjectId.isValid(id)) {
         throw new Error('fnjorwfw');
       }
       var user = await User.findById({ _id: id });
@@ -203,7 +205,7 @@ router.post('/te', async (req, res) => {
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    if (typeof id === 'string') {
+    if (!ObjectId.isValid(id)) {
       throw new Error('fnjorwfw');
     }
     // var user
@@ -258,7 +260,7 @@ router.post('/te', async (req, res) => {
         resJson.forEach((item) => {
           console.log('thats nunmberwag 245');
           console.log(item.product);
-          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
+          Product.findByIdAndDelete({ _id: item.product._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
           });

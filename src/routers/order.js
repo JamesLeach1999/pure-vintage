@@ -83,12 +83,10 @@ router.post('/payment_intents', async (req, res) => {
 
     console.log(req.body);
     try {
-        
       if (typeof id === 'string') {
         throw new Error('fnjorwfw');
       }
       var user = await User.findById({ _id: id });
-      
 
       console.log('thtas number');
 
@@ -205,7 +203,7 @@ router.post('/te', async (req, res) => {
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    if (typeof(id) === "string") {
+    if (typeof id === 'string') {
       throw new Error('fnjorwfw');
     }
     // var user
@@ -215,7 +213,7 @@ router.post('/te', async (req, res) => {
 
     User.updateOne({ _id: user._id }, { $pullAll: { cart } }, (err, res) => {
       if (err) throw new Error(err);
-      console.log(res)
+      console.log(res);
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
@@ -226,12 +224,12 @@ router.post('/te', async (req, res) => {
       { _id: orderID },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
-          console.log('thats nunmberwag 220');
-        var resJson = JSON.parse(res.orderItems)
-        console.log(resJson[0])
+        console.log('thats nunmberwag 220');
+        var resJson = JSON.parse(res.orderItems);
+        console.log(resJson[0]);
         resJson[0].forEach((item) => {
           console.log('thats nunmberwag 224');
-          console.log(id)
+          console.log(id);
           Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
             if (err) throw err;
             console.log(res);
@@ -252,8 +250,12 @@ router.post('/te', async (req, res) => {
         console.log('thats nunmberwag 241');
 
         var resJson = JSON.parse(res.orderItems);
-        console.log(resJson[0])
-        resJson[0].forEach((item) => {
+        console.log(resJson);
+        console.log(resJson[0]);
+        console.log(resJson.product);
+        console.log(resJson[0].product);
+
+        resJson.forEach((item) => {
           console.log('thats nunmberwag 245');
           console.log(item.product);
           Product.findByIdAndDelete({ _id: item._id }, (err, res) => {

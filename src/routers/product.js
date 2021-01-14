@@ -634,7 +634,7 @@ router.get('/recentReviews', async (req, res) => {
         console.log('4');
 
 
-    const product = await Product.findById({ _id: oProducts.product._id });
+    const product = await Product.findById({ _id: oProducts[0].product._id });
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log('here');

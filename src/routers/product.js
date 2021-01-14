@@ -623,11 +623,18 @@ router.get('/recentReviews', async (req, res) => {
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
     console.log(oProducts)
+    console.log("1")
         console.log(oProducts[0]);
-    console.log(oProducts.product);
-    console.log(oProducts[0].product);
+            console.log('2');
 
-    const product = await Product.findById({ _id: oProducts[0].product._id });
+    console.log(oProducts.product);
+        console.log('3');
+
+    console.log(oProducts[0].product);
+        console.log('4');
+
+
+    const product = await Product.findById({ _id: oProducts.product._id });
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log('here');

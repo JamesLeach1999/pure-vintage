@@ -31,7 +31,7 @@ const CardElementContainer = styled.div`
 const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
-
+  var [errors, setErrors] = useState([])
   // so we load stripe, then we inject to checkout using elements, then use stripe is how to get back the stripe object
   const stripe = useStripe();
   // custom hook from stripe
@@ -71,6 +71,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       postcode: billingDetails.address.postal_code,
       cart: cart,
     });
+    console.log(clientSecret)
 
     const cardElement = elements.getElement(CardElement);
 
@@ -89,7 +90,10 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     // payment method id
     // client secret
     // get the payment intent back from this
-    console.log(paymentMethodReq);
+    if(paymentMethodReq.paymentMethod === undefined){
+      setCheckoutError(paymentMethodReq.error.message)
+    }
+    console.log(checkoutError)
     const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
       payment_method: paymentMethodReq.paymentMethod.id,
     });

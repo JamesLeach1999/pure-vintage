@@ -91,6 +91,7 @@ const Me = () => {
   useEffect(() => {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
     console.log(sessionStorage.getItem("id"));
+    console.log(orders[1][0].product.image[0]);
   }, []);
 
   useEffect(() => {
@@ -112,10 +113,11 @@ const Me = () => {
               {data.map((product, i) => {
                 return (
                   <tr>
+                    <td>{i}</td>
                     <td>
-                      <Link to={`/orderProducts/${product._id}`}>
+                      {/* <Link to={`/orderProducts/${product._id}`}>
                         <img src={orders[i][0].product.image[0]} alt="" />
-                      </Link>
+                      </Link> */}
                       {/* <img src={`/assets/${product.images[0]}`} alt="" /> */}
                       {/* <p>{this.state.orders.name}</p> */}
                     </td>

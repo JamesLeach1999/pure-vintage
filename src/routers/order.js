@@ -86,6 +86,7 @@ router.post('/payment_intents', async (req, res) => {
     console.log(req.body);
     try {
       if (!ObjectId.isValid(id)) {
+        console.log(ObjectId.isValid(id));
         throw new Error('fnjorwfw');
       }
       var user = await User.findById({ _id: id });

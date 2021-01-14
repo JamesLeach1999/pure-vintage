@@ -622,7 +622,7 @@ router.get('/recentReviews', async (req, res) => {
   const ordersRev = orders.reverse();
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
-
+    console.log(oProducts)
     const product = await Product.findById({ _id: oProducts[0].product._id });
     if (product !== null) {
       if (product.reviews[0] !== null) {

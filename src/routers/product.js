@@ -620,6 +620,7 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({});
 
   const ordersRev = orders.reverse();
+  console.log(ordersRev)
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
     console.log(oProducts)

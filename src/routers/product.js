@@ -620,7 +620,7 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({});
 
   const ordersRev = orders.reverse();
-  console.log(ordersRev)
+  // console.log(ordersRev)
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
     console.log(oProducts)
@@ -639,7 +639,7 @@ router.get('/recentReviews', async (req, res) => {
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log('here');
-        console.log(product);
+        console.log(product.reviews);
         proImages.push(product.image[0]);
 
         review.push(product.reviews);
@@ -650,7 +650,7 @@ router.get('/recentReviews', async (req, res) => {
   console.log(review);
 
   var filtered = review.filter(function (el) {
-    return el != [];
+    return el != [] || el != undefined;
   });
   console.log('number');
   console.log(proImages);

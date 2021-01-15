@@ -39,7 +39,7 @@ export default class Nav extends Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
-    this.logout = this.logout.bind(this)
+    this.logout = this.logout.bind(this);
   }
 
   // handleClick = () => {
@@ -102,13 +102,13 @@ export default class Nav extends Component {
     this.handleClick();
   }
 
-  logout (){
+  logout() {
     sessionStorage.removeItem("auth");
     sessionStorage.removeItem("admin");
     sessionStorage.removeItem("user");
 
     // window.location.replace("/store");
-  };
+  }
 
   render() {
     return (
@@ -168,23 +168,25 @@ export default class Nav extends Component {
                 <Link to="/login">Login</Link>
               ) : (
                 <li>
-                  <button
-                    type="submit"
-                    className="nav-links"
-                    value="Log In"
-                    style={{
-                      display: "inline-block",
-                      paddingTop: "5px",
-                      height: "70px",
-                      position: "relative",
-                      top: "-25px",
-                      border: "none",
-                      background: "none",
-                    }}
-                    onClick={this.logout}
-                  >
-                    Logout
-                  </button>
+                  <form>
+                    <button
+                      type="submit"
+                      className="nav-links"
+                      value="Log In"
+                      style={{
+                        display: "inline-block",
+                        paddingTop: "5px",
+                        height: "70px",
+                        position: "relative",
+                        top: "-25px",
+                        border: "none",
+                        background: "none",
+                      }}
+                      onClick={this.logout}
+                    >
+                      Logout
+                    </button>
+                  </form>
                 </li>
               )}
             </li>

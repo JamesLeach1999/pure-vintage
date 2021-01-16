@@ -620,7 +620,7 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({});
 
   const ordersRev = orders.reverse();
-  // console.log(ordersRev)
+  console.log(ordersRev.length)
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
     console.log(oProducts)
@@ -631,7 +631,7 @@ router.get('/recentReviews', async (req, res) => {
     console.log(oProducts.product);
         console.log('3');
 
-    console.log(oProducts[0].product);
+    // console.log(oProducts[0].product);
         console.log('4');
 
 
@@ -645,9 +645,9 @@ router.get('/recentReviews', async (req, res) => {
         review.push(product.reviews);
       }
     }
+    console.log(review);
   }
   console.log('numberwang1');
-  console.log(review);
 
   var filtered = review.filter(function (el) {
     return el != [] || el != undefined;

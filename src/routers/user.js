@@ -203,10 +203,5 @@ router.get('/logout', (req, res) => {
 
 
 
-router.get('/remors', async (req, res) => {
-  const i = await Order.remove({});
-
-  res.send('deleted');
-});
 
 module.exports = router;

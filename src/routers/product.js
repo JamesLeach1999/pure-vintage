@@ -661,6 +661,8 @@ router.get('/recentReviews', async (req, res) => {
   });
 });
 
+
+
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });
   console.log(pro1);
@@ -962,6 +964,10 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
   } catch (error) {
     res.status(400).send(error);
   }
+});
+
+router.get('/product/*', (req, res) => {
+  res.send('not found');
 });
 
 module.exports = router;

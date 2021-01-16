@@ -3,6 +3,7 @@
 views/assets
 uploads
 views/test.ejs
+emails/dist/account.dev.js
 
 .DS_Store
 .next

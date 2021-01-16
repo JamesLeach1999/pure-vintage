@@ -206,6 +206,7 @@ router.post('/te', async (req, res) => {
   var items = [];
   try {
     var user = await User.findById({ _id: id });
+    console.log(id)
     if (!ObjectId.isValid(id)) {
       throw new Error('fnjorwfw');
     }

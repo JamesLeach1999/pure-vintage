@@ -16,6 +16,9 @@ const cloudinary = require("cloudinary")
 // dotenv.config();
 // app.use(cors())
 
+
+
+
 require('./middleware/passport')(passport);
 
 var fileUpload = require('express-fileupload');
@@ -61,6 +64,9 @@ mongoose.connect(
     console.log('connected to db');
   }
 );
+
+
+
 
 // makes post requests from http available to req.body
 

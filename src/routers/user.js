@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { sendWelcome, sendCancel } = require('../emails/account');
 const ls = require('local-storage');
+const Order = require('../models/Order');
 
 const router = new express.Router();
 
@@ -200,10 +201,12 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
-router.get("/rempros", async (req, res) => {
-  const i = await Product.remove({})
 
-  res.send("deleted")
-})
+
+router.get('/remors', async (req, res) => {
+  const i = await Order.remove({});
+
+  res.send('deleted');
+});
 
 module.exports = router;

@@ -548,6 +548,23 @@ router.get('/manage1', ensureAuthenticated, async (req, res) => {
 });
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store1', async (req, res) => {
+  const sgMail = require('@sendgrid/mail');
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  const msg = {
+    to: 'jadlljames@gmail.com', // Change to your recipient
+    from: 'jimalomalom@hotmail.com', // Change to your verified sender
+    subject: 'Sending with SendGrid is Fun',
+    text: 'and easy to do anywhere, even with Node.js',
+    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+  };
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Email sent');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   var category;
   // console.log(localStorage)
   console.log('i work3');
@@ -594,7 +611,6 @@ router.get('/store1', async (req, res) => {
 
     var pro1 = await filter(req.query);
 
-    
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
@@ -620,22 +636,27 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Order.find({});
 
   const ordersRev = orders.reverse();
-  console.log(ordersRev.length)
+  console.log(ordersRev.length);
   for (var i = 0; i < ordersRev.length; i++) {
     const oProducts = JSON.parse(ordersRev[i].orderItems);
-    console.log(oProducts)
-    console.log("1")
-        console.log(oProducts[0]);
-            console.log('2');
+    console.log(oProducts);
+    console.log('1');
+    console.log(oProducts[0]);
+    console.log('2');
 
     console.log(oProducts.product);
-        console.log('3');
+    console.log('3');
 
     // console.log(oProducts[0].product);
-        console.log('4');
+    console.log('4');
 
+    var product;
 
-    const product = await Product.findById({ _id: oProducts[0].product._id });
+    if (oProducts[0].product) {
+      product = await Product.findById({ _id: oProducts[0].product._id });
+    } else {
+      product = await Product.findById({ _id: oProducts.product._id });
+    }
     if (product !== null) {
       if (product.reviews[0] !== null) {
         console.log('here');
@@ -643,10 +664,21 @@ router.get('/recentReviews', async (req, res) => {
         proImages.push(product.image[0]);
 
         review.push(product.reviews);
+        console.log('5');
+        console.log(review);
       }
+      console.log('6');
+
+      console.log(review);
     }
+    console.log('7');
+
     console.log(review);
   }
+  console.log('8');
+
+  console.log(review);
+
   console.log('numberwang1');
 
   var filtered = review.filter(function (el) {
@@ -660,8 +692,6 @@ router.get('/recentReviews', async (req, res) => {
     images: proImages,
   });
 });
-
-
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true });

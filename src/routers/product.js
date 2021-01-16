@@ -999,7 +999,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
 });
 
 router.get('/product/*', (req, res) => {
-  res.send('not found');
+  res.redirect("/store")
 });
 
 module.exports = router;

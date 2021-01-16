@@ -461,4 +461,8 @@ router.get('/orderProducts', async (req, res) => {
   });
 });
 
+router.get('/orderProducts/*', (req, res) => {
+  res.redirect('/store');
+});
+
 module.exports = router;

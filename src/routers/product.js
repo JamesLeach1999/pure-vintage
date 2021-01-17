@@ -15,7 +15,7 @@ cloudinary.config({
 });
 
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(process.env.SG_API_KEY);
 const msg = {
   to: 'jimalomalom@hotmail.com', // Change to your recipient
   from: 'jadlljames@gmail.com', // Change to your verified sender

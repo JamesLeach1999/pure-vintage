@@ -11,6 +11,7 @@ const App = (props) => {
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [data, setData] = useState(null);
+  var [err, setErr] = useState(false);
   const register = () => {
     Axios({
       method: "POST",
@@ -31,6 +32,7 @@ const App = (props) => {
         login();
       } else {
         props.handleLogin(false);
+        setErr(true);
       }
       // window.location.replace("/store");
     });
@@ -50,10 +52,12 @@ const App = (props) => {
         if (res.data) {
           console.log(res.data);
           props.handleLogin(res.data.passport);
+          setErr(false);
 
           // window.location.replace("/store");
         } else {
           props.handleLogin(false);
+          setErr(true);
         }
       })
       .then((r) => {
@@ -76,6 +80,7 @@ const App = (props) => {
     <div className="wrapper fadeInDown">
       <br /> <br />
       <br /> <br /> <br /> <br /> <br /> <br />
+      {err && alert("Incorrect username or password")}
       <div class="fadeIn first">
         <div id="formContent">
           <br />

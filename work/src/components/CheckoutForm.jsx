@@ -113,6 +113,9 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       onSuccessfulCheckout("/store");
     } catch (error) {
       setCheckoutError(error.message)
+      error.map((r)=>{
+        console.log(r)
+      })
     }
   };
   
@@ -151,6 +154,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         </CardElementContainer>
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
+      {checkoutError && alert("Invalid card credentials")}
       <Row>
         <SubmitButton
           disabled={isProcessing}

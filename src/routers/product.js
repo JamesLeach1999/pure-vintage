@@ -680,7 +680,7 @@ router.get('/recentReviews', async (req, res) => {
 });
 
 router.get('/featuredRows', async (req, res) => {
-  var pro1 = await Product.find({ featured: true });
+  var pro1 = await Product.find({ featured: true, inStock: true });
   console.log(pro1);
   res.send({
     pageTitle: 'welcome',
@@ -799,6 +799,8 @@ router.get('/product', async (req, res) => {
         query: req.query.id,
         inCart: req.query.inCart,
         reviews: product.reviews,
+        inStock: product.inStock,
+
         isAuth: true,
         isAdmin: isAdmin,
         images: product.image,
@@ -820,6 +822,7 @@ router.get('/product', async (req, res) => {
         query: req.query.id,
         inCart: req.query.inCart,
         reviews: product.reviews,
+        inStock: product.inStock,
         isAuth: false,
         isAdmin: false,
       });

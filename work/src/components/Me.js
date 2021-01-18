@@ -10,9 +10,9 @@ const Me = () => {
   const [orders, setOrders] = useState([]);
   const [total, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [time, setTime] = useState([])
+  const [time, setTime] = useState([]);
   const [id, setId] = useState("nuttn");
-  const [nulll, setNull] = useState("c");
+  const [error, setError] = useState(false);
 
   function getID() {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
@@ -29,7 +29,7 @@ const Me = () => {
         const orderJson = await order.json();
         var allOrders = [];
         console.log(orderJson.orderInfo);
-                console.log(orderJson.names);
+        console.log(orderJson.names);
 
         orderJson.names.map((order) => {
           // console.log(order);
@@ -43,8 +43,8 @@ const Me = () => {
           setData(allOrders.reverse());
         }
 
-        console.log(allOrders)
-        console.log(data)
+        console.log(allOrders);
+        console.log(data);
         // console.log(total);
 
         var it = [];
@@ -69,7 +69,7 @@ const Me = () => {
           sumPrice.push(sum1);
         });
 
-        setSum(sumPrice)
+        setSum(sumPrice);
 
         console.log(total);
         // console.log(orders[0][0].product.image[0]);
@@ -81,9 +81,10 @@ const Me = () => {
       } catch (error) {
         console.log(data);
         console.log(error);
+        setError(true);
       }
     } else {
-      setNull("whoops");
+      setError(true);
       window.location.replace("/store");
     }
   };
@@ -91,7 +92,7 @@ const Me = () => {
   useEffect(() => {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
     console.log(sessionStorage.getItem("id"));
-    console.log(orders[1][0].product.image[0]);
+    // console.log(orders[1][0].product.image[0]);
   }, []);
 
   useEffect(() => {
@@ -110,7 +111,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {data.map((product, i) => {
+              {error ? data.map((product, i) => {
                 return (
                   <tr>
                     <td>{i}</td>
@@ -133,7 +134,11 @@ const Me = () => {
                     {/* </Link> */}
                   </tr>
                 );
-              })}
+              }) : (
+                <tr>
+                  <td>You havent made any orders yet!</td>
+                </tr>
+              )}
             </table>
           </div>
         </div>

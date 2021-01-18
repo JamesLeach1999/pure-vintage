@@ -113,9 +113,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       onSuccessfulCheckout("/store");
     } catch (error) {
       setCheckoutError(error.message)
-      error.map((r)=>{
-        console.log(r)
-      })
+      
     }
   };
   

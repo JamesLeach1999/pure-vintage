@@ -230,15 +230,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 220');
         var resJson = JSON.parse(res.orderItems);
-        console.log(resJson[0]);
-        resJson[0].forEach((item) => {
-          console.log('thats nunmberwag 224');
-          console.log(id);
-          Product.findByIdAndDelete({ _id: item._id }, (err, res) => {
-            if (err) throw err;
-            console.log(res);
-          });
-        });
+        console.log(resJson)
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -259,14 +251,14 @@ router.post('/te', async (req, res) => {
         console.log(resJson.product);
         console.log(resJson[0].product);
 
-        resJson.forEach((item) => {
-          console.log('thats nunmberwag 245');
-          console.log(item.product);
-          Product.findByIdAndUpdate({ _id: item.product._id }, {inStock: false}, (err, res) => {
-            if (err) throw err;
-            console.log(res);
-          });
-        });
+        // resJson.forEach((item) => {
+        //   console.log('thats nunmberwag 245');
+        //   console.log(item.product);
+        //   Product.findByIdAndUpdate({ _id: item.product._id }, {inStock: false}, (err, res) => {
+        //     if (err) throw err;
+        //     console.log(res);
+        //   });
+        // });
         orderConf(id, 'user', res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }

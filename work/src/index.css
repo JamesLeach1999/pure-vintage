@@ -621,25 +621,24 @@ ul {
   color: black;
 }
 
-div::-webkit-scrollbar {
-  width: 20px;
+#fcol::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
 }
 
-/* Track */
-div::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey; 
-  border-radius: 5px;
-}
- 
-/* Handle */
-div::-webkit-scrollbar-thumb {
-  background:rgb(162, 162, 184); 
-  border-radius: 5px;
+#fcol::-webkit-scrollbar
+{
+  width: 12px;
+  background-color: #F5F5F5;
 }
 
-/* Handle on hover */
-div::-webkit-scrollbar-thumb:hover {
-  background: #525392; 
+#fcol::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #D62929;
 }
 /* media queries for menu */
 /* only for less than 800 px */

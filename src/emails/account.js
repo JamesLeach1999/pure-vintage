@@ -299,8 +299,8 @@ console.log("wang1")
   }
 
   sgMail.send({
-    to: email,
-    from: 'jimalomalom@hotmail.com',
+    to: 'jimalomalom@hotmail.com',
+    from: 'jadlljames@gmail.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -454,22 +454,22 @@ console.log("wang1")
       
 </div>
 
-${product.length > 0 ? products.map((product) => {
-  return (
-    `<tr >
+${
+  product.length > 0
+    ? products.map((product) => {
+        return `<tr >
       <td >{{${product.name}}}</td>
       <td>{{${product.size}}}</td>
       <td>£{{${product.price}}}</td>
 
-    </tr>`
-  )
-}):(
-  `<tr>
+    </tr>`;
+      })
+    : `<tr>
     <td>{{${products.name}}}</td>
     <td>{{${products.size}}}</td>
     <td>£{{${products.price}}}</td>
   </tr>`
-)}
+}
 
 
         
@@ -505,8 +505,7 @@ ${product.length > 0 ? products.map((product) => {
         </div>
       </center>
     </body>
-  </html>`
-  
+  </html>`,
   });
 };
 // will deal with this later. meant to be a helper function for pagnintation

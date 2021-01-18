@@ -93,6 +93,7 @@ console.log(clicked)
             <form
               className="f-col filter filter-container filterItems"
               action="/store"
+              id="fcol"
               style={style}
             >
               <section style={{ height: "1500px", fontSize: "110%" }}>

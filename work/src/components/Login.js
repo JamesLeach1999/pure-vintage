@@ -80,7 +80,6 @@ const App = (props) => {
     <div className="wrapper fadeInDown">
       <br /> <br />
       <br /> <br /> <br /> <br /> <br /> <br />
-      {err && alert("Incorrect username or password")}
       <div class="fadeIn first">
         <div id="formContent">
           <br />

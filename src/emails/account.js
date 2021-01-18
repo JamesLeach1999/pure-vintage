@@ -555,42 +555,58 @@ var filter = async function (query) {
 
   if (query.category && query.brand && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size }, {price: {"$lt": pr}}],
+      $and: [
+        { category: category },
+        { brand: brand },
+        { size: size },
+        { price: { $lt: pr } },
+        { inStock: true },
+      ],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { size: size }, { price: { "$lt": pr } }],
+      $and: [{ category: category }, { size: size }, { price: { $lt: pr } }, { inStock: true }],
     };
   } else if (query.category && query.size) {
     products = {
-      $and: [{ category: category }, { brand: brand }, { size: size },  { price: { "$lt": pr } }],
+      $and: [
+        { category: category },
+        { brand: brand },
+        { size: size },
+        { price: { $lt: pr } },
+        { inStock: true },
+      ],
     };
   } else if (query.brand && query.size) {
     products = {
-      $and: [{ brand: brand }, { size: size }, { price: { "$lt": pr } }],
+      $and: [{ brand: brand }, { size: size }, { price: { $lt: pr } }, { inStock: true }],
     };
   } else if (query.category && query.brand) {
     products = {
-      $and: [{ category: category }, { brand: brand } , { price: { "$lt": pr } }],
+      $and: [{ category: category }, { brand: brand }, { price: { $lt: pr } }, { inStock: true }],
     };
   } else if (query.category) {
     products = {
       category: category,
-      price: {"$lt": pr}
+      price: { $lt: pr },
+      inStock: true,
     };
   } else if (query.brand) {
     products = {
       brand: brand,
-      price: { "$lt": pr },
+      price: { $lt: pr },
+      inStock: true,
     };
   } else if (query.size) {
     products = {
       size: size,
-      price: { "$lt": pr },
+      price: { $lt: pr },
+      inStock: true,
     }; 
   } else {
     products = {
       price: { $lt: pr },
+      inStock: true
     };
   }
 
@@ -603,9 +619,7 @@ var filter = async function (query) {
     
     if (query.skip !== null || query.skip !== undefined) {
       var skip = parseInt(query.skip);
-      console.log(products)
-      products.push({ inStock: true });
-      console.log(products)
+      
       t = await Product.find(products).skip(skip);
     } else {
       var skip = 0;

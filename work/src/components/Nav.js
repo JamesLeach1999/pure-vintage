@@ -68,7 +68,7 @@ export default class Nav extends Component {
     if (!data) {
       // sessionStorage.setItem("auth", false);
       // sessionStorage.setItem("admin", false);
-      window.location.replace("/store");
+      alert("Email or password incorrect")
     }
   }
 

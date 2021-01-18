@@ -111,7 +111,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {error ? data.map((product, i) => {
+              {data ? data.map((product, i) => {
                 return (
                   <tr>
                     <td>{i}</td>

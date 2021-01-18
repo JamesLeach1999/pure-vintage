@@ -206,7 +206,7 @@ router.post('/te', async (req, res) => {
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    console.log(id)
+    console.log(id);
     if (!ObjectId.isValid(id)) {
       throw new Error('fnjorwfw');
     }
@@ -230,7 +230,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 220');
         var resJson = JSON.parse(res.orderItems);
-        console.log(resJson)
+        console.log(resJson);
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -246,10 +246,18 @@ router.post('/te', async (req, res) => {
         console.log('thats nunmberwag 241');
 
         var resJson = JSON.parse(res.orderItems);
+        console.log('11');
         console.log(resJson);
+        console.log('12');
+
         console.log(resJson[0]);
+        console.log('13');
+
         console.log(resJson.product);
+        console.log('14');
+
         console.log(resJson[0].product);
+        console.log('15');
 
         // resJson.forEach((item) => {
         //   console.log('thats nunmberwag 245');

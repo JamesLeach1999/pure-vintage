@@ -298,6 +298,12 @@ console.log("wang1")
     products.push(json[i].product);
   }
 
+  products.forEach((ind) => {
+    Product.findByIdAndUpdate({_id: ind._id}, {inStock: false}, (err, res) => {
+      console.log(res)
+    })
+  })
+
   sgMail.send({
     to: 'jimalomalom@hotmail.com',
     from: 'jadlljames@gmail.com',

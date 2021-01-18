@@ -262,7 +262,7 @@ router.post('/te', async (req, res) => {
         resJson.forEach((item) => {
           console.log('thats nunmberwag 245');
           console.log(item.product);
-          Product.findByIdAndDelete({ _id: item.product._id }, (err, res) => {
+          Product.findByIdAndUpdate({ _id: item.product._id }, {inStock: false}, (err, res) => {
             if (err) throw err;
             console.log(res);
           });

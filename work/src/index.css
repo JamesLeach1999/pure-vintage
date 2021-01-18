@@ -621,25 +621,25 @@ ul {
   color: black;
 }
 
-::-webkit-scrollbar {
+form::-webkit-scrollbar {
   width: 20px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+form::-webkit-scrollbar-track {
   box-shadow: inset 0 0 2px grey; 
   border-radius: 5px;
 }
  
 /* Handle */
-::-webkit-scrollbar-thumb {
-  background:rgb(55, 55, 97); 
+form::-webkit-scrollbar-thumb {
+  background:rgb(162, 162, 184); 
   border-radius: 5px;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #020349; 
+form::-webkit-scrollbar-thumb:hover {
+  background: #525392; 
 }
 /* media queries for menu */
 /* only for less than 800 px */

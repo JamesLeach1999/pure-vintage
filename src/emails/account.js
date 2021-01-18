@@ -59,7 +59,7 @@ const orderConfAdmin = async (item, shipping) => {
 
   sgMail.send({
     to: 'jadlljames@gmail.com',
-    from: 'support@purevintage-clothing.com',
+    from: 'jadlljames@gmail.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -603,7 +603,7 @@ var filter = async function (query) {
     
     if (query.skip !== null || query.skip !== undefined) {
       var skip = parseInt(query.skip);
-      console.log(products)
+      console.log(products + {inStock: true})
       t = await Product.find(products).skip(skip);
     } else {
       var skip = 0;

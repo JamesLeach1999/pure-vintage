@@ -14,23 +14,7 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SG_API_KEY);
-const msg = {
-  to: 'jimalomalom@hotmail.com', // Change to your recipient
-  from: 'jadlljames@gmail.com', // Change to your verified sender
-  subject: 'Sending with SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-};
-sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent');
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+
 // AUTHENTICATION EXPLAINED
 // i have used ensureAuthenticated on most of the routes here. This is so we can get the session and user ID and therefore the user profile
 // i also return whether or not the user is authenticated and whether or not they are an admin

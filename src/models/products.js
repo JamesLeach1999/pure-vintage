@@ -68,6 +68,10 @@ var reviewSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
       },
+      inStock: {
+        type: Boolean,
+        default: true,
+      },
 
       numReviews: {
         type: Number,

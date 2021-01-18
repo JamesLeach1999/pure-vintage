@@ -603,8 +603,9 @@ var filter = async function (query) {
     
     if (query.skip !== null || query.skip !== undefined) {
       var skip = parseInt(query.skip);
-      console.log(products.$and.push({inStock: true}))
-      t = await Product.find(products.$and.push({ inStock: true })).skip(skip);
+      products.$and.push({ inStock: true });
+      console.log(products)
+      t = await Product.find(products).skip(skip);
     } else {
       var skip = 0;
       console.log("no  skip")

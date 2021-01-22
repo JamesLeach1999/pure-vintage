@@ -15,7 +15,7 @@ const Footer = () => {
           class="container footer"
           style={{ backgroundColor: "white", color: "black" }}
         >
-          <div class="row">
+          <div class="row" style={{maxWidth: "90%", width: "85vw"}}>
             <div class="footer-col-1">
               <div class="app-logo">
                 <img

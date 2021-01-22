@@ -447,6 +447,16 @@ router.post('/featured', ensureAuthenticated, async (req, res) => {
 
   res.redirect('/manage');
 });
+
+router.post('/inStock', ensureAuthenticated, async (req, res) => {
+  console.log(req.query.inStock);
+
+  Product.findByIdAndUpdate({ _id: req.body.inStock }, { inStock: false }, () => {
+    console.log('worked');
+  });
+
+  res.redirect('/manage');
+});
 // again, checking if the user is logged in then sending back different results depending
 router.get('/home', async (req, res) => {
   console.log(req.session);

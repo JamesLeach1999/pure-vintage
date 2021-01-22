@@ -109,6 +109,21 @@ const Manage = () => {
                       Featured
                     </button>
                   </form>
+                  <form action="/inStock" method="post">
+                    <input
+                      type="text"
+                      name="inStock"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      In stock
+                    </button>
+                  </form>
                   <form action="/delete" method="post">
                     <input
                       type="text"

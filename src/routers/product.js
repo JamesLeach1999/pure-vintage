@@ -441,7 +441,9 @@ router.post('/delete', ensureAuthenticated, async (req, res) => {
 router.post('/featured', ensureAuthenticated, async (req, res) => {
   console.log(req.query.featured);
 
-  Product.findByIdAndUpdate({ _id: req.body.featured }, { featured: true }, () => {
+  var featured = await Product.findById({_id: req.body.featured})
+
+  Product.findByIdAndUpdate({ _id: req.body.featured }, { featured: !featured.featured }, () => {
     console.log('worked');
   });
 
@@ -451,7 +453,9 @@ router.post('/featured', ensureAuthenticated, async (req, res) => {
 router.post('/inStock', ensureAuthenticated, async (req, res) => {
   console.log(req.query.inStock);
 
-  Product.findByIdAndUpdate({ _id: req.body.inStock }, { inStock: false }, () => {
+  var stock = await Product.findById({_id: req.body.inStock})
+
+  Product.findByIdAndUpdate({ _id: req.body.inStock }, { inStock: !stock.inStock }, () => {
     console.log('worked');
   });
 
@@ -593,7 +597,7 @@ router.get('/store1', async (req, res) => {
     req.query.size === undefined &&
     req.query.skip === undefined
   ) {
-    const pro = await Product.find({}).limit(16);
+    const pro = await Product.find({inStock: true}).limit(16);
     // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
 
     pro.forEach((n) => {

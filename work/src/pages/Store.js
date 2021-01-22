@@ -1002,7 +1002,6 @@ console.log(clicked)
                   marginLeft: "-25px",
                   marginRight: "500px",
                   backgroundColor: "whitesmoke",
-                  border: "2px solid black",
                   borderRadius: "7%",
                   transform: "rotate(-90deg)",
                   top: "150px",

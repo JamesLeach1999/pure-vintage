@@ -18,7 +18,11 @@ class Reviews extends Component {
       var pros = pJson.name.slice(0, 4)
       console.log(pros.reverse())
       console.log(pros)
-      this.setState({ data:  pros});
+
+      var filtered = pros.filter(function (el) {
+        return el != null;
+      });
+      this.setState({ data:  filtered});
       this.setState({ images: pJson.images });
       console.log(this.state.images)
       console.log(this.state.data);

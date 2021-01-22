@@ -5,7 +5,8 @@ import Product from "../components/Product";
 import StoreRows from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
-import "../css/filter.css"
+import "../css/filter.css";
+import e from "express";
 // for products need to use fetch
 const People = (props) => {
   var [price, setPrice] = useState(0);
@@ -18,7 +19,7 @@ const People = (props) => {
   console.log(localStorage.getItem("unAuthCart"));
   console.log(localStorage);
   console.log(sessionStorage);
-console.log(clicked)
+  console.log(clicked);
   const bigSize = {
     maxWidth: "350px",
     position: "relative",
@@ -33,7 +34,7 @@ console.log(clicked)
     fontSize: "15px",
     marginLeft: "-2px",
     paddingLeft: "25px",
-    textTransform: "none"
+    textTransform: "none",
   };
   console.log(sessionStorage);
   // this is the callback (can do it inline), uses the initial size for default
@@ -616,7 +617,7 @@ console.log(clicked)
                 >
                   Categories
                 </h3>
-                <section class="mb-4 listbox" style={{fontSize: "80%"}}>
+                <section class="mb-4 listbox" style={{ fontSize: "80%" }}>
                   <div class="form-check pl-0 mb-3">
                     <input
                       type="checkbox"
@@ -989,7 +990,32 @@ console.log(clicked)
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 ></input>
-                <button type="submit">Search</button>
+                /* Green */ border: none; color: white; padding: 16px 32px;
+                text-align: center; text-decoration: none; display:
+                inline-block; font-size: 16px; margin: 4px 2px;
+                transition-duration: 0.4s; cursor: pointer;
+                <button
+                  type="submit"
+                  style={{
+                    backgroundColor: "#4CAF50",
+                    border: "none",
+                    color: "black",
+                    padding: "16px 32px",
+                    textAlign: "center",
+                    textDecoration: "none",
+                    display: "inline-block",
+                    fontSize: "16px",
+                    margin: "4px 2px",
+                    cursor: "pointer",
+                    transitionDuration: "0.4s",
+                    
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style = {backgroundColor:"#4CA5FO", color: "white"};
+                  }}
+                >
+                  Search
+                </button>
               </section>
             </form>
           ) : (

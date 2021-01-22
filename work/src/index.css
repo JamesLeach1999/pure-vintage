@@ -424,25 +424,27 @@ td img {
 
 button.rec-dot {
   background-color: whitesmoke;
-  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
+  box-shadow: 0 0 1px 1px rgb(82, 82, 82);
 }
 
 button.rec-dot:hover,
 button.rec-dot:active,
 button.rec-dot:focus {
-  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
+  box-shadow: 0 0 1px 1px rgb(82, 82, 82);
+  background-color: rgb(82, 82, 82);
 }
 
 button.rec-arrow {
   background-color: whitesmoke;
-  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
+  box-shadow: 0 0 1px 1px rgb(82, 82, 82);
 
 }
 
 button.rec-arrow:hover,
 button.rec-arrow:active,
 button.rec-arrow:focus {
-  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
+  box-shadow: 0 0 1px 1px whitesmoke;
+  background-color: rgb(82, 82, 82);
 }
 
 /* footer */

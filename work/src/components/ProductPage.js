@@ -156,7 +156,7 @@ const ProductPage = () => {
               Product details <i class="fa fa-indent"></i>
             </h3>
             <br />
-            <p style={{ whiteSpace: "pre-line" }}>{product.description}</p>
+            <p style={{ whiteSpace: "pre-line", fontSize: "1.5rem" }}>{product.description}</p>
           </div>
         </div>
         <Reviews />

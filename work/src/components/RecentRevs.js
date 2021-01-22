@@ -14,12 +14,10 @@ class Reviews extends Component {
     try {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
-      console.log(pJson)
-      var pros = pJson.name.slice(0, 4)
-      console.log(pros.reverse())
-      console.log(pros)
+      
+      
 
-      var filtered = pros.filter(function (el) {
+      var filtered = pJson.name.filter(function (el) {
         return el != null;
       });
       this.setState({ data:  filtered});

@@ -422,6 +422,15 @@ td img {
   filter: grayscale(0);
 }
 
+button.rec-dot{
+  background-color: whitesmoke;
+  box-shadow: 0 0 1px 3px whitesmoke;
+}
+
+button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
+  box-shadow: 0 0 1px 3px whitesmoke;
+}
+
 /* footer */
 
 .footer {

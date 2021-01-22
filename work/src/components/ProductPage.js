@@ -7,6 +7,7 @@ import { Link, useParams } from "react-router-dom";
 import Carousel from "react-elastic-carousel";
 import OtherReviews from "./OtherReviews";
 import Card from "./PicCard";
+import styled from "styled-components";
 const ProductPage = () => {
   const { id } = useParams();
   const url = `/product?id=${id}`;
@@ -77,6 +78,7 @@ const ProductPage = () => {
     // do this so no infinite loop
   }, []);
 
+  
   return (
     <div style={{ width: "100%" }}>
       <br />

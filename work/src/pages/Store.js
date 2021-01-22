@@ -97,12 +97,12 @@ console.log(clicked)
               style={style}
             >
               <section style={{ height: "1500px", fontSize: "110%" }}>
-                <h6
+                <h4
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Size
-                </h6>
+                </h4>
                 <section className="mb-4">
                   <div class="form-check pl-0 mb-3 pb-1">
                     <input
@@ -113,7 +113,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="26-30"
                     >
                       26"-30"
@@ -128,7 +128,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="31-34"
                     >
                       31"-34"
@@ -143,7 +143,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="35-38"
                     >
                       35"-38"
@@ -159,7 +159,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="XS"
                     >
                       XS
@@ -174,7 +174,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="S"
                     >
                       S
@@ -189,7 +189,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="M"
                     >
                       M
@@ -204,7 +204,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="L"
                     >
                       L
@@ -219,7 +219,7 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="XL"
                     >
                       XL
@@ -234,19 +234,19 @@ console.log(clicked)
                       name="size"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="XXL"
                     >
                       XXL
                     </label>
                   </div>
                 </section>
-                <h6
+                <h4
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Brand
-                </h6>
+                </h4>
                 <section class="mb-4 listbox">
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -257,7 +257,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="nike"
                     >
                       Nike
@@ -272,7 +272,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="burberry"
                     >
                       Burberry
@@ -287,7 +287,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="guess"
                     >
                       Guess
@@ -302,7 +302,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="kappa"
                     >
                       Kappa
@@ -317,7 +317,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="dior"
                     >
                       Dior
@@ -332,7 +332,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="tommy"
                     >
                       Tommy Hilfiger
@@ -347,7 +347,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="ralph"
                     >
                       Ralph lauren
@@ -362,7 +362,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="adidas"
                     >
                       Adidas
@@ -377,7 +377,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="berghaus"
                     >
                       Berghaus
@@ -392,7 +392,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="fila"
                     >
                       Fila
@@ -407,7 +407,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="reebok"
                     >
                       Reebok
@@ -422,7 +422,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="north"
                     >
                       North face
@@ -437,7 +437,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="ysl"
                     >
                       YSL
@@ -452,7 +452,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="lacoste"
                     >
                       Lacoste
@@ -467,7 +467,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="kappa"
                     >
                       Kappa
@@ -482,7 +482,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="champion"
                     >
                       Champion
@@ -497,7 +497,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="umbro"
                     >
                       Umbro
@@ -512,7 +512,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="levi"
                     >
                       Levi
@@ -527,7 +527,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="puma"
                     >
                       Puma
@@ -542,7 +542,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="valentino"
                     >
                       Valentino
@@ -557,7 +557,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="carhartt"
                     >
                       Carhartt
@@ -573,7 +573,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="helly"
                     >
                       Helly Hansen
@@ -588,7 +588,7 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="calvin"
                     >
                       Calvin Klein
@@ -603,19 +603,19 @@ console.log(clicked)
                       name="brand"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="gap"
                     >
                       Gap
                     </label>
                   </div>
                 </section>
-                <h6
+                <h4
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Categories
-                </h6>
+                </h4>
                 <section class="mb-4 listbox" style={{fontSize: "80%"}}>
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -626,7 +626,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="accessories"
                     >
                       Accessories
@@ -641,7 +641,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="jeans"
                     >
                       Jeans
@@ -656,7 +656,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="38"
                     >
                       Trousers
@@ -671,7 +671,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="puffer"
                     >
                       Puffer jackets
@@ -686,7 +686,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="fleeces"
                     >
                       Fleeces
@@ -701,7 +701,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="caps"
                     >
                       Caps
@@ -716,7 +716,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="trackjack"
                     >
                       Track Jackets
@@ -731,7 +731,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="tracksuits"
                     >
                       Tracksuits
@@ -746,7 +746,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="harrington"
                     >
                       Harrington Jackets
@@ -761,7 +761,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="caps"
                     >
                       Caps
@@ -776,7 +776,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="coats"
                     >
                       Coats
@@ -791,7 +791,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="shirts"
                     >
                       Shirts
@@ -806,7 +806,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="sweatshirts"
                     >
                       Sweatshirts
@@ -821,7 +821,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="t-shirts"
                     >
                       T-shirts
@@ -836,7 +836,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="blazers"
                     >
                       Blazers
@@ -851,7 +851,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="football"
                     >
                       Football shirts
@@ -866,7 +866,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="joggers"
                     >
                       Joggers
@@ -881,7 +881,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="necklaces"
                     >
                       Necklaces
@@ -896,7 +896,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="polos"
                     >
                       Polos
@@ -911,7 +911,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="shorts"
                     >
                       Shorts
@@ -926,7 +926,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="hoodies"
                     >
                       Hoodies
@@ -941,7 +941,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="windbreakers"
                     >
                       Windbreakers
@@ -956,7 +956,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="padded"
                     >
                       Padded jackets
@@ -971,7 +971,7 @@ console.log(clicked)
                       name="category"
                     />
                     <label
-                      class="form-check-label small text-uppercase card-link-secondary"
+                      class="form-check-label small  card-link-secondary"
                       for="trousers"
                     >
                       Trousers
@@ -1051,7 +1051,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="26-30"
                         >
                           26"-30"
@@ -1066,7 +1066,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="31-34"
                         >
                           31"-34"
@@ -1081,7 +1081,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="35-38"
                         >
                           35"-38"
@@ -1097,7 +1097,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="XS"
                         >
                           XS
@@ -1112,7 +1112,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="S"
                         >
                           S
@@ -1127,7 +1127,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="M"
                         >
                           M
@@ -1142,7 +1142,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="L"
                         >
                           L
@@ -1157,7 +1157,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="XL"
                         >
                           XL
@@ -1172,7 +1172,7 @@ console.log(clicked)
                           name="size"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="XXL"
                         >
                           XXL
@@ -1200,7 +1200,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="nike"
                         >
                           Nike
@@ -1215,7 +1215,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="burberry"
                         >
                           Burberry
@@ -1230,7 +1230,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="guess"
                         >
                           Guess
@@ -1245,7 +1245,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="kappa"
                         >
                           Kappa
@@ -1260,7 +1260,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="dior"
                         >
                           Dior
@@ -1275,7 +1275,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="tommy"
                         >
                           Tommy Hilfiger
@@ -1290,7 +1290,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="ralph"
                         >
                           Ralph lauren
@@ -1305,7 +1305,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="berghaus"
                         >
                           Berghaus
@@ -1320,7 +1320,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="adidas"
                         >
                           Adidas
@@ -1335,7 +1335,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="fila"
                         >
                           Fila
@@ -1350,7 +1350,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="reebok"
                         >
                           Reebok
@@ -1365,7 +1365,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="north"
                         >
                           North face
@@ -1380,7 +1380,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="ysl"
                         >
                           YSL
@@ -1395,7 +1395,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="lacoste"
                         >
                           Lacoste
@@ -1410,7 +1410,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="kappa"
                         >
                           Kappa
@@ -1425,7 +1425,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="champion"
                         >
                           Champion
@@ -1440,7 +1440,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="umbro"
                         >
                           Umbro
@@ -1455,7 +1455,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="levi"
                         >
                           Levi
@@ -1470,7 +1470,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="puma"
                         >
                           Puma
@@ -1485,7 +1485,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="valentino"
                         >
                           Valentino
@@ -1500,7 +1500,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="carhartt"
                         >
                           Carhartt
@@ -1516,7 +1516,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="helly"
                         >
                           Helly Hansen
@@ -1531,7 +1531,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="calvin"
                         >
                           Calvin Klein
@@ -1546,7 +1546,7 @@ console.log(clicked)
                           name="brand"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="gap"
                         >
                           Gap
@@ -1573,7 +1573,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="accessories"
                         >
                           Accessories
@@ -1588,7 +1588,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="jeans"
                         >
                           Jeans
@@ -1603,7 +1603,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="38"
                         >
                           Trousers
@@ -1618,7 +1618,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="puffer"
                         >
                           Puffer jackets
@@ -1633,7 +1633,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="fleeces"
                         >
                           Fleeces
@@ -1648,7 +1648,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="caps"
                         >
                           Caps
@@ -1663,7 +1663,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="trackjack"
                         >
                           Track Jackets
@@ -1678,7 +1678,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="tracksuits"
                         >
                           Tracksuits
@@ -1693,7 +1693,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="harrington"
                         >
                           Harrington Jackets
@@ -1708,7 +1708,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="caps"
                         >
                           Caps
@@ -1723,7 +1723,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="coats"
                         >
                           Coats
@@ -1738,7 +1738,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="shirts"
                         >
                           Shirts
@@ -1753,7 +1753,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="sweatshirts"
                         >
                           Sweatshirts
@@ -1768,7 +1768,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="t-shirts"
                         >
                           T-shirts
@@ -1783,7 +1783,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="blazers"
                         >
                           Blazers
@@ -1798,7 +1798,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="football"
                         >
                           Football shirts
@@ -1813,7 +1813,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="joggers"
                         >
                           Joggers
@@ -1828,7 +1828,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="necklaces"
                         >
                           Necklaces
@@ -1843,7 +1843,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="polos"
                         >
                           Polos
@@ -1858,7 +1858,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="shorts"
                         >
                           Shorts
@@ -1873,7 +1873,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="hoodies"
                         >
                           Hoodies
@@ -1888,7 +1888,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="windbreakers"
                         >
                           Windbreakers
@@ -1903,7 +1903,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="padded"
                         >
                           Padded jackets
@@ -1918,7 +1918,7 @@ console.log(clicked)
                           name="category"
                         />
                         <label
-                          class="form-check-label small text-uppercase card-link-secondary"
+                          class="form-check-label small  card-link-secondary"
                           for="trousers"
                         >
                           Trousers

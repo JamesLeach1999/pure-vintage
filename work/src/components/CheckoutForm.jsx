@@ -41,7 +41,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const handleFormSubmit = async (ev) => {
     ev.preventDefault();
 
-    try {
       const billingDetails = {
         name: ev.target.name.value,
         email: ev.target.email.value,
@@ -63,6 +62,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       // returns client_secret of payment intent
 
       var id = sessionStorage.getItem("user") || billingDetails.email;
+      
 
       const { data: clientSecret } = await axios.post("/payment_intents", {
         amount: price * 100,
@@ -72,6 +72,10 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         postcode: billingDetails.address.postal_code,
         cart: cart,
       });
+
+      if(!clientSecret){
+        setCheckoutError("Please fill out form field")
+      }
       console.log(clientSecret);
 
       const cardElement = elements.getElement(CardElement);
@@ -91,8 +95,8 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       // payment method id
       // client secret
       // get the payment intent back from this
-      if (paymentMethodReq.paymentMethod === undefined) {
-        setCheckoutError(paymentMethodReq.error.message);
+      if (!paymentMethodReq) {
+        setCheckoutError("Payment error");
       }
       console.log(checkoutError);
       const confirmedCardPayment = await stripe.confirmCardPayment(
@@ -111,10 +115,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       });
       // redirect on checkout if no errors
       onSuccessfulCheckout("/store");
-    } catch (error) {
-      setCheckoutError(error.message)
-      console.log(error)
-    }
+    
   };
   
   // to display errors, use a try catch and in the catch, set the checkoutError state object
@@ -152,7 +153,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         </CardElementContainer>
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
-      {checkoutError && alert("Invalid card credentials")}
       <Row>
         <SubmitButton
           disabled={isProcessing}

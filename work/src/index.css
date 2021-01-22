@@ -424,7 +424,7 @@ td img {
 
 button.rec-dot {
   background-color: whitesmoke;
-  box-shadow: 0 0 1px 3px whitesmoke;
+  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
 }
 
 button.rec-dot:hover,
@@ -435,7 +435,7 @@ button.rec-dot:focus {
 
 button.rec-arrow {
   background-color: whitesmoke;
-    box-shadow: 0 0 1px 3px whitesmoke;
+  box-shadow: 0 0 1px 3px rgb(82, 82, 82);
 
 }
 

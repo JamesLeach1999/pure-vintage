@@ -97,12 +97,12 @@ console.log(clicked)
               style={style}
             >
               <section style={{ height: "1500px", fontSize: "110%" }}>
-                <h4
+                <h3
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Size
-                </h4>
+                </h3>
                 <section className="mb-4">
                   <div class="form-check pl-0 mb-3 pb-1">
                     <input
@@ -241,12 +241,12 @@ console.log(clicked)
                     </label>
                   </div>
                 </section>
-                <h4
+                <h3
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Brand
-                </h4>
+                </h3>
                 <section class="mb-4 listbox">
                   <div class="form-check pl-0 mb-3">
                     <input
@@ -610,12 +610,12 @@ console.log(clicked)
                     </label>
                   </div>
                 </section>
-                <h4
+                <h3
                   class="font-weight-bold mb-3"
                   style={{ padding: "10px", backgroundColor: "whitesmoke" }}
                 >
                   Categories
-                </h4>
+                </h3>
                 <section class="mb-4 listbox" style={{fontSize: "80%"}}>
                   <div class="form-check pl-0 mb-3">
                     <input

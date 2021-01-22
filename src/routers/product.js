@@ -639,10 +639,7 @@ router.get('/recentReviews', async (req, res) => {
   console.log(ordersRev.length);
   for (var i = 0; i < ordersRev.length; i++) {
     // const oProducts = JSON.parse(ordersRev);
-    console.log(oProducts);
-    console.log('1');
-    console.log(oProducts[0]);
-    console.log('2');
+    
     if(ordersRev[i].reviews){
       review.push(ordersRev[i].reviews[0])
       proImages.push(ordersRev[i].image[0])

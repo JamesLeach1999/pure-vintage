@@ -6,7 +6,6 @@ import StoreRows from "../components/Test";
 import Filter from "../components/Filter";
 import FadeIn from "react-fade-in";
 import "../css/filter.css";
-import e from "express";
 // for products need to use fetch
 const People = (props) => {
   var [price, setPrice] = useState(0);

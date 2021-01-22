@@ -633,44 +633,45 @@ router.get('/store1', async (req, res) => {
 router.get('/recentReviews', async (req, res) => {
   var review = [];
   var proImages = [];
-  const orders = await Order.find({});
+  const orders = await Product.find({});
 
   const ordersRev = orders.reverse();
   console.log(ordersRev.length);
   for (var i = 0; i < ordersRev.length; i++) {
-    const oProducts = JSON.parse(ordersRev[i].orderItems);
+    // const oProducts = JSON.parse(ordersRev);
     console.log(oProducts);
     console.log('1');
     console.log(oProducts[0]);
     console.log('2');
-
-    console.log(oProducts.product);
-    console.log('3');
-
-    // console.log(oProducts[0].product);
-    console.log('4');
-
-    var product;
-
-    if (oProducts[0].product) {
-      product = await Product.findById({ _id: oProducts[0].product._id });
-    } else {
-      product = await Product.findById({ _id: oProducts.product._id });
+    if(ordersRev[i].reviews){
+      review.push(ordersRev[i].reviews[0])
+      proImages.push(ordersRev[i].image[0])
     }
-    if (product !== null) {
-      if (product.reviews[0] !== null) {
-        console.log('here');
-        console.log(product.reviews);
-        proImages.push(product.image[0]);
+    // console.log(oProducts.product);
 
-        review.push(product.reviews);
-        console.log('5');
-        console.log(review);
-      }
-      console.log('6');
 
-      console.log(review);
-    }
+   
+
+
+    // if (oProducts[0].product) {
+    //   product = await Product.findById({ _id: oProducts[0].product._id });
+    // } else {
+    //   product = await Product.findById({ _id: oProducts.product._id });
+    // }
+    // if (product !== null) {
+    //   if (product.reviews[0] !== null) {
+    //     console.log('here');
+    //     console.log(product.reviews);
+    //     proImages.push(product.image[0]);
+
+    //     review.push(product.reviews);
+    //     console.log('5');
+    //     console.log(review);
+    //   }
+    //   console.log('6');
+
+    //   console.log(review);
+    // }
     console.log('7');
 
     console.log(review);
@@ -688,7 +689,7 @@ router.get('/recentReviews', async (req, res) => {
   console.log(proImages);
   // console.log(filtered.reverse());
   res.send({
-    name: filtered[0],
+    name: filtered,
     images: proImages,
   });
 });

@@ -38,7 +38,7 @@ const Me = () => {
           }
         });
         var t = [];
-        setOrders(orderJson.orderInfo.reverse());
+        setOrders(orderJson.orderInfo);
         if (orders) {
           setData(allOrders.reverse());
         }
@@ -77,6 +77,7 @@ const Me = () => {
         setLoading(false);
         console.log(data);
         console.log(orders);
+        
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);

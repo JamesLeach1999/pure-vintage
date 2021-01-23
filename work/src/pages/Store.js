@@ -978,6 +978,47 @@ const People = (props) => {
                     </label>
                   </div>
                 </section>
+                <section class="mb-4 listbox">
+                  <h5
+                    class="font-weight-bold mb-3"
+                    style={{
+                      padding: "10px",
+                      backgroundColor: "whitesmoke",
+                    }}
+                  >
+                    Shop by gender
+                  </h5>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="true"
+                      id="mens"
+                      name="gender"
+                    />
+                    <label
+                      class="form-check-label small  card-link-secondary"
+                      for="mens"
+                    >
+                      Mens
+                    </label>
+                  </div>
+                  <div class="form-check pl-0 mb-3">
+                    <input
+                      type="checkbox"
+                      class="form-check-input filled-in"
+                      value="false"
+                      id="womens"
+                      name="gender"
+                    />
+                    <label
+                      class="form-check-label small  card-link-secondary"
+                      for="womens"
+                    >
+                      Womens
+                    </label>
+                  </div>
+                </section>
                 Max price: £{price}
                 <input
                   type="range"
@@ -1048,7 +1089,7 @@ const People = (props) => {
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
                     style={{
-                      height: "70%",
+                      height: "80%",
                       zIndex: "29292929",
                     }}
                   >

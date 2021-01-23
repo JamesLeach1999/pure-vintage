@@ -46,6 +46,8 @@ const Test = () => {
             brand: parsed["brand"],
             size: parsed["size"],
             price: parsed["price"],
+            gender: parsed["gender"],
+
             skip: skip,
           },
         });

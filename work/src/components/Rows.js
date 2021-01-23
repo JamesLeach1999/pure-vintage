@@ -49,19 +49,18 @@ class Rows extends Component {
       <div className="small-container" style={{ justifyContent: "center" }}>
         <h1>A few of our products</h1>
         <div className="row">
-          <AliceCarousel autoPlay autoPlayInterval="3000">
             {this.state.data.map((products) => {
-              return products.slice(0, 4).map((product) => {
-                // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+              products.slice(0, 4).map((product) => {
                 return (
+                <AliceCarousel autoPlay autoPlayInterval="3000">
                   <Link to={`/product/${product._id}`}>
                     <Product className="sliderImg" id={product._id} />
                     {/* <Product/> */}
                   </Link>
+                </AliceCarousel>
                 );
-              });
+              })
             })}
-          </AliceCarousel>
         </div>
       </div>
     );

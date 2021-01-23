@@ -43,37 +43,37 @@ class Rows extends Component {
       <div className="small-container" style={{ justifyContent: "center" }}>
         <h1>A few of our products</h1>
         <div className="row">
-          {this.state.size > 600 ? (
-            this.state.data.map((products) => {
-              return products.slice(0, 4).map((product) => {
-                // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
-                return (
-                  <Link to={`/product/${product._id}`}>
-                    <Product id={product._id} />
-                    {/* <Product/> */}
-                  </Link>
-                );
-              });
-            })
-          ) : (
-            this.state.data.map((products) => {
-              products.slice(0, 4).map((product) => {
-                return (
-                    <AliceCarousel autoPlay autoPlayInterval="3000">
+          {this.state.size > 600
+            ? this.state.data.map((products) => {
+                return products.slice(0, 4).map((product) => {
+                  // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+                  return (
                     <Link to={`/product/${product._id}`}>
-                      <Product
-                        // className="sliderImg"
-                        id={product._id}
-                        // style={{ width: "100%" }}
-                      />
+                      <Product id={product._id} />
                       {/* <Product/> */}
                     </Link>
-                    </AliceCarousel>
                   );
                 });
-                // );
               })
-          )}
+            : this.state.data.map((products) => {
+                return (
+                  <AliceCarousel autoPlay autoPlayInterval="3000">
+                    {products.slice(0, 4).map((product) => {
+                      return (
+                        <Link to={`/product/${product._id}`}>
+                          <Product
+                            className="sliderImg"
+                            id={product._id}
+                            // style={{ width: "100%" }}
+                          />
+                          {/* <Product/> */}
+                        </Link>
+                      );
+                    })}
+                  </AliceCarousel>
+                );
+                // );
+              })}
         </div>
       </div>
     );

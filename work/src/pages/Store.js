@@ -989,7 +989,6 @@ const People = (props) => {
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
                 ></input>
-                
                 <button
                   type="submit"
                   style={{
@@ -1004,10 +1003,12 @@ const People = (props) => {
                     margin: "4px 2px",
                     cursor: "pointer",
                     transitionDuration: "0.4s",
-                    
                   }}
                   onMouseOver={(e) => {
-                    e.target.style = {backgroundColor:"#4CA5FO", color: "white"};
+                    e.target.style = {
+                      backgroundColor: "#4CA5FO",
+                      color: "white",
+                    };
                   }}
                 >
                   Search
@@ -1047,21 +1048,20 @@ const People = (props) => {
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
                     style={{
-                      height: "75%",
+                      height: "70%",
                       zIndex: "29292929",
                     }}
                   >
-                      <h5
-                        className="font-weight-bold mb-3"
-                        style={{
-                          padding: "10px",
-                          backgroundColor: "whitesmoke",
-                        }}
-                      >
-                        Size
-                      </h5>
+                    <h5
+                      className="font-weight-bold mb-3"
+                      style={{
+                        padding: "10px",
+                        backgroundColor: "whitesmoke",
+                      }}
+                    >
+                      Size
+                    </h5>
                     <section class="mb-4 listbox">
-
                       <div class="form-check pl-0 mb-3 pb-1">
                         <input
                           type="checkbox"
@@ -1200,17 +1200,16 @@ const People = (props) => {
                       </div>
                     </section>
 
-                      <h5
-                        class="font-weight-bold mb-3"
-                        style={{
-                          padding: "10px",
-                          backgroundColor: "whitesmoke",
-                        }}
-                      >
-                        Brand
-                      </h5>
+                    <h5
+                      class="font-weight-bold mb-3"
+                      style={{
+                        padding: "10px",
+                        backgroundColor: "whitesmoke",
+                      }}
+                    >
+                      Brand
+                    </h5>
                     <section class="mb-4 listbox">
-
                       <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"
@@ -1574,15 +1573,15 @@ const People = (props) => {
                       </div>
                     </section>
 
-                      <h5
-                        class="font-weight-bold mb-3"
-                        style={{
-                          padding: "10px",
-                          backgroundColor: "whitesmoke",
-                        }}
-                      >
-                        Categories
-                      </h5>
+                    <h5
+                      class="font-weight-bold mb-3"
+                      style={{
+                        padding: "10px",
+                        backgroundColor: "whitesmoke",
+                      }}
+                    >
+                      Categories
+                    </h5>
                     <section class="mb-4 listbox">
                       <div class="form-check pl-0 mb-3">
                         <input
@@ -1946,6 +1945,49 @@ const People = (props) => {
                       </div>
                       <br />
                     </section>
+
+                    <section class="mb-4 listbox">
+                      <h5
+                        class="font-weight-bold mb-3"
+                        style={{
+                          padding: "10px",
+                          backgroundColor: "whitesmoke",
+                        }}
+                      >
+                        Shop by gender
+                      </h5>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="true"
+                          id="mens"
+                          name="gender"
+                        />
+                        <label
+                          class="form-check-label small  card-link-secondary"
+                          for="mens"
+                        >
+                          Mens
+                        </label>
+                      </div>
+                      <div class="form-check pl-0 mb-3">
+                        <input
+                          type="checkbox"
+                          class="form-check-input filled-in"
+                          value="false"
+                          id="womens"
+                          name="gender"
+                        />
+                        <label
+                          class="form-check-label small  card-link-secondary"
+                          for="womens"
+                        >
+                          Womens
+                        </label>
+                      </div>
+                    </section>
+
                     <h5>Max price: £{price}</h5>
 
                     <input

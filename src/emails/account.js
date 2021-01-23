@@ -528,6 +528,10 @@ var filter = async function (query) {
   var category = [];
   var brand = [];
   var size = [];
+  var gender;
+  if(query.gender){
+    gender = (query.gender === "true")
+  }
   if (query.category !== undefined) {
     // console.log(query.category[0])
     var g = query.category.split(' ');
@@ -624,9 +628,13 @@ var filter = async function (query) {
   console.log(typeof products);
   console.log(products);
 
-  var e = { gender: true };
+  if (query.gender && products.$and) {
+    var e = { gender: gender };
+    products.$and.push(e);
+  } else if (query.gender){
+    products.gender = gender
+  }
 
-  products.$and.push(e);
   console.log(products);
   // console.log(q)
 

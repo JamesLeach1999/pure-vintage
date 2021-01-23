@@ -94,7 +94,7 @@ const Manage = () => {
                     {/* <Product/> */}
                   </Link>
                   <br />
-                  {/* <form action="/featured" method="post">
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -139,7 +139,7 @@ const Manage = () => {
                     >
                       delete
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -157,7 +157,7 @@ const Manage = () => {
                   </Link>
                   <br />
 
-                  {/* <form action="/featured" method="post">
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -202,7 +202,7 @@ const Manage = () => {
                     >
                       delete
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -220,7 +220,7 @@ const Manage = () => {
                   </Link>
                   <br />
 
-                  {/* <form action="/featured" method="post">
+                  <form action="/featured" method="post">
                     <input
                       type="text"
                       name="featured"
@@ -265,7 +265,7 @@ const Manage = () => {
                     >
                       delete
                     </button>
-                  </form> */}
+                  </form>
                 </>
               );
             });
@@ -283,7 +283,67 @@ const Manage = () => {
                   </Link>
                   <br />
 
-                  
+                  <form action="/featured" method="post">
+                    <input
+                      type="text"
+                      name="featured"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      Featured
+                    </button>
+                  </form>
+                  <br />
+                  <form action="/inStock" method="post">
+                    <input
+                      type="text"
+                      name="inStock"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      In stock
+                    </button>
+                  </form>
+                  <form action="/gender" method="post">
+                    <input
+                      type="text"
+                      name="gender"
+                      value={product._id}
+                      onClick={(e) => e.preventDefault()}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      Change gender
+                    </button>
+                  </form>
+                  <br />
+                  <form action="/delete" method="post">
+                    <input
+                      type="text"
+                      name="delete"
+                      value={product._id}
+                      hidden
+                    />
+                    <button
+                      type="submit"
+                      // onClick={() => window.location.reload()}
+                    >
+                      delete
+                    </button>
+                  </form>
                 </>
               );
             });

@@ -623,6 +623,8 @@ var filter = async function (query) {
   // console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
   var t;
   // console.log(query.skip);
+  console.log(typeof products)
+  console.log(products)
 
   try {
     

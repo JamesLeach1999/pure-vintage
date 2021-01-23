@@ -461,6 +461,18 @@ router.post('/inStock', ensureAuthenticated, async (req, res) => {
 
   res.redirect('/manage');
 });
+
+router.post('/gender', ensureAuthenticated, async (req, res) => {
+  console.log(req.query.gender);
+
+  var gender = await Product.findById({ _id: req.body.gender});
+
+  Product.findByIdAndUpdate({ _id: req.body.inStock }, { gender: !gender.gender }, () => {
+    console.log('worked');
+  });
+
+  res.redirect('/manage');
+});
 // again, checking if the user is logged in then sending back different results depending
 router.get('/home', async (req, res) => {
   // console.log(req.session);
@@ -595,7 +607,8 @@ router.get('/store1', async (req, res) => {
     req.query.category === undefined &&
     req.query.brand === undefined &&
     req.query.size === undefined &&
-    req.query.skip === undefined
+    req.query.skip === undefined &&
+    req.query.gender === undefined
   ) {
     const pro = await Product.find({inStock: true}).limit(16);
     // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));

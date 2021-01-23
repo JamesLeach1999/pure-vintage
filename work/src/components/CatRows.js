@@ -27,9 +27,17 @@ class CatRows extends Component {
 
   render() {
     return (
-      <div className="small-container" style={{ justifyContent: "center", position: "relative", textAlign: "center", color: "white" }}>
+      <div
+        className="small-container"
+        style={{
+          justifyContent: "center",
+          position: "relative",
+          textAlign: "center",
+          color: "white",
+        }}
+      >
         <h1>Categories</h1>
-        <div className="row" >
+        <div className="row">
           <Link to="/store?category=sweatshirts">
             <div className="col-2">
               <img
@@ -38,7 +46,15 @@ class CatRows extends Component {
               />
               <h1
                 // className="cat-pic"
-                style={{ textAlign: "center", fontSize: "40px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                style={{
+                  textAlign: "center",
+                  fontSize: "40px",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                }}
               >
                 Sweatshirts
               </h1>
@@ -51,8 +67,16 @@ class CatRows extends Component {
                 alt=""
               />
               <h1
-                lassName="cat-pic"
-                style={{ textAlign: "center", fontSize: "40px" }}
+                // className="cat-pic"
+                style={{
+                  textAlign: "center",
+                  fontSize: "40px",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                }}
               >
                 Puffer jackets
               </h1>
@@ -65,8 +89,16 @@ class CatRows extends Component {
                 alt=""
               />
               <h1
-                lassName="cat-pic"
-                style={{ textAlign: "center", fontSize: "40px" }}
+                // className="cat-pic"
+                style={{
+                  textAlign: "center",
+                  fontSize: "40px",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                }}
               >
                 Fleeces
               </h1>
@@ -79,8 +111,16 @@ class CatRows extends Component {
                 alt=""
               />
               <h1
-                lassName="cat-pic"
-                style={{ textAlign: "center", fontSize: "40px" }}
+                // className="cat-pic"
+                style={{
+                  textAlign: "center",
+                  fontSize: "40px",
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                }}
               >
                 Track jackets
               </h1>

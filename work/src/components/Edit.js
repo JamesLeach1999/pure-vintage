@@ -37,56 +37,15 @@ class EditPage extends Component {
       <div className="col-4">
         <img src={`${this.state.images}`} alt="" />
         <h4>{this.state.data.name}</h4>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star-o"></i>
-        </div>
+        {this.state.data.gender ? (
+          <h1>Mens</h1>
+        ):(
+          <h1>Womens</h1>
+        )}
         <p>£{this.state.data.price}</p>
 
-        <form action="/featured" method="post">
-          <input
-            type="text"
-            name="featured"
-            value={this.props.id}
-            onClick={(e) => e.preventDefault()}
-            hidden
-          />
-          <button
-            type="submit"
-            // onClick={() => window.location.reload()}
-          >
-            Featured
-          </button>
-        </form>
-        <br />
-        <form action="/inStock" method="post">
-          <input
-            type="text"
-            name="inStock"
-            value={this.props.id}
-            onClick={(e) => e.preventDefault()}
-            hidden
-          />
-          <button
-            type="submit"
-            // onClick={() => window.location.reload()}
-          >
-            In stock
-          </button>
-        </form>
-        <br />
-        <form action="/delete" method="post">
-          <input type="text" name="delete" value={this.props.id} hidden />
-          <button
-            type="submit"
-            // onClick={() => window.location.reload()}
-          >
-            delete
-          </button>
-        </form>
+        
+        
       </div>
     );
   }

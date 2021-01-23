@@ -626,6 +626,10 @@ var filter = async function (query) {
   console.log(typeof products)
   console.log(products)
 
+  var q = products.$and.push({gender: true})
+
+  console.log(q)
+
   try {
     
     if (query.skip !== null || query.skip !== undefined) {

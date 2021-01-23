@@ -1052,7 +1052,6 @@ const People = (props) => {
                       minHeight: "2500px",
                     }}
                   >
-                    <section class="mb-4 listbox">
                       <h5
                         className="font-weight-bold mb-3"
                         style={{
@@ -1062,6 +1061,7 @@ const People = (props) => {
                       >
                         Size
                       </h5>
+                    <section class="mb-4 listbox">
 
                       <div class="form-check pl-0 mb-3 pb-1">
                         <input
@@ -1201,7 +1201,6 @@ const People = (props) => {
                       </div>
                     </section>
 
-                    <section class="mb-4 listbox">
                       <h5
                         class="font-weight-bold mb-3"
                         style={{
@@ -1211,6 +1210,7 @@ const People = (props) => {
                       >
                         Brand
                       </h5>
+                    <section class="mb-4 listbox">
 
                       <div class="form-check pl-0 mb-3">
                         <input
@@ -1575,7 +1575,6 @@ const People = (props) => {
                       </div>
                     </section>
 
-                    <section class="mb-4 listbox">
                       <h5
                         class="font-weight-bold mb-3"
                         style={{
@@ -1585,6 +1584,7 @@ const People = (props) => {
                       >
                         Categories
                       </h5>
+                    <section class="mb-4 listbox">
                       <div class="form-check pl-0 mb-3">
                         <input
                           type="checkbox"

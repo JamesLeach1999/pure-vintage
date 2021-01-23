@@ -14,31 +14,25 @@ class Rows extends Component {
       images: require("../assets/cap1.jpg"),
       size: window.innerWidth,
     };
-
-    this.checkSize = this.checkSize.bind(this);
-  }
-
-  checkSize() {
-    this.setState({ size: window.innerWidth });
   }
 
   async componentDidMount() {
     try {
-      window.addEventListener("resize", this.checkSize);
-
-      if (this.statesize < 600) {
-        this.setState({ size: this.state.size + 13 });
-      } else {
-        this.setState({ size: this.state.size + 25 });
-      }
       const response = await fetch(`/store1`);
+      window.addEventListener(
+        "resize",
+        this.setState({ size: window.innerWidth })
+      );
       console.log(response);
       const json = await response.json();
       this.setState({ data: [json.names] });
       console.log(this.state.data);
 
       console.log(this.state.images);
-      window.removeEventListener("resize", this.checkSize);
+      window.removeEventListener(
+        "resize",
+        this.setState({ size: window.innerWidth })
+      );
     } catch (error) {
       console.log(error);
     }
@@ -49,20 +43,32 @@ class Rows extends Component {
       <div className="small-container" style={{ justifyContent: "center" }}>
         <h1>A few of our products</h1>
         <div className="row">
-          {this.state.data.map((products) => {
-            return (
-              <AliceCarousel autoPlay autoPlayInterval="3000">
-                {products.slice(0, 4).map((product) => {
+          {this.state.size > 600
+            ? this.state.data.map((products) => {
+                return products.slice(0, 4).map((product) => {
+                  // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
                   return (
                     <Link to={`/product/${product._id}`}>
-                      <Product className="sliderImg" id={product._id} />
+                      <Product id={product._id} />
                       {/* <Product/> */}
                     </Link>
                   );
-                })}
-              </AliceCarousel>
-            );
-          })}
+                });
+              })
+            : this.state.data.map((products) => {
+                return (
+                  <AliceCarousel autoPlay autoPlayInterval="3000">
+                    {products.slice(0, 4).map((product) => {
+                      return (
+                        <Link to={`/product/${product._id}`}>
+                          <Product className="sliderImg" id={product._id} style={{width: "100%"}}/>
+                          {/* <Product/> */}
+                        </Link>
+                      );
+                    })}
+                  </AliceCarousel>
+                );
+              })}
         </div>
       </div>
     );

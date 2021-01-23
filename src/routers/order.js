@@ -425,6 +425,12 @@ console.log("Numberwang line 424")
   console.log(filtered)
   console.log('Numberwang line 426');
   console.log(item)
+console.log("NUmberwang line 428")
+  item.forEach((i) => {
+    i.forEach((j)=>{
+      console.log(j.product.size)
+    })
+  })
 
 
   res.send({

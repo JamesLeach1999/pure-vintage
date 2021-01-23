@@ -27,9 +27,9 @@ class CatRows extends Component {
 
   render() {
     return (
-      <div className="small-container" style={{ justifyContent: "center" }}>
+      <div className="small-container" style={{ justifyContent: "center", position: "relative", textAlign: "center", color: "white" }}>
         <h1>Categories</h1>
-        <div className="row">
+        <div className="row" >
           <Link to="/store?category=sweatshirts">
             <div className="col-2">
               <img
@@ -38,7 +38,7 @@ class CatRows extends Component {
               />
               <h1
                 // className="cat-pic"
-                style={{ textAlign: "center", fontSize: "40px" }}
+                style={{ textAlign: "center", fontSize: "40px", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
               >
                 Sweatshirts
               </h1>

@@ -118,9 +118,9 @@ export default class Nav extends Component {
           style={{ color: "black" }}
         >
           <img
-            src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609185066/Logo_white_text_anyd0j.jpg"
+            src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1611415440/logo_blue_k8rcyp.png"
             alt=""
-            style={{ zIndex: "-1", width: "60px", height: "60px" }}
+            style={{ zIndex: "-1", width: "60px", height: "45px" }}
           />
           <CartSlide style={{ position: "fixed" }} />
           <div className="menu-icon" onClick={this.handleClick}>
@@ -139,7 +139,6 @@ export default class Nav extends Component {
             <Link to="/store">
               <li className="nav-links">Store</li>
             </Link>
-            
 
             {sessionStorage.getItem("auth") === "true" ? (
               <li className="nav-links">

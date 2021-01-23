@@ -64,6 +64,10 @@ var reviewSchema = new mongoose.Schema({
         default: 0,
         // required: true
       },
+      gender:{
+        type: String,
+        default: "n/a",
+      },
       featured: {
         type: Boolean,
         default: false,

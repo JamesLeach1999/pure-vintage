@@ -40,7 +40,7 @@ class Rows extends Component {
 
   render() {
     return (
-      <div className="small-container" style={{ justifyContent: "center", minWidth: "250px" }}>
+      <div className="small-container" style={{ justifyContent: "center", minWidth: "250px", maxWidth: "400px" }}>
         <h1>A few of our products</h1>
         <div className="row">
           {this.state.size > 600

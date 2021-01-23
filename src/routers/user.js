@@ -201,6 +201,13 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
+router.get('/rempros',  (req, res) => {
+  // logout is a passport function
+  Product.remove({}, (err, res)=>{
+    console.log(res)
+  })
+  res.redirect('/store');
+});
 
 
 

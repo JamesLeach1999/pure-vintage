@@ -402,7 +402,7 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   data.map((items) => {
     it.push(JSON.parse(items.orderItems));
-    console.log("numberwang 405");
+    console.log('numberwang 405');
     it.map((price) => {
       console.log(price);
       var t = [];
@@ -421,17 +421,16 @@ router.get('/pastOrders', async (req, res) => {
   // console.log(sumPrice);
   // console.log('working');
   // console.log(item);
-console.log("Numberwang line 424")
-  console.log(filtered)
+  console.log('Numberwang line 424');
+  console.log(filtered);
   console.log('Numberwang line 426');
-  console.log(item)
-console.log("NUmberwang line 428")
+  console.log(item);
+  console.log('NUmberwang line 428');
   item.forEach((i) => {
-    i.forEach((j)=>{
-      console.log(j.product.size)
-    })
-  })
-
+    i.forEach((j) => {
+      console.log(j.product.size);
+    });
+  });
 
   res.send({
     pageTitle: 'welcome',

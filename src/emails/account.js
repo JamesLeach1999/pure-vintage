@@ -628,6 +628,8 @@ var filter = async function (query) {
   console.log(typeof products);
   console.log(products);
 
+  console.log(gender)
+
   if (query.gender && products.$and) {
     var e = { gender: gender };
     products.$and.push(e);

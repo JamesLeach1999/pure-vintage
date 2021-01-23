@@ -1047,9 +1047,8 @@ const People = (props) => {
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
                     style={{
-                      height: "100%",
+                      height: "75%",
                       zIndex: "29292929",
-                      minHeight: "2500px",
                     }}
                   >
                       <h5

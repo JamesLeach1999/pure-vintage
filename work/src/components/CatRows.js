@@ -43,7 +43,7 @@ class CatRows extends Component {
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609078658/Navy%20blue%20Nike%20sweatshirt%200.jpg.jpg"
                 alt=""
-                style={{ filter: "brightness(50%)", width: "100%" }}
+                style={{ filter: "brightness(50%)" }}
               />
               <h1
                 // className="cat-pic"
@@ -66,7 +66,7 @@ class CatRows extends Component {
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609184003/frontphone1_cltlbn.jpg"
                 alt=""
-                style={{ filter: "brightness(50%)", width: "100%" }}
+                style={{ filter: "brightness(50%)" }}
               />
               <h1
                 // className="cat-pic"
@@ -89,7 +89,7 @@ class CatRows extends Component {
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609183452/Red%20Adidas%20sweatshirt%20spell%20out0.jpg.jpg"
                 alt=""
-                style={{ filter: "brightness(50%)", width: "100%" }}
+                style={{ filter: "brightness(50%)" }}
               />
               <h1
                 // className="cat-pic"
@@ -112,7 +112,7 @@ class CatRows extends Component {
               <img
                 src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1609181682/Retro%20Black%20Blue%20Adidas%20Tracksuit%20top0.jpg.jpg"
                 alt=""
-                style={{ filter: "brightness(50%)", width: "100%" }}
+                style={{ filter: "brightness(50%)" }}
               />
               <h1
                 // className="cat-pic"

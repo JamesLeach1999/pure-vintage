@@ -626,7 +626,9 @@ var filter = async function (query) {
   console.log(typeof products)
   console.log(products)
 
-  products.$and.gender = true
+  var e = {gender: true}
+
+  products.$and = e
 console.log(products)
   // console.log(q)
 

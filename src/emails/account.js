@@ -56,8 +56,8 @@ const orderConfAdmin = async (item, shipping) => {
   for (var i = 1; i < json.length; i++) {
     products.push(json[i].product);
   }
-console.log("admin email")
-  console.log(products)
+  console.log('admin email');
+  console.log(products);
 
   sgMail.send({
     to: 'jadlljames@gmail.com',
@@ -275,8 +275,6 @@ ${
   });
 };
 
-
-
 const orderConf = async (email, name, item) => {
   var product = [];
   if (item.length > 0) {
@@ -288,7 +286,7 @@ const orderConf = async (email, name, item) => {
     product.push(item);
   }
   var json = JSON.parse(product);
-console.log("wang1")
+  console.log('wang1');
   // console.log(products);
 
   // const user = await User.findById({_id: json.user})
@@ -299,14 +297,14 @@ console.log("wang1")
   for (var i = 1; i < json.length; i++) {
     products.push(json[i].product);
   }
-console.log("user email")
-  console.log(products)
+  console.log('user email');
+  console.log(products);
 
   products.forEach((ind) => {
-    Product.findByIdAndUpdate({_id: ind._id}, {inStock: false}, (err, res) => {
-      console.log(res)
-    })
-  })
+    Product.findByIdAndUpdate({ _id: ind._id }, { inStock: false }, (err, res) => {
+      console.log(res);
+    });
+  });
 
   sgMail.send({
     to: 'jimalomalom@hotmail.com',
@@ -552,12 +550,12 @@ var filter = async function (query) {
     size = j;
   }
 
-  var pr = 1000
-  if(query.price > 0){
-    pr = query.price
+  var pr = 1000;
+  if (query.price > 0) {
+    pr = query.price;
   }
-// console.log("yeyey")
-//   console.log(pr)
+  // console.log("yeyey")
+  //   console.log(pr)
 
   var products;
   // console.log(query)
@@ -611,43 +609,41 @@ var filter = async function (query) {
       size: size,
       price: { $lt: pr },
       inStock: true,
-    }; 
+    };
   } else {
     products = {
       price: { $lt: pr },
-      inStock: true
+      inStock: true,
     };
   }
 
-  console.log("nennene")
+  console.log('nennene');
   // console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
   var t;
   // console.log(query.skip);
-  console.log(typeof products)
-  console.log(products)
+  console.log(typeof products);
+  console.log(products);
 
-  var e = {gender: true}
+  var e = { gender: true };
 
-  products.$and = e
-console.log(products)
+  products.$and.push(e);
+  console.log(products);
   // console.log(q)
 
   try {
-    
     if (query.skip !== null || query.skip !== undefined) {
       var skip = parseInt(query.skip);
-      
+
       t = await Product.find(products).skip(skip);
     } else {
       var skip = 0;
-      console.log("no  skip")
-      t = await Product.find(products)
+      console.log('no  skip');
+      t = await Product.find(products);
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
   // console.log(await Product.find(products));
-
 
   return t;
 

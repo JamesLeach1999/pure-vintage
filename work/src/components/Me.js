@@ -51,22 +51,15 @@ const Me = () => {
         var sumPrice = [];
         var sum1;
         var idk = [];
-        data.map((items) => {
-          it.push(JSON.parse(items.orderItems));
-          console.log(it);
-          it.map((price) => {
-            console.log(price);
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum1 = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum1);
-          });
-          sumPrice.push(sum1);
+        orderJson.orderInfo.map((items) => {
+          items.map((item) => {
+            idk.push(item.product.price)
+          })
+          sum1 = idk.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+
+          sumPrice.push(sum1)
         });
 
         setSum(sumPrice);

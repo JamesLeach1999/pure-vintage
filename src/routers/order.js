@@ -402,7 +402,7 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   data.map((items) => {
     it.push(JSON.parse(items.orderItems));
-    // console.log(it);
+    console.log("numberwang 405");
     it.map((price) => {
       console.log(price);
       var t = [];

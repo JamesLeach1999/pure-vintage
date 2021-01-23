@@ -338,7 +338,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 
 router.get('/pastOrders', async (req, res) => {
   console.log('thats numberwang');
-  console.log(req.query.id);
+  // console.log(req.query.id);
 
   const user = await User.findById({ _id: req.query.id });
   // retrieving only the first 5 results
@@ -360,7 +360,7 @@ router.get('/pastOrders', async (req, res) => {
     return el != null;
   });
 
-  console.log(JSON.stringify(user));
+  // console.log(JSON.stringify(user));
 
   console.log('numeorwanf');
   console.log(filtered);
@@ -369,7 +369,7 @@ router.get('/pastOrders', async (req, res) => {
 
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
-    console.log(JSON.parse(items.orderItems[0]));
+    // console.log(JSON.parse(items.orderItems[0]));
     item.push(JSON.parse(items.orderItems[0]));
   });
 
@@ -392,8 +392,8 @@ router.get('/pastOrders', async (req, res) => {
     data = allOrders.reverse();
   }
 
-  console.log(allOrders);
-  console.log(data);
+  // console.log(allOrders);
+  // console.log(data);
   // console.log(total);
 
   var it = [];
@@ -402,7 +402,7 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   data.map((items) => {
     it.push(JSON.parse(items.orderItems));
-    console.log(it);
+    // console.log(it);
     it.map((price) => {
       console.log(price);
       var t = [];
@@ -418,9 +418,14 @@ router.get('/pastOrders', async (req, res) => {
     sumPrice.push(sum1);
   });
 
-  console.log(sumPrice);
-  console.log('working');
-  console.log(item);
+  // console.log(sumPrice);
+  // console.log('working');
+  // console.log(item);
+console.log("Numberwang line 424")
+  console.log(filtered)
+  console.log('Numberwang line 426');
+  console.log(item)
+
 
   res.send({
     pageTitle: 'welcome',
@@ -435,21 +440,21 @@ router.get('/pastOrders', async (req, res) => {
 });
 
 router.get('/orderProducts', async (req, res) => {
-  console.log(req.query.id);
-  console.log(req.query.user);
+  // console.log(req.query.id);
+  // console.log(req.query.user);
 
   const user = await User.findById({ _id: req.query.user });
   // console.log(req.session.passport.user);
   const product = await Order.findById({ _id: req.query.id });
-  console.log('thats nuberwang 3');
+  console.log('thats nuberwang line 449');
   console.log(product);
   const p = JSON.parse(product.orderItems);
 
   console.log(p);
-  console.log('thats nuberwang 4');
+  console.log('thats nuberwang line 454');
   var it = [];
 
-  console.log('thats nuberwang 5');
+  console.log('thats nuberwang line 457');
 
   res.send({
     pageTitle: 'welcome',

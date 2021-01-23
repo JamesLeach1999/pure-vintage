@@ -56,23 +56,23 @@ class Rows extends Component {
               });
             })
           ) : (
-            <AliceCarousel autoPlay autoPlayInterval="3000">
-              {this.state.data.map((products) => {
-                products.slice(0, 4).map((product) => {
-                  return (
+            this.state.data.map((products) => {
+              products.slice(0, 4).map((product) => {
+                return (
+                    <AliceCarousel autoPlay autoPlayInterval="3000">
                     <Link to={`/product/${product._id}`}>
                       <Product
-                        className="sliderImg"
+                        // className="sliderImg"
                         id={product._id}
                         // style={{ width: "100%" }}
                       />
                       {/* <Product/> */}
                     </Link>
+                    </AliceCarousel>
                   );
                 });
                 // );
-              })}
-            </AliceCarousel>
+              })
           )}
         </div>
       </div>

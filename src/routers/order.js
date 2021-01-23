@@ -83,7 +83,7 @@ router.post('/payment_intents', async (req, res) => {
 
     const id = req.body.id;
 
-    console.log(req.body);
+    // console.log(req.body);
     try {
       if (!ObjectId.isValid(id)) {
         console.log(ObjectId.isValid(id));
@@ -113,7 +113,7 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      console.log(items);
+      // console.log(items);
       const order = new Order({
         user: id,
         orderItems: JSON.stringify(items),
@@ -136,7 +136,7 @@ router.post('/payment_intents', async (req, res) => {
 
       res.status(200).send(paymentIntent.client_secret);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       console.log('thtas number 2');
 
       var cart = req.body.cart;
@@ -159,7 +159,7 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      console.log(items);
+      // console.log(items);
       const order = new Order({
         user: req.body.id,
         orderItems: JSON.stringify(items),
@@ -202,35 +202,35 @@ router.post('/testing', async (req, res) => {
 
 router.post('/te', async (req, res) => {
   const id = req.body.id;
-  console.log(req.body);
+  // console.log(req.body);
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    console.log(id);
+    // console.log(id);
     if (!ObjectId.isValid(id)) {
       throw new Error('fnjorwfw');
     }
     // var user
     console.log('thats wangnumbe');
-    console.log(req.body);
+    // console.log(req.body);
     var cart = user.cart;
 
     User.updateOne({ _id: user._id }, { $pullAll: { cart } }, (err, res) => {
       if (err) throw new Error(err);
-      console.log(res);
+      // console.log(res);
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
     // console.log(orderID);
     var items = [];
-    console.log(user.name);
+    // console.log(user.name);
     Order.findByIdAndUpdate(
       { _id: orderID },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
         var resJson = JSON.parse(res.orderItems);
-        console.log(resJson);
+        // console.log(resJson);
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }

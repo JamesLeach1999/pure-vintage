@@ -70,12 +70,12 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
 
   // retreiving input data. using multer middleware for the image
 
-  console.log(req.body);
-  console.log(req.files);
+  // console.log(req.body);
+  // console.log(req.files);
   // console.log(req.files.image);
 
   var t = [];
-  console.log('numberwang 1');
+  // console.log('numberwang 1');
   // t.push(req.files.image[0]);
   // console.log(t);
   // File upload
@@ -90,7 +90,7 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
       });
       console.log('numberwang 2');
 
-      console.log(fileJPG);
+      // console.log(fileJPG);
       ogName.push(fileJPG.url);
     }
   } else {
@@ -102,10 +102,10 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
     });
     console.log('numberwang 5');
 
-    console.log(fileJPG);
+    // console.log(fileJPG);
     ogName.push(fileJPG.url);
   }
-  console.log('numberwang 3');
+  // console.log('numberwang 3');
 
   var flip = ogName.reverse();
   // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));
@@ -136,7 +136,7 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
   //   _id: req.session.passport.user,
   // });
 
-  console.log(fileJPG.url);
+  // console.log(fileJPG.url);
 
   // again, only will work if the user is an admin. wont matter too much as if they are not admins they wont see the option to upload anyway
 
@@ -166,7 +166,7 @@ router.post('/manage', async (req, res) => {
   var category;
 
   console.log('i work2');
-  console.log(req.method);
+  // console.log(req.method);
 
   // console.log(req.body)
   if (req.body.category) {
@@ -196,7 +196,7 @@ router.post('/manage', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-    console.log(await Product.find({ category: ['jim'] }));
+    // console.log(await Product.find({ category: ['jim'] }));
     pro.forEach((n) => {
       clothes.push(n);
     });
@@ -216,7 +216,7 @@ router.post('/manage', async (req, res) => {
     console.log('i work5');
 
     var pro1 = await filter(req.body);
-    console.log(pro1);
+    // console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
@@ -318,7 +318,7 @@ router.post('/manage', async (req, res) => {
 // });
 
 router.post('/editPost', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   var edits = req.body.edit;
 
@@ -408,7 +408,7 @@ router.post('/delete', ensureAuthenticated, async (req, res) => {
 
     req.body.size = sizeStr;
   }
-  console.log(req.body);
+  // console.log(req.body);
 
   var clothes = [];
   if (
@@ -439,7 +439,7 @@ router.post('/delete', ensureAuthenticated, async (req, res) => {
 });
 
 router.post('/featured', ensureAuthenticated, async (req, res) => {
-  console.log(req.query.featured);
+  // console.log(req.query.featured);
 
   var featured = await Product.findById({_id: req.body.featured})
 
@@ -463,7 +463,7 @@ router.post('/inStock', ensureAuthenticated, async (req, res) => {
 });
 // again, checking if the user is logged in then sending back different results depending
 router.get('/home', async (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
 
   if (req.session.passport && req.session.passport.user) {
     try {
@@ -509,7 +509,7 @@ router.get('/manage1', ensureAuthenticated, async (req, res) => {
   var category;
   // console.log(localStorage)
   console.log('i work3');
-  console.log(req.query.params);
+  // console.log(req.query.params);
 
   // console.log(req.body)
   if (req.query.category) {
@@ -539,17 +539,17 @@ router.get('/manage1', ensureAuthenticated, async (req, res) => {
     req.query.skip === undefined
   ) {
     const pro = await Product.find({}).limit(16);
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
 
     pro.forEach((n) => {
       clothes.push(n);
     });
   } else {
-    console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
+    // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
     console.log('i work5');
 
     var pro1 = await filter(req.query);
-    console.log(pro1);
+    // console.log(pro1);
     pro1.forEach((ite) => {
       clothes.push(ite);
     });
@@ -568,7 +568,7 @@ router.get('/store1', async (req, res) => {
   var category;
   // console.log(localStorage)
   console.log('i work3');
-  console.log(req.query.params);
+  // console.log(req.query.params);
 
   // console.log(req.body)
   if (req.query.category) {
@@ -607,7 +607,7 @@ router.get('/store1', async (req, res) => {
     // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
     console.log('i work5');
 
-    console.log(req.query);
+    // console.log(req.query);
 
     var pro1 = await filter(req.query);
 
@@ -636,7 +636,7 @@ router.get('/recentReviews', async (req, res) => {
   const orders = await Product.find({});
 
   const ordersRev = orders.reverse();
-  console.log(ordersRev.length);
+  // console.log(ordersRev.length);
   for (var i = 0; i < ordersRev.length; i++) {
     // const oProducts = JSON.parse(ordersRev);
     
@@ -673,17 +673,17 @@ router.get('/recentReviews', async (req, res) => {
 
     console.log(review);
   }
-  console.log('8');
+  // console.log('8');
 
-  console.log(review);
+  // console.log(review);
 
-  console.log('numberwang1');
+  // console.log('numberwang1');
 
   var filtered = review.filter(function (el) {
     return el != [] || el != undefined;
   });
   console.log('number');
-  console.log(proImages);
+  // console.log(proImages);
   // console.log(filtered.reverse());
   res.send({
     name: filtered,
@@ -693,7 +693,7 @@ router.get('/recentReviews', async (req, res) => {
 
 router.get('/featuredRows', async (req, res) => {
   var pro1 = await Product.find({ featured: true, inStock: true });
-  console.log(pro1);
+  // console.log(pro1);
   res.send({
     pageTitle: 'welcome',
     cat1: pro1,
@@ -716,7 +716,7 @@ router.post('/store', async (req, res) => {
   var category;
 
   console.log('i work2');
-  console.log(req.method);
+  // console.log(req.method);
 
   // console.log(req.body)
   if (req.body.category) {
@@ -746,7 +746,7 @@ router.post('/store', async (req, res) => {
     req.body.skip === undefined
   ) {
     const pro = await Product.find({});
-    console.log('thats wangernumb 3');
+    // console.log('thats wangernumb 3');
     pro.forEach((n) => {
       clothes.push(n);
     });
@@ -766,7 +766,7 @@ router.post('/store', async (req, res) => {
     // console.log(req.body.skip)
     // console.log(req.body)
     console.log('i work5');
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
       var pro1 = await filter(req.body);
@@ -780,7 +780,7 @@ router.post('/store', async (req, res) => {
     var skipValue = req.body.skip + 16;
     clothes = clothes.slice(req.body.skip, skipValue);
     console.log('thats wangernumb');
-    console.log(clothes);
+    // console.log(clothes);
   }
   res.send({
     pageTitle: 'welcome',
@@ -850,18 +850,18 @@ router.post('/reviews', ensureAuthenticated, async (req, res) => {
   const name = req.body.name;
   const brand = req.body.desc;
   const id = req.body.id;
-  console.log(id);
+  // console.log(id);
   console.log('thats numberwang');
   const review = {
     name: name,
     rating: star,
     comment: brand,
   };
-  console.log(req.body);
+  // console.log(req.body);
   const product = await Product.findById({
     _id: id,
   });
-  console.log(product);
+  // console.log(product);
   product.reviews.push(review);
 
   await product.save();
@@ -900,7 +900,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
     const test = await Product.findOne({
       _id: user.cart,
     });
-    console.log(test);
+    // console.log(test);
     // console.log(req.query.cart)
 
     res.redirect('/store');
@@ -913,7 +913,7 @@ router.post('/added', ensureAuthenticated, async (req, res) => {
 router.get('/cart1', async (req, res) => {
   var fullCart = [];
   console.log('thats numberwang');
-  console.log(req.query.id);
+  // console.log(req.query.id);
   var id = req.query.id;
   const user = await User.findById({
     _id: id,

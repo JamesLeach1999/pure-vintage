@@ -45,8 +45,8 @@ const orderConfAdmin = async (item, shipping) => {
   }
   var json = JSON.parse(product);
 
-  console.log(item);
-  console.log(shipping)
+  // console.log(item);
+  // console.log(shipping)
 
   // const user = await User.findById({_id: json.user})
   console.log('wang');
@@ -56,6 +56,8 @@ const orderConfAdmin = async (item, shipping) => {
   for (var i = 1; i < json.length; i++) {
     products.push(json[i].product);
   }
+console.log("admin email")
+  console.log(products)
 
   sgMail.send({
     to: 'jadlljames@gmail.com',
@@ -287,7 +289,7 @@ const orderConf = async (email, name, item) => {
   }
   var json = JSON.parse(product);
 console.log("wang1")
-  console.log(products);
+  // console.log(products);
 
   // const user = await User.findById({_id: json.user})
   console.log('wang');
@@ -297,6 +299,8 @@ console.log("wang1")
   for (var i = 1; i < json.length; i++) {
     products.push(json[i].product);
   }
+console.log("user email")
+  console.log(products)
 
   products.forEach((ind) => {
     Product.findByIdAndUpdate({_id: ind._id}, {inStock: false}, (err, res) => {
@@ -521,7 +525,7 @@ var filter = async function (query) {
   // match.category = category
   // match.brand = brand
   // match.size = size
-  console.log(query);
+  // console.log(query);
   var items = [];
   var category = [];
   var brand = [];
@@ -556,7 +560,7 @@ var filter = async function (query) {
 //   console.log(pr)
 
   var products;
-  console.log(query)
+  // console.log(query)
 
   if (query.category && query.brand && query.size) {
     products = {
@@ -618,7 +622,7 @@ var filter = async function (query) {
   console.log("nennene")
   // console.log(await Product.find({ brand: ['nike'], price: { $lt: '97' } }));
   var t;
-  console.log(query.skip);
+  // console.log(query.skip);
 
   try {
     

@@ -8,7 +8,7 @@ import "../css/fade.css";
 class Product extends Component {
   constructor() {
     super();
-    this.state = { data: [], images: [] };
+    this.state = { data: [], images: [], style: {} };
   }
 
   async componentDidMount() {
@@ -19,6 +19,16 @@ class Product extends Component {
       this.setState({ data: json.name, images: json.name.image });
       console.log(this.state.data);
       console.log(this.state.images);
+
+      if(this.props.rows){
+        this.state.style = {
+          maxWidth: "250px"
+        }
+      } else {
+        this.state.style = {
+          border: "1px solid black"
+        };
+      }
     } catch (error) {
       console.log(this.props.id);
       console.log(error);
@@ -28,7 +38,7 @@ class Product extends Component {
   render() {
     return (
       <FadeIn>
-        <div className="col-4" style={{width: "200%"}}>
+        <div className="col-4" style={this.state.style}>
           <section
             style={{
               backgroundImage: `url(${this.state.images[1]})`,

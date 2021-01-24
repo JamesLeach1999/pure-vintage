@@ -27,7 +27,7 @@ class Product extends Component {
         this.setState({style: st})
       } else {
         var sta = {
-          border: "2px solid black"
+          border: "none"
         };
         this.setState({ style: sta });
       }

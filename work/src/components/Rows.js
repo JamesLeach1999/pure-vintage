@@ -60,11 +60,12 @@ class Rows extends Component {
                   <AliceCarousel autoPlay autoPlayInterval="3000">
                     {products.slice(0, 4).map((product) => {
                       return (
-                        <Link
-                          to={`/product/${product._id}`}
-                          style={{ width: "100%" }}
-                        >
-                          <Product className="sliderImg" id={product._id} />
+                        <Link to={`/product/${product._id}`}>
+                          <Product
+                            className="sliderImg"
+                            id={product._id}
+                            // style={{ width: "100%" }}
+                          />
                           {/* <Product/> */}
                         </Link>
                       );

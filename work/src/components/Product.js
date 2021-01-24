@@ -27,8 +27,8 @@ class Product extends Component {
 
   render() {
     return (
-      <FadeIn className="col-4" >
-        <section style={{backgroundImage: `url(${this.state.images[1]})`, width: "200%", backgroundSize: "contain", paddingRight: "40px"}}>
+      <FadeIn className="col-4">
+        <section style={{backgroundImage: `url(${this.state.images[1]})`, width: "100%", backgroundSize: "contain"}}>
           <img
             style={{ transitionDuration: "0.5s" }}
             src={`${this.state.images[0]}`}

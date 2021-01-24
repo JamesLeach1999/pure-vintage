@@ -168,11 +168,13 @@ export default class Nav extends Component {
                       style={{
                         display: "inline-block",
                         paddingTop: "5px",
+                        color: "black",
                         height: "70px",
                         position: "relative",
                         top: "-25px",
-                        border: "none",
-                        background: "none",
+                        border: "1px solid black",
+                        borderRadius: "5px",
+                        background: "grey",
                       }}
                       onClick={this.logout}
                     >

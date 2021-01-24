@@ -240,7 +240,9 @@ class Cart extends Component {
                         <form>
                           <button
                             type="submit"
-                            onClick={() => this.removeCart(product._id)}
+                            onClick={() => {
+                              this.removeCart(product._id);
+                            }}
                           >
                             Remove?
                           </button>

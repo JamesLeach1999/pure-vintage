@@ -298,7 +298,7 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
     payment_intent: req.body.intent,
   });
 
-  res.send(refund);
+  res.redirect('/allOrders');
 });
 
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {

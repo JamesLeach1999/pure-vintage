@@ -2,7 +2,12 @@ import React, { Component } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
 import CartProduct from "./CartProduct";
-import { Brow11serRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  Brow11serRouter as Router,
+  Route,
+  Switch,
+  Link,
+} from "react-router-dom";
 
 import "../css/Cart.css";
 import { filter } from "lodash";
@@ -186,9 +191,14 @@ class Cart extends Component {
           style={{ maxWidth: "100vw" }}
         >
           <section className="center-text">
-            <Link to="/order" style={{ fontSize: "40px" }}>
-              Checkout
-            </Link>
+            {this.state.price > 0 ||
+            parseInt(localStorage.getItem("unAuthCartPrice")) > 0 ? (
+              <Link to="/order" style={{ fontSize: "40px" }}>
+                Checkout
+              </Link>
+            ) : (
+              ""
+            )}
             {sessionStorage.getItem("auth") === "true" ? (
               <h3>£{this.state.price}</h3>
             ) : (

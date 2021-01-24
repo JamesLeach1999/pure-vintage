@@ -19,15 +19,17 @@ class Product extends Component {
       this.setState({ data: json.name, images: json.name.image });
       console.log(this.state.data);
       console.log(this.state.images);
-
+      console.log(this.props)
       if(this.props.rows){
-        this.state.style = {
+        var st = {
           maxWidth: "250px"
         }
+        this.setState({style: st})
       } else {
-        this.state.style = {
-          border: "1px solid black"
+        var sta = {
+          border: "2px solid black"
         };
+        this.setState({ style: sta });
       }
     } catch (error) {
       console.log(this.props.id);

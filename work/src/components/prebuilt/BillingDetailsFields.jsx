@@ -9,7 +9,6 @@ const BillingDetailsFields = () => {
         name="address"
         label="Address"
         type="text"
-        placeholder="E.g: 123 Fake Street"
         required
       />
       <FormField name="city" label="City" type="text" required />

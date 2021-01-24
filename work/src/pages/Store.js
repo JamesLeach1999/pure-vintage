@@ -1099,7 +1099,7 @@ const People = (props) => {
                   <ul
                     className={clicked ? "filter-menu active" : "filter-menu"}
                     style={{
-                      height: "75%",
+                      height: "70%",
                       zIndex: "29292929",
                     }}
                   >

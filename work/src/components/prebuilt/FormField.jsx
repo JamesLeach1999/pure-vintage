@@ -16,7 +16,7 @@ const FormFieldContainer = styled.div`
 `;
 
 const Label = styled.label`
-  width: 20%;
+  width: 40%;
   min-width: 70px;
   padding: 11px 0;
   color: #000000;

@@ -64,7 +64,7 @@ class Rows extends Component {
                           <Product
                             className="sliderImg"
                             id={product._id}
-                            // style={{ width: "100%" }}
+                            style={{ width: "200%" }}
                           />
                           {/* <Product/> */}
                         </Link>

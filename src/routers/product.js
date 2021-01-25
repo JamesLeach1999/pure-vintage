@@ -467,7 +467,7 @@ router.post('/gender', ensureAuthenticated, async (req, res) => {
 
   var gender = await Product.findById({ _id: req.body.gender});
 
-  Product.findByIdAndUpdate({ _id: req.body.inStock }, { gender: !gender.gender }, () => {
+  Product.findByIdAndUpdate({ _id: req.body.gender }, { gender: !gender.gender }, () => {
     console.log('worked');
   });
 

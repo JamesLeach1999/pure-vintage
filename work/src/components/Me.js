@@ -87,11 +87,8 @@ const Me = () => {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
     console.log(sessionStorage.getItem("id"));
     // console.log(orders[1][0].product.image[0]);
-  }, []);
-
-  useEffect(() => {
     getMe();
-  }, [loading]);
+  }, []);
 
   return (
     <>

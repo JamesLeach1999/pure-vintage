@@ -1983,13 +1983,13 @@ export default class Filter extends Component {
                       </label>
                     </div>
                   </section>
-                  <section class="mb-4 listbox">
+                  <section class="mb-4 listbox" style={{height: "60px"}}>
                     <h5
                       class="font-weight-bold mb-3"
                       style={{
                         padding: "10px",
                         backgroundColor: "whitesmoke",
-                        height: "20px",
+                        height: "40px",
                       }}
                     >
                       Shop by gender
@@ -2025,7 +2025,10 @@ export default class Filter extends Component {
                       </label>
                     </div>
                   </section>
+                  <h4>
+
                   Max price: £{this.state.price}
+                  </h4>
                   <input
                     type="range"
                     id="price"

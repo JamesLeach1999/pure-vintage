@@ -8,6 +8,56 @@ import FadeIn from "react-fade-in";
 import "../css/filter.css";
 // for products need to use fetch
 export default class Filter extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedIn: "NOT_LOGGED_IN",
+      user: {},
+      admin: false,
+      auth: false,
+      clicked: false,
+      cartClicked: false,
+      data: [],
+      price: 0,
+    };
+    // updating state
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
+  }
+
+  handleFilterClick() {
+    if (!this.state.cartClicked) {
+      // attach/remove event handler
+      console.log("c");
+      document.addEventListener("click", this.handleOutsideFilterClick, false);
+    } else {
+      console.log("l");
+
+      document.removeEventListener(
+        "click",
+        this.handleOutsideFilterClick,
+        false
+      );
+    }
+
+    this.setState((prevState) => ({
+      cartClicked: !prevState.cartClicked,
+    }));
+  }
+
+  handleOutsideFilterClick(e) {
+    // ignore clicks on the component itself
+    if (this.node1.contains(e.target)) {
+      console.log("thats numberwang");
+      console.log(this.node1);
+      return;
+    }
+
+    this.handleFilterClick();
+  }
+
+  
   render() {
     return (
       <FadeIn>

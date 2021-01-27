@@ -119,6 +119,7 @@ export default class Filter extends Component {
                         ? "filter-menu active"
                         : "filter-menu"
                     }
+                    ref={this.state.cartClicked ? ((node1) => {(this.node1 = node1)}) : ("")}
                     style={{
                       height: "90%",
                       zIndex: "29292929",

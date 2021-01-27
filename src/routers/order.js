@@ -168,7 +168,7 @@ router.post('/payment_intents', async (req, res) => {
       console.log(ids)
       const order = new Order({
         user: req.body.id,
-        orderItems: [ids],
+        orderItems: ids,
         shipping: destination,
         total: sum,
         isPaid: false,

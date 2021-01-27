@@ -18,7 +18,7 @@ const Me = () => {
   const [time, setTime] = useState([]);
   const [id, setId] = useState("nuttn");
   const [error, setError] = useState(false);
-  const [state, dispatch] = useReducer(reducer, )
+  const [state, dispatch] = useReducer(reducer, defaultState)
 
   function getID() {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
@@ -43,11 +43,11 @@ const Me = () => {
             allOrders.push(order);
           }
         });
+
+        dispatch({type: "GET_ORDERS", payload: orderJson})
         var t = [];
         setOrders(orderJson.orderInfo);
-        if (orders) {
-          setData(allOrders.reverse());
-        }
+        console.log(state)
 
         console.log(allOrders);
         console.log(data);
@@ -108,7 +108,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {data ? data.map((product, i) => {
+              {state.data ? state.data.map((product, i) => {
                 return (
                   <tr>
                     {/* <td>{i}</td> */}

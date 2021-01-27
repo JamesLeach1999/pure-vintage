@@ -131,17 +131,18 @@ export default class Filter extends Component {
           marginLeft: "40px",
         }}
         ref={(node1) => (this.node1 = node1)}
+      ></div>
+      <div
+        style={{ border: "none", textTransform: "capitalize" }}
+        // className={animate ? "fade-in-hello hello span" : "hello-span"}
       >
-        <div
-          style={{ border: "none", textTransform: "capitalize" }}
-          // className={animate ? "fade-in-hello hello span" : "hello-span"}
-        >
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <section className="p">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <section className="p">
+          
             <>
               <h1
                 className="filter-logo"
@@ -1153,19 +1154,18 @@ export default class Filter extends Component {
                 </form>
               </section>
             </>
-            {/* )} */}
-            {/* </form> */}
+          {/* )} */}
+          {/* </form> */}
 
-            {/* <StoreRows style={{ width: "100%" }} /> */}
+          {/* <StoreRows style={{ width: "100%" }} /> */}
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-          </section>
-        </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+        </section>
       </div>
     </FadeIn>
   );

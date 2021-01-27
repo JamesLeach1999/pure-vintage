@@ -47,7 +47,8 @@ const reducer = (state, action) => {
         });
         sumPrice.push(sum1);
       });
-      
+      console.log(sumPrice)
+
     return { ...state, sum: sumPrice };
   }
   if (action.type === "GET_ORDERS") {

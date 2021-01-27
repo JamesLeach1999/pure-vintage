@@ -19,8 +19,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 // import RefundProducts from "../pages/RefundPage";
 // import { Button1 } from "../components/Button";
 // import Register from "../components/Register";
+import StoreRows from "../components/Test"
 import "../css/Navbar.css";
-import CartSlide from "../components/CartSlide";
+import CartSlide from "../components/Filter";
 // have to use links like this in the nav
 export default class Nav extends Component {
 
@@ -74,6 +75,7 @@ constructor() {
     return (
       <div>
         <CartSlide style={{ position: "fixed" }} />
+        <StoreRows style={{ width: "100%" }} />
       </div>
     );
   }

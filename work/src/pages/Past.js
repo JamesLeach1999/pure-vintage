@@ -40,9 +40,9 @@ const Me = () => {
         console.log(orderJson);
         // console.log(orderJson);
         dispatch({type: "GET_ORDERS", payload: orderJson})
-        console.log(state)
         // console.log(this.state.data);
         dispatch({type: "SET_SUMS", payload: state.data})
+        console.log(state)
         // var it = [];
         // var sumPrice = [];
         // var sum1;

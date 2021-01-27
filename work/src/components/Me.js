@@ -1,10 +1,15 @@
 import { sum } from "lodash";
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useReducer } from "react";
 // import Product from "../components/Product";
 // import row1s from "../components/row1s";
 import { Link, useParams } from "react-router-dom";
-// import OrderProducts from "../components/OrderProducts";
+import reducer from "../reducers/orderReducer"
 
+var defaultState = {
+  data: [],
+  orders: [],
+  total: []
+}
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -13,6 +18,7 @@ const Me = () => {
   const [time, setTime] = useState([]);
   const [id, setId] = useState("nuttn");
   const [error, setError] = useState(false);
+  const [state, dispatch] = useReducer(reducer, )
 
   function getID() {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));

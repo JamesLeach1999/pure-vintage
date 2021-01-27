@@ -26,8 +26,6 @@ export default class Filter extends Component {
     this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
   }
 
-  
-
   handleFilterClick() {
     if (!this.state.cartClicked) {
       // attach/remove event handler
@@ -36,7 +34,11 @@ export default class Filter extends Component {
     } else {
       console.log("l");
 
-      document.removeEventListener("click", this.handleOutsideFilterClick, false);
+      document.removeEventListener(
+        "click",
+        this.handleOutsideFilterClick,
+        false
+      );
     }
 
     this.setState((prevState) => ({
@@ -55,11 +57,6 @@ export default class Filter extends Component {
     this.handleFilterClick();
   }
 
- 
-
-  
-
-  
   // const bigSize = {
   //   maxWidth: "350px",
   //   position: "relative",
@@ -117,32 +114,32 @@ export default class Filter extends Component {
   //     // the checksize here just does the same thing. you just have to put in a call back
   //   };
   // }, []);
-  render(){
-  return (
-    <FadeIn>
-      <div
-        className="cart-menu-icon"
-        onClick={this.handleFilterClick}
-        style={{
-          zIndex: "4000000",
-          color: "black",
-          width: "200px",
-          height: "200px",
-          marginLeft: "40px",
-        }}
-        ref={(node1) => (this.node1 = node1)}
-      ></div>
-      <div
-        style={{ border: "none", textTransform: "capitalize" }}
-        // className={animate ? "fade-in-hello hello span" : "hello-span"}
-      >
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <section className="p">
-          
+  render() {
+    return (
+      <FadeIn>
+        <div
+          className="cart-menu-icon"
+          onClick={this.handleFilterClick}
+          style={{
+            zIndex: "4000000",
+            color: "black",
+            width: "200px",
+            height: "200px",
+            marginLeft: "40px",
+            transition: "all 0.5s ease",
+          }}
+          ref={(node1) => (this.node1 = node1)}
+        ></div>
+        <div
+          style={{ border: "none", textTransform: "capitalize" }}
+          // className={animate ? "fade-in-hello hello span" : "hello-span"}
+        >
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <section className="p">
             <>
               <h1
                 className="filter-logo"
@@ -163,11 +160,10 @@ export default class Filter extends Component {
                 Filters
               </h1>
               <section
-                className="filterItems"
-                style={
+                className={
                   this.state.cartClicked
-                    ? { fontSize: "65%" }
-                    : { display: "none" }
+                    ? "fas fa-times"
+                    : "fas fa-shopping-cart"
                 }
               >
                 <form
@@ -183,7 +179,7 @@ export default class Filter extends Component {
                         : "filter-menu"
                     }
                     style={{
-                      height: "70%",
+                      height: "90%",
                       zIndex: "29292929",
                     }}
                   >
@@ -1154,20 +1150,20 @@ export default class Filter extends Component {
                 </form>
               </section>
             </>
-          {/* )} */}
-          {/* </form> */}
+            {/* )} */}
+            {/* </form> */}
 
-          {/* <StoreRows style={{ width: "100%" }} /> */}
+            {/* <StoreRows style={{ width: "100%" }} /> */}
 
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </section>
-      </div>
-    </FadeIn>
-  );
-};
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </section>
+        </div>
+      </FadeIn>
+    );
+  }
 }

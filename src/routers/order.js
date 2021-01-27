@@ -159,7 +159,7 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      // console.log(items);
+      console.log(items);
       const order = new Order({
         user: req.body.id,
         orderItems: items,
@@ -168,6 +168,7 @@ router.post('/payment_intents', async (req, res) => {
         isPaid: false,
         intent: '',
       });
+      console.log(order)
       amount = amount + 95;
       // console.log(order._id);
 
@@ -230,7 +231,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 220');
         var resJson = res.orderItems
-        console.log(resJson);
+        console.log(res);
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }

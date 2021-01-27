@@ -684,9 +684,9 @@ router.get('/recentReviews', async (req, res) => {
 
     //   console.log(review);
     // }
-    console.log('7');
+    // console.log('7');
 
-    console.log(review);
+    // console.log(review);
   }
   // console.log('8');
 

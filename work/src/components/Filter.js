@@ -57,7 +57,6 @@ export default class Filter extends Component {
     this.handleFilterClick();
   }
 
-  
   render() {
     return (
       <FadeIn>
@@ -85,7 +84,7 @@ export default class Filter extends Component {
           <br />
           <section className="p">
             {window.innerWidth < 660 ? (
-              <div style={{width: "0px"}}>
+              <div style={{ width: "0px" }}>
                 <h1
                   className="filter-logo"
                   onClick={this.handleFilterClick}
@@ -102,7 +101,6 @@ export default class Filter extends Component {
                     width: "85%",
                     position: "fixed",
                   }}
-                  ref={(node1) => (this.node1 = node1)}
                 >
                   Filters
                 </h1>
@@ -111,6 +109,7 @@ export default class Filter extends Component {
                   className="f-col filter filter-container filterItems"
                   action="/store"
                   // style={style}
+                  ref={(node1) => (this.node1 = node1)}
                 >
                   {/* <h5>Filters</h5> */}
                   <ul
@@ -1982,7 +1981,7 @@ export default class Filter extends Component {
                       </label>
                     </div>
                   </section>
-                  <section class="mb-4 listbox" style={{height: "60px"}}>
+                  <section class="mb-4 listbox">
                     <h5
                       class="font-weight-bold mb-3"
                       style={{
@@ -2024,10 +2023,7 @@ export default class Filter extends Component {
                       </label>
                     </div>
                   </section>
-                  <h4>
-
-                  Max price: £{this.state.price}
-                  </h4>
+                  <h4>Max price: £{this.state.price}</h4>
                   <input
                     type="range"
                     id="price"
@@ -2038,7 +2034,7 @@ export default class Filter extends Component {
                     value={this.state.price}
                     onChange={(e) => this.setState({ price: e.target.value })}
                   ></input>
-                  <br/>
+                  <br />
                   <button
                     type="submit"
                     style={{

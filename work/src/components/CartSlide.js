@@ -191,8 +191,8 @@ class Cart extends Component {
           style={{ maxWidth: "100vw" }}
         >
           <section className="center-text">
-            {this.state.price > 0 ||
-            parseInt(localStorage.getItem("unAuthCartPrice")) > 0 ? (
+            {this.state.price !== 0 ||
+            parseInt(localStorage.getItem("unAuthCartPrice")) !== 0 ? (
               <Link to="/order" style={{ fontSize: "40px" }}>
                 Checkout
               </Link>

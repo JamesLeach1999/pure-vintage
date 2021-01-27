@@ -91,7 +91,7 @@ var reviewSchema = new mongoose.Schema({
   );
 
   productSchema.virtual("orderItems", {
-    ref: "Orders",
+    ref: "Order",
     localField: "_id",
     foreignField: "orderItems"
   })

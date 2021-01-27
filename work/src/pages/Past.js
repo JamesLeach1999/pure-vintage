@@ -1,16 +1,25 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useState, useEffect, useReducer } from "react";
 import Product from "../components/Product";
 import { useAxios } from "../hooks/useAxios";
 import Rows from "../components/Rows";
 import { Link, useParams } from "react-router-dom";
 import OrderProducts from "../pages/RefundPage";
 import Axios from "axios";
+import reducer from "../reducers/orderReducer"
+
+var defaultState = {
+  data: [],
+  orders: [],
+  sum: [],
+  loading: true
+}
 
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
   const [sum, setSum] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [state, dispatch] = useReducer( reducer, defaultState)
 
   const getOrders = async () => {
     
@@ -32,13 +41,8 @@ const Me = () => {
         var allOrders = [];
         console.log(orderJson);
         // console.log(orderJson);
-        orderJson.names.map((order) => {
-          // console.log(order);
-          if (order !== null) {
-            allOrders.push(order);
-          }
-        });
-        setData(allOrders);
+        dispatch({type: "GET_ORDERS", payload: orderJson})
+        console.log(defaultState)
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];

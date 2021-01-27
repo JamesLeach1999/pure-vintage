@@ -174,7 +174,6 @@ export default class Nav extends Component {
                         top: "-25px",
                         border: "1px solid black",
                         borderRadius: "5px",
-                        background: "grey",
                       }}
                       onClick={this.logout}
                     >

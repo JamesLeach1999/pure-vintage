@@ -983,7 +983,7 @@ const People = (props) => {
                     class="font-weight-bold mb-3"
                     style={{
                       padding: "10px",
-                      backgroundColor: "whitesmoke",
+                      backgroundColor: "whitesmoke",height:"200px"
                     }}
                   >
                     Shop by gender
@@ -1045,22 +1045,22 @@ const People = (props) => {
                     cursor: "pointer",
                     transitionDuration: "0.4s",
                   }}
-                  onMouseOver={(e) => {
-                    e.target.style = {
+                  // onMouseOver={(e) => {
+                  //   e.target.style = {
                       
-                      backgroundColor: "blue",
-                      border: "none",
-                      color: "white",
-                      padding: "16px 32px",
-                      textAlign: "center",
-                      textDecoration: "none",
-                      display: "inline-block",
-                      fontSize: "16px",
-                      margin: "4px 2px",
-                      cursor: "pointer",
-                      transitionDuration: "0.4s",
-                    };
-                  }}
+                  //     backgroundColor: "blue",
+                  //     border: "none",
+                  //     color: "white",
+                  //     padding: "16px 32px",
+                  //     textAlign: "center",
+                  //     textDecoration: "none",
+                  //     display: "inline-block",
+                  //     fontSize: "16px",
+                  //     margin: "4px 2px",
+                  //     cursor: "pointer",
+                  //     transitionDuration: "0.4s",
+                  //   };
+                  // }}
                 >
                   Search
                 </button>

@@ -31,7 +31,7 @@ const reducer = (state, action) => {
     const orderJson = action.payload;
     var allOrders = []
     orderJson.names.map((order) => {
-      // console.log(order);
+      console.log(order);
       if (order !== null) {
         allOrders.push(order);
       }

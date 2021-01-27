@@ -42,13 +42,13 @@ const Me = () => {
         console.log(orderJson);
         // console.log(orderJson);
         dispatch({type: "GET_ORDERS", payload: orderJson})
-        console.log(defaultState)
+        console.log(state)
         // console.log(this.state.data);
         var it = [];
         var sumPrice = [];
         var sum1;
         var idk = [];
-        data.map((items) => {
+        state.data.map((items) => {
           it.push(JSON.parse(items.orderItems));
           console.log(it);
           it.map((price) => {
@@ -70,7 +70,7 @@ const Me = () => {
         setSum(sumPrice);
         // setOrders(idk);
         setLoading(false);
-        console.log(data);
+        console.log(state);
         // console.log(JSON.parse(data[0].orderItems[0].product[0].image));
         console.log(orders);
         // console.log(this.state.orders);
@@ -98,7 +98,7 @@ const Me = () => {
                 <th>Price:</th>
               </tr>
 
-              {data.map((product, i) => {
+              {state.data.map((product, i) => {
                 return (
                   <tr>
                     <Link to={`/refundProducts/${product._id}`}>

@@ -116,7 +116,7 @@ router.post('/payment_intents', async (req, res) => {
       // console.log(items);
       const order = new Order({
         user: id,
-        orderItems: JSON.stringify(items),
+        orderItems: items,
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -162,7 +162,7 @@ router.post('/payment_intents', async (req, res) => {
       // console.log(items);
       const order = new Order({
         user: req.body.id,
-        orderItems: JSON.stringify(items),
+        orderItems: items,
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -229,8 +229,8 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
-        var resJson = JSON.parse(res.orderItems);
-        // console.log(resJson);
+        var resJson = res.orderItems
+        console.log(resJson);
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -245,7 +245,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 241');
 
-        var resJson = JSON.parse(res.orderItems);
+        var resJson = res.orderItems
         console.log('11');
         console.log(resJson);
         console.log('12');

@@ -90,5 +90,11 @@ var reviewSchema = new mongoose.Schema({
     }
   );
 
+  productSchema.virtual("orderItems", {
+    ref: "Orders",
+    localField: "_id",
+    foreignField: "orderItems"
+  })
+
 
 module.exports = mongoose.model('Products', productSchema);

@@ -100,9 +100,10 @@ var productSchema = new mongoose.Schema({
 
   UserSchema.virtual("product", {
       ref: "Products",
-      localField: "product",
+      localField: "_id",
       foreignField: "inCart"
   })
+  
 
 
 

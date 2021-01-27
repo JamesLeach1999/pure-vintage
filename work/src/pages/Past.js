@@ -37,6 +37,7 @@ const Me = () => {
         const order = await fetch("/allOrder");
         const orderJson = await order.json();
         var allOrders = [];
+        console.log("past order data")
         console.log(orderJson);
         // console.log(orderJson);
         dispatch({type: "GET_ORDERS", payload: orderJson})

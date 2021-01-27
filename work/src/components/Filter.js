@@ -85,7 +85,7 @@ export default class Filter extends Component {
           <br />
           <section className="p">
             {window.innerWidth < 660 ? (
-              <div>
+              <div style={{width: "0px"}}>
                 <h1
                   className="filter-logo"
                   onClick={this.handleFilterClick}

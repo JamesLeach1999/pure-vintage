@@ -586,12 +586,13 @@ ul {
 }
 .filter {
   /* left: 20px; */
-  top: 35px;
+  top: 65px;
 
   padding-top: auto;
   text-align: left;
   position: relative;
   justify-content: left;
+  left: 30px;
   /* border: 2px solid red; */
   width: 250px;
 }

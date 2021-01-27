@@ -3,13 +3,13 @@ import React, { Component, useState, useEffect, useReducer } from "react";
 // import Product from "../components/Product";
 // import row1s from "../components/row1s";
 import { Link, useParams } from "react-router-dom";
-import reducer from "../reducers/orderReducer"
+import reducer from "../reducers/orderReducer";
 
 var defaultState = {
   data: [],
   orders: [],
-  total: []
-}
+  total: [],
+};
 const Me = () => {
   const [data, setData] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -18,7 +18,7 @@ const Me = () => {
   const [time, setTime] = useState([]);
   const [id, setId] = useState("nuttn");
   const [error, setError] = useState(false);
-  const [state, dispatch] = useReducer(reducer, defaultState)
+  const [state, dispatch] = useReducer(reducer, defaultState);
 
   function getID() {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
@@ -34,7 +34,10 @@ const Me = () => {
         );
         const orderJson = await order.json();
         var allOrders = [];
+        console.log("me order data orderInfo");
         console.log(orderJson.orderInfo);
+        console.log("me order data names");
+
         console.log(orderJson.names);
 
         orderJson.names.map((order) => {
@@ -44,10 +47,10 @@ const Me = () => {
           }
         });
 
-        dispatch({type: "GET_ORDERS", payload: orderJson})
+        dispatch({ type: "GET_ORDERS", payload: orderJson });
         var t = [];
         setOrders(orderJson.orderInfo);
-        console.log(state)
+        console.log(state);
 
         console.log(allOrders);
         console.log(data);
@@ -59,13 +62,13 @@ const Me = () => {
         var idk = [];
         orderJson.orderInfo.map((items) => {
           items.map((item) => {
-            idk.push(item.product.price)
-          })
+            idk.push(item.product.price);
+          });
           sum1 = idk.reduce(function (a, b) {
             return a + b;
           }, 0);
 
-          sumPrice.push(sum1)
+          sumPrice.push(sum1);
         });
 
         setSum(sumPrice);
@@ -76,7 +79,7 @@ const Me = () => {
         setLoading(false);
         console.log(data);
         console.log(orders);
-        
+
         // console.log(this.state.orders);
       } catch (error) {
         console.log(data);
@@ -108,30 +111,32 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
-              {state.data ? state.data.map((product, i) => {
-                return (
-                  <tr>
-                    {/* <td>{i}</td> */}
-                    <td>
-                      <Link to={`/orderProducts/${product._id}`}>
-                        {/* <img src={orders[i][0].product.image[0]} alt="" /> */}
-                      </Link>
-                      {/* <img src={`/assets/${product.images[0]}`} alt="" />
+              {state.data ? (
+                state.data.map((product, i) => {
+                  return (
+                    <tr>
+                      {/* <td>{i}</td> */}
+                      <td>
+                        <Link to={`/orderProducts/${product._id}`}>
+                          {/* <img src={orders[i][0].product.image[0]} alt="" /> */}
+                        </Link>
+                        {/* <img src={`/assets/${product.images[0]}`} alt="" />
                       <p>{this.state.orders.name}</p> */}
-                    </td>
-                    <td>
-                      <ul>
-                        <li>{product.shipping.address}</li>
-                        <li>{product.shipping.city}</li>
-                        <li>{product.shipping.postcode}</li>
-                      </ul>
-                    </td>
-                    <td>{product.updatedAt.match(/^.+?(?=\T)/)}</td>
-                    <td>£{total[i]}.95</td>
-                    {/* </Link> */}
-                  </tr>
-                );
-              }) : (
+                      </td>
+                      <td>
+                        <ul>
+                          <li>{product.shipping.address}</li>
+                          <li>{product.shipping.city}</li>
+                          <li>{product.shipping.postcode}</li>
+                        </ul>
+                      </td>
+                      <td>{product.updatedAt.match(/^.+?(?=\T)/)}</td>
+                      <td>£{total[i]}.95</td>
+                      {/* </Link> */}
+                    </tr>
+                  );
+                })
+              ) : (
                 <tr>
                   <td>You havent made any orders yet!</td>
                 </tr>

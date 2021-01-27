@@ -162,7 +162,8 @@ router.post('/payment_intents', async (req, res) => {
       console.log(items);
       var ids = []
       for(var q = 0; items.length > q; q++){
-        ids.push(items[q]._id)
+        console.log(items[q])
+        ids.push(items[q].product._id)
       }
       console.log(ids)
       const order = new Order({

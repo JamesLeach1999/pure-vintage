@@ -1989,7 +1989,7 @@ export default class Filter extends Component {
                       style={{
                         padding: "10px",
                         backgroundColor: "whitesmoke",
-                        height: "200px",
+                        height: "20px",
                       }}
                     >
                       Shop by gender
@@ -2039,7 +2039,7 @@ export default class Filter extends Component {
                   <button
                     type="submit"
                     style={{
-                      backgroundColor: "#4CAF50",
+                      // backgroundColor: "#4CAF50",
                       border: "none",
                       color: "black",
                       padding: "16px 32px",

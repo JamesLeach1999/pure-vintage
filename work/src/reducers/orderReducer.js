@@ -54,7 +54,7 @@ const reducer = (state, action) => {
   if (action.type === "GET_ORDERS") {
     const orderJson = action.payload;
     var allOrders = []
-    orderJson.names.map((order) => {
+    orderJson.map((order) => {
       console.log(order);
       if (order !== null) {
         allOrders.push(order);
@@ -62,6 +62,14 @@ const reducer = (state, action) => {
     });
     // only focus on the people bit
     return { ...state, data: allOrders };
+  }
+
+  if(action.type === "ORDER_ITEMS"){
+      const orderData = action.payload
+      const orderArray = JSON.parse(orderData)
+      console.log(orderArray)
+
+      return {...state, orders: orderArray}
   }
   // have as many different action types as you want. each different action type
   // returs a different updated state, so all updates in one place

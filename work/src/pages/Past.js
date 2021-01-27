@@ -40,9 +40,15 @@ const Me = () => {
         console.log("past order data")
         console.log(orderJson);
         // console.log(orderJson);
-        dispatch({type: "GET_ORDERS", payload: orderJson})
+        dispatch({type: "GET_ORDERS", payload: orderJson.names})
         // console.log(this.state.data);
         dispatch({type: "SET_SUMS", payload: state.data})
+
+        state.data.map((order) => {
+          dispatch({type: "ORDER_ITEMS", payload: order.orderItems})
+
+        })
+
         console.log(state)
         // var it = [];
         // var sumPrice = [];

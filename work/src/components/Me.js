@@ -40,12 +40,12 @@ const Me = () => {
 
         console.log(orderJson.names);
 
-        orderJson.names.map((order) => {
-          // console.log(order);
-          if (order !== null) {
-            allOrders.push(order);
-          }
-        });
+        // orderJson.names.map((order) => {
+        //   // console.log(order);
+        //   if (order !== null) {
+        //     allOrders.push(order);
+        //   }
+        // });
 
         dispatch({ type: "GET_ORDERS", payload: orderJson });
         var t = [];

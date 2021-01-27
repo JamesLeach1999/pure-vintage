@@ -2,23 +2,23 @@ import React, { useState, useEffect, Component } from "react";
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-import Axios from "axios";
-import Welcome from "./Welcome";
-import Home from "../pages/Home";
-import Store from "../pages/Store";
-import Product from "./ProductPage";
-import Cart from "./Cart";
-import Login from "../components/Login";
-import Me from "../pages/Me";
-import Order from "../pageStripe/index";
-import Manage from "../pages/Manage";
-import Add from "../pages/Add";
-import Edit from "../components/EditPage";
-import PastOrders from "../pages/Past";
-import OrderProducts from "../pages/OrderPage";
-import RefundProducts from "../pages/RefundPage";
-import { Button1 } from "../components/Button";
-import Register from "../components/Register";
+// import Axios from "axios";
+// import Welcome from "./Welcome";
+// import Home from "../pages/Home";
+// import Store from "../pages/Store";
+// import Product from "./ProductPage";
+// import Cart from "./Cart";
+// import Login from "../components/Login";
+// import Me from "../pages/Me";
+// import Order from "../pageStripe/index";
+// import Manage from "../pages/Manage";
+// import Add from "../pages/Add";
+// import Edit from "../components/EditPage";
+// import PastOrders from "../pages/Past";
+// import OrderProducts from "../pages/OrderPage";
+// import RefundProducts from "../pages/RefundPage";
+// import { Button1 } from "../components/Button";
+// import Register from "../components/Register";
 import "../css/Navbar.css";
 import CartSlide from "../components/CartSlide";
 // have to use links like this in the nav
@@ -73,9 +73,9 @@ constructor() {
   render(){
     return (
       <div>
-        
+        <CartSlide style={{ position: "fixed" }} />
       </div>
-    )
+    );
   }
 
 }

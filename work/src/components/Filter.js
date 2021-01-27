@@ -22,21 +22,21 @@ export default class Filter extends Component {
       price: 0,
     };
     // updating state
-    this.handleFilterClick = this.handleClick.bind(this);
-    this.handleOutsideFilterClick = this.handleOutsideClick.bind(this);
+    this.handleFilterClick = this.handleFilterClick.bind(this);
+    this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
   }
 
   
 
-  handleCartClick() {
+  handleFilterClick() {
     if (!this.state.cartClicked) {
       // attach/remove event handler
       console.log("c");
-      document.addEventListener("click", this.handleCartOutsideClick, false);
+      document.addEventListener("click", this.handleOutsideFilterClick, false);
     } else {
       console.log("l");
 
-      document.removeEventListener("click", this.handleCartOutsideClick, false);
+      document.removeEventListener("click", this.handleOutsideFilterClick, false);
     }
 
     this.setState((prevState) => ({
@@ -44,7 +44,7 @@ export default class Filter extends Component {
     }));
   }
 
-  handleCartOutsideClick(e) {
+  handleOutsideFilterClick(e) {
     // ignore clicks on the component itself
     if (this.node1.contains(e.target)) {
       console.log("thats numberwang");
@@ -52,7 +52,7 @@ export default class Filter extends Component {
       return;
     }
 
-    this.handleCartClick();
+    this.handleFilterClick();
   }
 
  
@@ -122,7 +122,7 @@ export default class Filter extends Component {
     <FadeIn>
       <div
         className="cart-menu-icon"
-        onClick={this.handleCartClick}
+        onClick={this.handleFilterClick}
         style={{
           zIndex: "40000",
           color: "black",
@@ -130,6 +130,7 @@ export default class Filter extends Component {
           height: "200px",
           marginLeft: "40px",
         }}
+        ref={(node1) => (this.node1 = node1)}
       ></div>
       <div
         style={{ border: "none", textTransform: "capitalize" }}

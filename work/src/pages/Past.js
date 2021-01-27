@@ -44,10 +44,8 @@ const Me = () => {
         // console.log(this.state.data);
         dispatch({type: "SET_SUMS", payload: state.data})
         var productData = []
-        state.data.map((order) => {
-          dispatch({type: "ORDER_ITEMS", payload: order.orderItems})
-          productData.push(state.orders)
-        })
+        dispatch({type: "ORDER_ITEMS", payload: state.data})
+        
         console.log("past order products")
         console.log(productData)
 

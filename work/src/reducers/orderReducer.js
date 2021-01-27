@@ -31,9 +31,9 @@ const reducer = (state, action) => {
       var idk = [];
       action.payload.map((items) => {
         it.push(JSON.parse(items.orderItems));
-        console.log(it);
+        // console.log(it);
         it.map((price) => {
-          console.log(price);
+        //   console.log(price);
           var t = [];
           price.map((r) => {
             t.push(r.product.price);
@@ -42,12 +42,12 @@ const reducer = (state, action) => {
           sum1 = t.reduce(function (a, b) {
             return a + b;
           }, 0);
-          console.log(sum1);
+        //   console.log(sum1);
           t = [];
         });
         sumPrice.push(sum1);
       });
-      console.log(sumPrice)
+    //   console.log(sumPrice)
 
     return { ...state, sum: sumPrice };
   }
@@ -55,7 +55,7 @@ const reducer = (state, action) => {
     const orderJson = action.payload;
     var allOrders = []
     orderJson.map((order) => {
-      console.log(order);
+    //   console.log(order);
       if (order !== null) {
         allOrders.push(order);
       }
@@ -66,10 +66,23 @@ const reducer = (state, action) => {
 
   if(action.type === "ORDER_ITEMS"){
       const orderData = action.payload
-      const orderArray = JSON.parse(orderData)
-      console.log(orderArray)
+      var orderProductData = []
+      for(var i = 0; orderData.length > i; i++){
+          var orderArray = JSON.parse(orderData[i].orderItems[0])
+          console.log(orderArray)
+        for(var j = 0; orderArray.product.length > j; j++){
+            console.log(orderArray.product[j])
+        }
 
-      return {...state, orders: orderArray}
+      }
+    //   if(orderArray.length > 0){
+    //     for(var i = 0; orderArray.length > i; i++){
+    //         orderArrayData.push(orderArray[i])
+    //     }
+    //   }
+    //   console.log(orderArrayData)
+
+      return {...state, orders: []}
   }
   // have as many different action types as you want. each different action type
   // returs a different updated state, so all updates in one place

@@ -117,7 +117,7 @@ export default class Filter extends Component {
   render() {
     return (
       <FadeIn>
-        <div
+        {/* <div
           className="cart-menu-icon"
           onClick={this.handleFilterClick}
           style={{
@@ -128,8 +128,8 @@ export default class Filter extends Component {
             marginLeft: "40px",
             transition: "all 0.5s ease",
           }}
-          ref={(node1) => (this.node1 = node1)}
-        ></div>
+          // ref={(node1) => (this.node1 = node1)}
+        ></div> */}
         <div
           style={{ border: "none", textTransform: "capitalize" }}
           // className={animate ? "fade-in-hello hello span" : "hello-span"}
@@ -143,19 +143,21 @@ export default class Filter extends Component {
             <>
               <h1
                 className="filter-logo"
+                onClick={this.handleFilterClick}
                 // onClick={() => setClick(!clicked)}
                 style={{
-                  left: "0",
+                  left: "-25px",
                   marginLeft: "-25px",
                   marginRight: "500px",
                   backgroundColor: "whitesmoke",
                   borderRadius: "7%",
-                  transform: "rotate(-90deg)",
-                  top: "150px",
+                  // transform: "rotate(-90deg)",
+                  top: "95%",
                   padding: "5px",
-                  width: "100px",
+                  width: "85%",
                   position: "fixed",
                 }}
+                ref={(node1) => (this.node1 = node1)}
               >
                 Filters
               </h1>
@@ -181,6 +183,8 @@ export default class Filter extends Component {
                     style={{
                       height: "90%",
                       zIndex: "29292929",
+                      fontSize: "16px",
+                      fontFamily: "Commissioner, sans-serif",
                     }}
                   >
                     <h5

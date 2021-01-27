@@ -15,9 +15,7 @@ var defaultState = {
 }
 
 const Me = () => {
-  const [data, setData] = useState([]);
-  const [orders, setOrders] = useState([]);
-  const [sum, setSum] = useState([]);
+  
   const [loading, setLoading] = useState(true);
   const [state, dispatch] = useReducer( reducer, defaultState)
 
@@ -44,38 +42,39 @@ const Me = () => {
         dispatch({type: "GET_ORDERS", payload: orderJson})
         console.log(state)
         // console.log(this.state.data);
-        var it = [];
-        var sumPrice = [];
-        var sum1;
-        var idk = [];
-        state.data.map((items) => {
-          it.push(JSON.parse(items.orderItems));
-          console.log(it);
-          it.map((price) => {
-            console.log(price);
-            var t = [];
-            price.map((r) => {
-              t.push(r.product.price);
-              console.log(t);
-            });
-            sum1 = t.reduce(function (a, b) {
-              return a + b;
-            }, 0);
-            console.log(sum1);
-            t = [];
-          });
-          sumPrice.push(sum1);
-        });
+        dispatch({type: "SET_SUMS", payload: state.data})
+        // var it = [];
+        // var sumPrice = [];
+        // var sum1;
+        // var idk = [];
+        // state.data.map((items) => {
+        //   it.push(JSON.parse(items.orderItems));
+        //   console.log(it);
+        //   it.map((price) => {
+        //     console.log(price);
+        //     var t = [];
+        //     price.map((r) => {
+        //       t.push(r.product.price);
+        //       console.log(t);
+        //     });
+        //     sum1 = t.reduce(function (a, b) {
+        //       return a + b;
+        //     }, 0);
+        //     console.log(sum1);
+        //     t = [];
+        //   });
+        //   sumPrice.push(sum1);
+        // });
         // console.log(sumPrice)
-        setSum(sumPrice);
+        // setSum(sumPrice);
         // setOrders(idk);
         setLoading(false);
         console.log(state);
         // console.log(JSON.parse(data[0].orderItems[0].product[0].image));
-        console.log(orders);
+        console.log(state.orders);
         // console.log(this.state.orders);
       } catch (error) {
-        console.log(data);
+        console.log(state.data);
         console.log(error);
       }
     }
@@ -118,7 +117,7 @@ const Me = () => {
                         </ul>
                       </td>
                       <td>{product.updatedAt}</td>
-                      <td>£ {sum[i]}</td>
+                      <td>£ {state.sum[i]}</td>
                       <td>
                         <form action="/refund" method="POST">
                           <input

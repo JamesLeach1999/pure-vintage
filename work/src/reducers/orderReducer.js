@@ -24,8 +24,30 @@ const reducer = (state, action) => {
     };
   }
 
-  if (action.type === "CLOSE_MODAL") {
-    return { ...state, isModalOpen: false };
+  if (action.type === "SET_SUMS") {
+      var it = [];
+      var sumPrice = [];
+      var sum1;
+      var idk = [];
+      action.payload.map((items) => {
+        it.push(JSON.parse(items.orderItems));
+        console.log(it);
+        it.map((price) => {
+          console.log(price);
+          var t = [];
+          price.map((r) => {
+            t.push(r.product.price);
+            console.log(t);
+          });
+          sum1 = t.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+          console.log(sum1);
+          t = [];
+        });
+        sumPrice.push(sum1);
+      });
+    return { ...state, sum: sumPrice };
   }
   if (action.type === "GET_ORDERS") {
     const orderJson = action.payload;
@@ -37,7 +59,7 @@ const reducer = (state, action) => {
       }
     });
     // only focus on the people bit
-    return { ...state, orders: allOrders };
+    return { ...state, data: allOrders };
   }
   // have as many different action types as you want. each different action type
   // returs a different updated state, so all updates in one place

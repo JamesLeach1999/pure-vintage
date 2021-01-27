@@ -122,7 +122,6 @@ export default class Filter extends Component {
                     style={{
                       height: "90%",
                       zIndex: "29292929",
-                      fontSize: "16px",
                       fontFamily: "Commissioner, sans-serif",
                     }}
                   >
@@ -1989,7 +1988,7 @@ export default class Filter extends Component {
                       style={{
                         padding: "10px",
                         backgroundColor: "whitesmoke",
-                        height: "40px",
+                        height: "70px",
                       }}
                     >
                       Shop by gender
@@ -2039,6 +2038,7 @@ export default class Filter extends Component {
                     value={this.state.price}
                     onChange={(e) => this.setState({ price: e.target.value })}
                   ></input>
+                  <br/>
                   <button
                     type="submit"
                     style={{

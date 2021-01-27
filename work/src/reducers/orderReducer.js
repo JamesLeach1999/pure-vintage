@@ -69,7 +69,7 @@ const reducer = (state, action) => {
       const orderArray = JSON.parse(orderData)
       console.log(orderArray)
 
-      return {...state, orders: [...orderArray, orderArray]}
+      return {...state, orders: orderArray}
   }
   // have as many different action types as you want. each different action type
   // returs a different updated state, so all updates in one place

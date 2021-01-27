@@ -43,11 +43,13 @@ const Me = () => {
         dispatch({type: "GET_ORDERS", payload: orderJson.names})
         // console.log(this.state.data);
         dispatch({type: "SET_SUMS", payload: state.data})
-
+        var productData = []
         state.data.map((order) => {
           dispatch({type: "ORDER_ITEMS", payload: order.orderItems})
-
+          productData.push(state.orders)
         })
+        console.log("past order products")
+        console.log(productData)
 
         console.log(state)
         // var it = [];

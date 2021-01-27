@@ -20,7 +20,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 // import { Button1 } from "../components/Button";
 // import Register from "../components/Register";
 import StoreRows from "../components/Test"
-import "../css/Navbar.css";
+import "../css/Cart.css";
 import CartSlide from "../components/Filter";
 // have to use links like this in the nav
 export default class Nav extends Component {

@@ -124,7 +124,7 @@ export default class Filter extends Component {
         className="cart-menu-icon"
         onClick={this.handleFilterClick}
         style={{
-          zIndex: "40000",
+          zIndex: "4000000",
           color: "black",
           width: "200px",
           height: "200px",

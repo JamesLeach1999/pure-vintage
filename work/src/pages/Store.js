@@ -75,7 +75,6 @@ constructor() {
     return (
       <div>
         <CartSlide style={{ position: "fixed" }} />
-        <StoreRows style={{ width: "100%" }} />
       </div>
     );
   }

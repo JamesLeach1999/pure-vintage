@@ -101,6 +101,7 @@ export default class Filter extends Component {
                     width: "85%",
                     position: "fixed",
                   }}
+                  ref={(node1) => (this.node1 = node1)}
                 >
                   Filters
                 </h1>
@@ -109,7 +110,7 @@ export default class Filter extends Component {
                   className="f-col filter filter-container filterItems"
                   action="/store"
                   // style={style}
-                  ref={(node1) => (this.node1 = node1)}
+                  // ref={(node1) => (this.node1 = node1)}
                 >
                   {/* <h5>Filters</h5> */}
                   <ul
@@ -1099,7 +1100,7 @@ export default class Filter extends Component {
                 id="fcol"
                 // style={style}
               >
-                <section style={{ height: "1500px", fontSize: "110%" }}>
+                <section style={{ height: "1200px", fontSize: "110%" }}>
                   <h3
                     class="font-weight-bold mb-3"
                     style={{ padding: "10px", backgroundColor: "whitesmoke" }}

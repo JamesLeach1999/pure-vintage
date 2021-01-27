@@ -160,9 +160,14 @@ router.post('/payment_intents', async (req, res) => {
         postcode: req.body.postcode,
       };
       console.log(items);
+      var ids = []
+      for(var q = 0; items.length > q; q++){
+        ids.push(items[q]._id)
+      }
+      console.log(ids)
       const order = new Order({
         user: req.body.id,
-        orderItems: items,
+        orderItems: [ids],
         shipping: destination,
         total: sum,
         isPaid: false,

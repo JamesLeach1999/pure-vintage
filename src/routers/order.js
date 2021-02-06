@@ -78,6 +78,8 @@ router.get('/check', (req, res) => {
 });
 
 router.post('/payment_intents', async (req, res) => {
+  console.log(req.body);
+
   if (req.method === 'POST') {
     var { amount } = req.body;
 
@@ -139,7 +141,6 @@ router.post('/payment_intents', async (req, res) => {
     } catch (error) {
       // console.log(error);
       console.log('thtas number 2');
-
       var cart = req.body.cart;
       var fullCart = [];
       var items = [];
@@ -167,10 +168,10 @@ router.post('/payment_intents', async (req, res) => {
         ids.push(items[q].product._id);
       }
       console.log('ids line 168');
-      console.log(ids);
+      console.log(items);
       const order = new Order({
         user: req.body.id,
-        orderItems: ids,
+        orderItems: items,
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -230,7 +231,7 @@ router.post('/te', async (req, res) => {
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
-    // console.log(orderID);
+    console.log(orderID);
     var items = [];
     // console.log(user.name);
     Order.findByIdAndUpdate(

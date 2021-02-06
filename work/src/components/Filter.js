@@ -48,7 +48,9 @@ export default class Filter extends Component {
       );
     }
 
-    this.setState({cartClicked: !this.state.cartClicked})
+    this.setState(prevState => ({
+      cartClicked: !prevState.cartClicked,
+    }));
     console.log(this.state.cartClicked);
   }
 
@@ -164,9 +166,10 @@ export default class Filter extends Component {
             {window.innerWidth < 660 ? (
               <div
                 style={{ width: "0px" }}
-                >
+                ref={(node1) => (this.node1 = node1)}
+              >
                 <h1
-                // ref={(node1) => (this.node1 = node1)}
+                  // ref={(node1) => (this.node1 = node1)}
                   className="filter-logo"
                   onClick={this.handleFilterClick}
                   // onClick={() => setClick(!clicked)}

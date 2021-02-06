@@ -287,6 +287,14 @@ router.post('/te', async (req, res) => {
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
+  Order.find({})
+    .populate('orderItems')
+    .exec(function (err, res) {
+      if (err) return err;
+      consols.log('orderpopulate');
+      console.log(res);
+    });
+
   console.log(orders);
 
   res.send({
@@ -433,7 +441,7 @@ router.get('/pastOrders', async (req, res) => {
   // console.log(sumPrice);
   // console.log('working');
   // console.log(item);
-  console.log(sumPrice)
+  console.log(sumPrice);
   console.log('Numberwang line 436');
   console.log(filtered);
   console.log('Numberwang line 438');

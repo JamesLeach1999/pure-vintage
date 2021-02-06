@@ -20,10 +20,17 @@ export default class Filter extends Component {
       cartClicked: false,
       data: [],
       price: 0,
+      allSearchData: "",
     };
     // updating state
     this.handleFilterClick = this.handleFilterClick.bind(this);
     this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
+    this.displaySearchResults = this.displaySearchResults.bind(this);
+    this.displayAllData = this.displayAllData.bind(this);
+    this.displayData = this.displayData.bind(this);
+    this.getResults = this.getResults.bind(this);
+    this.element = this.element.bind(this);
+    // this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
   }
 
   handleFilterClick() {
@@ -44,6 +51,7 @@ export default class Filter extends Component {
     this.setState((prevState) => ({
       cartClicked: !prevState.cartClicked,
     }));
+    console.log(this.state.cartClicked);
   }
 
   handleOutsideFilterClick(e) {
@@ -56,6 +64,78 @@ export default class Filter extends Component {
 
     this.handleFilterClick();
   }
+
+  // //shortens document.getEgetElementById
+  // element(id) {
+  //   return document.getElementById(id);
+  // }
+
+  // //displays the suggestion div
+  // displaySearchResults() {
+  //   this.element("search-results").style.display = "block";
+  // }
+  // //clears the suggestion div
+  // clearSearchResults() {
+  //   this.element("search-results").innerHTML = "";
+  // }
+
+  // //hides the suggestion div
+  // hideSearchResults() {
+  //   this.element("search-results").style.display = "none";
+  // }
+  // //displays names when you click a suggestions
+  // displayData(name) {
+  //   this.element("search-data").innerHTML = "<p>" + name + "</p>";
+  //   this.hideSearchResults();
+  // }
+  // //displays all related names to your search when you hit enter
+  // displayAllData(names) {
+  //   this.element("search-data").innerHTML = names;
+  //   this.hideSearchResults();
+  // }
+  // //clears names displayed from search result
+  // clearSearchData() {
+  //   this.element("search-data").innerHTML = "";
+  // }
+  // // let allSearchData = ""; //decleared to collect all search names
+
+  // //gets each inputs data starting from second input
+  // getResults() {
+  //   //gets value of input
+  //   let search = this.element("search-input").value;
+  //   // var allSearchData = this.state.allSearchData; //clears data for each word typed
+
+  //   this.hideSearchResults();
+  //   this.clearSearchResults();
+  //   this.clearSearchData(); //
+  //   //starts searching from the second input
+  //   if (search.length > 1) {
+  //     let counter = 0; // counts to 10
+  //     for (let x of names) {
+  //       if (counter < 10) {
+  //         //checks for similarities
+  //         if (x.toLowerCase().includes(search.toLowerCase())) {
+  //           //populates the suggestion div
+  //           this.element("search-results").innerHTML +=
+  //             "<div class='search-item' onclick='displayData(\"" +
+  //             x +
+  //             "\")'><p>" +
+  //             x +
+  //             "</p></div>";
+
+  //           counter++;
+  //         }
+  //       }
+  //       if (x.toLowerCase().includes(search.toLowerCase()))
+  //         //saves all the realated names
+  //         // this.setState({allSearchData :  "<p>" + x + "</p>"});
+  //         this.setState((prevState) => ({
+  //           allSearchData: prevState + "<p>" + x + "</p>",
+  //         }));
+  //     }
+  //     this.displaySearchResults();
+  //   }
+  // }
 
   render() {
     return (
@@ -84,8 +164,11 @@ export default class Filter extends Component {
           <br />
           <section className="p">
             {window.innerWidth < 660 ? (
-              <div style={{ width: "0px" }}>
+              <div
+                style={{ width: "0px" }}
+                >
                 <h1
+                // ref={(node1) => (this.node1 = node1)}
                   className="filter-logo"
                   onClick={this.handleFilterClick}
                   // onClick={() => setClick(!clicked)}
@@ -101,7 +184,6 @@ export default class Filter extends Component {
                     width: "85%",
                     position: "fixed",
                   }}
-                  ref={(node1) => (this.node1 = node1)}
                 >
                   Filters
                 </h1>
@@ -119,12 +201,12 @@ export default class Filter extends Component {
                         ? "filter-menu active"
                         : "filter-menu"
                     }
-                    ref={this.state.cartClicked ? ((node1) => {(this.node1 = node1)}) : ("")}
                     style={{
                       height: "90%",
                       zIndex: "29292929",
                       fontFamily: "Commissioner, sans-serif",
                     }}
+                    ref={(node1) => (this.node1 = node1)}
                   >
                     <h5
                       className="font-weight-bold mb-3"
@@ -2074,6 +2156,33 @@ export default class Filter extends Component {
                 </section>
               </form>
             )}
+            <div class="container-out">
+              <div class="container-in">
+                <div class="search-container">
+                  <div class="search-engine">
+                    <p class="search-title">Search Names</p>
+                    <input
+                      type="input"
+                      id="search-input"
+                      autocomplete="off"
+                      placeholder="Hit Enter to Search"
+                      // onChange={function (event) {
+                      //   getResults();
+                      //   // Number 13 is the "Enter" key on the keyboard
+                      //   // if (event.keyCode === 13) {
+                      //   // Cancel the default action, if needed
+                      //   event.preventDefault();
+                      //   // Trigger the button element with a click
+                      //   displayAllData(this.state.allSearchData);
+                      //   // }
+                      // }}
+                    />
+                  </div>
+                  <div id="search-results"></div>
+                  <div id="search-data"></div>
+                </div>
+              </div>
+            </div>
             <StoreRows style={{ width: "100%" }} />
 
             {/* </div> */}

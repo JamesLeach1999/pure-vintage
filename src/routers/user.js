@@ -201,6 +201,20 @@ router.get('/logout', (req, res) => {
   res.redirect('/store');
 });
 
+router.get("/rempros", (req, res) => {
+  Product.remove({}, (err, res) => {
+    console.lof("allremoved")
+  })
 
+  res.send("done")
+})
+
+router.get('/remors', (req, res) => {
+  Order.remove({}, (err, res) => {
+    console.lof('allremoved');
+  });
+
+  res.send('done');
+});
 
 module.exports = router;

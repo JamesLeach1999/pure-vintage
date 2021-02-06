@@ -308,7 +308,10 @@ router.post('/te', async (req, res) => {
 
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
-
+console.log("allorders pop")
+const t = await Order.find({}).populate("orderItems")
+console.log("test all populate")
+console.log(t)
   Order.find({})
     .populate('orderItems')
     .exec(function (err, res) {
@@ -317,9 +320,6 @@ router.get('/allOrder', async (req, res) => {
       console.log(res);
     });
 
-    const t = await Order.find({}).populate("orderItems")
-    console.log("test all populate")
-    console.log(t)
 
   console.log(orders);
 

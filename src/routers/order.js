@@ -119,7 +119,7 @@ router.post('/payment_intents', async (req, res) => {
       console.log(items);
       const order = new Order({
         user: id,
-        orderItems: items,
+        orderItems: [items],
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -171,7 +171,7 @@ router.post('/payment_intents', async (req, res) => {
       console.log(items);
       const order = new Order({
         user: req.body.id,
-        orderItems: items,
+        orderItems: [items],
         shipping: destination,
         total: sum,
         isPaid: false,

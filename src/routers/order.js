@@ -113,7 +113,8 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      // console.log(items);
+      console.log("items 116")
+      console.log(items);
       const order = new Order({
         user: id,
         orderItems: items,
@@ -165,6 +166,7 @@ router.post('/payment_intents', async (req, res) => {
         console.log(items[q]);
         ids.push(items[q].product._id);
       }
+      console.log("ids line 168")
       console.log(ids);
       const order = new Order({
         user: req.body.id,
@@ -238,6 +240,18 @@ router.post('/te', async (req, res) => {
         console.log('thats nunmberwag 220');
         var resJson = res.orderItems;
         console.log(res);
+        console.log('11');
+        console.log(resJson);
+        console.log('12');
+
+        console.log(resJson[0]);
+        console.log('13');
+
+        console.log(resJson.product);
+        console.log('14');
+
+        console.log(resJson[0].product);
+        console.log('15');
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }

@@ -2157,7 +2157,7 @@ export default class Filter extends Component {
                 </section>
               </form>
             )}
-            <div class="container-out">
+            {/* <div class="container-out">
               <div class="container-in">
                 <div class="search-container">
                   <div class="search-engine">
@@ -2183,7 +2183,7 @@ export default class Filter extends Component {
                   <div id="search-data"></div>
                 </div>
               </div>
-            </div>
+            </div> */}
             <StoreRows style={{ width: "100%" }} />
 
             {/* </div> */}

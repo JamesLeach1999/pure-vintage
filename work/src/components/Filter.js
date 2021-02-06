@@ -48,9 +48,7 @@ export default class Filter extends Component {
       );
     }
 
-    this.setState((prevState) => ({
-      cartClicked: !prevState.cartClicked,
-    }));
+    this.setState({cartClicked: !this.state.cartClicked})
     console.log(this.state.cartClicked);
   }
 

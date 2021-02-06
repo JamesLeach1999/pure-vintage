@@ -160,12 +160,12 @@ router.post('/payment_intents', async (req, res) => {
         postcode: req.body.postcode,
       };
       console.log(items);
-      var ids = []
-      for(var q = 0; items.length > q; q++){
-        console.log(items[q])
-        ids.push(items[q].product._id)
+      var ids = [];
+      for (var q = 0; items.length > q; q++) {
+        console.log(items[q]);
+        ids.push(items[q].product._id);
       }
-      console.log(ids)
+      console.log(ids);
       const order = new Order({
         user: req.body.id,
         orderItems: ids,
@@ -174,7 +174,7 @@ router.post('/payment_intents', async (req, res) => {
         isPaid: false,
         intent: '',
       });
-      console.log(order)
+      console.log(order);
       amount = amount + 95;
       // console.log(order._id);
 
@@ -236,7 +236,7 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
-        var resJson = res.orderItems
+        var resJson = res.orderItems;
         console.log(res);
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
@@ -252,7 +252,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 241');
 
-        var resJson = res.orderItems
+        var resJson = res.orderItems;
         console.log('11');
         console.log(resJson);
         console.log('12');
@@ -369,7 +369,7 @@ router.get('/pastOrders', async (req, res) => {
 
   // console.log(JSON.stringify(user));
 
-  console.log('numeorwanf');
+  console.log('1st filtered');
   console.log(filtered);
 
   var item = [];
@@ -379,6 +379,9 @@ router.get('/pastOrders', async (req, res) => {
     // console.log(JSON.parse(items.orderItems[0]));
     item.push(JSON.parse(items.orderItems[0]));
   });
+
+  console.log('1st items');
+  console.log(item);
 
   var i = [];
   item.forEach((r) => {});
@@ -407,20 +410,22 @@ router.get('/pastOrders', async (req, res) => {
   var sumPrice = [];
   var sum1;
   var idk = [];
+  console.log('1st data');
+  console.log(data);
   data.map((items) => {
     it.push(JSON.parse(items.orderItems));
     console.log('numberwang 405');
     it.map((price) => {
-      console.log(price);
+      // console.log(price);
       var t = [];
       price.map((r) => {
         t.push(r.product.price);
-        console.log(t);
+        // console.log(t);
       });
       sum1 = t.reduce(function (a, b) {
         return a + b;
       }, 0);
-      console.log(sum1);
+      // console.log(sum1);
     });
     sumPrice.push(sum1);
   });
@@ -428,11 +433,12 @@ router.get('/pastOrders', async (req, res) => {
   // console.log(sumPrice);
   // console.log('working');
   // console.log(item);
-  console.log('Numberwang line 424');
+  console.log(sumPrice)
+  console.log('Numberwang line 436');
   console.log(filtered);
-  console.log('Numberwang line 426');
+  console.log('Numberwang line 438');
   console.log(item);
-  console.log('NUmberwang line 428');
+  console.log('NUmberwang line 440');
   item.forEach((i) => {
     i.forEach((j) => {
       console.log(j.product.size);

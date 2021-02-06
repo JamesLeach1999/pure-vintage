@@ -25,11 +25,11 @@ export default class Filter extends Component {
     // updating state
     this.handleFilterClick = this.handleFilterClick.bind(this);
     this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
-    this.displaySearchResults = this.displaySearchResults.bind(this);
-    this.displayAllData = this.displayAllData.bind(this);
-    this.displayData = this.displayData.bind(this);
-    this.getResults = this.getResults.bind(this);
-    this.element = this.element.bind(this);
+    // this.displaySearchResults = this.displaySearchResults.bind(this);
+    // this.displayAllData = this.displayAllData.bind(this);
+    // this.displayData = this.displayData.bind(this);
+    // this.getResults = this.getResults.bind(this);
+    // this.element = this.element.bind(this);
     // this.handleOutsideFilterClick = this.handleOutsideFilterClick.bind(this);
   }
 

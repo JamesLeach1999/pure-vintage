@@ -30,7 +30,9 @@ const reducer = (state, action) => {
       var sum1;
       var idk = [];
       action.payload.map((items) => {
-        it.push(JSON.parse(items.orderItems));
+        console.log("reducer items")
+        console.log(items)
+        it.push(items.orderItems);
         // console.log(it);
         it.map((price) => {
         //   console.log(price);

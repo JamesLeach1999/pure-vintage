@@ -305,7 +305,7 @@ router.get('/allOrder', async (req, res) => {
     .populate('orderItems')
     .exec(function (err, res) {
       if (err) return err;
-      consols.log('orderpopulate');
+      console.log('orderpopulate');
       console.log(res);
     });
 
@@ -379,6 +379,9 @@ router.get('/pastOrders', async (req, res) => {
       var product = await Order.findById({
         _id: pastOrders[i],
       }).sort([['createdAt', -1]]);
+      Order.findById({_id: pastOrders[i]}).populate("orderItems").exec(function(err, res) {
+        console.log(res)
+      })
       if (product !== null || product !== undefined) {
         orders.push(product);
       }
@@ -394,12 +397,15 @@ router.get('/pastOrders', async (req, res) => {
   console.log('1st filtered');
   console.log(filtered);
 
+  // Order.find
+
   var item = [];
 
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
     // console.log(JSON.parse(items.orderItems[0]));
-    item.push(JSON.parse(items.orderItems[0]));
+    console.log(items)
+    // item.push(JSON.parse(items.orderItems[0]));
   });
 
   console.log('1st items');
@@ -435,7 +441,7 @@ router.get('/pastOrders', async (req, res) => {
   console.log('1st data');
   console.log(data);
   data.map((items) => {
-    it.push(JSON.parse(items.orderItems));
+    it.push(items.orderItems);
     console.log('numberwang 405');
     it.map((price) => {
       // console.log(price);

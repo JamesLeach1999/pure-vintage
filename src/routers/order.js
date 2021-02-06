@@ -238,20 +238,21 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
-        var resJson = res.orderItems;
-        console.log(res);
-        console.log('11');
-        console.log(resJson);
-        console.log('12');
+        console.log(res)
+        // var resJson = res.orderItems;
+        // console.log(res);
+        // console.log('11');
+        // console.log(resJson);
+        // console.log('12');
 
-        console.log(resJson[0]);
-        console.log('13');
+        // console.log(resJson[0]);
+        // console.log('13');
 
-        console.log(resJson.product);
-        console.log('14');
+        // console.log(resJson.product);
+        // console.log('14');
 
-        console.log(resJson[0].product);
-        console.log('15');
+        // console.log(resJson[0].product);
+        // console.log('15');
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -270,20 +271,20 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 241');
+        console.log(res)
+        // var resJson = res.orderItems;
+        // console.log('11');
+        // console.log(resJson);
+        // console.log('12');
 
-        var resJson = res.orderItems;
-        console.log('11');
-        console.log(resJson);
-        console.log('12');
+        // console.log(resJson[0]);
+        // console.log('13');
 
-        console.log(resJson[0]);
-        console.log('13');
+        // console.log(resJson.product);
+        // console.log('14');
 
-        console.log(resJson.product);
-        console.log('14');
-
-        console.log(resJson[0].product);
-        console.log('15');
+        // console.log(resJson[0].product);
+        // console.log('15');
 
         // resJson.forEach((item) => {
         //   console.log('thats nunmberwag 245');

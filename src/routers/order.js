@@ -113,7 +113,7 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      console.log("items 116")
+      console.log('items 116');
       console.log(items);
       const order = new Order({
         user: id,
@@ -166,7 +166,7 @@ router.post('/payment_intents', async (req, res) => {
         console.log(items[q]);
         ids.push(items[q].product._id);
       }
-      console.log("ids line 168")
+      console.log('ids line 168');
       console.log(ids);
       const order = new Order({
         user: req.body.id,
@@ -256,6 +256,11 @@ router.post('/te', async (req, res) => {
         orderConfAdmin(res.orderItems, res.shipping);
       }
     );
+    const test = await Order.findOne({ _id: orderID }).populate('orderItems');
+    console.log('test populate');
+    console.log(test);
+
+    console.log(test[0]);
     res.send('it  worked');
   } catch (error) {
     const oID = await Order.find({});
@@ -292,6 +297,9 @@ router.post('/te', async (req, res) => {
         orderConfAdmin(res.orderItems, res.shipping);
       }
     );
+    const test = await Order.findOne({ _id: orderID }).populate('orderItems');
+    console.log('test populate');
+    console.log(test);
     res.send('it  worked');
   }
 
@@ -308,6 +316,10 @@ router.get('/allOrder', async (req, res) => {
       console.log('orderpopulate');
       console.log(res);
     });
+
+    const t = await Order.find({}).populate("orderItems")
+    console.log("test all populate")
+    console.log(t)
 
   console.log(orders);
 
@@ -379,9 +391,11 @@ router.get('/pastOrders', async (req, res) => {
       var product = await Order.findById({
         _id: pastOrders[i],
       }).sort([['createdAt', -1]]);
-      Order.findById({_id: pastOrders[i]}).populate("orderItems").exec(function(err, res) {
-        console.log(res)
-      })
+      Order.findById({ _id: pastOrders[i] })
+        .populate('orderItems')
+        .exec(function (err, res) {
+          console.log(res);
+        });
       if (product !== null || product !== undefined) {
         orders.push(product);
       }
@@ -404,7 +418,7 @@ router.get('/pastOrders', async (req, res) => {
   filtered.forEach((items) => {
     // console.log(JSON.parse(items.orderItems));
     // console.log(JSON.parse(items.orderItems[0]));
-    console.log(items)
+    console.log(items);
     // item.push(JSON.parse(items.orderItems[0]));
   });
 

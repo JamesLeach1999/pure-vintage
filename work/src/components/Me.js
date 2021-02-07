@@ -35,7 +35,7 @@ const Me = () => {
         const orderJson = await order.json();
         var allOrders = [];
         console.log("me order data orderInfo");
-        console.log(orderJson.orderInfo);
+        console.log(orderJson);
         console.log("me order data names");
 
         console.log(orderJson.names);

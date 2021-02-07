@@ -124,7 +124,7 @@ router.post('/payment_intents', async (req, res) => {
       }
       const order = new Order({
         user: id,
-        orderItems: ids,
+        orderItems: JSON.stringify(items),
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -180,7 +180,7 @@ router.post('/payment_intents', async (req, res) => {
       // })
       const order = new Order({
         user: req.body.id,
-        orderItems: ids,
+        orderItems: JSON.stringify(items),
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -319,17 +319,7 @@ router.post('/te', async (req, res) => {
 
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
-console.log("allorders pop")
-const t = await Order.find({}).populate("orderItems")
-console.log("test all populate")
-console.log(t)
-  Order.find({})
-    .populate('orderItems')
-    .exec(function (err, res) {
-      if (err) return err;
-      console.log('orderpopulate');
-      console.log(res);
-    });
+
 
 
   console.log(orders);
@@ -406,12 +396,7 @@ router.get('/pastOrders', async (req, res) => {
         orders.push(product);
       }
       console.log("start past order pop")
-      Order.findById({ _id: pastOrders[i] })
-        .populate('orderItems')
-        .exec(function (err, res) {
-          console.log("past order pop")
-          console.log(res);
-        });
+      
       // console.log(product)
     }
   }

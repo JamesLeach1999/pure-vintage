@@ -15,7 +15,7 @@ const paymentSchema = {
 const orderSchema = new mongoose.Schema(
   {
     user: { type: mongoose.SchemaTypes.Mixed, required: true },
-    orderItems: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Products', required: true }],
+    orderItems: { type: String , required: true},
     shipping: shippingSchema,
     payment: paymentSchema,
     // itemsPrice: { type: Number },

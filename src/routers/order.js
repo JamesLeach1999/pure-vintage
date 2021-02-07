@@ -117,9 +117,14 @@ router.post('/payment_intents', async (req, res) => {
       };
       console.log('items 116');
       console.log(items);
+      var ids = []
+      for (var q = 0; items.length > q; q++) {
+        // console.log(items[q]);
+        ids.push(items[q].product);
+      }
       const order = new Order({
         user: id,
-        orderItems: items,
+        orderItems: ids,
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -164,17 +169,18 @@ router.post('/payment_intents', async (req, res) => {
       console.log(items);
       var ids = [];
       for (var q = 0; items.length > q; q++) {
-        console.log(items[q]);
+        // console.log(items[q]);
         ids.push(items[q].product);
       }
       console.log('ids line 168');
-      console.log(items);
-      items.forEach((i) => {
-        console.log(i.product)
-      })
+      // console.log(items);
+      // items.forEach((i) => {
+      //   console.log(i.product)
+      //   ids.push(i.product)
+      // })
       const order = new Order({
         user: req.body.id,
-        orderItems: [items],
+        orderItems: ids,
         shipping: destination,
         total: sum,
         isPaid: false,
@@ -396,14 +402,16 @@ router.get('/pastOrders', async (req, res) => {
       var product = await Order.findById({
         _id: pastOrders[i],
       }).sort([['createdAt', -1]]);
-      Order.findById({ _id: pastOrders[i] })
-        .populate('orderItems')
-        .exec(function (err, res) {
-          console.log(res);
-        });
       if (product !== null || product !== undefined) {
         orders.push(product);
       }
+      console.log("start past order pop")
+      Order.findById({ _id: pastOrders[i] })
+        .populate('orderItems')
+        .exec(function (err, res) {
+          console.log("past order pop")
+          console.log(res);
+        });
       // console.log(product)
     }
   }

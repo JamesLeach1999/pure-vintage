@@ -36,42 +36,43 @@ const reducer = (state, action) => {
       console.log(action.payload[i]);
 
       var items = JSON.parse(action.payload[i].orderItems);
-      console.log(items)
+      console.log(items);
       for (var j = 0; j < items.length; j++) {
         console.log("for loop j");
 
         console.log(items[j]);
         console.log(items[j].product);
-        idk.push(items[j].product.price)
+        idk.push(items[j].product.price);
       }
-      sum1 = idk.reduce(function (a, b) {
+      sumPrice = idk.reduce(function (a, b) {
         return a + b;
       }, 0);
-          console.log(sum1);
+          console.log(sumPrice);
 
+      console.log(idk);
     }
-    console.log(sum1)
-    action.payload.map((items) => {
-      console.log("reducer items");
-      console.log(items);
-      it.push(JSON.parse(items.orderItems));
-      console.log(it);
-      it.map((price) => {
-        //   console.log(price);
-        var t = [];
-        price.map((r) => {
-          t.push(r.product.price);
-          console.log(t);
-        });
-        sum1 = t.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-        //   console.log(sum1);
-        t = [];
-      });
-      sumPrice.push(sum1);
-      console.log(sumPrice)
-    });
+    console.log(sumPrice);
+    // action.payload.map((items) => {
+    //   console.log("reducer items");
+    //   console.log(items);
+    //   it.push(JSON.parse(items.orderItems));
+    //   console.log(it);
+    //   it.map((price) => {
+    //     //   console.log(price);
+    //     var t = [];
+    //     price.map((r) => {
+    //       t.push(r.product.price);
+    //       console.log(t);
+    //     });
+    //     sum1 = t.reduce(function (a, b) {
+    //       return a + b;
+    //     }, 0);
+    //     //   console.log(sum1);
+    //     t = [];
+    //   });
+    //   sumPrice.push(sum1);
+    //   console.log(sumPrice);
+    // });
 
     return { ...state, sum: sumPrice };
   }

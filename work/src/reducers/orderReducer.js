@@ -91,6 +91,7 @@ const reducer = (state, action) => {
         allOrders.push(order);
       }
     });
+    console.log(allOrders)
     // only focus on the people bit
     return { ...state, data: allOrders };
   }
@@ -98,11 +99,13 @@ const reducer = (state, action) => {
   if (action.type === "ORDER_ITEMS") {
     const orderData = action.payload;
     var orderProductData = [];
-    for (var i = 0; orderData.length > i; i++) {
-      var orderArray = JSON.parse(orderData[i].orderItems[0]);
+    for (var k = 0; orderData.length > k; k++) {
+      console.log(orderData[k])
+      var orderArray = JSON.parse(orderData[k].orderItems[0]);
       console.log(orderArray);
-      for (var j = 0; orderArray.product.length > j; j++) {
-        console.log(orderArray.product[j]);
+      for (var l = 0; orderArray.product.length > l; l++) {
+        console.log("order items reducer products")
+        console.log(orderArray.product[l]);
       }
     }
     //   if(orderArray.length > 0){

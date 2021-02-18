@@ -397,7 +397,7 @@ router.get('/pastOrders', async (req, res) => {
       }
       console.log("start past order pop")
       
-      // console.log(product)
+      console.log(product)
     }
   }
   var filtered = orders.filter(function (el) {
@@ -414,6 +414,7 @@ router.get('/pastOrders', async (req, res) => {
   var item = [];
 
   filtered.forEach((items) => {
+    console.log("filtered foreach 417")
     // console.log(JSON.parse(items.orderItems));
     // console.log(JSON.parse(items.orderItems[0]));
     console.log(items);
@@ -424,7 +425,7 @@ router.get('/pastOrders', async (req, res) => {
   console.log(item);
 
   var i = [];
-  item.forEach((r) => {});
+  // item.forEach((r) => {});
 
   var allOrders = [];
 
@@ -452,23 +453,23 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   console.log('1st data');
   console.log(data);
-  data.map((items) => {
-    it.push(items.orderItems);
-    console.log('numberwang 405');
-    it.map((price) => {
-      console.log(price);
-      var t = [];
-      price.map((r) => {
-        t.push(r.product.price);
-        console.log(t);
-      });
-      sum1 = t.reduce(function (a, b) {
-        return a + b;
-      }, 0);
-      // console.log(sum1);
-    });
-    sumPrice.push(sum1);
-  });
+  // data.map((items) => {
+  //   it.push(items.orderItems);
+  //   console.log('numberwang 405');
+  //   it.map((price) => {
+  //     console.log(price);
+  //     var t = [];
+  //     price.map((r) => {
+  //       t.push(r.product.price);
+  //       console.log(t);
+  //     });
+  //     sum1 = t.reduce(function (a, b) {
+  //       return a + b;
+  //     }, 0);
+  //     // console.log(sum1);
+  //   });
+  //   sumPrice.push(sum1);
+  // });
 
   // console.log(sumPrice);
   // console.log('working');

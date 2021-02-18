@@ -34,22 +34,28 @@ const reducer = (state, action) => {
     for (var i = 0; i < action.payload.length; i++) {
       console.log("for loop i");
       console.log(action.payload[i]);
-
-      var items = JSON.parse(action.payload[i].orderItems);
-      console.log(items);
-      for (var j = 0; j < items.length; j++) {
-        console.log("for loop j");
-
-        console.log(items[j]);
-        console.log(items[j].product);
-        idk.push(items[j].product.price);
+      try {
+        
+        var items = JSON.parse(action.payload[i].orderItems);
+        
+        console.log(items);
+        for (var j = 0; j < items.length; j++) {
+          console.log("for loop j");
+  
+          console.log(items[j]);
+          console.log(items[j].product);
+          idk.push(items[j].product.price);
+        }
+        sumPrice = idk.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+            console.log(sumPrice);
+  
+        console.log(idk);
+      } catch (error) {
+        console.log(error)
+        continue
       }
-      sumPrice = idk.reduce(function (a, b) {
-        return a + b;
-      }, 0);
-          console.log(sumPrice);
-
-      console.log(idk);
     }
     console.log(sumPrice);
     // action.payload.map((items) => {

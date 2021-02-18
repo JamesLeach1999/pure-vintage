@@ -79,8 +79,11 @@ const reducer = (state, action) => {
     //   sumPrice.push(sum1);
     //   console.log(sumPrice);
     // });
+    console.log(state)
+    console.log(action.sumPrice)
+        console.log(action.sum);
 
-    return { ...state, sum: sumPrice };
+    return { ...state, sum: [state.sum.concat(sumPrice)] };
   }
   if (action.type === "GET_ORDERS") {
     const orderJson = action.payload;

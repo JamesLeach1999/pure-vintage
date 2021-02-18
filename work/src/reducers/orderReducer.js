@@ -29,11 +29,12 @@ const reducer = (state, action) => {
       var sumPrice = [];
       var sum1;
       var idk = [];
+      console.log(action.payload)
       action.payload.map((items) => {
         console.log("reducer items")
-        console.log(items)
-        it.push(items.orderItems);
-        // console.log(it);
+        // console.log(items)
+        it.push(JSON.parse(items.orderItems));
+        console.log(it);
         it.map((price) => {
         //   console.log(price);
           var t = [];

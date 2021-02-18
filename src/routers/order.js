@@ -456,11 +456,11 @@ router.get('/pastOrders', async (req, res) => {
     it.push(items.orderItems);
     console.log('numberwang 405');
     it.map((price) => {
-      // console.log(price);
+      console.log(price);
       var t = [];
       price.map((r) => {
         t.push(r.product.price);
-        // console.log(t);
+        console.log(t);
       });
       sum1 = t.reduce(function (a, b) {
         return a + b;

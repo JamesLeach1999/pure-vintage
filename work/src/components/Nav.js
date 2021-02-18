@@ -115,7 +115,7 @@ export default class Nav extends Component {
         <nav
           className="NavbarItems"
           ref={(node) => (this.node = node)}
-          style={{ color: "black" }}
+          style={{ color: "black", backgroundColor: "white" }}
         >
           <img
             src="https://res.cloudinary.com/dhey8vvcx/image/upload/v1611415440/logo_blue_k8rcyp.png"

@@ -50,31 +50,7 @@ const Me = () => {
         console.log(productData)
 
         console.log(state)
-        // var it = [];
-        // var sumPrice = [];
-        // var sum1;
-        // var idk = [];
-        // state.data.map((items) => {
-        //   it.push(JSON.parse(items.orderItems));
-        //   console.log(it);
-        //   it.map((price) => {
-        //     console.log(price);
-        //     var t = [];
-        //     price.map((r) => {
-        //       t.push(r.product.price);
-        //       console.log(t);
-        //     });
-        //     sum1 = t.reduce(function (a, b) {
-        //       return a + b;
-        //     }, 0);
-        //     console.log(sum1);
-        //     t = [];
-        //   });
-        //   sumPrice.push(sum1);
-        // });
-        // console.log(sumPrice)
-        // setSum(sumPrice);
-        // setOrders(idk);
+        
         setLoading(false);
         console.log(state);
         // console.log(JSON.parse(data[0].orderItems[0].product[0].image));

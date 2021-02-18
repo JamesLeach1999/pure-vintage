@@ -36,13 +36,21 @@ const reducer = (state, action) => {
       console.log(action.payload[i]);
 
       var items = JSON.parse(action.payload[i].orderItems);
+      console.log(items)
       for (var j = 0; j < items.length; j++) {
         console.log("for loop j");
 
         console.log(items[j]);
         console.log(items[j].product);
+        idk.push(items[j].product.price)
       }
+      sum1 = idk.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+          console.log(sum1);
+
     }
+    console.log(sum1)
     action.payload.map((items) => {
       console.log("reducer items");
       console.log(items);
@@ -62,8 +70,8 @@ const reducer = (state, action) => {
         t = [];
       });
       sumPrice.push(sum1);
+      console.log(sumPrice)
     });
-    //   console.log(sumPrice)
 
     return { ...state, sum: sumPrice };
   }

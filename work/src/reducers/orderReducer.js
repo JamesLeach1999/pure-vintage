@@ -30,36 +30,33 @@ const reducer = (state, action) => {
     var sum1;
     var idk = [];
     console.log(action.payload);
-    
-    for (var i = 0; i < action.payload.data.length; i++) {
+
+    for (var i = 0; i < action.payload.length; i++) {
       console.log("for loop i");
       console.log(action.payload[i]);
-        
-      if (action.payload[i].orderItems){
 
+      if (action.payload[i].orderItems) {
         var items = JSON.parse(action.payload[i].orderItems);
 
+        console.log(items);
+        for (var j = 0; j < items.length; j++) {
+          console.log("for loop j");
 
-          console.log(items);
-          for (var j = 0; j < items.length; j++) {
-            console.log("for loop j");
-    
-            console.log(items[j]);
-            console.log(items[j].product);
-            idk.push(items[j].product.price);
-          }
-          sumPrice = idk.reduce(function (a, b) {
-            return a + b;
-          }, 0);
-              console.log(sumPrice);
-    
-          console.log(idk);
+          // console.log(items[j]);
+          console.log(items[j].product);
+          idk.push(items[j].product.price);
+        }
+        sumPrice = idk.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+        console.log(sumPrice);
+
+        console.log(idk);
       } else {
-        continue
+        continue;
       }
-        
-        
-      
+
+      console.log(idk);
     }
     console.log(idk);
     // action.payload.map((items) => {
@@ -83,23 +80,23 @@ const reducer = (state, action) => {
     //   sumPrice.push(sum1);
     //   console.log(sumPrice);
     // });
-    console.log(state)
-    console.log(action.sumPrice)
-        console.log(action.sum);
+    console.log(state);
+    console.log(action.sumPrice);
+    console.log(action.sum);
 
     return { ...state, sum: idk };
   }
   if (action.type === "GET_ORDERS") {
-    console.log(action.payload)
+    console.log(action.payload);
     const orderJson = action.payload;
-      console.log(orderJson);
+    console.log(orderJson);
     var allOrders = [];
     orderJson.map((order) => {
       if (order !== null) {
         allOrders.push(order);
       }
     });
-    console.log(allOrders)
+    console.log(allOrders);
     // only focus on the people bit
     return { ...state, data: allOrders };
   }
@@ -108,14 +105,13 @@ const reducer = (state, action) => {
     const orderData = action.payload;
     var orderProductData = [];
 
-
     for (var k = 0; orderData.length > k; k++) {
-      console.log(orderData[k])
+      console.log(orderData[k]);
       console.log(orderData[k].orderItems[0]);
       var orderArray = JSON.parse(orderData[k].orderItems[0]);
       console.log(orderArray);
       for (var l = 0; orderArray.product.length > l; l++) {
-        console.log("order items reducer products")
+        console.log("order items reducer products");
         console.log(orderArray.product[l]);
       }
     }

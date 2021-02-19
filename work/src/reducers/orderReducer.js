@@ -90,6 +90,7 @@ const reducer = (state, action) => {
     return { ...state, sum: idk };
   }
   if (action.type === "GET_ORDERS") {
+    console.log(action.payload)
     const orderJson = action.payload.names;
       console.log(orderJson);
     var allOrders = [];

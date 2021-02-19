@@ -42,9 +42,9 @@ const Me = () => {
         // console.log(orderJson);
         dispatch({type: "GET_ORDERS", payload: orderJson.names})
         // console.log(this.state.data);
-        dispatch({type: "SET_SUMS", payload: state.data})
+        dispatch({type: "SET_SUMS", payload: orderJson.names})
         var productData = []
-        dispatch({type: "ORDER_ITEMS", payload: state.data})
+        // dispatch({type: "ORDER_ITEMS", payload: orderJson.names})
         
         console.log("past order products")
         console.log(productData)

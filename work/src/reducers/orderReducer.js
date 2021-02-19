@@ -31,7 +31,7 @@ const reducer = (state, action) => {
     var idk = [];
     console.log(action.payload);
     
-    for (var i = 0; i < action.payload.length; i++) {
+    for (var i = 0; i < action.payload.data.length; i++) {
       console.log("for loop i");
       console.log(action.payload[i]);
         
@@ -90,7 +90,7 @@ const reducer = (state, action) => {
     return { ...state, sum: idk };
   }
   if (action.type === "GET_ORDERS") {
-    const orderJson = action.payload;
+    const orderJson = action.payload.names;
       console.log(orderJson);
     var allOrders = [];
     orderJson.map((order) => {

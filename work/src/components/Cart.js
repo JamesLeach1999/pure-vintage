@@ -74,7 +74,6 @@ const Cart = () => {
                   <CartProduct id={product._id} />
                 </Link>
                 <br />
-
                 <td>{product.size}</td>
                 <td id="total">{product.price}</td>
                 <td>
@@ -84,6 +83,8 @@ const Cart = () => {
                     <button type="submit">Remove?</button>
                   </form>
                 </td>
+                <br />
+                <br /> <br /> <br />
               </tr>
             );
           });

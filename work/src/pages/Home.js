@@ -6,7 +6,7 @@ import Welcome from "../components/Welcome"
 import Login from "../components/Login"
 import CatRows from "../components/CatRows"
 import FeaturedRow from "../components/FeaturedRow"
-// import Recent from "../components/RecentRevs"
+import Recent from "../components/RecentRevs"
 import T from "../components/T"
 import "../css/fade.css"
 export default class Home extends Component {
@@ -45,7 +45,7 @@ export default class Home extends Component {
         <Rows/>
         <CatRows/>
         <FeaturedRow/>
-        {/* <Recent/> */}
+        <Recent/>
       </div>
     )
   }

@@ -40,7 +40,7 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row" style={{ justifyContent: "center" }}>
-            {this.state.data.map((e, i) => {
+            {this.state.data.length > 0 ? this.state.data.map((e, i) => {
               return (
                 <div class="col-3" s>
                   {this.state.images.length > 0 ? (
@@ -60,7 +60,9 @@ class Reviews extends Component {
                   />{" "}
                 </div>
               );
-            })}
+            }) : (
+              <h2>No reviews yet!</h2>
+            )}
           </div>
         </div>
       </div>

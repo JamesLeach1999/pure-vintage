@@ -47,7 +47,7 @@ const Me = () => {
         //   }
         // });
 
-        dispatch({ type: "GET_ORDERS", payload: orderJson });
+        dispatch({ type: "GET_ORDERS", payload: orderJson.names });
         var t = [];
         setOrders(orderJson.orderInfo);
         console.log(state);
@@ -111,6 +111,7 @@ const Me = () => {
                 <th>Date ordered:</th>
                 <th>Price:</th>
               </tr>
+
               {state.data ? (
                 state.data.map((product, i) => {
                   return (
@@ -133,6 +134,7 @@ const Me = () => {
                       <td>{product.updatedAt.match(/^.+?(?=\T)/)}</td>
                       <td>£{total[i]}.95</td>
                       {/* </Link> */}
+                      <br /> <br /> <br /> <br />
                     </tr>
                   );
                 })

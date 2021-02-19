@@ -507,9 +507,9 @@ router.get('/orderProducts', async (req, res) => {
   const product = await Order.findById({ _id: req.query.id });
   console.log('thats nuberwang line 449');
   console.log(product);
-  const p = JSON.parse(product.orderItems);
+  if (product.orderItems) const p = JSON.parse(product.orderItems);
 
-  console.log(p);
+  // console.log(p);
   console.log('thats nuberwang line 454');
   var it = [];
 
@@ -519,7 +519,7 @@ router.get('/orderProducts', async (req, res) => {
     pageTitle: 'welcome',
     user: user,
     names: product,
-    orderInfo: p,
+    orderInfo: p || "nothing",
     //   categories: categories,
     isAuth: true,
   });

@@ -30,32 +30,34 @@ const reducer = (state, action) => {
     var sum1;
     var idk = [];
     console.log(action.payload);
-
+    
     for (var i = 0; i < action.payload.length; i++) {
       console.log("for loop i");
       console.log(action.payload[i]);
-      try {
         
         var items = JSON.parse(action.payload[i].orderItems);
-        
-        console.log(items);
-        for (var j = 0; j < items.length; j++) {
-          console.log("for loop j");
-  
-          console.log(items[j]);
-          console.log(items[j].product);
-          idk.push(items[j].product.price);
+
+        if(items !== undefined){
+
+          console.log(items);
+          for (var j = 0; j < items.length; j++) {
+            console.log("for loop j");
+    
+            console.log(items[j]);
+            console.log(items[j].product);
+            idk.push(items[j].product.price);
+          }
+          sumPrice = idk.reduce(function (a, b) {
+            return a + b;
+          }, 0);
+              console.log(sumPrice);
+    
+          console.log(idk);
+        } else {
+          continue
         }
-        sumPrice = idk.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-            console.log(sumPrice);
-  
-        console.log(idk);
-      } catch (error) {
-        console.log(error)
-        continue
-      }
+        
+      
     }
     console.log(sumPrice);
     // action.payload.map((items) => {
@@ -83,13 +85,13 @@ const reducer = (state, action) => {
     console.log(action.sumPrice)
         console.log(action.sum);
 
-    return { ...state, sum: [state.sum.concat(sumPrice)] };
+    return { ...state, sum: state.sum.concat(sumPrice) };
   }
   if (action.type === "GET_ORDERS") {
     const orderJson = action.payload;
+      console.log(orderJson);
     var allOrders = [];
     orderJson.map((order) => {
-      //   console.log(order);
       if (order !== null) {
         allOrders.push(order);
       }

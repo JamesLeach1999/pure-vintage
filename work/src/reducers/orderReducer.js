@@ -91,7 +91,7 @@ const reducer = (state, action) => {
   }
   if (action.type === "GET_ORDERS") {
     console.log(action.payload)
-    const orderJson = action.payload.names;
+    const orderJson = action.payload;
       console.log(orderJson);
     var allOrders = [];
     orderJson.map((order) => {
@@ -105,7 +105,7 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "ORDER_ITEMS") {
-    const orderData = action.payload.names;
+    const orderData = action.payload;
     var orderProductData = [];
 
 

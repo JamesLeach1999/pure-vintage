@@ -9,6 +9,7 @@ var defaultState = {
   data: [],
   orders: [],
   total: [],
+  images:[]
 };
 const Me = () => {
   const [data, setData] = useState([]);
@@ -48,6 +49,8 @@ const Me = () => {
         // });
 
         dispatch({ type: "GET_ORDERS", payload: orderJson.names });
+                dispatch({ type: "GET_IMAGES", payload: orderJson.names });
+
         var t = [];
         setOrders(orderJson.orderInfo);
         console.log(state);
@@ -119,7 +122,7 @@ const Me = () => {
                       {/* <td>{i}</td> */}
                       <td>
                         <Link to={`/orderProducts/${product._id}`}>
-                          {/* <img src={orders[i][0].product.image[0]} alt="" /> */}
+                          <img src={state.images[i]} alt="" />
                         </Link>
                         {/* <img src={`/assets/${product.images[0]}`} alt="" />
                       <p>{this.state.orders.name}</p> */}

@@ -102,32 +102,38 @@ const reducer = (state, action) => {
   }
   
   if (action.type === "GET_IMAGES") {
+
+    var it = [];
+    var sumPrice = [];
+    var sum1;
+    var idk1 = [];
+    console.log(action.payload);
     for (var i = 0; i < action.payload.length; i++) {
       console.log("for loop i");
       console.log(action.payload[i]);
 
       if (action.payload[i].orderItems) {
-        var items = JSON.parse(action.payload[i].orderItems);
+        var items1 = JSON.parse(action.payload[i].orderItems);
 
-        console.log(items);
-        for (var j = 0; j < items.length; j++) {
+        console.log(items1);
+        for (var j = 0; j < items1.length; j++) {
           console.log("for loop j");
 
           // console.log(items[j]);
-          console.log(items[j].product);
-          idk.push(items[j].product.image[0]);
+          console.log(items1[j].product);
+          idk1.push(items1[j].product.image[0]);
         }
         
 
-        console.log(idk);
+        console.log(idk1);
       } else {
         continue;
       }
 
-      console.log(idk);
+      console.log(idk1);
     }
     // only focus on the people bit
-    return { ...state, images: idk };
+    return { ...state, images: idk1 };
   }
 
   if (action.type === "ORDER_ITEMS") {

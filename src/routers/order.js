@@ -117,7 +117,7 @@ router.post('/payment_intents', async (req, res) => {
       };
       console.log('items 116');
       console.log(items);
-      var ids = []
+      var ids = [];
       for (var q = 0; items.length > q; q++) {
         // console.log(items[q]);
         ids.push(items[q].product);
@@ -248,7 +248,7 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
-        console.log(res)
+        console.log(res);
         // var resJson = res.orderItems;
         // console.log(res);
         // console.log('11');
@@ -281,7 +281,7 @@ router.post('/te', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 241');
-        console.log(res)
+        console.log(res);
         // var resJson = res.orderItems;
         // console.log('11');
         // console.log(resJson);
@@ -319,8 +319,6 @@ router.post('/te', async (req, res) => {
 
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
-
-
 
   console.log(orders);
 
@@ -395,9 +393,9 @@ router.get('/pastOrders', async (req, res) => {
       if (product !== null || product !== undefined) {
         orders.push(product);
       }
-      console.log("start past order pop")
-      
-      console.log(product)
+      console.log('start past order pop');
+
+      console.log(product);
     }
   }
   var filtered = orders.filter(function (el) {
@@ -414,7 +412,7 @@ router.get('/pastOrders', async (req, res) => {
   var item = [];
 
   filtered.forEach((items) => {
-    console.log("filtered foreach 417")
+    console.log('filtered foreach 417');
     // console.log(JSON.parse(items.orderItems));
     // console.log(JSON.parse(items.orderItems[0]));
     console.log(items);
@@ -501,15 +499,15 @@ router.get('/pastOrders', async (req, res) => {
 router.get('/orderProducts', async (req, res) => {
   // console.log(req.query.id);
   // console.log(req.query.user);
-
+  var p;
   const user = await User.findById({ _id: req.query.user });
   // console.log(req.session.passport.user);
   const product = await Order.findById({ _id: req.query.id });
   console.log('thats nuberwang line 449');
   console.log(product);
   if (product.orderItems) {
-    const p = JSON.parse(product.orderItems)
-  };
+    p = JSON.parse(product.orderItems);
+  }
 
   // console.log(p);
   console.log('thats nuberwang line 454');
@@ -521,7 +519,7 @@ router.get('/orderProducts', async (req, res) => {
     pageTitle: 'welcome',
     user: user,
     names: product,
-    orderInfo: p || "nothing",
+    orderInfo: p || 'nothing',
     //   categories: categories,
     isAuth: true,
   });

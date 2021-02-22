@@ -186,7 +186,8 @@ const Test = () => {
                     );
                     searchParams.set("skip", e.target.value);
                         window.location.search = searchParams.toString();
-
+                      console.log(searchParams)
+                      
                   }}
                   style={{
                     backgroundColor: "#e7e7e7" /* Green */,

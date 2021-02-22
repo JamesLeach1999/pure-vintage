@@ -18,18 +18,18 @@ class EditPage extends Component {
     // if (!profile) {
     //   window.location.replace("/store");
     // } else {
-      try {
-        console.log(this.props.id);
-        const response = await fetch(`/product?id=${this.props.id}`);
-        const json = await response.json();
-        console.log(json);
-        this.setState({ data: json.name, images: json.name.image[0] });
-        console.log(this.state.data);
-      } catch (error) {
-        console.log(this.props.id);
-        console.log(error);
-      }
+    try {
+      console.log(this.props.id);
+      const response = await fetch(`/product?id=${this.props.id}`);
+      const json = await response.json();
+      console.log(json);
+      this.setState({ data: json.name, images: json.name.image[0] });
+      console.log(this.state.data);
+    } catch (error) {
+      console.log(this.props.id);
+      console.log(error);
     }
+  }
   // }
 
   render() {
@@ -37,15 +37,10 @@ class EditPage extends Component {
       <div className="col-4">
         <img src={`${this.state.images}`} alt="" />
         <h4>{this.state.data.name}</h4>
-        {this.state.data.gender ? (
-          <h1>Mens</h1>
-        ):(
-          <h1>Womens</h1>
-        )}
+        {this.state.data.gender ? <h1>Mens</h1> : <h1>Womens</h1>}
+        {this.state.data.featured ? <h1>Featured</h1> : <h1>Not featured</h1>}
+        {this.state.data.inStock ? <h1>In Stock</h1> : <h1>Out of stock</h1>}
         <p>£{this.state.data.price}</p>
-
-        
-        
       </div>
     );
   }

@@ -67,7 +67,7 @@ class Reviews extends Component {
                     {this.state.images.length !== 0 ? (
                       <img src={this.state.images[0]} alt="" />
                     ) : (
-                      <img src={this.state.images} alt="" />
+                      <img src={this.state.images[0]} alt="" />
                     )}{" "}
                     <br />
                     <br />

@@ -89,11 +89,6 @@ const Manage = () => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <>
-                  <Link to={`/edit/${product._id}`}>
-                    <Edit id={product._id} />
-                    {/* <Product/> */}
-                  </Link>
-                  <br />
                   <form action="/featured" method="post">
                     <input
                       type="text"
@@ -109,7 +104,7 @@ const Manage = () => {
                       Featured
                     </button>
                   </form>
-                  <br/>
+                  <br />
                   <form action="/inStock" method="post">
                     <input
                       type="text"
@@ -125,7 +120,7 @@ const Manage = () => {
                       In stock
                     </button>
                   </form>
-                  <br/>
+                  <br />
                   <form action="/delete" method="post">
                     <input
                       type="text"
@@ -140,6 +135,11 @@ const Manage = () => {
                       delete
                     </button>
                   </form>
+                  <Link to={`/edit/${product._id}`}>
+                    <Edit id={product._id} />
+                    {/* <Product/> */}
+                  </Link>
+                  <br />
                 </>
               );
             });

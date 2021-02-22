@@ -171,7 +171,10 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
-        <form action="/store">
+        <form onSubmit={(e) => {
+           var searchParams = new URLSearchParams(window.location.search);
+           searchParams.set("skip", e.target.value);
+        }}>
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);

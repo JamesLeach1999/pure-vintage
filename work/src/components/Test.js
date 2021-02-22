@@ -23,6 +23,7 @@ const Test = () => {
         console.log(window.location);
         const json = await response.json();
         setData([json.names]);
+        console.log(json.names.length)
         setLoading(false);
         if (json.names.length > 80) {
           setPag([0, 16, 32, 48, 64, 80]);

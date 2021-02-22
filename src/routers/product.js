@@ -472,6 +472,10 @@ router.post('/gender', ensureAuthenticated, async (req, res) => {
 
   res.redirect('/manage');
 });
+
+router.post("/delRev", ensureAuthenticated, async(req, res) => {
+  
+})
 // again, checking if the user is logged in then sending back different results depending
 router.get('/home', async (req, res) => {
   // console.log(req.session);

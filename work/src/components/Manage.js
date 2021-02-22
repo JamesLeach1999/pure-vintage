@@ -89,7 +89,13 @@ const Manage = () => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <>
-                  <div style={{justifyContent: "center", alignContent: "center"}}>
+                  <div
+                    style={{
+                      justifyContent: "center",
+                      alignContent: "center",
+                      height: "200px",
+                    }}
+                  >
                     <form action="/featured" method="post">
                       <input
                         type="text"
@@ -105,7 +111,8 @@ const Manage = () => {
                         Featured
                       </button>
                     </form>
-                    {/* <br /> */}
+                    <br /> <br />
+                    <br />
                     <form action="/gender" method="post">
                       <input
                         type="text"
@@ -121,7 +128,7 @@ const Manage = () => {
                         Gender
                       </button>
                     </form>
-                    {/* <br /> */}
+                    <br /> <br /> <br />
                     <form action="/inStock" method="post">
                       <input
                         type="text"
@@ -137,7 +144,7 @@ const Manage = () => {
                         In stock
                       </button>
                     </form>
-                    {/* <br /> */}
+                    <br /> <br /> <br />
                     <form action="/delete" method="post">
                       <input
                         type="text"

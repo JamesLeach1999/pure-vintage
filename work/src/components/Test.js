@@ -23,7 +23,7 @@ const Test = () => {
         console.log(window.location);
         const json = await response.json();
         setData([json.names]);
-        console.log(json.names.length)
+        console.log(json.names.length);
         setLoading(false);
         if (json.names.length > 80) {
           setPag([0, 16, 32, 48, 64, 80]);
@@ -38,7 +38,7 @@ const Test = () => {
         } else {
           setPag([0]);
         }
-        console.log(pag)
+        console.log(pag);
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
@@ -98,6 +98,15 @@ const Test = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const addSkip = (num) => {
+    var searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams);
+
+    searchParams.set("skip", num);
+    window.location.search = searchParams.toString();
+    console.log(searchParams);
   };
 
   useEffect(() => {
@@ -171,7 +180,7 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
-        <form >
+        <form>
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);
@@ -180,15 +189,7 @@ const Test = () => {
                   type="submit"
                   name="skip"
                   value={pageNumber}
-                  onClick={(e) => {
-                    var searchParams = new URLSearchParams(
-                      window.location.search
-                    );
-                    searchParams.set("skip", e.target.value);
-                        window.location.search = searchParams.toString();
-                      console.log(searchParams)
-                      
-                  }}
+                  onClick={(e) => addSkip(e.target.value)}
                   style={{
                     backgroundColor: "#e7e7e7" /* Green */,
                     border: "none",

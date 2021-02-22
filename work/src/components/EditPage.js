@@ -88,12 +88,12 @@ const ProductPage = () => {
                 multiple="multiple"
                 name="image"
                 style={{
-                  width:"100px",
-                  height: "50px"
+                  width:"200px",
+                  height: "100px"
                 }}
               />
               <br />
-              <h4>Price: {product.price}</h4>
+              <h4>Price: £{product.price}</h4>
 
               <input type="number" placeholder="price" name="edit" />
               <input type="submit" />

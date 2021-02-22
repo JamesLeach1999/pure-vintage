@@ -100,9 +100,9 @@ const Nav = () => {
 
   var handleOutsideClick = (e) => {
     // ignore clicks on the component itself
-    console.log(refContainer);
+    console.log(refContainer.current.children.contains(e.target));
     console.log(e.target)
-    if (refContainer.current.contains(e.target)) {
+    if (refContainer.current.children.contains(e.target)) {
       console.log("thats wangernumb");
 
       console.log(this.node);

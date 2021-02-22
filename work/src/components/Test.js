@@ -54,25 +54,25 @@ const Test = () => {
         });
         // console.log(res);
         setData([res.data.names]);
-        console.log(res.data.names.length)
-                // console.log(data[0].length);
+        console.log(res.data.names.length);
+        // console.log(data[0].length);
 
-        if (res.data.names.length > 0) {
-          setPag([0]);
-        } else if (res.data.names.length > 16) {
-          setPag([0, 16]);
-        } else if (res.data.names.length > 32) {
-          setPag([0, 16, 32]);
-        } else if (res.data.names.length > 48) {
-          setPag([0, 16, 32, 48]);
+        if (res.data.names.length > 80) {
+          setPag([0, 16, 32, 48, 64, 80]);
         } else if (res.data.names.length > 64) {
           setPag([0, 16, 32, 48, 64]);
-        } else if (res.data.names.length > 80) {
-          setPag([0, 16, 32, 48, 64, 80]);
+        } else if (res.data.names.length > 48) {
+          setPag([0, 16, 32, 48]);
+        } else if (res.data.names.length > 32) {
+          setPag([0, 16, 32]);
+        } else if (res.data.names.length > 16) {
+          setPag([0, 16]);
+        } else {
+          setPag([0]);
         }
         // console.log(data);
         setLoading(false);
-        console.log(pag)
+        console.log(pag);
 
         // data.map((products) => {
         //   products.map((product) => {
@@ -89,7 +89,7 @@ const Test = () => {
     console.log("work");
 
     getData();
-    console.log(pag)
+    console.log(pag);
     // window.location.replace("http://localhost:5000/store")
   }, [loading]);
   return (
@@ -159,7 +159,7 @@ const Test = () => {
         <form>
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
-              console.log(pageNumber)
+              console.log(pageNumber);
               return (
                 <button
                   type="submit"

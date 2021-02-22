@@ -14,16 +14,18 @@ class Reviews extends Component {
     try {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
-      
-      
 
       var filtered = pJson.name.filter(function (el) {
-        return el != null;
+        return el !== null || el !== [];
       });
-      this.setState({ data:  filtered});
+      this.setState({ data: filtered });
       this.setState({ images: pJson.images });
-      console.log(this.state.images)
+      console.log(this.state.images);
       console.log(this.state.data);
+      var filtered2 = this.state.data.filter(function (el) {
+        return el !== null || el !== [];
+      });
+      this.setState({ data: filtered2 });
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -40,27 +42,29 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row" style={{ justifyContent: "center" }}>
-            {this.state.data.length > 0 ? this.state.data.map((e, i) => {
-              return (
-                <div class="col-3" s>
-                  {this.state.images.length > 0 ? (
-                    <img src={this.state.images[i]} alt="" />
-                  ) : (
-                    <img src={this.state.images} alt="" />
-                  )}{" "}
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <Recent
-                    data={e}
-                    category={this.state.data.category}
-                    revId={e._id}
-                    id={e._id}
-                  />{" "}
-                </div>
-              );
-            }) : (
+            {this.state.data.length > 0 ? (
+              this.state.data.map((e, i) => {
+                return (
+                  <div class="col-3" s>
+                    {this.state.images.length > 0 ? (
+                      <img src={this.state.images[i]} alt="" />
+                    ) : (
+                      <img src={this.state.images} alt="" />
+                    )}{" "}
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <Recent
+                      data={e}
+                      category={this.state.data.category}
+                      revId={e._id}
+                      id={e._id}
+                    />{" "}
+                  </div>
+                );
+              })
+            ) : (
               <h2>No reviews yet!</h2>
             )}
           </div>

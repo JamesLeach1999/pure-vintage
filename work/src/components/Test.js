@@ -54,6 +54,8 @@ const Test = () => {
         });
         // console.log(res);
         setData([res.data.names]);
+        console.log(data.length)
+                console.log(data[0].length);
 
         if (data.length > 0) {
           setPag([0]);
@@ -70,6 +72,7 @@ const Test = () => {
         }
         // console.log(data);
         setLoading(false);
+        console.log(pag)
 
         // data.map((products) => {
         //   products.map((product) => {
@@ -154,6 +157,7 @@ const Test = () => {
         <form>
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
+              console.log(pageNumber)
               return (
                 <button
                   type="submit"

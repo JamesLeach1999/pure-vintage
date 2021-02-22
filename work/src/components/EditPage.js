@@ -55,19 +55,19 @@ const ProductPage = () => {
         <div class="row1">
           <div class="col-2">
             <form action="/editPost" method="post">
-              <h4>{product.name}</h4>
+              {/* <h4>{product.name}</h4> */}
               <br />
               <input type="text" name="id" value={product._id} hidden />
-              <h4>{product.name}</h4>
+              <h4>Name: {product.name}</h4>
               <br />
               <input type="text" placeholder="name" name="edit" />
-              <h4>{product.brand}</h4>
+              <h4>Brand: {product.brand}</h4>
               <br />
               <input type="text" placeholder="brand" name="edit" />
-              <h4>{product.category}</h4>
+              <h4>Category: {product.category}</h4>
               <br />
               <input type="text" placeholder="category" name="edit" />
-              <h4>{product.description}</h4>
+              <h4>Description: {product.description.substring(0, 100)}</h4>
               <br />
               <input
                 type="text"
@@ -76,19 +76,24 @@ const ProductPage = () => {
                 style={{ border: "1px solid black", borderRadius: "3px" }}
               />
               <br />
-              <h4>{product.size}</h4>
+              <h4>Size: {product.size}</h4>
 
               <input type="text" placeholder="size" name="edit" />
               {/* <h4>{product.name}</h4> */}
               <br />
+              <h4>Add images:</h4>
               <input
                 type="file"
                 placeholder="image"
                 multiple="multiple"
                 name="image"
+                style={{
+                  width:"100px",
+                  height: "50px"
+                }}
               />
               <br />
-              <h4>{product.price}</h4>
+              <h4>Price: {product.price}</h4>
 
               <input type="number" placeholder="price" name="edit" />
               <input type="submit" />

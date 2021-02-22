@@ -83,7 +83,7 @@ const Manage = () => {
         <Link to="/add" style={{ fontSize: "28px" }}>
           Add product
         </Link>
-        <div className="row product">
+        <div className="row product" style={{border: "1px solid black"}}>
           {data.map((products) => {
             return products.slice(page, page + 4).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
@@ -105,7 +105,7 @@ const Manage = () => {
                         Featured
                       </button>
                     </form>
-                    <br />
+                    {/* <br /> */}
                     <form action="/gender" method="post">
                       <input
                         type="text"
@@ -121,7 +121,7 @@ const Manage = () => {
                         Gender
                       </button>
                     </form>
-                    <br />
+                    {/* <br /> */}
                     <form action="/inStock" method="post">
                       <input
                         type="text"
@@ -137,7 +137,7 @@ const Manage = () => {
                         In stock
                       </button>
                     </form>
-                    <br />
+                    {/* <br /> */}
                     <form action="/delete" method="post">
                       <input
                         type="text"

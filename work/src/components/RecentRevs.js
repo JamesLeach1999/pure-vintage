@@ -15,13 +15,12 @@ class Reviews extends Component {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
 
-      var filtered = pJson.name.filter(function (el) {
-        return el !== null || el !== [];
-      });
-      this.setState({ data: filtered });
+      // var filtered = pJson.name.filter(function (el) {
+      //   return el !== null || el !== [];
+      // });
+      // this.setState({ data: filtered });
       this.setState({ images: pJson.images });
-      console.log(this.state.images);
-      console.log(this.state.data[0]);
+      
       var filtered2 = pJson.name.filter(function (el) {
         return  el.length !== 0;
       });

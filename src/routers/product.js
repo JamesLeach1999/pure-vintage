@@ -14,7 +14,6 @@ cloudinary.config({
   api_secret: process.env.API_SECRET,
 });
 
-
 // AUTHENTICATION EXPLAINED
 // i have used ensureAuthenticated on most of the routes here. This is so we can get the session and user ID and therefore the user profile
 // i also return whether or not the user is authenticated and whether or not they are an admin
@@ -441,7 +440,7 @@ router.post('/delete', ensureAuthenticated, async (req, res) => {
 router.post('/featured', ensureAuthenticated, async (req, res) => {
   // console.log(req.query.featured);
 
-  var featured = await Product.findById({_id: req.body.featured})
+  var featured = await Product.findById({ _id: req.body.featured });
 
   Product.findByIdAndUpdate({ _id: req.body.featured }, { featured: !featured.featured }, () => {
     console.log('worked');
@@ -453,7 +452,7 @@ router.post('/featured', ensureAuthenticated, async (req, res) => {
 router.post('/inStock', ensureAuthenticated, async (req, res) => {
   console.log(req.query.inStock);
 
-  var stock = await Product.findById({_id: req.body.inStock})
+  var stock = await Product.findById({ _id: req.body.inStock });
 
   Product.findByIdAndUpdate({ _id: req.body.inStock }, { inStock: !stock.inStock }, () => {
     console.log('worked');
@@ -465,7 +464,7 @@ router.post('/inStock', ensureAuthenticated, async (req, res) => {
 router.post('/gender', ensureAuthenticated, async (req, res) => {
   console.log(req.query.gender);
 
-  var gender = await Product.findById({ _id: req.body.gender});
+  var gender = await Product.findById({ _id: req.body.gender });
 
   Product.findByIdAndUpdate({ _id: req.body.gender }, { gender: !gender.gender }, () => {
     console.log('worked');
@@ -576,7 +575,6 @@ router.get('/manage1', ensureAuthenticated, async (req, res) => {
 });
 // similarly to the home page with the logged in. will add pagnintation
 router.get('/store1', async (req, res) => {
-  
   var category;
   // console.log(localStorage)
   console.log('i work3');
@@ -610,7 +608,7 @@ router.get('/store1', async (req, res) => {
     req.query.skip === undefined &&
     req.query.gender === undefined
   ) {
-    const pro = await Product.find({inStock: true}).limit(16);
+    const pro = await Product.find({ inStock: true }).limit(16);
     // console.log(await Product.find({ category: ['shoes'], price: { $lt: '558' } }));
 
     pro.forEach((n) => {
@@ -628,7 +626,7 @@ router.get('/store1', async (req, res) => {
       clothes.push(ite);
     });
 
-    console.log(clothes)
+    console.log(clothes);
 
     var skipValue = req.body.skip + 16;
     // clothes = clothes.slice(req.body.skip, skipValue);
@@ -654,16 +652,12 @@ router.get('/recentReviews', async (req, res) => {
   // console.log(ordersRev.length);
   for (var i = 0; i < ordersRev.length; i++) {
     // const oProducts = JSON.parse(ordersRev);
-    
-    if(ordersRev[i].reviews !== null || ordersRev[i].image !== null){
-      review.push(ordersRev[i].reviews)
-      proImages.push(ordersRev[i].image[0])
+
+    if (ordersRev[i].reviews !== null || ordersRev[i].image !== null) {
+      review.push(ordersRev[i].reviews);
+      proImages.push(ordersRev[i].image[i]);
     }
     // console.log(oProducts.product);
-
-
-   
-
 
     // if (oProducts[0].product) {
     //   product = await Product.findById({ _id: oProducts[0].product._id });
@@ -697,13 +691,16 @@ router.get('/recentReviews', async (req, res) => {
   var filtered = review.filter(function (el) {
     return el !== [] || el !== undefined;
   });
-  
+
+  var filtered2 = filtered.filter(function (rev) {
+    return rev.length !== 0;
+  });
 
   console.log('number');
   // console.log(proImages);
-  console.log(filtered);
+  console.log(filtered2);
   res.send({
-    name: filtered,
+    name: filtered2,
     images: proImages,
   });
 });
@@ -1015,7 +1012,7 @@ router.get('/edit', ensureAuthenticated, async (req, res) => {
 });
 
 router.get('/product/*', (req, res) => {
-  res.redirect("/store")
+  res.redirect('/store');
 });
 
 module.exports = router;

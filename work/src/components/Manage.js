@@ -89,52 +89,72 @@ const Manage = () => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <>
-                  <form action="/featured" method="post">
-                    <input
-                      type="text"
-                      name="featured"
-                      value={product._id}
-                      onClick={(e) => e.preventDefault()}
-                      hidden
-                    />
-                    <button
-                      type="submit"
-                      // onClick={() => window.location.reload()}
-                    >
-                      Featured
-                    </button>
-                  </form>
+                  <div style={{justifyContent: "center", alignContent: "center"}}>
+                    <form action="/featured" method="post">
+                      <input
+                        type="text"
+                        name="featured"
+                        value={product._id}
+                        onClick={(e) => e.preventDefault()}
+                        hidden
+                      />
+                      <button
+                        type="submit"
+                        // onClick={() => window.location.reload()}
+                      >
+                        Featured
+                      </button>
+                    </form>
+                    <br />
+                    <form action="/gender" method="post">
+                      <input
+                        type="text"
+                        name="gender"
+                        value={product._id}
+                        onClick={(e) => e.preventDefault()}
+                        hidden
+                      />
+                      <button
+                        type="submit"
+                        // onClick={() => window.location.reload()}
+                      >
+                        Gender
+                      </button>
+                    </form>
+                    <br />
+                    <form action="/inStock" method="post">
+                      <input
+                        type="text"
+                        name="inStock"
+                        value={product._id}
+                        onClick={(e) => e.preventDefault()}
+                        hidden
+                      />
+                      <button
+                        type="submit"
+                        // onClick={() => window.location.reload()}
+                      >
+                        In stock
+                      </button>
+                    </form>
+                    <br />
+                    <form action="/delete" method="post">
+                      <input
+                        type="text"
+                        name="delete"
+                        value={product._id}
+                        hidden
+                      />
+                      <button
+                        type="submit"
+                        // onClick={() => window.location.reload()}
+                      >
+                        delete
+                      </button>
+                    </form>
+                  </div>
+
                   <br />
-                  <form action="/inStock" method="post">
-                    <input
-                      type="text"
-                      name="inStock"
-                      value={product._id}
-                      onClick={(e) => e.preventDefault()}
-                      hidden
-                    />
-                    <button
-                      type="submit"
-                      // onClick={() => window.location.reload()}
-                    >
-                      In stock
-                    </button>
-                  </form>
-                  <br />
-                  <form action="/delete" method="post">
-                    <input
-                      type="text"
-                      name="delete"
-                      value={product._id}
-                      hidden
-                    />
-                    <button
-                      type="submit"
-                      // onClick={() => window.location.reload()}
-                    >
-                      delete
-                    </button>
-                  </form>
                   <Link to={`/edit/${product._id}`}>
                     <Edit id={product._id} />
                     {/* <Product/> */}

@@ -20,14 +20,26 @@ class Reviews extends Component {
       // });
       // this.setState({ data: filtered });
       this.setState({ images: pJson.images });
+
+      var filRevs = []
+      var filImgs = []
       
-      var filtered2 = pJson.name.filter(function (el) {
+      var filtered = pJson.name.filter(function (el) {
         console.log(el)
         return  el !== null || el !== [] || el !== undefined;
       });
-      this.setState({ data: filtered2 });
+      filtered.map((rev, i) => {
+        if(rev.length !== 0){
+          filRevs.push(rev)
+          filImgs.push(this.state.images[i])
+        }
+      })
+      console.log(filRevs)
+            console.log(filImgs);
+
+      this.setState({ data: filRevs });
       this.setState({atLeastOne: true})
-      console.log(filtered2)
+      // console.log(filtered2)
       console.log(this.state.images)
     } catch (error) {
       console.log(this.props);

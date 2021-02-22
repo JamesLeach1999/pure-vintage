@@ -34,7 +34,7 @@ class EditPage extends Component {
 
   render() {
     return (
-      <div className="col-4">
+      <div className="col-3">
         <img src={`${this.state.images}`} alt="" />
         <h4>{this.state.data.name}</h4>
         {this.state.data.gender ? <h1>Mens</h1> : <h1>Womens</h1>}

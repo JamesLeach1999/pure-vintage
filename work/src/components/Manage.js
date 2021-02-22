@@ -83,7 +83,7 @@ const Manage = () => {
         <Link to="/add" style={{ fontSize: "28px" }}>
           Add product
         </Link>
-        <div className="row product" style={{border: "1px solid black"}}>
+        <div className="row product" >
           {data.map((products) => {
             return products.slice(page, page + 4).map((product) => {
               // const image = <img alt="" src={require(`./assets/${n.image}`)}/>

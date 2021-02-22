@@ -67,7 +67,7 @@ const ProductPage = () => {
               <h4>Category: {product.category}</h4>
               <br />
               <input type="text" placeholder="category" name="edit" />
-              <h4>Description: {product.description.substring(0, 100)}</h4>
+              <h4>Description: {product.description}</h4>
               <br />
               <input
                 type="text"

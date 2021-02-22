@@ -22,7 +22,7 @@ class Reviews extends Component {
       this.setState({ images: pJson.images });
       
       var filtered2 = pJson.name.filter(function (el) {
-        return  el.length !== 0;
+        return  el.reviews.length !== 0;
       });
       this.setState({ data: filtered2 });
       this.setState({atLeastOne: true})

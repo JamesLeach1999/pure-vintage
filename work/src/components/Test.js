@@ -24,6 +24,19 @@ const Test = () => {
         const json = await response.json();
         setData([json.names]);
         setLoading(false);
+        if (json.names.length > 80) {
+          setPag([0, 16, 32, 48, 64, 80]);
+        } else if (json.names.length > 64) {
+          setPag([0, 16, 32, 48, 64]);
+        } else if (json.names.length > 48) {
+          setPag([0, 16, 32, 48]);
+        } else if (json.names.length > 32) {
+          setPag([0, 16, 32]);
+        } else if (json.names.length > 16) {
+          setPag([0, 16]);
+        } else {
+          setPag([0]);
+        }
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);

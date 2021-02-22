@@ -653,8 +653,8 @@ router.get('/recentReviews', async (req, res) => {
   for (var i = 0; i < ordersRev.length; i++) {
     // const oProducts = JSON.parse(ordersRev);
 
-    if (ordersRev[i].reviews !== null || ordersRev[i].image !== null) {
-      review.push(ordersRev[i]);
+    if (ordersRev[i].reviews !== [] || ordersRev[i].image !== null ) {
+      review.push(ordersRev[i].reviews);
       proImages.push(ordersRev[i].image[i]);
     }
     // console.log(oProducts.product);

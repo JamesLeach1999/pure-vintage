@@ -171,7 +171,7 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
-        <form onSubmit={URLSearchParams.append("skip", document.getElementById("UID").value)}>
+        <form action="/store">
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);
@@ -180,7 +180,6 @@ const Test = () => {
                   type="submit"
                   name="skip"
                   value={pageNumber}
-                  id="UID"
                   style={{
                     backgroundColor: "#e7e7e7" /* Green */,
                     border: "none",
@@ -194,7 +193,7 @@ const Test = () => {
                     cursor: " pointer",
                   }}
                 >
-                  {index}
+                  {index+1}
                 </button>
               );
             })}

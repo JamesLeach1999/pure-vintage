@@ -21,9 +21,9 @@ class Reviews extends Component {
       this.setState({ data: filtered });
       this.setState({ images: pJson.images });
       console.log(this.state.images);
-      console.log(this.state.data);
-      var filtered2 = this.state.data.filter(function (el) {
-        return el != null || el.length !== 0;
+      console.log(this.state.data[0]);
+      var filtered2 = pJson.name.filter(function (el) {
+        return  el.length !== 0;
       });
       this.setState({ data: filtered2 });
       console.log(filtered2)

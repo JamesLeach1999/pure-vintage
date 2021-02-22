@@ -57,17 +57,17 @@ const Test = () => {
         console.log(res.data.names.length)
                 // console.log(data[0].length);
 
-        if (data.length > 0) {
+        if (res.data.names.length > 0) {
           setPag([0]);
-        } else if (data.length > 16) {
+        } else if (res.data.names.length > 16) {
           setPag([0, 16]);
-        } else if (data.length > 32) {
+        } else if (res.data.names.length > 32) {
           setPag([0, 16, 32]);
-        } else if (data.length > 48) {
+        } else if (res.data.names.length > 48) {
           setPag([0, 16, 32, 48]);
-        } else if (data.length > 64) {
+        } else if (res.data.names.length > 64) {
           setPag([0, 16, 32, 48, 64]);
-        } else if (data.length > 80) {
+        } else if (res.data.names.length > 80) {
           setPag([0, 16, 32, 48, 64, 80]);
         }
         // console.log(data);

@@ -698,7 +698,7 @@ router.get('/recentReviews', async (req, res) => {
 
   console.log('number');
   // console.log(proImages);
-  console.log(filtered2);
+  console.log(proImages);
   res.send({
     name: filtered2,
     images: proImages,

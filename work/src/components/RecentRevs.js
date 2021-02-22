@@ -42,7 +42,7 @@ class Reviews extends Component {
           <br />
           <br />
           <div class="row" style={{ justifyContent: "center" }}>
-            {this.state.data.length > 0 ? (
+            {this.state.data.length !== 0 ? (
               this.state.data.map((e, i) => {
                
                  return (

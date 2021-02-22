@@ -14,6 +14,7 @@ const Test = () => {
   const [page, setPage] = useState(0);
   const [image, setImage] = useState(require("../assets/cap1.jpg"));
   const [loading, setLoading] = useState(true);
+  var [pag, setPag] = useState(0)
 
   const getData = async () => {
     try {
@@ -53,6 +54,20 @@ const Test = () => {
         });
         // console.log(res);
         setData([res.data.names]);
+
+        if (data.length > 0) {
+          setPag(0);
+        } else if (data.length > 16) {
+          setPag(1);
+        } else if (data.length > 32) {
+          setPag(2);
+        } else if (data.length > 48) {
+          setPag(3);
+        } else if (data.length > 64) {
+          setPag(4);
+        } else if (data.length > 80) {
+          setPag(5);
+        }
         // console.log(data);
         setLoading(false);
 

@@ -654,7 +654,7 @@ router.get('/recentReviews', async (req, res) => {
     // const oProducts = JSON.parse(ordersRev);
 
     if (ordersRev[i].reviews !== null || ordersRev[i].image !== null) {
-      review.push(ordersRev[i].reviews);
+      review.push(ordersRev[i]);
       proImages.push(ordersRev[i].image[i]);
     }
     // console.log(oProducts.product);
@@ -689,18 +689,16 @@ router.get('/recentReviews', async (req, res) => {
   // console.log('numberwang1');
 
   var filtered = review.filter(function (el) {
-    return el !== [] || el !== undefined;
+    return el.reviews !== [] || el.reviews !== undefined;
   });
 
-  var filtered2 = filtered.filter(function (rev) {
-    return rev.length !== 0;
-  });
+  
 
   console.log('number');
   // console.log(proImages);
-  console.log(proImages);
+  console.log(filtered);
   res.send({
-    name: filtered2,
+    name: filtered,
     images: proImages,
   });
 });

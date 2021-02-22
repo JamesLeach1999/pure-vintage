@@ -656,7 +656,7 @@ router.get('/recentReviews', async (req, res) => {
     // const oProducts = JSON.parse(ordersRev);
     
     if(ordersRev[i].reviews !== null && ordersRev[i].image !== null){
-      review.push(ordersRev[i])
+      review.push(ordersRev[i].reviews)
       proImages.push(ordersRev[i].image[0])
     }
     // console.log(oProducts.product);
@@ -697,6 +697,15 @@ router.get('/recentReviews', async (req, res) => {
   var filtered = review.filter(function (el) {
     return el !== [] || el !== undefined;
   });
+  console.log(typeof(filtered))
+  try {
+    
+    console.log(typeof(filtered.reviews));
+  } catch (error) {
+    console.log("tr catch reviews")
+    console.log(error)
+  }
+
   console.log('number');
   // console.log(proImages);
   console.log(filtered);

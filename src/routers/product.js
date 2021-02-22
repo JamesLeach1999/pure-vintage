@@ -655,7 +655,7 @@ router.get('/recentReviews', async (req, res) => {
   for (var i = 0; i < ordersRev.length; i++) {
     // const oProducts = JSON.parse(ordersRev);
     
-    if(ordersRev[i].reviews !== null){
+    if(ordersRev[i].reviews !== null && ordersRev[i].image !== null){
       review.push(ordersRev[i].reviews[0])
       proImages.push(ordersRev[i].image[0])
     }
@@ -699,7 +699,7 @@ router.get('/recentReviews', async (req, res) => {
   });
   console.log('number');
   // console.log(proImages);
-  // console.log(filtered.reverse());
+  console.log(filtered);
   res.send({
     name: filtered,
     images: proImages,

@@ -40,7 +40,9 @@ class Reviews extends Component {
       this.setState({ data: filRevs });
       this.setState({atLeastOne: true})
       // console.log(filtered2)
-      console.log(this.state.images)
+            this.setState({ images: filImgs });
+
+      // console.log(this.state.images)
     } catch (error) {
       console.log(this.props);
       console.log(error);

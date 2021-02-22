@@ -38,6 +38,7 @@ const Test = () => {
         } else {
           setPag([0]);
         }
+        console.log(pag)
       } else {
         console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
@@ -170,7 +171,7 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
-        <form>
+        <form action={window.location.href}>
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);

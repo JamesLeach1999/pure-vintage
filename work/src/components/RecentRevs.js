@@ -65,7 +65,7 @@ class Reviews extends Component {
                  return (
                   <div class="col-3" s>
                     {this.state.images.length !== 0 ? (
-                      <img src={this.state.images[i]} alt="" />
+                      <img src={this.state.images[0]} alt="" />
                     ) : (
                       <img src={this.state.images} alt="" />
                     )}{" "}

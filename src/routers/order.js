@@ -116,7 +116,7 @@ router.post('/payment_intents', async (req, res) => {
         postcode: req.body.postcode,
       };
       console.log('items 116');
-      console.log(items);
+      // console.log(items);
       var ids = [];
       for (var q = 0; items.length > q; q++) {
         // console.log(items[q]);
@@ -166,7 +166,7 @@ router.post('/payment_intents', async (req, res) => {
         city: req.body.city,
         postcode: req.body.postcode,
       };
-      console.log(items);
+      // console.log(items);
       var ids = [];
       for (var q = 0; items.length > q; q++) {
         // console.log(items[q]);
@@ -186,7 +186,7 @@ router.post('/payment_intents', async (req, res) => {
         isPaid: false,
         intent: '',
       });
-      console.log(order);
+      // console.log(order);
       amount = amount + 95;
       // console.log(order._id);
 
@@ -240,7 +240,7 @@ router.post('/te', async (req, res) => {
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
-    console.log(orderID);
+    // console.log(orderID);
     var items = [];
     // console.log(user.name);
     Order.findByIdAndUpdate(
@@ -269,9 +269,9 @@ router.post('/te', async (req, res) => {
     );
     const test = await Order.findOne({ _id: orderID }).populate('orderItems');
     console.log('test populate');
-    console.log(test);
+    // console.log(test);
 
-    console.log(test[0]);
+    // console.log(test[0]);
     res.send('it  worked');
   } catch (error) {
     const oID = await Order.find({});
@@ -310,7 +310,7 @@ router.post('/te', async (req, res) => {
     );
     const test = await Order.findOne({ _id: orderID }).populate('orderItems');
     console.log('test populate');
-    console.log(test);
+    // console.log(test);
     res.send('it  worked');
   }
 
@@ -320,7 +320,7 @@ router.post('/te', async (req, res) => {
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
 
-  console.log(orders);
+  // console.log(orders);
 
   res.send({
     names: orders,

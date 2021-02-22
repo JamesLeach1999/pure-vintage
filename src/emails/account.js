@@ -34,6 +34,7 @@ const sendCancel = (email, name) => {
 };
 
 const orderConfAdmin = async (item, shipping) => {
+  console.log(item)
   var product = [];
   if (item.length > 0) {
     item.forEach((pro) => {
@@ -45,7 +46,7 @@ const orderConfAdmin = async (item, shipping) => {
   }
   var json = JSON.parse(product);
 
-  // console.log(item);
+  console.log(json);
   // console.log(shipping)
 
   // const user = await User.findById({_id: json.user})
@@ -276,6 +277,8 @@ ${
 };
 
 const orderConf = async (email, name, item) => {
+    console.log(item);
+
   var product = [];
   if (item.length > 0) {
     item.forEach((pro) => {
@@ -287,10 +290,9 @@ const orderConf = async (email, name, item) => {
   }
   var json = JSON.parse(product);
   console.log('wang1');
-  // console.log(products);
+  console.log(json);
 
   // const user = await User.findById({_id: json.user})
-  console.log('wang');
 
   var products = [];
 

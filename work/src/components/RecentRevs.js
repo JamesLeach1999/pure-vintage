@@ -74,10 +74,10 @@ class Reviews extends Component {
                     <br />
                     <br />
                     <Recent
-                      data={e}
+                      data={e[0]}
                       category={this.state.data.category}
-                      revId={e._id}
-                      id={e._id}
+                      revId={e[0]._id}
+                      id={e[0]._id}
                     />{" "}
                   </div>
                 );

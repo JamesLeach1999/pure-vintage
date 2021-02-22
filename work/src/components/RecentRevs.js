@@ -26,6 +26,7 @@ class Reviews extends Component {
         return el !== null || el !== [];
       });
       this.setState({ data: filtered2 });
+      console.log(filtered2)
     } catch (error) {
       console.log(this.props);
       console.log(error);
@@ -44,7 +45,8 @@ class Reviews extends Component {
           <div class="row" style={{ justifyContent: "center" }}>
             {this.state.data.length > 0 ? (
               this.state.data.map((e, i) => {
-                return (
+                e !== [] &&
+                 (
                   <div class="col-3" s>
                     {this.state.images.length > 0 ? (
                       <img src={this.state.images[i]} alt="" />

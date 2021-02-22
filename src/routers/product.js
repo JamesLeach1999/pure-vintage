@@ -697,24 +697,13 @@ router.get('/recentReviews', async (req, res) => {
   var filtered = review.filter(function (el) {
     return el !== [] || el !== undefined;
   });
-  console.log(typeof(filtered))
-  try {
-    
-    console.log(typeof(filtered.reviews));
-  } catch (error) {
-    console.log("tr catch reviews")
-    console.log(error)
-  }
-
-  var filtered2 = filtered.filter(function (rev) {
-    return rev !== [] || rev != []
-  })
+  
 
   console.log('number');
   // console.log(proImages);
   console.log(filtered);
   res.send({
-    name: filtered2,
+    name: filtered,
     images: proImages,
   });
 });

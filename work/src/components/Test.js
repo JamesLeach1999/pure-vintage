@@ -54,8 +54,8 @@ const Test = () => {
         });
         // console.log(res);
         setData([res.data.names]);
-        console.log(data.length)
-                console.log(data[0].length);
+        console.log(res.data.names.length)
+                // console.log(data[0].length);
 
         if (data.length > 0) {
           setPag([0]);
@@ -87,7 +87,9 @@ const Test = () => {
 
   useEffect(() => {
     console.log("work");
+
     getData();
+    console.log(pag)
     // window.location.replace("http://localhost:5000/store")
   }, [loading]);
   return (

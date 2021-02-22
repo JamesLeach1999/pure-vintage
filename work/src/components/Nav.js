@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component, useRef } from "react";
+import React, { useState, useEffect, Component } from "react";
 // import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
@@ -22,53 +22,42 @@ import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
 // have to use links like this in the nav
-const Nav = () => {
-  var [loggedIn, setLoggedIn] = useState("NOT_LOGGED_IN")
-  var [user, setUser] = useState({})
-    var [admin, setAdmin] = useState(false)
-  var [auth, setAuth] = useState(false)
-  var [clicked, setClicked] = useState(false)
-  var [cartClicked, setCartClicked] = useState(false)
-  var [data, setData] = useState([])
-  var refContainer = useRef(null)
-  // constructor() {
-  //   super();
+export default class Nav extends Component {
+  constructor() {
+    super();
 
-  //   this.state = {
-  //     loggedIn: "NOT_LOGGED_IN",
-  //     user: {},
-  //     admin: false,
-  //     auth: false,
-  //     clicked: false,
-  //     cartClicked: false,
-  //     data: [],
-  //   };
-  //   // updating state
-  //   this.handleLogin = this.handleLogin.bind(this);
-  //   this.handleClick = this.handleClick.bind(this);
-  //   this.handleOutsideClick = this.handleOutsideClick.bind(this);
-  //   this.logout = this.logout.bind(this);
-  // }
+    this.state = {
+      loggedIn: "NOT_LOGGED_IN",
+      user: {},
+      admin: false,
+      auth: false,
+      clicked: false,
+      cartClicked: false,
+      data: [],
+    };
+    // updating state
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.logout = this.logout.bind(this);
+  }
 
   // handleClick = () => {
   //   this.setState({ clicked: !this.state.clicked });
   // };
 
-  var handleLogin = async(data) => {
+  async handleLogin(data) {
     if (data) {
       console.log("thats numberwangssss");
       const work = await Axios.post("/getAuth", {
         id: data.user,
       });
       console.log(work);
-      // this.setState({
-      //   loggedIn: "Logged in",
-      //   auth: true,
-      //   admin: work.data.isAdmin,
-      // });
-      setLoggedIn("Logged in")
-      setAuth(true)
-      setAdmin(work.data.isAdmin)
+      this.setState({
+        loggedIn: "Logged in",
+        auth: true,
+        admin: work.data.isAdmin,
+      });
       console.log(work.data);
       sessionStorage.setItem("auth", true);
       sessionStorage.setItem("admin", work.data.isAdmin);
@@ -83,36 +72,36 @@ const Nav = () => {
     }
   }
 
-  var handleClick = () => {
-    if (!clicked) {
+  handleClick() {
+    if (!this.state.clicked) {
       // attach/remove event handler
       console.log("c");
-      document.addEventListener("click", handleOutsideClick, false);
+      document.addEventListener("click", this.handleOutsideClick, false);
     } else {
       console.log("l");
 
-      document.removeEventListener("click", handleOutsideClick, false);
+      document.removeEventListener("click", this.handleOutsideClick, false);
     }
 
-    
-    setClicked(!clicked)
+    this.setState((prevState) => ({
+      clicked: !prevState.clicked,
+    }));
   }
 
-  var handleOutsideClick = (e) => {
+  handleOutsideClick(e) {
     // ignore clicks on the component itself
-    if (refContainer.contains(e.target)) {
+    if (this.node.contains(e.target)) {
       console.log("thats wangernumb");
 
       console.log(this.node);
-      console.log(refContainer);
 
       return;
     }
 
-    handleClick();
+    this.handleClick();
   }
 
-  var logout = () => {
+  logout() {
     sessionStorage.removeItem("auth");
     sessionStorage.removeItem("admin");
     sessionStorage.removeItem("user");
@@ -120,11 +109,12 @@ const Nav = () => {
     // window.location.replace("/store");
   }
 
+  render() {
     return (
       <Router>
         <nav
           className="NavbarItems"
-          ref={refContainer}
+          ref={(node) => (this.node = node)}
           style={{ color: "black", backgroundColor: "white" }}
         >
           <img
@@ -133,15 +123,15 @@ const Nav = () => {
             style={{ zIndex: "-1", width: "60px"}}
           />
           <CartSlide style={{ position: "fixed" }} />
-          <div className="menu-icon" onClick={handleClick}>
+          <div className="menu-icon" onClick={this.handleClick}>
             <i
               style={{ color: "black", width: "75px", height: "75px" }}
-              className={clicked ? "fas fa-times" : "fas fa-bars"}
+              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
             ></i>
           </div>
           <ul
             id="MenuItems"
-            className={clicked ? "nav-menu active" : "nav-menu"}
+            className={this.state.clicked ? "nav-menu active" : "nav-menu"}
           >
             <Link to="/">
               <li className="nav-links">Home</li>
@@ -185,7 +175,7 @@ const Nav = () => {
                         border: "1px solid black",
                         borderRadius: "5px",
                       }}
-                      onClick={logout}
+                      onClick={this.logout}
                     >
                       Logout
                     </button>
@@ -225,8 +215,8 @@ const Nav = () => {
             render={(props) => (
               <Login
                 {...props}
-                handleLogin={handleLogin}
-                loggedIn={loggedIn}
+                handleLogin={this.handleLogin}
+                loggedIn={this.state.loggedIn}
               />
             )}
           ></Route>
@@ -238,8 +228,8 @@ const Nav = () => {
             render={(props) => (
               <Register
                 {...props}
-                handleLogin={handleLogin}
-                loggedIn={loggedIn}
+                handleLogin={this.handleLogin}
+                loggedIn={this.state.loggedIn}
               />
             )}
           ></Route>
@@ -268,6 +258,5 @@ const Nav = () => {
         </Switch>
       </Router>
     );
+  }
 }
-
-export default Nav

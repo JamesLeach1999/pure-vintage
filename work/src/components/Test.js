@@ -171,10 +171,7 @@ const Test = () => {
 
       {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
-        <form onSubmit={(e) => {
-           var searchParams = new URLSearchParams(window.location.search);
-           searchParams.set("skip", e.target.value);
-        }}>
+        <form >
           <ol className="carousel_viewport">
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);
@@ -183,6 +180,14 @@ const Test = () => {
                   type="submit"
                   name="skip"
                   value={pageNumber}
+                  onClick={(e) => {
+                    var searchParams = new URLSearchParams(
+                      window.location.search
+                    );
+                    searchParams.set("skip", e.target.value);
+                        window.location.search = searchParams.toString();
+
+                  }}
                   style={{
                     backgroundColor: "#e7e7e7" /* Green */,
                     border: "none",
@@ -196,7 +201,7 @@ const Test = () => {
                     cursor: " pointer",
                   }}
                 >
-                  {index+1}
+                  {index + 1}
                 </button>
               );
             })}

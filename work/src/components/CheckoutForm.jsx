@@ -107,7 +107,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       );
 
       console.log(confirmedCardPayment);
-      await axios.post("/te", {
+      await axios.post("/confirmOrder", {
         test: confirmedCardPayment,
         email: billingDetails.email,
         id: id,

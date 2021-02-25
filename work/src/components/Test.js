@@ -183,6 +183,26 @@ const Test = () => {
       <div className="pagination-div carousel" aria-label="Gallery">
         <form>
           <ol className="carousel_viewport">
+            <button
+              type="submit"
+              name="skip"
+              value={0}
+              onClick={(e) => addSkip(e.target.value)}
+              style={{
+                backgroundColor: "#e7e7e7" /* Green */,
+                border: "none",
+                color: "black",
+                padding: "15px 32px",
+                textAlign: "center",
+                textDecoration: "none",
+                display: "inline-block",
+                fontSize: "16px",
+                margin: "4px 2px",
+                cursor: " pointer",
+              }}
+            >
+              {0}
+            </button>
             {pag.map((pageNumber, index) => {
               console.log(pageNumber);
               return (

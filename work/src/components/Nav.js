@@ -72,16 +72,16 @@ const Nav = () => {
       document.removeEventListener("click", handleOutsideClick, false);
     }
 
-    setClicked(prevState => !prevState);
+    setClicked((prevState) => !prevState);
   };
 
   var handleOutsideClick = (e) => {
     // ignore clicks on the component itself
     // when migrating to functional i had issues with this.node.contains vs refContainter.current
     // this.node sends back the html, refContainer sends back an object
-    if (!refContainer.current.contains(e.target)) {
+    if (refContainer.current.contains(e.target)) {
       console.log("outside click");
-      setClicked(false)
+      // setClicked(false);
       console.log(refContainer.current);
       return;
     }
@@ -110,14 +110,18 @@ const Nav = () => {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div className="menu-icon" >
+        <div className="menu-icon" onClick={handleClick}>
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}
             onClick={handleClick}
           ></i>
         </div>
-        <ul id="MenuItems" className={clicked ? "nav-menu active" : "nav-menu"}>
+        <ul
+          id="MenuItems"
+          className={clicked ? "nav-menu active" : "nav-menu"}
+          onClick={handleClick}
+        >
           <Link to="/">
             <li className="nav-links">Home</li>
           </Link>

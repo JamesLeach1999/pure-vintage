@@ -95,7 +95,9 @@ const Nav = () => {
     }
 
     
-    setClicked(!clicked)
+    setClicked((prevState) => {
+      return !prevState
+    })
   }
 
   var handleOutsideClick = (e) => {

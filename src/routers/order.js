@@ -239,7 +239,7 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
   res.redirect('/allOrders');
 });
 
-
+// even though this middleware causes annoying pproblems, for something as important as refunds i think its fair enough
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 
   // get all values from req.body

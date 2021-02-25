@@ -72,7 +72,7 @@ const Nav = () => {
       document.removeEventListener("click", handleOutsideClick, false);
     }
 
-    setClicked((prevState) => !prevState);
+    setClicked(prevState => !prevState);
   };
 
   var handleOutsideClick = (e) => {
@@ -81,7 +81,8 @@ const Nav = () => {
     // this.node sends back the html, refContainer sends back an object
     if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
-
+      setClicked(false)
+      console.log(refContainer.current);
       return;
     }
 

@@ -110,10 +110,11 @@ const Nav = () => {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div className="menu-icon" onClick={handleClick()}>
+        <div className="menu-icon" >
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}
+            onClick={handleClick}
           ></i>
         </div>
         <ul id="MenuItems" className={clicked ? "nav-menu active" : "nav-menu"}>

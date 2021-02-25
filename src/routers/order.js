@@ -168,7 +168,10 @@ router.post('/confirmOrder', async (req, res) => {
       if (err) throw new Error(err);
     });
 
+    console.log(user.pastOrders)
+
     const orderID = user.pastOrders.slice(-1)[0];
+    console.log("non catch order id")
     console.log(orderID);
     var items = [];
     // console.log(user.name);
@@ -186,7 +189,7 @@ router.post('/confirmOrder', async (req, res) => {
         // orderConfAdmin(res.orderItems, res.shipping);
       }
     );
-    const test = await Order.findOne({ _id: orderID }).populate('orderItems');
+    // const test = await Order.findOne({ _id: orderID }).populate('orderItems');
     console.log('test populate');
     // console.log(test);
 

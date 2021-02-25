@@ -83,13 +83,7 @@ const OrderPage = () => {
                 <img src={`${item.product.image[0]}`} alt="" />
                 <br />
                 <h4>{item.product.name}</h4>
-                <div class="rating">
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
+                
                 <p>£{item.product.price}</p>
                 <br />
                 <form action="/refundSingle" method="post">

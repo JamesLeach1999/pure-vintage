@@ -102,11 +102,13 @@ const ProductPage = () => {
             </Carousel>
           </div>
           <div class="col-2 product">
-            <h3 style={{ textTransform: "uppercase" }}>{product.category}</h3>
+            <h3 style={{ textTransform: "capitalize" }}>{product.category}</h3>
             <h1>{product.name}</h1>
             <h3>£{product.price}.95</h3>
             <h3>Size: {product.size}</h3>
-            <h3>Brand: {product.brand}</h3>
+            <h3 style={{ textTransform: "capitalize" }}>
+              Brand: {product.brand}
+            </h3>
 
             {/* <form>
               <h1>testform</h1>
@@ -156,7 +158,9 @@ const ProductPage = () => {
               Product details <i class="fa fa-indent"></i>
             </h3>
             <br />
-            <p style={{ whiteSpace: "pre-line", fontSize: "1.5rem" }}>{product.description}</p>
+            <p style={{ whiteSpace: "pre-line", fontSize: "1.5rem" }}>
+              {product.description}
+            </p>
           </div>
         </div>
         <Reviews />

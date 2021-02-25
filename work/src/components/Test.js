@@ -101,12 +101,13 @@ const Test = () => {
   };
 
   const addSkip = (num) => {
-    var searchParams = new URLSearchParams(window.location.search);
+    var searchParams = new URL(window.location);
+    var params = new URLSearchParams(searchParams.search.slice(1))
     console.log(searchParams);
 
-    searchParams.set("skip", num);
-    window.location.search = searchParams.toString();
-    console.log(searchParams);
+    params.append("skip", num);
+    console.log(params);
+    window.location.search = params.toString();
   };
 
   useEffect(() => {

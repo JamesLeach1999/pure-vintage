@@ -193,8 +193,10 @@ router.post('/confirmOrder', async (req, res) => {
     // console.log(test[0]);
     res.send('it  worked');
   } catch (error) {
+    console.log(error)
     const oID = await Order.find({});
     const orderID = oID.slice(-1)[0];
+    console.log("catch order id")
     console.log(orderID)
     Order.findByIdAndUpdate(
       { _id: orderID._id },
@@ -207,7 +209,6 @@ router.post('/confirmOrder', async (req, res) => {
         // orderConfAdmin(res.orderItems, res.shipping);
       }
     );
-    const test = await Order.findOne({ _id: orderID }).populate('orderItems');
     console.log('test populate');
     // console.log(test);
     res.send('it  worked');

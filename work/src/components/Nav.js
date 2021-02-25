@@ -61,7 +61,7 @@ const Nav = () => {
     }
   };
 
-  function handleClick (){
+  function handleClick () {
     if (!clicked) {
       // attach/remove event handler
       console.log("c");
@@ -72,7 +72,7 @@ const Nav = () => {
       document.removeEventListener("click", handleOutsideClick, false);
     }
 
-    setClicked((prevState) => !prevState);
+    setClicked(prevState => !prevState);
   };
 
   var handleOutsideClick = (e) => {
@@ -81,7 +81,7 @@ const Nav = () => {
     // this.node sends back the html, refContainer sends back an object
     if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
-      // setClicked(false);
+      setClicked(false)
       console.log(refContainer.current);
       return;
     }
@@ -114,13 +114,13 @@ const Nav = () => {
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}
-            // onClick={handleClick}
+            onClick={handleClick}
           ></i>
         </div>
         <ul
           id="MenuItems"
           className={clicked ? "nav-menu active" : "nav-menu"}
-          // onClick={handleClick}
+          onClick={handleClick}
         >
           <Link to="/">
             <li className="nav-links">Home</li>

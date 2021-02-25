@@ -189,7 +189,7 @@ const Test = () => {
                 <button
                   type="submit"
                   name="skip"
-                  value={pageNumber}
+                  value={pageNumber + 16}
                   onClick={(e) => addSkip(e.target.value)}
                   style={{
                     backgroundColor: "#e7e7e7" /* Green */,

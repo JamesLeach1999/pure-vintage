@@ -182,8 +182,8 @@ router.post('/confirmOrder', async (req, res) => {
         console.log('thats nunmberwag 220');
         console.log(res);
         // confirming order with user and admin, not currently working
-        orderConf(user.email, user.name, res.orderItems);
-        orderConfAdmin(res.orderItems, res.shipping);
+        // orderConf(user.email, user.name, res.orderItems);
+        // orderConfAdmin(res.orderItems, res.shipping);
       }
     );
     const test = await Order.findOne({ _id: orderID }).populate('orderItems');
@@ -202,8 +202,8 @@ router.post('/confirmOrder', async (req, res) => {
         console.log('thats nunmberwag 241');
         console.log(res);
         
-        orderConf(id, 'user', res.orderItems);
-        orderConfAdmin(res.orderItems, res.shipping);
+        // orderConf(id, 'user', res.orderItems);
+        // orderConfAdmin(res.orderItems, res.shipping);
       }
     );
     const test = await Order.findOne({ _id: orderID }).populate('orderItems');

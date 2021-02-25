@@ -103,10 +103,10 @@ const Nav = () => {
     console.log(ref.current.children);
     console.log(e.target)
     console.log(clicked)
-    if (ref.current.contains(e.target)) {
+    if (!ref.current.contains(e.target)) {
       console.log("thats wangernumb");
 
-      alert("outside click")
+      console.log("outside click")
 
       return;
     }

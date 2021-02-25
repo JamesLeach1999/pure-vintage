@@ -42,9 +42,7 @@ class Reviews extends Component {
       });
       this.setState({ images: img });
       this.setState({ other: filtered });
-      console.log(t);
-      console.log(this.state.data);
-      console.log(this.state.other);
+      
     } catch (error) {
       console.log(this.props);
       console.log(error);

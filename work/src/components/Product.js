@@ -15,10 +15,10 @@ class Product extends Component {
     try {
       const response = await fetch(`/product?id=${this.props.id}`);
       const json = await response.json();
-      console.log(json);
+      // console.log(json);
       this.setState({ data: json.name, images: json.name.image });
-      console.log(this.state.data);
-      console.log(this.state.images);
+      // console.log(this.state.data);
+      // console.log(this.state.images);
       console.log(this.props)
       if(this.props.rows){
         var st = {
@@ -32,7 +32,7 @@ class Product extends Component {
         this.setState({ style: sta });
       }
     } catch (error) {
-      console.log(this.props.id);
+      // console.log(this.props.id);
       console.log(error);
     }
   }

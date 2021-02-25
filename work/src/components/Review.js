@@ -18,11 +18,11 @@ class Review extends Component {
       const review = this.state.data.filter(
         (rev) => rev._id === this.props.revId
       );
-      console.log(review);
+      // console.log(review);
 
       this.setState({ review: review });
 
-      console.log(this.state.review);
+      // console.log(this.state.review);
     } catch (error) {
       console.log(this.props.id);
       console.log(error);

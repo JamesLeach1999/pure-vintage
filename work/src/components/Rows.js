@@ -26,9 +26,7 @@ class Rows extends Component {
       console.log(response);
       const json = await response.json();
       this.setState({ data: [json.names] });
-      console.log(this.state.data);
-
-      console.log(this.state.images);
+      
       window.removeEventListener(
         "resize",
         this.setState({ size: window.innerWidth })

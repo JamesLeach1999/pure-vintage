@@ -35,7 +35,7 @@ const ProductPage = () => {
     const products = await response.json();
 
     //   console.log(products.name)
-    console.log(products.name.image);
+    // console.log(products.name.image);
     // this will run 30 times because its after every re render. will be stuck in loop
     setProducts(products.name);
     setImages(products.name.image);
@@ -51,12 +51,12 @@ const ProductPage = () => {
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (localStorage.getItem("unAuthCart") === null) {
       var i = [pID, pID]
-      console.log(i)
+      // console.log(i)
       localStorage.setItem("unAuthCart", JSON.stringify([pID]));
     } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));
-      cartJson.push(pID);
-      console.log(pID);
+      // cartJson.push(pID);
+      // console.log(pID);
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
       setCartProducts(localStorage.getItem("unAuthCart"));
       console.log(cartProducts);

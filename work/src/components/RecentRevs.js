@@ -25,7 +25,7 @@ class Reviews extends Component {
       var filImgs = []
       
       var filtered = pJson.name.filter(function (el) {
-        console.log(el)
+        // console.log(el)
         return  el !== null || el !== [] || el !== undefined;
       });
       filtered.map((rev, i) => {
@@ -34,8 +34,8 @@ class Reviews extends Component {
           filImgs.push(this.state.images[i])
         }
       })
-      console.log(filRevs)
-            console.log(filImgs);
+      // console.log(filRevs)
+            // console.log(filImgs);
 
       this.setState({ data: filRevs });
       this.setState({atLeastOne: true})

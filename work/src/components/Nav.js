@@ -79,9 +79,9 @@ const Nav = () => {
     // ignore clicks on the component itself
     // when migrating to functional i had issues with this.node.contains vs refContainter.current
     // this.node sends back the html, refContainer sends back an object
-    if (refContainer.current.contains(e.target)) {
+    if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
-      // setClicked(false);
+    setClicked((prevState) => !prevState);
       console.log(refContainer.current);
       return;
     }

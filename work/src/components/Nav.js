@@ -81,7 +81,7 @@ const Nav = () => {
     // this.node sends back the html, refContainer sends back an object
     if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
-    setClicked((prevState) => !prevState);
+      // setClicked(false);
       console.log(refContainer.current);
       return;
     }
@@ -110,7 +110,7 @@ const Nav = () => {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div className="menu-icon" onClick={handleClick}>
+        <div className="menu-icon" onClick={() => handleClick}>
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}

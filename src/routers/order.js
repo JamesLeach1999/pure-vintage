@@ -169,7 +169,7 @@ router.post('/confirmOrder', async (req, res) => {
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
-    // console.log(orderID);
+    console.log(orderID);
     var items = [];
     // console.log(user.name);
     // payment confirmed with stripe, add this to the order.
@@ -180,7 +180,7 @@ router.post('/confirmOrder', async (req, res) => {
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
-        console.log(res);
+        // console.log(res);
         // confirming order with user and admin, not currently working
         // orderConf(user.email, user.name, res.orderItems);
         // orderConfAdmin(res.orderItems, res.shipping);
@@ -195,12 +195,13 @@ router.post('/confirmOrder', async (req, res) => {
   } catch (error) {
     const oID = await Order.find({});
     const orderID = oID.slice(-1)[0];
+    console.log(orderID)
     Order.findByIdAndUpdate(
       { _id: orderID._id },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 241');
-        console.log(res);
+        // console.log(res);
         
         // orderConf(id, 'user', res.orderItems);
         // orderConfAdmin(res.orderItems, res.shipping);

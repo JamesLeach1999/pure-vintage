@@ -127,7 +127,6 @@ const Nav = () => {
     }, [ref]);
   }
 
-  useOutsideAlerter(refContainer)
 
   return (
     <Router>
@@ -142,7 +141,7 @@ const Nav = () => {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div className="menu-icon" >
+        <div className="menu-icon" onClick={useOutsideAlerter(refContainer)}>
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}

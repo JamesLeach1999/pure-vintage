@@ -4,84 +4,25 @@ var ObjectId = require('mongoose').Types.ObjectId;
 
 const { ensureAdmin, ensureAuthenticated } = require('../middleware/auth');
 const Product = require('../models/products');
-const multer = require('multer');
 const Order = require('../models/Order');
+// 
+const { orderConf, orderConfAdmin } = require('../emails/account');
+const Stripe = require('stripe');
+
+// using the stripe key env variable from heroku
 const stripeSecret = process.env.SECRET_KEY;
 const stripePublic = process.env.STRIPE_PUBLIC_SECRET;
-const { orderConf, orderConfAdmin } = require('../emails/account');
-router.get('/test', async (req, res) => {
-  const firstFew = await Product.find({}).limit(4);
-  const brands = await Product.find({}).limit(3);
-  const ourPicks = await Product.find({}).limit(4);
-  res.render('test.ejs', {
-    first: firstFew,
-    second: brands,
-    third: ourPicks,
-  });
-});
-const Stripe = require('stripe');
-const { route } = require('./product');
 
 const stripe = new Stripe(process.env.SECRET_KEY);
 
-router.post('/shipping', ensureAuthenticated, async (req, res) => {
-  const id = req.session.passport.user;
-  // console.log(req.body)
-
-  const user = await User.findById({ _id: id });
-
-  var cart = user.cart;
-  var fullCart = [];
-  var items = [];
-  for (var i = 0; i < cart.length; i++) {
-    var product = await Product.findById({
-      _id: cart[i],
-    });
-    items.push({ product });
-    fullCart.push(product.price);
-  }
-  var sum = fullCart.reduce(function (a, b) {
-    return a + b;
-  }, 0);
-
-  const destination = {
-    address: req.body.town,
-    city: req.body.city,
-    postcode: req.body.postcode,
-  };
-  // console.log(items);
-  const order = new Order({
-    user: id,
-    orderItems: JSON.stringify(items),
-    shipping: destination,
-    total: sum,
-    isPaid: false,
-  });
-  // console.log(order._id);
-
-  await order.save();
-  user.pastOrders.push(order._id);
-  await user.save();
-
-  res.send({
-    items: items,
-    total: sum,
-    destination: destination,
-    stripePublic: stripePublic,
-    isAuth: true,
-    isAdmin: user.isAdmin,
-  });
-});
-
-router.get('/check', (req, res) => {
-  res.render('test.ejs');
-});
 
 router.post('/payment_intents', async (req, res) => {
   console.log(req.body);
 
+  // getting user id from a hidden fieeld in the post form
+
   if (req.method === 'POST') {
-    var { amount } = req.body;
+    var { amount, address, city, postcode } = req.body;
 
     const id = req.body.id;
 
@@ -95,6 +36,8 @@ router.post('/payment_intents', async (req, res) => {
 
       console.log('thtas number');
 
+      // getting user cart, for each item (object id) in the cart, query the products table
+      // and push product to items array, push price to fullCart array
       var cart = user.cart;
       var fullCart = [];
       var items = [];
@@ -103,25 +46,24 @@ router.post('/payment_intents', async (req, res) => {
           _id: cart[i],
         });
         if (product !== null) {
+          // im not sure if destructuring is needed here
           items.push({ product });
           fullCart.push(product.price);
         }
       }
+      // summing up all the prices
       var sum = fullCart.reduce(function (a, b) {
         return a + b;
       }, 0);
+
+      // using destructured values from req.body
       const destination = {
-        address: req.body.address,
-        city: req.body.city,
-        postcode: req.body.postcode,
+        address: address,
+        city: city,
+        postcode: postcode,
       };
-      console.log('items 116');
-      // console.log(items);
-      var ids = [];
-      for (var q = 0; items.length > q; q++) {
-        // console.log(items[q]);
-        ids.push(items[q].product);
-      }
+      
+      // create order, push order id to past orders for the user, and save everything
       const order = new Order({
         user: id,
         orderItems: JSON.stringify(items),
@@ -137,6 +79,7 @@ router.post('/payment_intents', async (req, res) => {
       await user.save();
       amount = amount + 95;
 
+      // we send back the client ID to confirm the card payment with stripe
       const paymentIntent = await stripe.paymentIntents.create({
         amount,
         currency: 'gbp',
@@ -144,7 +87,9 @@ router.post('/payment_intents', async (req, res) => {
 
       res.status(200).send(paymentIntent.client_secret);
     } catch (error) {
-      // console.log(error);
+     
+      // same again but with non logged in users
+
       console.log('thtas number 2');
       var cart = req.body.cart;
       var fullCart = [];
@@ -198,71 +143,45 @@ router.post('/payment_intents', async (req, res) => {
 
       res.status(200).send(paymentIntent.client_secret);
     }
-
-    // Psst. For production-ready applications we recommend not using the
-    // amount directly from the client without verifying it first. This is to
-    // prevent bad actors from changing the total amount on the client before
-    // it gets sent to the server. A good approach is to send the quantity of
-    // a uniquely identifiable product and calculate the total price server-side.
-    // Then, you would only fulfill orders using the quantity you charged for.
-
-    // } catch (err) {
-    //   res.status(500).json({ statusCode: 500, message: err.message });
-    // }
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');
   }
 });
 
-router.post('/testing', async (req, res) => {
-  console.log(req.body);
-});
 
-router.post('/te', async (req, res) => {
+router.post('/confirmOrder', async (req, res) => {
   const id = req.body.id;
-  // console.log(req.body);
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    // console.log(id);
+    
     if (!ObjectId.isValid(id)) {
-      throw new Error('fnjorwfw');
+      throw new Error('Not logged in, carrying on');
     }
-    // var user
-    console.log('thats wangnumbe');
-    // console.log(req.body);
+    
     var cart = user.cart;
+
+    // clearing the users cart, after it was added to past orders in payment_intents
 
     User.updateOne({ _id: user._id }, { $pullAll: { cart } }, (err, res) => {
       if (err) throw new Error(err);
-      // console.log(res);
     });
 
     const orderID = user.pastOrders.slice(-1)[0];
     // console.log(orderID);
     var items = [];
     // console.log(user.name);
+    // payment confirmed with stripe, add this to the order.
+    // we only store payment intents as its all we need to modify the payment
+    // and it cant be used for anything without the env variable
     Order.findByIdAndUpdate(
       { _id: orderID },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 220');
         console.log(res);
-        // var resJson = res.orderItems;
-        // console.log(res);
-        // console.log('11');
-        // console.log(resJson);
-        // console.log('12');
-
-        // console.log(resJson[0]);
-        // console.log('13');
-
-        // console.log(resJson.product);
-        // console.log('14');
-
-        // console.log(resJson[0].product);
-        // console.log('15');
+        // confirming order with user and admin, not currently working
         orderConf(user.email, user.name, res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -282,28 +201,7 @@ router.post('/te', async (req, res) => {
       (err, res) => {
         console.log('thats nunmberwag 241');
         console.log(res);
-        // var resJson = res.orderItems;
-        // console.log('11');
-        // console.log(resJson);
-        // console.log('12');
-
-        // console.log(resJson[0]);
-        // console.log('13');
-
-        // console.log(resJson.product);
-        // console.log('14');
-
-        // console.log(resJson[0].product);
-        // console.log('15');
-
-        // resJson.forEach((item) => {
-        //   console.log('thats nunmberwag 245');
-        //   console.log(item.product);
-        //   Product.findByIdAndUpdate({ _id: item.product._id }, {inStock: false}, (err, res) => {
-        //     if (err) throw err;
-        //     console.log(res);
-        //   });
-        // });
+        
         orderConf(id, 'user', res.orderItems);
         orderConfAdmin(res.orderItems, res.shipping);
       }
@@ -317,10 +215,9 @@ router.post('/te', async (req, res) => {
   console.log('work plz');
 });
 
+// get all previous orders for admin in reverse order
 router.get('/allOrder', async (req, res) => {
   const orders = await Order.find({}).sort([['createdAt', -1]]);
-
-  // console.log(orders);
 
   res.send({
     names: orders,
@@ -329,6 +226,7 @@ router.get('/allOrder', async (req, res) => {
   });
 });
 
+// this is for a full refund, when this happens just remove the order
 router.post('/refund', ensureAuthenticated, async (req, res) => {
   Order.findByIdAndRemove({ _id: req.body.id }, (err, res) => {
     console.log(res);
@@ -341,11 +239,16 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
   res.redirect('/allOrders');
 });
 
+
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
-  var amount = req.body.amount;
+
+  // get all values from req.body
+  var { amount, productId, id, percentReq, intent} = req.body;
   console.log(amount);
-  const productId = req.body.productId;
-  const order = await Order.findById({ _id: req.body.id });
+  const productId = productId;
+
+  // dont modify the order, store the refund percent on stripess end
+  const order = await Order.findById({ _id: id });
 
   const orderItems = JSON.parse(order.orderItems);
 
@@ -355,10 +258,10 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
     console.log(item);
   });
 
-  // console.log(orderItems);
+  // quick bit of maths to only refund a certain percent if needed
   var refundPrice;
-  if (req.body.percent) {
-    var percent = req.body.percent / 100;
+  if (percentReq) {
+    var percent = percentReq / 100;
 
     var refundPr = amount * percent;
     refundPrice = Math.round(refundPr);
@@ -368,7 +271,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 
   var refundAmount = refundPrice * 100 + 95;
   const refund = await stripe.refunds.create({
-    payment_intent: req.body.intent,
+    payment_intent: intent,
     amount: refundAmount,
   });
   console.log(refund);
@@ -377,15 +280,17 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 });
 
 router.get('/pastOrders', async (req, res) => {
+
+  // this is currently a complete mess 
+  // TODO sort this out
   console.log('thats numberwang');
-  // console.log(req.query.id);
 
   const user = await User.findById({ _id: req.query.id });
-  // retrieving only the first 5 results
   const pastOrders = user.pastOrders;
   var orders = [];
   var orderInfo = [];
   for (var i = 0; i < pastOrders.length; i++) {
+    // get past orders by id by most recent
     if (pastOrders[i] !== null) {
       var product = await Order.findById({
         _id: pastOrders[i],
@@ -393,11 +298,11 @@ router.get('/pastOrders', async (req, res) => {
       if (product !== null || product !== undefined) {
         orders.push(product);
       }
-      console.log('start past order pop');
-
       console.log(product);
     }
   }
+
+  // on my admin account for some reson theres alot of null orders so fixing any errors from that.
   var filtered = orders.filter(function (el) {
     return el != null;
   });
@@ -411,21 +316,13 @@ router.get('/pastOrders', async (req, res) => {
 
   var item = [];
 
-  filtered.forEach((items) => {
-    console.log('filtered foreach 417');
-    // console.log(JSON.parse(items.orderItems));
-    // console.log(JSON.parse(items.orderItems[0]));
-    console.log(items);
-    // item.push(JSON.parse(items.orderItems[0]));
-  });
-
-  console.log('1st items');
-  console.log(item);
 
   var i = [];
   // item.forEach((r) => {});
 
   var allOrders = [];
+
+  // doing it again becausw sometimes it dosent work the first time for some reason
 
   filtered.map((order) => {
     // console.log(order);
@@ -451,27 +348,8 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   console.log('1st data');
   console.log(data);
-  // data.map((items) => {
-  //   it.push(items.orderItems);
-  //   console.log('numberwang 405');
-  //   it.map((price) => {
-  //     console.log(price);
-  //     var t = [];
-  //     price.map((r) => {
-  //       t.push(r.product.price);
-  //       console.log(t);
-  //     });
-  //     sum1 = t.reduce(function (a, b) {
-  //       return a + b;
-  //     }, 0);
-  //     // console.log(sum1);
-  //   });
-  //   sumPrice.push(sum1);
-  // });
-
-  // console.log(sumPrice);
-  // console.log('working');
-  // console.log(item);
+  
+  // alot of test staements got some weird results from this
   console.log(sumPrice);
   console.log('Numberwang line 436');
   console.log(filtered);
@@ -497,8 +375,7 @@ router.get('/pastOrders', async (req, res) => {
 });
 
 router.get('/orderProducts', async (req, res) => {
-  // console.log(req.query.id);
-  // console.log(req.query.user);
+  // getting the productts fro the previous past orders
   var p;
   const user = await User.findById({ _id: req.query.user });
   // console.log(req.session.passport.user);

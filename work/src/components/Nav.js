@@ -83,27 +83,27 @@ const Nav = () => {
     }
   }
 
-  var handleClick = (e, ref) => {
+  var handleClick = () => {
     if (!clicked) {
       // attach/remove event handler
       console.log("c");
-      document.addEventListener("click", handleOutsideClick(e, ref), false);
+      document.addEventListener("click", handleOutsideClick, false);
     } else {
       console.log("l");
 
-      document.removeEventListener("click", handleOutsideClick(e, ref), false);
+      document.removeEventListener("click", handleOutsideClick, false);
     }
 
     
     setClicked(!clicked)
   }
 
-  var handleOutsideClick = (e, ref) => {
+  var handleOutsideClick = (e) => {
     // ignore clicks on the component itself
-    console.log(ref.current.children);
+    console.log(refContainer.current.children);
     console.log(e.target)
     console.log(clicked)
-    if (!ref.current.contains(e.target)) {
+    if (!refContainer.current.contains(e.target)) {
       console.log("thats wangernumb");
 
       console.log("outside click")
@@ -111,7 +111,7 @@ const Nav = () => {
       return;
     }
 
-    handleClick(e, ref);
+    handleClick();
   }
 
   var logout = () => {
@@ -135,7 +135,7 @@ const Nav = () => {
             style={{ zIndex: "-1", width: "60px"}}
           />
           <CartSlide style={{ position: "fixed" }} />
-          <div className="menu-icon" onClick={(e) => handleClick(e, refContainer)}>
+          <div className="menu-icon" onClick={handleClick}>
             <i
               style={{ color: "black", width: "75px", height: "75px" }}
               className={clicked ? "fas fa-times" : "fas fa-bars"}

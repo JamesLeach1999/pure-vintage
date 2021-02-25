@@ -245,7 +245,6 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
   // get all values from req.body
   var { amount, productId, id, percentReq, intent} = req.body;
   console.log(amount);
-  const productId = productId;
 
   // dont modify the order, store the refund percent on stripess end
   const order = await Order.findById({ _id: id });

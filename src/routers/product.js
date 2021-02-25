@@ -861,7 +861,7 @@ router.get('/product', async (req, res) => {
 });
 
 // posting reviews for products, pushing them onto the product review array
-router.post('/reviews', ensureAuthenticated, async (req, res) => {
+router.post('/reviews',  async (req, res) => {
   const star = req.body.star;
   const name = req.body.name;
   const brand = req.body.desc;
@@ -886,7 +886,7 @@ router.post('/reviews', ensureAuthenticated, async (req, res) => {
 });
 
 // adding products to your cart, fairly straight forward just pushing the selected product onto your cart array
-router.post('/added', ensureAuthenticated, async (req, res) => {
+router.post('/added',  async (req, res) => {
   try {
     const newP = await Product.findOne({
       _id: req.body.id,

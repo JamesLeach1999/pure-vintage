@@ -22,7 +22,7 @@ import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
 // have to use links like this in the nav
-const Nav = () => {
+function Nav () {
   var [loggedIn, setLoggedIn] = useState("NOT_LOGGED_IN");
   var [user, setUser] = useState({});
   var [admin, setAdmin] = useState(false);

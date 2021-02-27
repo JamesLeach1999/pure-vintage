@@ -5,7 +5,7 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const { ensureAdmin, ensureAuthenticated } = require('../middleware/auth');
 const Product = require('../models/products');
 const Order = require('../models/Order');
-// 
+//
 const { orderConf, orderConfAdmin } = require('../emails/account');
 const Stripe = require('stripe');
 
@@ -15,9 +15,8 @@ const stripePublic = process.env.STRIPE_PUBLIC_SECRET;
 
 const stripe = new Stripe(process.env.SECRET_KEY);
 
-
 router.post('/payment_intents', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
 
   // getting user id from a hidden fieeld in the post form
 
@@ -62,7 +61,7 @@ router.post('/payment_intents', async (req, res) => {
         city: city,
         postcode: postcode,
       };
-      
+
       // create order, push order id to past orders for the user, and save everything
       const order = new Order({
         user: id,
@@ -87,7 +86,6 @@ router.post('/payment_intents', async (req, res) => {
 
       res.status(200).send(paymentIntent.client_secret);
     } catch (error) {
-     
       // same again but with non logged in users
 
       console.log('thtas number 2');
@@ -149,30 +147,31 @@ router.post('/payment_intents', async (req, res) => {
   }
 });
 
-
 router.post('/confirmOrder', async (req, res) => {
   const id = req.body.id;
   var items = [];
   try {
     var user = await User.findById({ _id: id });
-    
+
     if (!ObjectId.isValid(id)) {
       throw new Error('Not logged in, carrying on');
     }
-    
+
     var cart = user.cart;
 
     // clearing the users cart, after it was added to past orders in payment_intents
 
     User.updateOne({ _id: user._id }, { $pullAll: { cart } }, (err, res) => {
-      if (err) throw new Error(err);
+      if (err) {
+        throw new Error(err)
+      }
     });
 
-    console.log(user.pastOrders)
+    // console.log(user.pastOrders)
 
     const orderID = user.pastOrders.slice(-1)[0];
-    console.log("non catch order id")
-    console.log(orderID);
+    console.log('non catch order id');
+    // console.log(orderID);
     var items = [];
     // console.log(user.name);
     // payment confirmed with stripe, add this to the order.
@@ -196,19 +195,19 @@ router.post('/confirmOrder', async (req, res) => {
     // console.log(test[0]);
     res.send('it  worked');
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     const oID = await Order.find({});
     const orderID = oID.slice(-1)[0];
-    console.log("catch order id")
-    console.log(orderID)
+    console.log('catch order id');
+    // console.log(orderID)
     Order.findByIdAndUpdate(
       { _id: orderID._id },
       { isPaid: true, intent: req.body.test.paymentIntent.id },
       (err, res) => {
         console.log('thats nunmberwag 241');
         // console.log(res);
-        
-        // orderConf(id, 'user', res.orderItems);
+
+        orderConf(id, 'user', res.orderItems);
         // orderConfAdmin(res.orderItems, res.shipping);
       }
     );
@@ -246,9 +245,8 @@ router.post('/refund', ensureAuthenticated, async (req, res) => {
 
 // even though this middleware causes annoying pproblems, for something as important as refunds i think its fair enough
 router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
-
   // get all values from req.body
-  var { amount, productId, id, percentReq, intent} = req.body;
+  var { amount, productId, id, percentReq, intent } = req.body;
   console.log(amount);
 
   // dont modify the order, store the refund percent on stripess end
@@ -284,8 +282,7 @@ router.post('/refundSingle', ensureAuthenticated, async (req, res) => {
 });
 
 router.get('/pastOrders', async (req, res) => {
-
-  // this is currently a complete mess 
+  // this is currently a complete mess
   // TODO sort this out
   console.log('thats numberwang');
 
@@ -320,7 +317,6 @@ router.get('/pastOrders', async (req, res) => {
 
   var item = [];
 
-
   var i = [];
   // item.forEach((r) => {});
 
@@ -352,7 +348,7 @@ router.get('/pastOrders', async (req, res) => {
   var idk = [];
   console.log('1st data');
   console.log(data);
-  
+
   // alot of test staements got some weird results from this
   console.log(sumPrice);
   console.log('Numberwang line 436');

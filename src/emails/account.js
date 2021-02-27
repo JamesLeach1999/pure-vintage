@@ -34,7 +34,7 @@ const sendCancel = (email, name) => {
 };
 
 const orderConfAdmin = async (item, shipping) => {
-  console.log(item)
+  console.log(item);
   var product = [];
   if (item.length > 0) {
     item.forEach((pro) => {
@@ -277,7 +277,7 @@ ${
 };
 
 const orderConf = async (email, name, item) => {
-    console.log(item);
+  // console.log(item);
 
   var product = [];
   if (item.length > 0) {
@@ -288,11 +288,12 @@ const orderConf = async (email, name, item) => {
   } else {
     product.push(item);
   }
+
+  // getting the indv products for the email template
+  // template provided by Sendgrids drag and drop editor
   var json = JSON.parse(product);
   console.log('wang1');
-  console.log(json);
-
-  // const user = await User.findById({_id: json.user})
+  // console.log(json);
 
   var products = [];
 
@@ -301,16 +302,19 @@ const orderConf = async (email, name, item) => {
   }
   console.log('user email');
   console.log(products);
-
+  // could probably move this back into order but hey it seems to work
   products.forEach((ind) => {
     Product.findByIdAndUpdate({ _id: ind._id }, { inStock: false }, (err, res) => {
-      console.log(res);
+      if (err) {
+        throw new Error('find up id error');
+      }
+      // console.log(res);
     });
   });
 
   sgMail.send({
     to: 'jadlljames@gmail.com',
-    from: 'support@purevintage-clothing.com',
+    from: 'jadlljames@gmail.com',
     subject: 'Order confirmation',
     html: `<html data-editor-version="2" class="sg-campaigns" xmlns="http://www.w3.org/1999/xhtml">
     <head>

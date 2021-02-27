@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useRef, useEffect } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
 import CartProduct from "./CartProduct";
@@ -11,26 +11,17 @@ import {
 
 import "../css/Cart.css";
 import { filter } from "lodash";
-class Cart extends Component {
-  constructor() {
-    super();
+const Cart = () => {
+  var [loggedIn, setLoggedIn] = useState("NOT_LOGGED_IN");
+  var [user, setUser] = useState({});
+  var [admin, setAdmin] = useState(false);
+  var [auth, setAuth] = useState(false);
+  var [cartClicked, setCartClicked] = useState(false);
+  var [data, setData] = useState([]);
+  var [price, setPrice] = useState(0);
+  var refContainer = useRef(null);
 
-    this.state = {
-      loggedIn: "NOT_LOGGED_IN",
-      user: {},
-      admin: false,
-      auth: false,
-      cartClicked: false,
-      data: [],
-      price: 0,
-    };
-    // updating state
-
-    this.handleCartClick = this.handleCartClick.bind(this);
-    this.handleCartOutsideClick = this.handleCartOutsideClick.bind(this);
-  }
-
-  async getCart() {
+  async function getCart() {
     console.log("numberwang");
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -51,9 +42,9 @@ class Cart extends Component {
         });
         console.log(notNull);
 
-        this.setState({ data: [notNull] });
+        setData([notNull]);
         var p = [];
-        this.state.data.map((products) => {
+        data.map((products) => {
           return products.map((product) => {
             p.push(product.price);
           });
@@ -64,7 +55,7 @@ class Cart extends Component {
           return a + b;
         }, 0);
 
-        this.setState({ price: sum });
+        setPrice(sum);
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
 
@@ -81,7 +72,7 @@ class Cart extends Component {
       if (unAuthCart === null || unAuthCart.length === 0) {
         const response = await fetch(`/product?id=${unAuthCart}`);
         const json = await response.json();
-        this.setState({ data: [json] });
+        setData([json]);
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
           const response = await fetch(`/product?id=${unAuthCart[i]}`);
@@ -90,170 +81,167 @@ class Cart extends Component {
           cartArray.push(json.name);
         }
         console.log(cartArray);
-        this.setState({ data: [cartArray] });
+        setData([cartArray]);
       }
 
-      console.log(this.state.data);
+      console.log(data);
       var pr = [];
-      this.state.data.map((products) => {
+      data.map((products) => {
         return products.map((product) => {
           pr.push(product.price);
         });
       });
-      console.log(pr);
-      var sum = pr.reduce(function (a, b) {
+      // console.log(pr);
+      var sum1 = pr.reduce(function (a, b) {
         return a + b;
       }, 0);
 
-      localStorage.setItem("unAuthCartPrice", sum);
+      localStorage.setItem("unAuthCartPrice", sum1);
     }
   }
 
-  handleCartClick() {
-    if (!this.state.cartClicked) {
+  var handleCartClick = () => {
+    if (!cartClicked) {
       // attach/remove event handler
       console.log("c");
-      document.addEventListener("click", this.handleCartOutsideClick, false);
+      document.addEventListener("click", handleCartOutsideClick, false);
     } else {
       console.log("l");
 
-      document.removeEventListener("click", this.handleCartOutsideClick, false);
+      document.removeEventListener("click", handleCartOutsideClick, false);
     }
+  };
 
-    this.setState((prevState) => ({
-      cartClicked: !prevState.cartClicked,
-    }));
-  }
-
-  handleCartOutsideClick(e) {
+  var handleCartOutsideClick = (e) => {
     // ignore clicks on the component itself
-    if (this.node1.contains(e.target)) {
+    if (!refContainer.current.contains(e.target)) {
       console.log("thats numberwang");
-      console.log(this.node1);
+      // console.log(this.node1);
       return;
     }
 
-    this.handleCartClick();
-  }
+    handleCartClick();
+  };
 
-  async removeCart(id) {
+  async function removeCart(id) {
     var c = JSON.parse(localStorage.getItem("unAuthCart"));
     console.log(c);
     var filtered = c.filter(function (value) {
       return value !== id;
     });
-    console.log(filtered);
+    // console.log(filtered);
 
     localStorage.setItem("unAuthCart", JSON.stringify(filtered));
 
     const response = await fetch(`/product?id=${id}`);
     const json = await response.json();
     var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"));
-    console.log(cartPrice);
+    // console.log(cartPrice);
     var newPrice = cartPrice - json.name.price;
-    console.log(newPrice);
+    // console.log(newPrice);
     localStorage.setItem("unAuthCartPrice", newPrice);
   }
 
-  componentDidMount() {
-    this.getCart();
-  }
+  useEffect(() => {
+    getCart();
+  });
 
-  render() {
-    return (
-      <div className="cartItems" ref={(node1) => (this.node1 = node1)}>
-        <div
-          className="cart-menu-icon"
-          onClick={this.handleCartClick}
+  return (
+    <div className="cartItems" ref={refContainer}>
+      <div
+        className="cart-menu-icon"
+        onClick={() => {
+          handleCartClick();
+          setCartClicked((prevState) => {
+            return !prevState;
+          });
+        }}
+        style={{
+          zIndex: "40000",
+          color: "black",
+          width: "75px",
+          height: "75px",
+          marginLeft: "40px",
+        }}
+      >
+        <i
+          className={
+            cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
+          }
           style={{
-            zIndex: "40000",
             color: "black",
             width: "75px",
             height: "75px",
             marginLeft: "40px",
           }}
-        >
-          <i
-            className={
-              this.state.cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
-            }
-            style={{
-              color: "black",
-              width: "75px",
-              height: "75px",
-              marginLeft: "40px",
-            }}
-          ></i>
-        </div>
-        <ul
-          id="MenuItems"
-          className={this.state.cartClicked ? "cart-menu active" : "cart-menu"}
-          style={{ maxWidth: "100vw" }}
-        >
-          <section className="center-text">
-              <Link to="/order" style={{ fontSize: "40px" }}>
-                Checkout
-              </Link>
-            
-            {sessionStorage.getItem("auth") === "true" ? (
-              <h3>£{this.state.price}</h3>
-            ) : (
-              <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
-            )}
-          </section>
-          <table style={{ border: "none" }}>
-            <tr style={{ borderBottom: "1px solid grey" }}>
-              <th style={{ textAlign: "left", paddingLeft: "20px" }}>
-                Product
-              </th>
-              <th>Size</th>
-              <th>Sub total</th>
-              <th>Remove?</th>
-            </tr>
-            {this.state.data.map((products) => {
-              return products.map((product) => {
-                return (
-                  <tr>
-                    <Link to={`/product/${product._id}`}>
-                      <CartProduct id={product._id} />
-                    </Link>
-                    <br />
-
-                    <td>{product.size}</td>
-                    <td id="total">£{product.price}.95</td>
-                    <td>
-                      {sessionStorage.getItem("auth") === "true" ? (
-                        <form action="/cartProduct" method="POST">
-                          <input
-                            type="text"
-                            value={product._id}
-                            name="id"
-                            hidden
-                          />
-                          <button type="submit">Remove?</button>
-                        </form>
-                      ) : (
-                        <form>
-                          <button
-                            type="submit"
-                            onClick={() => {
-                              this.removeCart(product._id);
-                            }}
-                          >
-                            Remove?
-                          </button>
-                        </form>
-                      )}
-                    </td>
-                  </tr>
-                );
-              });
-            })}
-          </table>
-        </ul>
+        ></i>
       </div>
-    );
-  }
-}
+      <ul
+        id="MenuItems"
+        className={cartClicked ? "cart-menu active" : "cart-menu"}
+        style={{ maxWidth: "100vw" }}
+      >
+        <section className="center-text">
+          <Link to="/order" style={{ fontSize: "40px" }}>
+            Checkout
+          </Link>
+
+          {sessionStorage.getItem("auth") === "true" ? (
+            <h3>£{price}</h3>
+          ) : (
+            <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
+          )}
+        </section>
+        <table style={{ border: "none" }}>
+          <tr style={{ borderBottom: "1px solid grey" }}>
+            <th style={{ textAlign: "left", paddingLeft: "20px" }}>Product</th>
+            <th>Size</th>
+            <th>Sub total</th>
+            <th>Remove?</th>
+          </tr>
+          {data.map((products) => {
+            return products.map((product) => {
+              return (
+                <tr>
+                  <Link to={`/product/${product._id}`}>
+                    <CartProduct id={product._id} />
+                  </Link>
+                  <br />
+
+                  <td>{product.size}</td>
+                  <td id="total">£{product.price}.95</td>
+                  <td>
+                    {sessionStorage.getItem("auth") === "true" ? (
+                      <form action="/cartProduct" method="POST">
+                        <input
+                          type="text"
+                          value={product._id}
+                          name="id"
+                          hidden
+                        />
+                        <button type="submit">Remove?</button>
+                      </form>
+                    ) : (
+                      <form>
+                        <button
+                          type="submit"
+                          onClick={() => {
+                            removeCart(product._id);
+                          }}
+                        >
+                          Remove?
+                        </button>
+                      </form>
+                    )}
+                  </td>
+                </tr>
+              );
+            });
+          })}
+        </table>
+      </ul>
+    </div>
+  );
+};
 
 export default Cart;

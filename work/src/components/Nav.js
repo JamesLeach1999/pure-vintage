@@ -72,7 +72,9 @@ function Nav () {
       document.removeEventListener("click", handleOutsideClick, false);
     }
 
-    setClicked(prevState => !prevState);
+    setClicked((prevState) => {
+      return !prevState
+    });
   };
 
   var handleOutsideClick = (e) => {
@@ -110,7 +112,7 @@ function Nav () {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div className="menu-icon" onChange={handleClick}>
+        <div className="menu-icon" onClick={handleClick}>
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}

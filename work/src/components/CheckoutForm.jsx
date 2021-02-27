@@ -117,6 +117,8 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       onSuccessfulCheckout("/store");
     
   };
+
+  console.log(checkoutError)
   
   // to display errors, use a try catch and in the catch, set the checkoutError state object
 

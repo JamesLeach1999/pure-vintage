@@ -116,13 +116,11 @@ function Nav () {
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}
-            onClick={() => handleClick()}
           ></i>
         </div>
         <ul
           id="MenuItems"
           className={clicked ? "nav-menu active" : "nav-menu"}
-          onClick={handleClick}
         >
           <Link to="/">
             <li className="nav-links">Home</li>

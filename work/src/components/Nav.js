@@ -83,7 +83,7 @@ function Nav () {
     // this.node sends back the html, refContainer sends back an object
     if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
-      setClicked(false)
+      // setClicked(false)
       console.log(refContainer.current);
       return;
     }

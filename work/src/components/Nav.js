@@ -22,7 +22,7 @@ import Register from "./Register";
 import "../css/Navbar.css";
 import CartSlide from "./CartSlide";
 // have to use links like this in the nav
-function Nav() {
+function Nav () {
   var [loggedIn, setLoggedIn] = useState("NOT_LOGGED_IN");
   var [user, setUser] = useState({});
   var [admin, setAdmin] = useState(false);
@@ -61,7 +61,7 @@ function Nav() {
     }
   };
 
-  function handleClick() {
+  function handleClick () {
     if (!clicked) {
       // attach/remove event handler
       console.log("c");
@@ -73,9 +73,9 @@ function Nav() {
     }
 
     setClicked((prevState) => {
-      return !prevState;
+      return !prevState
     });
-  }
+  };
 
   var handleOutsideClick = (e) => {
     // ignore clicks on the component itself
@@ -112,30 +112,16 @@ function Nav() {
           style={{ zIndex: "-1", width: "60px" }}
         />
         <CartSlide style={{ position: "fixed" }} />
-        <div
-          className="menu-icon"
-          onClick={() => {
-            if (!clicked) {
-              // attach/remove event handler
-              console.log("c");
-              document.addEventListener("click", handleOutsideClick, false);
-            } else {
-              console.log("l");
-
-              document.removeEventListener("click", handleOutsideClick, false);
-            }
-
-            setClicked((prevState) => {
-              return !prevState;
-            });
-          }}
-        >
+        <div className="menu-icon" onChange={handleClick}>
           <i
             style={{ color: "black", width: "75px", height: "75px" }}
             className={clicked ? "fas fa-times" : "fas fa-bars"}
           ></i>
         </div>
-        <ul id="MenuItems" className={clicked ? "nav-menu active" : "nav-menu"}>
+        <ul
+          id="MenuItems"
+          className={clicked ? "nav-menu active" : "nav-menu"}
+        >
           <Link to="/">
             <li className="nav-links">Home</li>
           </Link>
@@ -254,6 +240,6 @@ function Nav() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default Nav;

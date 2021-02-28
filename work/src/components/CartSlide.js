@@ -144,6 +144,7 @@ const Cart = () => {
 
   useEffect(() => {
     getCart();
+    console.log(data)
   });
 
   return (

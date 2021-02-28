@@ -149,10 +149,9 @@ const Cart = () => {
   }
 
   useEffect(() => {
-    console.log("fucking work")
     getCart();
     console.log(data)
-  });
+  },[]);
 
   return (
     <div className="cartItems" ref={refContainer}>

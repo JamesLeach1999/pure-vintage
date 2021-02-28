@@ -63,6 +63,7 @@ const Cart = () => {
 
         // setTotal(sum);
       } catch (error) {
+        console.log("cart error catch")
         console.log(error);
       }
     } else {
@@ -72,17 +73,22 @@ const Cart = () => {
       if (unAuthCart === null || unAuthCart.length === 0) {
         const response = await fetch(`/product?id=${unAuthCart}`);
         const json = await response.json();
+                console.log("cart if statement");
+
         setData([json]);
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
           const response = await fetch(`/product?id=${unAuthCart[i]}`);
           const json = await response.json();
+                  console.log("cart for loop");
+
           console.log(json);
           cartArray.push(json.name);
         }
         console.log(cartArray);
         setData([cartArray]);
       }
+        console.log("cart data");
 
       console.log(data);
       var pr = [];

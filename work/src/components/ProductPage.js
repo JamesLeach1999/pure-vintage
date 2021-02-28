@@ -49,9 +49,13 @@ const ProductPage = () => {
   const setCart = (pID) => {
     console.log("do something")
     // var cart = localStorage.getItem("unAuthCart") || [];
-    if (localStorage.getItem("unAuthCart") === null) {
-      var i = [pID, pID]
+    if (
+      localStorage.getItem("unAuthCart") === null ||
+      localStorage.getItem("unAuthCart") === undefined
+    ) {
+      console.log(pID);
       // console.log(i)
+      localStorage.setItem("work already", "just work")
       localStorage.setItem("unAuthCart", JSON.stringify([pID]));
     } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));

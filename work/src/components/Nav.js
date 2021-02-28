@@ -71,6 +71,7 @@ function Nav() {
 
       document.removeEventListener("click", handleOutsideClick, false);
     }
+    console.log(localStorage)
   }
 
   var handleOutsideClick = (e) => {

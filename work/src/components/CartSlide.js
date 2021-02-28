@@ -21,7 +21,7 @@ const Cart = () => {
   var [price, setPrice] = useState(0);
   var refContainer = useRef(null);
 
-  async function getCart() {
+  var getCart = async () => {
     console.log("numberwang");
     if (sessionStorage.getItem("user")) {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -123,7 +123,7 @@ const Cart = () => {
     handleCartClick();
   };
 
-  async function removeCart(id) {
+  var removeCart = async (id) => {
     var c = JSON.parse(localStorage.getItem("unAuthCart"));
     console.log(c);
     var filtered = c.filter(function (value) {
@@ -143,6 +143,7 @@ const Cart = () => {
   }
 
   useEffect(() => {
+    console.log("fucking work")
     getCart();
     console.log(data)
   });

@@ -70,8 +70,7 @@ const Cart = () => {
   useEffect(() => {
     console.log("use effect local")
     console.log(localStorage)
-    var getCart = async (e) => {
-      e.preventDefault()
+    var getCart = async () => {
       console.log("numberwang");
       if (sessionStorage.getItem("user")) {
         const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -132,7 +131,6 @@ const Cart = () => {
 
         console.log(state);
 
-        setData(data)
         setPrice(sum1)
       }
     };

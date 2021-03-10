@@ -19,8 +19,10 @@ const defaultState = {
 };
 
 const Cart = () => {
-  const [state, dispatch] = useReducer(productReducers, defaultState);
+  const [state, dispatch] = useReducer(productReducers);
   var [cartClicked, setCartClicked] = useState(false);
+  var [data, setData] = useState([]);
+  var [price, setPrice] = useState(0);
   var refContainer = useRef(null);
 
   var handleCartClick = () => {
@@ -79,6 +81,7 @@ const Cart = () => {
           const json = await response.json();
 
           await dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+          setData(json)
           console.log(state);
         } catch (error) {
           console.log("cart error catch");
@@ -127,15 +130,15 @@ const Cart = () => {
           return a + b;
         }, 0);
 
-        await dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
         console.log(state);
 
-        return 
+        setData(data)
+        setPrice(sum1)
       }
     };
     getCart();
     console.log(state.data);
-  }, [state]);
+  }, []);
 
   return (
     <div className="cartItems" ref={refContainer}>

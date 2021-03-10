@@ -8,7 +8,7 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import productReducers from "../reducers/productReducers";
+import  productReducers  from "../reducers/productReducers";
 
 import "../css/Cart.css";
 import { filter } from "lodash";
@@ -65,49 +65,38 @@ const Cart = () => {
     localStorage.setItem("unAuthCartPrice", newPrice);
   };
 
-  var getCart = () => {
-    console.log("numberwang");
-    if (sessionStorage.getItem("user")) {
-      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
-
-      try {
-        fetch(url)
-          .then((response) =>
-            response
-              .json()
-              .then((json) => {
-                return json;
-              })
-              .catch((error) => {
-                return error;
-              })
-          )
-          .then((resJson) =>
-            dispatch({ type: "FETCH_LOGIN_CART", payload: resJson })
-          )
-          .catch((err) => console.log(err));
-
-        console.log(state);
-      } catch (error) {
-        console.log("cart error catch");
-        console.log(error);
-      }
-    } else {
-      var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-      console.log(unAuthCart);
-      if (unAuthCart) {
-        dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
-      }
-
-      console.log(state);
-    }
-  };
   useEffect(() => {
-    console.log("use effect local");
-    console.log(localStorage);
+    console.log("use effect local")
+    console.log(localStorage)
+    var getCart = async (e) => {
+      e.preventDefault()
+      console.log("numberwang");
+      if (sessionStorage.getItem("user")) {
+        const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+
+          await dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+          console.log(state);
+        } catch (error) {
+          console.log("cart error catch");
+          console.log(error);
+        }
+      } else {
+        var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
+        console.log(unAuthCart);
+
+        await dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
+        console.log(state);
+
+        return 
+      }
+    };
     getCart();
     console.log(state.data);
-  }, []);
+  }, [state]);
 
   return (
     <div className="cartItems" ref={refContainer}>

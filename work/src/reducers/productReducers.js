@@ -81,10 +81,10 @@ const productReducers = (state, action) => {
     console.log(data);
     console.log(sum1);
 
-    return {
-      data: data,
-      price: sum1,
-    };
+    state.data = data
+    state.price = sum1
+console.log(state)
+    return state
   }
 
   throw new Error("no matching action")

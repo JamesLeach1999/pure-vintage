@@ -88,6 +88,45 @@ const Cart = () => {
         var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
         console.log(unAuthCart);
 
+        var cartArray = [];
+        var data;
+
+        console.log(unAuthCart);
+        if (unAuthCart === null || unAuthCart.length === 0) {
+          fetch(`/product?id=${unAuthCart}`)
+            .then((response) => response.json())
+            .then((resJson0) => (data = [resJson0]))
+            .catch((error) => {
+              console.log("promise chain error0");
+              console.log(error);
+            });
+          // const json = await response.json();
+          console.log("cart if statement");
+        } else {
+          for (var i = 0; unAuthCart.length > i; i++) {
+            fetch(`/product?id=${unAuthCart[i]}`)
+              .then((response) => response.json())
+              .then((resJson) => cartArray.push(resJson.name))
+              .catch((error) => {
+                console.log("promise chain error");
+                console.log(error);
+              });
+          }
+          data = cartArray;
+        }
+        console.log("cart data");
+
+        var pr = [];
+        data.map((products) => {
+          return products.map((product) => {
+            pr.push(product.price);
+          });
+        });
+        // console.log(pr);
+        var sum1 = pr.reduce(function (a, b) {
+          return a + b;
+        }, 0);
+
         await dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
         console.log(state);
 

@@ -1,8 +1,6 @@
 import React from "react";
 
 const productReducers = (state, action) => {
-  
-
   if (action.type === "FETCH_LOGIN_CART") {
     console.log(action.payload);
 
@@ -36,15 +34,11 @@ const productReducers = (state, action) => {
     var cartArray = [];
     var data;
 
-    console.log(action.payload)
+    console.log(action.payload);
     if (action.payload === null || action.payload.length === 0) {
       fetch(`/product?id=${action.payload}`)
-        .then((response) => 
-           response.json()
-        )
-        .then((resJson0) =>
-          data = [resJson0]
-        )
+        .then((response) => response.json())
+        .then((resJson0) => (data = [resJson0]))
         .catch((error) => {
           console.log("promise chain error0");
           console.log(error);
@@ -77,17 +71,17 @@ const productReducers = (state, action) => {
     }, 0);
 
     localStorage.setItem("payloadPrice", sum1);
-    console.log("dispatch unauth")
+    console.log("dispatch unauth");
     console.log(data);
     console.log(sum1);
 
-    state.data = data
-    state.price = sum1
-console.log(state)
-    return state
+    state.data = data;
+    state.price = sum1;
+    console.log(state);
+    return state;
   }
 
-  throw new Error("no matching action")
+  throw new Error("no matching action");
 };
 
-export default productReducers
+export default productReducers;

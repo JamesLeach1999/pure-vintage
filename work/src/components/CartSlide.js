@@ -183,7 +183,7 @@ const Cart = () => {
           </Link>
 
           {sessionStorage.getItem("auth") === "true" ? (
-            <h3>£{state.price}</h3>
+            <h3>£{price}</h3>
           ) : (
             <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
           )}
@@ -195,7 +195,7 @@ const Cart = () => {
             <th>Sub total</th>
             <th>Remove?</th>
           </tr>
-          {state.data.map((products) => {
+          {data.map((products) => {
             return products.map((product) => {
               return (
                 <tr>

@@ -93,7 +93,7 @@ const Cart = () => {
     };
     getCart();
     console.log(state.data);
-  }, [state]);
+  }, []);
 
   return (
     <div className="cartItems" ref={refContainer}>

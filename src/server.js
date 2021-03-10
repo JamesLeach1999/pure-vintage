@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const cloudinary = require("cloudinary")
 // using dotenv to get environment variables
-// dotenv.config();
+dotenv.config();
 // app.use(cors())
 
 

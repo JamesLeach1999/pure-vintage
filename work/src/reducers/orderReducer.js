@@ -59,27 +59,7 @@ const reducer = (state, action) => {
       console.log(idk);
     }
     console.log(idk);
-    // action.payload.map((items) => {
-    //   console.log("reducer items");
-    //   console.log(items);
-    //   it.push(JSON.parse(items.orderItems));
-    //   console.log(it);
-    //   it.map((price) => {
-    //     //   console.log(price);
-    //     var t = [];
-    //     price.map((r) => {
-    //       t.push(r.product.price);
-    //       console.log(t);
-    //     });
-    //     sum1 = t.reduce(function (a, b) {
-    //       return a + b;
-    //     }, 0);
-    //     //   console.log(sum1);
-    //     t = [];
-    //   });
-    //   sumPrice.push(sum1);
-    //   console.log(sumPrice);
-    // });
+    
     console.log(state);
     console.log(action.sumPrice);
     console.log(action.sum);

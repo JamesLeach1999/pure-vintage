@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useReducer } from "react";
 // import { MenuItems } from "./MenuItems";
 // import  Button  from "../Button";
 import CartProduct from "./CartProduct";
@@ -8,17 +8,21 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
+import {productReducers} from "../reducers/productReducers"
 
 import "../css/Cart.css";
 import { filter } from "lodash";
+
+
+const defaultState = {
+  data: [],
+  price: 0
+}
+
+
 const Cart = () => {
-  var [loggedIn, setLoggedIn] = useState("NOT_LOGGED_IN");
-  var [user, setUser] = useState({});
-  var [admin, setAdmin] = useState(false);
-  var [auth, setAuth] = useState(false);
-  var [cartClicked, setCartClicked] = useState(false);
-  var [data, setData] = useState([]);
-  var [price, setPrice] = useState(0);
+  const [state, dispatch] = useReducer(productReducers, defaultState)
+  var [cartClicked, setCartClicked] = useState(false)
   var refContainer = useRef(null);
 
   var getCart = async () => {
@@ -27,41 +31,13 @@ const Cart = () => {
       const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
       try {
-        // const test = await fetch("http://localhost:9000/store");
-        // console.log(test);
+        
 
         const response = await fetch(url);
         const json = await response.json();
-        console.log(json);
-
-        var notNull = [];
-        json.cart.map((pro) => {
-          if (pro !== null) {
-            notNull.push(pro);
-          }
-        });
-        console.log(notNull);
-
-        setData([notNull]);
-        var p = [];
-        data.map((products) => {
-          return products.map((product) => {
-            p.push(product.price);
-          });
-        });
-        console.log(p);
-
-        var sum = p.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-
-        setPrice(sum);
-        // var total = document.getElementById("total")
-        // console.log(this.state.data.name.price);
-
-        // var sum = total.reduce((a, b) => a + b, 0);
-
-        // setTotal(sum);
+        
+        dispatch({type: "FETCH_LOGIN_CART", payload: json})
+        console.log(state)
       } catch (error) {
         console.log("cart error catch")
         console.log(error);
@@ -69,40 +45,9 @@ const Cart = () => {
     } else {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
       console.log(unAuthCart);
-      var cartArray = [];
-      if (unAuthCart === null || unAuthCart.length === 0) {
-        const response = await fetch(`/product?id=${unAuthCart}`);
-        const json = await response.json();
-                console.log("cart if statement");
 
-        setData([json]);
-      } else {
-        for (var i = 0; unAuthCart.length > i; i++) {
-          const response = await fetch(`/product?id=${unAuthCart[i]}`);
-          const json = await response.json();
-                  console.log("cart for loop");
-
-          console.log(json);
-          cartArray.push(json.name);
-        }
-        console.log(cartArray);
-        setData([cartArray]);
-      }
-        console.log("cart data");
-
-      console.log(data);
-      var pr = [];
-      data.map((products) => {
-        return products.map((product) => {
-          pr.push(product.price);
-        });
-      });
-      // console.log(pr);
-      var sum1 = pr.reduce(function (a, b) {
-        return a + b;
-      }, 0);
-
-      localStorage.setItem("unAuthCartPrice", sum1);
+      dispatch({type: "FETCH_UNAUTH_CART", payload: unAuthCart})
+      console.log(state)
     }
   }
 
@@ -150,7 +95,7 @@ const Cart = () => {
 
   useEffect(() => {
     getCart();
-    console.log(data)
+    console.log(state.data)
   },[]);
 
   return (
@@ -171,17 +116,19 @@ const Cart = () => {
           marginLeft: "40px",
         }}
       >
-        <i
-          className={
-            cartClicked ? "fas fa-times" : "fas fa-shopping-cart"
-          }
+        <i class="fas fa fa-shopping-cart fa-lg"></i>
+        <span class="cart-basket d-flex align-items-center justify-content-center">
+          0
+        </span>
+        {/* <i
+          className={cartClicked ? "fas fa-times" : "fas fa-shopping-cart"}
           style={{
             color: "black",
             width: "75px",
             height: "75px",
             marginLeft: "40px",
           }}
-        ></i>
+        ></i> */}
       </div>
       <ul
         id="MenuItems"
@@ -194,7 +141,7 @@ const Cart = () => {
           </Link>
 
           {sessionStorage.getItem("auth") === "true" ? (
-            <h3>£{price}</h3>
+            <h3>£{state.price}</h3>
           ) : (
             <h3>£{localStorage.getItem("unAuthCartPrice")}</h3>
           )}
@@ -206,7 +153,7 @@ const Cart = () => {
             <th>Sub total</th>
             <th>Remove?</th>
           </tr>
-          {data.map((products) => {
+          {state.data.map((products) => {
             return products.map((product) => {
               return (
                 <tr>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export const productReducers = async (state, action) => {
+export const productReducers =  (state, action) => {
   var { type, payload } = action;
 
   if (type === "FETCH_LOGIN_CART") {
@@ -34,47 +34,66 @@ export const productReducers = async (state, action) => {
     };
   }
 
-  if(type === "FETCH_UNAUTH_CART"){
-      var cartArray = [];
-      var data
-      if (payload === null || payload.length === 0) {
-        const response = await fetch(`/product?id=${payload}`);
-        const json = await response.json();
-                console.log("cart if statement");
-
-         data = [json]
-      } else {
-        for (var i = 0; payload.length > i; i++) {
-          const response = await fetch(`/product?id=${payload[i]}`);
-          const json = await response.json();
-                  console.log("cart for loop");
-
-          console.log(json);
-          cartArray.push(json.name);
-        }
-        console.log(cartArray);
-        data = [cartArray];
+  if (type === "FETCH_UNAUTH_CART") {
+    var cartArray = [];
+    var data;
+    console.log(payload);
+    if (payload === null || payload.length === 0) {
+      for (var j = 0; payload.length > j; j++) {
+        fetch(`/product?id=${payload[j]}`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((resJson0) => {
+            // var cart0 = [resJson0];
+            cartArray.push(resJson0.name);
+          }).catch((error) => {
+              console.log("promise chain error0")
+              console.log(error)
+          })
+        // const json = await response.json();
+        console.log("cart if statement");
       }
-        console.log("cart data");
+      data = cartArray;
+    } else {
+      for (var i = 0; payload.length > i; i++) {
+        fetch(`/product?id=${payload[i]}`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((resJson) => {
+            console.log("cart for loop");
 
-      console.log(data);
-      var pr = [];
-      data.map((products) => {
-        return products.map((product) => {
-          pr.push(product.price);
-        });
+            console.log(resJson);
+            cartArray.push(resJson.name);
+          })
+          .catch((error) => {
+            console.log("promise chain error");
+            console.log(error);
+          });
+      }
+      console.log(cartArray);
+      data = cartArray;
+    }
+    console.log("cart data");
+
+    console.log(data);
+    var pr = [];
+    data.map((products) => {
+      return products.map((product) => {
+        pr.push(product.price);
       });
-      // console.log(pr);
-      var sum1 = pr.reduce(function (a, b) {
-        return a + b;
-      }, 0);
+    });
+    // console.log(pr);
+    var sum1 = pr.reduce(function (a, b) {
+      return a + b;
+    }, 0);
 
-      localStorage.setItem("payloadPrice", sum1);
+    localStorage.setItem("payloadPrice", sum1);
 
-      return {
-          ...state,
-        data,
-        price: sum1
-      }
+    return {
+      data: data,
+      price: sum1,
+    };
   }
 };

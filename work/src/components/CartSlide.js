@@ -8,14 +8,14 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import  productReducers  from "../reducers/productReducers";
+import productReducers from "../reducers/productReducers";
 
 import "../css/Cart.css";
 import { filter } from "lodash";
 
 const defaultState = {
   data: [],
-  price: 0
+  price: 0,
 };
 
 const Cart = () => {
@@ -65,32 +65,46 @@ const Cart = () => {
     localStorage.setItem("unAuthCartPrice", newPrice);
   };
 
-  useEffect(() => {
-    console.log("use effect local")
-    console.log(localStorage)
-    var getCart = async () => {
-      console.log("numberwang");
-      if (sessionStorage.getItem("user")) {
-        const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+  var getCart = () => {
+    console.log("numberwang");
+    if (sessionStorage.getItem("user")) {
+      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
-        try {
-          const response = await fetch(url);
-          const json = await response.json();
+      try {
+        fetch(url)
+          .then((response) =>
+            response
+              .json()
+              .then((json) => {
+                return json;
+              })
+              .catch((error) => {
+                return error;
+              })
+          )
+          .then((resJson) =>
+            dispatch({ type: "FETCH_LOGIN_CART", payload: resJson })
+          )
+          .catch((err) => console.log(err));
 
-          dispatch({ type: "FETCH_LOGIN_CART", payload: json });
-          console.log(state);
-        } catch (error) {
-          console.log("cart error catch");
-          console.log(error);
-        }
-      } else {
-        var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-        console.log(unAuthCart);
-
-        dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
         console.log(state);
+      } catch (error) {
+        console.log("cart error catch");
+        console.log(error);
       }
-    };
+    } else {
+      var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
+      console.log(unAuthCart);
+      if (unAuthCart) {
+        dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
+      }
+
+      console.log(state);
+    }
+  };
+  useEffect(() => {
+    console.log("use effect local");
+    console.log(localStorage);
     getCart();
     console.log(state.data);
   }, []);

@@ -35,6 +35,8 @@ const productReducers = (state, action) => {
   if (action.type === "FETCH_UNAUTH_CART") {
     var cartArray = [];
     var data;
+
+    console.log(action.payload)
     if (action.payload === null || action.payload.length === 0) {
       fetch(`/product?id=${action.payload}`)
         .then((response) => 

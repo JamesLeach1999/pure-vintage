@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const dotenv = require('dotenv');
 const authRoute = require('./routers/user');
 const postRoute = require('./routers/product');
 const orderRoute = require('./routers/order');
@@ -13,7 +12,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const cloudinary = require("cloudinary")
 // using dotenv to get environment variables
-dotenv.config();
 // app.use(cors())
 
 

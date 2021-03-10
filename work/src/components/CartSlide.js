@@ -8,7 +8,7 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import { productReducers } from "../reducers/productReducers";
+import  productReducers  from "../reducers/productReducers";
 
 import "../css/Cart.css";
 import { filter } from "lodash";
@@ -68,7 +68,8 @@ const Cart = () => {
   useEffect(() => {
     console.log("use effect local")
     console.log(localStorage)
-    var getCart = async () => {
+    var getCart = async (e) => {
+      e.preventDefault()
       console.log("numberwang");
       if (sessionStorage.getItem("user")) {
         const url = `/cart1?id=${sessionStorage.getItem("user")}`;
@@ -93,7 +94,7 @@ const Cart = () => {
     };
     getCart();
     console.log(state.data);
-  }, []);
+  }, [state]);
 
   return (
     <div className="cartItems" ref={refContainer}>

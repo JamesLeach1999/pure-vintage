@@ -1,6 +1,6 @@
 import React from "react";
 
-export const productReducers = (state, action) => {
+const productReducers = (state, action) => {
   var { type, payload } = action;
 
   if (type === "FETCH_LOGIN_CART") {
@@ -28,7 +28,6 @@ export const productReducers = (state, action) => {
     }, 0);
 
     return {
-      ...state,
       data: [notNull],
       price: sum,
     };
@@ -82,9 +81,10 @@ export const productReducers = (state, action) => {
     localStorage.setItem("payloadPrice", sum1);
 
     return {
-      ...state,
       data: data,
       price: sum1,
     };
   }
 };
+
+export default productReducers

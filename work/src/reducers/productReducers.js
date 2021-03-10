@@ -1,6 +1,6 @@
 import React from "react";
 
-export const productReducers =  (state, action) => {
+export const productReducers = (state, action) => {
   var { type, payload } = action;
 
   if (type === "FETCH_LOGIN_CART") {
@@ -39,34 +39,24 @@ export const productReducers =  (state, action) => {
     var data;
     console.log(payload);
     if (payload === null || payload.length === 0) {
-      for (var j = 0; payload.length > j; j++) {
-        fetch(`/product?id=${payload[j]}`)
-          .then((response) => {
-            return response.json();
-          })
-          .then((resJson0) => {
-            // var cart0 = [resJson0];
-            cartArray.push(resJson0.name);
-          }).catch((error) => {
-              console.log("promise chain error0")
-              console.log(error)
-          })
-        // const json = await response.json();
-        console.log("cart if statement");
-      }
-      data = cartArray;
+      fetch(`/product?id=${payload}`)
+        .then((response) => 
+           response.json()
+        )
+        .then((resJson0) =>
+          data = [resJson0]
+        )
+        .catch((error) => {
+          console.log("promise chain error0");
+          console.log(error);
+        });
+      // const json = await response.json();
+      console.log("cart if statement");
     } else {
       for (var i = 0; payload.length > i; i++) {
         fetch(`/product?id=${payload[i]}`)
-          .then((response) => {
-            return response.json();
-          })
-          .then((resJson) => {
-            console.log("cart for loop");
-
-            console.log(resJson);
-            cartArray.push(resJson.name);
-          })
+          .then((response) => response.json())
+          .then((resJson) => cartArray.push(resJson.name))
           .catch((error) => {
             console.log("promise chain error");
             console.log(error);
@@ -92,6 +82,7 @@ export const productReducers =  (state, action) => {
     localStorage.setItem("payloadPrice", sum1);
 
     return {
+      ...state,
       data: data,
       price: sum1,
     };

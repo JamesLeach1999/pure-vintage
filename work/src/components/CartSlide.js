@@ -8,48 +8,20 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import {productReducers} from "../reducers/productReducers"
+import { productReducers } from "../reducers/productReducers";
 
 import "../css/Cart.css";
 import { filter } from "lodash";
 
-
 const defaultState = {
   data: [],
-  price: 0
-}
-
+  price: 0,
+};
 
 const Cart = () => {
-  const [state, dispatch] = useReducer(productReducers, defaultState)
-  var [cartClicked, setCartClicked] = useState(false)
+  const [state, dispatch] = useReducer(productReducers, defaultState);
+  var [cartClicked, setCartClicked] = useState(false);
   var refContainer = useRef(null);
-
-  var getCart = async () => {
-    console.log("numberwang");
-    if (sessionStorage.getItem("user")) {
-      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
-
-      try {
-        
-
-        const response = await fetch(url);
-        const json = await response.json();
-        
-        dispatch({type: "FETCH_LOGIN_CART", payload: json})
-        console.log(state)
-      } catch (error) {
-        console.log("cart error catch")
-        console.log(error);
-      }
-    } else {
-      var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-      console.log(unAuthCart);
-
-      dispatch({type: "FETCH_UNAUTH_CART", payload: unAuthCart})
-      console.log(state)
-    }
-  }
 
   var handleCartClick = () => {
     if (!cartClicked) {
@@ -91,12 +63,37 @@ const Cart = () => {
     var newPrice = cartPrice - json.name.price;
     // console.log(newPrice);
     localStorage.setItem("unAuthCartPrice", newPrice);
-  }
+  };
 
   useEffect(() => {
+    console.log("use effect local")
+    console.log(localStorage)
+    var getCart = async () => {
+      console.log("numberwang");
+      if (sessionStorage.getItem("user")) {
+        const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+
+          await dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+          console.log(state);
+        } catch (error) {
+          console.log("cart error catch");
+          console.log(error);
+        }
+      } else {
+        var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
+        console.log(unAuthCart);
+
+        await dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
+        console.log(state);
+      }
+    };
     getCart();
-    console.log(state.data)
-  },[]);
+    console.log(state.data);
+  }, []);
 
   return (
     <div className="cartItems" ref={refContainer}>
@@ -118,9 +115,9 @@ const Cart = () => {
       >
         <i class="fas fa fa-shopping-cart fa-lg"></i>
         <span class="cart-basket d-flex align-items-center justify-content-center">
-          0
+          3
         </span>
-        {/* <i
+        <i
           className={cartClicked ? "fas fa-times" : "fas fa-shopping-cart"}
           style={{
             color: "black",
@@ -128,7 +125,7 @@ const Cart = () => {
             height: "75px",
             marginLeft: "40px",
           }}
-        ></i> */}
+        ></i>
       </div>
       <ul
         id="MenuItems"

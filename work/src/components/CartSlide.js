@@ -15,7 +15,7 @@ import { filter } from "lodash";
 
 const defaultState = {
   data: [],
-  price: 0,
+  price: 0
 };
 
 const Cart = () => {
@@ -77,7 +77,7 @@ const Cart = () => {
           const response = await fetch(url);
           const json = await response.json();
 
-          await dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+          dispatch({ type: "FETCH_LOGIN_CART", payload: json });
           console.log(state);
         } catch (error) {
           console.log("cart error catch");
@@ -87,7 +87,7 @@ const Cart = () => {
         var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
         console.log(unAuthCart);
 
-        await dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
+        dispatch({ type: "FETCH_UNAUTH_CART", payload: unAuthCart });
         console.log(state);
       }
     };

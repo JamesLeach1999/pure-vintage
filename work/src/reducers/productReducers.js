@@ -1,18 +1,17 @@
 import React from "react";
 
 const productReducers = (state, action) => {
-  var { type, payload } = action;
+  
 
-  if (type === "FETCH_LOGIN_CART") {
-    console.log(payload);
+  if (action.type === "FETCH_LOGIN_CART") {
+    console.log(action.payload);
 
     var notNull = [];
-    payload.cart.map((pro) => {
+    action.payload.cart.map((pro) => {
       if (pro !== null) {
         notNull.push(pro);
       }
     });
-    console.log(notNull);
 
     var cartData = [notNull];
     var p = [];
@@ -33,12 +32,11 @@ const productReducers = (state, action) => {
     };
   }
 
-  if (type === "FETCH_UNAUTH_CART") {
+  if (action.type === "FETCH_UNAUTH_CART") {
     var cartArray = [];
     var data;
-    console.log(payload);
-    if (payload === null || payload.length === 0) {
-      fetch(`/product?id=${payload}`)
+    if (action.payload === null || action.payload.length === 0) {
+      fetch(`/product?id=${action.payload}`)
         .then((response) => 
            response.json()
         )
@@ -52,8 +50,8 @@ const productReducers = (state, action) => {
       // const json = await response.json();
       console.log("cart if statement");
     } else {
-      for (var i = 0; payload.length > i; i++) {
-        fetch(`/product?id=${payload[i]}`)
+      for (var i = 0; action.payload.length > i; i++) {
+        fetch(`/product?id=${action.payload[i]}`)
           .then((response) => response.json())
           .then((resJson) => cartArray.push(resJson.name))
           .catch((error) => {
@@ -61,12 +59,10 @@ const productReducers = (state, action) => {
             console.log(error);
           });
       }
-      console.log(cartArray);
       data = cartArray;
     }
     console.log("cart data");
 
-    console.log(data);
     var pr = [];
     data.map((products) => {
       return products.map((product) => {
@@ -79,12 +75,17 @@ const productReducers = (state, action) => {
     }, 0);
 
     localStorage.setItem("payloadPrice", sum1);
+    console.log("dispatch unauth")
+    console.log(data);
+    console.log(sum1);
 
     return {
       data: data,
       price: sum1,
     };
   }
+
+  throw new Error("no matching action")
 };
 
 export default productReducers

@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const User = require('../models/User');
-const { loadPage, ensureAuthenticated } = require('../middleware/auth');
+const {  ensureAuthenticated } = require('../middleware/auth');
 console.log('i work8');
 const { filter } = require('../emails/account');
 const Product = require('../models/products');
-const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const Order = require('../models/Order');
 
@@ -23,44 +22,6 @@ cloudinary.config({
 // i also check for whether or not the passport value is empty. when you log out it dosent delete the passport field from the session
 // but rather just removes the value for passport leaving it blank. so had to account for this as well
 
-// rendering general layouts for all pages
-
-// IMAGES, defining the destination
-// multer is the most simple and popular library for image uploads in node
-
-// var storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'C:/wamp/www/node/pure-vintage - Copywork/public/assets/');
-//   },
-//   filename: function (req, file, cb) {
-//     //req.body is empty...
-//     //How could I get the new_file_name property sent from client here?
-//     cb(null, file.originalname);
-//   },
-// });
-
-// const upload = multer({
-//   limits: {
-//     fileSize: 100000000,
-//     size: 100000000,
-//   },
-//   storage: storage,
-
-//   // the value is a function to run whenever a file is uploaded
-
-//   fileFilter(req, file, cb) {
-//     console.log(file);
-//     // using regex to check the file type is correct
-//     if (
-//       !file.originalname.match(/([a-zA-Z0-9\s_\\.\-\(\):])+(.doc|.docx|.pdf|.png|.jpg|.jpeg)$/i)
-//     ) {
-//       return cb(new Error('please upload images of correct file type'));
-//     }
-
-//     cb(undefined, true);
-//   },
-// });
-
 // only admins can upload and uses multer middleware to handle images
 router.post('/products', ensureAuthenticated, async (req, res) => {
   var errors = [];
@@ -69,27 +30,18 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
 
   // retreiving input data. using multer middleware for the image
 
-  // console.log(req.body);
-  // console.log(req.files);
-  // console.log(req.files.image);
-
   var t = [];
-  // console.log('numberwang 1');
-  // t.push(req.files.image[0]);
-  // console.log(t);
-  // File upload
-  // fileJPG.forEach(async (img) => {
+  
   if (req.files.image.length > 0) {
     for (var i = 0; req.files.image.length > i; i++) {
+      // uploading the cloudinary for universal browser access of pics. resizing for easier insertion into card react element
       var fileJPG = await cloudinary.uploader.upload(req.files.image[i].tempFilePath, {
         width: 1250,
         height: 1250,
         tags: 'pure-vintage',
         public_id: req.files.image[i].name,
       });
-      console.log('numberwang 2');
-
-      // console.log(fileJPG);
+      // push all image urls to new product to be accessed via mongo
       ogName.push(fileJPG.url);
     }
   } else {
@@ -99,12 +51,9 @@ router.post('/products', ensureAuthenticated, async (req, res) => {
       tags: 'pure-vintage',
       public_id: req.files.image.name,
     });
-    console.log('numberwang 5');
 
-    // console.log(fileJPG);
     ogName.push(fileJPG.url);
   }
-  // console.log('numberwang 3');
 
   var flip = ogName.reverse();
   // ogName.push(await cloudinary.uploader.upload(`${img.originalname}`));

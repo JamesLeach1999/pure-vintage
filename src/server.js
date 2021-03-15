@@ -35,6 +35,7 @@ const whitelist = [
   'https://cryptic-temple-54361.herokuapp.com',
   'https://cryptic-temple-54361.herokuapp.com/',
 ];
+// accepting only certain headers
 const corsOptions = {
   origin: function (origin, callback) {
     console.log('** Origin of request ' + origin);
@@ -50,7 +51,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 console.log(process.env.PORT);
-
+// connect to mongo via env variable
 mongoose.connect(
   process.env.DB_CONNECT,
   {
@@ -63,17 +64,11 @@ mongoose.connect(
   }
 );
 
-
-
-
 // makes post requests from http available to req.body
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// // ejs
-// app.use(expressLayouts)
-// app.set("view engine", "ejs")
 
 // body parser, to get form data
 
@@ -104,6 +99,7 @@ app.use('/', orderRoute);
 
 app.use(express.static('work/build'));
 
+// configuration for heroku
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('work/build'));
 

@@ -1,22 +1,19 @@
 const express = require('express');
 const User = require('../models/User');
-// const Product = require('../models/Products');
-// const Orders = require('../models/Order');
+=
 const Product = require('../models/products');
 const { ensureAuthenticated } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const { sendWelcome, sendCancel } = require('../emails/account');
-const ls = require('local-storage');
-const Order = require('../models/Order');
+const { sendWelcome } = require('../emails/account');
+
 
 const router = new express.Router();
 
-// so this means /api/user/register
-
+// next needed for passport
 router.post('/register', (req, res, next) => {
-  const { name, email, password, password2 } = req.body;
+  const { name, email, password } = req.body;
 
   let errors = [];
 
@@ -50,11 +47,6 @@ router.post('/register', (req, res, next) => {
         });
       }
 
-      // if (errors.length > 0) {
-      //   res.send({
-      //     errors,
-      //   });
-      // }
       throw new Error('email used');
     })
     .catch((error) => {
@@ -77,8 +69,8 @@ router.post('/register', (req, res, next) => {
             .save()
             .then((user) => {
               console.log(user);
+              // auth on register. so when registered no need for login
               passport.authenticate('local', (err, user, info) => {
-                console.log(user);
                 console.log('numberwang');
                 if (err) throw err;
                 if (!user) res.send('no user');
@@ -99,15 +91,9 @@ router.post('/register', (req, res, next) => {
       });
     });
 });
-
-// rendering the sign up page
-router.get('/signup', async (req, res) => {
-  res.render('signup.ejs', {
-    isAuth: false,
-    isAdmin: false,
-  });
-});
-
+// a cheeky route telling us whether or not the user is auth and if they are admin
+// whilst the id is stored on the client, the information sent to the brwser is dependant on this
+// this sends back auth and isAdmin, so fo the moment using it as a bodge job authentication
 router.post('/getAuth', async (req, res) => {
   try {
     const auth = await User.findById({ _id: req.body.id });
@@ -127,55 +113,12 @@ router.post('/getAuth', async (req, res) => {
   }
 });
 
-// get own profile
-// router.get("/me", ensureAuthenticated, async (req, res) => {
-//     // retrieving id data set in passport line 32
-//     const id = req.session.passport.user
-
-//     const userProfile = await User.findById({
-//         _id: id
-//     })
-
-// // console.log(userProfile)
-// res.send( {
-//     userProfile: userProfile,
-//     isAuth: true,
-//     isAdmin: userProfile.isAdmin
-// })
-
-// })
-
 router.get('/about', async (req, res) => {
   res.render('about.ejs', {
     isAuth: false,
     isAdmin: false,
   });
 });
-
-
-
-// router.get('/me', async (req, res) => {
-//   console.log("number")
-//   console.log(req.query.id);
-//   const user = await User.findById({ _id: req.query.id });
-
-//   console.log(user);
-//   if (!user) {
-//     throw new Error();
-//   }
-
-//   res.send({
-//     userProfile: user,
-//     isAuth: true,
-//     isAdmin: user.isAdmin,
-//   });
-// });
-
-// rendering login page
-// router.get("/login", async (req, res) => {
-//     // retrieving id data set in passport line 32
-//     res.render("login.ejs")
-// })
 
 // login function, using passport built in methods for better security
 router.post('/login', (req, res, next) => {
@@ -199,22 +142,6 @@ router.get('/logout', (req, res) => {
   // logout is a passport function
   req.logout();
   res.redirect('/store');
-});
-
-router.get("/rempros", (req, res) => {
-  Product.remove({}, (err, res) => {
-    console.lof("allremoved")
-  })
-
-  res.send("done")
-})
-
-router.get('/remors', (req, res) => {
-  Order.remove({}, (err, res) => {
-    console.lof('allremoved');
-  });
-
-  res.send('done');
 });
 
 module.exports = router;

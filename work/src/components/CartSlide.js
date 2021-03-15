@@ -1,17 +1,12 @@
 import React, { useState, useRef, useEffect, useReducer } from "react";
-// import { MenuItems } from "./MenuItems";
-// import  Button  from "../Button";
+
 import CartProduct from "./CartProduct";
 import {
-  Brow11serRouter as Router,
-  Route,
-  Switch,
   Link,
 } from "react-router-dom";
 import productReducers from "../reducers/productReducers";
 
 import "../css/Cart.css";
-import { filter } from "lodash";
 
 const defaultState = {
   data: [],
@@ -63,69 +58,70 @@ const Cart = () => {
     localStorage.setItem("unAuthCartPrice", newPrice);
   };
 
-  useEffect(() => {
-    console.log("use effect local");
-    var getCart = async () => {
-      if (sessionStorage.getItem("user")) {
-        const url = `/cart1?id=${sessionStorage.getItem("user")}`;
+  console.log("use effect local");
+  var getCart = async () => {
+    if (sessionStorage.getItem("user")) {
+      const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
-        try {
-          const response = await fetch(url);
-          const json = await response.json();
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
 
-          dispatch({ type: "FETCH_LOGIN_CART", payload: json });
-          setData(json);
-        } catch (error) {
-          console.log("cart error catch");
-          console.log(error);
-        }
-        setLoad(true);
+        dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+        setData(json);
+      } catch (error) {
+        console.log("cart error catch");
+        console.log(error);
+      }
+      setLoad(true);
+    } else {
+      var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
+
+      var cartArray = [];
+      var data;
+
+      if (unAuthCart === null || unAuthCart.length === 0) {
+        fetch(`/product?id=${unAuthCart}`)
+          .then((response) => response.json())
+          .then((resJson0) => (data = [resJson0]))
+          .catch((error) => {
+            console.log("promise chain error0");
+            console.log(error);
+          });
+        // const json = await response.json();
+        console.log("fetch cart data")
+        console.log(data);
       } else {
-        var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-
-        var cartArray = [];
-        var data;
-
-        if (unAuthCart === null || unAuthCart.length === 0) {
-          fetch(`/product?id=${unAuthCart}`)
+        for (var i = 0; unAuthCart.length > i; i++) {
+          fetch(`/product?id=${unAuthCart[i]}`)
             .then((response) => response.json())
-            .then((resJson0) => (data = [resJson0]))
+            .then((resJson) => cartArray.push(resJson.name))
             .catch((error) => {
-              console.log("promise chain error0");
+              console.log("promise chain error");
               console.log(error);
             });
-          // const json = await response.json();
-          console.log("cart if statement");
-        } else {
-          for (var i = 0; unAuthCart.length > i; i++) {
-            fetch(`/product?id=${unAuthCart[i]}`)
-              .then((response) => response.json())
-              .then((resJson) => cartArray.push(resJson.name))
-              .catch((error) => {
-                console.log("promise chain error");
-                console.log(error);
-              });
-          }
-          data = cartArray;
         }
-        console.log("cart data");
-
-        var pr = [];
-        data.map((products) => {
-          return products.map((product) => {
-            pr.push(product.price);
-          });
-        });
-        // console.log(pr);
-        var sum1 = pr.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-
-
-        setPrice(sum1);
-        setLoad(true);
+        data = cartArray;
       }
-    };
+      console.log("cart data");
+
+      var pr = [];
+      data.map((products) => {
+        return products.map((product) => {
+          pr.push(product.price);
+        });
+      });
+      console.log(data);
+      var sum1 = pr.reduce(function (a, b) {
+        return a + b;
+      }, 0);
+
+
+      setPrice(sum1);
+      setLoad(true);
+    }
+  };
+  useEffect(() => {
     getCart();
   }, [load]);
 

@@ -20,10 +20,8 @@ const Test = () => {
     try {
       if (window.location.search === "") {
         const response = await fetch(`/store1`);
-        console.log(window.location);
         const json = await response.json();
         setData([json.names]);
-        console.log(json.names.length);
         setLoading(false);
         if (json.names.length > 80) {
           setPag([0, 16, 32, 48, 64, 80]);
@@ -38,14 +36,8 @@ const Test = () => {
         } else {
           setPag([0]);
         }
-        console.log(pag);
       } else {
-        console.log(window.location.search);
         const parsed = queryString.parse(window.location.search);
-
-        console.log(parsed["skip"]);
-
-        console.log(parsed["category"]);
 
         // const response = await fetch(`/store1`);
         // console.log(response);
@@ -69,7 +61,6 @@ const Test = () => {
         });
         // console.log(res);
         setData([res.data.names]);
-        console.log(res.data.names.length);
         // console.log(data[0].length);
 
         if (res.data.names.length > 80) {
@@ -85,15 +76,7 @@ const Test = () => {
         } else {
           setPag([0]);
         }
-        // console.log(data);
         setLoading(false);
-        console.log(pag);
-
-        // data.map((products) => {
-        //   products.map((product) => {
-        //     console.log(JSON.stringify(product))
-        //   })
-        // })
       }
     } catch (error) {
       console.log(error);
@@ -103,19 +86,14 @@ const Test = () => {
   const addSkip = (num) => {
     var searchParams = new URL(window.location);
     var params = new URLSearchParams(searchParams.search.slice(1))
-    console.log(searchParams);
 
     params.append("skip", num);
-    console.log(params);
     window.location.search = params.toString();
   };
 
   useEffect(() => {
-    console.log("work");
 
     getData();
-    console.log(pag);
-    // window.location.replace("http://localhost:5000/store")
   }, [loading]);
   return (
     <div className="store-container">
@@ -129,11 +107,9 @@ const Test = () => {
       <div className="row product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -142,11 +118,9 @@ const Test = () => {
       <div className="row product">
         {data.map((products) => {
           return products.slice(page + 4, page + 8).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -155,11 +129,9 @@ const Test = () => {
       <div className="row product">
         {data.map((products) => {
           return products.slice(page + 8, page + 12).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -168,18 +140,15 @@ const Test = () => {
       <div className="row product">
         {data.map((products) => {
           return products.slice(page + 12, page + 16).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
         })}
       </div>
 
-      {/* </div> */}
       <div className="pagination-div carousel" aria-label="Gallery">
         <form>
           <ol className="carousel_viewport">
@@ -228,7 +197,6 @@ const Test = () => {
                 </button>
               );
             })}
-            {/* <input type="submit" name="skip" value={16} /> */}
           </ol>
         </form>
       </div>

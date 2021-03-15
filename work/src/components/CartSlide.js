@@ -23,15 +23,14 @@ const Cart = () => {
   var [cartClicked, setCartClicked] = useState(false);
   var [data, setData] = useState([]);
   var [price, setPrice] = useState(0);
+  var [load, setLoad] = useState(false);
   var refContainer = useRef(null);
 
   var handleCartClick = () => {
     if (!cartClicked) {
       // attach/remove event handler
-      console.log("c");
       document.addEventListener("click", handleCartOutsideClick, false);
     } else {
-      console.log("l");
 
       document.removeEventListener("click", handleCartOutsideClick, false);
     }
@@ -50,7 +49,6 @@ const Cart = () => {
 
   var removeCart = async (id) => {
     var c = JSON.parse(localStorage.getItem("unAuthCart"));
-    console.log(c);
     var filtered = c.filter(function (value) {
       return value !== id;
     });
@@ -61,17 +59,13 @@ const Cart = () => {
     const response = await fetch(`/product?id=${id}`);
     const json = await response.json();
     var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"));
-    // console.log(cartPrice);
     var newPrice = cartPrice - json.name.price;
-    // console.log(newPrice);
     localStorage.setItem("unAuthCartPrice", newPrice);
   };
 
   useEffect(() => {
     console.log("use effect local");
-    console.log(localStorage);
     var getCart = async () => {
-      console.log("numberwang");
       if (sessionStorage.getItem("user")) {
         const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
@@ -79,21 +73,19 @@ const Cart = () => {
           const response = await fetch(url);
           const json = await response.json();
 
-          await dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+          dispatch({ type: "FETCH_LOGIN_CART", payload: json });
           setData(json);
-          console.log(state);
         } catch (error) {
           console.log("cart error catch");
           console.log(error);
         }
+        setLoad(true);
       } else {
         var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
-        console.log(unAuthCart);
 
         var cartArray = [];
         var data;
 
-        console.log(unAuthCart);
         if (unAuthCart === null || unAuthCart.length === 0) {
           fetch(`/product?id=${unAuthCart}`)
             .then((response) => response.json())
@@ -129,13 +121,13 @@ const Cart = () => {
           return a + b;
         }, 0);
 
-        console.log(state);
 
         setPrice(sum1);
+        setLoad(true);
       }
     };
     getCart();
-  }, []);
+  }, [load]);
 
   return (
     <div className="cartItems" ref={refContainer}>

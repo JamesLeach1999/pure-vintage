@@ -19,7 +19,6 @@ class Product extends Component {
       this.setState({ data: json.name, images: json.name.image });
       // console.log(this.state.data);
       // console.log(this.state.images);
-      console.log(this.props)
       if(this.props.rows){
         var st = {
           maxWidth: "250px"

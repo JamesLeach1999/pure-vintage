@@ -12,26 +12,20 @@ class Reviews extends Component {
 
   async componentDidMount() {
     try {
-      console.log("work1");
 
       const id = document.getElementById("id").innerHTML;
-      console.log(id);
       const response = await fetch(`/product?id=${id}`);
       const json = await response.json();
       this.setState({ data: [json.name] });
-      console.log("work");
-      console.log(this.state.data);
+      
       const revRes = await fetch(
         `/otherReviews?category=${json.name.category}&id=${id}`
       );
       const revJson = await revRes.json();
-      console.log(revJson.name);
       var t = [];
       var img = [];
-      console.log("work  3");
 
       revJson.name.map((rev) => {
-        console.log(rev);
         img.push(rev.image[0]);
 
         t.push(rev.reviews[0]);
@@ -44,7 +38,6 @@ class Reviews extends Component {
       this.setState({ other: filtered });
       
     } catch (error) {
-      console.log(this.props);
       console.log(error);
     }
   }

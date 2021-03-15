@@ -7,15 +7,6 @@ class RecRevs extends Component {
     this.state = { data: [], review: [] };
   }
 
-  async componentDidMount() {
-    try {
-      console.log(this.props.data);
-    } catch (error) {
-      console.log(this.props.id);
-      console.log(error);
-    }
-  }
-
   render() {
     return (
       <div>

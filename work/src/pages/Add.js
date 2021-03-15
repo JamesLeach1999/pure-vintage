@@ -21,7 +21,6 @@ const Addpage = () => {
       id: sessionStorage.getItem("user"),
     });
 
-    console.log(work);
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false" ||
@@ -46,14 +45,11 @@ const Addpage = () => {
 
           url: "/products",
         }).then((res) => {
-          console.log(res.data);
-          // props.handleLogin(res.data.passport);
+          
 
           window.location.replace("/store");
         });
-        // console.log(this.state.orders);
       } catch (error) {
-        // console.log(data);
         console.log(error);
       }
     }

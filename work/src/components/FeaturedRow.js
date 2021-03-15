@@ -15,11 +15,7 @@ class Rows extends Component {
   async componentDidMount() {
     try {
       const response = await Axios.get(`/featuredRows`);
-      console.log(response);
       this.setState({ data: [response.data.cat1] });
-      console.log(this.state.data);
-
-      console.log(this.state.images);
     } catch (error) {
       console.log(error);
     }
@@ -35,11 +31,9 @@ class Rows extends Component {
         <div className="row">
           {this.state.data.map((products) => {
             return products.slice(0, 4).map((product) => {
-              // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
               return (
                 <Link to={`/product/${product._id}`}>
                   <Product id={product._id} />
-                  {/* <Product/> */}
                 </Link>
               );
             });

@@ -16,20 +16,14 @@ const Test = () => {
   const getData = async () => {
     try {
       if (window.location.search === "") {
-        console.log("bfrwoeiuoviueafsnv8orsenylvfshgfilvyesuhwkefajgcjsrebyf")
         const response = await fetch(`/store1`);
-        console.log(response)
-        console.log(window.location);
+        
         const json = await response.json();
         setData([json.names]);
         this.setState({ data: [json.names] });
-        console.log(this.state.data);
-        console.log(this.state.page);
-
-        console.log(this.state.images);
+        
       } else {
-        console.log(this.state.page);
-        console.log(window.location.search);
+        
         const parsed = queryString.parse(window.location.search);
         if (parsed["skip"]) {
           this.setState({ page: parsed["skip"] });
@@ -37,12 +31,9 @@ const Test = () => {
         } else if (!parsed["skip"]) {
           setPage(0);
         }
-        console.log(parsed["skip"]);
-
-        console.log(parsed["category"]);
+        
 
         const response = await fetch(`/store1`);
-        console.log(response);
         const json = await response.json();
         setData([json.names]);
 
@@ -77,11 +68,9 @@ const Test = () => {
       <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -90,11 +79,9 @@ const Test = () => {
       <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -103,11 +90,9 @@ const Test = () => {
       <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });
@@ -116,11 +101,9 @@ const Test = () => {
       <div className="row1 product">
         {data.map((products) => {
           return products.slice(page, page + 4).map((product) => {
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
             return (
               <Link to={`/product/${product._id}`}>
                 <Product id={product._id} />
-                {/* <Product/> */}
               </Link>
             );
           });

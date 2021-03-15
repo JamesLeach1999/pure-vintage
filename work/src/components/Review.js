@@ -13,7 +13,6 @@ class Review extends Component {
         `/product?id=${this.props.id}`
       );
       const json = await response.json();
-      console.log(json.name);
       this.setState({ data: json.name.reviews });
       const review = this.state.data.filter(
         (rev) => rev._id === this.props.revId
@@ -24,7 +23,6 @@ class Review extends Component {
 
       // console.log(this.state.review);
     } catch (error) {
-      console.log(this.props.id);
       console.log(error);
     }
   }

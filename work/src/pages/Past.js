@@ -24,7 +24,6 @@ const Me = () => {
       id: sessionStorage.getItem("user"),
     });
 
-    console.log(work);
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false" ||
@@ -36,9 +35,6 @@ const Me = () => {
         const order = await fetch("/allOrder");
         const orderJson = await order.json();
         var allOrders = [];
-        console.log("past order data");
-        console.log(orderJson);
-        // console.log(orderJson);
         dispatch({ type: "GET_ORDERS", payload: orderJson.names });
         dispatch({ type: "GET_IMAGES", payload: orderJson.names });
 
@@ -47,18 +43,8 @@ const Me = () => {
         var productData = [];
         // dispatch({type: "ORDER_ITEMS", payload: orderJson.names})
 
-        console.log("past order products");
-        console.log(productData);
-        console.log("state dta 51");
-        console.log(state);
-
         setLoading(false);
-        console.log(state);
-        // console.log(JSON.parse(data[0].orderItems[0].product[0].image));
-        console.log(state.orders);
-        // console.log(this.state.orders);
       } catch (error) {
-        console.log(state.data);
         console.log(error);
       }
     }
@@ -118,11 +104,11 @@ const Me = () => {
                           value={product.intent}
                           hidden
                         />
-                        {/* <input type="checkbox" /> */}
                         <button type="submit">Refund?</button>
                       </form>
                     </td>
-                    <br/><br/>
+                    <br />
+                    <br />
                   </tr>
                 );
               })}

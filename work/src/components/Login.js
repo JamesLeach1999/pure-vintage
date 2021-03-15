@@ -23,12 +23,10 @@ const App = (props) => {
       withCredentials: true,
       url: "/register",
     }).then((res) => {
-      console.log(res);
       if (res.data) {
         props.handleLogin(res.data.passport);
         setLoginUsername(registerUsername);
         setLoginPassword(registerPassword);
-        console.log(loginUsername);
         login();
       } else {
         props.handleLogin(false);
@@ -50,7 +48,6 @@ const App = (props) => {
     })
       .then((res) => {
         if (res.data) {
-          console.log(res.data);
           props.handleLogin(res.data.passport);
           setErr(false);
 
@@ -61,7 +58,6 @@ const App = (props) => {
         }
       })
       .then((r) => {
-        console.log(r);
         if (sessionStorage.getItem("auth")) {
           window.location.replace("/store");
         }

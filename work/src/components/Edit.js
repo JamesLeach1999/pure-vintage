@@ -13,24 +13,15 @@ class EditPage extends Component {
   }
 
   async componentDidMount() {
-    // const profile = await Axios(`/me?id=${sessionStorage.getItem("user")}`);
-    // console.log(profile);
-    // if (!profile) {
-    //   window.location.replace("/store");
-    // } else {
+    
     try {
-      console.log(this.props.id);
       const response = await fetch(`/product?id=${this.props.id}`);
       const json = await response.json();
-      console.log(json);
       this.setState({ data: json.name, images: json.name.image[0] });
-      console.log(this.state.data);
     } catch (error) {
-      console.log(this.props.id);
       console.log(error);
     }
   }
-  // }
 
   render() {
     return (

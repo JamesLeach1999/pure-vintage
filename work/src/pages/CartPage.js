@@ -15,8 +15,7 @@ const Cart = () => {
             <th>Size</th>
             <th>Sub total</th>
           </tr>
-          {/* <CartProduct />
-          <CartProduct /> */}
+          
         </table>
         <div class="total-price">
           <table>

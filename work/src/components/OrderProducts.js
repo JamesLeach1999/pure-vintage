@@ -19,29 +19,22 @@ class Product extends Component {
         
         const response = await fetch(`/orderProducts?id=${this.props.id}&user=${sessionStorage.getItem("user")}`);
         const json = await response.json();
-        console.log(this.props.id);
         var p = [];
-        // console.log(orderJson);
 
         this.setState({ data: json.names });
         console.log(this.state.data[0]);
 
         var product = JSON.parse(this.state.data.orderItems);
-        console.log(product);
         product.forEach((pro) => {
           p.push(pro.product);
         });
-        console.log(p);
         this.setState({ orders: p[0] });
         this.setState({ images: this.state.orders.image[0] });
-        // console.log(this.state.orders[0].image[0]);
 
         this.setState({ shipping: this.state.data.shipping });
 
-        // //   this.setState({ data: it });
-        //       console.log(p);
+        
       } catch (error) {
-        console.log(this.props.id);
         console.log(error);
       }
     }

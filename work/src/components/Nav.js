@@ -39,7 +39,6 @@ function Nav() {
       const work = await Axios.post("/getAuth", {
         id: data.user,
       });
-      console.log(work);
 
       setLoggedIn("Logged in");
       setAuth(true);
@@ -51,7 +50,6 @@ function Nav() {
       sessionStorage.setItem("auth", true);
       sessionStorage.setItem("admin", work.data.isAdmin);
       sessionStorage.setItem("user", work.data.id);
-      console.log(sessionStorage);
     }
 
     if (!data) {
@@ -71,7 +69,6 @@ function Nav() {
 
       document.removeEventListener("click", handleOutsideClick, false);
     }
-    console.log(localStorage)
   }
 
   var handleOutsideClick = (e) => {
@@ -81,7 +78,6 @@ function Nav() {
     if (!refContainer.current.contains(e.target)) {
       console.log("outside click");
       // setClicked(false)
-      console.log(refContainer.current);
       return;
     }
 
@@ -177,26 +173,16 @@ function Nav() {
         </ul>
       </nav>
 
-      {/* <img src={defaultImage} alt="" width="30px" height="30px" />
-              <button onClick={this.errorToggle}>
-                <img src="assets/shoes1.jpg" alt="" class="menu-icon" />
-              </button> */}
-      {/* </div>
-          </div>
-        </div> */}
+      
       <Switch>
-        {/* <Route path={"/"} render={(props) => (
-            <Nav {...props} handleLogin={this.handleLogin} user={this.state.user} />
-            )}>
-            </Route> */}
+        
         <Route exact path={"/"}>
           <Welcome />
           <Home />
         </Route>
         <Route path="/store">
           <Store />
-          {/* <Welcome />
-            <Home /> */}
+          
         </Route>
         <Route path="/cart">
           <Cart />

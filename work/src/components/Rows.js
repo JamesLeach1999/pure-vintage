@@ -23,7 +23,6 @@ class Rows extends Component {
         "resize",
         this.setState({ size: window.innerWidth })
       );
-      console.log(response);
       const json = await response.json();
       this.setState({ data: [json.names] });
       
@@ -44,11 +43,9 @@ class Rows extends Component {
           {this.state.size > 600
             ? this.state.data.map((products) => {
                 return products.slice(0, 4).map((product) => {
-                  // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
                   return (
                     <Link to={`/product/${product._id}`}>
                       <Product id={product._id} />
-                      {/* <Product/> */}
                     </Link>
                   );
                 });
@@ -64,7 +61,6 @@ class Rows extends Component {
                             id={product._id}
                             rows={true}
                           />
-                          {/* <Product/> */}
                         </Link>
                       );
                     })}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import defaultImage from "../assets/shoes1.jpg";
 
 class OtherRevs extends Component {
   constructor() {

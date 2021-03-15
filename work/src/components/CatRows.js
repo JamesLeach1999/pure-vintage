@@ -17,9 +17,7 @@ class CatRows extends Component {
       console.log(response);
       const json = await response.json();
       this.setState({ data: [json.names] });
-      console.log(this.state.data);
 
-      console.log(this.state.images);
     } catch (error) {
       console.log(error);
     }

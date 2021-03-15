@@ -9,7 +9,6 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
   // const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
-  console.log(sessionStorage.getItem("user"));
   const url = `/cart1?id=${sessionStorage.getItem("user")}`;
 
   const getCart = async () => {
@@ -22,7 +21,6 @@ const Cart = () => {
 
         const response = await fetch(url);
         const json = await response.json();
-        console.log(json);
 
         var notNull = [];
         json.cart.map((pro) => {
@@ -30,18 +28,15 @@ const Cart = () => {
             notNull.push(pro);
           }
         });
-        console.log(notNull);
 
         setData([notNull]);
         // var total = document.getElementById("total")
         // console.log(this.state.data.name.price);
 
         // var sum = total.reduce((a, b) => a + b, 0);
-        console.log(data);
         setLoading(false);
         // setTotal(sum);
       } catch (error) {
-        console.log(data);
         console.log(error);
       }
     }
@@ -61,13 +56,10 @@ const Cart = () => {
           <th>Sub total</th>
           <th>Remove?</th>
         </tr>
-        {/* <div className="row"> */}
-        {/* <tr> */}
+       
         {data.map((products) => {
           return products.map((product) => {
-            // var tota = product.price
-            // setTotal(tota + tota)
-            // const image = <img alt="" src={require(`./assets/${n.image}`)}/>
+
             return (
               <tr>
                 <Link to={`/product/${product._id}`}>
@@ -89,13 +81,11 @@ const Cart = () => {
             );
           });
         })}
-        {/* </tr> */}
-        {/* </div> */}
+        
         <tr>
           <td></td>
           <td></td>
           <td>Total</td>
-          {/* <td>{total}</td> */}
         </tr>
       </table>
 

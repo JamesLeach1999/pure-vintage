@@ -29,17 +29,13 @@ const Me = () => {
   const getMe = async () => {
     if (sessionStorage.getItem("user")) {
       try {
-        console.log(sessionStorage.getItem("id"));
+        // console.log(sessionStorage.getItem("id"));
         const order = await fetch(
           `/pastOrders?id=${sessionStorage.getItem("id")}`
         );
         const orderJson = await order.json();
         var allOrders = [];
-        console.log("me order data orderInfo");
-        console.log(orderJson);
-        console.log("me order data names");
-
-        console.log(orderJson.names);
+        
 
         // orderJson.names.map((order) => {
         //   // console.log(order);
@@ -53,10 +49,7 @@ const Me = () => {
 
         var t = [];
         setOrders(orderJson.orderInfo);
-        console.log(state);
-
-        console.log(allOrders);
-        console.log(data);
+        
         // console.log(total);
 
         var it = [];
@@ -76,17 +69,14 @@ const Me = () => {
 
         setSum(sumPrice);
 
-        console.log(total);
         // console.log(orders[0][0].product.image[0]);
 
         setLoading(false);
-        console.log(data);
-        console.log(orders);
+        
 
         // console.log(this.state.orders);
       } catch (error) {
-        console.log(data);
-        console.log(error);
+        
         setError(true);
       }
     } else {
@@ -97,7 +87,6 @@ const Me = () => {
 
   useEffect(() => {
     sessionStorage.setItem("id", sessionStorage.getItem("user"));
-    console.log(sessionStorage.getItem("id"));
     // console.log(orders[1][0].product.image[0]);
     getMe();
   }, []);

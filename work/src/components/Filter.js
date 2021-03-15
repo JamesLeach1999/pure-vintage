@@ -65,97 +65,14 @@ export default class Filter extends Component {
     this.handleFilterClick();
   }
 
-  // //shortens document.getEgetElementById
-  // element(id) {
-  //   return document.getElementById(id);
-  // }
 
-  // //displays the suggestion div
-  // displaySearchResults() {
-  //   this.element("search-results").style.display = "block";
-  // }
-  // //clears the suggestion div
-  // clearSearchResults() {
-  //   this.element("search-results").innerHTML = "";
-  // }
-
-  // //hides the suggestion div
-  // hideSearchResults() {
-  //   this.element("search-results").style.display = "none";
-  // }
-  // //displays names when you click a suggestions
-  // displayData(name) {
-  //   this.element("search-data").innerHTML = "<p>" + name + "</p>";
-  //   this.hideSearchResults();
-  // }
-  // //displays all related names to your search when you hit enter
-  // displayAllData(names) {
-  //   this.element("search-data").innerHTML = names;
-  //   this.hideSearchResults();
-  // }
-  // //clears names displayed from search result
-  // clearSearchData() {
-  //   this.element("search-data").innerHTML = "";
-  // }
-  // // let allSearchData = ""; //decleared to collect all search names
-
-  // //gets each inputs data starting from second input
-  // getResults() {
-  //   //gets value of input
-  //   let search = this.element("search-input").value;
-  //   // var allSearchData = this.state.allSearchData; //clears data for each word typed
-
-  //   this.hideSearchResults();
-  //   this.clearSearchResults();
-  //   this.clearSearchData(); //
-  //   //starts searching from the second input
-  //   if (search.length > 1) {
-  //     let counter = 0; // counts to 10
-  //     for (let x of names) {
-  //       if (counter < 10) {
-  //         //checks for similarities
-  //         if (x.toLowerCase().includes(search.toLowerCase())) {
-  //           //populates the suggestion div
-  //           this.element("search-results").innerHTML +=
-  //             "<div class='search-item' onclick='displayData(\"" +
-  //             x +
-  //             "\")'><p>" +
-  //             x +
-  //             "</p></div>";
-
-  //           counter++;
-  //         }
-  //       }
-  //       if (x.toLowerCase().includes(search.toLowerCase()))
-  //         //saves all the realated names
-  //         // this.setState({allSearchData :  "<p>" + x + "</p>"});
-  //         this.setState((prevState) => ({
-  //           allSearchData: prevState + "<p>" + x + "</p>",
-  //         }));
-  //     }
-  //     this.displaySearchResults();
-  //   }
-  // }
 
   render() {
     return (
       <FadeIn>
-        {/* <div
-          className="cart-menu-icon"
-          onClick={this.handleFilterClick}
-          style={{
-            zIndex: "4000000",
-            color: "black",
-            width: "200px",
-            height: "200px",
-            marginLeft: "40px",
-            transition: "all 0.5s ease",
-          }}
-          // ref={(node1) => (this.node1 = node1)}
-        ></div> */}
+        
         <div
           style={{ border: "none", textTransform: "capitalize" }}
-          // className={animate ? "fade-in-hello hello span" : "hello-span"}
         >
           <br />
           <br />
@@ -169,17 +86,14 @@ export default class Filter extends Component {
                 ref={(node1) => (this.node1 = node1)}
               >
                 <h1
-                  // ref={(node1) => (this.node1 = node1)}
                   className="filter-logo"
                   onClick={this.handleFilterClick}
-                  // onClick={() => setClick(!clicked)}
                   style={{
                     left: "-25px",
                     marginLeft: "-25px",
                     marginRight: "500px",
                     backgroundColor: "whitesmoke",
                     borderRadius: "7%",
-                    // transform: "rotate(-90deg)",
                     top: "90%",
                     padding: "5px",
                     width: "85%",
@@ -192,10 +106,7 @@ export default class Filter extends Component {
                 <form
                   className="f-col filter filter-container filterItems"
                   action="/store"
-                  // style={style}
-                  // ref={(node1) => (this.node1 = node1)}
                 >
-                  {/* <h5>Filters</h5> */}
                   <ul
                     className={
                       this.state.cartClicked
@@ -1182,7 +1093,6 @@ export default class Filter extends Component {
                 className="f-col filter filter-container filterItems"
                 action="/store"
                 id="fcol"
-                // style={style}
               >
                 <section style={{ height: "1200px", fontSize: "110%" }}>
                   <h3

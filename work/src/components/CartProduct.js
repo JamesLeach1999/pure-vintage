@@ -41,14 +41,14 @@ class CartProduct extends Component {
           <div class="cart-info">
             <img src={`${this.state.image}`} alt="" />
             <div>
-              {/* <p>{this.state.data.name}</p> */}
-              {/* <small>Price: {this.state.data.price}</small> */}
+              <p>{this.state.data.name}</p>
+              <small>Price: {this.state.data.price}</small>
               <br />
-              {/* <form action="/cartProduct" method="POST">
+              <form action="/cartProduct" method="POST">
                 <input type="text" value={this.state.data._id} name="id" hidden />
                 <input type="checkbox" />
                 <input type="submit" />
-              </form> */}
+              </form>
             </div>
           </div>
         </td>

@@ -22,7 +22,6 @@ const Register = (props) => {
       url: "/register",
     })
       .then((res) => {
-        console.log(res);
         if (res.data) {
           props.handleLogin(res.data.passport);
 
@@ -46,28 +45,6 @@ const Register = (props) => {
         }
       })
   };
-
-  //   const login = () => {
-  //     Axios({
-  //       method: "POST",
-  //       data: {
-  //         email: loginUsername,
-  //         password: loginPassword,
-  //       },
-  //       withCredentials: true,
-
-  //       url: "/login",
-  //     }).then((res) => {
-  //       if (res.data) {
-  //         console.log(res.data);
-  //         props.handleLogin(res.data.passport);
-
-  //         window.location.replace("/store");
-  //       } else {
-  //         props.handleLogin(false);
-  //       }
-  //     });
-  //   };
   return (
     <div className="wrapper fadeInDown">
       <br /> <br />

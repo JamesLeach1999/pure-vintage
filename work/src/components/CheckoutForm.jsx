@@ -76,7 +76,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       if(!clientSecret){
         setCheckoutError("Please fill out form field")
       }
-      console.log(clientSecret);
 
       const cardElement = elements.getElement(CardElement);
 
@@ -98,7 +97,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       if (!paymentMethodReq) {
         setCheckoutError("Payment error");
       }
-      console.log(checkoutError);
       const confirmedCardPayment = await stripe.confirmCardPayment(
         clientSecret,
         {
@@ -106,7 +104,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         }
       );
 
-      console.log(confirmedCardPayment);
       await axios.post("/confirmOrder", {
         test: confirmedCardPayment,
         email: billingDetails.email,

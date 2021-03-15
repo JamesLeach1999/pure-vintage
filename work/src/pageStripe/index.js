@@ -15,22 +15,17 @@ const MainPage = (props) => {
       if (sessionStorage.getItem("user")) {
         const url = `/cart1?id=${sessionStorage.getItem("user")}`;
         try {
-          // const test = await fetch("http://localhost:9000/store");
-          // console.log(test);
 
           const response = await fetch(url);
           const json = await response.json();
-          console.log(json);
 
           var total = [];
           json.cart.map((pr) => {
             if (pr !== null) {
-              console.log(pr.price);
               return total.push(pr.price);
             }
           });
           var sum = total.reduce((a, b) => a + b, 0);
-          console.log(sum);
 
           SetSum(sum);
         } catch (error) {
@@ -38,13 +33,11 @@ const MainPage = (props) => {
         }
       } else {
         var items = JSON.parse(localStorage.getItem("unAuthCart"));
-        console.log(items);
         var cartTotal = [];
         if (items.length === 1) {
           var res = await fetch(`/product?id=${items}`);
           var resJson = await res.json();
 
-          console.log(resJson);
 
           cartTotal.push(resJson.name.price);
           SetSum(cartTotal);
@@ -53,12 +46,9 @@ const MainPage = (props) => {
             var res = await fetch(`/product?id=${item}`);
             var resJson = await res.json();
 
-            console.log(resJson);
-
             cartTotal.push(resJson.name.price);
           });
           var cartSum = cartTotal.reduce((a, b) => a + b, 0);
-          console.log(cartSum);
 
           SetSum(cartSum);
         }

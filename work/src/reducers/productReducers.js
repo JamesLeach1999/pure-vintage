@@ -2,7 +2,6 @@ import React from "react";
 
 const productReducers = (state, action) => {
   if (action.type === "FETCH_LOGIN_CART") {
-    console.log(action.payload);
 
     var notNull = [];
     action.payload.cart.map((pro) => {
@@ -18,7 +17,6 @@ const productReducers = (state, action) => {
         p.push(product.price);
       });
     });
-    console.log(p);
 
     var sum = p.reduce(function (a, b) {
       return a + b;
@@ -34,7 +32,6 @@ const productReducers = (state, action) => {
     var cartArray = [];
     var data;
 
-    console.log(action.payload);
     if (action.payload === null || action.payload.length === 0) {
       fetch(`/product?id=${action.payload}`)
         .then((response) => response.json())
@@ -57,7 +54,6 @@ const productReducers = (state, action) => {
       }
       data = cartArray;
     }
-    console.log("cart data");
 
     var pr = [];
     data.map((products) => {
@@ -71,13 +67,10 @@ const productReducers = (state, action) => {
     }, 0);
 
     localStorage.setItem("payloadPrice", sum1);
-    console.log("dispatch unauth");
-    console.log(data);
-    console.log(sum1);
+    
 
     state.data = data;
     state.price = sum1;
-    console.log(state);
     return state;
   }
 

@@ -15,36 +15,25 @@ class Reviews extends Component {
       const p = await fetch("/recentReviews");
       const pJson = await p.json();
 
-      // var filtered = pJson.name.filter(function (el) {
-      //   return el !== null || el !== [];
-      // });
-      // this.setState({ data: filtered });
       this.setState({ images: pJson.images });
 
-      var filRevs = []
-      var filImgs = []
-      
+      var filRevs = [];
+      var filImgs = [];
+
       var filtered = pJson.name.filter(function (el) {
-        // console.log(el)
-        return  el !== null || el !== [] || el !== undefined;
+        return el !== null || el !== [] || el !== undefined;
       });
       filtered.map((rev, i) => {
-        if(rev.length !== 0){
-          filRevs.push(rev)
-          filImgs.push(this.state.images[i])
+        if (rev.length !== 0) {
+          filRevs.push(rev);
+          filImgs.push(this.state.images[i]);
         }
-      })
-      // console.log(filRevs)
-            // console.log(filImgs);
+      });
 
       this.setState({ data: filRevs });
-      this.setState({atLeastOne: true})
-      // console.log(filtered2)
-            this.setState({ images: filImgs });
-
-      // console.log(this.state.images)
+      this.setState({ atLeastOne: true });
+      this.setState({ images: filImgs });
     } catch (error) {
-      console.log(this.props);
       console.log(error);
     }
   }
@@ -61,8 +50,7 @@ class Reviews extends Component {
           <div class="row" style={{ justifyContent: "center" }}>
             {this.state.atLeastOne ? (
               this.state.data.map((e, i) => {
-               
-                 return (
+                return (
                   <div class="col-3" s>
                     {this.state.images.length !== 0 ? (
                       <img src={this.state.images[0]} alt="" />

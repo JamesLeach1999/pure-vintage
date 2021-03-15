@@ -24,7 +24,6 @@ const ProductPage = () => {
       const response = await fetch(url);
       const products = await response.json();
 
-      //   console.log(products.name)
       console.log(products.name.image);
       // this will run 30 times because its after every re render. will be stuck in loop
       setProducts(products.name);

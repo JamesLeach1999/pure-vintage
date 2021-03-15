@@ -21,7 +21,6 @@ const Manage = () => {
       id: sessionStorage.getItem("user"),
     });
 
-    console.log(work)
     if (
       !sessionStorage.getItem("admin") ||
       sessionStorage.getItem("admin") === "false" || !work.data.isAdmin
@@ -31,7 +30,6 @@ const Manage = () => {
       try {
         if (window.location.search === "") {
           const response = await fetch(`/manage1`);
-          console.log(window.location);
           const json = await response.json();
           setData([json.names]);
           setLoading(false);
@@ -39,9 +37,7 @@ const Manage = () => {
           console.log(window.location.search);
           const parsed = queryString.parse(window.location.search);
 
-          console.log(parsed["skip"]);
-
-          console.log(parsed["category"]);
+          
           var skip;
           if (!parsed["skip"]) {
             skip = 0;
@@ -57,7 +53,6 @@ const Manage = () => {
               price: parsed['price']
             },
           });
-          console.log(res)
           setData([res.data.names]);
           setLoading(false);
         }

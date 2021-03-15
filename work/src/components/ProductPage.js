@@ -47,27 +47,23 @@ const ProductPage = () => {
     // then you want to set the state, set the empty array to an array of 30
   };
   const setCart = (pID) => {
-    console.log("do something")
     // var cart = localStorage.getItem("unAuthCart") || [];
     if (
       localStorage.getItem("unAuthCart") === null ||
       localStorage.getItem("unAuthCart") === undefined ||
       localStorage.getItem("unAuthCart") === "[]"
     ) {
-      console.log(pID);
       // console.log(i)
       localStorage.setItem("work already", "just work");
       localStorage.setItem("unAuthCart", JSON.stringify([pID]));
     } else {
       var cartJson = JSON.parse(localStorage.getItem("unAuthCart"));
-      cartJson.push(pID);
-      console.log(pID);
+      
       localStorage.setItem("work already111", "just work");
 
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
       setCartProducts(localStorage.getItem("unAuthCart"));
-      console.log(cartProducts);
-      console.log(localStorage.getItem("unAuthCart"));
+      
     }
   };
   // cant use async await on useEffect (can in callback funcions), need a seperate function

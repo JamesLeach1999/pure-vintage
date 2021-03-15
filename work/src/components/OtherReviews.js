@@ -12,18 +12,14 @@ class Reviews extends Component {
   async componentDidMount() {
     try {
       const id = document.getElementById("id").innerHTML;
-      console.log(id);
       const response = await fetch(`/product?id=${id}`);
       const json = await response.json();
       this.setState({ data: [json.name] });
-      console.log("work222");
-      console.log(this.state.data);
+      
       if (this.state.data !== undefined) {
         this.setState({ work: this.state.data });
       }
-      console.log(this.state.data.work);
     } catch (error) {
-      console.log(this.props);
       console.log(error);
     }
   }

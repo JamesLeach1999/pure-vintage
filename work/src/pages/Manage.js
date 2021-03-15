@@ -13,11 +13,7 @@ const Manage = () => {
   const [size, setSize] = useState(window.innerWidth);
   const [style, setStyle] = useState({});
   const [animate, setAnimate] = useState(false);
-  // this outputs 770px
-  console.log(size);
-  console.log(localStorage.getItem("unAuthCart"));
-  console.log(localStorage);
-  console.log(sessionStorage);
+  
 
   const bigSize = {
     maxWidth: "350px",
@@ -33,7 +29,6 @@ const Manage = () => {
     marginLeft: "-2px",
     paddingLeft: "25px",
   };
-  console.log(sessionStorage);
   // this is the callback (can do it inline), uses the initial size for default
   // then everytime it changes, it is updated by passing inthe new FUNCTION
   // with window. anything is a function. everytime it changes it is stored in memory

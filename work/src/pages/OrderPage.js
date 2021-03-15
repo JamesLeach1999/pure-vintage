@@ -6,9 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 const OrderPage = () => {
   const { id } = useParams();
-  console.log(sessionStorage.getItem("user"));
   const url = `/orderProducts?id=${id}&user=${sessionStorage.getItem("user")}`;
-  console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);
   const [name, setName] = useState("");
@@ -21,12 +19,10 @@ const OrderPage = () => {
     const response = await fetch(url);
     const products = await response.json();
 
-    console.log(products.names.orderItems);
     setName(products.user.name);
 
     const t = JSON.parse(products.names.orderItems);
     setProducts(t);
-    console.log(name);
     // console.log(p);
     // var yyy = [];
     // await product.map((item) => {
@@ -35,7 +31,6 @@ const OrderPage = () => {
     // setP(yyy);
     // console.log(p);
     setLoading(false);
-    // console.log(this.state.data);
     // then you want to set the state, set the empty array to an array of 30
   };
 
@@ -46,14 +41,11 @@ const OrderPage = () => {
     // this returns all 30 users in an array using setState
     getProducts();
 
-    console.log(localStorage);
     // this means it only runs once
     // if you are triggering re render in your effect function, add the dependancy array
 
     // do this so no infinite loop
   }, [loading]);
-  console.log(product);
-  console.log(p);
 
   return (
     <div>
@@ -95,7 +87,6 @@ const OrderPage = () => {
                           placeholder="login"
                           value={name}
                           hidden
-                          // onChange={(e) => setLoginUsername(e.target.value)}
                         />
                         <input
                           type="text"
@@ -105,7 +96,6 @@ const OrderPage = () => {
                           placeholder="id"
                           value={item.product._id}
                           hidden
-                          // onChange={(e) => setLoginUsername(e.target.value)}
                         />
                         <div className="rate fadeIn third">
                           <input
@@ -159,16 +149,7 @@ const OrderPage = () => {
                             1 star
                           </label>
                         </div>
-                        {/* <input
-                          type="number"
-                          id="star"
-                          className="fadeIn third"
-                          name="star"
-                          max="5"
-                          placeholder="star"
-                          // style={{width: "40%", textAlign: "left"}}
-                          // onChange={(e) => setLoginPassword(e.target.value)}
-                        /> */}
+                        
                         <br />
                         <br />
                         <input
@@ -177,7 +158,6 @@ const OrderPage = () => {
                           className="fadeIn third"
                           name="desc"
                           placeholder="Description"
-                          // onChange={(e) => setLoginPassword(e.target.value)}
                         />
                         <br />
                         <br />
@@ -196,7 +176,6 @@ const OrderPage = () => {
                               "https://cryptic-temple-54361.herokuapp.com/store"
                             );
                           }}
-                          // onClick={login}
                         >
                           Submit review
                         </button>
@@ -209,7 +188,6 @@ const OrderPage = () => {
                 </div>
               </div>
             ): (
-              // <div>
                 <div className="col-4">
                   <img src={`${item.product.image[0]}`} alt="" />
                   <h4>{item.product.name}</h4>

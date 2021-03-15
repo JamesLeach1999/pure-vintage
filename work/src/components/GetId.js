@@ -9,10 +9,4 @@ const GetId = () => {
 return id
 }
 
-// const GetData = async (url) => {
-//     const data = await useAxios(url)
-
-//     return data
-// }
-
 export default withRouter(GetId)

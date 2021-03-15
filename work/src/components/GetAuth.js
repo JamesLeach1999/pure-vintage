@@ -11,7 +11,6 @@ function GetAuth() {
 
   const auth1 = async () => {
     const a = await fetch('/store');
-    console.log(a)
     setAuth(true);
     return a;
   };

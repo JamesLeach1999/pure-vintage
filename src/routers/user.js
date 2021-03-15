@@ -1,10 +1,9 @@
 const express = require('express');
 const User = require('../models/User');
-=
+
 const Product = require('../models/products');
 const { ensureAuthenticated } = require('../middleware/auth');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { sendWelcome } = require('../emails/account');
 

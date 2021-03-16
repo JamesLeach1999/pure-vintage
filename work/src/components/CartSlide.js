@@ -68,6 +68,7 @@ const Cart = () => {
         const json = await response.json();
 
         dispatch({ type: "FETCH_LOGIN_CART", payload: json });
+        console.log(state)
         setData(json);
       } catch (error) {
         console.log("cart error catch");
@@ -123,7 +124,8 @@ const Cart = () => {
   };
   useEffect(() => {
     getCart();
-  }, [load]);
+    console.log(data)
+  }, []);
 
   return (
     <div className="cartItems" ref={refContainer}>

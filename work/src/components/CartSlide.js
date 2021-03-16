@@ -194,24 +194,23 @@ const Cart = () => {
           {data.map((products) => {
             console.log("data map");
             console.log(products);
-            return products.map((product) => {
               console.log("product map");
-              console.log(product);
+              console.log(products);
               return (
                 <tr>
-                  <Link to={`/product/${product._id}`}>
-                    <CartProduct id={product._id} />
+                  <Link to={`/product/${products._id}`}>
+                    <CartProduct id={products._id} />
                   </Link>
                   <br />
 
-                  <td>{product.size}</td>
-                  <td id="total">£{product.price}.95</td>
+                  <td>{products.size}</td>
+                  <td id="total">£{products.price}.95</td>
                   <td>
                     {sessionStorage.getItem("auth") === "true" ? (
                       <form action="/cartProduct" method="POST">
                         <input
                           type="text"
-                          value={product._id}
+                          value={products._id}
                           name="id"
                           hidden
                         />
@@ -222,7 +221,7 @@ const Cart = () => {
                         <button
                           type="submit"
                           onClick={() => {
-                            removeCart(product._id);
+                            removeCart(products._id);
                           }}
                         >
                           Remove?
@@ -232,7 +231,6 @@ const Cart = () => {
                   </td>
                 </tr>
               );
-            });
           })}
         </table>
       </ul>

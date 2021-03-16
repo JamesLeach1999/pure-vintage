@@ -1,9 +1,7 @@
 import * as React from "react";
 import { Admin, Resource } from "react-admin";
 import restProvider from "ra-data-json-server";
-import PostList from "./PostList";
-// import PostCreate from "./PostCreate";
-// import PostEdit from "./PostEdit";
+import ProductList from "./ProductList"
 const dataProvider = restProvider(
   "https://cryptic-temple-54361.herokuapp.com/"
 );
@@ -12,7 +10,7 @@ function AdminPage() {
     <Admin dataProvider={dataProvider}>
       <Resource
         name="products"
-        list={PostList}
+        list={ProductList}
         // create={PostCreate}
         // edit={PostEdit}
       />

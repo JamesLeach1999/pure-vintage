@@ -21,7 +21,7 @@ const productReducers = (state, action) => {
     var sum = p.reduce(function (a, b) {
       return a + b;
     }, 0);
-
+    console.log(notNull)
     return {
       data: [notNull],
       price: sum,

@@ -111,7 +111,7 @@ const Cart = () => {
           pr.push(product.price);
         });
       });
-      console.log(data);
+      // console.log(data);
       var sum1 = pr.reduce(function (a, b) {
         return a + b;
       }, 0);
@@ -181,7 +181,11 @@ const Cart = () => {
             <th>Remove?</th>
           </tr>
           {data.map((products) => {
+            console.log("data map")
+            console.log(products)
             return products.map((product) => {
+              console.log("product map")
+              console.log(product)
               return (
                 <tr>
                   <Link to={`/product/${product._id}`}>

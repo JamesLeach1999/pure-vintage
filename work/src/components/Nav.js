@@ -12,6 +12,7 @@ import Login from "./Login";
 import Me from "../pages/Me";
 import Order from "../pageStripe/index";
 import Manage from "../pages/Manage";
+import AdminPage from "../pages/admin/AdminPage";
 import Add from "../pages/Add";
 import Edit from "./EditPage";
 import PastOrders from "../pages/Past";
@@ -222,6 +223,7 @@ function Nav() {
 
         <Route path="/edit/:id" children={<Edit />}></Route>
         <Route path="/order" children={<Order />}></Route>
+        <Route path="/admin" children={<AdminPage />}></Route>
         <Route path="/refundProducts/:id" children={<RefundProducts />}></Route>
 
         <Route path="/product/:id" children={<Product />}></Route>

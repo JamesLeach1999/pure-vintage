@@ -9,10 +9,9 @@ function AdminPage() {
   return (
     <Admin dataProvider={dataProvider}>
       <Resource
-        name="products"
+        name="store1"
         list={ProductList}
-        // create={PostCreate}
-        // edit={PostEdit}
+        
       />
     </Admin>
   );

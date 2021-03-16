@@ -10,11 +10,11 @@ import {
 const PostList = (props) => {
   return (
     <List {...props}>
+        {console.log(props)}
       <Datagrid>
         <TextField source="name" />
         <TextField source="description" />
-        <EditButton basePath="/store1.names" />
-        <DeleteButton basePath="/store1.names" />
+        <h1>yeyeyeyeyey</h1>
       </Datagrid>
     </List>
   );

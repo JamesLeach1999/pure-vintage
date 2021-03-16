@@ -174,16 +174,13 @@ function Nav() {
         </ul>
       </nav>
 
-      
       <Switch>
-        
         <Route exact path={"/"}>
           <Welcome />
           <Home />
         </Route>
         <Route path="/store">
           <Store />
-          
         </Route>
         <Route path="/cart">
           <Cart />

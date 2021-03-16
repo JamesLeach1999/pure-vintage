@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect, useReducer } from "react";
 
 import CartProduct from "./CartProduct";
-import {
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 import productReducers from "../reducers/productReducers";
 
 import "../css/Cart.css";
@@ -26,7 +24,6 @@ const Cart = () => {
       // attach/remove event handler
       document.addEventListener("click", handleCartOutsideClick, false);
     } else {
-
       document.removeEventListener("click", handleCartOutsideClick, false);
     }
   };
@@ -66,15 +63,21 @@ const Cart = () => {
       try {
         const response = await fetch(url);
         const json = await response.json();
-
-        dispatch({ type: "FETCH_LOGIN_CART", payload: json });
-        console.log(state)
+        console.log(json);
+        var notNull = [];
+        json.map((pro) => {
+          if (pro !== null) {
+            notNull.push(pro);
+          }
+        });
+        console.log(state);
         setData(json);
+        // setLoad(true)
       } catch (error) {
         console.log("cart error catch");
         console.log(error);
       }
-      setLoad(true);
+      // setLoad(true);
     } else {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
 
@@ -84,13 +87,13 @@ const Cart = () => {
       if (unAuthCart === null || unAuthCart.length === 0) {
         fetch(`/product?id=${unAuthCart}`)
           .then((response) => response.json())
-          .then((resJson0) => (data = [resJson0]))
+          .then((resJson0) => setData([resJson0]))
           .catch((error) => {
             console.log("promise chain error0");
             console.log(error);
           });
         // const json = await response.json();
-        console.log("fetch cart data")
+        console.log("fetch cart data");
         console.log(data);
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
@@ -102,7 +105,7 @@ const Cart = () => {
               console.log(error);
             });
         }
-        data = cartArray;
+        setData(cartArray);
       }
       console.log("cart data");
 
@@ -117,15 +120,16 @@ const Cart = () => {
         return a + b;
       }, 0);
 
-
       setPrice(sum1);
       setLoad(true);
+      console.log("end of cart slide data");
+      console.log(data);
     }
   };
   useEffect(() => {
     getCart();
-    console.log(data)
-  }, []);
+    console.log(data);
+  }, [load]);
 
   return (
     <div className="cartItems" ref={refContainer}>
@@ -183,11 +187,11 @@ const Cart = () => {
             <th>Remove?</th>
           </tr>
           {data.map((products) => {
-            console.log("data map")
-            console.log(products)
+            console.log("data map");
+            console.log(products);
             return products.map((product) => {
-              console.log("product map")
-              console.log(product)
+              console.log("product map");
+              console.log(product);
               return (
                 <tr>
                   <Link to={`/product/${product._id}`}>

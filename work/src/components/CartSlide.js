@@ -96,7 +96,7 @@ const Cart = () => {
         console.log(data);
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
-          console.log(unAuthCart[i])
+          console.log(unAuthCart[i]);
           fetch(`/product?id=${unAuthCart[i]}`)
             .then((response) => response.json())
             .then((resJson) => cartArray.push(resJson.name))
@@ -106,15 +106,15 @@ const Cart = () => {
             });
         }
         setData(cartArray);
-        console.log('====================================');
+        console.log("====================================");
         console.log(cartArray);
         console.log(data);
-        console.log('====================================');
+        console.log("====================================");
       }
       console.log("cart data");
 
       var pr = [];
-      console.log(data)
+      console.log(data);
       data.map((products) => {
         return products.map((product) => {
           pr.push(product.price);
@@ -154,12 +154,11 @@ const Cart = () => {
           marginLeft: "40px",
         }}
       >
-        <i class="fas fa fa-shopping-cart fa-lg"></i>
+        <i class={`fas fa fa-shopping-cart fa-lg ${cartClicked ? "fas fa-times" : "fas fa-shopping-cart"}`}></i>
         <span class="cart-basket d-flex align-items-center justify-content-center">
-          3
+          {parseInt(data.length)}
         </span>
         <i
-          className={cartClicked ? "fas fa-times" : "fas fa-shopping-cart"}
           style={{
             color: "black",
             width: "75px",
@@ -194,43 +193,61 @@ const Cart = () => {
           {data.map((products) => {
             console.log("data map");
             console.log(products);
-              console.log("product map");
-              console.log(products);
-              return (
-                <tr>
-                  <Link to={`/product/${products._id}`}>
-                    <CartProduct id={products._id} />
-                  </Link>
-                  <br />
+            console.log("product map");
+            console.log(products);
+            return (
+              <tr>
+                <Link to={`/product/${products._id}`}>
+                  <CartProduct id={products._id} />
+                </Link>
+                <br />
 
-                  <td>{products.size}</td>
-                  <td id="total">£{products.price}.95</td>
-                  <td>
-                    {sessionStorage.getItem("auth") === "true" ? (
-                      <form action="/cartProduct" method="POST">
-                        <input
-                          type="text"
-                          value={products._id}
-                          name="id"
-                          hidden
-                        />
-                        <button type="submit">Remove?</button>
-                      </form>
-                    ) : (
-                      <form>
-                        <button
-                          type="submit"
-                          onClick={() => {
-                            removeCart(products._id);
-                          }}
-                        >
-                          Remove?
-                        </button>
-                      </form>
-                    )}
-                  </td>
-                </tr>
-              );
+                <td>{products.size}</td>
+                <td id="total">£{products.price}.95</td>
+                <td>
+                  {sessionStorage.getItem("auth") === "true" ? (
+                    <form action="/cartProduct" method="POST">
+                      <input
+                        type="text"
+                        value={products._id}
+                        name="id"
+                        hidden
+                      />
+                      <button type="submit">Remove?</button>
+                    </form>
+                  ) : (
+                    <form>
+                      <button
+                        type="submit"
+                        onClick={() => {
+                          removeCart(products._id);
+                        }}
+                        style={{
+                          display: "inline-block",
+                          padding: "0.35em 1.2em",
+                          border: "0.1em solid #FFFFFF",
+                          margin: "0 0.3em 0.3em 0",
+                          borderRadius: "0.12em",
+                          boxSizing: "border-box",
+                          textDecoration: "none",
+                          fontFamily: "'Roboto',sans-serif",
+                          fontWeight: "300",
+                          color: "#FFFFFF",
+                          textAlign: "center",
+                          transition: "all 0.2s",
+                        }}
+                        onHover={(e) => {
+                          e.target.style.color = "#000000";
+                          e.target.style.backgroundColor = "#FFFFFF"
+                        }}
+                      >
+                        Remove?
+                      </button>
+                    </form>
+                  )}
+                </td>
+              </tr>
+            );
           })}
         </table>
       </ul>

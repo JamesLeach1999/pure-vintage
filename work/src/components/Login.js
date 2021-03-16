@@ -51,17 +51,13 @@ const App = (props) => {
           props.handleLogin(res.data.passport);
           setErr(false);
 
-          // window.location.replace("/store");
+          window.location.replace("/store");
         } else {
           props.handleLogin(false);
           setErr(true);
         }
       })
-      .then((r) => {
-        if (sessionStorage.getItem("auth")) {
-          window.location.replace("/store");
-        }
-      });
+      
   };
 
   const logout = async () => {
@@ -78,7 +74,6 @@ const App = (props) => {
       <br /> <br /> <br /> <br /> <br /> <br />
       <div class="fadeIn first">
         <div id="formContent">
-          <form>
             <br />
             <input
               type="text"
@@ -109,7 +104,6 @@ const App = (props) => {
             </button>
             <br />
             <br />
-          </form>
         </div>
       </div>
       <br />

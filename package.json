@@ -38,6 +38,7 @@
     "express-fileupload": "^1.2.0",
     "express-session": "^1.17.1",
     "gridfs-stream": "^1.1.1",
+    "json-server": "^0.16.3",
     "jsonwebtoken": "^8.5.1",
     "local-storage": "^2.0.0",
     "method-override": "^3.0.0",

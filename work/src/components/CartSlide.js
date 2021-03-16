@@ -65,7 +65,7 @@ const Cart = () => {
         const json = await response.json();
         console.log(json);
         var notNull = [];
-        json.map((pro) => {
+        json.cart.map((pro) => {
           if (pro !== null) {
             notNull.push(pro);
           }
@@ -82,7 +82,6 @@ const Cart = () => {
       var unAuthCart = JSON.parse(localStorage.getItem("unAuthCart"));
 
       var cartArray = [];
-      var data;
 
       if (unAuthCart === null || unAuthCart.length === 0) {
         fetch(`/product?id=${unAuthCart}`)
@@ -97,6 +96,7 @@ const Cart = () => {
         console.log(data);
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
+          console.log(unAuthCart[i])
           fetch(`/product?id=${unAuthCart[i]}`)
             .then((response) => response.json())
             .then((resJson) => cartArray.push(resJson.name))
@@ -106,10 +106,15 @@ const Cart = () => {
             });
         }
         setData(cartArray);
+        console.log('====================================');
+        console.log(cartArray);
+        console.log(data);
+        console.log('====================================');
       }
       console.log("cart data");
 
       var pr = [];
+      console.log(data)
       data.map((products) => {
         return products.map((product) => {
           pr.push(product.price);

@@ -50,60 +50,63 @@ const Register = (props) => {
       <br /> <br />
       <br /> <br /> <br /> <br /> <br /> <br />
       <div id="formContent">
-        <div class="fadeIn first"></div>
-        <br />
-        <input
-          type="text"
-          id="login"
-          class="fadeIn second"
-          name="name"
-          placeholder="Name"
-          onChange={(e) => setRegisterName(e.target.value)}
-        />
+        <div class="fadeIn first">
+          <form>
+            <br />
+            <input
+              type="text"
+              id="login"
+              class="fadeIn second"
+              name="name"
+              placeholder="Name"
+              onChange={(e) => setRegisterName(e.target.value)}
+            />
 
-        <input
-          type="text"
-          id="login"
-          class="fadeIn second"
-          name="email"
-          placeholder="Email"
-          onChange={(e) => setRegisterUsername(e.target.value)}
-        />
-        <input
-          type="text"
-          id="password"
-          class="fadeIn third"
-          name="password"
-          placeholder="Password"
-          onChange={(e) => setRegisterPassword(e.target.value)}
-        />
-        <br />
-        <br />
-        <button
-          type="submit"
-          class="fadeIn fourth myButton"
-          value="Log In"
-          onClick={register}
-        >
-          Create account
-        </button>
-        {error ? (
-          <div class="alert">
-            <span
-              class="closebtn"
-              onClick={(this.parentElement.style.display = "none")}
+            <input
+              type="text"
+              id="login"
+              class="fadeIn second"
+              name="email"
+              placeholder="Email"
+              onChange={(e) => setRegisterUsername(e.target.value)}
+            />
+            <input
+              type="text"
+              id="password"
+              class="fadeIn third"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => setRegisterPassword(e.target.value)}
+            />
+            <br />
+            <br />
+            <button
+              type="submit"
+              class="fadeIn fourth myButton"
+              value="Log In"
+              onClick={register}
             >
-              &times;
-            </span>
-            <strong>Danger!</strong> Indicates a dangerous or potentially
-            negative action.
-          </div>
-        ) : (
-          ""
-        )}
+              Create account
+            </button>
+            {error ? (
+              <div class="alert">
+                <span
+                  class="closebtn"
+                  onClick={(this.parentElement.style.display = "none")}
+                >
+                  &times;
+                </span>
+                <strong>Danger!</strong> Indicates a dangerous or potentially
+                negative action.
+              </div>
+            ) : (
+              ""
+            )}
 
-        <br />
-        <br />
+            <br />
+            <br />
+          </form>
+        </div>
       </div>
     </div>
   );

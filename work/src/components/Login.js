@@ -78,36 +78,38 @@ const App = (props) => {
       <br /> <br /> <br /> <br /> <br /> <br />
       <div class="fadeIn first">
         <div id="formContent">
-          <br />
-          <input
-            type="text"
-            id="login"
-            class="fadeIn second"
-            name="login"
-            placeholder="login"
-            onChange={(e) => setLoginUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            id="password"
-            class="fadeIn third"
-            name="login"
-            placeholder="password"
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
-          <br />
-          <br />
-          <button
-            type="submit"
-            className="fadeIn fourth myButton"
-            style={{ borderRadius: "5%", padding: "8px", border: "none" }}
-            value="Log In"
-            onClick={login}
-          >
-            Log in
-          </button>
-          <br />
-          <br />
+          <form>
+            <br />
+            <input
+              type="text"
+              id="login"
+              class="fadeIn second"
+              name="login"
+              placeholder="login"
+              onChange={(e) => setLoginUsername(e.target.value)}
+            />
+            <input
+              type="password"
+              id="password"
+              class="fadeIn third"
+              name="login"
+              placeholder="password"
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
+            <br />
+            <br />
+            <button
+              type="submit"
+              className="fadeIn fourth myButton"
+              style={{ borderRadius: "5%", padding: "8px", border: "none" }}
+              value="Log In"
+              onClick={login}
+            >
+              Log in
+            </button>
+            <br />
+            <br />
+          </form>
         </div>
       </div>
       <br />

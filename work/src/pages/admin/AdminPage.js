@@ -1,30 +1,15 @@
+// in src/App.js
 import * as React from "react";
-// import { Admin, Resource } from "react-admin";
-import restProvider from "ra-data-json-server";
-import ProductList from "./ProductList"
-
-// function AdminPage() {
-//   return (
-//     <Admin dataProvider={dataProvider}>
-//       <Resource
-//         name="store1"
-//         list={ProductList}
-        
-//       />
-//     </Admin>
-//   );
-// }
-
-
-// import * as React from "react";
 import { Provider } from "react-redux";
 import { createHashHistory } from "history";
 import { Admin, Resource } from "react-admin";
-
+import restProvider from "ra-data-simple-rest";
+// import defaultMessages from "ra-language-english";
+// import polyglotI18nProvider from "ra-i18n-polyglot";
 
 import createAdminStore from "./createAdminStore";
-
-// your app components
+import ProductList from "./ProductList"
+// // your app components
 // import Dashboard from "./Dashboard";
 // import { PostList, PostCreate, PostEdit, PostShow } from "./Post";
 // import { CommentList, CommentEdit, CommentCreate } from "./Comment";
@@ -32,13 +17,13 @@ import createAdminStore from "./createAdminStore";
 
 // dependency injection
 const dataProvider = restProvider(
-  "https://cryptic-temple-54361.herokuapp.com/"
+  "https://cryptic-temple-54361.herokuapp.com"
 );
 const authProvider = () => Promise.resolve();
 
 const history = createHashHistory();
 
-const AdminPage = () => (
+const App = () => (
   <Provider
     store={createAdminStore({
       authProvider,
@@ -47,21 +32,32 @@ const AdminPage = () => (
     })}
   >
     <Admin
-      // authProvider={authProvider}
+      authProvider={authProvider}
       dataProvider={dataProvider}
       history={history}
       title="My Admin"
     >
       <Resource
-        name="store1"
+        name="posts"
         list={ProductList}
         // create={PostCreate}
         // edit={PostEdit}
         // show={PostShow}
       />
-      
+      {/* <Resource
+        name="comments"
+        list={CommentList}
+        edit={CommentEdit}
+        create={CommentCreate}
+      />
+      <Resource
+        name="users"
+        list={UserList}
+        edit={UserEdit}
+        create={UserCreate}
+      /> */}
     </Admin>
   </Provider>
 );
 
-export default AdminPage;
+export default App;

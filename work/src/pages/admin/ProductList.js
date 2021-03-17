@@ -10,7 +10,7 @@ import {
 const PostList = (props) => {
   return (
     <List {...props}>
-        {/* {console.log(props)} */}
+        {console.log(props)}
       <Datagrid>
         <TextField source="name" />
         <TextField source="description" />

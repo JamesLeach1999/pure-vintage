@@ -20,7 +20,7 @@ const dataProvider = restProvider(
   "https://cryptic-temple-54361.herokuapp.com/store1"
 );
 const authProvider = () => Promise.resolve();
-
+console.log(dataProvider)
 const history = createHashHistory();
 
 const App = () => (
@@ -43,7 +43,7 @@ const App = () => (
       <br/>
       <br/>
       <Resource
-        name="store1"
+        name="names"
         list={ProductList}
         // create={PostCreate}
         // edit={PostEdit}

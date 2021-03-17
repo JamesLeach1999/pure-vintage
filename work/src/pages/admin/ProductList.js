@@ -13,9 +13,9 @@ const PostList = (props) => {
     <List {...props}>
       <Datagrid>
         {/* <TextField source="brand" /> */}
-        <TextField source="names.name" />
+        <TextField source="name" />
         
-        <EditButton basePath="/store1" />
+        <EditButton basePath="/store1.names" />
       </Datagrid>
     </List>
   );

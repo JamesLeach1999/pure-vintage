@@ -43,7 +43,7 @@ const App = () => (
       <br/>
       <br/>
       <Resource
-        name="posts"
+        name="store1"
         list={ProductList}
         // create={PostCreate}
         // edit={PostEdit}

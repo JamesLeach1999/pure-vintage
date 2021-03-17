@@ -12,10 +12,10 @@ const PostList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <TextField source="brand" />
-        <TextField source="name" />
+        {/* <TextField source="brand" /> */}
+        <TextField source="names.name" />
         
-        <EditButton basePath="/names" />
+        <EditButton basePath="/store1" />
       </Datagrid>
     </List>
   );

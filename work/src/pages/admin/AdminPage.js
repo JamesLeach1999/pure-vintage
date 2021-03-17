@@ -16,9 +16,8 @@ import ProductList from "./ProductList"
 // import { UserList, UserEdit, UserCreate } from "./User";
 
 // dependency injection
-const dataProvider = restProvider(
-  "https://cryptic-temple-54361.herokuapp.com"
-);
+const dataProvider = restProvider("http://localhost:5000");
+
 const authProvider = () => Promise.resolve();
 
 const history = createHashHistory();

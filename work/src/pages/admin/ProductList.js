@@ -12,9 +12,9 @@ const PostList = (props) => {
     <List {...props}>
         {console.log(props)}
       <Datagrid>
-        <TextField source="name" />
-        <TextField source="description" />
-        <h1>yeyeyeyeyey</h1>
+        <TextField source="id" />
+        <TextField source="title" />
+        <TextField source="publishedAt" />
       </Datagrid>
     </List>
   );

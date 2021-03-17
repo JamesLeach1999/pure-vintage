@@ -8,7 +8,7 @@ import restProvider from "ra-data-simple-rest";
 // import polyglotI18nProvider from "ra-i18n-polyglot";
 
 import createAdminStore from "./createAdminStore";
-import ProductList from "./ProductList"
+import ProductList from "./ProductList";
 // // your app components
 // import Dashboard from "./Dashboard";
 // import { PostList, PostCreate, PostEdit, PostShow } from "./Post";
@@ -21,42 +21,28 @@ const dataProvider = restProvider("http://localhost:5000");
 const authProvider = () => Promise.resolve();
 
 const history = createHashHistory();
-
-const App = () => (
-  <Provider
-    store={createAdminStore({
-      authProvider,
-      dataProvider,
-      history,
-    })}
-  >
-    <Admin
-      authProvider={authProvider}
-      dataProvider={dataProvider}
-      history={history}
-      title="My Admin"
+console.log("numberwang1");
+const App = () => {
+  return (
+    <Provider
+      store={createAdminStore({
+        authProvider,
+        dataProvider,
+        history,
+      })}
     >
-      <Resource
-        name="posts"
-        list={ProductList}
-        // create={PostCreate}
-        // edit={PostEdit}
-        // show={PostShow}
-      />
-      {/* <Resource
-        name="comments"
-        list={CommentList}
-        edit={CommentEdit}
-        create={CommentCreate}
-      />
-      <Resource
-        name="users"
-        list={UserList}
-        edit={UserEdit}
-        create={UserCreate}
-      /> */}
-    </Admin>
-  </Provider>
-);
+      {console.log("numberwang2")}
+      <Admin
+        authProvider={authProvider}
+        dataProvider={dataProvider}
+        history={history}
+        title="My Admin"
+      >
+        {console.log("numberwang3")}
+        <Resource name="posts" list={ProductList} />
+      </Admin>
+    </Provider>
+  );
+};
 
 export default App;

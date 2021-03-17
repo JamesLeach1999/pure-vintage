@@ -49,7 +49,7 @@ const AdminPage = () => (
     <Admin
       // authProvider={authProvider}
       dataProvider={dataProvider}
-      // history={history}
+      history={history}
       title="My Admin"
     >
       <Resource

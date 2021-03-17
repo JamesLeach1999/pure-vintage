@@ -17,7 +17,7 @@ import ProductList from "./ProductList"
 
 // dependency injection
 const dataProvider = restProvider(
-  "http://localhost:5000"
+  "https://cryptic-temple-54361.herokuapp.com/store1"
 );
 const authProvider = () => Promise.resolve();
 
@@ -37,6 +37,11 @@ const App = () => (
       history={history}
       title="My Admin"
     >
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <Resource
         name="posts"
         list={ProductList}

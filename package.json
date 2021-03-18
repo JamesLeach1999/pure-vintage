@@ -9,8 +9,8 @@
     "node": "12.18.2"
   },
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node src/server.js",
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
   "keywords": [],

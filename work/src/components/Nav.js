@@ -12,8 +12,8 @@ import Login from "./Login";
 import Me from "../pages/Me";
 import Order from "../pageStripe/index";
 import Manage from "../pages/Manage";
-import AdminPage from "../pages/admin/AdminPage";
 import Add from "../pages/Add";
+import AdminPage from "../components/admin/AdminPage"
 import Edit from "./EditPage";
 import PastOrders from "../pages/Past";
 import OrderProducts from "../pages/OrderPage";

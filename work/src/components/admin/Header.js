@@ -7,9 +7,9 @@ import {
   IconButton,
   Badge,
 } from "@material-ui/core";
-// import NotificationsNoneIcon from "@material-ui/core/NotificationsNoneIcon";
-// import ChatBubbleOutlineIcon from "@material-ui/core/ChatBubbleOutlineIcon";
-// import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNewIcon";
+import NotificationsNoneIcon from "@material-ui/core/NotificationsNoneIcon";
+import ChatBubbleOutlineIcon from "@material-ui/core/ChatBubbleOutlineIcon";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNewIcon";
 export default function Header() {
   return (
     <AppBar position="static">
@@ -22,7 +22,7 @@ export default function Header() {
 
           </Grid>
           <Grid item sm={6} style={{ border: "1px solid #000" }}>
-            {/* <IconButton>
+            <IconButton>
               <Badge badgeContent={4} color="secondary">
                 <NotificationsNoneIcon />
               </Badge>
@@ -41,7 +41,7 @@ export default function Header() {
               <Badge badgeContent={3} color="primary">
                 <PowerSettingsNewIcon />
               </Badge>
-            </IconButton> */}
+            </IconButton>
           </Grid>
         </Grid>
       </Toolbar>

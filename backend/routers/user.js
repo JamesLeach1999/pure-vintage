@@ -111,6 +111,22 @@ router.post('/getAuth', async (req, res) => {
     });
   }
 });
+router.post('/getAll', async (req, res) => {
+  try {
+    const auth = await User.find({});
+
+    res.send({
+      users: auth
+    });
+  } catch (error) {
+    console.log(error);
+    res.send({
+      isAuth: false,
+      isAdmin: false,
+      error,
+    });
+  }
+});
 
 router.get('/about', async (req, res) => {
   res.render('about.ejs', {

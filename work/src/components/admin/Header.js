@@ -7,9 +7,8 @@ import {
   IconButton,
   Badge,
 } from "@material-ui/core";
-import NotificationsNoneIcon from "@material-ui/core/NotificationsNoneIcon";
-import ChatBubbleOutlineIcon from "@material-ui/core/ChatBubbleOutlineIcon";
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNewIcon";
+import {NotificationsNoneIcon, ChatBubbleOutlineIcon} from "@material-ui/core"
+import {PowerSettingsNewIcon} from "@material-ui/icons"
 export default function Header() {
   return (
     <AppBar position="static">

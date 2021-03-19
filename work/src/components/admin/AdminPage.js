@@ -19,6 +19,13 @@ const App = () => {
   const classes = useStyles()
   return(
     <>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <SideMenu />
     <div className={useStyles.appName}>
       <Header/>

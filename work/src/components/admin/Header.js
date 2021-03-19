@@ -7,7 +7,7 @@ import {
   IconButton,
   Badge,
 } from "@material-ui/core";
-import {NotificationsNoneIcon, ChatBubbleOutlineIcon} from "@material-ui/core"
+import {NotificationsNoneIcon, ChatBubbleOutlineIcon} from "@material-ui/icons"
 import {PowerSettingsNewIcon} from "@material-ui/icons"
 export default function Header() {
   return (

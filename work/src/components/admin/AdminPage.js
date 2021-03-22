@@ -1,8 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import SideMenu from "./SideMenu"
 import Header from "./Header"
+import Navbar from "./navbar/Navbar"
+import Sidebar from "./sidebar/Sidebar"
 import {makeStyles, withStyles} from "@material-ui/core"
-
+import "./styles/index.css"
 const useStyles = makeStyles({
   appName: {
     display: "flex",
@@ -16,21 +18,23 @@ const useStyles = makeStyles({
 }); 
 const App = () => {
 
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  const openSidebar = () => {
+    setSidebarOpen(true)
+  }
+
+  const closeSidebar = () => {
+    setSidebarOpen(false)
+  }
+
   const classes = useStyles()
   return(
-    <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <SideMenu />
-    <div className={useStyles.appName}>
-      <Header/>
+    <div className="container">
+      <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar}/>
+      <h1>React dashboard</h1>
+      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar}/>
     </div>
-    </>
   )
 }
 

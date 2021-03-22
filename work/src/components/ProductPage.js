@@ -61,6 +61,8 @@ const ProductPage = () => {
       
       localStorage.setItem("work already111", "just work");
 
+      cartJson.push(id)
+
       localStorage.setItem("unAuthCart", JSON.stringify(cartJson));
       setCartProducts(localStorage.getItem("unAuthCart"));
       

@@ -1,5 +1,4 @@
 import "./Navbar.css";
-import avatar from "http://res.cloudinary.com/dhey8vvcx/image/upload/v1612636018/Blue%20FILA%20spell%20out%20padded%20jacket0.jpg.jpg";
 
 import React from "react";
 
@@ -24,7 +23,11 @@ const Navbar = ({ sidebaropen, openSidebar }) => {
           <i className="fa fa-clock-o"></i>
         </a>
         <a href="#">
-          <img width="30" src={avatar} alt="avatar" />
+          <img
+            width="30"
+            src="http://res.cloudinary.com/dhey8vvcx/image/upload/v1612636018/Blue%20FILA%20spell%20out%20padded%20jacket0.jpg.jpg"
+            alt="avatar"
+          />
         </a>
       </div>
     </nav>

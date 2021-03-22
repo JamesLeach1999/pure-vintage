@@ -1,13 +1,15 @@
 import React from "react";
 import "./Sidebar.css";
-import logo from "http://res.cloudinary.com/dhey8vvcx/image/upload/v1612636018/Blue%20FILA%20spell%20out%20padded%20jacket0.jpg.jpg";
 
 const Sidebar = ({ sidebarOpen, closeSidebar }) => {
   return (
     <div id="sidebar" className={sidebarOpen ? "sidebar-responsive" : ""}>
       <div className="sidebar__title">
         <div className="sidebar__img">
-          <img src={logo} alt="logo" />
+          <img
+            src="http://res.cloudinary.com/dhey8vvcx/image/upload/v1612636018/Blue%20FILA%20spell%20out%20padded%20jacket0.jpg.jpg"
+            alt="logo"
+          />
           <h1>pure vintage</h1>
         </div>
         <i

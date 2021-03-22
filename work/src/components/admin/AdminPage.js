@@ -1,6 +1,5 @@
 import React, {useState} from "react"
-import SideMenu from "./SideMenu"
-import Header from "./Header"
+
 import Navbar from "./navbar/Navbar"
 import Sidebar from "./sidebar/Sidebar"
 import {makeStyles, withStyles} from "@material-ui/core"

@@ -587,6 +587,7 @@ router.get('/store1', async (req, res) => {
   }
   console.log('yeees');
   // console.log(JSON.stringify(clothes))
+
   res.send({
     pageTitle: 'welcome',
     names: clothes,

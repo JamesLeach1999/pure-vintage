@@ -47,7 +47,9 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
+  exposedHeaders:["Content-Range", "store1 0-20"]
 };
+
 app.use(cors(corsOptions));
 
 console.log(process.env.PORT);

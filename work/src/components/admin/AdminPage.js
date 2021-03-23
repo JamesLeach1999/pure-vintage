@@ -30,6 +30,15 @@ const App = () => {
   const classes = useStyles()
   return(
     <div className="container">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar}/>
       <h1>React dashboard</h1>
       <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar}/>

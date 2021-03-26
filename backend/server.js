@@ -99,7 +99,7 @@ app.use(cookieParser(process.env.EXPRESS_SESSION));
 // route middlewares
 // so everything in the auth route will have this prefix
 app.use('/', authRoute);
-app.use('/', postRoute);
+app.use('/products', postRoute);
 app.use('/', orderRoute);
 
 app.use(express.static('work/build'));

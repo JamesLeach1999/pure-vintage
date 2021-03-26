@@ -23,7 +23,7 @@ cloudinary.config({
 // but rather just removes the value for passport leaving it blank. so had to account for this as well
 
 // only admins can upload and uses multer middleware to handle images
-router.post('/products/add', ensureAuthenticated, async (req, res) => {
+router.post('/products', ensureAuthenticated, async (req, res) => {
   var errors = [];
   // using an array to store theimages max is 10 images
   var ogName = [];
@@ -109,7 +109,7 @@ router.post('/products/add', ensureAuthenticated, async (req, res) => {
 });
 
 // getting the manage products page for the create, edit and delete page links
-router.post('/manage/items', async (req, res) => {
+router.post('/manage', async (req, res) => {
   // console.log(req.body.category)
   var category;
 
@@ -177,9 +177,95 @@ router.post('/manage/items', async (req, res) => {
     isAdmin: admin,
   });
 });
+// getting the add page
+// router.get('/add', ensureAuthenticated, async (req, res) => {
+//   try {
+//     const user = await User.findById({ _id: req.session.passport.user });
 
+//     res.render('add.ejs', {
+//       isAuth: true,
+//       isAdmin: user.isAdmin,
+//     });
+//   } catch (error) {
+//     res.status(400).send(error + 'numberwang');
+//   }
+// });
 
-router.post('/products/edit', async (req, res) => {
+// getting the edit page, will add pagnintation
+// router.get('/edit', ensureAuthenticated, async (req, res) => {
+//   try {
+//     // getting the add page
+//     const user = await User.findById({ _id: req.session.passport.user });
+
+//     const products = await Product.find({});
+//     res.render('edit.ejs', {
+//       names: products,
+//       isAuth: true,
+//       isAdmin: user.isAdmin,
+//     });
+//   } catch (error) {
+//     res.status(400).send(error + 'numberwang');
+//   }
+// });
+
+// router.post('/edit', ensureAuthenticated, async (req, res) => {
+//   console.log(req.body);
+//   var category;
+//   if (req.body.category) {
+//     var category = req.body.category.toString();
+//     var catStr = category.replace(/,/g, ' ');
+
+//     req.body.category = catStr;
+//   }
+//   if (req.body.brand) {
+//     var brand = req.body.brand.toString();
+//     var brandStr = brand.replace(/,/g, ' ');
+
+//     req.body.brand = brandStr;
+//   }
+//   if (req.body.size) {
+//     var size = req.body.size.toString();
+//     var sizeStr = size.replace(/,/g, ' ');
+
+//     req.body.size = sizeStr;
+//   }
+
+//   var clothes = [];
+//   if (
+//     req.body.category === undefined &&
+//     req.body.brand === undefined &&
+//     req.body.size === undefined
+//   ) {
+//     const pro = await Product.find({});
+
+//     pro.forEach((n) => {
+//       clothes.push(n);
+//     });
+//   } else {
+//     console.log('i work7');
+
+//     var pro1 = await filter(req.body);
+//     pro1.forEach((ite) => {
+//       clothes.push(ite);
+//     });
+//   }
+
+//   console.log(req.body.yes);
+
+//   // if(req.body.delete){
+//   //     Product.findByIdAndDelete({_id: req.body.delete}, (err, res) => {
+//   //         console.log(res)
+//   //     })
+//   // }
+//   res.render('edit.ejs', {
+//     pageTitle: 'welcome',
+//     names: clothes,
+//     isAuth: true,
+//     isAdmin: true,
+//   });
+// });
+
+router.post('/editPost', async (req, res) => {
   // console.log(req.body);
 
   var edits = req.body.edit;
@@ -250,7 +336,7 @@ router.post('/products/edit', async (req, res) => {
 //   }
 // });
 
-router.post('/products/delete', ensureAuthenticated, async (req, res) => {
+router.post('/delete', ensureAuthenticated, async (req, res) => {
   var category;
   if (req.body.category) {
     var category = req.body.category.toString();
@@ -383,7 +469,7 @@ router.get('/home', async (req, res) => {
   }
 });
 
-router.get('/manage/items', ensureAuthenticated, async (req, res) => {
+router.get('/manage1', ensureAuthenticated, async (req, res) => {
   var category;
   // console.log(localStorage)
   console.log('i work3');
@@ -441,7 +527,7 @@ router.get('/manage/items', ensureAuthenticated, async (req, res) => {
   });
 });
 // similarly to the home page with the logged in. will add pagnintation
-router.get('/products/items', async (req, res) => {
+router.get('/store1', async (req, res) => {
   var category;
   // console.log(localStorage)
   console.log('i work3');
@@ -525,9 +611,36 @@ router.get('/recentReviews', async (req, res) => {
       review.push(ordersRev[i].reviews);
       proImages.push(ordersRev[i].image[i]);
     }
-    
+    // console.log(oProducts.product);
+
+    // if (oProducts[0].product) {
+    //   product = await Product.findById({ _id: oProducts[0].product._id });
+    // } else {
+    //   product = await Product.findById({ _id: oProducts.product._id });
+    // }
+    // if (product !== null) {
+    //   if (product.reviews[0] !== null) {
+    //     console.log('here');
+    //     console.log(product.reviews);
+    //     proImages.push(product.image[0]);
+
+    //     review.push(product.reviews);
+    //     console.log('5');
+    //     console.log(review);
+    //   }
+    //   console.log('6');
+
+    //   console.log(review);
+    // }
+    // console.log('7');
+
+    // console.log(review);
   }
-  
+  // console.log('8');
+
+  // console.log(review);
+
+  // console.log('numberwang1');
 
   var filtered = review.filter(function (el) {
     return el.reviews !== [] || el.reviews !== undefined;
@@ -564,7 +677,7 @@ router.get('/otherReviews', async (req, res) => {
   });
 });
 
-router.post('/products/items', async (req, res) => {
+router.post('/store', async (req, res) => {
   // console.log(req.body.category)
   var category;
 
@@ -645,7 +758,7 @@ router.post('/products/items', async (req, res) => {
 });
 
 // getting individual products based on their passed in ids from the store page
-router.get('/products', async (req, res) => {
+router.get('/product', async (req, res) => {
   if (req.session.passport && req.session.passport.user) {
     try {
       const product = await Product.findOne({

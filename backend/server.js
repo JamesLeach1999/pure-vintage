@@ -112,6 +112,13 @@ if (process.env.NODE_ENV === 'production') {
     // serving react files here to the browser
     res.sendFile(path.resolve(__dirname, "../work", "build", "index.html"));
   });
+} else {
+  app.use(express.static('work/public'));
+
+  app.get('*', (req, res) => {
+    // serving react files here to the browser
+    res.sendFile(path.resolve(__dirname, '../work', 'public', 'index.html'));
+  });
 }
 
 app.listen(process.env.PORT || 4000, () => {

@@ -12,7 +12,7 @@
     "dev": "env-cmd nodemon server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix work && npm run build --prefix work"
   },
-    "proxy": "http://localhost:4000",
+    "proxy": "https://cryptic-temple-54361.herokuapp.com",
 
   "keywords": [],
   "author": "",

@@ -29,7 +29,7 @@ const Manage = () => {
     } else {
       try {
         if (window.location.search === "") {
-          const response = await fetch(`/manage1`);
+          const response = await fetch(`/manage/items`);
           const json = await response.json();
           setData([json.names]);
           setLoading(false);
@@ -44,7 +44,7 @@ const Manage = () => {
           } else {
             skip = parseInt(parsed["skip"]);
           }
-          const res = await Axios.get("/manage1", {
+          const res = await Axios.get("/manage/items", {
             params: {
               category: parsed["category"],
               brand: parsed["brand"],

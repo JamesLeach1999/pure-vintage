@@ -43,7 +43,7 @@ const Addpage = () => {
           headers: { "Content-Type": "multipart/form-data" },
           withCredentials: true,
 
-          url: "/products",
+          url: "/products/add",
         }).then((res) => {
           
 

@@ -14,7 +14,7 @@ class Reviews extends Component {
     try {
 
       const id = document.getElementById("id").innerHTML;
-      const response = await fetch(`/product?id=${id}`);
+      const response = await fetch(`/products?id=${id}`);
       const json = await response.json();
       this.setState({ data: [json.name] });
       

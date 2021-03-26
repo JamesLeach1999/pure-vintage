@@ -15,15 +15,15 @@ const App = () => {
 
   useEffect(() => {
     const h = async () => {
-      const t = await dataProvider.getList("store1");
+      const t = await dataProvider.getList("products/items");
       setNames(t);
     };
     h();
   }, []);
   return (
-    <Admin dataProvider={dataProvider} history={history} >
+    <Admin dataProvider={dataProvider} history={history} style={{fontSize: "200%"}}>
       <Resource
-        name="store1"
+        name="/store/items"
         list={PostList}
         // create={PostCreate}
         // edit={PostEdit}

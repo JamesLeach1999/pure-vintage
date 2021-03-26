@@ -2067,42 +2067,10 @@ export default class Filter extends Component {
                 </section>
               </form>
             )}
-            {/* <div class="container-out">
-              <div class="container-in">
-                <div class="search-container">
-                  <div class="search-engine">
-                    <p class="search-title">Search Names</p>
-                    <input
-                      type="input"
-                      id="search-input"
-                      autocomplete="off"
-                      placeholder="Hit Enter to Search"
-                      // onChange={function (event) {
-                      //   getResults();
-                      //   // Number 13 is the "Enter" key on the keyboard
-                      //   // if (event.keyCode === 13) {
-                      //   // Cancel the default action, if needed
-                      //   event.preventDefault();
-                      //   // Trigger the button element with a click
-                      //   displayAllData(this.state.allSearchData);
-                      //   // }
-                      // }}
-                    />
-                  </div>
-                  <div id="search-results"></div>
-                  <div id="search-data"></div>
-                </div>
-              </div>
-            </div> */}
+            
             <StoreRows style={{ width: "100%" }} />
 
-            {/* </div> */}
-            {/* <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br /> */}
+            
           </section>
         </div>
       </FadeIn>

@@ -33,7 +33,7 @@ const productReducers = (state, action) => {
     var data;
 
     if (action.payload === null || action.payload.length === 0) {
-      fetch(`/product?id=${action.payload}`)
+      fetch(`/products?id=${action.payload}`)
         .then((response) => response.json())
         .then((resJson0) => (data = [resJson0]))
         .catch((error) => {
@@ -44,7 +44,7 @@ const productReducers = (state, action) => {
       console.log("cart if statement");
     } else {
       for (var i = 0; action.payload.length > i; i++) {
-        fetch(`/product?id=${action.payload[i]}`)
+        fetch(`/products?id=${action.payload[i]}`)
           .then((response) => response.json())
           .then((resJson) => cartArray.push(resJson.name))
           .catch((error) => {

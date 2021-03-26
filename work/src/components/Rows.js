@@ -18,7 +18,7 @@ class Rows extends Component {
 
   async componentDidMount() {
     try {
-      const response = await fetch(`/store1`);
+      const response = await fetch(`/store/items`);
       window.addEventListener(
         "resize",
         this.setState({ size: window.innerWidth })

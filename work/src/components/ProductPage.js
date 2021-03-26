@@ -10,7 +10,7 @@ import Card from "./PicCard";
 import styled from "styled-components";
 const ProductPage = () => {
   const { id } = useParams();
-  const url = `/product?id=${id}`;
+  const url = `/products?id=${id}`;
   console.log(id);
   const [product, setProducts] = useState([]);
   const [images, setImages] = useState([]);

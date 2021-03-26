@@ -19,7 +19,7 @@ const Test = () => {
   const getData = async () => {
     try {
       if (window.location.search === "") {
-        const response = await fetch(`/store1`);
+        const response = await fetch(`/store/items`);
         const json = await response.json();
         setData([json.names]);
         setLoading(false);
@@ -48,7 +48,7 @@ const Test = () => {
         } else {
           skip = parseInt(parsed["skip"]);
         }
-        const res = await Axios.get("/store1", {
+        const res = await Axios.get("/store/items", {
           params: {
             category: parsed["category"],
             brand: parsed["brand"],

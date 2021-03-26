@@ -10,7 +10,7 @@ function GetAuth() {
   var [admin, setAdmin] = useState(false);
 
   const auth1 = async () => {
-    const a = await fetch('/store');
+    const a = await fetch('/store/items');
     setAuth(true);
     return a;
   };

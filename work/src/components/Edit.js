@@ -15,7 +15,7 @@ class EditPage extends Component {
   async componentDidMount() {
     
     try {
-      const response = await fetch(`/product?id=${this.props.id}`);
+      const response = await fetch(`/products?id=${this.props.id}`);
       const json = await response.json();
       this.setState({ data: json.name, images: json.name.image[0] });
     } catch (error) {

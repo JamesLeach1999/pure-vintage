@@ -10,7 +10,7 @@ class Review extends Component {
   async componentDidMount() {
     try {
       const response = await fetch(
-        `/product?id=${this.props.id}`
+        `/products?id=${this.props.id}`
       );
       const json = await response.json();
       this.setState({ data: json.name.reviews });

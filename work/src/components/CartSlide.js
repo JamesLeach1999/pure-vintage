@@ -48,7 +48,7 @@ const Cart = () => {
 
     localStorage.setItem("unAuthCart", JSON.stringify(filtered));
 
-    const response = await fetch(`/product?id=${id}`);
+    const response = await fetch(`/products?id=${id}`);
     const json = await response.json();
     var cartPrice = parseInt(localStorage.getItem("unAuthCartPrice"));
     var newPrice = cartPrice - json.name.price;
@@ -84,7 +84,7 @@ const Cart = () => {
       var cartArray = [];
 
       if (unAuthCart === null || unAuthCart.length === 0) {
-        fetch(`/product?id=${unAuthCart}`)
+        fetch(`/products?id=${unAuthCart}`)
           .then((response) => response.json())
           .then((resJson0) => setData([resJson0]))
           .catch((error) => {
@@ -97,7 +97,7 @@ const Cart = () => {
       } else {
         for (var i = 0; unAuthCart.length > i; i++) {
           console.log(unAuthCart[i]);
-          fetch(`/product?id=${unAuthCart[i]}`)
+          fetch(`/products?id=${unAuthCart[i]}`)
             .then((response) => response.json())
             .then((resJson) => cartArray.push(resJson.name))
             .catch((error) => {

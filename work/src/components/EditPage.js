@@ -11,7 +11,7 @@ const ProductPage = () => {
   const [images, setImages] = useState([]);
 
   const getProducts = async () => {
-    const url = `/product?id=${id}`;
+    const url = `/products?id=${id}`;
     console.log(id);
 
     if (
@@ -53,7 +53,7 @@ const ProductPage = () => {
         </div>
         <div class="row1">
           <div class="col-2">
-            <form action="/editPost" method="post">
+            <form action="/products/edit" method="post">
               {/* <h4>{product.name}</h4> */}
               <br />
               <input type="text" name="id" value={product._id} hidden />

@@ -111,7 +111,7 @@ const Test = () => {
       </div>
 
       <div className="pagination-div">
-        <form action="/store" method="get">
+        <form action="/store/items" method="get">
           <button name="skip" value={16}>
             Page 1
           </button>

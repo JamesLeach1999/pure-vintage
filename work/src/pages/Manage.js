@@ -53,7 +53,7 @@ const Manage = () => {
           {window.innerWidth > 660 ? (
             <form
               className="f-col filter filter-container filterItems"
-              action="/manage"
+              action="/manage/items"
               style={style}
             >
               <section style={{ height: "1500px", fontSize: "110%" }}>

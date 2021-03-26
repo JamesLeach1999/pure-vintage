@@ -6,9 +6,9 @@ import PostList from "./ProductList";
 import { dataProv } from "./dataProv";
 import { showNotification, Admin, Resource } from "react-admin";
 // import { push } from "react-router-redux";
-
+import {createHashHistory} from "history"
 const dataProvider = dataProv;
-
+const history = createHashHistory()
 const App = () => {
   console.log(dataProvider);
   const [names, setNames] = useState([]);
@@ -21,7 +21,7 @@ const App = () => {
     h();
   }, []);
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} history={history} >
       <Resource
         name="store1"
         list={PostList}

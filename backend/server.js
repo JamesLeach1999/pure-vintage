@@ -48,11 +48,7 @@ const corsOptions = {
     }
   },
 };
-app.use(
-  cors({
-    exposedHeaders: ['Content-Range', "names 0-20/20"],
-  })
-);
+
 app.use(cors(corsOptions));
 
 console.log(process.env.PORT);

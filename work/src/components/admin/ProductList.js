@@ -7,18 +7,20 @@ import {
   EditButton,
   DeleteButton,
 } from "react-admin";
-const PostList = (props) => {
-  console.log(props)
+const ProductList = (props) => {
+  console.log(props);
   return (
     <List {...props}>
       <Datagrid>
-        {/* <TextField source="brand" /> */}
         <TextField source="name" />
-        
-        <EditButton basePath="/store1" />
+        <TextField source="category" />
+        <TextField source="brand" />
+        <EditButton basePath="/posts" />
+
+        <DeleteButton basePath="/posts" />
       </Datagrid>
     </List>
   );
 };
 
-export default PostList;
+export default ProductList;

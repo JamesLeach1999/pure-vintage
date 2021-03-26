@@ -1,49 +1,35 @@
-import React, {useState} from "react"
+import React, { useState, useEffect } from "react";
 
-import Navbar from "./navbar/Navbar"
-import Sidebar from "./sidebar/Sidebar"
-import {makeStyles, withStyles} from "@material-ui/core"
-import "./styles/index.css"
-const useStyles = makeStyles({
-  appName: {
-    display: "flex",
-    flexDirection: "column",
-    position: "absolute",
-    left: "0px",
-    width: "320px",
-    height: "100%",
-    backgroundColor: "#253053",
-  },
-}); 
+import PostList from "./ProductList";
+// import PostCreate from "./PostCreate";
+// import PostEdit from "./PostEdit";
+import { dataProv } from "./dataProv";
+import { showNotification, Admin, Resource } from "react-admin";
+// import { push } from "react-router-redux";
+
+const dataProvider = dataProv;
+
 const App = () => {
+  console.log(dataProvider);
+  const [names, setNames] = useState([]);
 
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  const openSidebar = () => {
-    setSidebarOpen(true)
-  }
-
-  const closeSidebar = () => {
-    setSidebarOpen(false)
-  }
-
-  const classes = useStyles()
-  return(
-    <div className="container">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <Navbar sidebarOpen={sidebarOpen} openSidebar={openSidebar}/>
-      <h1>React dashboard</h1>
-      <Sidebar sidebarOpen={sidebarOpen} closeSidebar={closeSidebar}/>
-    </div>
-  )
-}
+  useEffect(() => {
+    const h = async () => {
+      const t = await dataProvider.getList("store1");
+      setNames(t);
+    };
+    h();
+  }, []);
+  return (
+    <Admin dataProvider={dataProvider}>
+      <Resource
+        name="store1"
+        list={PostList}
+        // create={PostCreate}
+        // edit={PostEdit}
+      />
+    </Admin>
+  );
+};
 
 export default App;
